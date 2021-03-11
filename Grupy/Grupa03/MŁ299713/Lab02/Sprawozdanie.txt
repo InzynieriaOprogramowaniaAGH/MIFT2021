@@ -10,3 +10,5 @@ git tag -a MŁ299713_Lab02 -m "tagi sa super" (Screen 3.png)
 	a) git checkout Grupa03
 	b) git checkout -b MŁ299713_Lab02
 	c) git merge MŁ299713
+5. Hook tu powinien być
+6. Stworzyłem pull requesta z linku (Screen 6.png)
