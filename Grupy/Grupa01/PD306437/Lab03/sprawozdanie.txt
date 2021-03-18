@@ -2,4 +2,7 @@ Zadanie 1
 Utworzenie nowego brancha:
 git checkout -b Grupa01-PD306437_Lab03
 
+Zadanie 2
+Przeniesienie hooke'a z poziomu /.git/hooks do folderu z laboratorium:
+cp commit-msg ../../Grupy/Grupa01/PD306437/Lab02/commit-msg
 
