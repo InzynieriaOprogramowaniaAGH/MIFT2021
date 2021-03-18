@@ -34,3 +34,18 @@ sudo docker run hello-world
 
 Zadanie 4
 Posiadałem już wcześniej konto na DockerHubie, wystarczyło, że się zalogowałem.
+
+
+Zadanie 5
+Utworzyłem plik Dockerfile
+jego treść:
+
+FROM ubuntu:latest
+
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y git
+    
+Następnie zbudowałem obraz:
+sudo docker build -f Dockerfile .
+
