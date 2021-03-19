@@ -1,0 +1,10 @@
+Sprawozdanie, Lab03, 19-03-2021, Kamil Osika
+
+zadanie 1
+Utworzenie brancha roboczego 
+	* git checkout -b Grupa04-KO306482_Lab03
+zadanie 2
+  1. Otworzenie folderu .git/hooks oraz wykonanie skopiowania git hooke'a do folderu dostępnego z eksploratora.
+	* cp ./KO_Hook.sh ./../..
+  2. Przeniesienie pliku do odpowiedniego folderu za pomocą eksploratora
+zadanie 3
