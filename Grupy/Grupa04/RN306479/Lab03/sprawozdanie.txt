@@ -3,4 +3,4 @@
 3. Instalacja najnowszej wersji Dockera "sudo apt-get install docker-ce docker-ce-cli containerd.io".
 4. Rejestracja (przypomnienie ID oraz zresetowanie hasła) konta na platformie DockerHub.
 5. Utworzenie dockerfile na podstawie znalezionych w internecie przykładowych obrazów (https://www.howtoforge.com/tutorial/how-to-create-docker-images-with-dockerfile-on-ubuntu-16-04/). Uruchomienie zgodne z instrukcją podaną na stronie. Dodanie "Dockerfile" do brancha.
-6. todo
+6. Uruchomienie kontenera, ściągnięcie repozytorium i sprawdzenie czy branch "Grupa04-Rn306479_Lab03" istnieje. Dodanie ostatnich zmian do brancha i aktualizacja sprawozdania.
