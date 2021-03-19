@@ -1,0 +1,9 @@
+#!/bin/bash
+w=`cat $1 | grep "RN306479"`
+if [ -n "$w" ]
+then
+  echo "Correct commit message"
+else
+  echo "Incorrect commit message, must contain RN306479"
+  exit 1
+fi

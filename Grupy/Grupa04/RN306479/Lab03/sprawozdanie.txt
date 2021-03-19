@@ -1,0 +1,6 @@
+1. Utworzenie nowego brancha z brancha grupowego "Grupa04" za pomocą komend: "git checkout Grupa04", "git pull origin Grupa04", "git checkout -b Grupa04-RN306479_Lab03".
+2. Dodanie do katalogu "Lab02" utworzonego na poprzednich zajęciach git hooka.
+3. Instalacja najnowszej wersji Dockera "sudo apt-get install docker-ce docker-ce-cli containerd.io".
+4. Rejestracja (przypomnienie ID oraz zresetowanie hasła) konta na platformie DockerHub.
+5. Utworzenie dockerfile na podstawie znalezionych w internecie przykładowych obrazów (https://www.howtoforge.com/tutorial/how-to-create-docker-images-with-dockerfile-on-ubuntu-16-04/). Uruchomienie zgodne z instrukcją podaną na stronie. Dodanie "Dockerfile" do brancha.
+6. todo
