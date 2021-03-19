@@ -2,3 +2,4 @@
 2. Zainstalowałem dockera na komputerze i sprawdziłem poprawność działania
 3. Zalogowałem się do konta na dockerhub.
 4. Napisałem dockerfile
+5. Za pomocą komendy <sudo docker build -t laby> stworzyłem kontener
