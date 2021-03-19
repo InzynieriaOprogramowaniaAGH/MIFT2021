@@ -1,10 +1,29 @@
 Sprawozdanie, Lab03, 19-03-2021, Kamil Osika
 
 zadanie 1
-Utworzenie brancha roboczego 
+  Utworzenie brancha roboczego 
 	* git checkout -b Grupa04-KO306482_Lab03
 zadanie 2
   1. Otworzenie folderu .git/hooks oraz wykonanie skopiowania git hooke'a do folderu dostępnego z eksploratora.
 	* cp ./KO_Hook.sh ./../..
   2. Przeniesienie pliku do odpowiedniego folderu za pomocą eksploratora
 zadanie 3
+  Instalację dockera w środowisku Linux przeprowadzono zgodnie z instrukcją znajdującą się na stronie: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04
+zadanie 4
+  Rejestracja w docker HUB nie była potrzebna, z powodu posiadania konta przed wykonaniem laboratoriów.
+zadanie 5
+  Stworzenie folderu do pracy
+	* mkdir <nazwa folderu>
+  Utworzenie pliku o nazwie ,,DockerFile"
+	* nano Dockerfile
+  Konfiguracja pliku konfiguracyjnego obrazu kontenera
+	w pliku DockerFile:
+
+	FROM ubuntu:latest
+	RUN apt-get -y update
+	RUN apt-get -y install git
+
+  Stworzenie obrazu kontenera
+	* docker build -t 'git-image' .
+
+zadanie 6
