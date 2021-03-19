@@ -1,4 +1,4 @@
 1. Stworzyem nowy prywatny branch na potrzeby labolatoriow.
 2. Zainstalowałem dockera na komputerze i sprawdziłem poprawność działania
 3. Zalogowałem się do konta na dockerhub.
-
+4. Napisałem dockerfile
