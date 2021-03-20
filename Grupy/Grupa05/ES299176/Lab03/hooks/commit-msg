@@ -1,0 +1,9 @@
+#!/bin/sh
+w=`cat $1 | grep "ES299176"`
+if [ -n "$w" ] 
+then 
+ echo "Correct commit"
+else
+ echo " Incorrect commit; required ES299176"
+ exit 1
+fi

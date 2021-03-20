@@ -1,0 +1,26 @@
+Zadanie 1. Stworzenie brancha tymczasowego potrzebnego do wykonania ćiwczenia.
+$ git checkout Grupa05
+$ git checkout -b Grupa05-MW306517_Lab3
+
+Zadanie 2. Umieszczenie w folderze Lab3 git hooka przygotwanego na poprzednich zajęciach
+$ cp commit-msg ../../Grupy/Grupa05/MW306517/Lab03
+
+Zadanie 3. Zainstalowano Dockera w środowisku Ubuntu
+$ sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+Zadanie 4. Zalogowano się na koncie Docker HUB
+
+Zadanie 5. Utowrzono plik Dockerfile załączonymi instrukcjami pozwalającymi na zainstalowanie gita, sklonowanie naszego repozytorium. 
+
+Zadanie 6. 
+Zbudowano obraz komendą:
+$ sudo docker build -t 
+
+Sprawdzono dostępne obrazy: 
+$ sudo docker images
+
+Uruchomiono contener:
+$ sudo docker run -it ID_OBRAZU
+
+Zauważono, że rezpozytorium zostało automatycznie pobrane oraz że istnieje na nim mój branch.
+

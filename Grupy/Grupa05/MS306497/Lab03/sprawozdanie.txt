@@ -1,0 +1,16 @@
+1. Stworzono brancha osobistego: git checkout -b Grupa05-MS306497_Lab03
+2. Dodano git hooka z poprzednich zajec do swojego folderu.
+3. Zainstalowano dockera:
+sudo apt-get update
+sudo apt install docker.io //instalacja dockera
+sudo systemctl start docker
+sudo systemctl enable docker
+docker --version //sprawdzenie wersji
+
+4. Odzyskano haslo w Docker HUB
+5. Stworzono Dockerfile, bazujacy na najnowszym ubuntu. Upewniono sie ze bedzie mial doinstalownego gita.
+6. Uruchomiono kontener, sciagnieto na niego repozytorium. Upewniono sie czy jest tam moj branch:
+sudo docker build -t ms_docker . //zbudowanie obrazu
+sudo docker run -it e0da6a227ce5 // uruchomienie kontenera
+git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git //pobranie repozytorium
+

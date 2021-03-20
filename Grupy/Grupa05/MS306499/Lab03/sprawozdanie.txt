@@ -1,0 +1,15 @@
+1. Stworzyłem branch Grupa05-MS306499-Lab03 na czas tych laboratoriów
+
+2. Dodałem plik commit-msg do własnego folderu z .git/hooks
+zadanie2.png
+
+3. Zainstalowałem program docker i pobrałem aktualny obraz ubuntu
+zadanie3,4.png
+
+4. Założyłem konto na docker hub (konto posiadałem tam wcześniej)
+
+5. Stowrzyłem plik Dockerfile, który posłuży do stworzenia kontenera.
+Następnie pomyślnie skompilowałem obraz z Dockerfile
+
+6. Uruchomiłem dockerfila
+zadanie6.png
