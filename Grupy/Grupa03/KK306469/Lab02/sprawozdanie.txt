@@ -1,0 +1,19 @@
+Karol Kusik, 306469, informatyka stosowana
+Sprawozdanie nr 2
+
+W ramach ćwiczenia laboratoryjnego nr 2 udało mi się zrealizować następujące kroki:
+
+1. Zmieniłem sposób logowania z HTTPS na logowanie przy użyciu klucza SSH - wygenerowałem nowy klucz,
+hasło do niego, agenta do obsługi SSH oraz zarejestrowałem klucz po stronie serwera.
+Polecenie 'git remove -v' pokazuje protokół git@ (połączenie po ssh).
+
+2. Nadałem tag do aktualnego commita zgodnie z konwencją z instrukcji, wrzuciłem zmiany, korzystając
+z opcji --follow-tags.
+
+3. Uporządkowałem branche oraz strukturę repozytorium, zmienione na grupy laboratoryjne.
+
+4. Napisałem git hooka o nazwie commit-msg oraz umieściłem go w miejscu .git/hooks, zapobiega on przepuszczaniem
+commitów o treści innej niż moje inicjały oraz numer indeksu.
+
+5. Dołączyłem swoje zmiany, uzupełniłem sprawozdanie oraz zrobiłem pusha do brancha grupowego,
+a następnie swtorzyłem nowy pull request do mastera.
