@@ -1,0 +1,9 @@
+#!/bin/bash
+
+name="KN306481"
+
+if !grep -iqE "$name" "$1"; then
+	echo "Bad commit msg"
+	exit 1
+fi
+

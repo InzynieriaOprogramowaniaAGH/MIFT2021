@@ -1,0 +1,36 @@
+Stworzono osobistego brancha, ponieważ ostatnio został on usuniety:
+git checkout -b Grupa04
+git checkout -b Grupa04-KN306481_Lab03
+
+Skopiowano git hooka do folderu:
+cp .git/hooks/commit-msg Grupy/Grupa04/KN306481/Lab03
+
+Zmiana aktywnego brancha:
+git checkout Grupa04-KN306481-Lab03
+
+zpushowanie zmian
+git push --set-upstream origin Grupa04-KN306481-Lab03
+ 
+Zalogowano się do na swoje konto w serwisie Docker HUB
+Instalacja dockera:
+sudo snap install docker
+
+sprawdzenie wersji dockera:
+git --version
+
+Nastepnie napsiano Dockerfile 
+FROM ubuntu:latest
+RUN apt-get -y update
+RUN apt-get -y install git
+
+i zbudowano obraz:
+sudo docker build -t image .
+
+uruchomiono obraz:
+sudo docker run -it image
+
+zclonowano repozytorium 
+git clone <link do repo>
+
+
+

@@ -1,0 +1,17 @@
+Michał Pastuszko lab 03 sprawozdanie
+
+1.Przełączyłem się na branch Grupa04 poleceniem git checkout Grupa04, pobrałem zmiany z repozytorium zdalnego poleceniem git pull, następnie utworzyłem nowy branch za pomocą git checkout -b Grupa04-MP306484_Lab03. Utworzyłem folder Lab03 w folderze Grupy/Grupa04/MP306484.
+2.Skopiowałem hooka napisanego na poprzednich zajęciach do folderu utworzonego na potrzeby Lab03.
+3.Zainstalowałem Dockera na moim środowisku pracy (Windows).
+4.Posiadałem już konto w serwisie dockerhub.
+5.Stworzyłem Dockerfile o treści:
+FROM ubuntu:latest
+RUN apt-get -y update
+RUN apt-get -y upgrade
+RUN apt-get install -y build-essential
+RUN apt-get -y install git
+
+6. Zbudowałem obraz poleceniem docker build -t lab03(zapomniałem zrobić screena) . Następnie używając dockerowego GUI uruchomiłem kontener na podstawie tego obrazu. Następnie za pomocą gui uruchomiłem cli kontenera, w nim sklonowałem repozytorium poleceniem git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021, następnie przełączyłem się na swojego brancha poleceniem git checkout Grupa04-MP306484_Lab03.
+
+
+  

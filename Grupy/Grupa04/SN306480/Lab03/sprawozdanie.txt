@@ -1,0 +1,6 @@
+1.Stworzono brancha osobistego wg schematu z poprzedniego tygodnia Grupa04-SN306480_Lab03
+2.Dodano git hooka do odpowieniego folderu
+3.Zainstalowano dockera (sudo sudo apt install docker.io)
+4.Konta na docker hub już posiadałem, więc się nie rejestrowałem
+5.Stworzono plick Dockerfile, który bazował na najnowszym ubuntu, na podstawie informacji znalezionych w internecie (zawrtość pliku jest w screenie zadanie5_1.png)
+6.Uruchomino kontener (docker run -d -v /webroot:/var/www/html -p 80:80 --name SN306480 first_image), sciągnięto na niego repozytorium (git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git). Upewniono się, że jest tam mój branch.

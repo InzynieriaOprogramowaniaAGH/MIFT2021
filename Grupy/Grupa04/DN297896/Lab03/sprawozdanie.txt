@@ -1,0 +1,14 @@
+1. Stworzono  brancha osobistego: git branch Grupa04-DN297896_Lab03 i przełączono się na niego.
+
+2. Skopiowano git-hooka z poprzednich zajęć.
+
+3. Zainstalowano Dockera na WSL2.
+
+4. Konto na Docker HUB już było założone.
+
+5. Utworzono plik Dockerfile. Zadbano o to, by bazował on na najnowszym ubuntu. Zagwarantowano instalację na nim gita.
+5.1 Stworzono nowy obraz: sudo docker build -t gitlab3-image. Wyświetlono dostępne obrazy, widoczny jest nowo utworzony obraz.
+
+6. Uruchomiono kontener: sudo docker run -it gitlab3-image bash.
+6.1 Zrobiono git clone naszego repo. Następnie przełączono się na brancha osobistego.
+   W osobnym okienku terminala na Windows Terminal dokonano zastopowania pracy konterera: docker stop <id_kontenera>

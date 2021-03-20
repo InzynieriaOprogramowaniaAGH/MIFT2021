@@ -1,0 +1,49 @@
+Metodyki DevOps, Lab02, 12.03.2021
+
+Zadanie 1
+	1. Wygenerowanie klucza SSH przy użyciu polecenia:
+	 	* ssh-keygen -t ed25519 -C "kamil.osika@spoko.pl"
+	2. Dodanie klucza ssh do agenta SSH
+		* eval `ssh-agent -s`
+	3. Zarejestrowanie klucza za pomocą strony github.com
+		* wykonanie tego podpunktu widoczne jest w plikach 1.3.1.png oraz 1.3.2.png
+	4. Zmiana sposobu logowania 
+		* Wyświetlenie obecnie stosowanego połączenia: git remote -v
+		* Zmienienie połączenia na SSH : git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+		* Wyświetlenie połączenia po SSH: git remote -v
+Zadanie 2
+	1. Dodanie plików do Staging Area
+		* git add.
+	2. Dodanie taga
+		* git tag -a KO306482_Lab02 -m "Wykonanie zadania 1"
+	3. Wrzucenie plików na lokalne repozytorium
+		* git commit
+	4. Wysłanie plików na repozytorium serwerowe
+		* git push
+Zadanie 3
+	1. Stworzenie zagnieżdżonych w sobie katalogów ,,Grupy/Grupa04/KO306482"
+		* mkdir <nazwa folderu>  ->  do stworzenia folderu
+		* cd <nazwa folderu>	 ->  do wejścia do folderu
+	2. Przejście do brancha Grupa04
+		* git checkout Grupa03
+	   Stworzenie nowego brancha Grupa04-KO306482_Lab02
+		* git checkout -b Grupa04-KO306482_Lab02
+zadanie 4
+	1. Stworzenie w folderze .git/hooks git hook'a sprawdzającego czy commit zaczyna się od inicjałów i numeru indeksu
+		#!/bin/bash
+		name="$1"
+		if ! grep -qE "KO306482" "$name";then
+			cat "$name"
+			echo "Commit needs to start with initials and inex number"
+			exit 1
+		fi
+zadanie 5
+	1. Dodanie plików, wykonanie commita, pusha 
+		* git add .
+		* git commit
+		* git push --set-upstream origin Grupa04-KO306482_Lab02
+	2. Przejście na brancha Grupa04 i zmergowanie branchy
+		* git checkout Grupa04
+		* git merge Grupa04-KO306482_Lab02
+	3. Usunięcie brancha roboczego	
+		* git branch -d Grupa04-KO306482_Lab02

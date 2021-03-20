@@ -1,0 +1,22 @@
+1. Zacząłem od stworzenia brancha osobistego od brancha grupowego za pomocą poleceń:
+git checkout Grupa04
+git checkout -b Grupa04-KP306488_Lab03
+
+2. DOdałem git hook z poprzednik zajęć do mojego folderu Lab03
+
+3. Zarejerstrowałem się na dockerhub
+
+4. Stworzyłem plik Dockerfile w którym zamieściłem polecenia:
+FROM ubuntu:latest
+RUN apt-get -y update
+RUN apt-get -y upgrade
+RUN apt-get install -y build-essential
+RUN apt-get -y install git
+
+5. Uruchomiłem kontener, sprawdziłem czy istnieje branch o nazwie Grupa04-KP306488_Lab03:
+
+sudo docker build -t kp-docker
+sudo docker run -it kp-docker
+cd MIFT2021
+git checkout Grupa04
+git checkout Grupa04-KP306488_Lab03

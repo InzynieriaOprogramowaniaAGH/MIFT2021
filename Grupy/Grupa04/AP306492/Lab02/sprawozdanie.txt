@@ -1,0 +1,26 @@
+1 Wygenerowałem klucz SSH: ssh-keygen -t ed25519 -C "aleks7777@poczta.fm"
+1.2 Uruchomiłem agenta SSH do obsługi klucza: eval "ssh-agent -s"
+1.3 ssh-add ~/.ssh/id_ed25519
+1.4 Zarejestrowałem klucz po stronie serwera
+1.5 Zmieniłem połączenie na SSH
+Wyświetliłem połączenie po ssh: git remote -v
+
+2.1 Dodałem tag na ostatniego commita: git tag -a AP306492_Lab02 -m "Aleks Prochal, Lab 02, wszystko dziala"
+2.2 Zrobiłem pusha razem z tagiem: git push --follow-tags
+
+3.1 Uporzadkowano branche i foldery
+3.2 Foldery: git mv AP360492/ Grupy/Grupa04/
+3.3 Konfiguracja branchy:
+git checkout Grupa04
+git checkout -b Grupa04-AP306492_Lab02
+git merge AP306492
+
+4.1 Napisałem Git hook'a który weryfikuje czy commit message zaczyna się od AP306492
+
+5 Push ze swojego brancha na grupowego, zamknieto swoj branch:
+Usuniecie brancha: git branch -d Grupa04-AP306492_Lab02
+ 
+
+
+
+

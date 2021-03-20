@@ -1,0 +1,42 @@
+Sprawozdanie nr 2 
+
+1. Utworzenie klucza SSH.
+-> ssh-keygen -t ed25519 -C "julaa.mat@gmail.com"
+1.1 Dodanie klucza SSH do agenta.
+-> eval `ssh-agent -s`
+1.2 Zarejestrowanie klucza SSH po stronie serwera.
+1.3 Poinformowanie Git'a o zmianie sposobu logowania.
+-> git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+
+2. Nadanie tagu na aktualnego commita.
+->git tag -a JM299151_Lab02 -m "Julia Matuła, Lab02 wszystko działa"
+2.1 Wrzucenie plików na lokalne repozytorium a następnie na repozytorium serwerowe.
+-> git commit
+-> git push
+
+3. Uporządkowanie branch'y i folderów: pogrupowanie w grupy laboratoryjne.
+3.1 Stworzenie konfiguracji folderów: 
+-> MIFT2021/Grupy/Grupa04/JM299151/Lab02
+3.2 Stworzenie nowego brancha.
+-> git checkout -b Grupa04-JM299151_Lab02
+
+4. Stworzenie git hook'a- skryptu weryfikującego, że każdy commit message zaczyna się od inicjałów+nr indeksu.
+
+#!/bin/bash
+
+MSG="$1"
+if ! grep -qE "JM299151*" "$MSG"; then 
+	cat "$MSG"
+	echo "Start with the world 'JM299151'"
+	exit 1
+fi
+
+5. Dodanie plików oraz wykonanie commita, a następnie push'a.
+-> git add. 
+-> git commit -m "JM299151 //komentarz"
+-> git push --set upstream origin Grupa04-JM299151_Lab2
+5.1 Zmergownie branchy 
+-> git checkout Grupa04
+-> gir merge Grupa04-Jm299151_Lab2
+5.2 Usunięcie brancha roboczego 
+-> git branch -d Grupa04-JM299151_Lab2

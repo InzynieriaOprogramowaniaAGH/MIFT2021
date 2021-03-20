@@ -1,0 +1,36 @@
+zad 1:
+ssh-keygen -t ed25519 -C "paulinam260@gmail.com"- generowanie kluczy
+eval `ssh-agent -s`- rozpoczecie pracy agenta ssh
+ssh-add ~/.ssh/id_ed25519- dodanie klucza (prywatnego) do agenta
+cat ~/.ssh/id_ed25519.pub- skopiowanie klucza i zarejestrowanie go po stronie serwera
+git remote -v- sprawdzenie adresu serwera
+git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git- zmiana sposobu logowania
+
+zad 2:
+git tag -a PM306896_Lab01 -m "Paulina Mroz, Lab 01 wszystko dziala"- dodanie commita z nadanym tagiem
+git push --follow-tags- dodanie zmian
+
+zad 3:
+zmiany struktury katalogow zrobilam na branchu z laboratoriow 1 (PM306896)
+git add .- dodanie zmina do staging area
+git commit- wykonanie commita
+git push- push zmian
+git pull- pobranie zmian
+git checkout Grupa04- zmina brancha
+nastepne zmiany robilam na nowym branchu
+git checkout -b Grupa04-PM306896_Lab02- utworzenie i przelaczenie do nowego brancha
+git merge PM306896- zmergowanie galezi, na ktorej zostala zmieniona struktura katalogow
+git push --set-upstream origin Grupa04-PM306896_Lab02- pierwszy push
+
+zad 4:
+w katalogu /.git/hooks utworzylam plik commit-msg (zawartosc widoczna na screenie do zadania 4)
+chmod +x commit-msg- nadanie uprawnien wykonywania sie skryptu
+
+zad 5:
+git add .
+git commit
+git push
+git checkout Grupa04- zmiana brancha
+git pull- pobranie zmian ze zdalnego repo
+git merge Grupa04-PM306896_Lab02- polaczenie galezi
+

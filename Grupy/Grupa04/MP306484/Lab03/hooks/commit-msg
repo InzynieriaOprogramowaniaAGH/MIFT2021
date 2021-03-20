@@ -1,0 +1,8 @@
+#!/bin/bash
+commitmessage="$1"
+if ! grep -qE "^MP306484" "$commitmessage";then
+			cat "$commitmessage"
+			echo "Nieprawidłowy commit"
+			exit 1
+		fi
+echo "Prawidłowy commit"

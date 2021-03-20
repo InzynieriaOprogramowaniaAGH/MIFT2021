@@ -1,0 +1,12 @@
+Wygenerowałem klucz ssh komendą: ssh-keygen -t ed25519 -C "mikixd1234@interia.pl"
+By następnie zrobić wszystko by dodac klucz ssh po stronie serwera:
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+
+Klucz dodano na stronie github
+
+pokazanie gitowi o zmianie sposobu logowania:
+git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+
+TAG:
+

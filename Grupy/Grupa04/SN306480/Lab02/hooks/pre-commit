@@ -1,0 +1,10 @@
+#!/bin/bash
+w=`cat $1 | grep "SN306480"`
+if [ -n "$w" ]
+then
+  echo "Correct message"
+else
+  echo "Error, message doesn't contain SN306480"
+  exit 1
+fi
+

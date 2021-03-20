@@ -1,0 +1,16 @@
+1.1 Na początku wygenerowałem klucz SSH za pomocą polecenia: ssh-keygen -t rsa -b 4096 -C "kamilpodwika@interia.pl"
+1.3 Następnie stworzyłem swojego agenta do obsługi klucza SSH za pomocą polecenia:  
+eval `ssh-agent -s`
+ssh-add ~/.ssh/id_ed25519
+1.4 Zarejestrowałem klucz na githubie
+1.5 Zmieniłem połączenie na SSH przy pomocy polecenia: git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+2. Dodałem tag do commita: git tag -a KP306488_Lab02 -m "Kamil Podwika, Lab02, dziala"
+2.1 Dodałem zmiane na swojego brancha, następnie remote/origin używając git push --follow-tags
+3. Uporządkowałem branche i foldery:
+Foldery uporządkowałem przy pomocy polecenia: git mv KP306488/ Grupy/Grupa04
+Branch:
+git checkout Grupa04
+git checkout -b Grupa04-KP306488_Lab2
+git merge KP306488
+4. Napisałem Git hook'a którego zadaniem była weryfikacja czy dany commit message zaczyna się od KP306488
+5. Zrobiłem pusha z brancha osobistego do grupowego, następnie zamknąłem brancha osobistego
