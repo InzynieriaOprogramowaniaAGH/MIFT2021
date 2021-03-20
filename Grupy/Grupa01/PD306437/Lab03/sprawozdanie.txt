@@ -42,10 +42,26 @@ jego treść:
 
 FROM ubuntu:latest
 
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y git
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get install -y git
     
 Następnie zbudowałem obraz:
 sudo docker build -f Dockerfile .
+
+Zadanie 6
+Aby dowiedzieć się jaki tag ma zbudowany obraz wylistowałem wszystkie dockerowe obrazy:
+
+sudo docker images
+
+Aby go uruchomić użyłem polecenia:
+sudo docker run -it 1e0843b6f023 bash
+
+Dzięki niemu mogłem od razu znaleźć się w wierszu poleceń kontenera
+
+Pobranie repozytorium:
+git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git
+
+Upewnienie się, że jest na nim nowy branch:
+git checkout Grupa01-PD306437_Lab03
 
