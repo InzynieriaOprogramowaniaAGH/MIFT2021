@@ -1,0 +1,24 @@
+1. Nowy branch:
+	git checkout Grupa01
+	git branch Grupa01-WS299754_Lab03
+2. Dodawanie hooka do foldru Lab02 na remocie:
+	mkdir Grupy/Grupa01/WS299754/Lab02/hooks
+	cp .git/hooks/commit-msg Grupy/Grupa01/WS299754/Lab02/hooks/
+3. Instalacja Dockera:
+	sudo apt install docker.io
+	sudo systemctl enable--now docker
+4. Założenie konta na DockerHub
+5. Dockerfile (z instalacją gita):
+	FROM ubuntu:latest
+	MAINTAINER Weronika Smieja
+	RUN apt-get update
+	RUN apt-get -y install git
+6. - Budowa obrazu:
+	docker build -t my_ubuntu  Grupy/Grupa01/WS299ru754/Lab03/dockerfiles/
+- Uruchomienie kontenera z obrazu:
+	docker run -it my_ubuntu
+- Pobranie repozytorium do kontenera
+	git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021
+- Sprawdzenie własnego brancha:
+	git checkout Grupa01
+	git checkout Grupa01-WS299754_Lab03
