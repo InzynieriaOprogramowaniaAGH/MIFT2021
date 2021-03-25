@@ -1,0 +1,8 @@
+1.	Stworzono nowego brancha na zajęcia
+		git checkout -b Grupa01-PB306426_Lab04
+	Opublikowano obraz z poprzednich zajęci w dockerhubie
+	    Commit:
+		sudo docker commit 6bea9da706dd pazindor/lab_04:lab_03
+	    Push: 
+		sudo docker push pazindor/lab_04:lab_03
+
