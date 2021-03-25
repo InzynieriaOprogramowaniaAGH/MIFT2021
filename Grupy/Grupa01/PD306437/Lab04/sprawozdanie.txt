@@ -1,0 +1,9 @@
+Zadanie 1
+Na początku utworzono nowe repozytorium na dockerhubie poprzez stronę internetową.
+Nazwano je lab04
+Kolejnym krokiem było otagowanie obrazu za pomocą polecenia:
+sudo docker tag 1e0843b6f023 pduda98/lab04
+
+Następnie spushowano obraz na repozytorium:
+sudo docker push  pduda98/lab04
+
