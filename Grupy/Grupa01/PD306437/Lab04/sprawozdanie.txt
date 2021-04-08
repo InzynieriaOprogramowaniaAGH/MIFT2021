@@ -7,3 +7,7 @@ sudo docker tag 1e0843b6f023 pduda98/lab04
 Następnie spushowano obraz na repozytorium:
 sudo docker push  pduda98/lab04
 
+
+Zadanie 2
+Wybrano komunikator Rocket.chat
+
