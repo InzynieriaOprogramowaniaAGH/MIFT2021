@@ -11,3 +11,5 @@ sudo docker push  pduda98/lab04
 Zadanie 2
 Wybrano komunikator Rocket.chat
 
+Zadanie 3
+W folderze /build utworzono dockerfile, który korzysta z obrazu node:12.21.0-buster-slim, klonuje repozytorium z rocket. chat a potem za pomocą polecenia npm build buduje aplikację.
