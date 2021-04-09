@@ -1,0 +1,52 @@
+1. Stworzenie krotkozyjacego brancha za pomoca komendy: git checkout -b Grupa05-JF306439_Lab04
+
+2. Opublikowanie obrazu z poprzednich zajec:
+	2.1 Zalogowanie sie: docker login
+	2.2 Otagowanie obrazu (login/nazwaObrazu): docker tag image1lab03 whtitiee/image1lab03
+	2.3 Opublikowanie obrazu: docker push whtitiee/image1lab03
+
+3. Wybranie komunikatora Deltachat, link: https://github.com/deltachat/deltachat-desktop.git
+
+4. Stworzenie Dockerfile (build agent):
+	FROM ubuntu:latest
+	ENV TZ=Europe/Warsaw
+	RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+	RUN apt clean
+	RUN apt autoclean
+	RUN apt-get update
+	RUN apt-get install git -y
+	RUN apt-get install npm -y
+	RUN git clone https://github.com/deltachat/deltachat-desktop.git
+	WORKDIR ./deltachat-desktop
+	RUN npm install
+	RUN npm run build
+
+5. Uruchomienie go za pomoca komendy: docker build . -t image1lab04
+
+6. Stworzenie Dockerfile (test agent):
+	FROM image1lab04:latest
+	WORKDIR ./deltachat-desktop
+	RUN npm test
+
+7. Uruchomienie go za pomoca komendy: docker build . -t test1lab04
+
+8. Stworzenie pliku docker-compose.yml:
+	version: "3.3"
+	services:
+	 build-agent:
+	  image: image1lab04:latest
+	  build:
+	   context: ./
+	   dockerfile: Dockerfile_build
+	 test-agent:
+	  image: test1lab04:latest
+	  build:
+	   context: ./
+	   dockerfile: Dockerfile_test
+	  depends_on:
+	   - build-agent
+	   
+9. Pobranie zaleznosci: apt install docker-compose oraz uruchomienie: docker-compose up	   
+
+10. Dolaczenie zmian na Git'a
+
