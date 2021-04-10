@@ -1,2 +1,4 @@
 1. Utworzyłem prywatny branch  Grupa03-ML299711-Lab04
 2. Obraz z poprzednich zajęć opublikowałem na dockerhub pod koniec ostatnich labolatoriów.
+3. W nowym folderze napisałem dockerfile służącu do budowy obrazu deltachat. Uruchomiłem obraz sprawdzając poprawność.
+
