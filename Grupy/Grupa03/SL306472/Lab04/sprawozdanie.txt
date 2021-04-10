@@ -1,0 +1,7 @@
+1. Stworzono branch tak samo jak na poprzednich zajęciach.
+2. Opublikowano obraz z popradnich zajęć na platformie dockerhub po ówczesnym zalogowaniu sie w konsoli.
+3. Znaleziono repozytorium z komunikatorem (deltachat) na platformie github.com
+4. Stworzono nowy obraz deltachat_build_agent, pobrano na niego repozytorium z komunikatorem i zainstalownao komendą "npm install" oraz zbudowano "npm run build" 
+5. Na podstawie pierwszego obrazu stworzono drugi obraz oraz uruchomiono testy "npm test"
+6. Stworzono plik docker-compose.yml i napisano konfiguracje
+7. Za pomocą komendy "docker-compose up" zbudowano oba obrazy oraz postawiono kontenery za jednym razem
