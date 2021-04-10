@@ -1,13 +1,11 @@
-FROM node:12.21.0-buster-slim
+FROM node:15.12.0-alpine3.10
 
-# add git and tools required to build native node packages
-RUN apt-get update && apt-get install -y --no-install-recommends git gcc g++ make python wget ca-certificates
+RUN apk add git
 
-RUN mkdir /usr/local/share/ca-certificates/cacert.org
-RUN wget -P /usr/local/share/ca-certificates/cacert.org http://www.cacert.org/certs/root.crt http://www.cacert.org/certs/class3.crt && update-ca-certificates
-
-RUN git clone https://github.com/RocketChat/Rocket.Chat.git application
+RUN git clone https://github.com/feathersjs/feathers-chat.git /application
 
 WORKDIR /application
 
-RUN npm ci && npm build
+RUN npm ci
+
+CMD ["npm", "start"]
