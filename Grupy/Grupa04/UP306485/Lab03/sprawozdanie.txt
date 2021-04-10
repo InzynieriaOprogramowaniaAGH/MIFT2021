@@ -1,0 +1,12 @@
+1.Stworzylam nowego osobistego brancha roboczego "Grupa04-UP306485_Lab03"
+2.Do nowego folderu Lab03 dodalam stworzonego na poprzednich zajeciach git hooka, zmienilam tylko nazwe z commit-msg na pre-commit. 
+3.Zainstalowalam Dockera. Uzylam nastepujacych komend: 
+update: sudo apt-get update
+instalacja Dockera: sudo apt install docker.io
+sprawdzenie wersji: docker -v
+4.Zalogowalam sie na swoje konto na git hub, moje id to upiatek.
+5.Stworzylam plik Dockerfile bazujacy na najnowszym ubuntu. Zamiescilam w nim komendy instalacji. 
+Zbudowalam obraz, ktory nazwalam up-docker, za pomoca komendy sudo docker build -t up-docker .
+6.Uruchomilam kontener za pomoca komendy sudo docker run -it fb9d296bd0fb
+7.Sprawdzilam za pomoca komendy sudo docker ps czy kontener jest uruchomiony
+8.Po uruchomieniu kontenera sklonowalam do niego repozytorium i przelaczylam sie tam na galaz osobista

@@ -1,0 +1,17 @@
+Sprawozdanie nr 4
+
+1. Stworzenie brancha osobistego 
+-> git branch -b checkout Grupa04-JM299151_Lab04
+1.1 Opublikowanie obrazu z poprzednich zajęc w serwisie Docker HUB
+->sudo docker tag f165cf47ef59 juliamatula/devops
+->sudo docker push juliamatula/devops
+
+2. Wybranie odpowiedniego komunikatora- DeltaChat.
+
+3. Stworzenie nowego obrazu kontenera dokckerowego i skonfigorowanie go, w celu wykonania operacji budowania koomunikatora ze źródeł.
+-> sudo docker build -t build:latest . -f Dockerfile-build
+
+4. Stworzenie obrazu kontenera dockerowego i skonfigurowanie go, w celu wykonania operacji testowania komunikatora.
+->sudo docker build -t test:latest . -f Dockerfile-test
+
+5. Stworzenie pliku docker-compose.yml.

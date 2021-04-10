@@ -1,0 +1,8 @@
+#!bin/bash
+
+MSG="$1"
+if ! grep -qE "PM306896*" "$MSG"; then
+    cat "$MSG"
+    echo "Your commit message must start with the word 'PM306896'"
+    exit 1
+fi

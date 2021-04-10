@@ -1,0 +1,18 @@
+zad 1:
+git checkout -b Grupa04-PM306896_Lab03- stworzenie i przelaczenie sie na brancha na potrzeby lab 3, dodanie pliku sprawozdanie.txt
+git add .- dodanie zmian do staging area
+git commit -m "PM306896 lab03"
+git push- dodanie zmian na remote
+
+zad 3:
+sudo apt-get remove docker docker-engine docker.io containerd runc- upewnienie sie, ze nie ma zainstalowanych starszych wersji dockera, jesli sa to odinstalowanie ich
+pobranie niezbednych paczek
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg- dodanie klucza gpg
+sudo apt-get install docker-ce docker-ce-cli containerd.io- zainstalowanie docker engine
+docker -v- sprawdzenie poprawnosci zainstalowania dockera
+
+zad 6:
+sudo docker build -t ubuntu-image .- zbudowanie obrazu dockera
+sudo docker images- sprawdzenie poprawnosci zbudowania obrazu
+git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git- klonowanie repozyturium
+git branch- wyswietlenie istniejacych branchy 

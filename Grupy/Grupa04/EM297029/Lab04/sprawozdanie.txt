@@ -1,0 +1,37 @@
+1. Opublikowano obraz stworzony na zajęciach poprzednich 
+	Stworzono repozytorium na dockerhubie
+	docker login = zalogowano się na dockerhuba
+	docker tag ubuntu-git malinowakrew/ubuntu-git = otagowanie obrazu, żeby nazwa była zgodna i umożliwiała push
+	docker push malinowakrew/ubuntu-git = pushowanie na dockerhuba (bez taga bierze latest)
+
+	zadanie: https://hub.docker.com/repository/docker/malinowakrew/ubuntu-git
+
+BRAK SCREENÓW - z uwagi na to, że zrobiłam to już przy zajęciach 3 - nie zrobiłam screenów
+
+2. Opracowano BAAARDZO prosty "komunikator" działający w oparciu o język js i node: serwer i klient
+Odpowiednie kody znajdują się w folderze code (co nie jest konieczne).
+
+3/4. W osobnych folderach napisano 2 Dockerfile (ich rozdzielenie jest już akurat konieczne).
+ Są onie niemalże identyczne dlatego omówiony zostanie tylko 1:
+
+FROM node:alpine		#Wykorzystano obraz node:alpine
+COPY . /code			#Skopiowanie zawartości katalogu do katalogu code w kontenerze
+WORKDIR /code			#wybranie miejsca gdzie będą wykonywane następne polecenia
+CMD node  code/client.js	#wywołanie komendy uruchamiającej skrypt
+
+5. Nie instalowałam docker-compose bo już miałam. Jednakże jeśli bym nie miała - to musiałabym zainstalować.
+Aby wyświetlić działanie  "kominikatora" pobrano skrypt bash wait.sh. Zostaje on uruchomiony jako jedno z "poleceń" w docker-compose
+
+version: '2'											# wyrano starą bardzo wersję
+services:
+  server:
+    build: server
+    volumes:
+     - .:/code											# nasze dwa kontenery będą dzielić ze sobą folder code
+  client:
+    build: client
+    depends_on:											# ustalenie zależności
+      - "server"
+    command: sh -c './code/wait.sh server:1234 -- echo READY && node ./code/client.js'		# wywoładnie klienta oraz skryptu, który nam ładnie pokaże działanie
+    volumes:
+     - .:/code

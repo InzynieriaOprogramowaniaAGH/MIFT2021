@@ -1,0 +1,9 @@
+1.Wygenerowalam klusz ssh za pomoca polecenia ssh-keygen -t ed25519 -C urszula.piatek1999@gmail.com.
+2.Nastpnie dodalam klucz ssh do agenta za pomoca polecenen: eval "ssh-agent -s" oraz ssh-add ~/.ssh/id_ed25519
+3.Kolejnym etapem bylo zarejestrowanie klucza po stronie serwera. Skopiowany poleceniem xclip -selection clipboard < ~/.ssh/id_ed25519.pub klucz dodalam w ustawieniach mojego konta gita. 
+4.Ostatnia czescia pierwszego etapu byla zmiana polaczenia ssh z polaczenia http za pomoca git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+5.Nadalam tag swojemu commitowi za pomoca polecenia  git tag -a UP306495_Lab02 -m "Urszula Piatek, labki 2, wszystko ok" (wrzucilam zrzut ekranu z repozytorium z przegladarki, poniewaz zapomnialam zrobic zrzut ekranu terminala).
+6.Zmienilam konfiguracje folderow. Przerzucilam folder o nazwie UP306485 do folderu odpowiadajacego mojej grupie za pomoca polecenia git mv UP306485/ Grupy/Grupa04/
+7.Utworzylam nowego brancha roboczego dla laboratorium 2 i dla mojej grupy - git checkout -b Grupa04-UP306485_Lab02 i wykonalam merge do mojego osobistego brancha.
+8.Napisalam skrypt Git hook'a pozwalajacy na weryfikacje czy kazda wiadomosc mojego commita zaczyna sie od moich inicjalow i numeru albumu. Nadalam temu skryptowi uprawnienia do uruchomienia. Przetestowalam dzialanie tworzac pustego commita za pomoca git commit --allow-empty -m "commit bez inicialow" oraz jednego z inicjalami na poczatku wiadomosci.
+9.Na koncu zrobilam merga ze swojego brancha osobistego do brancha grupowego, usunelam (zamknelam) moj roboczy branch osobisty za pomoca polecenia git branch -d UP306495_Lab02. Stworzylam nowy "Pull request" ze swojego brancha grupowego do mastera.
