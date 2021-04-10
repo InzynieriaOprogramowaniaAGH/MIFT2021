@@ -1,0 +1,15 @@
+1. Stworzenie odpowiedniego brancha do pracy, utworzenie katalogu LAB03, utworzenie pliku sprawozdanie.txt
+- zmiana nazwy stworzonego wczesniej brancha z powodu pomylki przy nazewnictwie.
+
+2. Wczesniejsze laboratoria zostaly wykonane na Windows, dlatego nie przerzucam git hook'a z tego repozytorium
+tylko tworze nowego, identycznego jak na poprzednich zajeciach. Ten plik zostaje umieszczony w odpowidnim katalogu.
+
+3. Instalacja dockera poslugujac sie instrukcja ze oficjanlnej strony dockera.
+- sprawdzenie instalacji za pomoca odpowiedniego polecenia: sudo docker run hello-world
+
+4. Brak potrzeby zalozenia konta na docker.hub - rejestracja juz kiedys miala miejsce
+
+5. Stworzenie pliku Dockerfile z ubuntu:latest i upewnienie sie w nim ze git jest zainstalowany
+
+6. Drobne poprawki w Dockerfile, utworzenie kontenera ze zbudowanego wczesniej obrazu,
+sklonowanie repozytorium oraz sprawdzenie brancha na jakim sie znajduje

@@ -1,0 +1,45 @@
+1. Utworzenie swojego brancha osobistego od brancha grupowego:
+	-przełączenie się na brancha grupowego poleceniem 'git checkout Grupa01'
+	-utworzenie i przełączenie się na nowego osobistego brancha 'git checkout -b Grupa01-KD306438_Lab03'
+	-spullowanie zmian 'git pull origin Grupa01'
+
+2. Dodanie githooka napisanego na poprzednich zajęciach do nowego folderu w swoim katalogu:
+	-utworzenie w folderze Lab02 zagnieżdżonych folderów następującą instrukcją 'mkdir -p hooks/pre-commit'
+	-przejście do folderu, w którym znajduje się poprzednio utworzony githook i przeniesienie go do nowego folderu komendą 'mv commit-msg MIFT2021/Grupy/Grupa01/KD306438/Lab02/hooks/pre-commit/'
+	-sprawdzenie poprawności przeniesienia poleceniem ls wywołanym w folderze pre-commit
+	
+3. Instalacja dockera na swoim środowisku pracy:
+	-zaktualizowanie pakietów poleceniem 'sudo apt-get update'
+	-umożliwienie, aby 'apt' mógł korzystać z repo przez HTTPS poprzez instalacje pakietów: 
+		'sudo apt-get install \
+   		 apt-transport-https \
+   		 ca-certificates \
+    		curl \
+    		gnupg-agent \
+    		software-properties-common'
+	 -dodanie oficjalnyego klucza GPG Dockera komendą 'curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - '
+	 -konfiguracja repo
+		'sudo add-apt-repository \
+   		"deb [arch=amd64] https://download.docker.com/linux/ubuntu \'
+   	 -ponowna aktualizacja pakietów 'sudo apt-get update'
+   	 -instalacja najnowszej wersji Docker Engine – Community i containerd za pomocą instrukcji 'sudo apt-get install docker-ce docker-ce-cli containerd.io'
+   	 -sprawdzenie poprawności instalacji poprzez 'sudo docker run hello-world'
+   	 -sprawdzenie wersji dockera poleceniem 'sudo docker -v'
+
+4. Rejestracja konta w Docker Hub nie była konieczna - została ona dokonana już wcześniej. Zalogowanie na konto w celu sprawdzenia popranowści zapamiętanych danych.
+
+5. Utworzenie pliku Dockerfile bazującego na najnowszym ubuntu wraz z doinstalowanym git'em:
+
+ FROM ubuntu:latest
+
+# instalacja gita
+RUN apt-get update
+RUN apt-get upgrade
+RUN apt-get install --assume-yes git
+
+6. Uruchomienie kontenera i ściągnięcie na niego naszego repo:
+	-zbudowanie obrazu poleceniem 'sudo docker build -t im1 . '
+	-uruchomienie 'sudo docker run -it im1'
+	-sklonowanie repo 'git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021'
+	-sprawdzenie czy na liście znajduje się nasz branch 'git branch -a'
+	-przełączenie się na niego w celu upewnienia 'git checkout Grupa01-KD306438_Lab03'

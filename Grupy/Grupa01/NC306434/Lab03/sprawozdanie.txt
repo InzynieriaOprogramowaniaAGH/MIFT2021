@@ -1,0 +1,22 @@
+Sprawozdanie Lab3
+
+1.Stworzylam brancha osobistego wg. schematu z poprzedniego tygodnia. Od brancha grupowego Grupa01 stworzylam swoj branch uzywajac polecenia: git checkout -b Grupa01-NC306434_Lab03.
+
+2.Dodalam git hooka ktorego napisalam na poprzednich zajeciach do mojego folderu MIFT2021/Grupy/Grupa01/NC306434/Lab02/hooks/pre-commit
+
+3. Zainstalowalam Dockera na moim srodowisku pracy.
+
+sudo apt-get update
+sudo apt install docker.io
+sudo systemctl start docker
+sudo systemctl enable docker
+docker --version
+
+4. Zalogowalam sie na konto w Docker HUB, ktore stworzylam w poprzednim roku.
+
+5.Stworzylam plik Dockerfile, który bazował na najnowszym ubuntu (ubuntu:latest). Dodalam go do swojego brncha. 
+
+6.Uruchomilam kontener, ściągnelam na niego nasze repozytorium. Upewnilam się że jest tam moj branch.
+sudo docker build -t nc-docker .
+sudo docker run -it nc-docker
+git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021

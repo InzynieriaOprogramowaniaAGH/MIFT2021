@@ -1,0 +1,26 @@
+1. 
+Przelaczono sie na brancha Grupa01 za pomoca polecenia "git checkout Grupa01".
+Utworzono osobistego brancha i przelaczono sie na niego za pomoca polecenia "git checkout -b Grupa01-KB306424_Lab03".
+
+2.
+Hooka utworzonego na poprzednich zajeciach umieszczono w "MIFT2021/Grupy/Grupa01/KB306424/Lab02/hooks".
+Do skopiowania hooka do tej sciezki wykorzystano polecenie "cp ~/MIFT2021/.git/hooks/commit-msg ." 
+
+3.
+Posiadalam juz Dockera w wersji 19.03.8.
+Sprawdzono jego wersje za pomoca polecenia "docker --version".
+
+4.
+Posiadalam juz konto w Docker Hub.
+
+5.
+Utworzono plik Dockerfile na podstawie najnowszego ubuntu "FROM ubuntu:latest".
+Aktualizacje pobrano za pomoca polecenia "RUN apt-get -y update".
+Zainstalowano gita za pomoca polecenia "RUN apt-get -y install git".
+
+6.
+Zbudowano obraz za pomoca polecenia "sudo docker build -t nazwa_obrazu ."
+Uruchomiono kontener za pomoca polecenia "sudo docker run -it nazwa_obrazu bash".
+W bashu ubuntu sklonowano repozytorium za pomoca polecenia "git clone "link"".
+Sprawdzono czy istnieje osobisty branch i udalo przelaczyc sie na niego za pomoca polecenia "git checkout Grupa01-KB306424_Lab03".
+Wyjscie z kontenera za pomoca "exit".

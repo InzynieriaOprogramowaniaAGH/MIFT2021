@@ -1,0 +1,22 @@
+Zadanie 1 - utworzylem nowego osobistego brancha od brancha grupowego
+
+git checkout -b Grupa01-GC306428_Lab03
+
+Zadanie 2 - dodalem hooka napisanego na poprzednich zajeciach do swojego folderu /hooks
+
+Zadanie 3 - zainstalowalem Docker'a
+
+Zadanie 4 - posiadalem juz konto na dockerhubie
+
+Zadanie 5 - utworzylem plik Dockerfile, ktory bazuje na najnowszej wersji ubuntu i ma doinstalowanego git'a  
+
+FROM ubuntu:latest
+
+RUN apt-get -y update
+RUN apt-get -y install git
+
+Zadanie 6 
+
+a) zbudowalem obraz z uzyciem polecenia "sudo docker build -t devops_ubuntu ." wykorzystujac Dockerfile
+b) uruchomilem kontener uzywajac polecenia "sudo docker run -it devops_ubuntu bash"
+c) sklonowalem na niego repozytorium uzywajac git clone 'LINK' i sprawdzilem, czy istnieje na nim moj branch (potwierdzenie zawarte jest w jednym z screenshot'ow)
