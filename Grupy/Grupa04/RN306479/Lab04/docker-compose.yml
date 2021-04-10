@@ -1,16 +1,20 @@
 version: '3.3'
+
 services:
  build-agent:
-  container_name: deltachat
-  image: deltachat:latest
+  container_name: messenger
+  image: messenger:latest
   build:
    context: .
-   dockerfile: ./deltachat/deltachat-build/Dockerfile
+   dockerfile: ./Socket.io-Messenger/build/Dockerfile
+  ports:
+    - 3000:3000
+
  test-agent:
-  container_name: deltachat-test
-  image: deltachat-test:latest
+  container_name: messenger-test
+  image: messenger-test:latest
   build:
    context: .
-   dockerfile: ./deltachat/deltachat-test/Dockerfile
+   dockerfile: ./Socket.io-Messenger/test/Dockerfile
   depends_on:
   - build-agent
