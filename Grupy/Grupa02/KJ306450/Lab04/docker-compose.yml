@@ -1,0 +1,14 @@
+version: "3.3"
+services:
+ chat-build:
+  container_name: chat
+  image: chat:latest
+  build:
+   context: ./chat
+ chat-test:
+  container_name: chat_test
+  image: chat_test:latest
+  build:
+   context: ./test
+  depends_on:
+  - chat-build
