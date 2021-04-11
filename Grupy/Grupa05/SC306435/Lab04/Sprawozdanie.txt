@@ -1,0 +1,6 @@
+0. Zacząłem od stworzenia brancha osobistego od brancha Grupa05.
+git checkout -b Grupa05-SC306435_Lab03
+
+1. Używając komendy docker push wypchnąłem obraz z poprzednich zajęć dockera do dockerHuba. Aby push zadziałał, dodałem wcześniej do obrazu tag komendą docker tag.
+
+2. Wybrałem komunikator telegram,oraz pobrałem repozytorium https://github.com/telegramdesktop/tdesktop
