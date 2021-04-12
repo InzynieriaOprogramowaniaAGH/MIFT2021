@@ -1,0 +1,25 @@
+Sprawozdanie Lab04
+
+1.Stworzono brancha osobistego i przelaczono sie poleceniem: git checkout -b Grupa01-NC306434_Lab04. Stworzono go od brancha grupowego Grupa01.
+
+1.1 Opublikowano obraz z porzednich zajęć w serwisie Docker HUB:
+
+sudo docker tag e185a214ebf3 nataliaczachor14/devops-docker-lab
+sudo docker push nataliaczachor14/devops-docker-lab
+
+
+2. Znalazlam komunikator https://github.com/binhxn/node-chat-app.
+
+3.Stworzono nowy obraz kontenera dockerowego. Skonfigurowano go tak, aby byl w stanie wykonac operacje budowania "komunikatora" ze zrodel. Uzyto polecenia:
+
+sudo docker built -t docker-build:build . -f Dockerfile.build
+sudo docker run -it 3000:3000 8a4c2a9d0662
+npm run dev
+
+4.Stworzono nowy obraz kontenera dockerowego. Skonfigurowano go tak, aby byl w stanie wykonac operacje testowania korzystajac ze zbudowanego wczesniej programu. Uzyto polecenia:
+
+sudo docker build -t docker-test:test . -f Dockerfile.test
+
+5. Zainstalowano docker-compose. Stworzono plik docker-compose.yml. Dodano go do swojego brancha. Stworzono srodowisko ktore sciaga repo z najnowsza wersja "komunikatora", buduje go, testuje czy komunikator dziala.
+
+sudo docker-compose up

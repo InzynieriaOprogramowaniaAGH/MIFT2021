@@ -1,0 +1,5 @@
+FROM build-agent:build
+
+WORKDIR ./deltachat-desktop
+
+RUN npm test

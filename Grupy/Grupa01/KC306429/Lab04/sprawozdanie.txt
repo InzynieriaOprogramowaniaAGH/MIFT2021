@@ -1,0 +1,15 @@
+1)Stworzenie nowego brancha git checkout -b Grupa01-KC306429_Lab04
+
+1.1)Zalogowanie sie do docker'a w konsoli następnie otagowanie obrazu 
+sudo docker tag lab03:latest karol230/lab03 a następnie pchnięcie obrazu na dockerhub'a
+sudo docker push karol230/lab03
+
+2)Znalezienie w internecie komunikatora https://github.com/BuiDuyThanh/node-chat-app
+
+3)Stworzenie dockerfile a następnie zbudowanie obrazu za pomocą polecenia:
+   "sudo docker build -t note-chat-app . -f DockerBuildAgent"
+
+4)Stworzenie dockerfile tak aby mógł wykonać operacje testowania korzystając ze wcześniej stworzonego obrazu, następnie zbudowanie obrazu za pomocą polecenia:
+   "sudo docker build -t chat . -f DockerTestAgent"
+
+5)Stworzenie pliku docker-compose.yml, który najpierw buduje obrazy z wykorzystaniem wcześniej stworzonych plików dockerfile, następnie testuje działanie komunikatora oraz uruchamia go na porcie 3000 do podglądu w przeglądarce. Uruchomienie docker-compose za pomocą polecenia "sudo docker-compose up"

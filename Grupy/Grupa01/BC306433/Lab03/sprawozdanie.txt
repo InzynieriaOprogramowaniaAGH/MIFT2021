@@ -1,0 +1,17 @@
+DevOps Ciesiński Bartłomiej Lab03
+
+1. Stworzyłem nowego brancha Grupa01-BC306433_Lab03 przeznaczonego na zajęcia Lab03. zdjęcie: Lab03_zad01.png
+2. Dodałem git hooka z poprzednich zajęć pod adres MIFT2021/Grupy/Grupa01/BC306433/Lab02/hooks/pre-commit. zdjęcie: Lab03_zad02.png
+3. Nie musiałem instalować dockera, ponieważ był już wcześniej zainstalowany na tej maszynie. zdjęcie: Lab03_zad03.png
+	Następnie aktywowałem dockera na swojej maszynie.
+4. Stworzyłem nowe konto na docker hub.
+5. Stworzyłem Dockerfile i dodałem go do swojego localnego repozytorium. upewniłem się, że że git zostanie doinstalowany.
+6. Zbudowałem obraz oraz uruchomiłem kontener:
+	* sudo docker build . -t lab03_docker
+	* sudo docker run -it lab03_docker
+	Następnie ściągnąłem repozytorium:
+	* git clone ...
+	Upewniłem się że jest mój branch:
+	* git checkout Grupa01
+	* git checkout Grupa01-BC306433_Lab3
+

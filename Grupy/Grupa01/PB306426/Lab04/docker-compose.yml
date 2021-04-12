@@ -1,0 +1,17 @@
+
+version: '3.3'
+services:
+ build-agent:
+  container_name: wire
+  image: wire:latest
+  build:
+   context: .
+   dockerfile: Dockerfile-build
+ test-agent:
+  container_name: test
+  image: test:latest
+  build:
+   context: .
+   dockerfile: Dockerfile-test
+  depends_on:
+  - build-agent

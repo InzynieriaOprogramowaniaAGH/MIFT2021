@@ -1,0 +1,22 @@
+1.
+Przelaczono sie na brancha Grupa01 za pomoca polecenia "git checkout Grupa01".
+Utworzono nowego brancha na te zajecia i przelaczono sie na niego za pomoca polecenia "git checkout -b Grupa01-KB306424_Lab04".
+
+Zbudowanemu obrazowi z poprzednich zajec nadano tag za pomoca polecenia "sudo docker tag id_obrazu tag_obrazu" i jako tag_obrazu podano dazaiii/devops.
+Nastepnie opublikowano obraz na Docker Hubie za pomoca polecenia "sudo docker push dazaiii/devops".
+
+2.
+Znalezienie open-source'owego komunikatora DeltaChat.
+
+3.
+Stworzenie nowego Dockerfile o nazwie Dockerfile-build i zbudowanie obrazu odpowiedzialnego za budowanie komunikatora.
+Wykorzystano polecenie "sudo docker build -t build:latest . -f Dockerfile-build".
+
+4.
+Stworzenie nowego Dockerfile o nazwie Dockerfile-test. Korzystajac ze zbudowanego wczesniej obrazu build:latest przetestowano komunikator tworzac obraz test:latest odpowiedzialny za testowanie aplikacji.
+Wykorzystano polecenie "sudo docker build -t test:latest . -f Dockerfile-test".
+
+5.
+Posiadalam juz wczesniej zainstalowany docker-compose.
+Utworzenie pliku docker-compose.yml, ktory bedzie budowal oba obrazy, z czego test:latest jest zalezny od build:latest.
+Uruchomienie docker-compose za pomoca polecenia "sudo docker-compose up".

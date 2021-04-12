@@ -1,0 +1,5 @@
+FROM im1
+WORKDIR ./zulip-desktop
+RUN npm test
+
+

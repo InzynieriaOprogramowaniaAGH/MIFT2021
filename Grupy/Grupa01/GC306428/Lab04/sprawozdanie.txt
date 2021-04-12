@@ -1,0 +1,22 @@
+Zadanie 1
+a)utworzylem nowego branach'a poleceniem git checkout -b Grupa01-GC306428_Lab04
+b)przeslalem obraz z poprzednich zajec na serwis Docker Hub poleceniem docker push na swoje repozytorium
+
+Zadanie 2
+Znalazlem nastepujacy komunikator https://github.com/feathersjs/feathers-chat
+
+Zadanie 3
+Stworzylem nowy obraz kontenera dockerowego uzywajac napisanego Dockerfile_Build, ktory sluzy do zbudowania komunikatora. Instalowany jest git, npm oraz ustawiana jest odpowiednia strefa czasowa.
+sudo docker build -t build-agent . -f Dockerfile_Build
+
+Nastepnie uruchomilem kontener i aplikacje, aby zobaczyc czy komunikator sie uruchamia
+sudo docker run -it -p 3030:3030 681662715eb5
+
+npm start
+
+4.Stworzylem nowy obraz kontenera dockerowego z pliku Dockerfile_Test, ktory odpowiedzialny jest za przetestowanie komunikatora z wczesniej zbudowanego obrazu do budowania komunikatora
+
+sudo docker build -t test-agent . -f Dockerfile_Test
+
+5. Zainstalowalem docker-compose oraz utworzylem plik docker-compose.yml budujacy oba obrazy. Obraz testujacy jest zalezny od obrazu budujacego komunikator.
+Nastepnie uruchomilem docker-compose uzywajac polecenia sudo docker-compose up
