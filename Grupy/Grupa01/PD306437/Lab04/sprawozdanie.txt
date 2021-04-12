@@ -31,3 +31,23 @@ RUN npm build
 Obraz dockerowy zbudowałem za pomocą polecenia:
 sudo docker build -t build -f Dockerfile .
 
+Zadanie 4
+W folderze /test utworzono plik Dockerfile, który za pomocą polecenia npm test testuje aplikację.
+Jego treść:
+FROM node:14
+
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get install -y git
+
+WORKDIR /
+
+RUN git clone https://github.com/binhxn/node-chat-app.git
+
+WORKDIR /node-chat-app
+RUN npm install
+RUN npm test
+
+Obraz dockerowy zbudowałem za pomocą polecenia:
+sudo docker build -t test -f Dockerfile .
+
