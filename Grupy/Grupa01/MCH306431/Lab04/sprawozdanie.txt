@@ -1,0 +1,27 @@
+W trakcie cwiczenia wystapila koniecznosc przeinstalowania maszyny wirtualnej
+- niestety sprwozdanie.txt oraz poczatkowe screeny zostaly utracone
+
+1. Stworzenie wlasnego brancha
+1.1 Opublikowanie obrazu z poprzednich zajec na Docker HUB
+- zostalo juz to wykonane wczesniej, takze dorzucam tylko screen z dockerHuba
+
+2. Wybranie komunikatora Rocket.Chat
+
+3. Napisanie Dockerfile-build do budowania kominikatora ze zrodla
+- po wielu probach zostala podjeta decyzja o zmianie komunikatora spowodowana
+wieloma bledami podczas proby zbudowania projektu.
+
+2-v2 Wybranie komunikatora deltachat
+
+3-v2. Napisanie Dockerfile-buildv2 do budowania komunikatora ze zrodla
+- tym razem zbudowanie Dockerfile zostalo zakonczone sukcesem 
+
+4. Napisanie Dockerfile-test, gdzie bedzie testowana aplikacja
+- testy zakonczyly sie niepowodzeniem 
+
+5. Napisanie docker-compose.yml
+- niestety przez niepowodzenie w 4 pkt nie stworzyl sie obraz Dockerfile, wiec nie mozna staworzyc pelnego srodowiska
+- mimo to docker-compose.yml zostal napisany, aby sprawdzic jak moglby wygladac
+
+
+

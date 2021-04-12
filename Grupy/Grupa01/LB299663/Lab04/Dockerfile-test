@@ -1,0 +1,5 @@
+FROM czat-app:latest
+
+WORKDIR ./node-chat-app
+
+RUN npm test

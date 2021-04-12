@@ -1,0 +1,17 @@
+1. Obraz nalezalo zbudowac z tagiem karol71927/devops lub zmienic tag obrazu ktory istnial poleceniem "docker tag"
+gdzie karol71927 to nazwa konta na docker hubie. Nastepnie nalezalo opublikowac obraz za pomoca polecenia 
+"docker push tag_obrazu"
+
+2. Wybrano open-source komunikator deltachat
+
+3. Stworzono dockerfile o nazwie Dockerfile.build
+Zbudowano obraz odpowiedzialny za budowanie aplikacji za pomoca polecenia
+sudo docker build -t build-agent:build . -f Dockerfile.build
+
+4. Stworzono dockerfile o nazwie Dockerfile.test, wykorzystano w nim wczesniej zbudowany obraz build-agent:build.
+Zbudowano obraz odpowiedzialny za testy aplikacji za pomoca polecenia 
+sudo docker build -t test-agent:test . -f Dockerfile.test
+
+5. docker-compose bylo juz zainstalowane
+Utworzono plik docker-compose.yml. Budujacego oba obrazy, obraz test jest zalezny od obrazu build.
+Uruchomiono docker-compose za pomoca polecenia sudo docker-compose up.
