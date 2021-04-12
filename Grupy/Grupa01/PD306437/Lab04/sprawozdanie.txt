@@ -51,3 +51,28 @@ RUN npm test
 Obraz dockerowy zbudowałem za pomocą polecenia:
 sudo docker build -t test -f Dockerfile .
 
+Zadanie 5
+W folderze /compose utworzono plik docker-compose.yml
+Jego treść:
+version: "3.9"
+services:
+    build:
+        image: build:latest 
+        build:
+            context: .
+            dockerfile: ../build/Dockerfile
+        ports:
+            - "3000:3000"
+    test:
+        image: test:latest 
+        build:
+            context: .
+            dockerfile: ../test/Dockerfile
+            
+Przed uruchomieniem musiałem zainstalować docker-copmose
+Dokonałem tego za pomocą polecenia:
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+docker-compose uruchomiłem za pomocą polecenia:
+sudo docker-compose up
+
