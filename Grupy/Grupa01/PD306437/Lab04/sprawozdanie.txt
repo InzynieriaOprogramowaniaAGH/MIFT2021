@@ -9,7 +9,25 @@ sudo docker push  pduda98/lab04
 
 
 Zadanie 2
-Wybrano komunikator Rocket.chat
+Wybrano komunikator node-chat-app
 
 Zadanie 3
-W folderze /build utworzono dockerfile, który korzysta z obrazu node:12.21.0-buster-slim, klonuje repozytorium z rocket. chat a potem za pomocą polecenia npm build buduje aplikację.
+W folderze /build utworzono plik Dockerfile, który korzysta z obrazu node:14, klonuje repozytorium z aplikacji a potem za pomocą polecenia npm build buduje aplikację.
+Jego treść:
+FROM node:14
+
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get install -y git
+
+WORKDIR /
+
+RUN git clone https://github.com/binhxn/node-chat-app.git
+
+WORKDIR /node-chat-app
+RUN npm install
+RUN npm build
+
+Obraz dockerowy zbudowałem za pomocą polecenia:
+sudo docker build -t build -f Dockerfile .
+
