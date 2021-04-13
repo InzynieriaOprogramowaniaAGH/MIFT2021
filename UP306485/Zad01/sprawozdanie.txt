@@ -1,8 +1,0 @@
-1. Zainstalowanie srodowiska GIT nie bylo u mnie konieczne, poniewaz juz wczesniej mialam zainstalowana wersje 2.25.1
-2. Sklonowalam repozytorium za pomoca polecenie git clone i narysowalam graf zaleznosci miedzy repozytorium zdalnym i lokalnym.
-3. Zapoznalam sie z instrukcja do laboratorium.
-4. Utworzylam nowy branch ktory nazwalam UP306485 za pomoca polecenia 'git branch UP306485' i przelaczylam sie na nowego brancha za pomoca polecenia 'git checkout UP306485'. 
-5. Nastepnie lokalnie w repozytorium stworzylam folder o tej samej nazwie co nazwa brancha, a w podfolderze 'Lab01' utworzylam sprawozdanie. Dodalam plik tekstowy ze sprawozdaniem za pomoca 'git add sprawozdanie.txt' oraz zrobilam commita za pomoca 'git commit -m "message"'. Tak samo wykonalam dla grafu.
-6. Dodalam do folderu Lab01 zrzuty ekranu z wykonywanych polecen, dodalam i zakomitowalam je na gita.
-7. Kolejnym etapem bylo wepchniecie mojej stworzonej galezi na zdalne repozytorium za pomoca komendy 'git push origin UP306485' oraz merge do mastera za pomoca 'git merge UP306485' z poziomu mastera. 
-8. Na koncu wykonalam pusha na mastera za pomoca polecania 'git push'

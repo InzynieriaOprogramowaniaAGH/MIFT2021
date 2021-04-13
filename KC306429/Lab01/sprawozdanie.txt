@@ -1,7 +1,0 @@
-1.Instalacja klienta git : sudo apt-get install git
-2.Sklonowanie repozytorium: git clone git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
-3.Otwarcie i zapoznanie się z dokumentem: nano Lab01 - Git.txt
-4.Stworzenie nowego brancha: git branch KC306429, Przełączenie się na stworzonego brancha: git chceckout KC306429, Stworzenie folderu: mkdir KC306429, stworzenie kolejnego folderu wewnątrz poprzedniego: mkdir Lab01, następnie stworzenie nowego pliku: touch sprawozdanie.txt, dodanie pliku do repozytorium: git add sprawozdanie.txt, wykonanie commita: git commit -m "add sprawozdanie.txt",dodanie pliku z grafem: git add Graf.png, wykonanie commita: git commit -m "add graf".
-5.dodanie pliku do repozytorium: git add sprawozdanie.txt, commitowanie zmian: git commit -m "Update sprawozdanie.txt" a następnie push brancha: git push origin KC306429.
-6.Dodanie zrzutów ekranu do repozytorium: git add . następnie commitowanie zrzutów: git commit -m "add screenshots" oraz ponowny push brancha.
-7.Zmiana brancha na master: git checkout master,wykonanie merge do głównego brancha: git merge KC306429, wykonanie: git pull w celu zaktualizowania repozytorium a następnie: git push aby zrobic push na remote.

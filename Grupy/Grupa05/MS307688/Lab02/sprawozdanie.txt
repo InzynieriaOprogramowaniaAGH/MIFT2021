@@ -1,0 +1,21 @@
+Sprawozdanie z lab 02 - Michał Stawarski - MS307688
+
+1.Został wygenerowany klucz SSH, i zamieniono połączenie na SSH zamiast HTTPS
+
+Dodano do agenta SSH, który obsługuje SSH
+
+Zarejestrowna klucz po stronie serwera
+
+Poinformowano gita o zmianie logowania
+
+2.Nadano tag na commita "twoje inicjały + nr indexu + nr zadania" wraz z komentarzem
+
+Wrzucono tę zmianę na swojego brancha, a następnie remote/origin
+
+3.Uporządkowano branche i foldery
+
+4.Napisano git hooka - skrypt weryfikujący 
+
+Wepnięto go we właściwe miejsce, tak by uruchamiał się za każdym razem kiedy robię commita.
+
+5.Dołączono swoje zmiany

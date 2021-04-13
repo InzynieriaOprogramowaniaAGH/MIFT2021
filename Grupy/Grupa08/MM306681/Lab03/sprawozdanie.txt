@@ -1,0 +1,9 @@
+1)Przełączenie na bracha Grupa08, a potem na osobistego Grupa08-MM306681_Lab03
+2)Dodanie git hook'a do nowego folderu hooks w katalogu Lab02, komendy: mkdir hooks, touch pre-commit
+3)Zainstalowanie dockera wg instrukcji z ich strony
+4)Stworzenie konta na dockerhub
+5)Utworzenie dockerfile
+6)Zbudowanie obrazu (myimage) przy użyciu sudo docker built -t myimage .
+7)Uruchomienie kontenera -sudo docker run -it myimage bash
+8)Sklonowanie repo przedmiotu
+9)Wrzucenie zadania na gita, push itp.
