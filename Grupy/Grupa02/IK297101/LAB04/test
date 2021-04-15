@@ -1,0 +1,2 @@
+FROM build.v2
+RUN npm test --prefix deltachat-desktop
