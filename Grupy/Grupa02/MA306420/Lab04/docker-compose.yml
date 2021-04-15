@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+    app:
+        build:
+            context: .
+            dockerfile: build.Dockerfile
+        image: feathers-chat
+        expose:
+            - 3030
+        ports:
+            - "3030:3030"
+    test:
+        build:
+            context: .
+            dockerfile: test.Dockerfile
+        image: feathers-chat-test

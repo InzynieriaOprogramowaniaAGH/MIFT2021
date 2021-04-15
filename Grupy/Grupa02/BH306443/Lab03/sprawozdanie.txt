@@ -1,0 +1,16 @@
+Utworzenie i przełączenie na nowego brancha z brancha grupowego - git checkout -b Grupa02-BH306443_Lab03
+Skopiowanie hooka z folderu .git do swojego folderu BH306443/Lab02/hooks/pre-commit
+Instalacja dockera poprzez komendę sudo apt-get install docker.io
+Start dockera: 
+sudo systemctl start docker
+sudo systemctl enable docker
+Utworzony plik Dockerfile:
+FROM ubuntu:latest
+RUN apt-get update && apt-get upgrade -y
+RUN apt-get install git -y
+Uruchomienie obrazu z pliku Dockerfile - sudo docker built . -t ubuntu 
+Uruchomienie kontenera z sesją bash - sudo docker run -it ubuntu bash
+Sklonowanie repozytorium git clone <link>
+Sprawdzenie czy istenieje gałąź - git branch -a | grep "BH306443"
+Commit wprowadzonych zmian
+Merge do brancha grupowego

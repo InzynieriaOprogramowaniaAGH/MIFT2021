@@ -1,0 +1,9 @@
+1. Od brancha grupowego stworzono własnego brancha poleceniem "git branch Grupa02-KJ306450_Lab04". Zmieniono tag obrazu ubuntu_git na kjop118/ubuntu_git (sudo docker tag ubuntu_git kjop118/ubuntu_git:latest). Komendą "sudo docker login" zalogowano się na konto na Docker Hub i następnie poleceniem "sudo docker push kjop118/ubuntu_git:latest" udostępniono obraz w serwisie.
+
+2. Do wykonania dalszej części ćwiczenia wykorzystano komunikator deltachat-desktop https://github.com/deltachat/deltachat-desktop.git.
+
+3. W katalogu Lab04 utworzono nowy folder, w którym umieszczono plik Dockerfile. W pliku Dockerfile korzystano z obrazu node:15.14.0-buster, dzięki któremu można było poleceniem npm install oraz npm build zbudować pobrany z githuba chat. Następnie zbudowano obraz za pomocą polecenia "sudo docker build . -t chat:latest"
+
+4. Utworzono nowy Dockerfile, w którym wykonano testowanie zbudowanego wcześniej programu. Korzystając z utworzonego Dockerfile zbudoiwano obraz (sudo docker build . -t chat_test:latest)
+
+5. Utworzono plik docker-compose.yml, w którym budowany jest obraz z komunikatorem pobranym z githuba i po poprawnym zbudowaniu obrazu budowany jest obraz dla testów. Uruchomienie docker-compose odbywa sie za pomocą polecenia "sudo docker-compose up".

@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+ build-deltachat:
+  container_name: deltachat-core
+  image: deltachat-core
+  build:
+   context: ./deltachat-core
+   dockerfile: Dockerfile
+ test-deltachat:
+  container_name: deltachat-core-tests
+  image: deltachat-core-tests
+  build:
+   context: ./tests
+   dockerfile: Dockerfile
+  depends_on:
+   - build-deltachat
+
