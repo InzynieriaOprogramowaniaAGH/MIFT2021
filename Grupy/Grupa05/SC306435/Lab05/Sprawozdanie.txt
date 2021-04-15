@@ -1,0 +1,9 @@
+0. Zapoznaj się z diagramem omawianym na zajęciach.
+
+1. Zapoznaj się z oprogramowaniem Jenkins: https://www.jenkins.io/.
+
+2. Stwórz kontener dockerowy z Jenkinsem posługując się instrukcją https://www.jenkins.io/doc/book/installing/docker/
+
+3. Wrzuć obraz swojego Jenkinsa na DockerHub'a, analogicznie jak poprzednie obrazy.
+
+4. Z poziomu Jenkinsa uruchomionego w kontenerze (pkt 2) uruchom docker-compose stworzony w ramach Lab04.
