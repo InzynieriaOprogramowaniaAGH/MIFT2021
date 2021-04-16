@@ -1,0 +1,40 @@
+1. Dodanie SSH
+a) Generowanie nowego klucza ssh powiązanego z moim adresem email (email będzie jego etykietą)
+ssh-keygen -t ed25519 -C emroz@student.agh.edu.pl
+b) Wystartowanie agenta ssh
+eval `ssh-agent -s`
+c) Dodanie klucza prywatnego do agenta 
+ssh-add ~/.ssh/id_ed25519
+d) skopiowanie zawartości pliku z kluczem publicznym i wykorzystanie go do konfuguracji swojego githuba
+e) sprawdzenie połączenia z remote repo i zmiana na shh z http
+git remote -v  sprawdzenie połączenia 
+git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git - zmiana połączenia
+
+2. Dodanie taga do Lab 1
+git checkout EM297029 - przełączenie się na swojego brancha 
+
+git tag -a EM297029_Lab01 -m "Edyta Mróz, Lab 01 wszystko działa, 10/10 proszę" dodanie taga na ostatniego commita (czyli jednocześnie ostatniego commita połączonego z lab1)
+nazwa taga podana po -a, opis po -m
+
+git log - sprawdzenie commitów (historii)
+
+3. Zmiana struktury branchy i folderów
+
+a) zmieniono strukturę katalogów w branchu EM297029 (ręcznie)
+b) zrobiono git checkout na Grupa04
+c) stworzono nowego brancha Grupa04-EM297029_Lab02 git checkout -b nazwa
+d) zmergowano brancha EM297029 do nowoutworzonego (tak aby zachować histroię :) 
+git merge EM297029
+
+
+4. Git hook
+
+a) w folderze .git/hooks napisano skrypt o nazwie commit-msg (treść widoczna na screenie)
+b) nadano uprawnienia do wykonywania plikowi chmod +x commit-msg
+c) przy próbach commitowania w niedozwolony sposób dostawano odmowę (widoczne na screenach)
+
+5. zrobiono pusha na naszego "developa" Grupa04 (ze wcześniejszym pullem)
+zgłoszono pull-request
+
+
+

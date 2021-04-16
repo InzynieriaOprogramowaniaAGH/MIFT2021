@@ -1,0 +1,26 @@
+Wygenerowałem klucz ssh komendą: ssh-keygen -t ed25519 -C "mikixd1234@interia.pl"
+By następnie zrobić wszystko by dodac klucz ssh po stronie serwera:
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+
+Klucz dodano na stronie github
+
+pokazanie gitowi o zmianie sposobu logowania:
+git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+
+uzywanie tagow:
+git tag -a MP306490_lab2 -m "Mikołaj Powrózek, lab2, working"
+
+Branche i foldery:
+git mv MP306490/Grupy/Grupa04
+git checkout -b Grupa04-MP306490_lab2
+git merge MP306490
+
+Nadano uprawnienia i zmodyfikowano plik commit-msg.sample
+chmod +x commit-msg.sample
+sprawdzono dzialanie zmian commit-msg.sample
+git commit --allow-empty -m "MP306490"
+
+Zrobiłem pusha z mojego brancha do grupowego oraz zamknalem branch osobisty
+git branch -d Grupa04-MP306490_lab2
+
