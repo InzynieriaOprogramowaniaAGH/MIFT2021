@@ -1,0 +1,78 @@
+Zadanie 1
+Na początku utworzono nowe repozytorium na dockerhubie poprzez stronę internetową.
+Nazwano je lab04
+Kolejnym krokiem było otagowanie obrazu za pomocą polecenia:
+sudo docker tag 1e0843b6f023 pduda98/lab04
+
+Następnie spushowano obraz na repozytorium:
+sudo docker push  pduda98/lab04
+
+
+Zadanie 2
+Wybrano komunikator node-chat-app
+
+Zadanie 3
+W folderze /build utworzono plik Dockerfile, który korzysta z obrazu node:14, klonuje repozytorium z aplikacji a potem za pomocą polecenia npm build buduje aplikację.
+Jego treść:
+FROM node:14
+
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get install -y git
+
+WORKDIR /
+
+RUN git clone https://github.com/binhxn/node-chat-app.git
+
+WORKDIR /node-chat-app
+RUN npm install
+RUN npm build
+
+Obraz dockerowy zbudowałem za pomocą polecenia:
+sudo docker build -t build -f Dockerfile .
+
+Zadanie 4
+W folderze /test utworzono plik Dockerfile, który za pomocą polecenia npm test testuje aplikację.
+Jego treść:
+FROM node:14
+
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get install -y git
+
+WORKDIR /
+
+RUN git clone https://github.com/binhxn/node-chat-app.git
+
+WORKDIR /node-chat-app
+RUN npm install
+RUN npm test
+
+Obraz dockerowy zbudowałem za pomocą polecenia:
+sudo docker build -t test -f Dockerfile .
+
+Zadanie 5
+W folderze /compose utworzono plik docker-compose.yml
+Jego treść:
+version: "3.9"
+services:
+    build:
+        image: build:latest 
+        build:
+            context: .
+            dockerfile: ../build/Dockerfile
+        ports:
+            - "3000:3000"
+    test:
+        image: test:latest 
+        build:
+            context: .
+            dockerfile: ../test/Dockerfile
+            
+Przed uruchomieniem musiałem zainstalować docker-copmose
+Dokonałem tego za pomocą polecenia:
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+docker-compose uruchomiłem za pomocą polecenia:
+sudo docker-compose up
+
