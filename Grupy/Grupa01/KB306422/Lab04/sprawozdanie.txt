@@ -1,0 +1,34 @@
+1)Utworzenie nowego brancha od Grupa01 oraz opublikowanie obrazu z poprzednich zajęć na DockerHub:
+	-git checkout -b Grupa01-KB306422_Lab04
+	-sudo docker login --username=name --password=pass  //zalogowanie
+	-sudo docker tag IMAGE_ID klaaaudii12345/devops-docker-lab04 //nadanie tagu
+	-sudo docker push klaaaudii12345/devops-docker-lab04 
+2)Znalezienie komunikatora node-chat-app
+3)Stworzenie nowego Dockerfile i zbudowanie obrazu "docker-build" do budowania komunikatora.
+	-sudo docker build -t docker-build:build . -f Dockerfile-build
+Sprawdzenie komunikatora 
+	-sudo docker run -it -p 3000:3000 dc612cd7bd9c
+	-npm run dev
+4)Stworzenie nowego Dockerfile i zbudowanie obrazu "docker-test" do wykonywania operacji testowania "komunikatora"
+	-sudo docker build -t docker-test:test . -f Dockerfile-test
+5)Instalacja docker-compose oraz utworzenie docker-compose.yml:
+	-uruchomienie poleceniem docker-compose up
+-plik umieszczony:
+version: '3.3'
+services:
+ build-agent:
+  container_name: docker-node-chat-build
+  image: docker-build:build
+  build:
+   context: .
+   dockerfile: Dockerfile-build
+ test-agent:
+  container_name: docker-node-chat-test
+  image: docker-test:test
+  build:
+   context: .
+   dockerfile: Dockerfile-test
+  depends_on:
+  - build-agent
+
+ 

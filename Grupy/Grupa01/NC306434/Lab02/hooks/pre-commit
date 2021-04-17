@@ -1,0 +1,10 @@
+#!/bin/bash
+
+commit="NC306434"
+wrong="Wrong!"
+
+if ! grep -iqE "$commit" "$1" ; then
+	echo "$wrong"
+	exit 1
+fi
+echo "Correct commit comment"

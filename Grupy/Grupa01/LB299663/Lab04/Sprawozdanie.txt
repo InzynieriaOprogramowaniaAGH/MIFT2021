@@ -1,0 +1,49 @@
+1. Utworzono brancha osobistego wg. schematu z poprzednich zajęć: Grupa01-LB299663_Lab4 - git checkout -b "Grupa01-LB299663_Lab4"
+1.1 Opublikowano obraz z poprzednich zajęć w serwisie dockerhub.
+
+2. Do tej części ćwiczenia wybrałem komunikator node-chat-app (https://github.com/BuiDuyThanh/node-chat-app)
+
+3. Utworzono nowy dockerfile, budujący komunikator:
+
+Dockerfile:
+FROM node:14.15.1-buster
+
+RUN apt-get update
+RUN apt-get install -y --no-install-recommends git
+
+RUN git clone https://github.com/BuiDuyThanh/node-chat-app
+WORKDIR ./node-chat-app
+RUN npm install -g nodemon
+RUN npm install
+ENTRYPOINT npm start
+
+4. Utworzono dockerfile testujący skonfigurowane wcześniej oprogramowanie.
+
+Dockerfile:
+FROM czat-app:latest
+
+WORKDIR ./node-chat-app
+
+RUN npm test
+
+5. Utworzono docker-compose.yml i uzupełniono o funkcjonalności zawarte w instrukcji.
+
+docker-compose:
+version: '3.3'
+services:
+ build-app:
+  container_name: czat
+  image: czat-app
+  build:
+   context: .
+   dockerfile: Dockerfile-build
+  ports:
+  - "3000:3000"
+ test-app:
+  container_name: czat-test
+  image: czat-test
+  build:
+   context: .
+   dockerfile: Dockerfile-test
+  depends_on:
+  - build-app

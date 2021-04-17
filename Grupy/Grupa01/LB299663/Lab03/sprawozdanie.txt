@@ -1,0 +1,24 @@
+Zad1.
+
+Przełączyłem się na brancha grupowego: git checkout Grupa01
+Utworzyłem nowego brancha: git checkout -b Grupa01-LB299663_Lab03
+
+Zad2.
+Utworzyłem folder hooks i wkleiłem treść hooka z Lab02.
+
+Zad3. 
+
+Instalacja dockera - już był zainstalowany (używany na innym przedmiocie)
+
+Zad4.
+
+Skorzystałem z utworzonego wcześniej konta.
+
+Zad5. 
+
+Utworzyłem nowy Dockerfile (FROM ubuntu:latest) i zainstalowałem gita.
+
+Zad6.
+Komendą git clone url utworzyłem lokalne repo.
+
+

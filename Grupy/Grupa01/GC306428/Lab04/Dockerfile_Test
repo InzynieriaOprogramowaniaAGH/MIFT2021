@@ -1,0 +1,3 @@
+FROM build-agent
+
+CMD [ "npm", "test" ]

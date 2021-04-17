@@ -1,0 +1,7 @@
+1.)Stworzenie brancha osobistego git checkout -b Grupa01-KC306429_Lab03.
+2.)Stworzenie folderu hooks w lab2 i dodanie git hook'a z poprzednich zajęć.
+3.)Pomyślne zainstalowanie docker'a 
+4.)Założenie konta na Docker HUB.
+5.)Stworzenie pliku Dockerfile oraz dodanie go do repozytorium, a nastepnie stworzenie obrazu za pomocą komendy docker build -t lab03 .
+*Screeny różnią sie od tych z poprzednich punktów ponieważ mialem problem z zainstalowaniem dockera na wsl więc przeniosłem sie na linuxa zainstalowanego na VM.
+6)Uruchomienie kontenera za pomoca docker run -it lab03 bash,nastepnie ściągnięcie repozytorium za pomoca git clone i przejście na swojego brancha za pomoca git checkout Grupa01-KC306429_Lab03.

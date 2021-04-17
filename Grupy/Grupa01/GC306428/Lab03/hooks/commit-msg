@@ -1,0 +1,10 @@
+#!/bin/bash
+
+INPUT="$1"
+MSG=`head -n1 $INPUT`
+CORRECT="GC306428"
+if ! [[ "$MSG" =~ $CORRECT ]]; then
+	echo "$MSG"
+	echo "Your commit message must begins with:'GC306428'"
+	exit 1
+fi
