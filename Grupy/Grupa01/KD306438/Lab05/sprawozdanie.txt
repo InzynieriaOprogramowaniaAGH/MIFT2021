@@ -57,4 +57,15 @@
 		-nadanie zbudowanemu obrazowi tagu takiego samego jak repo, do ktorego bedziemy pushowac: 'sudo docker tag ae70193487fa karen2035/jenkins'
 		-opublikowanie obrazu 'sudo docker push karen2035/jenkins'
 
-
+4. Uruchomienie docker-compose z lab04 z poziomu Jenkins:
+	-uruchomienie kontenera jenkins bez --detached w celu latwego skopiowania hasla do logowania
+	-wejscie na localhost:8080 oraz zalogowanie sie jako admin z pobranym haslem
+	-zainstalowanie wtyczek, utworzenie nowego projektu job freestyle
+	-zaznaczenie repozytorium kodu jako Git i wklejenie linku do naszego repo oraz ustawienie odpowiedniego brancha Grupa01-KD306438_Lab04
+	-w zakładce execute shell uzupelnienie komend pozwalajacych na pobranie oraz uruchomienie docker-compose z lab04: 
+		cd Grupy/Grupa04/KD306438/Lab04
+		curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+		chmod +x /usr/local/bin/docker-compose
+		docker-compose up	
+	-pomyslnie zbuildowanie projektu - docker-compose up zostal uruchomiony
+	

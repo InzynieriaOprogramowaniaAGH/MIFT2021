@@ -1,5 +1,0 @@
-FROM image-node
-WORKDIR ./node-chat
-RUN npm test
-
-
