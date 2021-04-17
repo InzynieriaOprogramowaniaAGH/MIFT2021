@@ -1,3 +1,5 @@
+//Przed laboratoriami nr 5 zmieniłem komunikator na node-chat więc w sprawku wprowadzam zmiany//
+
 1.	Stworzono nowego brancha na zajęcia
 		git checkout -b Grupa01-PB306426_Lab04
 	Opublikowano obraz z poprzednich zajęci w dockerhubie
@@ -7,11 +9,11 @@
 		sudo docker push pazindor/lab_04:lab_03
 
 
-2. 	Wybrano jako komunikator Wire
+2. 	Wybrano jako komunikator node-chat
 
-3.	Utworzono Dockerfile-build który buduje aplikacje wire-desktop i uruchominie obrazu
-		sudo docker build -t wire -f Dockerfile-build ./
-		sudo docker run -t wire
+3.	Utworzono Dockerfile-build który buduje aplikacje node-chat i uruchominie obrazu
+		sudo docker build -t node -f Dockerfile-build ./
+		sudo docker run -it -p 3000:3000 node
 
 4.	Utworzono Dockerfile-test który wykonuje testy
 		sudo docker build -t test -f Dockerfile-test ./
@@ -20,3 +22,5 @@
 	 	sudo curl -L "https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 		sudo chmod +x /usr/local/bin/docker-compose
 		sudo docker-compose up
+		
+
