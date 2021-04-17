@@ -53,4 +53,13 @@ sudo docker run \
   
   Kolejnym krokiem było dokonanie ustawień jenkinsa pod adresem http://localhost:8080 
 
+Zadanie 3
+Aby wrzucić obraz na dockerhub utworzyłem repozytorium na dockerhubie poprzez stronę internetową.
+Nazwałem je myjenkins-blueocean
+
+Następnie otagowałem jenkinsowy obraz poleceniem:
+sudo docker tag 77d33abb1e1b pduda98/myjenkins-blueocean
+
+Następnie spushowałem obraz poleceniem
+sudo docker push pduda98/myjenkins-blueocean
 
