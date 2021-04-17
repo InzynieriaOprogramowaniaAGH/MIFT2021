@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+ build-agent:
+  container_name: chat-app
+  image: chat-app:latest
+  build:
+   context: .
+   dockerfile: build\Dockerfile
+ test-agent:
+  container_name: chat-app-test
+  image: chat-app-test:latest
+  build:
+   context: .
+   dockerfile: test\Dockerfile
+  depends_on:
+  - build-agent

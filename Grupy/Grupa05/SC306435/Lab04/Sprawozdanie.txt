@@ -1,0 +1,35 @@
+0. Zacząłem od stworzenia brancha osobistego od brancha Grupa05.
+	git checkout -b Grupa05-SC306435_Lab04
+
+
+1. Używając komendy docker push wypchnąłem obraz z poprzednich zajęć dockera do dockerHuba. Aby push zadziałał, dodałem wcześniej do obrazu tag komendą docker tag.
+
+
+2. Wybrałem komunikator telegram,oraz pobrałem repozytorium https://github.com/deltachat/deltachat-desktop
+
+
+3. Napisałem dockerfilebuild, który zatrzymał się prosząc o lokalizację geograficzną. Jednak po podaniu mu danych, budowa nie została wznowiona.
+	Aby uniknąć tego zatrzymania, dodałem
+	ENV TZ=Europe/Warsaw
+	RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+	do dockerfile odpowiedzialnego za budowanie.
+
+	budowanie poleceniem:
+	docker build -f dockerfilebuild -t build ~/MIFT2021/Grupy/Grupa05/SC306435/Lab04
+
+ 
+4. Napisałem dockerfiletest, który korzysta z stworzonego obrazu oraz uruchamia npm test
+
+	uruchamiane poleceniem:
+	docker build -f dockerfiletest ~/MIFT2021/Grupy/Grupa05/SC306435/Lab04
+
+	
+5.docker-compose
+Dla windowsa, jest to narzędzie zainstalowane razem z Docker desktop 
+Po napisaniu docker-compose.yml 
+
+uruchamiane poleceniem: 
+docker-compose up
+
+
+ 

@@ -1,0 +1,19 @@
+1. Stworzono brncha osobistego: git checkout -b Grupa05-MS306497_Lab04
+1.1 Opublikowano obraz z poprzednich zajec w serwisie Docker HUB:
+sudo docker tag e0da6a227ce5 mserwaczak/devops:firsttry
+sudo docker push mserwaczak/devops:firsttry
+
+2. Znaleziono w internecie komunikator: https://github.com/binhxn/node-chat-app
+
+3. Stworzono nowy obraz kontenera dockerowego i skonfigurowano go tak aby byl w stanie wykonac operacje budowania komunikatora ze zrodel:
+sudo docker build -t build . -f Dockerfile-build
+sudo docker run -it -p 3000:3000 IDobrazu
+
+4.Stworzono obraz kontenera dockerowego i skonfigurowano go tak aby byl w stanie wykonac operacje testowania komunikatora  korzystajac ze zbudowanego wczesniej programu:
+sudo docker build -t test . -f Dockerfile-test
+
+5. Stworzono plik docker-compose.yml. Stworzono srodowisko, ktore
+- sciaga z repo najnowsza wersje komunikatora
+- buduje go
+-testuje czy komunikator dziala:
+sudo docker-compose up

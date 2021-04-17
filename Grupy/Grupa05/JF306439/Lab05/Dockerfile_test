@@ -1,0 +1,6 @@
+FROM image1lab04:latest
+
+WORKDIR ./deltachat-desktop
+
+RUN npm test
+

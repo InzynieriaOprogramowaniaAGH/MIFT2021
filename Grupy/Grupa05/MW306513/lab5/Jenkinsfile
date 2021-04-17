@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+		docker-compose up
+		echo 'Building....'
+	}
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
+}

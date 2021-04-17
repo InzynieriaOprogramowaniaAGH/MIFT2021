@@ -1,0 +1,15 @@
+1. Za pomocą polecenia git checkout -b Grupa05-ES299176_Lab04 przełączyłam się na brancha osobistego.
+
+1.1. Opublikowanie obrazu z poprzednich zajęć w serwisie Docker HUB. Najpierw wykonano taga obrazu poleceniem: sudo docker tag IMGE ID nazwaUzytkownikaNaDockerHUB/devops, a następnie za pomocą: sudo docker push nazwaUzytkownikaNaDockerHUB/devops opublikowano ten obraz. 
+
+2. Jako komunikator wybrano aplikację DeltaChat.
+
+3. Stworzono nowy obraz kontenera dockerowego o nazwie Dockerfile w folderze build - zawartość pliku przedstawiona na screenie Zad3_1. Następnie,  za pomocą polecenia: sudo docker build -t name . skonfigurowano obraz tak, by był w stanie wykonać operację budowania komunikatora 
+
+4. Stworzono nowy obraz kontenera dockerowego o nazwie Dockerfile w folderze test - zawartość pliku przedstawiona na screenie Zad4_1. Następnie, za pomocą polecenia: sudo docker build -t name-test . skonfigurowano obraz tak, by był w stanie wykonać operację testowania komunikatora 
+
+5. Za pomocą sudo apt-get install docker-compose zainstalowano docker-compose, a następnie utworzono plik docker-compose.yml - zawartość pliku przedstawiona na screenie Zad5_2. 
+
+Uruchomiono nowo utworzone kontenery za pomocą: sudo docker run name i wyświetlono poleceniem: sudo docker ps -a
+
+
