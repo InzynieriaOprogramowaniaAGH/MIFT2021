@@ -1,0 +1,15 @@
+1. Stworzyłem nowy branch i wysłałem poprzednio stworzony obraz na docker hub
+
+2. Znalazłem aplikację komunikacyjną w systemie linux:
+
+https://github.com/wireapp/wire-desktop.
+
+3. Stworzyłem dockerfile pod obraz, który będzie miał za zadanie zbudować aplikację wire-dek.
+
+Kontener pobiera aktualny obraz ubuntu, pobiera programy git, npm, yarn oraz repozytorium z programem.
+Na końcu wykonuje kompilację programu.
+
+4. Stworzyłem dockerfile pod obraz, który będzie miał za zadanie przetestować aplikację wire-dek.
+
+Postępowałem podobnie jak w poprzednim punkcie, tylko wcześniej skompilowany program skopiowałem z poprzedniego kontenera.
+nastepnie uruchomiłem testy programu.

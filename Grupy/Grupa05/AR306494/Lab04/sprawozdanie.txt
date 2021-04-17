@@ -1,0 +1,26 @@
+Sprawozdanie zajęcia 25.03.2021
+
+Temat: Uruchamianie i bazowa konfiguracja kontenera. cz.2.
+
+1. Stworzyłam brancha osobistego na te zajęcia wg. schematu Grupa05-AR306494_Lab04 od brancha Grupa05.
+
+1.1 Opublikowałam obraz z poprzednich zajęć w serwisie DockerHUB. 
+Użyłam poleceń:
+sudo docker tag 6df2188635d0 aleksandra1819/devops-docker-test
+sudo docker push aleksandra1819/devops-docker-test
+
+2. W internecie znalazłam komunikator. https://github.com/binhxn/node-chat-app
+
+3. Stworzyłam nowy obraz kontenera dockerowego i skonfigurowałam go tak, aby był w stanie wykonać operację budowania komunikatora ze źródeł (kompilacja, linkowanie, zależności, etc.).
+Użyłam poleceń:
+sudo docker build -t build-agent:build . -f Dockerfile.build
+sudo docker run -it -p 8080:3000 1137d18a4b6e
+npm run dev
+
+4. Następnie stworzyłam nowy obraz kontenera dockerowego i skonfigurowałam go tak, aby był w stanie wykonać operację testowanie komunikatora, korzystając ze zbudowanego wcześniej programu w poprzednim punkcie.
+Użyłam poleceń:
+sudo docker build -t docker-test:test . -f Dockerfile.test
+
+5. Zainstalowałam docker-compose i stworzyłam plik docker-compose.yml. Dodałam go do swojego brancha. Korzystając z obrazów z punktów 3 i 4 stworzyłam środowisko, które ściąga z repo najnowszą wersję komunikatora, buduje go i testuj czy komunikator działa.
+Użyłam poleceń:
+sudo docker-compose up

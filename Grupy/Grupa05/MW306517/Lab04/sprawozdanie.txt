@@ -1,0 +1,27 @@
+Zadanie 1. Utworzono nowego brancha osobistego Grupa05-MW306517_Lab04 poleceniem:
+$ git checkout -b Grupa05-MW306517_Lab04
+Opublikowano obraz z poprzednich zajęć w serwisie Docker Hub
+$ sudo docker tag mw-devops-docker matwitkowski/lab3:mw-devops-docker
+$ sudo docker push matwitkowski/lab3:mw-devops-docker
+
+Zadanie 2. Do wykonania laboratorium wybrano komunikator "DeltaChat"
+
+Zadanie 3. Przygotowano plik Dockerfile do kontenera obsugującego komunikator. 
+Zbudowano obraz:
+$ sudo docker build -t mw-deltachat .
+Uruchomiono kontener:
+$sudo docker run -it mw-deltachat
+
+Zadanie 4. Przygorowano plik Dockerfile do kontenera testującego środowisko komunikatora.
+Zbudowanie obrazu:
+$ sudo docker build -t mw-test-deltachat . 
+Uruchomienie kontenera:
+$sudo docker run -it mw-test-deltachat
+
+Zadanie 5. Instalacja narzędzia "docker-compose":
+$ sudo apt install docker-compose
+Utworzenie pliku docker-compose.yml który wykorzystując wcześniej utworzone obrazy pobiera najnowszą wersję komunikatora, buduje go oraz testuje czy działa. 
+Uruchomienie narzędzia docker-compose przy pomocy polecenia:
+$ sudo docker-compose up
+
+

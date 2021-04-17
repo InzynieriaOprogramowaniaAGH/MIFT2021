@@ -1,0 +1,14 @@
+1.Stworzylem nowego brancha dla zajec lab04.
+1.1 opublikowalem obraz z poprzednich zajec w serwisie docker HUB.
+
+2.Znalazlem na githubie komunikator typu opensource (node-chat-app github.com/binhxn/node-chat-app).
+
+3.Napisalem nowego build agenta ktory jest w stanie wykonac operacje budowania ze zrodla.
+sudo docker build  -t build . -f Dockerfile.build
+
+4.Napisalem nowego test agenta ktory jest w stanie wykonac operacje testowania
+sudo docker build -t dockertest . -f Dockerfile.test
+
+5.Stworzylem plik docker-compose.yml 
+-sciaga z repozytorium najnowsza wersje komunikatora
+-buduje,testuje oraz sprawdza czy komunikator dziala

@@ -6,3 +6,18 @@
     sudo docker build -t swistusmen696/devops_lab04 .
 5. Push na dockera:
     sudo docker push swistusmen696/devops_lab04
+
+6.do wykonania cwiczenia wybrano repozytorium Delta Chat
+7.Napisalem dockerfila, ktorego umiescilem w katalogu BuildAgent
+8. Zbudowano dockera za pomoca komendy:
+    sudo docker build -t agent .
+Zrobiono screeny z uruchamiania budowania dockera, jak i ze zbudowanych obrazow dockerowcyh
+9. napisano Dockerfila dla przypadku testowego, umieszczono go w folderze TestAgent, zbudowano,
+nastepnie uzylem komendy by zaprezentowac ze obraz dostal zbudowany, wszystko zostalo udokumentowane na screenach
+
+10. Zainstalowalem narzedzie docker compose i zapoznalem sie z dokumentacja
+11. Nastepnie podazajac jak dziecko w ciemnosci za dokumentacja, napisalem docker-compose
+12. Odpalilem docker-compose co zostalo udokumentowane na screenach
+
+W tym miejscu chcialbym rowniez nadmienic, ze oddalem poprzednie zadania o czasie, ale nie zaxznaczylem oddane na platformie Teams
+
