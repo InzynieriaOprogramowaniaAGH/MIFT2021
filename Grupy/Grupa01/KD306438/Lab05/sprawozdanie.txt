@@ -53,3 +53,9 @@
 	  myjenkins-blueocean:1.1 '
 	  
 	-bieżące sprawdzanie poprawności wykonywanych poleceń komendą 'sudo docker images' oraz 'sudo docker ps'
+	
+3. Opublikowanie obrazu z zajec w serwisie Docker Hub: 
+		-nadanie zbudowanemu obrazowi tagu takiego samego jak repo, do ktorego bedziemy pushowac: 'sudo docker tag ae70193487fa karen2035/jenkins'
+		-opublikowanie obrazu 'sudo docker push karen2035/jenkins'
+
+
