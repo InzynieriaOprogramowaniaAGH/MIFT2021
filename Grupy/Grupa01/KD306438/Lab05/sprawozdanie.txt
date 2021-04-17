@@ -1,0 +1,3 @@
+0. Zapoznano się z diagramem omawianym na zajeciach.
+
+1. Zapoznanie się z oprogramowaniem Jenkins na stronie https://www.jenkins.io/
