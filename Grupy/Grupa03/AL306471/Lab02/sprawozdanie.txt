@@ -1,0 +1,42 @@
+1.1 
+ssh-keygen -t ed25519 -C "nairda6666@gmail.com" <- Wygenerowałem nowy klucz SSH
+
+1.2 
+Podczas generowania nowego klucza utworzyłem do niego hasło.
+
+1.3 
+eval `ssh-agent -s` <- uruchomiłem agenta ssh
+ssh-add ~/.ssh/id_ed25519 <- dodałem mój klucz prywatny SSH do agenta SSH
+
+1.4
+Na stonie github'a zarejestrowałem klucz po stronie serwera.
+
+1.5 
+git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021git <- dzięki tej komendzie poinformowałem Git'a o zmianie sposobu logowania, na taką, która wykorzystuje SSH
+
+2
+git tag -a AL306471_Lab01 -m "Adrian Litwa, Lab01 działa" <- nadałem tag dla aktualnego commita
+
+2.1
+git push -u origin AL306471 --tags <- wrzuciłem commita wraz z tagiem na swojego brancha na origin
+
+3
+Uporządkowałem branche usuwając folder AL306471 i dodając folder Grupy/Grupa03/AL306471.
+Przełączyłem się na branch Grupa03 i stworzyłem swój nowy branch -> git checkout -b Grupa03-AL306471_Lab02
+
+4
+Napisałem skrypt do sprawdzania poprawności wiadomości zawartych w commitach
+
+#!/bin/bash 
+
+if grep -qE "AL306471*" "$1"; then
+	echo "Commit message correct"
+	else  echo "Commit message missing 'AL306471'"
+	exit 1
+fi
+
+5
+Dodałem swoje pliki do brancha grupowego
+git push origin Grupa03-AL306471_Lab02 <- push plików na mojego branch'a
+git merge Grupa03-AL306471_Lab02 <- mergowanie
+Dodałem pull requesta do mastera

@@ -1,0 +1,19 @@
+1. Utworzyłem klucze RSA dla metody logowania protokołem SSH
+	 - uruchomiłem asystenta ssh
+	 - wgrałem na server github klucz publiczny a do klienta ssh klucz prywatny
+	 - ustanowiłem połączenie
+	 - poinformowałem gita o zmianie sposobu połączenia
+2. Nadałem tag
+	 - utworyłem commita na którym bedzie tag
+	 - stworzyłem tag a następnie wypushowałem zmiany z modyfikatorem --follow-tags
+
+3. Uporządkowałem branche i foldery
+	 - zmieniłem konfiguracje folderów na starym branchu
+	 - stworzyłem nowy branch zgodnie z przyjętą konwencją
+	 - przeżuciłem pliki na nowy branch za pomocą git merge
+	 - pojawiły się konflikty ale udało się je rozwiązać
+	 - usunołem stergo brancha
+
+5. Merge zmian do brancha grupowego
+	 - Merguje zmiany do grupowego brancha
+	 - Tworze pull request

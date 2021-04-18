@@ -1,0 +1,37 @@
+Najpierw utworzyłem klucz poleceniem:
+ssh-keygen -t ed25519 -C "scaaz370@gmail.com"
+
+następnie włączyłem agenta ssh:
+eval `ssh-agent -s`
+
+oraz dodałem klucz ssh:
+ssh-add ~/gitkey/key
+
+Dodałem klucz ssh na stronie githuba
+
+ustawiłem połączenie na SSH:
+git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+
+oraz sprawdziłem, czy polaczenie jest po ssh:
+git remote -v
+
+dodałem tag:
+git tag -a SC306435_Lab02 -m "Szymon Czekaj, jak dotad dziala 10/10 plz"
+
+stworzyłem+przełaczyłem się na nowy branch:
+git checkout -b Grupa01-SC306435_Lab02
+
+dotarło do mnie, że to grupa05 a nie 01, zmieniłem nazwę brancha:
+git branch -m Grupa05-SC306435_Lab02
+
+Przeniosłem pliki zgodnie z planem organizacji
+oraz  git push --set-upstream origin Grupa05-SC306435_Lab02
+
+W folderze .git/hooks edytowałem commit-msg.sample oraz usunąłem .sample z nazwy. skrypt jest na zrzucie ekranu
+
+Zmiany pushnięte do brancha osobistego, następnie wykonany zostanie merge 
+brancha osobistego do grupowego. Branch osobisty zostanie usunięty poleceniem git branch -d. 
+Ostatnim krokiem będzie stworzenie na masterze pull request z brancha grupowego. 
+
+
+
