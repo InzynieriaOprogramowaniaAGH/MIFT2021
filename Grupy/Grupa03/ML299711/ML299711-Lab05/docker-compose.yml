@@ -5,12 +5,12 @@ services:
   image: deltachat:latest
   build:
    context: .
-   dockerfile: chat-build
+   dockerfile: chat-build/Dockerfile
  test-agent:
   container_name: deltachat-test
   image: deltachat-test:latest
   build:
    context: .
-   dockerfile: chat-test
+   dockerfile: chat-test/Dockerfile
   depends_on:
   - build-agent
