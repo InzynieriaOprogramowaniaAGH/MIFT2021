@@ -2,3 +2,4 @@
 2. Zapoznałem się z dokumentacją Jenkins
 3. Zbudowałem podstawowy kontener z Jenkinsem i utworzyłem dla niego osobną podsieć
 4. Wrzuciłem obraz na dockerhub
+5. Dodanie dockerfile i zbudowanie własnego kontenera
