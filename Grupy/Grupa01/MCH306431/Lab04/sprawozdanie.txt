@@ -24,4 +24,9 @@ wieloma bledami podczas proby zbudowania projektu.
 - mimo to docker-compose.yml zostal napisany, aby sprawdzic jak moglby wygladac
 
 
+Zwazajac na fakt, ze pkt 5 jest potrzebny na kolejnych laboratoriach to po
+terminie stworzenie nowych Dockerfile-build oraz test - version 3 z nowym komunikatorem
+, tym razem udalo sie uruchomic docker-compose i przeslo pomyslnie
+- wrzucenie Dockerfile v3 na repozytorium bez screenow ze zrzutami ekranu po kolei
+
 

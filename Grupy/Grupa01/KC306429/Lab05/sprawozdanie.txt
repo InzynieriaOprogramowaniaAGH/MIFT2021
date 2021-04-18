@@ -1,0 +1,22 @@
+1.)Zapoznanie sie z oprogramwaniem Jenkins
+
+2.)Instalacja jenkins'a według poradnika na stonie https://www.jenkins.io/doc/book/installing/docker/ następnie stworzenie odpowiedniego dockerfile oraz zbudowanie na jego podstawie obrazu jenkins'a za pomocą polecenia sudo docker build -t jenkins-lab5 .
+
+3.)Publikacja obrazu na platformie dockerhub za pomoca komend
+sudo docker commit 001aa5a874ac karol230/jenkinsdockerhub a następnie 
+sudo docker push karol230/jenkinsdockerhub
+
+4.1)Po uruchomieniu kontenera z jenkins'em za pomocą komendy docker run, nastepnie odpalenie interfejsu graficznego w przeglądarce oraz wykonanie wstępnej konfiguarcji oraz ustawienie hasła.
+
+4.2)Zainstalowanie docker-compose w kontenerze jenkinsa z pomoca komend: 
+ -sudo docker exec -u root -it jenkins-blueocean bash
+ -apt-get install docker-compose
+
+4.3)Utworzenie nowego projektu za pomoca interfejsu graficzengo, podanie linka do repozytorium z kodem przy tworzeniu konfiguracji projektu.
+
+4.4)Dodanie powłoki oraz wpisanie następujących komend 
+ -cd Grupy/Grupa01/KC306429/Lab04
+ -docker-compose build
+ -docker-compose up -d
+
+4.5)Uruchomienie stworzonego projektu
