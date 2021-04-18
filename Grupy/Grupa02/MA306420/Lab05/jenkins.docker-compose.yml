@@ -1,13 +1,12 @@
 version: '3.9'
 
 services:
-    jenkins-docker-driver:
+    # has to be named docker, because network alias does not seem to be working
+    docker:
         image: docker:dind
         privileged: true
         networks:
-            jenkins:
-                aliases:
-                    - docker
+            - jenkins
         environment:
             - DOCKER_TLS_CERTDIR=/certs
         volumes:
@@ -15,8 +14,6 @@ services:
             - jenkins-data:/var/jenkins_home
         expose:
             - "2376"
-        ports:
-            - "2376:2376"
 
     jenkins:
         image: jenkins:latest
@@ -36,7 +33,7 @@ services:
             - "8080:8080"
             - "50000:50000"
         depends_on:
-            - jenkins-docker-driver
+            - docker
 
 networks:
     jenkins:
