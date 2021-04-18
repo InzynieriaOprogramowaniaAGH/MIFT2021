@@ -17,15 +17,19 @@ docker run --name jenkins-docker --rm --detach ^
 Oraz w końcu uruchomiony jenkins:
 docker run --name jenkins-blueocean --rm --detach ^
   --network jenkins --env DOCKER_HOST=tcp://docker:2376 ^
+  --user root^
   --env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=1 ^
   --volume jenkins-data:/var/jenkins_home ^
   --volume jenkins-docker-certs:/certs/client:ro ^
   --publish 8080:8080 --publish 50000:50000 scaaz/myjenkins-blueocean:1.1
 
 
-3. Wrzuć obraz swojego Jenkinsa na DockerHub'a, analogicznie jak poprzednie obrazy.
-Został on wcześniej otagowany odpowiednio (scaaz/myjenkins-blueocean:1.1) oraz wypchnięty do dockerhuba
+Jako trzecie zadanie, został on otagowany odpowiednio (scaaz/myjenkins-blueocean:1.1) oraz wypchnięty do dockerhuba
 
-4. Z poziomu Jenkinsa uruchomionego w kontenerze (pkt 2) uruchom docker-compose stworzony w ramach Lab04.
+Na końcu Z poziomu Jenkinsa stworzyłem job, który uruchamia docker-compose, który został stworzny na poprzednim laboratorium. Przedstawiają to zrzuty ekranu. Job zakończył się sukcesem.
+
+Podczas joba napotkałem problemy z dostępem jenkinsa do tworzenia plików. 
+Jako rozwiązanie zainstalowałem pakiet gsudo (działa jak odpowiednik sudo dla windowsa) oraz dodałem  --user root^ do polecenia które uruchamia kontener z jenkinsem
+Po wypchnięciu ostatnich zmian, branch tymczasowy zostanie usunięty.
 
 
