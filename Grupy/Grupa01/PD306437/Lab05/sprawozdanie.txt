@@ -63,3 +63,9 @@ sudo docker tag 77d33abb1e1b pduda98/myjenkins-blueocean
 Następnie spushowałem obraz poleceniem
 sudo docker push pduda98/myjenkins-blueocean
 
+Zadanie 4
+Aby uruchomić docker-compose z poziomu Jenkinsa musiałem poprzez przeglądarkowy interfejs dodać nowego joba.
+W jobie ustaliłem na jakim repozytorium i a jakim branchu ma działać jenkins.
+Następnie określiłem jakie polecenia mają być po kolei użyte:
+cd Grupy/Grupa01/PD306437/Lab04/compose
+docker-compose up
