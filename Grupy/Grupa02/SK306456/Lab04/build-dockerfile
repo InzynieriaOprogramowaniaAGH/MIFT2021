@@ -1,0 +1,17 @@
+FROM ubuntu:focal
+EXPOSE 3000
+
+RUN apt-get update \
+&& apt-get -y install \ 
+curl gnupg ca-certificates \
+git
+
+RUN curl -fsSL https://deb.nodesource.com/setup_15.x | bash - \
+&& apt-get install -y nodejs 
+
+RUN git clone https://github.com/AlexTraher/Socket.io-Messenger \  
+&& cd Socket.io-Messenger \
+&& npm install
+
+CMD cd Socket.io-Messenger && npm start 
+
