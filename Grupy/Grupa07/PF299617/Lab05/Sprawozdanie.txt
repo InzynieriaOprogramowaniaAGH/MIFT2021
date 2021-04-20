@@ -39,4 +39,10 @@ Zadanie 3.
 Analogicznie jak na poprzednich zajęciach wrzucono obraz Jenkinsa na DockerHub'a.
 
 Zadanie 4.
-
+a) Uruchomiono kontener za pomocą polecenia:
+	sudo docker exec -u root -it jenkins-blueocean bash
+i zainstalowano w nim docker-compose:
+	curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+oraz nadano uprawnienia do wykonywania:
+	chmod +x /usr/local/bin/docker-compose
+b) Z poziomu Jenkinsa uruchomiono docker-compose, który został pobrany z repozytowium git.

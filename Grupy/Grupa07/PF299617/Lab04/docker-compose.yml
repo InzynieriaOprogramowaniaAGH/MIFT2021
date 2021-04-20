@@ -3,12 +3,12 @@ services:
  chat:
   image: chat:latest
   build:
-   context: ./chat
-   dockerfile: ./chat/Dockerfile
+   context: .
+   dockerfile: Dockerfile.build
  chat-test:
   image: chat-test:latest
   build:
-   context: ./test
-   dockerfile: ./test/Dockerfile
+   context: .
+   dockerfile: Dockerfile.test
   depends_on:
    - chat
