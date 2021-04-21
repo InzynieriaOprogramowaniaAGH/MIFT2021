@@ -1,0 +1,5 @@
+2. 04771a00644941fbae95251c5f9d45b2
+
+2. Z pomocą instrukcji stworzono kontener dockerowy z Jenkinsem
+
+4. Z poziomu Jenkinsa uruchomiono kontener uruchomiono docker-compose z Lab04 (Screeny)
