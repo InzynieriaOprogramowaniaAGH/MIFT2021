@@ -1,3 +1,0 @@
-FROM nodechat-build:latest
-WORKDIR node-chat
-RUN npm test

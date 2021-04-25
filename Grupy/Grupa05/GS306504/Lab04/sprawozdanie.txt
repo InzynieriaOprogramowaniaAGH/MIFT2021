@@ -17,23 +17,29 @@ docker push gregwell/grupa05gs306504lab03
 
 2. Znaleziono komunikator na githubie: https://github.com/binhxn/node-chat-app
 
+
 3. Napisano Dockerfile-build:
 
-FROM ubuntu:latest
-ENV TZ=Europe/Warsaw
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo &TZ > /etc/timezone
-RUN apt-get -y update
-RUN apt-get install -y npm
-RUN git clone https://github.com/binhxn/node-chat-app.git
-WORKDIR node-chat-app
+FROM node:latest
+
+WORKDIR /data
+
+RUN git clone https://github.com/binhxn/node-chat-app.git /data/app
+
+WORKDIR /data/app
+
 RUN npm install
+
+CMD ["npm", "start"]
+
 
 4. Napisano Dockerfile-test
 
 FROM nodechat-build:latest
-WORKDIR node-chat
-RUN npm test
 
+WORKDIR .
+
+CMD [ "npm", "test" ]
 
 5. Napisano docker-compose.yml (https://docs.docker.com/compose/)
 
@@ -55,3 +61,15 @@ services:
             - build
 
 Stworzono środowisko które ściąga z repo najnowszą wersję komunikatora, buduje go i testuje czy działa.
+
+
+Do punktów 2-5 brak zrzutu ekranu ponieważ pliki znajdują się w katalogu, a punkt 2 to tylko znalezienie aplikacji.
+Zrzuty do ostatniego zadania pokazują poprawne odpalenie kontenerów
+
+Polecenie do odpalania docker-compose to:
+
+docker-compose up
+
+Użyto również
+
+docker-compose up --build
