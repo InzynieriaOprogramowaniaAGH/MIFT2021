@@ -1,0 +1,35 @@
+Po zapoznaniu się z diagramem omawianym na zajęciach oraz oprogramowaniem Jenkins, przeszedłem do sgworzenia kontenera dockerowego według instrukcji umieszczonej na stronie https://www.jenkins.io/doc/book/installing/docker/
+
+dockerfile, który podany został w instrukcji, budowałem poleceniem:
+docker build -f dockerfile ~/MIFT2021/Grupy/Grupa05/SC306435/Lab05/dockerfile
+
+Stworzony został bridge network:
+docker network create jenkins
+
+następnie uruchomiony obraz docker:dind:
+docker run --name jenkins-docker --rm --detach ^
+  --privileged --network jenkins --network-alias docker ^
+  --env DOCKER_TLS_CERTDIR=/certs ^
+  --volume jenkins-docker-certs:/certs/client ^
+  --volume jenkins-data:/var/jenkins_home ^
+  docker:dind
+
+Oraz w końcu uruchomiony jenkins:
+docker run --name jenkins-blueocean --rm --detach ^
+  --network jenkins --env DOCKER_HOST=tcp://docker:2376 ^
+  --user root^
+  --env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=1 ^
+  --volume jenkins-data:/var/jenkins_home ^
+  --volume jenkins-docker-certs:/certs/client:ro ^
+  --publish 8080:8080 --publish 50000:50000 scaaz/myjenkins-blueocean:1.1
+
+
+Jako trzecie zadanie, został on otagowany odpowiednio (scaaz/myjenkins-blueocean:1.1) oraz wypchnięty do dockerhuba
+
+Na końcu Z poziomu Jenkinsa stworzyłem job, który uruchamia docker-compose, który został stworzny na poprzednim laboratorium. Przedstawiają to zrzuty ekranu. Job zakończył się sukcesem.
+
+Podczas joba napotkałem problemy z dostępem jenkinsa do tworzenia plików. 
+Jako rozwiązanie zainstalowałem pakiet gsudo (działa jak odpowiednik sudo dla windowsa) oraz dodałem  --user root^ do polecenia które uruchamia kontener z jenkinsem
+Po wypchnięciu ostatnich zmian, branch tymczasowy zostanie usunięty.
+
+

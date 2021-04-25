@@ -1,0 +1,39 @@
+1. Stworzenie krotkozyjacego brancha za pomoca komendy: git checkout -b Grupa05-JF306439_Lab05
+
+2. Zapoznanie się z oprogramowaniem Jenkins, stworzenie polaczenia w Dockerze: sudo docker network create jenkins
+
+3. Stworzenie kontenera dockerowego z Jenkinsem posługując się instrukcją https://www.jenkins.io/doc/book/installing/docker/
+
+4. Wrzucenie obrazu Jenkinsa na DockerHub'a:
+	2.1 Zalogowanie sie: docker login
+	2.2 Otagowanie obrazu (login/nazwaObrazu): docker tag myjenkins-blueocean:1.1 whtitiee/myjenkins-blueocean:1.1
+	2.3 Opublikowanie obrazu: docker push whtitiee/myjenkins-blueocean:1.1
+
+5. Uruchomienie skryptu oraz kontenera:
+	- skrypt:
+		sudo docker run \
+		  --name jenkins_container \
+		  --rm \
+		  --detach \
+		  --network jenkins \
+		  --env DOCKER_HOST=tcp://docker:2376 \
+		  --env DOCKER_CERT_PATH=/certs/client \
+		  --env DOCKER_TLS_VERIFY=1 \
+		  --publish 8080:8080 \
+		  --publish 50000:50000 \
+		  --volume jenkins-data:/var/jenkins_home \
+		  --volume jenkins-docker-certs:/certs/client:ro \
+		  whitiee/myjenkins-blueocean:1.1
+	- uruchomienie skryptu: ./skrypt
+	
+	-uruchomienie kontenera: sudo docker container exec -u root -it jenkins_container /bin/bash
+
+6. Skopiowanie hasla za pomoca komendy: cat /var/jenkins_home/secrets/initialAdminPassword	oraz podanie go po uruchomieniu localhost:8080
+
+7. Stworzenie nowego projektu w Jenkins oraz skonfigurowanie go by uruchamial docke-compose tworząc środowisko z Lab04 (dokladne parametry
+	podane na zrzutach ekranu)
+
+8. Zbudowanie stworzonego projektu, sprawdzenie poprawnosci dzialania
+	   
+9. Dolaczenie zmian na Git'a
+

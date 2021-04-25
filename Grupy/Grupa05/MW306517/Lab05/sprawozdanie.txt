@@ -1,0 +1,23 @@
+Zadanie 0. Analiza diagramu omawianego na zajęciach.
+
+Zadanie 1. Zapoznanie się z oprogramowaniem Jenkins.
+
+Zadanie 2. Utworzenie dockerowego kontenera z Jenkinsem przy pomocy poleceń zamieszczonych na 
+stronie: https://www.jenkins.io/doc/book/installing/docker/
+
+Zadanie 3. Umieszczenie utworzonego kontenera z jenkinsem w przygotowanym repozytorium "lab5":
+$ sudo docker tag myjenkins-blueocean:1.1 matwitkowski/lab5:myjenkins-blueocean
+$ sudo docker push matwitkowski/lab5:myjnekins-blueocean
+
+Zadanie 4. Uruchomienie kontenera Jenkinsa
+-przygotowano branch tymczsowy Grupa05-MW306517_Lab05 gdzie umieszczono wszystkie pliki Dockerfile oraz 
+plik docker-compose.yml
+- uruchmiono kontener, następnie poleceniem:
+$ sudo docker conatiner exec -u root -it jenkins-blueocean /bin/bash
+-dostaliśmy się do srodka kontenera by odczytać ustawione automatycznie hasło 
+do strony konfiguracyjnej Jenkinsa:
+$ cat /var/jenkins /home/secrets/initialAdminPassword
+- uruchomiono stronę konfiguracyjną localhost:8080/ i podano hasło.
+-utworzono nowe zadanie o nazwie lab05, w konfiguracji repozytorium podano link 
+do naszego repozytorium i okreslono który branch nas interesuje, oraz sprecyzowano komendy budowania
+-uruchomiono zadanie
