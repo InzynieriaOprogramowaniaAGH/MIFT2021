@@ -3,6 +3,8 @@ services:
     build:
         container_name: nodechat-build
         image: nodechat-build:latest
+        ports:
+            - "3000:3000"
         build: 
             context: .
             dockerfile: Dockerfile-build
