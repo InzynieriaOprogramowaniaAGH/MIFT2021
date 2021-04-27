@@ -51,7 +51,7 @@ Przenieś w repozytorium swój folder (np.:KM123456), tak by był dostępny pod 
 Przykładowe githook'i są w .git/hooks.
 
 5. Dołącz swoje zmiany. 
-5.1 Zrób push'a ze swojego brancha osobistego do brancha grupowego-Lab02. Następnie zamknij branch osobisty.
+5.1 Zrób merga ze swojego brancha osobistego do brancha grupowego. Następnie zamknij branch osobisty.
 5.2 Stwórz nowy "Pull request" ze swojego brancha grupowego do mastera: https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021/pulls
 
 Uwaga: zgłoś zadanie na MS Teams!

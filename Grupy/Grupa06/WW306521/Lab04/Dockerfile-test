@@ -1,5 +1,5 @@
-FROM wire:latest
+FROM nodechat:latest
 
-WORKDIR ./wire-desktop
+WORKDIR ./node-chat-app
 
 RUN npm test

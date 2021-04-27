@@ -1,6 +1,0 @@
-1.klient git już był zainstalowany.
-2.Sklonowanie repozytorium: git clone git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git.
-3.Zapoznanie z instukcja.
-4.Stworzenie nowego brancha: git branch DN297896, Przełączenie się na stworzonego brancha: git chceckout DN297896, Stworzenie folderu: mkdir DN297896, stworzenie kolejnego folderu wewnątrz poprzedniego: mkdir Lab01, następnie stworzenie nowego pliku: touch sprawozdanie.txt. Dodanie pliku do repozytorium: git add sprawozdanie.txt, wykonanie commita: git commit -m "Dodanie pliku sprawozdanie.txt", dodanie pliku z grafem: git add graf.png, wykonanie commita: git commit -m "Dodanie grafu".
-5.Commitowanie zmian: git commit -m "Update sprawozdanie.txt", push brancha: git push origin DN297896.
-6.Dodawanie zrzutow ekranu git add (nazwa_zrzutu). Po dodaniu wszustkich: git commit -m "Dodanie zrzutów ekranu", git push origin DN297896

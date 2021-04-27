@@ -1,9 +1,0 @@
-0. git był zainstalowany przed laboratorium.
-1. Sklonowanie repozytorium przy użyciu polecenia git clone <link_do_repo>
-2. Utworzenie branch'a, polecenie git branch <nazwa_brancha>
-3. Przełączenie się na utworzonego brancha, polecenie git checkout <nazwa_brancha>
-4. Utworzenie katalogu, polecenie mkdir <nazwa_katalogu>, przejście do niego - cd <nazwa_katalogu>
-5. Utworzenie pliku sprawozdanie.txt poleceniem type nul > sprawozdanie.txt
-6. Dodawanie plików do "working tree" - polecenie git add <plik>
-7. Pushowanie, poleceniem git push
-8. Scalenie branchów - git merge

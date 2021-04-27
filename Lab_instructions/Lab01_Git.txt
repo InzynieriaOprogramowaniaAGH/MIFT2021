@@ -31,6 +31,6 @@ Dodaj je do repozytorium. Wykonaj commita i push brancha na remot'a.
 Zmien nazwy pilków ze zrzutem ekranu na odpowiednio na zadanie1, zadanie2, etc...
 Wykonaj commita i push brancha na remot'a.
 
-7. Wyknaj merge swojego brancha do głównego brancha (master/main). Zrób push'a na remota.
+7. Wykonaj merge swojego brancha do głównego brancha (master/main). Zrób push'a na remota.
 
 8. Na koniec wypełnij zadanie "Lab01" na teamsach.

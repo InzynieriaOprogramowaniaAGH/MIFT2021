@@ -1,0 +1,58 @@
+DevOps 10.03.2021
+
+1. Przełączenie się na master brancha "git checkout master". Zaciągnięcie nowych instrukcji "git pull"
+
+1.1, 1.2 Generowanie nowego klucza za pomocą "ssh-keygen -t ed25519 -C "agnieszka7867@wp.pl""
+
+1.3 Dodawanie klucza do agenta kluczy:
+    - wystartowanie agenta "eval "$(ssh-agent -s)""
+    - dodanie klucza "ssh-add ~/.ssh/id_ed25519"
+
+1.4 Rejestracja nowego klucza
+    - kopiowanie klucza
+    - dodawanie go na github
+
+1.5 Poinformowanie gita o zmianie sposobu logowania
+    - "git remote -v" 
+    - zmienia połącznia na SSH "git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git" 
+    - "git remote -v".
+
+2. Dodawanie taga: 
+    - przejście na swojego brancha "git checkout AK306463"
+    - dodanie taga "git tag -a AK306463_Lab02 -m "mam nadzieje ze dziala 10/10""
+    - "git add ."
+    - "git commit"
+    - "git push"
+    - "git push origin AK306463 --follow-tags"
+
+3. Uporządkowanie branchy 
+    - rozpoczęto od uporządkowania struktury folderów na swoim prywatnym branchu
+        - usunięcie folderu AK306463
+        - dodanie folderu Grupy/Grupa03/AK306463
+    - przełączenie się na brancha Grupa03 "git checkout Grupa03"
+    - stworzenie nowego brancha "git checkout -b Grupa03-AK306463_Lab02"
+
+4. Napisnie prostego skryptu do sprawdzania wiadomości commitowych
+    - w folderze .git/hooks stworzenie nowego pliku commit-msg wraz ze skryptem:
+     "  #!/bin/bash
+        w=`cat $1 | head -1 | grep "AK306463"`
+        if [ -n "$w" ]
+        then
+	        echo "Commit msg correct"
+        else
+	        echo "Error in commit msg- add your signature"
+            exit 1
+        fi "
+    - nadanie odpowiednich atrybutow pliku "chmod 755 commit-msg"
+
+5. Dołączenie swoich zmian do brancha grupowego
+    - zpushowanie zmian z brancha osobistego do brancha grupowego "git push origin Grupa03-AK306463_Lab02"
+    - zmiana brancha na brancha grupowego, zmergowanie "git merge Grupa03-AK306463_Lab02", dodanie zamin na brancha
+    - usunięcie niepotrzebnego brancha "git branch -d Grupa03-AK306463_Lab02"
+    - dodanie pull requesta do mastera
+
+
+
+
+
+
