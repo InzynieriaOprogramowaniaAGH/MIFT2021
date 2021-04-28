@@ -1,0 +1,29 @@
+Sprawozdanie Mateusz Bonk
+0. W trakcie zajęć zapoznałem się z omawianym diagramem
+
+1. W trakcie ćwiczenia wykonuje polecenia ze strony podanej w instrukcji: 
+	https://www.jenkins.io/doc/book/installing/docker/
+
+2. Napierw stworzyłem obraz uzywając polecenia:
+	docker run --name jenkins-docker --rm --detach \
+  --privileged --network jenkins --network-alias docker \
+  --env DOCKER_TLS_CERTDIR=/certs \
+  --volume jenkins-docker-certs:/certs/client \
+  --volume jenkins-data:/var/jenkins_home \
+ --publish 2376:2376 docker:dind --storage-driver overlay2
+
+Nastepnie wykonałem drugi obraz:
+	docker run --name jenkins-blueocean --rm --detach \
+  --network jenkins --env DOCKER_HOST=tcp://docker:2376 \
+  --env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=1 \
+  --publish 8080:8080 --publish 50000:50000 \
+  --volume jenkins-data:/var/jenkins_home \
+  --volume jenkins-docker-certs:/certs/client:ro \
+  myjenkins-blueocean:1.1
+
+	Został on wykonany Na podstawie pliku DockerfileJenkins który został dodany do folderu Lab5
+
+3. Wykonałem pusha na swój profil na serwisie DockerHUB
+	sudo docker push b0niu/lab5
+
+4. W uruchomionym kontenerze uruchamiam Jenkinsa. Utworzyłem nowego joba w którym pobieram Nasze repozytorium i wykonuje prosty skrypt który uruchamia plik docker-compose.yml z poprzednich ćwiczeń

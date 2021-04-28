@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3a922db21220459fd2009c71ff2000726213844f
 2. Z pomocą instrukcji stworzono kontener dockerowy z Jenkinsem
 
 3. Dodano obraz na dockerhuba jak na wcześniejszych zajęciach
