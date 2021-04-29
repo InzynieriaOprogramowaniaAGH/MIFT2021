@@ -1,0 +1,1 @@
+1. Utworzenie katalogu i podkatalogów dla odpowiadających technologii, oraz utworzenie pustych plików Dockerfile, docker-compose i Jenskinsfile.
