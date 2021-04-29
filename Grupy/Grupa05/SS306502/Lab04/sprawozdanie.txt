@@ -1,0 +1,19 @@
+1. Stworzenie brancha labowego - sprawa analogiczna jak na zajeciach poprzednich
+1.1 Opublikowanie obrazu z poprzednich zajec na dockerhub:
+	- zalogowanie sie na dockerhuba - docker login
+	- stworzenie taga na obraz - sudo docker image tag [id] stochel/lab03img
+	- wrzucenie obrazu na huba - sudo docker image push stochel/lab03img:latest
+
+2. Znalezienie opensourceowego komunikatora - https://github.com/binhxn/node-chat-app
+
+3. Stworzenie Dockerfilea_buildera, ktory bedzie budowal srodowisko z komunikatorem
+	- utworzenie Dockerfile_builder bedacego podstawa obrazu
+	- budowa obrazu - sudo docker build -t build . -f Dockerfile_builder
+	- odpalenie kontenera z obrazem - sudo docker run -it -p 3000:3000 builder
+4. Stworzenie Dockerfilea_testera, ktory bedzie testowal komunikator
+	- utworzenie Dockerfile_tester bedacego podstawa obrazu
+	- budowa obrazu - jw
+	- odpalenie kontenera z obrazem - jw
+5. Stworzenie pliku docker-compose.yml, ktory polaczy funkcjonalnosc powyzszych obrazow w jedno srodowisko
+	- utworzenie pliku docker-compose.yml
+	- uruchomienie obu kontenerow jako jedno srodowisko - sudo docker-compose up

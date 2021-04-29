@@ -1,0 +1,26 @@
+Podczas zajec przygotowano diagramy umieszczone w folderze Lab06
+
+
+Moj pipeline:
+1. Tech stack:
+-node.js server
+-docker
+-jenkins
+-git
+
+2.Bardziej szczegolowo:
+-repo: RocketChat-> MIFT
+-jezyki: bash, typescript
+-dockerhub- compose.yml
+
+3. Flow
+-push na githuba (git push) triggeruje odpalenie Jenkinsa
+-driverem procesu jest Jenkinsfile umieszczony w dockerowym kontenerze na localhost (zakladam ze uruchomiono docker run z tym kontenerem wczesniej)
+-docker compose-up
+-buildowanie -jesli faile, koniec + wyslany mail ze faile
+-npm rocketchat -test 
+-jesli testy fail-koniec+ mail
+-logi testowe przekazywane na Jenkinsa
+-migracja zbudowanych artefaktow na srodowisko produkcyjne   (realizacja Jenkinsfile)
+-srodowisko produkcyjne w kontenerze dockerowym
+
