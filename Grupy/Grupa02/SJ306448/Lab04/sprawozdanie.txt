@@ -1,0 +1,14 @@
+1.Stworzono branch osobisty wg. schematu z poprzednich zajęć. Nazwano go Grupa02-SJ306448_Lab04. 
+Sprawdzono kontenery dzięki poleceniu sudo docker ps -a.
+Dokonanno commitu obrazu z poprzednich zajęć dzięki sudo docker commit 77d944ed46bc simeno/lab03-img
+Sprawdzono dodane zmiany dzięki sudo docker images
+Zalogowano się dzięki sudo docker login
+Wysłano repozytorium do serwisu - docker push simeno/lab03-img
+2.Wybrano komunikator https://github.com/binhxn/node-chat-app
+3.Stworzono Dockerfile i zbudowano kontener poleceniem docker build -t node-chat-app
+Potem uruchomiono obraz dzięki docker run -p 3000:3000 -it node-chat
+4.Stworzono nowy obraz kontenera dockerowego "Dockerfile-test". 
+Zbudowano dzięki sudo docker build -t node-chat-test . -f Dockerfile-test
+Następnie uruchomiono konetener - docker run -p 3000:3000 -it node-chat-test
+5.Stworzono plik docker-compose.yml. 
+Uruchomiono budowanie docker-compose dzięki docker-compose up --build
