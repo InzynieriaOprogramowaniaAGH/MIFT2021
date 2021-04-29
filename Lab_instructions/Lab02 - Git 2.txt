@@ -28,18 +28,18 @@ https://docs.github.com/en/github-ae@latest/github/authenticating-to-github/addi
 
 2. Nadaj "Tag" na aktualnego commita o nazwie: "twoje inicjały + nr indexu + nr zadania" wraz z komentarzem.
 Np.: git tag -a KM123456_Lab01 -m "Kazimierz Michalik, Lab 01 wszystko działa, 10/10 proszę"
-2.1 Wrzuć tą zmianę na swojego brancha na origin, a następnie remote/origin używając np.: git push --follow-tags
+2.1 Wrzuć tą zmianę na swojego brancha, a następnie remote/origin używając np.: git push --follow-tags
 
 3. Uporządkowanie branch'y i folderów: pogrupowanie w grupy laboroatoryjne.
 Aktualnie pracujemy w konfiguracji, która prezentuje się następująco:
 "repo/inicjały+indeks/Lab##", np.: "MIFT2021/KM123456/Lab01".
 Dotychczas ta konfiguracja była bardzo podobna dla folderów i dla branchy, lecz teraz to zmienimy.
 
-3.1 Chcemy teraz stworzyć konfigurację folderów (!), która będzie wyglądała tak:
+Chcemy teraz stworzyć konfigurację folderów (!), która będzie wyglądała tak:
 "repo/Grupy/Grupa##/inicjały+indeks/Lab##", np.: "MIFT2021/Grupy/Grupa08/KM123456/Lab02".
 Przenieś w repozytorium swój folder (np.:KM123456), tak by był dostępny pod nową ścieżką i nie był dostępny pod starą ścieżką.
 
-3.2 Chcemy teraz stworzyć konfigurację branchy (!), która będzie wyglądała tak (pamiętaj podminieć swoje inicjały+nr idndeksu w miejsce "KM123456" i stworzyć folder dla właściwej sobie grupy laboratoryjnej!):
+Chcemy teraz stworzyć konfigurację branchy (!), która będzie wyglądała tak (pamiętaj podminieć swoje inicjały+nr idndeksu w miejsce "KM123456" i stworzyć folder dla właściwej sobie grupy laboratoryjnej!):
 * master (już istnieje; branch długożyjący; tutaj już nie robimy więcej push'a; dołączamy tylko "branche grupowe" przez pull requesta)
 * Grupa01 (już istnieje; branch długożyjący; to jest branch grupowy; do tego brancha będziesz push'ował zmiany ze swojego brancha)
 * Grupa01-KM123456_Lab02 (takiego brancha musisz zrobić oddzielając go od swojego grupowego brancha; to jest branch krótko żyjący; usuniesz go kiedy wykonasz swoje ćwiczenie i zrobisz merga do brancha grupowego; takiego brancha będziesz tworzył dla każdego laboratorium osobno)
@@ -48,11 +48,7 @@ Przenieś w repozytorium swój folder (np.:KM123456), tak by był dostępny pod 
 4. Napisz Git hook'a - skrypt weryfikujący, że każdy Twój commit message zaczyna się od "twoje inicjały + nr indexu". 
 4.1 Wepnij go we właściwe miejsce, tak by uruchamiał się za każdym razem kiedy robisz commita.
 (zwróć uwagę że ten git hook musi się uruchamiać po twojej stronie, nie serwera).
-Przykładowe githook'i są w .git/hooks.
-Koniecznie umieść treść githooka w sprawozdaniu.
 
 5. Dołącz swoje zmiany. 
-5.1 Zrób merga ze swojego brancha osobistego do brancha grupowego. Następnie zamknij branch osobisty.
+5.1 Zrób push'a ze swojego brancha osobistego do brancha grupowego-Lab02. Następnie zamknij branch osobisty.
 5.2 Stwórz nowy "Pull request" ze swojego brancha grupowego do mastera: https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021/pulls
-
-Uwaga: zgłoś zadanie na MS Teams!
