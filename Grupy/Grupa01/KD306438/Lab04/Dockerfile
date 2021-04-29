@@ -4,8 +4,8 @@ RUN apt-get update -y
 RUN apt-get upgrade -y
 RUN apt-get install --assume-yes git
 RUN apt-get install --assume-yes g++
-RUN git clone https://github.com/zulip/zulip-desktop.git
-WORKDIR ./zulip-desktop
+RUN git clone https://github.com/igorantun/node-chat.git
+WORKDIR ./node-chat
 RUN npm install
 CMD ["npm", "start"]
 
