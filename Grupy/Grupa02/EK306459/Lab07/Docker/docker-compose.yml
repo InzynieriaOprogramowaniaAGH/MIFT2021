@@ -1,0 +1,14 @@
+version: "3.3"
+services:
+ lab05_chat:
+  container_name: lab05_chat
+  image: lab05_chat:latest
+  build:
+   context: ./docker_chat
+ lab05_test:
+  container_name: lab05_test
+  image: lab05_test:latest
+  build:
+   context: ./docker_test
+  depends_on:
+  - lab05_chat
