@@ -1,0 +1,8 @@
+1. Przygotowałem pliki potrzebne do uruchomienia CI/CD pipeline i umieściłem je w jedym folderzez Lab07
+
+2. Stworzyłem Jenkinsfile, który ma za zadanie realizować CI/CD pipeline
+
+Jenkins/wire-desktop/Jenkinsfile
+
+2.1 Przeniosłem jenkinsfile do folderu z repozytorium
+
