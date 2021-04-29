@@ -44,10 +44,7 @@
 		  --volume jenkins-docker-certs:/certs/client:ro \
 		  myjenkins-blueocean:1.1
 5. Przejscie przez kreator instalacji Jenkinsa. 
-6. Utworzyłam nowe repozytorium annadybel21/lab05 na dockerhub i korzystając z nastepujących poleceń wrzuciłam obraz Jenkinsa na DockerHub'a:
-	$ sudo docker tag local-image:tagname new-repo:tagname
-	$ sudo docker push new-repo:tagname
-6. Otagowanie kontenera jenkinsowego, za pomoca komendy:
+6. Stworzenie nowego repozytorium. Otagowanie kontenera jenkinsowego, za pomoca komendy:
 	$ sudo docker tag imageid login/reponame:tag
 	$ sudo docker image push login/reponame:tag
 7. Uruchomienie docker-compose z poziomu Jenkinsa, za pomoca nastepujacych komend: 
