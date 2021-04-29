@@ -1,0 +1,64 @@
+2. Tworzenie kontenera z Jenkinsem zgodnie z instrukcja na stronie:
+
+2.1
+	Stworzenie sieci:
+	> docker network create lab05
+	
+	Uruchomienie kontenera z obrazu docker:dind
+	> docker run \
+		  --name jenkins-docker \
+		  --rm \
+		  --detach \
+		  --privileged \
+		  --network lab05 \
+		  --network-alias docker \
+		  --env DOCKER_TLS_CERTDIR=/certs \
+		  --volume jenkins-docker-certs:/certs/client \
+		  --volume jenkins-data:/var/jenkins_home \
+		  --publish 2376:2376 \
+		  docker:dind \
+		  --storage-driver overlay2
+
+2.2
+	Utworzenie i zbudowanie obrazu Dockerfile:
+	> nano Dockerfile
+	> docker build -t myjenkins-blueocean:1.1 .
+
+2.3
+	Uruchomienie kontenera z utworzonego obrazu
+	> docker run \
+		  --name jenkins-blueocean \
+		  --rm \
+		  --detach \
+		  --network lab05 \
+ 		 --env DOCKER_HOST=tcp://docker:2376 \
+  		--env DOCKER_CERT_PATH=/certs/client \
+  		--env DOCKER_TLS_VERIFY=1 \
+ 		 --publish 8080:8080 \
+  		--publish 50000:50000 \
+  		--volume jenkins-data:/var/jenkins_home \
+  		--volume jenkins-docker-certs:/certs/client:ro \
+  		myjenkins-blueocean:1.1 
+
+3. Wypchniecie obrazu do Docker HUB:
+	> docker tag myjenkins-blueocean:1.1 perkele4040/perkelerepo
+	> docker push perkele4040/perkelerepo
+
+4. Uruchomienie docker-compose z lab04 z poziomu konteneru z jenkinsem
+
+4.1
+	Pobranie hasla do konta admina:
+	> sudo docker exec c99b0fccfc24 cat /var/jenkins_home/secrets/initialAdminPassword
+
+4.2
+	Setup w przegladarce
+
+4.3
+	Stworzenie i przygotowanie nowego projektu freestyle
+	4.3.1 
+		Podlaczenie projektu do Gita
+	4.3.2
+		Wybranie polecen do uruchomienie przez projekt
+4.4
+	Testowanie poprawnosci dzialania
+	Po 5 uruchomieniach udalo sie naprawic wszystkie bledy i uzyskac pozytywny wynik.

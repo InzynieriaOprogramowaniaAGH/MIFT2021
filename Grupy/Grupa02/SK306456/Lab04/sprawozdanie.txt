@@ -1,0 +1,8 @@
+1.1. Zalgoowanie do docker hub'a za pomoca docker login.
+1.2. Zbudowanie obrazu o nazwie <repo>/<nazwa>:<tag>.
+1.3. Udostepnienie obrazu poleceniem docker push <nazwa_obrazu>.
+2.0. Wybrany komunikator to jedna z dostepnych na githubie implementacji socket.io.
+3.1. Dockerfile potrzebny do zbudowania kontenera z aplikacją został stworzony na bazie ubuntu 18.04, z doinstalowanym gitem i curlem oraz nodem. Uruchomienie aplikacji (npm start) jest wykonywane przy uruchamianiu kontenera po komendzie CMD Dockerfile.
+3.2. Aby aplikacja dzialala prawidłowo konieczne jest "wystawienie" portu w Dockerfile ppoprzez EXPOSE <nr.portu> oraz przekierowanie porti atrybutem -p: docker run -p 3000:3000 <nazwa_obrazu>.
+4.1. Testy wykonywane są na bazie obrazu "buildowego", poprzez zbudowanie nowego obrazu komendą FROM <poprzedni_obraz> (poprzedni_obraz to w moim przypadku argument), oraz w CMD wywołanie npm test. W ten sposób za każdym uruchomieniem kontenera będą wykonywane testy.
+5.0. Docker compose najpierw buduje obraz "chat", a następnie wykonuje testy tego obrazu. Koniecznie jest zdefiniowanie kontekstu oraz ścieżki do Dockerfile dla każdego z orbazów.
