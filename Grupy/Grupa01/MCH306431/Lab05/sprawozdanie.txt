@@ -1,3 +1,0 @@
-1. Zapoznanie sie z Jenkins
-2. Stworzenie kontenera dockerowego Jenkins zgodnie z instrukcja
-- stworzenie dockerfile, zbudowanie oraz uruchomienie

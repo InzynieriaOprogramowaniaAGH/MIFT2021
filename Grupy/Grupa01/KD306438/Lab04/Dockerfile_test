@@ -1,5 +1,5 @@
-FROM im1
-WORKDIR ./zulip-desktop
+FROM image-node
+WORKDIR ./node-chat
 RUN npm test
 
 

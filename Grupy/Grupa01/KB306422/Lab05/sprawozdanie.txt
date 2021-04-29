@@ -1,0 +1,43 @@
+LAB05
+
+1) Zapoznano się z oprogramowaniem Jenkins na stronie https://www.jenkins.io/
+2) Stworzono kontener dockerowy z Jenkinsem według instrukcji:
+Utworzenie sieci
+	-sudo docker network create jenkins 
+Pobranie i uruchomienie obrazu Dockerowego docker:dind
+	-sudo docker image pull docker:dind
+	-sudo docker run --name jenkins-docker --rm --detach \
+  	--privileged --network jenkins --network-alias docker \
+  	--env DOCKER_TLS_CERTDIR=/certs \
+  	--volume jenkins-docker-certs:/certs/client \
+  	--volume jenkins-data:/var/jenkins_home \
+  	--publish 2376:2376 docker:dind --storage-driver overlay2
+Utworzono Dockerfile i umieszczono go w folderze Lab05
+Następnie zbudowano nowy obraz z Dockerfile
+	-sudo docker build -t myjenkins-blueocean:1.1 .
+Uruchomiono obraz jako kontener w Dockerze
+	-sudo docker run --name jenkins-blueocean --rm --detach \
+  	--network jenkins --env DOCKER_HOST=tcp://docker:2376 \
+  	--env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=1 \
+  	--publish 8080:8080 --publish 50000:50000 \
+  	--volume jenkins-data:/var/jenkins_home \
+  	--volume jenkins-docker-certs:/certs/client:ro \
+  	myjenkins-blueocean:1.1
+Sprawdzono czy kontenery działają
+	-sudo docker ps
+3) Wrzucono obraz Jenkinsa na DockerHub'a
+Utworzono repozytorium na DockerHub o nazwie lab05-jenkins
+Nadano tag oraz zrobiono push
+	-sudo docker tag ID klaaaudii12345/lab05-jenkins
+	-sudo docker push klaaaudii12345/lab05-jenkins
+4) Uruchomienie z poziomu kontenera Jenkinsa docker-compose'a:
+Przejście na adres localhost:8080
+Uzyskanie hasła przy pomocy
+	-sudo docker logs CONTAINER ID
+Rejestracja, konfiguracja i instalacja wtyczek
+Utworzenie projektu oraz dodanie URL repozytorium i brancha (umieszczone w PNG)
+Uzupełnienie komend w Execute shell
+	-cd Grupy/Grupa01/KB306422/Lab04
+	-pobranie docker-compose
+	-docker-compose up
+Zapisanie i uruchomienie zadania
