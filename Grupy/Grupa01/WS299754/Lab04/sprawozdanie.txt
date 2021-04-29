@@ -4,4 +4,5 @@
 	docker tag my_ubuntu wsmieja/my_ubuntu
 - Push do Docker Hub:
 	docker push wsmieja/my_ubuntu
+2. Wybrano komunikator node-chat-app: https://github.com/angristan/node-chat-app
 
