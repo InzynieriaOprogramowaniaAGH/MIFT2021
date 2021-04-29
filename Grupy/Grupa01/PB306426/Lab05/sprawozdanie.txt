@@ -1,0 +1,24 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3a922db21220459fd2009c71ff2000726213844f
+2. Z pomocą instrukcji stworzono kontener dockerowy z Jenkinsem
+
+3. Dodano obraz na dockerhuba jak na wcześniejszych zajęciach
+	sudo docker commit b344a9214bd6 pazindor/lab_04:lab_05
+	sudo docker push pazindor/lab_04:lab_05
+
+4. Z poziomu Jenkinsa uruchomiono kontener uruchomiono docker-compose z Lab04 (Screeny)
+	
+	W Source Code Management, Repository Repository URL wstawiono:
+	https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git
+	Branches to build:
+	*/Grupa01
+	
+	W Build, Execute shell:
+	cd Grupy/Grupa01/PB306426/Lab04
+	curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+	chmod +x /usr/local/bin/docker-compose
+	docker-compose up
+	
+	Klucz: 04771a00644941fbae95251c5f9d45b2

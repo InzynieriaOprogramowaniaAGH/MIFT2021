@@ -1,0 +1,41 @@
+1. Wykonano instrukcje instalacji ze strony https://www.jenkins.io/doc/book/installing/docker/
+	a. Utworzono siec za pomoca polecenia 
+		docker network create jenkins
+	b. Pobrano i uruchomiono kontener docker:dind ktory pozwala na wykonywanie polecen dockera w wezlach jenkinsa
+		docker run --name jenkins-docker --rm --detach \
+		  --privileged --network jenkins --network-alias docker \
+		  --env DOCKER_TLS_CERTDIR=/certs \
+		  --volume jenkins-docker-certs:/certs/client \
+		  --volume jenkins-data:/var/jenkins_home \
+		  --publish 2376:2376 docker:dind --storage-driver overlay2
+	c. Utworzono dockerfile ze strony a nastepnie zbudowano obraz za pomoca polecenia
+		docker build -t myjenkins-blueocean:1.1 .
+	d. Uruchomiono kontener ze zbudowanego obrazu ktory pozwalal na uruchomienie jenkinsa 
+		docker run --name jenkins-blueocean --rm --detach \
+		  --network jenkins --env DOCKER_HOST=tcp://docker:2376 \
+		  --env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=1 \
+		  --publish 8080:8080 --publish 50000:50000 \
+		  --volume jenkins-data:/var/jenkins_home \
+		  --volume jenkins-docker-certs:/certs/client:ro \
+		  myjenkins-blueocean:1.1
+Nastepnie uruchmiono jenkinsa w przegladarce za pomoca url localhost:8080
+
+2. Wykonano push obrazu aby tego dokonac nalezalo nadac odpowidni tag za pomoca
+docker tag nazwa_obrazu:tag dockerhub_login/nazwa_obrazu:tag
+docker login
+docker push dockerhub_login/nazwa_obrazu:tag
+
+3. Haslo do Jenkinsa pozyskano za pomoca polecenia 
+sudo docker exec CONTAINER_ID cat /var/jenkins_home/secrets/initialAdminPassword 
+Gdzie id konteneru znaleziono za pomoca polecenia docker ps
+
+4. Zalogowano sie i zainstalowano rekomendowane pluginy 
+Nastepnie utworzono nowe konto i zmieniono url na localhost:8080/jenkins 
+
+5. Wewnatrz konteneru zainstalowano docker-compose, aby wejsc do konteneru uzyto polecenia
+sudo docker exec -u root -it jenkins-blueocean bash
+Nastepnie wykorzystano polecenia do instalacji docker-compose
+
+6. Utworzono nowy job jako freestyle project
+W nim wybrano SCM jako git gdzie mozna bylo podac link do repo jako https lub ssh z credentialem 
+Nastepnie napisano prosty skrypt shellowy w ktorym nalezalo zmienic folder i uruchomic docker-compose 

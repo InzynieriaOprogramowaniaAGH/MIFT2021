@@ -1,0 +1,53 @@
+Grzegorz Cebula Lab05
+
+Zadanie 2
+Utworzylem nowego branach'a poleceniem git checkout -b Grupa01-GC306428_Lab05
+
+Stworzylem nowa siec dla kontenera z Jenkinsem poleceniem "docker network create jenkins"
+
+Uruchomilem obraz dockerowy docker:dind:
+docker run \
+  --name jenkins-docker \
+  --rm \
+  --detach \
+  --privileged \
+  --network jenkins \
+  --network-alias docker \
+  --env DOCKER_TLS_CERTDIR=/certs \
+  --volume jenkins-docker-certs:/certs/client \
+  --volume jenkins-data:/var/jenkins_home \
+  --publish 2376:2376 \
+  docker:dind \
+  --storage-driver overlay2
+
+Utowrzylem nowy kontener uzywajac Dockerfile poleceniem "docker build -t devops_jenkins ."
+
+Uruchomilem kontener z Jenkinsem:
+docker run \
+  --name jenkins_devops_container \
+  --rm \
+  --detach \
+  --network jenkins \
+  --env DOCKER_HOST=tcp://docker:2376 \
+  --env DOCKER_CERT_PATH=/certs/client \
+  --env DOCKER_TLS_VERIFY=1 \
+  --publish 8080:8080 \
+  --publish 50000:50000 \
+  --volume jenkins-data:/var/jenkins_home \
+  --volume jenkins-docker-certs:/certs/client:ro \
+  devops_jenkins 
+
+Zadanie 3
+Wrzucilem stworzonego obraz z Jenkinsem na Dockerhub'a:
+sudo docker login
+sudo docker tag a00ce89190c9 grzechotnik/lab05
+sudo docker push grzechotnik/lab05
+
+Zadanie 4
+
+Uruchomilem jenkinsa (w celu otrzymania hasla sprawdzilem logi kontenera z jenkinsem, w ktorych haslo jest wypisane "sudo docker logs CONTAINER")
+Zalogowalem sie na jenkinsa z pobranym haslem pod adresem localhost:8080
+Utworzylem nowego "job'a", ktory za zadanie ma przejsc do folderu, w ktorym znajduje sie docker-compose.yml, oraz uruchomienie poleceniem docker-compose up
+Job klonuje repozytorium podane w linku, i przechodzi na odpowiedniego brancha.
+Po uruchomieniu joba, analizujac wyjscie na konsoli wydaje sie, ze wszystko dziala poprawnie. Problemem w zakonczeniu sie job'a jest to, ze build-agent z lab04 uruchamia komunikator i nie zatrzymuje jego dzialania. Przez to job bedzie pracowal w nieskonczonosc.
+
