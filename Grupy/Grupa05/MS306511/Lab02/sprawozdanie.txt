@@ -1,0 +1,13 @@
+Przepraszam za spoznione wyslanie zadania, zrealizowalem je o czasie, jednak nie do konca poprawnie- dostalem
+pewnie rewerta, nie zapisalo sie, a ze byl to dla mnie dosc klopotliwy czas (covid) nie zabralem sie za to
+chwile po. Najmnocniej Przepraszam
+
+1. Dodalem klucz ssh, co widoczne jest na screenach
+2. Dodalem takiego (screeny)
+3. Zle zrozumialem wtedy konfiguracje, to byla przyczyna odrzucenia, teraz pracuje w poprawnej o
+czym swiadczy lokalizacja tego zadania
+4. Napisalem git hooka, zalaczony plik
+
+
+Z powazaniem
+Michal Switala
