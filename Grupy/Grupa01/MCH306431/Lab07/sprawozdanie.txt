@@ -1,0 +1,4 @@
+1. Umieszcze nie plikow zrodlowych w poprzednich zajec w repozytorium (oprocz JenkinsFile, ktory zostanie umieszczony w trakcie lab)
+ - zmiana nazwy odpowiednich Dockerfile w zalezonsci od numeru lab.
+
+2. Wykonanie fork repozytorium z komunikatorem, wrzucenie do niego Jenkinsfile
