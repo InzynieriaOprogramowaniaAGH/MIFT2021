@@ -1,0 +1,9 @@
+1.stworzyem branch tymczasowy i opublikowaem obraz z poprzednich zajec
+
+2.Znalazem komunikator opensource'owy wire-desktop
+
+3.Utworzylem dockerfile do zbudowania komunikatora (kompilacja,zaleznosci..etc)
+
+4.Utworzylem Dockerfile do Testow
+
+5.Stworzenie i uruchomienie pliku yaml
