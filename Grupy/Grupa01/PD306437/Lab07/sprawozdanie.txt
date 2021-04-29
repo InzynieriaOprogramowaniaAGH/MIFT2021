@@ -1,0 +1,4 @@
+Zadanie 1
+Utworzono trzy foldery: Docker, Docker-compose oraz Jenkins.
+Do folderu Docker dodano pliki Dockerfile_chat_app_build, Dockerfile_chat_app_build oraz Dockerfile_jenkins.
+Do folderu Docker-compose dodano plik docker-compose.yaml - utworzony w trakcie czwartych laboratoriów.
