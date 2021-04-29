@@ -1,0 +1,13 @@
+1. Przejście na brancha grupowego - git checkout Grupa02
+2. Stworzenie nowego brancha krótkożyjącego - git checkout -b Grupa02-SK306456_Lab03
+3. Stworzenie nowej ścieżki w której będzie przechowywany commit-msg hook mkdir -p ...
+4. Skopiowanie hooke'a - cp src dest
+5. Sprawdzenie czy zainstalowana wersja Dockera działa prawidłowo - sudo docker run hello-world
+6. Zalogowanie do hub.docker.com 
+7. Stworzenie Dockerfile - touch Dockerfile
+8. Wypełnienie Dockefile zgodnie z wytycznymi w instrukcji
+9. Stworzenie kontenera - sudo docker build ./ (jestem w ścieżce z plikiem Dockerfile)
+10. Uruchomienie kontenera - sudo docker run -d -t ubuntu
+11. Uruchomienie i przejście do powłoki kontenera - sudo docker exec -it peaceful_booth /bin/bash
+12. Sklonowanie repozytorium - git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021
+13. Sprawdzenie czy w sklonowane repo zawiera mojego brancha - git branch -a | grep "SK306456"

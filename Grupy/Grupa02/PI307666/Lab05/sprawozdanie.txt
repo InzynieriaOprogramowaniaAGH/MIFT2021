@@ -1,0 +1,3 @@
+2. Podążając za instrukcją zbudowano i uruchomiono obraz Jenkinsa za pomocą Dockera.
+3. Wrzucono obraz Jenkinsa na Docker Hub.
+4.Z poziomu Jenkinsa pobrano repozytorium, korzystając z terminala wykonano polecenia w celu zbudowania i uruchomienia obrazów.

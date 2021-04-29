@@ -1,0 +1,11 @@
+Sklonowanie repozytorium - git clone [link]
+Stworzenie nowego brancha - git branch BH306443
+Przejście na utworzony branch - git checkout BH306443
+Utworzenie katalogu - mkdir Lab011
+Utworzenie pliku .txt - touch sprawozdanie.txt
+Dodanie wszystkich plików do śledzenia - git add .
+Sprawdzenie statusu zmian - git status
+Commitowanie z wiadomością - git commit -m "message"
+Edycja .txt - nano sprawozdanie.txt
+Wysłanie zmian do zdalnego repozytoriu - git push 
+Zmiana nazwy pliku - mv 1.png zadanie1.png

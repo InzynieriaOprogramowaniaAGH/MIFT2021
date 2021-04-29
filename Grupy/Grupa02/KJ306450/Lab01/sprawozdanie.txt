@@ -1,0 +1,15 @@
+W konsoli za pomocą polecenia "sudo apt-get install git" zainstalowano klienta gita.
+Sklonowano do lokalnego folderu repozytorium gita za pomocą polecenia "git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git"
+Zmieniono lokalizację na folder MIFT2021, który powstał po sklonowaniu repozytorium, a następnie stworzono własnego brancha (nazwa składa się z inicjałów i numeru indeksu) za pomocą polecenia "git branch KJ306450".
+Poleceniem "git checkout KJ306450" przeniesiono się na własnego brancha.
+Na tym branchu stworzono folder KJ306450 (polecenie "mkdir KJ306450"), zmieniono lokalizację na nowo utworzony folder i w tej lokalizacji utworzono kolejny folder poleceniem "mkdir Lab01".
+W folderze Lab01 utworzono plik sprawozdanie.txt za pomocą polecenia "touch sprawozdanie.txt".
+Poleceniem "git add ." dodano wszystkie dostępne na danym branchu pliki (w tym wypadku dostępny jest tylko plik sprawozdanie.txt). 
+Następnie poleceniem "git commit -m "sprawozdanie" " (-m umożliwiło dodanie notatki) wykonano commita (przeniesiono plik sprawozdanie.txt ze stage'a do repozytorium)
+Do folderu Lab01 dodano plik z utworzonym grafem i następnie wykonano "git add ." i później "git commit -m "graf" ".
+Każde zmiany wprowadzane w pliku sprawozdanie.txt commitowano i wykonywano push na branch remote poleceniem "git push origin KJ306450".
+Dodano do folderu zrzuty ekranu wykonane podczas realizacji ćwiczenia.
+Każdą zmiane commitowano i pushowano.
+Aby wykonać merge utworzonej gałęzi z gałęzią master należało za pomocą polecenia "git checkout master" przełączyć się na gałąź master i za pomocą polecenia "git merge KJ306450" dokonano złączenia.
+Na koniec wykonano "git push", aby dokonać zmian na masterze.
+Gdy nie udało sie wykonać "git push" (nie posiadano aktualnej wersji repozytorium) należało najpierw wykonać "git pull" a następnie ponownie "git push"

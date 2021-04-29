@@ -1,0 +1,16 @@
+1.
+	ssk-keygen - wygenerowanie pary kluczy 
+	eval $(ssh-agent) - uruchomienie agenta ssh
+	ssh-add ~/.ssh/id_rsa dodanie klucza 
+	git remote -v - pokazanie adresu zdalnego repozytorium 
+	git remote set-url origin ... - zmiana adresu zdalnego
+2
+	git tag -a AH306445_Lab02 -m "AH tag" - dodanie taga do ostatniego commita 
+	git push --follow-tags - wymuszenie dodanie tagów 
+3.
+	git checkout -b Grupa02-AH306445_Lab2 - utworzenie nowego brancha. Został on utworzony z poziomu brancha Grupa02
+
+4.	Wprowadzenie zmian w hooku pre-commit.
+
+5. 	git request-pull master ./ - wykonanie pull requesta 
+	

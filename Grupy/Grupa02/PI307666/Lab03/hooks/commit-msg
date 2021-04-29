@@ -1,0 +1,9 @@
+#!/bin/bash
+indeks='PI307666'	
+msg="Zle inicjaly i nr. indeksu"
+
+if ! grep -iqE "$indeks" "$1"; then 
+	echo "$msg"	
+	exit 1;	
+fi
+echo "Commit dodany poprawnie!"

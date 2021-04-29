@@ -1,0 +1,12 @@
+#!/bin/sh
+
+regex='^SK306456'
+error='Your commit has wrong format'
+
+if ! grep "$regex" "$1"; then
+	echo "$error" >&2
+	exit 1
+fi
+
+
+

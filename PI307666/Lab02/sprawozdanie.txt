@@ -1,0 +1,2 @@
+1. Zmieniono sposób logowania do repozytorium przy użyciu protokołu SSH - git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git".
+2. Dodano tag - git tag -a PI307666_Lab02 -m "Piotr Izworski, Lab 02 wszystko działa, 10/10 proszę"

@@ -1,0 +1,21 @@
+Zad1 
+Github mialem juz wczesniej zainstalowany. gdyby go nie bylo mozna dokonac instalacji za pomoca sudo apt install git
+
+Zad 2
+Najpierw nalezalo sklonowac repozytorium do repo lokalnego za pomoca git clone 
+
+Zad 4
+Nastepnie po przejsciu do katalogu MIFT2021 uzyto git branch MK306455 w celu utworzenia nowego brancha. Aby sie na niego przeloczyc wywolano git checkout MK306455.
+Utworzono katalog MK306455 - mkdir MK306455
+W katalogu MK306455 (przejscie - cd MK306455)  utworzono katalog Lab01 - mkdir Lab01
+W katalogu Lab01 utworzono pliksprawozdanie.txt - touch sprawozdanie.txt
+Dodano plik za pomoc git add . a nastepnie wykonano commit - git commit. Poprawnosc wykonanego commitu wykonano za pomoca git status. Analogicznie dokonano commitu z plikiem grafGit.png.
+
+Zad 5
+Dokonano opisu zadan po czym wykonano "git add .", "git commit" oraz "git push -u origin MK306455"
+
+Zad 6
+Wykonano zrzuty ekranu poprzednich zadan, a nastepnie dodano je do katalogu Lab01. zrobiono commit komendami "git add .", "git commit" oraz "git push -u origin MK306455". Nastepnie zmieniono nazwy plikow i wykonano znowu commit i push. Pojawil sie komunikat o zmianie nazwy (Rename). Zrzut z zadanie nr 1 wykonalem pozniej, gdyz mialem juz zainstalowanego gita. Dopiero pozniej wpadlem na pomysl ze moge i tak uruchomic komende i zrobic zrzut.
+
+Zad 7
+W celu wykonania merge nalezalo zmienic branch na master (git checkout master), przejsc do katalogu MIFT2021 oraz uzyc komendy git merge MK306455. Innymi slowy korzystajac z merge mergujemy do branchu w ktorym jestesmy z branchu podanego jako argument komendy.
