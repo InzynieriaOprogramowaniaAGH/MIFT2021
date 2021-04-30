@@ -1,0 +1,8 @@
+1. Utworzylem odpowiednia strukture folderow i skopiowalem pliki z poprzednich zajec.
+2. W jenkinsie utworzylem nowy pipeline, ktory wykonywal Jenkinsfile utworzone w zforkowanym 
+repozytorium deltachatu, Jenkinsfile korzystal z pluginu emailext ktory byl odpowiedzialny 
+za wysylanie maila z build logiem. W Jenkinsfile przeprowadzilem budowanie i testowanie aplikacji 
+w 2 stage'ach ("build" i "test")
+3. Uruchomilem wykonanie pipeline za pomoca Jenkinsa, po jego zakonczeniu otrzymalem maila ze statusem
+budowania i z plikiem z logami
+4. Z repo deltachatu skopiowalem plik Jenkinsfile do MIFT  
