@@ -3,6 +3,9 @@
 repozytorium deltachatu, Jenkinsfile korzystal z pluginu emailext ktory byl odpowiedzialny 
 za wysylanie maila z build logiem. W Jenkinsfile przeprowadzilem budowanie i testowanie aplikacji 
 w 2 stage'ach ("build" i "test")
+Aby maile byly poprawnie wysylane nalezalo skonfigurowac odpowiednio rozszerzenie Jenkinsa. 
+W tym celu skorzystalem ze strony https://support.google.com/mail/answer/7126229?hl=pl
+znajdowaly sie na nim dane do polaczenia z serwerem SMTP gmaila.
 3. Uruchomilem wykonanie pipeline za pomoca Jenkinsa, po jego zakonczeniu otrzymalem maila ze statusem
 budowania i z plikiem z logami
 4. Z repo deltachatu skopiowalem plik Jenkinsfile do MIFT  
