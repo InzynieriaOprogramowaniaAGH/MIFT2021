@@ -1,0 +1,7 @@
+Instalacja dockera - sudo apt-get install docker-ce docker-ce-cli containerd.io
+Sprawdzenie poprawnosci instalacji poprzez uruchomienie kontenera o nazwie hello-world - sudo docker run hello-world
+budowanie obrazu na podstawie utworzonego dockerfile'a - docker build -t tag-obrazu . 
+wyswietlenie istniejacych kontenerow - docker images
+uruchomienie powloki systemowej ubuntu kontenera zbudowanego na podstawie dockerfile'a - docker run -it obraz-testowy bash 
+	flagi -it (--interactive --tty) sa odpowiedzialne za mozliwosc interakcji z powloka unixowa konteneru
+

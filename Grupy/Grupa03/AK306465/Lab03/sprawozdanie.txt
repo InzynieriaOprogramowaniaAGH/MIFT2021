@@ -1,0 +1,26 @@
+1. Stworzyłam swojego brancha na branchu grupowym
+git checkout -b Grupa03-AK306465_Lab03
+
+2. Przeniosłam git hooka z poprzednich zajęć do folderu o ścieżce MIFT2021/Grupy/Grupa03/AK306465/Lab02/hooks/
+
+3. Zainstalowałam dockera po czym zalogowałam się na swoje konto na hub.docker.com
+
+4. Stworzyłam Dockerfile:
+FROM ubuntu:latest
+
+RUN \ 
+    apt-get update && \
+    apt-get install -y git && \
+    apt-get install -y build-essential 
+
+5. Zbudowałam obraz 
+sudo docker build . -t lab03_docker
+
+6. Uruchomiłam kontener
+sudo docker run -it lab03_docker
+
+7. Kolejnym krokiem było ściągniecie repozytorium poprzez git clone, oraz sprawdzenie czy są tam potrzebne branche:
+git branch
+git checkout Grupa03
+git checkout Grupa03-AK306465_Lab03
+git branch

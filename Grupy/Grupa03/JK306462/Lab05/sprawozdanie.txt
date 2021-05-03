@@ -1,0 +1,52 @@
+2. Stworzylem kontener do obslugi Jenkinsa dzieki instrukcjom ze strony: https://devopscube.com/run-docker-in-docker/
+
+docker network create jenkins - stworzenie polaczenia 
+Stworzenie kontenera zdolnego do obslugi dockerowych polecen w Jenkinsie(skopiowane ze strony):
+docker run \
+  --name jenkins-docker \
+  --rm \
+  --detach \
+  --privileged \
+  --network jenkins \
+  --network-alias docker \
+  --env DOCKER_TLS_CERTDIR=/certs \
+  --volume jenkins-docker-certs:/certs/client \
+  --volume jenkins-data:/var/jenkins_home \
+  --publish 2376:2376 \
+  docker:dind \
+  --storage-driver overlay2 
+  
+Jenkins-Dockerfile(skopiowane ze strony):
+FROM jenkins/jenkins:2.277.2-lts-jdk11
+USER root
+RUN apt-get update && apt-get install -y apt-transport-https \
+       ca-certificates curl gnupg2 \
+       software-properties-common
+RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+RUN apt-key fingerprint 0EBFCD88
+RUN add-apt-repository \
+       "deb [arch=amd64] https://download.docker.com/linux/debian \
+       $(lsb_release -cs) stable"
+RUN apt-get update && apt-get install -y docker-ce-cli
+USER jenkins
+RUN jenkins-plugin-cli --plugins "blueocean:1.24.6 docker-workflow:1.26"
+
+Budowa kontenera jenkinsa na podstawie pliku Jenkins-Dockerfile oraz nadanie mu tagu "jenkins":
+sudo docker build -t jenkins . -f Jenkins-Dockerfile 
+
+3. Wrzucilem obrazy z Lab04 oraz obraz z jenkinsem do dockerhuba:
+
+sudo docker tag tagObrazu nazwaUzytkownikaDockerHuba/tag - nadanie tagu obrazowi, tak bedzie sie nazywac po wrzuceniu do dockerhuba
+sudo docker push nazwaUzytkownika/tag - wyslanie obrazu do repozytorium w dockerhubie
+
+
+4. W kontenerze jenkinsa uruchomilem docker composea ktory zbudowal aplikacje z lab04
+
+w kolejnych zrzutach ekranu zamiast obrazu jenkins pojawiac sie bedzie obraz jenkins-blueocean. Z powodu porblemow z wlczeniem jenkinsa postanowilem stworzyc drugi raz obraz
+
+docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword - wyslanie polecenia wyswietlenia hasla administratora do kontenera z jenkinsem
+
+docker exec -it --user root jenkins-blueocean sh - uruchomienie kontenera z jenkinsem jako root w trybie konsoli
+
+
+

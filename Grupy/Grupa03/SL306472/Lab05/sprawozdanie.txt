@@ -1,0 +1,7 @@
+1. Zapoznano się z diagramem
+2. Zapoznano się z oprogramowaniem Jenkins
+3. Poprawiono obrazy z wczesniejszych zajęć tak by były one zgodne z diagramem oraz umieszczono je na platformie DockerHub
+4. Na podstawie instrukcji stworzono Dockerfile dla obrazu jenkinsa oraz uruchomiono dwa kontenery
+5. Po poprawnej konfugiracji według instrukcji utworzono nowe zadanie. Dodano adresy repozytorium, osobisty branch oraz skonfiguwano budowanie w powłoce przy pomocy odpowiednich komend. Pobrano docker compose, dodano mu uprawnienia wykonywania oraz uruchomiono "docker-compose up"
+6. Zadanie wykonało sie poprawnie
+7. Obraz jenkinsa umieszczono na platformie DockerHub

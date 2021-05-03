@@ -1,0 +1,21 @@
+1
+Stworzyłem mojego nowego branch'a na branchu Grupa03
+git checkout Grupa03 <- przełączenie na branch'a grupowego
+git checkout -b Grupa03-AL306471_Lab03 <- utworzenie mojego brancha
+
+2
+Dodałem git hooka z poprzednich zajęć do folderu Lab02/hooks/pre-commit.
+
+3
+Zainstalowałem docker'a przy pomocy strony https://docs.docker.com/engine/install/ubuntu/
+
+4
+Zarejestrowałem konto w Docker HUB
+
+5
+
+Stworzyłem Dockerfile i zainstalowałem dzięki niemu git'a.
+6
+
+Utworzyłem kontener, pobrałem do niego nasze repozytorium i sprawdziłem, czy znajduje się tam mój branch.
+

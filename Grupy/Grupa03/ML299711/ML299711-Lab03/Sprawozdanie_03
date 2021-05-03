@@ -1,0 +1,7 @@
+1. Stworzyem nowy prywatny branch na potrzeby labolatoriow.
+2. Zainstalowałem dockera na komputerze i sprawdziłem poprawność działania
+3. Zalogowałem się do konta na dockerhub.
+4. Napisałem dockerfile
+5. Za pomocą komendy <sudo docker build -t laby> stworzyłem kontener
+6. PObrałem repozytorium do konternera i sprawdziłem czy są tam moje branche.
+7 Zapisałem konterner <docker commit> i wypushowałem go na dockerhuba.

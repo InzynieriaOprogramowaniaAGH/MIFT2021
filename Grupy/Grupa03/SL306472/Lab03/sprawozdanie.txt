@@ -1,0 +1,10 @@
+1. Stworzono krótko żyjącego brancha według wytycznych.
+2. Zainstalowano Docker'a na komputerze i wprowadzono odpowiednią konfiguracje by działał poprawnie.
+3. Zalogowano do Docker Hub na konta które utworzyłem na innym przedmiocie.
+4. Stworzono plik Dockerfile weglug instrukcji: https://www.howtoforge.com/tutorial/how-to-create-docker-images-with-dockerfile-on-ubuntu-16-04/
+5. dodano do Dockerfile instukcje do instalacji gita którą znalazłem na tej stronie: https://www.geeksforgeeks.org/creating-a-docker-image-with-git-installed/
+6. uruchomiono kontener za pomocą instruckji która znalazłem w wyżej wymienionym poradniku.
+napotkałem problem gdyz raz uruchomiony konteren musiałem usunąc ponieważ nie uruchomie nowego z tą samą nazwą. 
+Stan kontenera mogłem podejrzeć w interfejsie Docker'a
+7. za pomocą komnedy docker exec ... dostałem sie do wnętrze kontenera.
+8. ściągnieto repozytorium na kontener 

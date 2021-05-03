@@ -1,0 +1,16 @@
+1.
+Opublikowałem obraz utworzony na poprzednich zajęciach w serwisie Docker HUB
+sudo docker push adrlit/dev <- publikowanie obrazu w serwisie Docker HUB
+
+2. 
+W internecie znalazłem komunikator, który zawierał w sobie gotowe testy.
+
+3.
+Stworzyłem obraz nowego kontenera dockerowego, który odpowiadał za budowanie komunikatora, który znajdował się na stronie github.com
+
+4.
+Stworzyłem obraz nowego kontenera dockerowego, który odpowiadał za testowanie komunikatora, który znajdował się na stronie github.com
+
+5.
+Stworzyłem plik docker-file.yml, który odpowiadał za uruchomienie Dockerfile stworzonych w poprzednich krokach.
+sudo docker-compose up <- odpowiada za stworzenie obrazów z Dockerfile, uruchomienie kontenerów i wykonanie wszystkich operacji zawartych w pliku docker-compose.yml
