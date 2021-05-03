@@ -1,0 +1,20 @@
+1. Stworzenie nowego brancha na zajecia Grupa07-AG306663
+-Lab03, komenda: $git checkout -b Grupa07-AG306663_Lab03.
+
+2. Dodanie git hooka z poprzednich zajec do lokalizacji /Grupy/Grupa07/AG306663/hooks/commit-msg
+
+3. Utworzenie katalogu lab03.
+
+4. Instalacja Dockera.
+
+5. Zarejestrowanie sie na Dockerze.
+
+6. Stworzenie pliku Dockerfile, ktorego tresc wygladala nastepujaco:
+FROM ubuntu:latest
+RUN apt-get update
+RUN apt-get install -y build-essential
+RUN apt-get install -y git
+RUN git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git
+
+7. Uruchomienie kontenera:
+$ sudo docker build .
