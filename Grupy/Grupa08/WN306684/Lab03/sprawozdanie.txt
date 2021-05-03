@@ -1,0 +1,15 @@
+1. Stworzenie osobistego brancha: 'git chechout -b "Grupa08-WN306684_Lab03".
+
+2. Dodanie git hooka do folderu hooks w folderze Lab02.
+
+3. Zainstalowanie Docker'a.
+
+4. Zarejestrowanie konta w Docker HUB.
+
+5. Storzenie pliku Dockerfile i dodanie do folderu Lab03.
+
+6. Uruchomienie kontenera: 'docker run -it lab03 bask'.
+
+Ściągnięcie na niego repozytorium: 'git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git'.
+
+Przełączenie na osobistego brancha: 'git checkout Grupa08-WN306684_Lab03'.

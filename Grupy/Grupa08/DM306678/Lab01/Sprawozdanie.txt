@@ -1,0 +1,11 @@
+1. Git był już zainstalowany na komputerze
+2. Pobranie repo: git clone  https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git, zrobienie grafu
+3. Czytanie instrukcji
+4. Stworzenie brancha git branch DM306678
+5. Stworzenie folderu mkdir DM306678 i pod folderu Lab01 analogicznie
+6. Stworzenie pliku .txt
+7. Dodanie folderu do repozytorium: git add DM306678 i git commit -m "sprawozdanie"
+8. Komenda push -u origin DM306678
+9. Dodanie zrzutów poprzez add, commit i ostatecznie push 
+10. Przejście na mastera: git checkout master
+11. Połączenie brancha z masterem: git merge DM306678 i git push
