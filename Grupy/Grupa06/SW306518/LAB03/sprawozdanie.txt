@@ -1,0 +1,21 @@
+1.
+git checkout -b Grupa06-SW306518_Lab03 - utworzenie i zmiana brancha na ten wg. zasad z instrukcji drugiej
+git pull - pobranie najnowszych zmian
+2.
+git hook z poprzednich zajęć jest dodany do pre-commit
+3.
+Docker jest zainstalowany(screen)
+4. 
+Konto miałem już założone(screen) na potrzeby Administracji Sieciami Komputerowymi z poprzedniego semestru
+5.
+Napisanie prostego Dockerfile:
+
+FROM ubuntu:latest
+RUN apt-get -y update
+RUN apt-get -y upgrade
+RUN apt-get install -y build-essential
+RUN apt-get -y install git
+
+6. 
+docker build test-doc . - zbudowanie kontera o nazwie test-doc, ostatnia kropka dlatego że budowałem w folderze gdzie był Dockerfile
+Później należało w gui dockerowym uruchomić kontener przyciskiem RUN

@@ -1,0 +1,57 @@
+1. Utworzenie brancha git checkout -b Grupa06-MZ306522_Lab04.
+1.1 Utworzenie repozytorium na DockerHub oraz zostały zpushowane obrazy z poprzednich zajęć:
+docker build -t zachi225c/devops .
+docker push zachi225c/devops
+
+2. Znalazłem opensource chat o nazwie Deltachat-desktop
+https://github.com/deltachat/deltachat-desktop
+
+3.W katalogu Lab04 utworzono folder build, i Dockerfile wykonujący builda:
+mkdir build
+touch Dockerfile
+
+zawartość:
+
+FROM node:15.13.0-buster
+
+RUN apt-get update && apt-get install -y --no-install-recommends git gcc g++ make python wget ca-certificates
+
+RUN mkdir /usr/local/share/ca-certificates/cacert.org
+RUN wget -P /usr/local/share/ca-certificates/cacert.org http://www.cacert.org/certs/root.crt http://www.cacert.org/certs/class3.crt && update-ca-certificates
+
+RUN git clone https://github.com/deltachat/deltachat-desktop.git
+WORKDIR ./deltachat-desktop
+RUN npm install
+RUN npm run build
+
+
+3. stworzono dockerfile o nazwie Dockerfile. 
+Zbudowano obraz odpowiedzialny za budowanie aplikacji 
+ docker build -t build-agent:build . -f Dockerfile 
+
+4. Utworzono katalog test, oraz stworzono Dockerfile odpowiedzialny za testowanie, w którym wykorzystano wcześniej zbudowany obraz build-agent:build
+docker build -t test-agent:test . -f Dockerfile
+Zawartość Dockerfile:
+FROM build-agent:build
+
+WORKDIR ./deltachat-desktop
+
+RUN npm test
+
+5. Utworzono plik docker-compose.yml  oraz uzupełniono go treścią:
+version: '3.3'
+services:
+ build-agent:
+  container_name: build-agent
+  image: build-agent:build
+  build:
+   context: ./build
+   dockerfile: Dockerfile
+ test-agent:
+  container_name: test-agent
+  image: test-agent:test
+  build:
+   context: ./test
+   dockerfile: Dockerfile
+  depends_on:
+  - build-agent

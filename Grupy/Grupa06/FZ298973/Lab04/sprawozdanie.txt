@@ -1,0 +1,9 @@
+1. Stworzono nowy branch Grupa06-FZ298973_Lab04
+2. Opublikowanie obrazu z Lab03 na dockerze
+3. Wybranie komunikatora - deltachat
+4. Utworzenie pliku Dockerfile i zbudowanie go 
+" sudo docker build -t build:latest -f . Dockerfile"
+5. Utworzenie pliku DockerfileTest i zbudowanie go
+" sudo docker build -t test:latest -f . DockerfileTest"
+6. Instalacja docker-compose, stworzenie pliku docker-compose.yml i uruchomienie
+"sudo docker-compose up"

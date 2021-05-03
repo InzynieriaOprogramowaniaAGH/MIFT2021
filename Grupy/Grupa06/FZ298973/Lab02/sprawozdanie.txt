@@ -1,0 +1,31 @@
+1. Wygenerowanie nowego klucza ssh-keygen -t ed25519 -C "zabludowskifilip@gmail.com"
+2. Wygenerowanie dzialajacego agenta do obslugi klucza ssh: "eval $(ssh-agent -s)" oraz "ssh-add /home/king/ssh"
+3. Zarejestrowanie klucza po stronie serwera w ustawieniach konta GitHub.
+4. Sprawdzenie poprawnosci dzialania nowej konfiguracji:
+"git remote -v"
+"git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git"
+"git remote -v"
+5. Nadanie tagu commitowi 
+"git tag -a FZ298973_Lab02 -m "Filip Zabludowski Lab 02 alez piekny commit wlasnie leci"
+"git push --follow-tags"
+(Nastepnie zaczely wystepowac komplikacje, rozwiazane ustawiajac upstream na remote)
+"git push --set-upstream origin FZ298973"
+"git push --follow-tags"
+6. Stworzenie struktury folderow w folderze glownym repozytorium
+7. Stworzenie krotkozyjacego brancha 
+"git checkout -b Grupa06-FZ298973_Lab02"
+8. Stworzenie skryptu git hooke w pliku .git/hooks/commit-msg
+#!/bin/bash
+	msg="$1"
+	if ! grep -qE "FZ298973" "$msg";then
+		cat "$msg"
+		echo "Commit: Inicjaly i numer indeksu"
+		exit 1
+	fi
+9. Wykonanie pusha na swoj branch, nastepnie przejscie na branch grupy, merge i usuniecie krotkozyjacego brancha
+"git push origin Grupa06-FZ298973_Lab02"
+"git checkout Grupa06"
+"git merge Grupa06-FZ298973_Lab02"
+"git branch -d Grupa06-FZ298973_Lab02"
+
+10. Wykonanie Pull Requesta

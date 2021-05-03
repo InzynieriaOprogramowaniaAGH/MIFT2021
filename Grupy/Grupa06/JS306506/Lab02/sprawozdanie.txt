@@ -1,0 +1,40 @@
+Metodyki DevOps, Lab02, 11.03.2021
+
+Zad.1: Nie miałam istniejącego klucza SSH więc wygenerowałam go postępując zgodnie z dokumentacją używając polecenia:
+	* ssh-keygen -t ed25519 -C "juliaszandula@outlook.com"
+	Dodałam klucz SSH do agenta ssh poleceniem:
+	* ssh-add ~/.ssh/id_ed25519
+	Zarejestrowałam klucz po stronie serwera za pośrednictwem strony github.com.
+	Poinformowałam git'a o zmianie sposobu logowania wykorzystując następujące komendy:
+	* git remote -v
+	* git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+	* git remote -v
+
+Zad.2: Stowrzyłam folder Lab02, a w nim plik sprawozdanie.txt. Dodałam zrzuty ekranu z wykonania zadania 1.
+	Dodałam pliki do repozytorium i stworzyłam commit'a. Następnie stworzyłam tag'a za pomocą polecenia:
+	* git tag -a JS306506_Lab02 -m "Julia Szanduła, Lab02, zadanie 2"
+	Zmiany wrzuciłam na swojego brancha za pomocą komendy git push, a następnie na remote/orgin używając:
+	* git push --follow-tags
+
+Zad.3: Uporządkowałam stworzone wcześniej foldery tak, aby możliwe było pogrupowanie w grupy laboratoryjne.
+	Stworzyłam nowego brancha:
+	* git checkout -b Grupa06-JS306506_Lab02
+
+Zad.4: Stworzyłam git hook'a o nazwie commit-msg weryfikującego czy commit zaczyna się od inicjałów oraz
+	 numeru indeksu i umieściłam go w folderze .git/hooks:
+	#!/bin/bash
+	msg="$1"
+	if ! grep -qE "JS306506" "$msg";then
+		cat "$msg"
+		echo "twoj commit musi zaczynac sie od twoich inicjalow i numeru indeksu"
+		exit 1
+	fi
+
+Zad.5: Dodałam wszystkie zmiany i wykonałam push'a:
+	* git push origin Grupa06-JS306506_Lab02
+	Zmieniłam branch'a na Grupa06 i zmergowałam:
+	* git merge Grupa06-JS306506_Lab02
+	Usunęłam osobisty branch:
+	* git branch -d Grupa06-JS306506_Lab02	
+ 	Następnie stworzyłam nowego pull requesta poprzez link udostępniony w instrukcji.   
+	

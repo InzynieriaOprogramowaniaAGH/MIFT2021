@@ -1,0 +1,51 @@
+1. Stworzono brancha i spullowano zmiany z grupowego.
+git checkout -b Grupa06-BZ290136_Lab04
+git pull origin Grupa06
+
+Zalogowano sie do dockerhuba:
+sudo docker login --username=bartek997
+sudo docker images - sprawdzenie obrazow dockera
+sudo docker tag 2a9f2a56b913 bartek997/first_repo - otagowanie obrazu
+sudo docker push bartek997/first_repo - spushowanie otagowanego obrazu
+
+2. Znaleziono komunikator wire-app: https://github.com/wireapp/wire-desktop.git
+
+3. Stworzono nowy obraz kontenera dockerowego tak zeby byl w stanie wykonac operacje buildowania komunikatora ze zrodla. Tresc napisanego dockerfile'a:
+
+		FROM node:10
+
+		RUN apt-get update && apt-get upgrade -y
+
+		RUN apt-get install python make g++ git
+		RUN git clone https://github.com/wireapp/wire-desktop.git
+
+		WORKDIR ./wire-desktop
+
+		RUN npm install 
+		CMD ["npm", "start"]
+
+Obraz zbuildowano komenda: sudo docker build -t wire -f Dockerfile-build ./
+I uruchomiono: sudo docker run -t wire
+
+4. Napisano kontener umozliwiajacy testowanie. Tresc dockerfile:
+
+		FROM wire
+
+		WORKDIR ./wire-desktop
+
+		RUN npm test
+
+Obraz zbuildowano komenda: sudo docker build -t wire -f Dockerfile-build ./
+I uruchomiono: sudo docker run -t wire-test
+
+5. Zainstalowano docker-compose:
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
+
+Stworzono plik docker-compose.yml oraz wykonano:
+sudo docker-compose up
+
+
+
+

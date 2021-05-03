@@ -1,0 +1,13 @@
+Zadanie 1:
+ssh-keygen - wygenerowanie klucza rsa
+ssh-add [sciezka] - dodanie klucza do ssh-agent
+git remote -v - sprawdzenie połączenia, pierwsze wyświetla się po https, po wykonaniu komendy niżej rozpoczyna się od git@
+git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git - zmienia połączenie na ssh
+Zadanie 2:
+git tag -a SW306518_Lab02 -m "message" - utworzenie taga, o nazwie po fladze a i po wiadomości m
+git push -follow-tags - pushuje tylko zaanotowane tagi
+Zadanie 3:
+git checkout Grupa06-SW306518_Lab02 - przejście na tymczasowego brancha
+Zadanie 4:
+utworzenie hooka a w nim poniższy skrypt:
+echo 'SW306518: '$(cat "$1") > "$1"

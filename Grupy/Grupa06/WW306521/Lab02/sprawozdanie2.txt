@@ -1,0 +1,29 @@
+1. Dodano klucz SHH do konra github, a nastepnie zmieniono sposob logowoania z http na ssh:
+	- git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+2. Dodano tag do commita:
+	- git tag -a WW306521_Lab02 -m "Wojciech Wrobel, Lab 02 wszystko dziala, 10/10 poprosze"
+	- git push --set-upstream origin WW306521
+	- git push -u --follow-tags
+3. Dodano foldery aby ustrukturyzowac oraz dodano grupowego i prywatnego brancha:
+	- git checkout -b Grupa06
+	- git checkout -b Grupa06 origin/Grupa06
+	- cd ..
+	- cd ..
+	- mkdir Grupy
+	- cd Grupy/
+	- mkdir Grupa06
+	- mv WW306521 ~/Desktop/devops/MIFT2021/Grupy/Grupa06
+4. dodano skrypt do pliku .git/hooks/commit-msg.sample oraz zmieniono jego nazwe na commit-msg:
+#!/bin/bash
+tested_string='WW306521*'
+if ! grep -iqE "$tested_string" "$1"; then
+	echo "niepoprawny commit"
+	exit 1;
+fi
+echo "poprawny commit"
+exit 0;
+		echo "niepoprawny commit"
+	- wykonano dwa commity z tagiem --allow-empty, aby sprawdzic poprawnosc dzialania skryptu. Poprawy commit
+	sie udal, gdy niepoprawny nie.
+	
+5. Merge brancha osobistego z branchem grupowym i push na gita 
