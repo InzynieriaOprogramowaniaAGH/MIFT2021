@@ -1,0 +1,7 @@
+1. Stworzyłem nowego branch'a "Grupa03-BK300113_Lab03"
+2. Dodałem git hook'a do folderu hook we wspomnianym wyżej branch'u (poprzedni branch tj. *_Lab02 został przeze mnie usuniety).
+3. Zainstalowałem Docker'a korzystając z terminala
+4. Odzyskałem hasło do swojego konta na Dockerhub'ie
+5. Stworzyłem plik Dockerfile i obraz oparty o najnowsze Ubuntu.
+6. Uruchomiłem kontener korzystając z opisanego obrazu i pobrałem do niego repozytorium z zajęć.
+7. Dokonałem merge'a branch'a osobistego z grupowym.
