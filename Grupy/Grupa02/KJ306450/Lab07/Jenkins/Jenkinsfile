@@ -8,6 +8,7 @@ pipeline {
 
             steps{
                 
+                echo 'Start testing'
                 dir("Lab07/Docker"){
                     sh 'docker-compose up -d chat-test'
                     sh 'docker-compose logs > logs.txt'
@@ -15,23 +16,24 @@ pipeline {
 
             }
         }
-        
-        post {
-            success {
-                emailext attachLog: true, attachmentsPattern: 'logs.txt',
-                        body: "Test status: ${currentBuild.currentResult}: Job ${env.JOB_NAME}, More informations in attachment",
-                        subject: 'Tests passed',
-                        to: 'jopkarolina18@gmail.com'
-
-            }
-
-            failure {
-                emailext attachLog: true, attachmentsPattern: 'logs.txt',
-                        body: "Test status: ${currentBuild.currentResult}: Job ${env.JOB_NAME}, More informations in attachment",
-                        subject: 'Tests failed',
-                        to: 'jopkarolina18@gmail.com'
-            }
-        }
-        
     }
+        
+    post {
+        success {
+            emailext attachLog: true, attachmentsPattern: 'logs.txt',
+                    body: "Test status: ${currentBuild.currentResult}: Job ${env.JOB_NAME}, More informations in attachment",
+                    subject: 'Tests passed',
+                    to: 'jopkarolina18@gmail.com'
+
+        }
+
+        failure {
+            emailext attachLog: true, attachmentsPattern: 'logs.txt',
+                    body: "Test status: ${currentBuild.currentResult}: Job ${env.JOB_NAME}, More informations in attachment",
+                    subject: 'Tests failed',
+                    to: 'jopkarolina18@gmail.com'
+        }
+    }
+        
+    
 }
