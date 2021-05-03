@@ -1,0 +1,7 @@
+#!/bin/bash
+MSG="$1"
+if ! grep -qE "MK306460" "$MSG";then
+	cat "$MSG"
+	echo "Twoj commit musi zawierac twoje inicjaly i nr indeksu"
+	exit 1
+fi
