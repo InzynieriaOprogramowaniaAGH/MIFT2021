@@ -1,0 +1,14 @@
+0. Zapoznałam się z diagramem omawianym na zajęciach
+
+1. Zapoznałam się z oprogramowaniem Jenkins: https://www.jenkins.io/
+
+2. Stwórzyłam kontener dockerowy z Jenkinsem za pomocą instrukcji https://www.jenkins.io/doc/book/installing/docker/:
+
+3. Wrzuciłam obraz swojego Jenkinsa na DockerHub'a, analogicznie jak poprzednie obrazy
+
+4. Z poziomu Jenkinsa uruchomionego w kontenerze uruchomiłam docker-compose stworzony w ramach Lab04:
+
+- Jenkins jest uruchomiony w kontenerze
+- po Lab04 plik docker-compose.yaml jest w repozytorium 
+- z poziomu Jenkinsa ściągnęłam repo gdzie jest nasz plik docker-compose.yaml
+- Jenkins miał uruchomić plik docker-compose.yaml tworząc środowisko z Lab04, ale zadanie nie wykonało się poprawnie
