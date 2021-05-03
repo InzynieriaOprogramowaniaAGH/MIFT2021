@@ -1,0 +1,23 @@
+Sprawozdanie 19.03.2021
+
+1. Stworzyłem brancha osobistego na zajęcia wg. schematu. Z brancha grupowego Grupa04 stworzyłem swój branch poleceniem: git checkout -b Grupa04-AP306492_Lab03
+
+2. Dodałem git hooka, którego napisałem na poprzednich zajęciach do swojego folderu.
+
+3. Zainastalowałem Dockera na swoim środowisku pracy
+
+4. Zalogowałem się na konto w Docker HUB
+
+5. Stworzyłem plik Dockerfile, który bazuje na najnowszym ubuntu i posiada zainstalowanego git'a
+
+6.1 Zbudowałem obraz
+
+sudo docker built -t ap-docker .
+
+6.2 Uruchomiłem kontener
+sudo docker run -it ID_OBRAZU
+
+6.3 Pobrałem na nim repozytorium
+git clone link_do_repozytorium
+
+6.4 Upewniłem się, że jest tam mój branch

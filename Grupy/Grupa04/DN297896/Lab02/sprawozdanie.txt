@@ -1,0 +1,23 @@
+1.1 Wygenerowano nowy klucz SSH: ssh-keygen -t ed25519 -C "nowakdariusz03@gmail.com"
+1.2 W poleceniu 1.1 podano passphrase do SSH.
+1.3 Dodano agenta ssh: eval "$(ssh-agent -s)"
+    Dodano stworzony klucz SSH do agenta: ssh-add /c/Users/Darek/.ssh/klucz_ssh_studia
+1.4 Zarejestrowano klucz ssh na githubie (widoczne na zrzucie).
+1.5 Zmieniono połączenie z repo na ssh: git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git" zmienia połącznie na SSH
+
+2. Nadano tag "DN297896_Lab02" i wrzucono go na aktualnego brancha: git push --atomic origin DN297896 "DN297896_Lab02"
+
+3.1 Zmieniono konfigurację folderów: git mv DN297896 Grupy/Grupa04
+3.2 Zrobiono: git fetch,
+    a następnie dodano nowego brancha i przełączono się na niego: git branch Grupa04-DN297896_Lab02, git checkout Grupa04-DN297896_Lab02
+
+4. Napisano skrypt weryfikujący czy commit message zaczyna się od "DN297896"
+4.1 Plik nazwano commit-msg i wstawiono go do katalogu .git/hooks
+    Następnie sprawdzono czy dziala poprawnie: git commit -m "powinno wypisac blad" -> komenda zwróciła błąd czyli skrypt zadziałał poprawnie.
+
+5.1 Wykonano merge brancha osobistego do brancha grupowego. W tym celu przełączono się na brancha grupowego i wykonano komendę: git merge Grupa04-DN297896_Lab02
+    Zmiany wrzucono na remote.
+    Wykonano komendę commit oraz git push: git commit -m "DN297896 Zmieniona struktura plików z lab 1 i 2 oraz wrzucone zrzuty ekranu z lab2 i sprawozdanie"
+    git pull
+    git push origin Grupa04
+    Na koniec zamknięto osobistego brancha: git branch -d Grupa04-DN297896_Lab02

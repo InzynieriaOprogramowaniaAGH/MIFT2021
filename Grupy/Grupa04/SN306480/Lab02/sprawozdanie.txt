@@ -1,0 +1,9 @@
+1. Wygenerwoano klusz ssh (ssh-keygen), podczas generowania klucza zostało podane hasło. Utworzono agenta ssh obsługującego klucz ssh (eval "$(ssh-agent -s)"). Dodano klucz prywatny ssh do agenta (ssh-add /home/szymon/.ssh/id_rsa). Na stronie githuba zarejestrowano klucz po stronie serwera. Poinformowano gita o zmianie sposobu logowania (git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git)
+
+2. Nadano tag na aktualnego commita (git tag -a SN306480_Lab02 -m "Szymon Nowak, Lab 02 wszystko działa, 10/10 proszę"). Następnie wrzucon tą zmianę na swojego brancha origin, a następnie origin/master (git push --follow-tags)
+
+3. Uporządkowano branche poprzez usunięcie wczesniejszego folderu SN306480 oraz utworzono nowego brancha poprzez odzielenie sie od brancha grupowego Grupa04 (git checkout -b Grupa04-SN306480_Lab02). Przeniesiono katalog z wczesniejszych zajec do odpowiedniego folderu.
+
+4. Napisano git hooka czyli skrypt weryfikujacy ze kazdy commit zaczyna sie od odpowiedniego wyrazenia. Dodano go do odpowiedniego folderu tak zeby uruchamial sie za kazdym razem gdy tworzymy nowego commita. (skrypt zawiera się w zdjeciu zadanie4_2.png)
+
+5. Dołączono swoje pliki (git add .). Utworzono commita (git commit -am "SN306480 ..."). Wykonano pusha (git push origin Grupa04-SN306480_Lab02). Usunieto brancha SN306480 (git push origin --delete SN306480). Na końcu wykonano pusha i usunieto brancha osobistego (git push origin Grupa04-SN306480_Lab02:Grupa04, git push origin --delete Grupa04-SN306480_Lab02).
