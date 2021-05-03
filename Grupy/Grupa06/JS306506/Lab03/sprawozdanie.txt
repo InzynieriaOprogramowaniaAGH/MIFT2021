@@ -1,0 +1,22 @@
+Metodyki DevOps, Lab03, 18.03.2021
+
+Zad.1 Stworzyłam brancha osobistego przeznaczonego na zajęcia:
+	* git checkout -b Grupa06-JS306506_Lab03
+
+Zad.2 Wewnątrz folderu Lab02 stworzyłam folder hooks, do którego dodałam git hooka stworzonego na poprzednich zajęciach.
+
+Zad.3 Miałam już zainstalowanego dockera, w późniejszym etapie zajęć jednak zaszła potrzeba reinstallu.
+
+Zad.4 Miałam już konto na Docker HUB.
+
+Zad.5 Stworzyłam Dockerfile bazującego na najnowszym ubuntu, dodałam go do swojego brancha, do folderu stworzonego 
+	na potrzeby lab 3. Upewniłam się, że git zostanie doinstalowany (apt-get install -y git).
+
+Zad.6 Zbudowałam obraz oraz uruchomiłam kontener:
+	* sudo docker build . -t lab03_docker
+	* sudo docker run -it lab03_docker
+	Następnie ściągnęłam repozytorium:
+	* git clone ...
+	Upewniłam się że jest mój branch:
+	* git checkout Grupa06
+	* git checkout Grupa06-JS306506_Lab03

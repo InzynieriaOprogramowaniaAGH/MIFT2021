@@ -1,0 +1,54 @@
+Zadanie1. 
+Generowanie klucza ssh:
+ssh-keygen -t rsa -b 4096 -C "mzachura100@gmail.com"
+
+Dodanie klucza ssh do agenta:
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+
+Skopiowanie klucza do schowka 
+pbcopy < ~/.ssh/id_rsa.pub
+
+Dodanie do gita klucza oraz git remote:
+
+git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+
+Zadanie2:
+Dodatnie tagu:
+git tag -a MZ306522_Lab02 -m "Marcin Zachura, Lab02 chyba działa"
+
+Wrzucenie zmian:
+git push --follow-tags
+
+Zadanie3:
+Dodanie nowej struktury:
+git add .
+
+Uporządkowanie branchy:
+git merge origin/Grupa06
+git checkout Grupa06
+git pull
+git merge MZ306522
+git push
+git checkout -b Grupa06-MZ306522_Lab02
+
+Zadanie4:
+Dodanie hooka "commit-msg" o treści:
+
+	#!/bin/bash
+	msg="$1"
+	if ! grep -qE "MZ306522" "$msg";then
+		cat "$msg"
+		echo "inicjały i numeru indeksu"
+		exit 1
+	fi
+
+
+Zadanie5:
+Dodanie zmian, wykonanie pusha, zmiany branchy i merge, usunięcie osobistego brancha, stworzenie pullrequesta:
+
+git push origin Grupa06-MZ306522_Lab02
+
+git merge Grupa06-MZ306522_Lab02
+
+git branch -d Grupa06-MZ306522_Lab02	

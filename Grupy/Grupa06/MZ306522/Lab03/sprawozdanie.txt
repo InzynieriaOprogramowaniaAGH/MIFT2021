@@ -1,0 +1,14 @@
+1. Stworzono nowego brancha osobistego "Grupa06-MZ306522_Lab03" za pomocą komendy:
+- git checkout -b Grupa06-MZ306522_Lab03
+2. Dodano hooka do folderu hooks w lab02 
+3/4. Docker był zainstalowany na stanowisku oraz zarejestrowano się na docker Hub.
+5/5.1. Stworzono Dockerfile w katalogu lab03 z zawartością:
+FROM ubuntu:latest
+RUN apt-get -y update
+RUN apt-get -y upgrade
+RUN apt-get install -y build-essential
+RUN apt-get -y install git
+6. Stworzono oraz uruchomiono kontener:
+- docker build . -t lab03_docker
+- docker run (wykonano w gui)
+- git clone wykonano w konsoli docker cli. 

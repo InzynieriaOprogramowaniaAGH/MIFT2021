@@ -1,0 +1,20 @@
+1. Stworzenie brancha na zajecia "Grupa06-FZ298973_Lab03"
+2. Dodanie git hooka stworzonego na poprzednich zajeciach do folderu Grupy/Grupa06/FZ298973/Lab03/git/hooks/pre-commit
+3. Instalacja Dockera
+4. Zarejestrowanie sie na Docker HUB
+5. Stworzenie pliku Dockerfile o zawartosci:
+" 	FROM ubuntu:latest
+	RUN apt-get -y update
+	RUN apt-get -y upgrade
+	RUN apt-get install -y build-essential
+	RUN apt-get -y install git
+"
+6. Zbudowanie kontenera Docker 
+"
+sudo docker build -t dockergit
+"
+7. Uruchomienie kontenera:
+"
+sudo docker run -it dockergit bash 
+"
+

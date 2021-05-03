@@ -1,0 +1,7 @@
+#!/bin/bash
+msg="$1"
+if ! grep -qE "JS306506" "$msg";then
+	cat "$msg"
+	echo "twoj commit musi zaczynac sie od twoich inicjalow i numeru indeksu"
+	exit 1
+fi

@@ -1,0 +1,27 @@
+Metodyki DevOps, Lab04, 08.03.2021
+
+Zad.1	Stworzyłam brancha osobistego przeznaczonego na zajęcia:
+	 * git checkout -b Grupa06-JS306506_Lab04
+	Obraz utworzony na poprzednich zajęciach opublikowałam w serwisie dockerhub:
+	 * sudo docker tag 915cd46f6a8c jszandula/devops:lab03_docker
+	 * sudo docker push jszandula/devops:lab03_docker
+
+Zad.2	Na githubie znalazłam komunikator: https://github.com/binhxn/node-chat-app
+
+Zad.3 	Stworzyłam Dockerfile dla nowego kontenera odpowiedzialnego za budowanie komunikatora ze źródła. 
+	Zbudowałam obraz i uruchomiłam kontener:
+	 * sudo docker build -t build_agent . -f Dockerfile_build
+	 * sudo docker run -it -p 3000:3000 build_agent
+
+Zad.4 	Stworzyłam Dockerfile dla nowego kontenera odpowiedzialnego za testowanie komunikatora.
+	Zbudowałam obraz.
+	 * sudo docker build -t test_agent . -f Dockerfile_test
+
+Zad.5	Zainstalowałam docker-compose:
+	 * sudo curl -L "https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+	 * sudo chmod +x /usr/local/bin/docker-compose
+
+	Utworzyłam plik docker-compose odpowiedzialny za ściągnięcie z repo najnowszej wersji komunikatora,
+	zbudowanie go oraz przetestowanie czy działa Uruchomiłam za pomocą polecenia:
+	 * sudo docker-compose up
+ 

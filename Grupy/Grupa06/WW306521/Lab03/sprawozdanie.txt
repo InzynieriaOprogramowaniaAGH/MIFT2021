@@ -1,0 +1,38 @@
+1. Stworzono brancha Grupa06-WW306521_Lab03.
+2. Skopiowano wczesniej utworzony hook : cp commit-msg ../../Grupy/Grupa06/WW306521/Lab03/hooks/\
+3. Zainstalowano docker:
+	sudo apt-get remove docker docker-engine docker.io containerd runc
+	sudo apt-get update
+
+	 sudo apt-get install \
+	    apt-transport-https \
+	    ca-certificates \
+	    curl \
+	    gnupg \
+	    lsb-release
+	    
+	  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+	  
+	  echo \
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  
+  	sudo apt-get update
+
+ 	sudo apt-get install docker-ce docker-ce-cli containerd.io
+ 	
+ 4. Posiadano konto na Dockerhub wczesniej.
+ 
+ 5. Utworzono Dockerfile:
+ 	
+ 	FROM ubuntu:latest
+	RUN apt-get update 
+	RUN apt-get install -y git
+	
+    zbudowano obraz:
+	sudo docker build -t lab03
+	
+5.1 Git byl na obrazie zainstalowany wiec mozliwe bylo sklonowanie repozytorium
+
+6. Po uruchomieniu kontenera i sklonowaniu repozytorium udalo sie podpiac do mojego brancha:
+	-sudo docker run -it lab03
