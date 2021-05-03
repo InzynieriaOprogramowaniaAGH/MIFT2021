@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+ chat:
+  image: chat:latest
+  build:
+   context: ./chat
+   dockerfile: ./chat/Dockerfile
+ chat-test:
+  image: chat-test:latest
+  build:
+   context: ./test
+   dockerfile: ./test/Dockerfile
+  depends_on:
+   - chat

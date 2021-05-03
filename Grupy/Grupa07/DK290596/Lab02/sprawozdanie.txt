@@ -1,0 +1,22 @@
+1. Klucz SSH i połączenie SSH zamiast HTTPS
+a) wygenerowanie klucza
+	$ ssh-keygen -t ed25519 -C danielkabat97@wp.pl
+b) agent SSH
+	$ eval 'ssh-agent -s'
+	$ ssh-add ~/.ssh/id_ed25519
+c) zainstalowanie klucza po stronie serwera
+d) zmiana sposobo logowania
+	$ git remote -v
+	$ git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+	$ git remote -v
+2. Nadanie "Taga" na aktualnego commita o nazwie: "twoje inicjały + nr indexu + nr zadania" wraz z komentarzem.
+	$ git tag -a DK290596_Lab01 -m "Daniel Kabat, Lab 01 wszystko działa, 10/10 proszę"
+	$ git push --set-upstream origin DK290596
+	$ git push --follow-tags
+3.Zrobienie porządku z folderami
+a) stowrzenie nowego brancha Grupa07-DK290596_Lab02
+b) przeniesienie folderu z pierwszych zajęć
+c) stworzeni folderu do drugich zajęć i wrzucenie do niego screenów
+4. Napisanie Git hook'a (jest screen z jego kodem w zrzucie o nazwie zadanie4)
+5. Dodanie zmian do brancha Grupa07 i zamkniecie brancha osobistego $ git branch -d Grupa07-DK290596_Lab02
+	

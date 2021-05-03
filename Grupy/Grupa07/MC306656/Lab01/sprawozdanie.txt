@@ -1,0 +1,5 @@
+Do wykonania zadania należało sklonować repozytorium za pomocą polecenia clone. 
+Następnie przy użyciu terminalowych poleceń tworzyłam katalog (mkdir), foldery (touch), zmieniałam miejsce między katalogami (cd) oraz sprawdzałam zawartość katalogu (ls).
+Dodatkowo dodawanie oraz komitowanie wprowadzonych zmian wykonywałam poprzez komendy add i commit. 
+Do przesyłania na mastera wszystkich wprowadzonych zmian służy polecenie push, a do pobierania z mastera polecenie pull.
+Do scalenia gałęzi służy merge, a do rozgałęzienia checkout. 

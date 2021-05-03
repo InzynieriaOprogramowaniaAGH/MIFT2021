@@ -1,0 +1,22 @@
+# Doing this in a hook is a bad idea in general, but the prepare commit-msg     
+# hook is more suited to it.                                                    
+#                                                                               
+# SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')  
+# grep -qs "^$SOB" "$1" || echo "$SOB" >> "$1"                                  
+
+# This example catches duplicate Signed-off-by lines.                           
+MSG="$1"
+
+if ! grep -qE "^SH306666" "$MSG"; then
+    cat	"$MSG"
+    echo "Your commit message must begin with 'SH306666'"
+    exit 1
+fi
+
+
+
+
+
+
+
+
