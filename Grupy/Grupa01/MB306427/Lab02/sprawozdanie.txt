@@ -24,3 +24,5 @@ następnie sprawdziłem protokoły połączenia poleceniem  git remote -v
   Dodałem screeny z wykonanych zadań na potwierdzenie ich wykonania
 
 4. Dodałem scrypt do pliku commint-msg.smaple w celu weryfikacji wiadomości podczas wykonywania commita
+
+5. Po wykonanym ćwiczeniu usuwam stworzonego brancha Grupa01-MB306427_Lab2 oraz wykouje Pull request na grupowego brancha
