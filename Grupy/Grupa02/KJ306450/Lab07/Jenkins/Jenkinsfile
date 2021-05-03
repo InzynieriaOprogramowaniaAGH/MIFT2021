@@ -9,7 +9,7 @@ pipeline {
             steps{
                 
                 echo 'Building app'
-                cd ../Docker
+                sh 'cd ../Docker'
                 sh 'docker-compose up -d chat-build'
                 
 
@@ -22,7 +22,7 @@ pipeline {
             steps{
                 
                 echo 'Start testing'
-                cd ../Docker
+                sh 'cd ../Docker'
                 sh 'docker-compose up -d chat-test'
                 sh 'docker-compose logs > logs.txt'
                 
