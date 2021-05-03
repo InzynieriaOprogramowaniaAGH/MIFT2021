@@ -9,9 +9,9 @@ pipeline {
             steps{
                 
                 echo 'Building app'
-                dir("Lab07/Docker"){
-                    sh 'docker-compose up -d chat-build'
-                }
+                cd ../Docker
+                sh 'docker-compose up -d chat-build'
+                
 
             }
 
