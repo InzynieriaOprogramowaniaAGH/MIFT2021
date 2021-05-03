@@ -1,0 +1,31 @@
+Sprawozdanie Lab2
+
+1. Wygenerowanie klucza ssh.
+   $ ssh-keygen -t ed25519 -C "your_email@example.com".
+   Wybranie œcie¿ki do zapisu.
+   Wpisanie has³a.
+   Dodanie klucza do ssh-agent $ eval `ssh-agent -s`.
+   Dodanie ssh $ ssh-add ~/.ssh/id_ed25519 .
+   Zarejestrowanie klucza po stronie serwera.
+   Zmiana po³¹czenia na ssh $ git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+
+2. Nadanie tag'u.
+   $ git tag -a PF299617 "Piotr Fedirko, lab02"
+   $ git push --follow-tags
+
+3. Uporz¹dkowanie branch'y i folderów: pogrupowanie w grupy laboroatoryjne.
+   Stworzenie nowego banch'a $ git checkout -b Grupa07-PF299617_Lab02 .
+   Wykonanie na nim $ git merge Grupa07 .
+   Zmiana konfiguracji folderów, dodanie nowych plików do repozytorium i commit.
+   Zmiana banch'a na Grupa07 i merge z Grupa07-PF299617_Lab02.
+   $ Git pull i potem $ git push
+
+4. Napisanie Git hook'a.
+   W folderze .git/hook stworzenie git hook'a $ touch commit-mgs .
+   Git hook bêdzie wyœwietla³ Error lub OK w zale¿noœci czy w commicie beda na poczatku inicja³y i numer indeksu.
+
+5. Do³¹czanie zmian.
+   Dodanie zmian do branch'a Grupa07.
+   Zamkniêcie branch'a osobistego $ git branch -d Grupa07-PF299617_Lab02
+
+   
