@@ -22,10 +22,10 @@ pipeline {
             steps{
                 
                 echo 'Start testing'
-                dir("Lab07/Docker"){
-                    sh 'docker-compose up -d chat-test'
-                    sh 'docker-compose logs > logs.txt'
-                }
+                cd ../Docker
+                sh 'docker-compose up -d chat-test'
+                sh 'docker-compose logs > logs.txt'
+                
 
             }
         }
