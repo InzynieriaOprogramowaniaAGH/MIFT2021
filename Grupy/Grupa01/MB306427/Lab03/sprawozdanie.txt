@@ -1,0 +1,15 @@
+Sprawozdanie nr 3 Mateusz Bonk gr 1
+
+1. W pierwszym punkcie ćwiczenia stworzyłem nowego brancha na te laboratorium poleceniem
+  git checkout -b Grupa01-MB306427_Lab3
+2. Do mojego folderu z poprzednich ćwiczeń(Lab2) dodałem katalog hooks a w nim plik z reguła hook'a z zajęć
+
+3. Zainstalowałem dockera na swojej maszynie wirtualnej
+
+4. Zalogowałem się na Docker HUB
+
+5. Stworzyłem w swoim katalogu plik Dockerfile
+
+6. Za pomocą polecenia docker build stworzyłem obraz na podstawie pliku Dockerfile, następnie uruchomiłem kontener na podstawie stworzonego obrazu używają docker run -it nazwa_obrazu
+
+   W kontenerze w katalogu home sklonowałem nasze repozytorium poleceniem git clone a następnie sprawdziłem czy wystepuje tam mój branch 

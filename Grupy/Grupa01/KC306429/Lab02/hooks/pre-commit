@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if ! grep 'KC306429' "$1"; then 
+	echo 'Error'
+	exit 1;	
+fi	
+echo 'OK'
+exit 0;

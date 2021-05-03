@@ -1,0 +1,15 @@
+Sprawozdanie Mateusz Bonk
+
+1. Stworzyłem brancha na których wykonuje wszystkie operacje w ciągu tych zajęć laboratoryjnych
+	Grupa01-MB306427_Lab4
+1.1. Na serwisie DOckerHUb opublikowalem obraz z poprzednich zajęc. WYkonałem to za pomocą odpowiedniego otagowanie obrazu a nastepnie push na swoje konto na tym serwisie
+
+2. Do tych zajęć wykorzystuje aplikacje (Open-Source) node-chat-app
+
+3. Stworzyłem plik DockerfileBuild który jest odpowiedziałny za stworzeni obrazu kontenera odpowiedzialnego za budowanie mojej aplikacji z punktu 2.
+
+4. Stworzyłem plik DockerfileTest który buduje obraz odpowiedzialny za testowanie aplikacji 
+
+5. Stworzyłem plik docker-compode.yml ktorym za pomoca polecenia "docker compose up" będę miał możliwość budowanie kontenerów z punktu 3 oraz 4 
+
+Wszystkie stworzone pliki oraz wykonane screeny zostały umieszczone w folderze Lab4

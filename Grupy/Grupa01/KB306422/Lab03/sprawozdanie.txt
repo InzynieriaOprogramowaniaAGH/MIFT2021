@@ -1,0 +1,33 @@
+Metodyki DevOps
+Sprawozdanie lab3
+1)Utworzenie nowego brancha osobistego od grupowego
+	-git checkout -b Grupa01-KB306422_Lab03
+2)Utworzenie katalogu w Lab02
+	- mkdir hooks
+Dodanie git hooka napisanego na poprzednich zajęciach i dodanie praw
+	-touch pre-commit
+	-chmod +x pre-commit
+3)Instalacja dockera zgodnie z instrukcją na stronie
+	-sudo yum install -y yum-utils	//repo setup
+	-sudo yum-config-manager \
+    	--add-repo \
+    	https://download.docker.com/linux/centos/docker-ce.repo
+	-sudo yum install docker-ce docker-ce-cli containerd.io
+	-sudo systemctl start docker//wystartowanie
+	-sudo systemctl enable docker 
+	-docker --version //sprawdzenie wersji
+4)Zalogowanie się do istniejącego konta na Docker HUB
+5)Dodanie i napisanie Dockerfile
+	FROM ubuntu:latest
+	RUN apt-get -y update
+	RUN apt-get -y upgrade
+	RUN apt-get install -y build-essential
+	RUN apt-get -y install git
+6)Uruchomienie kontenera i ściągnięcie repozytrium oraz sprawdzenie, czy jest branch Grupa01-KB306422_Lab03
+	-sudo docker build -t nazwa
+	-sudo docker run -it ID
+	-git clone link
+	-git checkout Grupa01
+	-git checkout Grupa01-KB306422_Lab03
+
+

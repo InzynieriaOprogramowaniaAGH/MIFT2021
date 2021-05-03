@@ -1,0 +1,27 @@
+Metodyki DevOps, Lab04, 08.03.2021
+
+Zad.1	Stworzyłem brancha osobistego od brancha Grupa01
+	 * git branch Grupa01-BC306433_Lab04
+	Opublikowałem stworzony na poprzednich zajęciach braz na dockerhub:
+	* docker tag d54eb7cb7098 ciesinskib/lab03_docker:devOps_lab4
+	* docker push ciesinskib/lab03_docker
+	
+Zad.2   Komunikator, z którego korzystam w tym adaniu: https://github.com/binhxn/node-chat-app
+
+
+Zad.3   Stworzyłem dockerfile dla kontenera odpowiedzialnego za budowanie komunikatora ze źródła.
+	zbudowałem obraz poleceniem:
+	* sudo docker build -t build_agent . -f Dockerfile_build
+	* sudo docker run -it -p 3000:3000 build_agent
+	
+Zad.4 	Stworzyłem dockerfile dla nowego kontenera do testów
+	zbudowałem obraz poleceniem:
+	* sudo docker build -t test_agent . -f Dockerfile_test
+
+zad.5 	Instalacja docker-compose z dokumentacji:
+	 * sudo curl -L "https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+	 * sudo chmod +x /usr/local/bin/docker-compose
+
+	uworzyłem plick docker-compose odpowiedzialny za sciąganie ze źródeł nowej wersji komunikatora.
+	zbudowałem i sprawdziłem czy działa poleceniem:
+	* sudo docker-compose up

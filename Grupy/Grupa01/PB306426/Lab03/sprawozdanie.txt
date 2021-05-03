@@ -1,0 +1,38 @@
+1. Stworzono nowego brancha osobistego na zajęcia
+	git checkout -b Grupa01-PB306426_Lab03
+	
+2. Przeniesiono hooka do odpowiedniego folderu
+	Grupa01/PB306426/Lab02/hooks/pre-commit
+	
+3. Instalacja dokera zgodnie z instrukcją na docker docs
+	Dodanie klucza GPG
+		curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+	Setup repo
+		echo \
+  		"deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  		$(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+	Update apt
+		sudo apt-get update
+	Instalacja silinka dockera
+		sudo apt-get install docker-ce docker-ce-cli containerd.io
+	Sprawdzenie czy instalacja sie powiodła 
+		sudo docker run hello-world
+
+4. Mam już konto na dockerhub
+
+5. Przygotowano plik Dockerfile znajduje się w folderze z zrzutami ekranu i sprawozdaniem
+
+	FROM ubuntu:latest
+	RUN apt-get update 
+	RUN apt-get install -y git
+	
+6. Zbudowano obraz o nazwie devops
+	sudo docker build -f ~/MIFT2021/Grupy/Grupa01/PB306426/Lab03/Dockerfile -t devops .
+   Uruchomienie obrazu
+	sudo docker run -it devops bash
+   Sklonowanie repo
+   	git clone "https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git"
+   Przeskoczenie na swojego brancha
+        switch Grupa01-PB306426_Lab03
+   Wyjscie za pomocą exit
+

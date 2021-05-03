@@ -1,0 +1,11 @@
+1. Utworzono wlasny branch na podstawie brancha Grupa01 za pomoca polecenia git branch Grupa01-KK306457_Lab03
+2. Skopiowano hook do odpowiedniego katalogu za pomoca polecenia cp ~/MIFT2021/.git/hooks/commit-msg .
+3. Docker byl juz zainstalowany w wersji 19.03.8
+4. Konto na Dockerhub takze posiadalem
+5. Dockerfile nalezalo utworzyc na podstawie najnowszego ubuntu (FROM ubuntu:latest) 
+nastepnie pobrac aktualizacje (RUN apt-get update)
+i zainstalowac gita (RUN apt-get install -y git)
+6. Zbudowano obraz za pomoca polecenia "docker build -t devops ."
+Uruchomiono kontener za pomoca polecenia "docker run -it devops bash" i uruchomiono bash ubuntu
+Nastepnie pobrano repozytorium za pomoca git clone i przelaczono sie na branch Grupa01-KK306457_Lab03
+Z kontenera nalzezalo wyjsc poleceniem "exit"

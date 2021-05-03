@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+    build:
+        image: build:latest 
+        build:
+            context: .
+            dockerfile: ../build/Dockerfile
+        ports:
+            - "3000:3000"
+    test:
+        image: test:latest 
+        build:
+            context: .
+            dockerfile: ../test/Dockerfile
