@@ -1,0 +1,6 @@
+#!/bin/sh
+if ! grep "HM306683" "$1";
+	    then 
+            echo "Your commit message must begin with HM306683"
+            exit 1;
+      fi

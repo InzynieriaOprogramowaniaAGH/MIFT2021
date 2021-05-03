@@ -1,0 +1,27 @@
+1. Przełączyłem się na branch grupowy gdzie uzylem git pulla, a następnie utworzylem nowego brancha.
+git checkout Grupa08
+git pull
+git checkout -b Grupa08AZ306527Lab03
+
+2.Utworzyłem nowy folder hooks w moim folderze Lab02, a nastepnie tam przekopiowalem moj plik pre-commit.
+
+3.Zainstalowałem i uruchomilem dockera, a następnie sprawdziłem wersje.
+sudo apt-get install docker.io
+sudo systemctl start docker
+sudo systemctl enable docker
+docker --version
+
+4. Miałem już wczeńsiej zarejesrowane konto na dockerhubie.
+
+5. Utworzono Dockerfile z zainstalowanym gitem, a nastęnieu utworzono obraz
+
+FROM ubuntu:latest
+RUN apt-get -y update
+RUN apt-get -y install git
+
+sudo docker build -t sample-image .
+
+6. Uruchomiono kontener skojarzony z obrazem
+sudo docker run -it sample-image bash
+
+6.1. Sklonowano na niego nasze repozytorium, zpullowano a nastepnie, przełączono dla testu na branch tego cwiczenia

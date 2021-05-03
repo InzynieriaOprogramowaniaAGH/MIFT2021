@@ -1,0 +1,16 @@
+1.Zmiana połączenia z HTTPS na SSH za pomocą klucza. Generujemy go poleceniem: 'ssh-keygen -t ed25519 -C "wtycjan@example.com"'. Następnie dodajemy klucz do agenta ssh poleceniami: 'eval $(ssh-agent)' potem 'ssh-add ~/.ssh/id_ed25519'. Następnie rejestrujemy nasz klucz po stronie serwera, za pomocą polecenia: 'clip < ~/.ssh/id_ed25519.pub' kopiujemy go do schowka by go potem ręcznie zarejestrować na stronie github.com. Informujemy gita o zmianie sposobu logowania poleceniem: 'git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git'. Wykorzystać polecenie: 'git remote -v' by sprawdzic jakie mamy połączenie.
+2.Nadano tag na commita poleceniem: 'git tag -a TW306519_Lab02' -m "Lab 02 - zadanie 2"'. Następnie wrzucenie zmiany na swojego brancha: 'git push origin TW306519 --follow-tags'
+3.Zreargonizowano strukturę folderów w nastepujacy sposób: MIFT2021/Grupy/Grupa08/TW306519/Lab02, następnie od brancha grupowego Grupa08 utworzono nowego brancha Grupa08-TW306519_Lab02 poleceniem: 'git checkout -b Grupa08-TW306519_Lab02 Grupa08'
+4.Napisanie Git hooka by sprawdzał czy każdy commit messsage zaczyna się od "TW306519". Zmodyfikowano hook commit-msg w folderze .git/hooks
+
+#!/bin/sh
+
+string_check='TW306519'
+error_msg="Aborting commit. Your commit message is missing initials + index number"
+
+if ! grep -iqE "$string_check" "$1"; then
+    echo "$error_msg" >&2
+    exit 1
+fi
+
+5.Po zpushowaniu zmian 'git push origin Grupa08-TW306519_Lab02' zmergowanie mojego brancha z grupowym za pomoca poleceń 'git checkout Grupa08', 'git merge Grupa08-TW306519_Lab02', następnie 'git pull' oraz 'git push'. Następnie zamknięcie osobistego 'git push origin --delete Grupa08-TW306519_Lab02'oraz stworzenie pull request z grupowego do mastera.

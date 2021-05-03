@@ -1,0 +1,7 @@
+1. Git był juz zainstalowany na moim komputerze.
+2. Za pomocą polecenia 'git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git' pobieram repozytorium
+3. Przeczytanie instrukcji
+4. Stworzenie własnego brancha o nazwie TW306519 i przełączenie się na niego. Utworzenie własnego folderu TW306519 i Lab01. Wewnątrz stworzenie sprawozdania. Następnie dodanie go do repozytorium poleciem 'git add sprawozdanie.txt' oraz 'git commit -m "add sprawozdanie.txt"'. To samo dla pliku z grafem.
+5. Uzupełnienie sprawozdanie.txt opisem ćwiczenia.
+6. Dodanie do repozytorium wszystkich screenów powyższych poleceń. 
+7. Po zpushowaniu zmian 'git push origin TW306519' zmergowanie mojego brancha z masterem za pomoca poleceń 'git checkout master', 'git merge TW306519', następnie 'git pull' oraz 'git push'
