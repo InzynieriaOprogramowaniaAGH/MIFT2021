@@ -1,0 +1,22 @@
+1.wygenerowałem nowy klucz ssh za pomocą polecenia: ssh-keygen -t ed25519 -C,
+przypisałem do niego hasło,
+otrzymany klucz publiczny
+zarejestrowałem po stronie serwera
+
+zmieniłem polaczenie na typ SSH: git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+2.utworzyłem własny tag za pomocą polecenia git tag -a JS306498_Lab02 -m "Jakub Sosin -nowy tag" 
+Dodałem zmianę do repozytorium za pomocą polecenia git push --follow-tags -set-upstream origin JS306498
+
+3.Stworzyłem folder Grupy a w nim folder Grupa05, gdzie przeniosłem mój dotychczasowy katalog
+git mv JS306498/ Grupy/Grupa05
+Stworzyłem branch krótkożyjący "Grupa05-JS306498_Lab02"
+4.Edytowałem plik commit-msg,tak by każdy commit message musiał się zaczynać od JS306498.
+
+#!/bin/bash
+commitmessage="$1"
+if ! grep -qE "^JS306498" "$commitmessage";then
+			cat "$commitmessage"
+			echo "bledny commit"
+			exit 1
+		fi
+echo "dobry commit"	

@@ -1,0 +1,49 @@
+Sprawozdanie zajęcia 18.03.2021 
+ 
+Temat:
+Integracja narzędzi walidacji i weryfikacja kodu z repozytorium. 
+Łączenie, dzielenie repozytoriów, sub-repozytoria.
+
+1. Stworzyłam brancha osobistego na zajęcia wg. Schematu. Z brancha Grupa05 stworzyłam swój branch poleceniem git checkout –b Grupa05-AR306494_Lab03. 
+
+2. Dodałam git hooka, którego napisałam na poprzednich zajęciach. Dodałam go do swojego folderu MIFT2021/Grupy/Grupa05/AR306494/Lab03/hooks/pre-commit.  
+
+#!/bin/bash,  
+
+commit_comment="AR306494" 
+
+wrong_commit="Wrong commit!" 
+
+if ! grep -iqE "$commit_comment" "$1" ; then 
+
+echo "$wrong_commit" 
+
+exit 1 
+
+fi 
+
+echo "Correct commit comment" 
+
+3. Zainstalowałam Dockera. Użyłam poleceń: 
+
+sudo apt-get update //system update 
+
+sudo apt install docker.io //install Docker 
+
+sudo systemctl start docker //start Docker 
+
+sudo systemctl enable docker //automate Docker 
+
+docker --version //check Docker version 
+
+4. Zalogowałam się na konto w Docker HUB.
+
+5. Stworzyłam plik Dockerfile, który bazuje na najnowszym ubuntu. W Dockerfile’u upewniłam się, że git będzie zainstalowany. Skopiowałam plik do swojego brancha.
+
+6. Uruchomiłam kontener i ściągnęłam na niego repozytorium. Upewniłam się, że znajduję się tam mój branch Grupa05-AR306494_Lab03.
+
+sudo docker build –t ar-docker . // build an image 
+
+sudo docker run –it 6df2188635d0 bash //run docker image
+
+git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021

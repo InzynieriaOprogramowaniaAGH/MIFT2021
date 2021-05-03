@@ -1,0 +1,15 @@
+
+1.Przelaczylem sie na brancha Grupa05,nastepnie utworzylem nowy branch Grupa05-JS306498_Lab03
+2.Skopiowalem hooka do folderu lab03
+3.Zainstalowalem dockerhuba
+4.Posiadam juz konto w dockerhubie
+5.Utworzeylem nowego Dockerfila
+FROM ubuntu:latest
+RUN apt-get -y update
+RUN apt-get -y upgrade
+RUN apt-get install -y build-essential
+RUN apt-get -y install git
+6.Uruchomilem kontener na ktory pobralem repozytorium
+budowa obrazu: sudo docker build -t js_docker
+uruchomienie obrazu: sudo docker run -it abaa89e05ea1
+7.sprawdzilem czy znajduje sie tam moj branch

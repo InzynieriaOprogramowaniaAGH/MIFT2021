@@ -1,0 +1,17 @@
+1. Stworzenie brancha na te laby - git checkout -b nazwa
+
+2. Wrzucenie hooka z poprzednich labow na repo - ctrl+c i ctrl+v
+
+3. Zainstalowanie Dockera - kilka polecen skopiowanych bez przemyslenia z oficjalnej dokumentacji
+
+4. Zalogowanie sie na stare konto - it just works
+
+5. Stworzenie Dockerfilea - mial odpowiadac za tworzenie imagea z ubuntu(FROM ubuntu:latest)
+   oraz instalacje gita(RUN apt-get install git) - do budowy image - image build .
+
+6. Uruchomienie nowego kontenera ze stworzonym imagem oraz pobranie tam repo:
+	- docker run nazwa sleep 180 - ogolnie to docker od razu wylacza kontener z samym
+	  systemem dlatego dalem sleepa zeby moc na spokojnie pobrac repo
+	- docker exec -it git clone url - samo w sobie pobranie repo
+	- docker exec -it nazwa bash -c "cd /MIFT2021/Grupy/Grupa05 && ls" -
+	  sprawdzenie czy wszystko jest na miejscu

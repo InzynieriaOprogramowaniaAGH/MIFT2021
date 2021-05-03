@@ -1,0 +1,9 @@
+#!/bin/bash
+
+word="MS306499"
+isPresent=$(grep ^"$word" $1)
+
+if [[ -z $isPresent ]]
+  then echo "Commit message KO, $word is not at the beggining "; exit 1;
+  else echo "Commit message OK"; exit 0;
+fi

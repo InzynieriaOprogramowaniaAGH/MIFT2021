@@ -1,0 +1,8 @@
+#!/bin/bash
+commitmessage="$1"
+if ! grep -qE "^JS306498" "$commitmessage";then
+			cat "$commitmessage"
+			echo "bledny commit"
+			exit 1
+		fi
+echo "dobry commit"	

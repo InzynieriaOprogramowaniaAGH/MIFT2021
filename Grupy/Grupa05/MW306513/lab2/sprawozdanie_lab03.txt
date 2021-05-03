@@ -1,0 +1,6 @@
+1. utworzonie brancha za pomoca komendy git checkout -b Grupa05-MW306513_Lab03
+2. pre-commit.png
+3. docker-install.png
+4. docker id : wojow8
+5. Dockerfile w folderze lab2
+6. tryb interaktywny

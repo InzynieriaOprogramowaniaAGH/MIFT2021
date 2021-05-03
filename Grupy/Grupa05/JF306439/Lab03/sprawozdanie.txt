@@ -1,0 +1,31 @@
+1. Stworzenie krotkozyjacego brancha za pomoca komendy: git checkout -b Grupa05-JF306439_Lab03
+
+2. Dodanie git hooke'a z poprzednich zajec do folderu Lab02/hooks
+
+3. Dodanie zmian na GitHub'a: git add .	git commit -m "JF306439 - dodanie pliku commit-msg"	git push --set-upstream origin Grupa05-JF306439_Lab03
+
+4. Zainstalowanie Dockera oraz sprawdzenie pomyslnego przebiegu instalacji:
+
+ sudo apt-get update
+ sudo apt-get install docker-ce docker-ce-cli containerd.io
+ sudo docker run hello-world
+
+5. Zalogowanie sie na stronie https://hub.docker.com/
+
+6. Stworzenie pliku Dockerfile pobierajacego git'a oraz pobierajacego repozytorium:
+
+FROM ubuntu:latest
+RUN apt-get update
+RUN apt-get install git -y
+RUN git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021
+
+7. Uruchomienie kontenera, sprawdzenie czy istnieje branch o nazwie Grupa05-JF306439_Lab03 za pomoca komend:
+
+sudo docker build . -t image1lab03
+sudo docker run -it image1lab03
+cd MIFT2021
+git checkout Grupa05
+it checkout Grupa05-JF306439_Lab03
+
+8. Dolaczenie zmian na Git'a
+
