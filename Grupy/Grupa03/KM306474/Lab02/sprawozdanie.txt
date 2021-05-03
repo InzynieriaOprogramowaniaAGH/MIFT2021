@@ -1,3 +1,5 @@
+Nie chciał się wykonać marge do brancha grupowego
+Sprawozdanie 2
 1. klucz ssh
 ssh-keygen -r ed25519 -X "krzysztofmarcinek98@gmail.com"
 eval 'ssh-agent -s'
@@ -27,3 +29,40 @@ git merge grupa03
 git checkout grupa03
 
  git branch --delete KM306474
+
+
+
+Sprawozdanie 3
+1. git checkout -b Grupa03-KM306474_Lab03
+
+2. nano MIFT2021/Grupy/Grupa03/KM306474/Lab03/hooks/pre-commit
+
+3. Instalacja dockera
+sudo apt update
+sudo apt install -y docker.io
+sudo systemctl enable docker --now
+sudo usermod -aG docker $USER
+
+4.Stworzenie konta na https://hub.docker.com/
+
+5.Dockerfile:
+FROM ubuntu:latest
+RUN echo "Witaj"
+RUN apt-get update && \A
+    apt-get upgrade -y && \
+    apt-get install -y git
+
+git add Dockerfile
+git commit -m ".."
+
+6.
+
+sudo docker build -t qwe:123 .
+sudo docker images
+sudo  docker run -t -i --privileged qwe:123 bash
+git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT202
+sudo docker ps
+sudo docker exec -it nostalgic_rhodes /bin/bash
+sudo docker stop nostalgic_rhodes 
+
+
