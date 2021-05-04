@@ -1,13 +1,13 @@
-FROM node:10
+FROM node:14
 
 RUN apt-get upgrade
 RUN apt-get update
 
 RUN apt-get install python make g++ git
 
-RUN git clone https://github.com/wireapp/wire-desktop.git
+RUN git clone https://github.com/igorantun/node-chat.git
 
-WORKDIR ./wire-desktop
+WORKDIR ./node-chat
 
 RUN npm install
 CMD ["npm", "start"]

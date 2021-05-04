@@ -1,15 +1,25 @@
 version: '3'
 services:
     build-agent:
-      image: im1
+      image: image-node
       build:
-         dockerfile: Dockerfile
+       context: .
+       dockerfile: Dockerfile
+      ports:
+      - 3000:3000
+      stdin_open: true
+      tty: true
+      
     test-agent:
-      image: im1t
+      image: image-test
       build:
-         dockerfile: Dockerfile_test
+       context: .
+       dockerfile: Dockerfile_test
+      ports:
+      - 3030:3030
       depends_on:
       - build-agent
+     
       
       
       
