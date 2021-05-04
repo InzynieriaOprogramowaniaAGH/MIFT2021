@@ -1,0 +1,37 @@
+1. Posegregowano odpowiednio katalogi.
+2. Utworzono nowe repozytorium lab07, w którym zawarto wszystkie pliki niezbędne do zbudowania serwera i klienta oraz przetestowania.
+3. Zmieniono strukturę docker-compose.yml tak aby odpowiadał tylko za budowanie poszczególnych dockerów. Testowanie będzie realizowane w ramach osobnego joba 
+ustalonego w Jenkinsfile.
+4. Napisanie odpowiedniego Jenkinsfila i umieszczenie go w katalogu głównym nowego repozytorium lab07.
+pipeline {
+    agent {
+             docker { image 'node:alpine'                                              #Wybrany agent odpowiada technologii jaka jest wykorzystywana w komunikatorze
+                     }
+             }
+    stages {
+        stage('Build'){ 
+            steps{
+		sh 'docker-compose up' 							#Tylko budowanie
+
+            }
+	}
+	stage('Test'){
+	    steps{
+                sh 'code/wait.sh server:1234 -- echo READY && node code/client.js'	#testowanie
+	    }
+ 	}
+    }
+    post {
+    failure {
+        mail to: 'emroz@student.agh.edu.pl',
+             subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+             body: "Something is wrong with ${env.BUILD_URL}"
+    }
+    success {
+            echo 'I succeeded :D'
+    }
+}
+}
+
+5. Dodano odpowiedni plugin umożliwiający wysyłanie maili w przypadku faila oraz skonfigurowano ustawienia.
+6. Przetestowano działanie ci/cd na jenkinsie. Tworząć nowy pipeline (został on automatycznie stworzony kiedy Jenkinsfile został wykryty w katalogu głównym).
