@@ -6,3 +6,6 @@ Wykonano fork repo. Utworzono Jenkinsfile'a i umieszczono go w repo (po forku) n
 
 3.
 Po skofigurowaniu nowego projektu i uruchomieniu pipeline w Jenkins początkowo testy się nie powiodły i została otrzymana taka infomacja, a następnie testy przeszły z sukcesem oraz został wysłany tym razem mail o powodzeniu razem z build logiem. Zrzuty ekranu umieszczono jako PNG. 
+
+4.
+Dodano Jenkinsfile zgodnie z porządkiem folderów z punktu 1 do KB306422 oraz do folderu Lab07.
