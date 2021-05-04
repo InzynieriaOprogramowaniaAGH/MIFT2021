@@ -1,0 +1,4 @@
+1. Umieszczono wszystkie pliki zrodlowe w repozytorium. Zachowano porzadek folderow:
+MS306497/<nazwa technologi>/<pliki>
+
+
