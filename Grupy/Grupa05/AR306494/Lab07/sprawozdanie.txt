@@ -1,0 +1,21 @@
+Sprawozdanie zajęcia 29.04.2021
+
+Temat: Pipeline CI/CD - podstawy & testowanie.
+
+1. Skopiowałam wszystkie pliki źródłowe w repozytroium MIFT do nowych folderów odpowiadających nazwie technologii w moim folderze głównym AR306494.
+
+2. Ze swojego planu CI/CD pipeline'a stworzonego na Lab06 wybrałam punkty, które odpowiadają za "Uruchomienie szybkiego i niezawodnego testowania."
+
+Następnie stworzyłam Jenkinsfile i umieściłam go w zforkowanym repozytorium z komunikatorem. 
+
+W Jenkinsfile stworzyłam nowego Jenkins pipeline, a w nim w sekcji "stages" nowy "stage('Test')".
+
+Wewnątrz Jenkinsfile w sekcji "stage('Test')" oskryptowałam uruchamianie testów dla aplikacji.
+
+3. Wykonałam i wykazałam przykład wykonania testów z użyciem Jenkinsfile:
+   -testy się powiodły (100%)
+   -testy się nie powiodły (< 100%).
+
+W wypadku niepowodzenia testów, automatycznie został wysłany mail z informacją o niepowodzeniu oraz z logami z konsoli.
+   
+4. Wrzuciłam Jenkinsfile na repozytorium MIFT.
