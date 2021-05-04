@@ -10,3 +10,10 @@ W Jenkinsfile stworzyłem nowego Jenkins pipeline, a w nim w sekcji "stages" now
 
 Wewnątrz Jenkinsfile w sekcji "stage('Test')" oskryptowałam uruchamianie testów dla aplikacji.
 
+3. Wykonałem i wykazałem przyklad wykonania testow z użyciem Jenkinsfile:
+- testy sie powiodly
+- testy sie nie powiodly
+
+W wypadku niepowodzenia testów został wysłany mail z informacją o niepowodzeniu oraz z logami.
+
+4. Wrzuciłem Jenkinsfile na repozytorium MIFT
