@@ -1,3 +1,6 @@
 Sprawozdanie Lab07
 
 1.Umieszczono pliki zrodlowe w repozytorium InzynieriaOprogramowaniaAGH/MIFT2021.git. Zachowano następujący porządek folderów: NC306434/<nazwa technologii>/<pliki>
+
+
+2.Zrobiono "forka" na oryginalnym repozytorium. Sklonowano je. Stworzono Jenkinsfile i umieszczono go w repozytorium z komunikatorem. W Jenkinsfile stworzono pipeline, ktory korzysta z Jenkinsfile wrzuconego do repozytorium.
