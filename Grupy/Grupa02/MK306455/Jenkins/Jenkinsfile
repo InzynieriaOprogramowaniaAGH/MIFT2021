@@ -26,13 +26,13 @@ pipeline {
     		emailext attachLog: true,
     		attachmentsPattern: 'tests_log.txt',
                 body: "Tests successful for job ${env.JOB_NAME}",
-                subject: "Tests successful",
+                subject: "Tests successful.",
                 to: 'marcin.kapusta2986@gmail.com'
     	}
     	unstable{
     		echo 'Unstable....'
     		emailext attachLog: true,
-    		attachmentsPattern: 'log.txt',
+    		attachmentsPattern: 'tests_log.txt',
                 body: "Tests failed for job ${env.JOB_NAME}",
                 subject: "Tests failed.",
                 to: 'marcin.kapusta2986@gmail.com'
