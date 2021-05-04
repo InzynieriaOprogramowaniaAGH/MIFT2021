@@ -1,0 +1,65 @@
+1. 
+Zapoznalam sie z oprogramowaniem jenkins oraz z diagramem omawianym na zajeciach.
+
+
+2.
+Poslugiwano sie instrukcja instalacji ze strony https://www.jenkins.io/doc/book/installing/docker/
+a) W pierwszej kolejnosci nalezalo utworzyc siec za pomoca komendy "docker network create jenkins".
+b) Pozniej nalezalo pobrac i uruchomic docker:dind, ktory pozwala na wykonywanie polecen dockera w jenkinsie.
+
+	docker run --name jenkins-docker --rm --detach \
+	  --privileged --network jenkins --network-alias docker \
+	  --env DOCKER_TLS_CERTDIR=/certs \
+	  --volume jenkins-docker-certs:/certs/client \
+	  --volume jenkins-data:/var/jenkins_home \
+	  --publish 2376:2376 docker:dind --storage-driver overlay2
+  
+c) Nastepnie utworzono nastepujacy Dockerfile:
+
+	FROM jenkins/jenkins:2.277.1-lts-jdk11
+	USER root
+	RUN apt-get update && apt-get install -y apt-transport-https \
+	       ca-certificates curl gnupg2 \
+	       software-properties-common
+	RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+	RUN apt-key fingerprint 0EBFCD88
+	RUN add-apt-repository \
+	       "deb [arch=amd64] https://download.docker.com/linux/debian \
+	       $(lsb_release -cs) stable"
+	RUN apt-get update && apt-get install -y docker-ce-cli
+	USER jenkins
+	RUN jenkins-plugin-cli --plugins "blueocean:1.24.5 docker-workflow:1.26"
+
+d) Zbudowano obraz dockera za pomoca polecenia "docker build -t myjenkins-blueocean:1.1 ."
+e) Uruchomiono kontener ze zbudowanego obrazu, ktory pozwalal na uruchomienie jenkinsa:
+
+	docker run --name jenkins-blueocean --rm --detach \
+	  --network jenkins --env DOCKER_HOST=tcp://docker:2376 \
+	  --env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=1 \
+	  --publish 8080:8080 --publish 50000:50000 \
+	  --volume jenkins-data:/var/jenkins_home \
+	  --volume jenkins-docker-certs:/certs/client:ro \
+	  myjenkins-blueocean:1.1
+
+f) Za pomoca localhost:8080 uruchomiono jenkinsa w przegladarce.
+
+Znaleziono ID kontenera jenkinsowego za pomoca polecenia "docker ps".
+Nastepnie za pomoca polecenia "sudo docker exec ID_kontenera cat /var/jenkins_home/secrets/initialAdminPassword" pozyskano haslo do jenkinsa.
+Pozniej utworzono nowe konto, zmieniono url na localhost:8080/jenkins i pobrano odpowiednie pluginy.
+
+
+3.
+Analogicznie jak poprzednie obrazy, dodano jenkinsa na Docker Hub'a.
+Nadano tag obrazowi za pomoca polecenia "docker tag nazwa_obrazu:tag dockerhub_login/nazwa_obrazu:tag".
+Zalogowano sie na konto na DockerHubie poprzez polecenie "docker login".
+Nastepnie wykonano push obrazu za pomoca polecenia "docker push dockerhub_login/nazwa_obrazu:tag".
+
+
+4.
+Aby wejsc do kontenera uzyto polecenia "sudo docker exec -u root -it jenkins-blueocean bash" i zainstalowano w nim docker-compose i nadano uprawnienia do wykonania.
+W jenkinsie utworzono nowy job i nazwano go "Docker-compose-deltachat".
+W "Source Code Management" podano link do repozytorium MIFT2021, a jako branch specifier podalam swoj branch */Grupa01-KB306424_Lab05.
+Pozniej napisano prosty skrypt shellowy, ktory zmienial folder na Lab04 w ktorym byl docker-compose oraz uruchamial go.
+
+	cd Grupy/Grupa01/KB306424/Lab04
+	docker-compose up
