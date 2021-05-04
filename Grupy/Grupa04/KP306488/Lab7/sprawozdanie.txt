@@ -9,6 +9,5 @@
 2.4 Wewnątrz Jenkinsfile w sekcji stage(test) oskryptowałem uruchamianie testów dla aplikacji,
 osłużyłem 2 przypadki
 
-3. Uruchomiłem pipeline. Po testach jenkins niestety nie wysyłał maila z informacją o sukcesie lub niepowodzeniu niestety nie udało mi się naprawić błędu.
-
+3. Uruchomiłem pipeline. Po testach jenkins wysyłał powiadomienie o pomyślności testów.
 
