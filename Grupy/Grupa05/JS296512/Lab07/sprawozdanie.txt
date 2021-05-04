@@ -1,0 +1,5 @@
+1. Umieściłem wszystkie pliki źródłowe w repozytorium. Zachowałem porzadek folderow:
+
+JS296512/<nazwa technologi>/<pliki>
+
+
