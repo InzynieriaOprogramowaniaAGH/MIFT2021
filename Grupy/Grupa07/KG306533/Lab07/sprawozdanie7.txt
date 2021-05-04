@@ -1,0 +1,2 @@
+1. Przygotowano foldery Jenkins i Docker z plikami z poprzednich labów.
+2. Zrobiono fork'a  z Delta-Chat-Desktop. Utworzono Jenkinsfile.
