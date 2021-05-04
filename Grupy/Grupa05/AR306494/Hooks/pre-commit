@@ -1,0 +1,15 @@
+#!/bin/bash,  
+
+commit_comment="AR306494" 
+
+wrong_commit="Wrong commit!" 
+
+if ! grep -iqE "$commit_comment" "$1" ; then 
+
+echo "$wrong_commit" 
+
+exit 1 
+
+fi 
+
+echo "Correct commit comment"
