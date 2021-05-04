@@ -20,6 +20,6 @@
 
 2.4 Utworzyłem Jenkinsfile.
 
-3.
+3. Testy się udały. Konieczna była konfiguracja maila zarówno po stronie Jenkinsa jak również Google.
 
-4. 
+4. Jenkinsfile został dodany do repozytorium.
