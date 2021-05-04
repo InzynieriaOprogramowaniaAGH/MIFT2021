@@ -6,3 +6,5 @@ Sprawozdanie Lab07
 2.Zrobiono "forka" na oryginalnym repozytorium. Sklonowano je. Stworzono Jenkinsfile i umieszczono go w repozytorium z komunikatorem. W Jenkinsfile stworzono pipeline, ktory korzysta z Jenkinsfile wrzuconego do repozytorium.
 
 3. Wykonano i wykazano przykład wykonania testów z użyciem Jenkinsfile: testy - przeszly, testy - nie przeszly.
+
+4.Wrzucono Jenkinsfile na repozytorium z pkt 1.
