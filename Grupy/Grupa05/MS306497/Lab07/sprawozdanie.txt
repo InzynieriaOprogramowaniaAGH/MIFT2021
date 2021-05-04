@@ -1,4 +1,6 @@
 1. Umieszczono wszystkie pliki zrodlowe w repozytorium. Zachowano porzadek folderow:
 MS306497/<nazwa technologi>/<pliki>
 
-
+2. Zforkowano repozytorium z komunikatorem, sklonowano je.
+W repozytorium umieszczonon Jenkinsfile. 
+W Jenkinsie utworzono pipeline, korzystajacy z wrzuconego do repozytorium Jenkinsfile.
