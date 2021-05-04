@@ -4,3 +4,7 @@ MS306497/<nazwa technologi>/<pliki>
 2. Zforkowano repozytorium z komunikatorem, sklonowano je.
 W repozytorium umieszczonon Jenkinsfile. 
 W Jenkinsie utworzono pipeline, korzystajacy z wrzuconego do repozytorium Jenkinsfile.
+
+3. Wykonano i wykazano przyklad wykonania testow z uzyciem Jenkinsfile
+- testy sie powiodly
+- testy sie nie powiodly
