@@ -1,0 +1,10 @@
+FROM ubuntu:latest
+
+RUN ln -snf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime && echo Europe/Warsaw > /etc/timezone
+
+RUN apt-get -y update
+RUN apt-get -y install npm
+
+COPY . /feathers-chat-app
+WORKDIR /feathers-chat-app
+RUN npm install
