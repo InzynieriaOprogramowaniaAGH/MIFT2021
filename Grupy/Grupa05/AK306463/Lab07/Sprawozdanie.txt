@@ -1,0 +1,10 @@
+DevOps 29.04.2021
+
+1. Zgodnie z instrukcją, wyszukałam i umieściłam wszystkie stworzone do tej pory pliki w odpowiednio nazwanych folderach aby uporządkować repozytorium. 
+
+2. Powróciłam do swojego planu stworzonego w ramach poprzednich ćwiczeń i wybrałam punkty dotyczące testowania aplikacji.
+
+    - utworzyłam plik Jenkinsfile 
+    - wykonałam operację "fork" na repozytorium z aplikacją komunikatora używaną podczas wcześniejszych ćwiczeń ("Delta Chat")
+    - stworzony Jenkinsfile rozbudowałam o kroki budowania i testowania aplikacji
+    - rozpoczęłam wykonywanie testów ze stworzonym Jenkinsfilem ale niestety natrafiłam na błędy- pomimo liczbnych prób i róźnych "kombinacji" za każdym razem uruchomienie Pipeline'u kończyło się błędem przy wykonywaniu jakiejkolwiek instrukcji zawierającej "npm", szukałam pomocy zarówno w internecie (niestety bezskutecznie) jaki i u prowadzącego zajęcia ale niestety ze względu na przerwę majową kontakt był utrudniony. Błędu póki co nie udało mi się rozwiązać zatem nie mogłam przystąpić do dalszych króków instrukcji. W najbliższym czasie będę pracować nad rozwiązaniem tego problemu (mam nadzieję że np. podczas czwartkowych konsultacji) i najszybciej jak to możliwe, dokończę niniejsze sprawozdanie :).  
