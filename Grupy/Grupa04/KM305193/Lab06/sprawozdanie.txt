@@ -1,0 +1,8 @@
+1. Git commit oraz push -> przekazanie commitu do staging area i wypchniecie go do repozytorium.
+2. Pobranie zmian przez Jenkinsa. 
+3. docker-compose.yml -> budowanie obrazow zgodnie z trescia pliku.
+4. Sprawdzamy czy wszystko przeszlo pomyslnie (efekty sa wypisywane w postaci logow pipelinow).
+5. Jezeli testy nie przeszly to konczymy przebieg i wysylami powiadomienie z bledami.
+6. Jezeli testy przeszly to zaczynamy proces wdrazania.
+7. Budujemy artefakty wdrozeniowe, migrujemy je na srodowisko produkcyjne.
+8. Pipeline jest zamykany.
