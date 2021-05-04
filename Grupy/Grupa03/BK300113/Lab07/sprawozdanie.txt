@@ -16,9 +16,9 @@
 
 2.2 Utworzyłem fork'a wybranego komunikatora z wykorzystaniem GUI Github'a.
 
-2.3 Utworzyłem Jenkins's pipeline'a uruchamiającego Jenkinsfile ze stworzonego wcześniej repozytorium.
+2.3 Utworzyłem Jenkinsfile.
 
-2.4 Utworzyłem Jenkinsfile.
+2.4 Utworzyłem Jenkins's pipeline'a uruchamiającego Jenkinsfile ze stworzonego wcześniej repozytorium.
 
 3. Testy się udały. Konieczna była konfiguracja maila zarówno po stronie Jenkinsa jak również Google.
 
