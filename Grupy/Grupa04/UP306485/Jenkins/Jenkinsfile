@@ -1,0 +1,42 @@
+pipeline {
+	agent any
+	
+	tools {
+	    nodejs "my-node"
+	}
+	
+	stages {
+	
+		stage('Build') {
+			steps {
+				echo 'Building...'
+				sh 'npm install'
+			}
+		}
+		stage('Test') {
+			steps {
+				echo 'Testing...'
+				sh 'npm test'
+			}
+		}
+		stage('Deploy') {
+			steps {
+				echo 'Deploying...'
+			}
+		}
+	}
+		post {
+			success {
+            		echo 'Pipeline finished without failure'
+			}
+			failure {
+        			emailext attachLog: true,
+        			body: 'Something is wrong with ${env.BUILD_URL}',  
+        			subject: 'Failed Pipeline: ${currentBuild.fullDisplayName}', 
+        			to: 'ulekk19@gmail.com'
+    		}
+		}
+	
+}
+
+
