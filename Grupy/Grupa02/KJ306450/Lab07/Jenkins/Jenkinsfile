@@ -7,46 +7,53 @@ pipeline {
         stage('Build'){
 
             steps{
-                
+
                 echo 'Building app'
-                sh 'cd ../Docker'
-                sh 'docker-compose up -d chat-build'
-                
+                git branch: 'Grupa02-KJ306450_Lab07', url: 'https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021'
+                dir('Grupy/Grupa02/KJ306450/Lab07/Docker'){
+                    
+                    sh '''
+                        curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o ~/docker-compose
+                        chmod +x ~/docker-compose
+                        ~/docker-compose up -d chat-build
+                    '''
 
+                }
             }
-
         }
-
-        stage('Test'){
-
+        
+        stage('Test') {
+            
             steps{
-                
                 echo 'Start testing'
-                sh 'cd ../Docker'
-                sh 'docker-compose up -d chat-test'
-                sh 'docker-compose logs > logs.txt'
-                
-
+                dir('Grupy/Grupa02/KJ306450/Lab07/Docker'){
+                    sh '~/docker-compose up -d chat-test'
+                }
             }
         }
     }
-        
-    post {
-        success {
-            emailext attachLog: true, attachmentsPattern: 'logs.txt',
-                    body: "Test status: ${currentBuild.currentResult}: Job ${env.JOB_NAME}, More informations in attachment",
-                    subject: 'Tests passed',
-                    to: 'jopkarolina18@gmail.com'
 
+    
+    post {
+
+        success {
+            emailext attachLog: true, 
+                body: "Test status: ${currentBuild.currentResult}: Job ${env.JOB_NAME}, More informations in attachment", 
+                recipientProviders: [developers()], 
+                subject: 'Test passed', 
+                to: 'jkarolina1@interia.pl'
         }
 
         failure {
-            emailext attachLog: true, attachmentsPattern: 'logs.txt',
-                    body: "Test status: ${currentBuild.currentResult}: Job ${env.JOB_NAME}, More informations in attachment",
-                    subject: 'Tests failed',
-                    to: 'jopkarolina18@gmail.com'
+            emailext attachLog: true, 
+                body: "Test status: ${currentBuild.currentResult}: Job ${env.JOB_NAME}, More informations in attachment", 
+                recipientProviders: [developers()], 
+                subject: 'Test failed', 
+                to: 'jkarolina1@interia.pl'
+            
+
         }
+
     }
-        
-    
+
 }
