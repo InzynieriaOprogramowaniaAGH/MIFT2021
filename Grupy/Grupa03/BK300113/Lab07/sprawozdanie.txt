@@ -6,6 +6,12 @@
 
 	./jenkins_run_script
 
+	Inne wykorzystane komendy:
+
+	sudo docker exec -it nazwa_kontenera /bin/bash
+	oraz po uruchomieniu powyższej:
+	cat /var/jenkins_home/secrets/initialAdminPassword
+
 1. Utworzono żądany porządek folderów. Skrypty służące do uruchomienia kontenera z Jenkins'em oraz komunikatorem zostały umieszczone w folderze   Docker.
 
 2.2 Utworzyłem fork'a wybranego komunikatora z wykorzystaniem GUI Github'a.
