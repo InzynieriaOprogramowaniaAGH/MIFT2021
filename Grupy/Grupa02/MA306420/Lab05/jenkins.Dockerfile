@@ -21,4 +21,4 @@ RUN chmod 755 /usr/local/bin/docker-compose
 
 USER jenkins
 
-RUN jenkins-plugin-cli --plugins "blueocean:1.24.5 docker-workflow:1.26"
+RUN jenkins-plugin-cli --plugins "blueocean:1.24.5 docker-workflow:1.26 email-ext:2.82"
