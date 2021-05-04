@@ -1,0 +1,4 @@
+1. Stworzyłem foldery i umiescilem w nich stosowne pliki
+2. dodałem jenkinsfile i umiescilem w nim narazie tylko isntrukcje wypisujace (echo) failure i succesa ktore wysylaja na maila powiadomienie
+3. Jenkins działa bez zarzutu
+
