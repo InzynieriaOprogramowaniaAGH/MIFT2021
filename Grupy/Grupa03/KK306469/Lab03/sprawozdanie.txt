@@ -1,0 +1,12 @@
+Karol Kusik, 306469
+Sprawozdanie nr 3
+
+W ramach ćwiczenia udało mi się wykonać następujące kroki:
+1. Stworzyłem osobistego brancha o nazwie Grupa03-KK306469_Lab03.
+2. Dodałem plik z git hookiem do folderu poprzedniego laboratorium.
+3. Zainstalowałem dockera na moim Ubuntu WSL.
+4. Skorzystałem z konta utworzonego na dockerhub na na zajęciach na studiach na czwartym semestrze.
+5. Stworzyłem plik Dockerfile, bazujący na najnowszym ubuntu, z podstawową dystrybucją z zainstalowanym gitem.
+6. Uruchomiłem kontener, sklonowałem repozytorium, upewniłem się, że jest tam mój branch.
+Nastepnie zapisałem zmiany w kontenerze, dokonałem merge'a do brancha grupowego uzupełniłem sprawozdanie. 
+W katalogu został zawarty plik napisany przeze mnie plik Dockerfile oraz zrzuty ekranu.

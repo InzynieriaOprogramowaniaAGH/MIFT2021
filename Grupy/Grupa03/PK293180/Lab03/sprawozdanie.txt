@@ -1,0 +1,11 @@
+1. Z brancha grupowego stworzono brancha przy pomocy git branch a nastepnie przelaczono sie na niego przy pomocy git checkout
+
+2. Stworzono folder hooks/pre-commit w ktorym umieszczono git hooka
+
+3. Zainstalowano dockera przy pomocy apt-get install docker oraz apt-get install docker.io
+
+4.Zalogowano sie do swojego konta na dockerhub
+
+5. Stworzono dockerfile ktory bazuje na najnowszym ubuntu, a nastepnie dodano pozostale opcje, wyglad dockerfile mozna zobaczyc na screenach
+
+6. Uruchomiono kontener - najpierw docker build -t laboratorium3 . przy pomocy ktorego stworzono obraz, nastepnie uzyto docker run -it laboratorium3 bash aby upewnic sie, ze wszystko zostalo sciagniete porpawnie, sciagnieto repozytorium dodajac git clone w Dockerfile, nastepnie zmiany zostaly spushowane.

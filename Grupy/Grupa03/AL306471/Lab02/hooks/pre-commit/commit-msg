@@ -1,0 +1,8 @@
+#!/bin/bash
+
+
+if grep -qE "AL306471*" "$1"; then
+	echo "Commit message correct"
+	else  echo "Commit message missing 'AL306471'"
+	exit 1
+fi

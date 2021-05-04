@@ -1,0 +1,8 @@
+#!/bin/sh
+string='BK300113*'
+message="Commit porzucony!"
+if ! grep -iqE "$string" "$1"; then
+	echo "$message"
+	exit 1
+fi
+echo "Umieszczono BK300113 na poczatku komentarza"

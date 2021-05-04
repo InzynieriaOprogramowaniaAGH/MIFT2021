@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+ build-app:
+  image: deltachat-build
+  container_name: deltachat-build
+  build:
+   dockerfile: Dockerfile-build
+   context: .
+ test-app:
+  image: deltachat-test
+  container_name: delta_chat
+  build:
+   dockerfile: Dockerfile-test
+   context: .
+  depends_on:
+  - build-app

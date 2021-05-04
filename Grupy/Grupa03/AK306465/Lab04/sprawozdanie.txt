@@ -1,0 +1,9 @@
+1. Stworzyłam brancha na potrzeby lab04. Następnie utworzony na poprzednich zajęciach obraz dodałam na dockerhub za pomocą poleceń docker tag oraz docker push.
+
+2. Wybrałam aplikacje - node chat.
+
+3. Stworzyłam dockerfile z instalacją aplikacji node chat. Zbudowałam obraz (node-app) po czym uruchomiłam go w celu sprawdzenia działania (lab04/Docker/Dockerfilebuild). Za pomocą polecenia cd node-chat-app/ oraz npm run dev uruchomiłam aplikacje.
+
+4. Stworzyłam drugiego dockerfile z testem aplikacji (lab04/Docker/Dockerfiletest). Zbudowałam obraz (node-test).
+
+5. Utworzyłam docker-compose i przetestowałam jego działanie(lab04/Docker/docker-compose.yml).

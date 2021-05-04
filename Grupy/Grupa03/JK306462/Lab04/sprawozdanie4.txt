@@ -1,0 +1,9 @@
+docker push jkopec/jk306462 - wysylanie obrazu kontenera do dockerhuba do odpowiedniego repozytorium
+
+docker images - wylistowanie stworzonych obrazow 
+
+docker build [-t nazwaTagu] sciezkaDoObrazu - tworzenie obrazu, gdzie tagowanie jest opcjonalne a sciezka ma prowadzic do pliku dockerfile
+
+plik dockerfile jest skryptem definiujacym proces budowy kontenera
+
+narzedzie docker-compose sluzy do konfiguracji serwisow/kontenerow i do zarzadzania nimi przez aplikacje. W ramach jednego pliku docker-compose.yml i pojedynczego polecenia docker-compose up mozna stworzyc srodowisko skladajace sie z wielu kontenerow zaleznych od siebie

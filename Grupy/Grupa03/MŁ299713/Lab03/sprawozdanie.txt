@@ -1,0 +1,10 @@
+1. Utworzyłem brancha MŁ299713_Lab03
+2. DODAJ W KONCU TEGO GIT HOOKA
+3. Sciagnalem dockera sudo apt-get docker.io
+4. zalogowalem sie na swoje stare konto
+5. napisalem dockerfile z latest ubuntu
+6. zbudowalem kontener sudo docker build -t devops .
+7. Uruchomilem kontener docker run -it devops
+8. sciagnalem nasze repo w home/ 
+9. jedyny branch na ktory sie przenioslem to Grupa03 bo docker mnie nie lubi i nie moge wpisac polskiego znaku wiec nie wiem czy moj branch do konca istnieje w tym lokalnym repo na dockerze (ale obstawiam że istnieje)
+

@@ -1,0 +1,14 @@
+Sprawozdanie 2
+1. Dodanie klucza SSH do konta Git
+	a) Wygenerowałem klucz ssh korzystajac z poradnika zamieszczonego w instrukcji do laboratorium
+	b) dodałem klucz do swojego konta korzystając z poradnika ktory byl zamieszczony w poradniku dołączonego do instrukcji laboratorium :) (Screen 1.png)
+	c) poinformowalem gita o zmianie sposobu logowania komendą git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git (Screen 2.png)
+2. Dodanie tagu do commita komendą
+git tag -a MŁ299713_Lab02 -m "tagi sa super" (Screen 3.png)
+3. Zmiana porządku katalogów (Screen 4.png)
+4. Zmiana porządku branchy (Screen 5.png)
+	a) git checkout Grupa03
+	b) git checkout -b MŁ299713_Lab02
+	c) git merge MŁ299713
+5. Hook tu powinien być
+6. Stworzyłem pull requesta z linku (Screen 6.png)

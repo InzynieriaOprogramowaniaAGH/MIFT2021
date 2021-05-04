@@ -1,0 +1,6 @@
+FROM build-komunikator:build
+
+WORKDIR ./deltachat-desktop
+
+#Uruchomienie testów
+RUN npm test

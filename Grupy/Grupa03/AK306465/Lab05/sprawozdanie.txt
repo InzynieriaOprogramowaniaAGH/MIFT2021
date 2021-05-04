@@ -1,0 +1,28 @@
+1. Zapoznałam się z oprogramowaniem
+
+2. Wykonałam instrukcje zamieszczoną na stronie https://www.jenkins.io/doc/book/installing/docker/#setup-wizard
+Pobrałam ze strony jenkinsa Dockerfile po czym zbudowałam z niego obraz.
+
+FROM jenkins/jenkins:2.277.1-lts-jdk11
+USER root
+RUN apt-get update && apt-get install -y apt-transport-https \
+       ca-certificates curl gnupg2 \
+       software-properties-common
+RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+RUN apt-key fingerprint 0EBFCD88
+RUN add-apt-repository \
+       "deb [arch=amd64] https://download.docker.com/linux/debian \
+       $(lsb_release -cs) stable"
+RUN apt-get update && apt-get install -y docker-ce-cli
+RUN jenkins-plugin-cli --plugins "blueocean:1.24.5 docker-workflow:1.26"
+
+Następnie stworzyłam kontener.
+
+
+3. Dodałam do katalogu Lab05 pliki potrzebne do kolejnego zadania po czym stworzyłam projekt na jenkinsie. W projekcie zamieściłam repozytorium oraz uruchamianie powłoki :
+cd Grupy/Grupa03/AK306465/Lab05
+curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+docker-compose up
+
+4. Uruchomiłam zadanie po czym sprawdziłam jego poprawność. (Wszystko działa)

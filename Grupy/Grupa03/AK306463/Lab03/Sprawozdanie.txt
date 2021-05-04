@@ -1,0 +1,40 @@
+DevOps, lab03 17.03.2021
+
+1. Stworzenie brancha osobistego z brancha grupowego: "git checkout -b Grupa03-AK306463_Lab03".
+
+2. Dodanie skryptu z poprzednich zajęć do folderu ze sprawozdaniem na repozytorium.
+
+3. Instalowanie Dockera (https://docs.docker.com/engine/install/ubuntu/):
+    - "sudo apt-get update"
+    - "sudo apt-get upgrade"
+    - odinstalowanie starych wersji "sudo apt-get remove docker docker-engine docker.io containerd runc"
+    - "sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release"
+    - dodanie wymaganego klucza GPG "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg"
+    - "echo \
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  focal stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null"
+    - "sudo apt-get update"
+    - "sudo apt-get install docker-ce docker-ce-cli containerd.io"
+    - sprawdzenie czy instalacja się powiodła "sudo docker run hello-world"
+
+4. Zalogowanie się na istniejące już konto Docker HUB.
+
+5. Stworzenie pliku Dockerfile
+    - baza obrazu na najnowszej wersji ubuntu "FROM ubuntu:latest"
+    - zainstalowanie updatów oraz uprade obrazu "apt-get update" "apt-get upgrade"
+    - doinstalowanie gita "RUN apt-get install -y git"
+
+6. Uruchomienie kontenera, sklonowanie repozytorium, spradzenie czy istnieje mój branch:
+    - "sudo docker build -t devops_lab03 ."
+    - "sudo docker run -it devops_lab03"
+    - "git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git"
+    - "cd MIFT2021"
+    - "git checkout Grupa03"
+    - "git checkout Grupa03-AK306463_Lab03"
+
+
