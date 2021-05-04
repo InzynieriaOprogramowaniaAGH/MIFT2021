@@ -1,7 +1,6 @@
 pipeline {
 
     agent any
-
     stages{
 
         stage('Build'){
@@ -50,10 +49,6 @@ pipeline {
                 recipientProviders: [developers()], 
                 subject: 'Test failed', 
                 to: 'jkarolina1@interia.pl'
-            
-
         }
-
     }
-
 }
