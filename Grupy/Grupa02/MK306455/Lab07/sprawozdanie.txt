@@ -1,0 +1,8 @@
+zad 1. W katalogu MK306455 utworzono katalogi:
+- Docker z build agent, test agent oraz docker-compose.yaml
+- Jenkins na Jenkinsfile z Lab07
+- git-hooks z commit-msg
+
+
+
+ 
