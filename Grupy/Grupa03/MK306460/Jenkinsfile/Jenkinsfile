@@ -22,14 +22,14 @@ pipeline{
             body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NAME}",
             recipientProviders: [developers(), requestor()],
             subject: "Success Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
-            to: 'magdalenakocurek@o2.pl'        
+            to: 'kocurek@gmail.com'        
         }
         failure{
             emailtext attachLog: true,
             body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NAME}",
             recipientProviders: [developers(), requestor()],
             subject: "Failure Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
-            to: 'magdalenakocurek@o2.pl'        
+            to: 'kocurek@gmail.com'        
         }
         
     }

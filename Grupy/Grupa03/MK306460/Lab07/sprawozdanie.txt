@@ -1,3 +1,7 @@
 1. Umiescilam pliki zrodlowe w repozytorium w hierarchii folderow.
 2. Zforkowalam repozytorium z node-chat-app i dodałam swoj Jenkinsfile.
-Jenkinsfile zawiera budowanie i testowanie aplikacji, wysylanie powiadomien e-mail o powodzeniu lub niepowodzeniu builda. 
+Jenkinsfile zawiera budowanie i testowanie aplikacji, wysylanie powiadomien e-mail o powodzeniu lub niepowodzeniu.
+3. W jenkinsie utworzono pipeline, ktory wykonywal Jenkinsfile w zforkowanym repozytorium node-chat-app. 
+Nalezalo skonfigurowac plugin emailext i w tym celu nalezalo skorzystac z polaczenia z serwerem SMTP gmaila.
+4.Uruchomilam pipeline. Po zbuildowaniu jenkins wysylal e-maila z build logiem i informacja o sukcesie lub niepowodzeniu.
+
