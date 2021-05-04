@@ -1,2 +1,5 @@
 1.
 Umieszczenie plików źródłowych w podanym w instrukcji porządku folderów.
+
+2.
+Wykonano fork repo. Utworzono Jenkinsfile'a i umieszczono go w repo (po forku) node-chat-app. Następnie zaimplementowano Pipeline, dzięki czemu Jenkinsfile odpowiada aktualnie za testowanie aplikacji oraz wysyłanie powiadomień e-mail o sukcesie lub niepowodzeniu (build i build log). Żeby Jenkins mógł wykonać operację wysyłania maila wykorzystano plugin emailext oraz skonfigurowano połączenie SMTP gmail w ustawieniach Jenkis. Dodatkowo pobrano również na Jenkinsa nodeJS i skonfigurowano go dla poprawnego uruchomienia testów.
