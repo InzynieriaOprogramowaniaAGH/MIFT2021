@@ -2,4 +2,11 @@
 
 JS296512/<nazwa technologi>/<pliki>
 
+2. Ze swojego planu CI/CD pipeline stworzonego na Lab06 wybrałem te punkty, które odpowiadają za "Uruchomienie szybkiego i niezawodnego testowania."
+
+Następnie stworzyłem Jenkinsfile i umieściłem go w zforkowanym repozytorium z komunikatorem. 
+
+W Jenkinsfile stworzyłem nowego Jenkins pipeline, a w nim w sekcji "stages" nowy "stage('Test')".
+
+Wewnątrz Jenkinsfile w sekcji "stage('Test')" oskryptowałam uruchamianie testów dla aplikacji.
 
