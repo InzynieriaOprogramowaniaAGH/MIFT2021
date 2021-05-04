@@ -9,7 +9,7 @@ pipeline {
             steps{
 
                 echo 'Building app'
-                git branch: 'Grupa02-KJ306450_Lab07', url: 'https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021'
+                
                 dir('Grupy/Grupa02/KJ306450/Lab07/Docker'){
                     
                     sh '''
