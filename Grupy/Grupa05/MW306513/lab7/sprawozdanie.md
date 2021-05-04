@@ -27,5 +27,11 @@ logi z wysylania maila<br>
 mail zwrotny od Jenkinsa przy pipelinie zwracajacym bledy<br>
 ![](jenkins_mail_notification_result.png)
 
+Udany build po ustawieniu toolsow w Jenkinsie
+![img_2.png](img_2.png)
+
+Mail z powiadomieniem
+![img_3.png](img_3.png)
+
 ## 4
 ![img_1.png](img_1.png)
