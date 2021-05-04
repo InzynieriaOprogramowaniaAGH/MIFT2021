@@ -8,3 +8,5 @@ W Jenkinsie utworzono pipeline, korzystajacy z wrzuconego do repozytorium Jenkin
 3. Wykonano i wykazano przyklad wykonania testow z uzyciem Jenkinsfile
 - testy sie powiodly
 - testy sie nie powiodly
+
+4. Wrzucono Jenkinsfile na repozytorium MIFT
