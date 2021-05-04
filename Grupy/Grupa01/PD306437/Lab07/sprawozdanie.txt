@@ -7,3 +7,7 @@ Zadanie 2
 Utworzyłem fork oryginalnego repozytorium z node-chat-app.
 Następnie napisano Jenkinsfile, który po wykonaniu testów wysyła maila z wynikami.
 Musiałem dodatkowo dodać w Jenkinsie plugin do obsługi nodejs oraz wprowadzić odpowiednie ustawienia tak aby możliwe było wysyłanie maili.
+
+Zadanie 3
+Wykonano testy z użyciem Jenkinsfile.
+Na poczcie otrzymałem wiadomość potwierdzającą przejście testów wraz z logami.
