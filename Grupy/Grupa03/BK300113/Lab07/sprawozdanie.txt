@@ -1,0 +1,19 @@
+0. Tworzenie sieci,obrazu i kontenera z Jenkins'em, uruchomienie kontenera:
+
+	sudo docker network create jenkins
+
+	sudo docker build -t  jenkins:mrsuhar -f Dockerfile_jenkins .
+
+	./jenkins_run_script
+
+1. Utworzono żądany porządek folderów. Skrypty służące do uruchomienia kontenera z Jenkins'em oraz komunikatorem zostały umieszczone w folderze   Docker.
+
+2.2 Utworzyłem fork'a wybranego komunikatora z wykorzystaniem GUI Github'a.
+
+2.3 Utworzyłem Jenkins's pipeline'a uruchamiającego Jenkinsfile ze stworzonego wcześniej repozytorium.
+
+2.4 Utworzyłem Jenkinsfile.
+
+3.
+
+4. 
