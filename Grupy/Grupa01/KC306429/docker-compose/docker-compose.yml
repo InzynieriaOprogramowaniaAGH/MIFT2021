@@ -1,0 +1,18 @@
+version: '3.3'
+services:
+  build-agent:
+   container_name: node-chat-app
+   image: chat-app
+   build:
+    context: .
+    dockerfile: DockerBuildAgent 
+   ports:
+     - "3000:3000"
+  test-agent:
+   container_name: node-chat-test
+   image: chat-test
+   build:
+    context: .
+    dockerfile: DockerTestAgent
+   depends_on:
+   - build-agent
