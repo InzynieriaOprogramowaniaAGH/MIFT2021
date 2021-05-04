@@ -29,6 +29,6 @@ emailext attachLog: true, #dolaczenie logu calej budowy Jenkinsfile
 
 - Aby mozliwe bylo wysylanie maili z Jenkins nalezalo skonfigurowac sekcje Manage Jenkins -> Configure System -> E-mail Notification oraz Extended E-mail Notification. (zrzuty zad2e-g). Poza tym trzeba bylo umozliwic na gmailu dostep mniej bezpiecznych aplikacji (zrzut zad2h)
 
-
+zad 3. Uruchomiono job. W efekcie otrzymano mail wynikami testow (zrzut zad3, zad3b). 
 
  
