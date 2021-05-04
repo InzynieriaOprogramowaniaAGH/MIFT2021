@@ -1,0 +1,13 @@
+Zadanie 1
+Utworzono trzy foldery: Docker, Docker-compose oraz Jenkins.
+Do folderu Docker dodano pliki Dockerfile_chat_app_build, Dockerfile_chat_app_build oraz Dockerfile_jenkins.
+Do folderu Docker-compose dodano plik docker-compose.yaml - utworzony w trakcie czwartych laboratoriów.
+
+Zadanie 2
+Utworzyłem fork oryginalnego repozytorium z node-chat-app.
+Następnie napisano Jenkinsfile, który po wykonaniu testów wysyła maila z wynikami.
+Musiałem dodatkowo dodać w Jenkinsie plugin do obsługi nodejs oraz wprowadzić odpowiednie ustawienia tak aby możliwe było wysyłanie maili.
+
+Zadanie 3
+Wykonano testy z użyciem Jenkinsfile.
+Na poczcie otrzymałem wiadomość potwierdzającą przejście testów wraz z logami.
