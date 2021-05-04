@@ -1,0 +1,2 @@
+1.
+Umieszczenie plików źródłowych w podanym w instrukcji porządku folderów.
