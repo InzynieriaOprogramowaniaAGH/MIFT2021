@@ -1,0 +1,11 @@
+1. Wszystkie pliki w repo są w odpowiedniej hirearchii.
+
+2. Pobrano repo i wrzucono tam Jenkinsfile, który odpowiadał za budowanie i testy aplikacji. Po budowaniu wysyła maila z info czy budowanie przeszło pozytywnie czy nie.
+Późniehj zforkowano repozytorium aplikacji Deltachat i zrobiono commit z utworzonym Jenkinsfilem.
+W Jenkisie utworzono pipeline który wykonywał Jenkinsfile.
+Na końcu należało skonfigurować plugin emailtext poprzez połączenie z serwerem SMTP poczty email.
+
+3 Uruchomiono pipeline i po buildzie doszło powiadomienie na maila.
+
+4. Wszystkie zrzuty oraz pliki są zamieszczone w tym folderze.
+
