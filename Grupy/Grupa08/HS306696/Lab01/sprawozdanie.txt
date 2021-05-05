@@ -1,0 +1,6 @@
+1. Zainstalowałem i uruchomiłem Git Basha na Windowsie.
+2. Sklonowałem repozytorium poleceniem git clone oraz narysowałem graf zależności.
+3. Zapoznałem się z instrukcją do ćwiczenia.
+4. Stworzyłem branch HS306696 poleceniem git branch, a następnie przełączyłem się na niego poleceniem git checkout. Następnie utworzyłem odpowiedni folder poleceniem mkdir, dodałem pliki sprawozdanie.txt oraz graf.png  do repozytorium poleceniem git add. Następnie wykonałem git commit.
+5. Wykonałem zrzuty ekranu każdego zadania, commita i push brancha.
+6. Wykonałem merge swojego brancha do głównego brancha. Git checkout master oraz git merge HS306696. Następnie wykonałem git pull origin master i git push origin master.
