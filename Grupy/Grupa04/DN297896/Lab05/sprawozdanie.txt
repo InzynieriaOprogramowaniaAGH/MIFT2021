@@ -7,8 +7,8 @@
    Z racji korzystania z systemu Windows konieczna było zmiana konfiguracji DockerDesktop, żeby uruchamiał on kontenery Linuxowe, a nie Winowsowe.
 
    Następnie, po uruchomieniu kontenera zgodnie z dokumentacją, aby udało się wykonać zadanie 4 konieczne było zainstalowanie docker-compose w kontenerze:
-     "sudo docker exec - u root -it jenkins-blueocean bash"
-     "curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose"
+     "docker exec -u root -it jenkins-blueocean bash"
+     "curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose"
      "chmod +x /usr/local/bin/docker-compose"
 
 4. Utworzono nowe zadanie dla Jenkinsa:
