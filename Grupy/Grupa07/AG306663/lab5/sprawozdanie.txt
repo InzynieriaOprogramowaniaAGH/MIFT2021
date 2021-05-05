@@ -45,6 +45,7 @@
 		  myjenkins-blueocean:1.1
 5. Przejscie przez kreator instalacji Jenkinsa. 
 6. Stworzenie nowego repozytorium. Otagowanie kontenera jenkinsowego, za pomoca komendy:
+
 	$ sudo docker tag imageid login/reponame:tag
 	$ sudo docker image push login/reponame:tag
 7. Uruchomienie docker-compose z poziomu Jenkinsa, za pomoca nastepujacych komend: 
