@@ -10,8 +10,9 @@ pipeline {
 				sh 'npm install'
 				sh 'npm run test'
 			}
-		}
-	}
+    }
+  }
+	
 	post{
 		failure{
 			emailext attachLog: true,
@@ -24,6 +25,7 @@ pipeline {
                 		body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
                 		to: 'fanofgrin@gmail.com',
                 		subject: "Jenkins build succeed ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
-		}		
+
+    }
 	}
 }
