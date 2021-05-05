@@ -10,6 +10,8 @@ pipeline {
             steps
             {
                 echo 'Start testing'
+                git branch: 'Grupa04-KM305193_Lab07', url: 'https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021'
+
                 dir('Grupy/Grupa04/KM305193/Lab07/Docker')
                 {
                     sh '''
