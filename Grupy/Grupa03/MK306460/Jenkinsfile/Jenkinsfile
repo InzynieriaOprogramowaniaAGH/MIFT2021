@@ -4,28 +4,33 @@ pipeline{
         stage('Build') {
             steps{
                 echo 'Building'
+                checkout scm  
                 sh 'npm install'
                 sh 'npm run build'    
             }
         }
         stage('Test'){
+          when {
+            expression {currentBuild.result == 'SUCCESS' }
+           }
+
           steps{
             echo 'Testing'
             sh 'npm run test'
             }        
         }
-    }
+    }s
 
     post{
         success{
-            emailtext attachLog: true,
+            emailext attachLog: true,
             body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NAME}",
             recipientProviders: [developers(), requestor()],
             subject: "Success Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
             to: 'kocurek@gmail.com'        
         }
         failure{
-            emailtext attachLog: true,
+            emailext attachLog: true,
             body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NAME}",
             recipientProviders: [developers(), requestor()],
             subject: "Failure Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",

@@ -1,0 +1,14 @@
+
+1. Rozszerzylam Jenkinsfile z Lab07 o nowy stage("Build")
+2. W stage("Build") zawarłam:
+- sprawdzenie najnowszej wersji kodów źródłowych z repozytorium
+- budowanie programu
+- powiadamianie zarówno o sukcesie jak i porażce etapu budowania.
+
+3. Zawarłam również opcję, że po zbudowaniu z sukcesem jest uruchamiany stage("Test"), ale po nieudanym budowaniu to się nie dzieje.
+
+4. Napisałam git "post-commit" hook'a dla repozytorium z komunikatorem, który wyświetla wiadomość "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie".
+
+Plik Jenkinsfile jest zawarty w folderze MK306460/Jenkinsfile/.
+
+
