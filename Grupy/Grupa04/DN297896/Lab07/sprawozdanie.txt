@@ -1,5 +1,5 @@
-Pomimo długotrwałych prób niestety nie udało mi się pomyślnie przejść testów aplikacji - ciągle pojawia 
-się błąd zamieszczony na zrzucie ekranu. Będę próbował jak najszybciej rozwiązać ten błąd. 
+Pomimo długotrwałych prób niestety nie udało mi się pomyślnie przejść testów aplikacji - ciągle pojawia
+się błąd zamieszczony na zrzucie ekranu. Będę próbował jak najszybciej rozwiązać ten błąd.
 
 UPDATE 05.05
 Ostatecznie przeniosłem się "czysty" system Linux i problem, który występował w konfiguracji WSL2 + Docker Desktop zniknął.
