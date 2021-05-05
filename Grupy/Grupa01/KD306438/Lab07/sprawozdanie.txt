@@ -1,0 +1,1 @@
+1. Skopiowanie wszystkich potrzebnych plikow jak docker-compose.yml, Dockerfile, Dokcerfile_test, Dockerfile_jenkins do nowoutworzonego folderu Docker. Utowrzenie folderu Hooks i skopiowanie do niego git hooka z labow nr 2. Utworzenie folderu Jenkins.
