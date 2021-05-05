@@ -1,5 +1,5 @@
 1.Utworzyłem "źródło prawdy" - pliki umieściłem w katalogach, utworzonych według kategorii.
-2.Stworzyłem Jenkinsfile ze test stagem. 
+2.Stworzyłem Jenkinsfile z test stagem. 
   Skonfigurowałem plugin Email Notification do przesyłania powiadomień.
 3.Następnie, przetestowałem działanie pipeline-a.
 4. "Źródło prawdy", oraz Jenkinsifle wrzuciłem na repozytorium
