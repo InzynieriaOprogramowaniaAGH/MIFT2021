@@ -8,7 +8,7 @@
 3. Zawarłam również opcję, że po zbudowaniu z sukcesem jest uruchamiany stage("Test"), ale po nieudanym budowaniu to się nie dzieje.
 
 4. Napisałam git "post-commit" hook'a dla repozytorium z komunikatorem, który wyświetla wiadomość "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie".
-
+Zmienilam uprawnienia do pliku. Plik post-commit jest zawarty w katalogu MK306460/hooks.
 Plik Jenkinsfile jest zawarty w folderze MK306460/Jenkinsfile/.
 
 
