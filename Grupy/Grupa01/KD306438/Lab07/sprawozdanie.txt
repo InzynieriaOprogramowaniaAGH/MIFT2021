@@ -40,3 +40,5 @@
 	
 	
 	-Nastepnie utworzono nowy job - pipeline i w polu SCM zaznaczyc Git oraz przekazac url do sforkowanego repo aplikacji.
+	
+3. Zbuildowanie utworzonego pipeline i obserwacja outputu - testowanie zakonczone sukcesem.
