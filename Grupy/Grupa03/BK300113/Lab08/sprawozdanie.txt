@@ -1,0 +1,7 @@
+1. Otworzyłem Jenkinsfile z poprzednich zajęć przy użyciu strony github.com
+
+2. W istniejącym wczęsniej stage'u dodałem wysyłanie powiadomienia do użytkownika o sukcesie/porażce budowania.
+
+3. Jeżeli Budowanie się powiodło dochodzi do testowania.
+
+4. Napisałem git "post-commit" hook'a i wrzuciłem go do repozytorium (zarówno obecneg jak również tego z komunikatorem).
