@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if ! grep 'JF306439' "$1"; then 
+	echo 'Zla nazwa commita - powinna zaczynac sie od JF306439'
+	exit 1;	
+fi	
+echo 'OK'
+exit 0;	
