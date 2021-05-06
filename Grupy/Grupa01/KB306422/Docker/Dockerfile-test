@@ -1,0 +1,4 @@
+FROM docker-build:build
+
+RUN npm test
+

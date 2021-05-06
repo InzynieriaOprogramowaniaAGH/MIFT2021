@@ -1,0 +1,8 @@
+#!/bin/bash
+string="KB306422*"
+message="Zly commit,dodaj nazwe zgodnie z wytycznymi"
+if ! grep -iqE "$string" "$1"; then
+        echo "$message"
+        exit 1
+fi
+echo "Poprawny commit, wedlug wzoru"
