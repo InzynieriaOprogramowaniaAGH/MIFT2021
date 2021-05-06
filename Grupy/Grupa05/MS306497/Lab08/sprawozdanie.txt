@@ -4,3 +4,5 @@
 - jest pobierana najnowsza wersja kodow zrodlowych
 - program jest budowany
 - uzytkownik jest powiadamiany zarowno o sukcesie jak i porazce etapu budowania
+
+3. Upewniono sie ze po zbudowaniu z sukcesem jest uruchamiany stage("Test"), ale po nie udanym budowaniu to sie nie dzieje
