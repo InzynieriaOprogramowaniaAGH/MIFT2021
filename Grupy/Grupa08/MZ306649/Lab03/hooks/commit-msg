@@ -1,0 +1,9 @@
+#!/bin/sh
+
+string="MZ306649"
+error_msg="Zla tresc wiadomosci commita"
+
+if ! grep -iqE "$string" "$1"; then
+	echo "$error_msg" >&2
+	exit 1
+fi
