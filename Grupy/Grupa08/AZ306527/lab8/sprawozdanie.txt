@@ -1,0 +1,13 @@
+1. Pliki potrzebne do uruchomienia wcześniej stworzonego CI/CD pipeline umieszczono w odpowiednim folderze
+
+2. Stworzono Jenkinsfile, w repozytorium z komunikatorem.
+
+2.1. Wewnątrz wcześniej utworzonego Jenkinsfila stworzono nowy Jenkinspipeline, a w nim nowy "stage('Test')". 
+
+W sekcji agent podajemy technologie wykorzystywaną w komunikatorze.
+Stage Build oraz Test jak sama nazwa wskazuje odpowiadają za budowanie i przeprowadzenie testów.
+W sekcji post podajemy maila na którego przychodzi informacja o przebiegu testów.
+
+3. Przeprowadzono test.
+
+4. Wrzucono Jenkinsfila do repo.
