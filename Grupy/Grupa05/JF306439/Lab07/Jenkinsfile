@@ -1,26 +1,22 @@
-pipeline {
-
+	pipeline {
 	agent any
-
+	tools {
+		nodejs "node"
+	}
     stages {
 	     stage('Build') {
             steps {
                 echo 'Build..'
-		sh 'apt install npm -y'
-                sh 'npm i npm@latest -g'
-                sh 'npm fund'
-                sh 'npm install'
-                sh 'npm run build'
+		        sh 'npm install'
             }
 	  }
         stage('Test') {
             steps {
                 echo 'Testing..'
-		sh 'npm run test'
+		        sh 'npm run test'
             }
         } 
     }
-    
     post {
         always {
             echo 'I have finished'
