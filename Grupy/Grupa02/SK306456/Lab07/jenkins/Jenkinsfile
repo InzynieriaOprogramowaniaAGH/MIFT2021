@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Test'){
             steps {
-                sh 'docker build -f docker/test-dockerfile -t chat-test .'
+                sh 'docker build -f Grupy/Grupa02/SK306456/Lab07/docker/test-dockerfile -t chat-test .'
                 sh 'docker run chat-test'
             }
         }
