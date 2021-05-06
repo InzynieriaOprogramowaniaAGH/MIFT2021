@@ -1,0 +1,20 @@
+1. Wygenerowanie nowego klucza: ssh-keygen -t ed25519 -C "dominikamatuszyk@interia.pl"
+2. Wygenerowanie działającego agenta do obsługi klucza ssh: eval "$(ssh-agent -s)" oraz ssh-add ~/.ssh/id_ed25519
+3. Zarejestrowanie klucza po stronie serwera: Settings --> SSH and GPG keys --> New SSH key
+4. Poinformowanie gita o zmianie sposobu logowania i sprawdzenie czy zadziałało:
+	 git remote -v, git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git, git remote -v
+5. Nadanie "Taga" na aktualnego commita: git tag -a DM306678_Lab01 -m "Dominika Matuszyk lab1 done" oraz wrzucenie na brancha: git push--follow-tag,
+	jednak aby było to możliwe wcześniej należało użyć komendy pit push --set-upstream origin DM306678
+6. Stworzenie struktury folderów w folderze MITF2021
+7. Stworzenie krótkożyjącego brancha: git checkout -b Grupa08-DM306678_Lab02
+8. Stworzenie git hooke'a w pliku commit-msg o treści:
+	!/bin/sh
+	if ! grep 'DM306678" "$1"; then
+		echo 'Zacznij od DM306678'
+		exit 1;
+	f1
+	echo 'oki'
+	exit 0;
+9. Push na branch grupowy, merge i usuwanie krótkożyjącego brancha: 
+	git push origin Grupa08-DM306678_Lab02,  git merge Grupa08-DM306678_Lab02,  git branch -d Grupa08-DM306678_Lab02
+10. Stworzenie "Pull request"

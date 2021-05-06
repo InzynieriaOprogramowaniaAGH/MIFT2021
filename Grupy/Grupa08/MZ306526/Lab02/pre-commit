@@ -1,0 +1,8 @@
+#!/bin/bash
+string="MZ306526*"
+message="bledna nazwa"
+if ! grep -iqE "$string" "$1"; then
+        echo "$message"
+        exit 1
+fi
+echo "Wszystko git"
