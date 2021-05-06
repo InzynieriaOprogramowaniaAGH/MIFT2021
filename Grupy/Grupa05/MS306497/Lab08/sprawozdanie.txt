@@ -1,0 +1,6 @@
+1. Rozszerzono Jenkinsfile z Lab07 onowy stage("Build")
+
+2. Upewniono sie ze:
+- jest pobierana najnowsza wersja kodow zrodlowych
+- program jest budowany
+- uzytkownik jest powiadamiany zarowno o sukcesie jak i porazce etapu budowania
