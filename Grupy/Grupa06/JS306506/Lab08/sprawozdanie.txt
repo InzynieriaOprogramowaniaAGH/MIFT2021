@@ -1,0 +1,15 @@
+Metodyki DevOps, Lab08, 06.05.2021
+
+Zad.1 	Zmodyfikowałam Jenkinsfile z poprzednich zajęć poprzez dodanie nowego stage'a odpowiedzialnego za budowanie.
+	* stage('Build'){
+			steps{
+				echo 'Building...'
+				sh 'npm install'
+			}
+		}
+
+Zad.2 	Wykonałam serie testów w celu upewnienia się, że użytkownik jest powiadomiany zarówno o sukciesie jak i o porażce budowania (screeny zadanie2 oraz zadanie2_1) oraz że program jest budowany (echo 'Building').
+
+Zad.3	Upewniłam się, że po zbudowaniu z sukcesem uruchamiany jest stage('Test') (screen zadanie3_1), a po nieudanym budowaniu nie jest on uruchamiany (screen zadanie3).
+
+Zad.4	Napisałam git 'post-commit' hook'a wyświetlającego wiadomość "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie".
