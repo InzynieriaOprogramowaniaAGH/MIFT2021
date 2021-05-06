@@ -1,0 +1,10 @@
+1. Stworzenie krotkozyjacego brancha za pomoca komendy: git checkout -b Grupa03-SL306472_Lab07
+2. Stworzenie folderow poszczegolnych technologii
+3. Stworzenie Jenkinsfile
+4. Stworzenie forka z komunikatorem socket.io, umieszczenie tam Jenkinsfile: GitHub
+5. Stworzenie pipeline w Jenkins, który podłaczony jest do repozytorium z punktu 4.
+6. Pobrano wtyczki do powiadomień mailowych oraz nodeJS.
+7. Skonfigurowano wtyczki. Ich konfiguracje umieszczono na screenach.
+8. Uruchomiono Pipiline, który zakończył sie powodzeniem.
+9. Zmieniono Jenkinsfile tak by wymusić niepoprawne testy. Uruchomiono Pipiline, który zakończył sie niepowodzeniem.
+10. Z obu pipelinów otrzymano na skrzyke pocztową powiadomienia mailowe.
