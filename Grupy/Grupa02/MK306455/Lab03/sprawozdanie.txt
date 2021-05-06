@@ -1,0 +1,55 @@
+1. 
+Bedac na branchu Grupa02 utworzono branch  Grupa02-MK306455_Lab03 poleceniem "git branch Grupa02-MK306455_Lab03", a nastepnie zmieniono branch za pomoca "git checkout Grupa02-MK306455_Lab03"
+
+2. Przekopiowano plik commit-msg z katalogu MIFT2021/.git/hooks do MIFT2021/Grupy/Grupa02/MK306455/Lab02/hooks za pomoca wywolania komendy "cp commit-msg ../../Grupy/Grupa02/MK306455/Lab02/hooks" w katalogu MIFT2021/.git/hooks
+
+3.
+W celu zainstalowania dockera uzylem tutoriala ze strony https://docs.docker.com/engine/install/ubuntu/
+
+Kolejne komendy ktorych uzylem to:
+
+sudo apt-get update
+
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+    
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+ echo \
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  
+  sudo apt-get update
+  
+  sudo apt-get install docker-ce docker-ce-cli containerd.io
+  
+Nastepnie sprawdzilem poprawnosc instalacji "sudo docker run hello-world"
+
+4. stworzylem konto "mkapust9" na https://hub.docker.com/
+
+5. W katalogu MK306455/Lab03 utworzylem Dockerfile. Jego zawartosc to:
+
+FROM ubuntu:latest  // jako podstawe obrazu uzywamy najnowszej wersji ubuntu
+
+RUN apt-get -y update	// w kontenerze maja  byc uruchomione aktualizacje
+RUN apt-get -y install git	//instalacja gita w kontenerze
+
+6. 
+Najpierw trzeba bylo zbudowac obraz z Dockerfile. W tym celu uzyto komendy "docker build -t ubuntu-git". Dzieki temu obraz wybudowany z Dockerfile zostal nazwany ubuntu-git. Obrazu tego mozna tworzyc do instancji kontenerow.
+
+Do sprawdzenia poprawnego utworzenia obrazu uzyto "docker images"
+
+W celu uruchomienia kontenera trzeba bylo uzyc komendy "docker run -t -d ubuntu-git". Flagi -t oraz -d oznaczaja uruchomienie w trybie foreground detached. Bez ich uzycia kontener by sie wylaczyl zaraz po uruchomieniu (komenda "docker run ubuntu-git").
+
+Do sprawdzenia  poprawnego uruchomienia konteneru mozna uzyc "docker ps", ktory wyswietli wszystkie aktywne kontenery. Aby wyswietlic wszystkie konterery aktywne i nieaktywne nalezy uzyc "docker ps -a".
+
+Za pomoca komendy "docker exec -it 146f26f2c99e /bin/bash" uruchomiono bash kontenera o id 146f26f2c99e (czyli wczeniej uruchomionego konetera ubuntu-git).
+
+Wewnatrz kontenera w katalogu home utworzono katalog repo, do ktorego sklonowano repozytorium "git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git".
+
+Aby wyjsc z kontenera nalezy uzyc "exit" 
+

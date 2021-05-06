@@ -1,0 +1,14 @@
+1. Utworzono branch roboczy - git checkout -b Grupa02_PI307666_Lab03
+2. Przeniesiono plik commit-msg z poprzedniego zadania do nowego katalogu w lab. nr. 3.
+3. Zainstalowano Docker w systemie Ubuntu.
+4. Zarejestrowano konto w serwisie https://hub.docker.com (wykorzystano wcześniej zarejestrowane)
+5. Stworzono plik Dockerfile wewnątrz lokalnego repozytorium i katalogu lab03 - touch Dockerfile.
+Uzupełniono Dockerfile o komedy FROM oraz RUN.
+6. Stworzono nowy obraz - sudo docker build -t lab03-docker.
+Uruchomiono system - sudo docker run -it lab03-docker.
+Skopiowano klucz SSH wygenerowany wcześniej, dodano i wykonano klonowanie repozytorium.
+Korzystając z opcji git branch -a sprawdzono adres zdalnego brancha.
+Przeniesiono się na branch laboratorium nr.3 - git checkout remotes/origin/Grupa02_PI307666_Lab03.
+Sprawdzono poleceniem ls, czy pliki wcześniej utworzone znajdują się w repozytorium.
+Wyłączono maszynę poleceniem z terminala - exit.
+

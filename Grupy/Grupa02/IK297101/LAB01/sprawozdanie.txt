@@ -1,0 +1,47 @@
+sudo apt-get install git
+// polecenie do isntalowania git clienta
+
+git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git
+// klonowanie repozytorium do localnego
+
+git branch IK297101
+// stworzenie branch o nazwie "IK297101"
+
+git checkout IK297101
+// przełączenie brancha na branch o nazwie "IK297101"
+
+mkdir IK297101
+//stworzenie folderu
+
+cd IK297101/
+//poruszenie się do folderu
+
+mkdir LAB01
+
+
+cd LAB01/
+
+
+touch sprawozdanie.txt
+//stworzenie pliku txt
+
+git add IK297101/
+// dodanie do commita plików
+
+git commit -m "Added folder, file and screenshots"
+// commit dodanych plików, flaga -m zapewnia że mozna nadać danemu commitowi nazwe.
+
+git push origin IK297101
+// pushuje commita do remote
+
+git checkout master
+git merge IK297101 
+// przechodze do branch master a potem łacze branch master oraz branch IK297101
+
+git pull
+//pobranie wszystkie zmiany
+
+git push origin master
+//zpushowanie zmian do repozytorium
+
+

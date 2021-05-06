@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if grep -sc '^MA306420' "$1" 2>&1 > /dev/null; then
+	echo "Commit message OK."
+	exit 0
+else
+    echo -e >&2 "Commit message must begin with 'MA306420'!\nAborting"
+    exit 1
+fi
