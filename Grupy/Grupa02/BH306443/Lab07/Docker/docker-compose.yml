@@ -4,13 +4,13 @@ services:
   container_name: build-agent
   image: docker-build:build
   build:
-   context: .
+   context: ./
    dockerfile: Dockerfile-build
  test-agent:
   container_name: test-agent
   image: test:test
   build:
-   context: .
+   context: ./
    dockerfile: Dockerfile-test
   depends_on:
   - build-agent
