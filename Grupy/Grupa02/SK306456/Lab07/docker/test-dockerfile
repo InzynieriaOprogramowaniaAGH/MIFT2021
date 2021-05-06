@@ -12,4 +12,4 @@ RUN curl -fsSL https://deb.nodesource.com/setup_15.x | bash - \
 RUN git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021 --single-branch --branch Grupa02-SK306456_Lab07 \
 && npm install --prefix MIFT2021/Grupy/Grupa02/SK306456/Lab07/src
 
-CMD npm start --prefix MIFT2021/Grupy/Grupa02/SK306456/Lab07/src & sleep 60 && npm test --prefix MIFT2021/Grupy/Grupa02/SK306456/Lab07/src/test
+CMD npm start --prefix MIFT2021/Grupy/Grupa02/SK306456/Lab07/src & sleep 60 && npm test --prefix MIFT2021/Grupy/Grupa02/SK306456/Lab07/src
