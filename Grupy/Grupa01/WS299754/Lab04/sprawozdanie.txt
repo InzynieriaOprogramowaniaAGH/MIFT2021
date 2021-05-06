@@ -1,0 +1,21 @@
+1. - Logowanie do Docker Hub:
+	docker login
+- Tagowanie obrazu:
+	docker tag my_ubuntu wsmieja/my_ubuntu
+- Push do Docker Hub:
+	docker push wsmieja/my_ubuntu
+2. Wybrano komunikator node-chat-app: https://github.com/angristan/node-chat-app
+3. - Utworzono Dockerfile do build agent (build.Dockerfile)
+- Stworzono obraz kontenera build agent
+	docker image build -t node-chat-app3:build -f build.Dockerfile .
+- Uruchomiono kontener build agent, by sprawdzić poprawne zbudowanie
+	docker image run -it -p 3000:3000 51e
+4. - Utworzono Dockerfile do test agent (test.Dockerfile)
+- Stworzono obraz kontenera test agent
+	docker image test -t node-chat-app:build -f test.Dockerfile .
+5. -Utworzono pilk docker-compose.yaml
+- Uruchomiono Docker Compose poleceniem:
+	docker-compose up
+
+
+
