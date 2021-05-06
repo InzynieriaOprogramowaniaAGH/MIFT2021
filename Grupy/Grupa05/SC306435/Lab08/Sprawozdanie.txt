@@ -16,5 +16,6 @@ currentBuild.currentResult = 'FAILED'
 do stage, którego porażki chciałem.
 
 Stworzyłem gitHook post-commit wyświetlający informację z instrukcji.
+Umieściłem go w folderze z gitHookami, folderze Lab08 oraz .git
 
-Branch krótkożyjący zostanie usunięty po wykonaniu pull request.
+Branch krótkożyjący zostanie usunięty po wykonaniu pull request. 
