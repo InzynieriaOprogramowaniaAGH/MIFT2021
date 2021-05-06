@@ -10,5 +10,5 @@
 4. Napisałam git "post-commit" hook'a dla repozytorium z komunikatorem, który wyświetla wiadomość "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie".
 Zmienilam uprawnienia do pliku. Plik post-commit jest zawarty w katalogu MK306460/hooks.
 Plik Jenkinsfile jest zawarty w folderze MK306460/Jenkinsfile/.
-
+Z względu na fakt, że labolatorium nr 8 jest wrecz analogiczne do Labolatorium nr 7 , nie zostały dołączone zrzuty ekranu przedstawiające konfiguracje pipeline i poczty gmail.com.
 
