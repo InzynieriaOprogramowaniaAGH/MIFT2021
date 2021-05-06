@@ -1,0 +1,3 @@
+1. Skopiowano pliki źródłowe oraz utworzono poprawną strukturę folderu.
+2. Testowanie będzie wykonywane w kontenerze dockerowym.
+3. 

@@ -9,9 +9,8 @@ git
 RUN curl -fsSL https://deb.nodesource.com/setup_15.x | bash - \
 && apt-get install -y nodejs 
 
-RUN git clone https://github.com/AlexTraher/Socket.io-Messenger \  
-&& cd Socket.io-Messenger \
+RUN git clone https://github.com/skarpecki/chat \
+&& cd chat \
 && npm install
 
-CMD cd Socket.io-Messenger && npm start 
-
+CMD npm start --prefix chat & sleep 60 && npm test --prefix chat
