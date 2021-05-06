@@ -1,0 +1,13 @@
+Na początku należało wkleić pliki źródłowe (skrypty uruchamiające środowiska, Dockerfile, docker-compose.yaml, Jenkinsfile z tych zajęć też etc.) do odpowiednich folderów.
+Kolejnym zadaniem było stworzenie Jenkinfile'a (on również znajduje się w folderach stworzonych w zad1).
+Po sforkowaniu repozytorium deltachat-desktop należało dodać do utworzonego repo równiez Jenkinfile'a.
+Wewnątrz Jenkinsfile w sekcji "stage('Test')" oskryptowałam uruchamianie testów dla aplikacji z pkt. 2, gdzie :
+log z efektami testowania trafa do użytkownika ("powiadamianie o rezultatach")
+wykrywane i obsługiwane są przypadki, gdy:
+	-- testy się powiodły (100%)
+	-- testy się nie powiodły (< 100%)
+W celu realizacji dalszej części związanej z utworzeniem pipeline'u należało użyć komendy sudo docker stop do zatrzymania uruchomionych poprzednio dockerów, a następnie komendy 
+sudo docker container run --name jenkins-blueocean --volume jenkins-data:/var/jenkins_home --publish 8080:8080 --publish 50000:50000 jenkinsci/blueocean
+do utworzenia docker'a z odpowiednim jenkinsfilem.
+Następnie przy użyciu localhost:8080 należało wprowadzić modyfikacje ustawień.
+Na koniec Jenkinsfile został wrzucony do repo z Lab07.
