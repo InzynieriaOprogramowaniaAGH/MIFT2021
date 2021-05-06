@@ -1,0 +1,11 @@
+1.)Stworzenie odpowiedniej hierarchii folderów oraz skopiowanie do nich plików źródłowych.
+
+2.)Zrobienie forka na ogrinalnym repozytorium, a następnie commit do repozytorium stworzonego jenkinsfile
+
+2.1)Stworzenie nowego Jenkins pipeline, który wykonuje Jenkinsfile dodany do forkowanego repozytorium 
+
+2.2)Dodanie W konfiguracji jenkinsa połączenie z serverem smtp gmaila, aby możliwe było wysłanie maila z inforamcja odnośnie procesu testowania.
+
+3)Uruchomienie stworzonego pipeline'a.
+
+3.1)Po skończonym budowaniu i testowaniu aplikacji wysyłana jest informacja mailem odnośnie powodzenia procesu wraz z logami.
