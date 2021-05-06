@@ -13,7 +13,9 @@
 4. - Utworzono Dockerfile do test agent (test.Dockerfile)
 - Stworzono obraz kontenera test agent
 	docker image test -t node-chat-app:build -f test.Dockerfile .
-
+5. -Utworzono pilk docker-compose.yaml
+- Uruchomiono Docker Compose poleceniem:
+	docker-compose up
 
 
 
