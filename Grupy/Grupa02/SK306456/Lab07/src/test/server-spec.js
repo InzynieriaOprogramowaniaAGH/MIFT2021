@@ -28,16 +28,4 @@ describe('Server', function (){
         return Promise.reject(err);
       });
   });
-
-  it('Test to fails', function (){
-    return chai.request(url)
-    .get('/')
-    .then(function (res) {
-      expect(res).to.have.status(404);
-    }) 
-    .catch(function (err) {
-      return Promise.reject(err);
-    });
-  });
-    
 });

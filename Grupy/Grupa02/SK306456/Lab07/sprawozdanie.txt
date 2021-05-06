@@ -1,3 +1,6 @@
 1. Skopiowano pliki źródłowe oraz utworzono poprawną strukturę folderu.
-2. Testowanie będzie wykonywane w kontenerze dockerowym.
-3. 
+2. Testowanie odbywa się w dwóch krokach:
+	a) Zbudowanie obrazu dockerowego: "sh docker build ..."
+	b) Uruchumienie kontenera, który instrukcją CMD uruchumia aplikację oraz testy: "sh docker run" 
+3. Zarówno w razie sukcesu jak i porażki powinna zostać wysłana wiadomość mail, tym niemniej ze względu na błędy, których rozwiązanie wymagałoby konfiguracji zewnętrznych usług zdecydowano się tylko na wypisyanie informacji o nieudanej budowie na ekran. 
+4. 
