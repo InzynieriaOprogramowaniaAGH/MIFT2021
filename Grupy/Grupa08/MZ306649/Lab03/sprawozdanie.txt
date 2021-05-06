@@ -1,0 +1,33 @@
+Michał Zając - sprawozdanie Lab03
+
+Wykorzystane polecenia
+
+git checkout -b Grupa08-MZ306649_Lab03 - utworznie i przełączenie się na nowego brancha
+
+touch Dockerfile - utworzenie Dockerfile
+
+nano Dockerfile - uruchomienie edytora do wpisania zawartości Dockerfile
+
+docker build -t docker - zbudowanie obrazu
+
+docker run -it docker - uruchomienie kontenera 
+
+git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git - sklonowanie repozytorium
+
+
+
+Przebieg laboratorium
+1. Utworzono osobistego brancha Grupa08-MZ306649_Lab03 od brancha Grupa08.
+2. Przeniesiono git hooka do katalogu Lab03/hooks
+3. Zainstalowano Docker'a dla systemu Ubuntu wg instrukcji znalezionej w internecie
+4. Zarejestrowano konto w Docker HUB.
+5. Utworzono Dockerfile
+	FROM ubuntu:latest
+	RUN apt-get -y update
+	RUN apt-get -y upgrade	
+	UN apt-get install -y build-essential
+	RUN apt-get install -y git
+6. Zboudowano obraz docker build
+7. Uruchomiono kontener docker
+8. Sklonowano repozytorium
+9. Sprawdzono zawartosc repozytorium oraz branch

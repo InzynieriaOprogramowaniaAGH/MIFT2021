@@ -1,0 +1,32 @@
+Iwona Pustułka
+Inżynieria Obliczeniowa
+
+1. Stworzyłam brancha osobistego na te zajęcia:
+git checkout -b "Grupa08-IP306691_Lab03"
+
+2. Dodałam pre-commit z poprzednich zajęć:
+#!/bin/bash
+string="IP306691"
+
+if ! grep -iqE "$string" "$1"; then
+	echo "WRONG TEXT"
+	exit 1
+fi
+echo "CORRECT TEXT"
+
+3.Zainstalowałam dockera na Windowsie
+
+4. Zarejestrowałam konto na DockerHub
+
+5. Stworzyłam plik Dockerfile w folderze lab03:
+FROM ubuntu:latest
+RUN apt-get -y update
+RUN apt-get -y upgrade
+RUN apt-get install -y build-essential
+RUN apt-get -y install git
+
+6. Uruchomiłam kontener:
+docker build -t lab03 .
+winpty docker run -it lab03 bash
+6.1 sklonowałam repozytorium
+6.2 Sprawdziłam czy jest mój branch

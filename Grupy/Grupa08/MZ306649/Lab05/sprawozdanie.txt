@@ -1,0 +1,17 @@
+Michał Zając - Sprawozdanie Lab05
+
+Przebieg laboratorium
+1. Utworzono branch do laboratorium.
+2. Zapoznano się z Jenkins.
+3. Utworzonio kontener dockerowy z Jenkinsem wg instukcji.
+	W pliku Dockerfile dopisano polecenia instalujące docker-compose.
+4. Wrzucono obraz na DockerHub.
+5. Uruchomiono i skonfigurowano Jenkins.
+6. Utworzono nowy projekt powiązany z repozytorium i z poziomu powłoki uruchomiono docker-compose.
+	Z poziomu powłoki uruchomiono skrypt startup.sh który tworzy potrzebne obrazy do aplikacji 		i uruchamia docker-compose.
+	Zawartość startup.sh
+	
+	#!/bin/bash
+
+	docker build -t messenger-build:1.0 -f Dockerfile.build .
+	docker-compose build && docker-compose up -d

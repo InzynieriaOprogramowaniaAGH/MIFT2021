@@ -1,0 +1,52 @@
+1.Generowanie
+	ssh-keygen -t ed25519 -C "wanatwiktor08@gmail.com"
+2.Uruchomienie
+	eval "$(ssh-agent -s)"
+3.Dodanie klucza
+	ssh-add 'C:\Users\Wiktor\.ssh\id_ed25519'
+4. klucz zostal skopiowany przez 
+	clip < id_ed25519.pub
+1.5 ustawienie polaczanie przez ssh
+git remote -v
+git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+git remote -v 
+
+
+2.
+Dodany tag 
+git tag -a WW306512_Lab02 -m "Wiktor Wanat , 10/10 prosze"
+wrzucony 
+git push --follow-tags
+
+3.
+Nowy branch :
+Uporzadkowanie plików na osobistym branchu WW306512
+Swtowrzenie nowych branchy
+git merge origin/Grupa08
+git checkout Grupa08
+git pull
+git merge Grupa08
+git push
+git checkout -b Grupa08-WW306512_Lab2
+
+4.Githook
+
+
+#!/bin/sh
+
+#!/bin/bash
+
+string="WW306512"
+if ! grep -iqE "$string" "$1"; then
+	echo "Wrong"
+	exit 1
+fi
+echo "Good"
+
+co skutkowalo przy utworzeniu commita np git commit -m "jakiscommit" 
+zwroceniem wiadomosci "wrong"
+
+5. Push z branca osobistego na grupowy , usuniecie osobistego 
+
+git merge Grupa08-WW306512_Lab2
+git branch -d Grupa08-WW306512_Lab2

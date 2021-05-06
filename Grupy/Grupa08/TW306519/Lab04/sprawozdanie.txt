@@ -1,0 +1,9 @@
+1. Stworzenie nowego osobistego brancha od brancha Grupa08 komenda: 'git checkout -b Grupa08TW306519_Lab04', a nastepnie opublikowanie obrazu z poprzednich zajec w serwisie Docker HUB poleceniami: 'docker login --username=wtycjan --password=...', 'docker tag ef41c1f4866e wtycjan/lab04-myimage', oraz na koniec: 'docker push wtycjan/lab04-myimage'
+
+2. Wykorzystanie komunikatora node-chat-app
+
+3. Stworzenie nowego obrazu kontenera dockerowego do budowania powyzszego komunikatora poleceniem: 'docker build -t komunikator .', ktory korzysta z pliku Dockerfile.
+
+4. Stworzenie nowego obrazu kontenera dockerowego do testowania powyzszego komunikatora poleceniem: 'docker build -t komunikator-contener . -f Dockerfile2', ktory korzysta z pliku Dockerfile2.
+
+5. Stworzenie pliku docker-compose.yml aby stworzyc srodowisko, najpierw budujace komunikator a nastepnie testujace go. Uruchomienie poleceniem 'docker-compose up'
