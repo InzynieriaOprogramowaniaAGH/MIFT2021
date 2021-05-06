@@ -1,4 +1,3 @@
-FROM deltachat-desktop:latest
-
+FROM docker-build:build
 WORKDIR ./deltachat-desktop
 RUN npm test

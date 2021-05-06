@@ -1,0 +1,5 @@
+ARG build
+FROM $build
+
+CMD cd Socket.io-Messenger && npm test 
+

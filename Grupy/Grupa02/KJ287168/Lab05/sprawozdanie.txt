@@ -1,0 +1,96 @@
+0. Zapoznaj się z diagramem omawianym na zajęciach.
+	
+1. Zapoznaj się z oprogramowaniem Jenkins: https://www.jenkins.io/.
+	(stworzyłem nową wersję dockerfile'i do budowania obrazu i jego testowania- mam nadzieję, że może ona pozytywnie uzupełnić wcześniejsze laboratorium)
+	git checkout Grupa02
+	git checkout -b Grupa02-KJ287168_Lab05
+	git status
+	git add deltachat-core/Dockerfile
+	git add docker-compose.yml tests/Dockerfile deltachat-desktop/
+	git status
+	git commit -m "KJ287168 Added changes in dockerfiles for tests running"
+	...
+	git push
+	git push --set-upstream origin Grupa02-KJ287168_Lab05
+	
+2. Stwórz kontener dockerowy z Jenkinsem posługując się instrukcją.
+	cd ../Lab05
+	docker network create jenkins
+	docker run \
+	>   --name jenkins-docker \
+	>   --rm \
+	>   --detach \
+	>   --privileged \
+	>   --network jenkins \
+	>   --network-alias docker \
+	>   --env DOCKER_TLS_CERTDIR=/certs \
+	>   --volume jenkins-docker-certs:/certs/client \
+	>   --volume jenkins-data:/var/jenkins_home \
+	>   --publish 2376:2376 \
+	>   docker:dind \
+	>   --storage-driver overlay2
+	vim
+		FROM jenkins/jenkins:2.277.1-lts-jdk11
+		USER root
+		RUN apt-get update && apt-get install -y apt-transport-https \
+		       ca-certificates curl gnupg2 \
+		       software-properties-common
+		RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+		RUN apt-key fingerprint 0EBFCD88
+		RUN add-apt-repository \
+		       "deb [arch=amd64] https://download.docker.com/linux/debian \
+		       $(lsb_release -cs) stable"
+		RUN apt-get update && apt-get install -y docker-ce-cli
+		USER jenkins
+		RUN jenkins-plugin-cli --plugins "blueocean:1.24.5 docker-workflow:1.26"
+	docker build -t myjenkins-blueocean:1.1 .
+	docker run \
+	  --name jenkins-blueocean \
+	  --rm \
+	  --detach \
+	  --network jenkins \
+	  --env DOCKER_HOST=tcp://docker:2376 \
+	  --env DOCKER_CERT_PATH=/certs/client \
+	  --env DOCKER_TLS_VERIFY=1 \
+	  --publish 8080:8080 \
+	  --publish 50000:50000 \
+	  --volume jenkins-data:/var/jenkins_home \
+	  --volume jenkins-docker-certs:/certs/client:ro \
+	  myjenkins-blueocean:1.1
+	docker ps -a
+	docker images
+	docker logs 8af239a205ea
+	(w celu zalogowania)
+	git status
+	git add ./
+	git commit -m "KJ287168 Pkt. 2 + zdjecia pkt.1"
+
+3. Wrzuć obraz swojego Jenkinsa na DockerHub'a, analogicznie jak poprzednie obrazy.
+	docker images
+	docker push myjenkins-blueocean:1.1
+	docker login
+	docker push myjenkins-blueocean:1.1
+	...
+	docker images
+	docker tag b456bdb59db3 krzysiek77/myjenkins-blueocean:1.1
+	docker push krzysiek77/myjenkins-blueocean:1.1
+	git status
+	git add 3_1.png 3_2.png sprawozdanie.txt
+	git commit -m "KJ287168 Pkt. 3"
+
+4. Z poziomu Jenkinsa uruchomionego w kontenerze (pkt 2) uruchom docker-compose stworzony w ramach Lab04.
+	(w Jenkins utworzyłem projekt (job))
+	
+	https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git
+	Grupa02-KJ287168_Lab05
+		cd Grupy/Grupa02/KJ287168/Lab04
+		ls
+		curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /var/jenkins_home/docker-compose
+		chmod +x /var/jenkins_home/docker-compose
+		/var/jenkins_home/docker-compose up
+	(testy powiodły się)
+	
+	git status
+	git add 4_1.png 4_2.png 4_3.png 4_4.png 4_5.png 4_6.png sprawozdanie.txt
+	git commit -m "KJ287168 Pkt. 4"
+
