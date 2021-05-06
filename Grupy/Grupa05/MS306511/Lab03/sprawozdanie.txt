@@ -1,0 +1,12 @@
+Sprawozdanie:
+
+
+Najmocniej przepraszam za opoznienei, cwiczenie zrealizowalem, jednak z jakiegos powodu branch na jakim
+znajdowaly sie zmiany nie zawieral screenshotow ani sprawka
+
+
+1. Stworzylem brancha (na screenach widac ze na nim pracuje, push bedzie z innego)
+2. Zainstalowalem dockera- widac na screenie, uzylem do tej operacji sudo, co powoduje ze wszedzie dalej
+rowniez bede musial go uzywac
+3.zarejestrowalem konto na dockehubie juz wczesniej (mielismy dockera na 2 roku)
+4. Jest dokcer file i screeny wykonywanych komend

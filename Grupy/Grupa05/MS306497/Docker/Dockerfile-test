@@ -1,0 +1,2 @@
+FROM build:latest
+RUN npm test
