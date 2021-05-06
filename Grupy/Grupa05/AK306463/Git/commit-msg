@@ -1,0 +1,9 @@
+#!/bin/bash
+w=`cat $1 | head -1 | grep "AK306463"`
+if [ -n "$w" ]
+then
+echo "Commit msg correct"
+else
+echo "Error in commit msg- add your signature"
+exit 1
+fi 
