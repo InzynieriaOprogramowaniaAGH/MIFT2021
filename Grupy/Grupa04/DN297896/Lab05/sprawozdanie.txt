@@ -1,0 +1,22 @@
+2. Pobranie kontenera Jenkins i utworzenie dla niego odpowiedniej sieci według podanej na stronie instrukcji.
+
+3. Opublikowano obraz Jenkinsa na prywatnym repozytorium w DockerHUB:
+   "docker commit jenkins-blueocean dariusznowakdockerid/jenkins-lab-devops"
+   "docker push dariusznowakdockerid/jenkins-lab-devops"
+
+   Z racji korzystania z systemu Windows konieczna było zmiana konfiguracji DockerDesktop, żeby uruchamiał on kontenery Linuxowe, a nie Winowsowe.
+
+   Następnie, po uruchomieniu kontenera zgodnie z dokumentacją, aby udało się wykonać zadanie 4 konieczne było zainstalowanie docker-compose w kontenerze:
+     "docker exec -u root -it jenkins-blueocean bash"
+     "curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose"
+     "chmod +x /usr/local/bin/docker-compose"
+
+4. Utworzono nowe zadanie dla Jenkinsa:
+	URL repozytorium: https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021
+	Branch do budowania: */Grupa04-DN297896_Lab04
+
+    Powłoka:
+     "cd Grupy/Grupa04/DN297896/Lab04"
+     "docker-compose up"
+
+    Następnie uruchomiono zadanie, zakończyło się ono sukcesem.
