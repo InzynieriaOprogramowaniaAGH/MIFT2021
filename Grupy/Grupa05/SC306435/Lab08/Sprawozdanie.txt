@@ -1,12 +1,20 @@
+Stworzyłem branch krótkożyjący, folder lab08 oraz podfoldery aby posortować screenshoty.
+
 Jenkinsfile z lab07 został przekopiowany do folderu lab08.
-Zawiera on działający stage("Build").
+Zawiera on teraz działający stage("Build") w którym deltachat-desktop jest budowany.
 
-Po zbudowaniu z sukcesem uruchamiane są testy oraz deploy(aktualnie zawiera on jedynie "echo Deploying...")
+Po zbudowaniu z sukcesem uruchamiane są stage("Test") oraz stage("Deploy") (aktualnie zawiera on jedynie "echo Deploying...")
 
-W razie porażki w stage build - stage test oraz deploy są pomijane a do użytkownika przysyłany jest mail zatytułowany "Build has failed"
+W razie sukcesów wypisywane jest 'Pipeline finished successfully'
 
-W razie porażki w stage test - stage deploy jest pomijany a do użytkownika przysyłany jest mail zatytułowany "Test has failed"
+W razie porażki w stage build - stage test oraz deploy są pomijane a do użytkownika przysyłany jest e-mail zatytułowany "Build has failed" z logami w załączniku
+
+W razie porażki w stage test - stage deploy jest pomijany a do użytkownika przysyłany jest e-mail zatytułowany "Test has failed" z logami w załączniku
 
 Sprawność pipeline srawdzałem wstawiając:
 currentBuild.currentResult = 'FAILED'
 do stage, którego porażki chciałem.
+
+Stworzyłem gitHook post-commit wyświetlający informację z instrukcji.
+
+Branch krótkożyjący zostanie usunięty po wykonaniu pull request.
