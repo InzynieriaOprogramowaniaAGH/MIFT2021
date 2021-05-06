@@ -12,4 +12,4 @@ Jenkins/wire-desktop/Jenkinsfile
 
 3. Przetestowałem scenariusz porażki w jenkins pipeline
 
-
+3_1. W pliku zadanie3_3.png pokazałem zrealizowanie scenariusza pozytywnego
