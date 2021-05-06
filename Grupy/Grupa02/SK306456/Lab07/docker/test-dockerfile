@@ -9,8 +9,7 @@ git
 RUN curl -fsSL https://deb.nodesource.com/setup_15.x | bash - \
 && apt-get install -y nodejs 
 
-RUN git clone https://github.com/skarpecki/chat \
-&& cd chat \
-&& npm install
+RUN git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021 --single-branch --branch SK306456-Lab07_Grupa02\
+&& npm install --prefix MIFT2021/Grupy/Grupa02/SK306456/Lab07/src
 
-CMD npm start --prefix chat & sleep 60 && npm test --prefix chat
+CMD npm start --prefix MIFT2021/Grupy/Grupa02/SK306456/Lab07/src & sleep 60 && npm test --prefix MIFT2021/Grupy/Grupa02/SK306456/Lab07/src/test
