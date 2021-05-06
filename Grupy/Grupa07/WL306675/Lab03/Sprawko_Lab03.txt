@@ -1,0 +1,28 @@
+1. tworze brancha osobistego Grupa07-WL306675_Lab02
+
+2. pushuje go na origina: git push --set-upstream origin Grupa07-WL306675_Lab02
+
+3. pobieram oraz instaluję dockera: https://docs.docker.com/engine/install/ubuntu/
+
+4. dodaje git hooka 
+
+5. zakładam konto na dockerze 
+
+3. tworze plik Dockera bazujący na najnowszym ubuntu, oraz odrazu updatuje i intaluje gita:
+    FROM ubuntu:latest
+
+    RUN apt-get -y update
+
+    RUN apt-get -y upgrade
+
+    RUN apt-get install -y build-essential
+
+    RUN apt-get -y install git
+
+4. buduję obraz: sudo docker build -t ms_docker . 
+
+5. uruchamiam kontener: sudo docker run -it 889329203440
+
+6. clonuje repo 
+
+5. wchodze na swojego brancha Grupa07-WL306675_Lab02

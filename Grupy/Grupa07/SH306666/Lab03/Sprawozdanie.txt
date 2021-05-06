@@ -1,0 +1,7 @@
+1. Branch osobisty stworzony przy uzyciu komendy git checkout -b Grupa07-SH306666_Lab03
+2.git hook skopiowany i wrzucony do nowego folderu
+3. Docker zainstalowany z instrukcji : 
+https://linuxhint.com/install_docker_linux_mint/?fbclid=IwAR1t2-rr6aOvw7OC0K06OuZvZIcUQmkjzYLxPJs3ppJv8DsQ2LJt9eOczQg
+4.Moje docker ID :sebastianhalik, zarejestrowalem sie i potwierdzilem email.
+5. Stworzylem plik "Dockerfile", ktory pobieral gita oraz klonowal repo. Komenda "sudo docker build -t lab03 ." uruchomilem budowanie dockera. Nastepnie odpalilem go "sudo docker run -it lab03 bash"
+6. Przelaczylem sie na swoj branch i sprawdzilem - pliki sa i nie sa to pliki lokalne.

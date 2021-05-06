@@ -1,0 +1,16 @@
+Wszystkie screeny mają umery w formacie zadanie_numer-zdjecia
+
+zad 1
+Utworzyłem nowy klucz przy pomocy git bash następnie zarejestrowałem w githubie. Na końcu wykonałem punkty 1.5.1, 1.5.2, 1.5.3 które dały pozytywny wynik.
+
+zad 2
+Dodałem tag fo mojego commita co jest widoczne na screenach
+
+zad 3
+Foldery zostały Uporządkowanie
+
+zad 4
+Dodałem skrypt weryfikujący moje inicjały oraz numer indeksu na początku 
+
+zad 5 
+Dołączam zmiany do brancha głównego grupy 7

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+	MSG="$1"
+
+	if ! grep -qE "^KL306676" "$MSG";then
+	    cat "$MSG"
+	    echo "Your commit message must begin with 'KL306676'"
+	    exit 1
+	fi
+	    exit 0

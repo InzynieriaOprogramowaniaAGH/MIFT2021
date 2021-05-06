@@ -1,0 +1,7 @@
+1. Za pomocą git clone pobralem repo z dostarczonego linku
+
+2. Stworzyłem nowy branch w repozytorium lokalnym o moich inicjałach i numerze indeksu za pomoca git checkout -b AH306665
+
+3. Uzylem komend mkdir oraz touch do utworzenia potrzebnych plikow 
+
+4. Za pomoca git add dodalem utworzony plik oraz wykonalem commita za pomoca git commit 
