@@ -1,0 +1,12 @@
+Jenkinsfile z lab07 został przekopiowany do folderu lab08.
+Zawiera on działający stage("Build").
+
+Po zbudowaniu z sukcesem uruchamiane są testy oraz deploy(aktualnie zawiera on jedynie "echo Deploying...")
+
+W razie porażki w stage build - stage test oraz deploy są pomijane a do użytkownika przysyłany jest mail zatytułowany "Build has failed"
+
+W razie porażki w stage test - stage deploy jest pomijany a do użytkownika przysyłany jest mail zatytułowany "Test has failed"
+
+Sprawność pipeline srawdzałem wstawiając:
+currentBuild.currentResult = 'FAILED'
+do stage, którego porażki chciałem.
