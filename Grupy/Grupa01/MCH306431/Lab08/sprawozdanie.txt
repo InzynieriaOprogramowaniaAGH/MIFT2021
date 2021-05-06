@@ -2,4 +2,7 @@
 
 2. Do wczesniejszego stage "Build" dopisano pobranie najnowszego wersji projektu i poprzez npm install budowanie aplikacji.
    Na tym etapie w budowaniu, zostanie wyslany mail czy etap przeszedl pomyslnie.
-   
+
+3. Upewnienie sie o wysylani maila
+	- test1 - poprawne dzialanie, po zbudowanym projekcie wyslanie maila oraz przejscie do testowania.
+	- test2 - blad na etapie budowania, wysylanie maila, etap testowania pominiety   
