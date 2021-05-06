@@ -1,0 +1,11 @@
+Sprawozdanie Lab03
+
+1. Stworzenie brancha osobistego analogicznie do poprzednich zajêæ.
+
+2. Dodanie git hooka z ostatnich zajêæ do folderu Lab02/hooks/commit-msg .
+
+3. Zainstalowanie Docker Toolbox'a.
+
+4. Zajerestrowanie siê do dockerhub'a. Nazwa u¿ytkownika pfedirko.
+
+5. 

@@ -1,0 +1,14 @@
+1. Wygenerowałem klucz SSH (ssh-keygen), zapisałem go a następnie uruchomiłem ssh-agent. 
+Zarejestrowałem klucz na gicie i sprawdziłem działanie za pomocą "git remote -v"
+
+2. Nadałem tag na commita za pomocą komendy "git tag -a AH306665 -m "tag".
+Wrzuciłem tę zmianę na swojego brancha na origin, a następnie remote/origin za pomocą "git push --follow-tags"
+
+3. Utworzyłem strukturę katalogów Grupy/Grupa07 i umieściłem w nim moj folder AH306665, który usunąłem z pierwotnej lokalizacji.
+Przeszedłem na brancha grupowego za pomocą "git checkout Grupa07". Stworzyłem własny branch pod to laboratorium - "git checkout -b Grupa07-AH306665-Lab02"
+
+4. Utworzyłem git hooka w folderze .git/hooks (screenshot nr 4). Usunąlem rozszerzenie sample aby skrypt działał.
+
+5.Zrobiłem commit i push "git push origin Grupa07" na brancha grupowego.
+Usunąłem własny branch utworzony w punkcie 3.
+Na koniec stworzyłem nowy "Pull request" ze swojego brancha grupowego do mastera.

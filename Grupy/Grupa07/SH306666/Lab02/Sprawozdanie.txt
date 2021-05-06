@@ -1,0 +1,25 @@
+1) Podlaczylem sie przy uzyciu SSH co bedzie widoczne na finalnych screenach
+2)Zostal stworzony tag przy uzyciu komendy git tag -a SH306666_Lab01 -m "Pozdrawiam Cieplutko"
+Nastepnie wyslalem go komenda git push origin --tags (taka podpowiedziala mi dokumentacja), ale dla pewnosci uzylem rowniez tej z instrukcji - "Everything is up to date"
+3.Utworzylem foldery i przenioslem pliki. Utworzylem nowy branch
+git checkout -b Grupa07-SH306666_Lab02
+git merge Grupa07
+git checkout Grupa07
+git merge Grupa07-SH30666_Lab02
+
+Tutaj nastepuje przerwa, gdy akapit trzeci byl pisany na zajeciach. Kolejne linijki sa pisane w srodku nocy, po paru godzinach batalii z gitem, setkami komend, az w koncu zadzialalo. Z tego wzgledu screenow bedzie malo, gdyz cale cwiczenie wykonalem minimum dwa razy, a niektore punkty parokrotnie zanim zadzialalo, zas samemu opisze tak jak zrozumialem.
+
+
+
+4.W folderze .hooks znalazlem plik commit-msg.sample 
+Usunalem koncowke .sample, a nastepnie edytowalem go (screen). Efekt jest taki, ze w przypadku gdy commit nie zaczyna sie od SH306666 to wywala informacje, ze musi sie tak zaczynac, a commit nie ma miejsca.
+
+5. git add .
+git commit -m "SH306666 plsss" <- desperacyjny commit
+git push
+.
+.
+.
+Dziala!
+
+Wniosek z zajec: trzeba sie nauczyc gita i ogladac wyklady. Przepraszam za opoznienie w wyslaniu, ale od piatku sie meczylem z tym po pare godzin dziennie by dzialalo,
