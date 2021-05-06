@@ -1,0 +1,12 @@
+1. Umieszcze nie plikow zrodlowych w poprzednich zajec w repozytorium (oprocz JenkinsFile, ktory zostanie umieszczony w trakcie lab)
+ - zmiana nazwy odpowiednich Dockerfile w zalezonsci od numeru lab.
+
+2. Wykonanie fork repozytorium z komunikatorem, wrzucenie do niego Jenkinsfile
+	- napisanie wlasnego pipeline w Jenkinsfile
+	- pobranie odpowiedniego pluginu do wysylania e-mail
+	- odpowiednia konfiguracja pipeline w Jenkis
+	- konfiguracja pluginu do wysylania e-mail
+
+3. Pokaznie rezultatu wysylania budowania oraz testowania projektu
+	- niestety nie udalo sie otrzymac e-mail z powiadomieniem mimo 
+	ze logi w Jenkins swiadcza o wyslaniu powiadomienia
