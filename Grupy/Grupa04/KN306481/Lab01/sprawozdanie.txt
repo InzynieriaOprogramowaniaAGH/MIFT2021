@@ -1,0 +1,8 @@
+W wykonania zadań wykorzystano poleceń:
+git clone do sklonowania projektu.
+git branch do stworzenia brancha.
+git checkout do przejścia na nowego brancha.
+Do tworzenia katalogów i plików komend mkdir, touch.
+Do zmeregowania brancha użyto git merge.
+Do spushowania danych na branchu git push --set-upstream origin KN306481
+

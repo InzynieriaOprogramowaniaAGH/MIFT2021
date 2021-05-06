@@ -1,0 +1,44 @@
+- Wystartowanie agenta ssh
+eval `ssh-agent -s`
+- Dodanie klucza prywatnego do agenta 
+ssh-add ~/.ssh/id_ed25519
+- skopiowanie zawartości pliku z kluczem publicznym i wykorzystanie go do konfuguracji swojego githuba
+ clip < ~/.ssh/id_ed25519.pub
+- sprawdzenie połączenia i zmiana na shh
+git remote -v  sprawdzenie połączenia 
+
+
+2. Dodanie taga do Lab1 i przełączenie się na swojego brancha 
+git checkout -b KN306481 
+
+- dodatnie taga do ostatniego commita
+git tag -a KN306481_Lab01 -m "Kamila Nowak, Lab 01 wszystko działa" 
+nazwa taga podana po -a, opis po -m
+- sprawdzenie historii comitów
+git log 
+
+3. Zmiana struktury branchy i folderów
+
+3.1 zmodyfikowano strukturę katalogów na branchu KN306481	
+3.2 przełączono brancg na Grupa04 
+git checkout na Grupa04
+3.3 stworzono nowego brancha Grupa04-KN306481_Lab02
+3.4 zrobiono merge brancha KN306481 do Grupa04-KN306481_Lab02.
+
+
+4. Git hooks
+-  odnalezienie folderu .git/hooks
+- stworzenie nowego pliku commit-msg
+- napisanie skryptu w nowoutworzonym pliku
+
+#!/bin/bash
+
+MSG="$1"
+
+if ! grep -qE "KN306481*" "$MSG";then
+    cat "$MSG"
+    echo "Your commit message must start with the word 'KN306481'"
+    exit 1
+fi
+
+5. Zmergowannie brancha i zpushowanie zmian do zdalnego repozytorium.
