@@ -1,0 +1,64 @@
+1. Stworzenie brancha osobistego i opublikowanie stworzonego na poprzednich zajeciach obrazu docker hub.
+
+2. Wybranie sobie aplikacji chatu - https://github.com/wireapp/wire-desktop
+
+3. Stworzenie dockera, ktorego obraz bedzie budowal apke z powyzszego repo. Docker zostal zbudowany na ponizszej tresci Dockerfile:
+
+FROM ubuntu:latest
+
+ENV TZ=Europe/Warsaw
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+RUN apt-get update
+
+RUN apt-get install git -y
+
+RUN apt-get install npm -y
+
+RUN git clone https://github.com/wireapp/wire-desktop
+
+RUN cd wire-desktop
+
+RUN npm install --global yarn
+
+WORKDIR /wire-desktop
+
+RUN npm install -g typescript 
+
+RUN npm install
+
+RUN yarn build:linux
+
+4. Stworzenie dockera, ktorego obraz bedzie testowal wczesniejsza apke. Docker zostal zbudowany na ponizszej tresci Dockerfile:
+
+FROM ubuntu:latest
+
+ENV TZ=Europe/Warsaw
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+RUN apt-get update
+
+RUN apt-get -q install npm -y
+
+RUN npm install --global yarn
+
+RUN npm install -g typescript 
+
+COPY wire-desktop ./wire-desktop
+
+WORKDIR /wire-desktop
+
+RUN npm install 
+
+5. Stworzenie docker-compose, ktory na podstawie obrazow stworzy srodowisko sciagajace z repo najnowsza wersje wire-app, zbuduje ja i przetestuje. Tresc docker-compose:
+
+version: "2.2"
+services: 
+    build:
+        build: Build
+    test:
+        build: Test
+        ports:
+            - "5000:5000"
