@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  build-agent:
+    container_name: build-agent-feathers-chat
+    image: build-agent:latest 
+    build:
+      context: .
+      dockerfile: Dockerfile_Build
+    ports:
+    - "3030:3030"
+  test-agent:
+    container_name: test-agent-feathers-chat
+    image: test-agent:latest
+    build:
+      context: .
+      dockerfile: Dockerfile_Test
+    depends_on:
+    - build-agent

@@ -1,0 +1,16 @@
+Grzegorz Cebula Lab07
+Zadanie 1
+Umiescilem wszystkie pliki zrodlowe w repozytorium w odpowiednich folderach. Zostaly one dodatkowo zmodyfikowane na potrzeby laboratorium.
+
+Zadanie 2
+Zforkowalem repozytorium aplikacji featchers-chat i dodalem do niego niezbedne pliki Dockerflie, docker-compose.yml oraz Jenkinsfile
+W jenkinsie utworzylem pipeline, ktory wykonywal Jenkinsfile w zforkowanym repo. 
+Nastepnie odpowiednio skonfigurowalem pipeline oraz plugin emailext probujac wykorzystac polacznie z serwerem smtp gmail'a.
+
+Zadanie 3
+Uruchomilem pipeline. Poczatkowo wszystko wydawalo sie wykonywac poprawnie i pipeline konczyl sie z powodzeniem. Niestety napotaklem problem z wyslaniem e-mail'a na wybrany adres.
+Na zrzucie ekranu 'Zadanie3_2' pokazany jest blad w momencie proby wyslania testowego maila. Podczas uruchomienia pipeline'a nie widac bledow, ale na skrzynce odbiorczej nie ma maila, ktory powinien byc wyslany (logi pokazuja, ze wykonywana jest proba wyslania wiadomosci).
+Po probach obejscia notkanego bledu, ostatecznie nie udalo mi sie go rozwiazac. W zwiazku tym, pipeline wykonuje sie wzglednie dobrze, ale e-mail z logami nie jest wysylany do uzytkownika podanego w Jenkinsfile.
+
+Zadanie 4
+Plik Jenkinsfile znajduje sie w folderze Jenkins

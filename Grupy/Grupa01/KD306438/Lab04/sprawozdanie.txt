@@ -1,0 +1,55 @@
+1. Utworzenie z brancha grupowego swojego brancha osobistego na te zajecia: 'git checkout -b Grupa01-KD306438_Lab04'
+
+1.1 Opublikowanie obrazu z poprzednich zajec w serwisie Docker Hub: 
+	-nadanie zbudowanemu obrazowi tagu takiego samego jak repo, do ktorego bedziemy pushowac: 'sudo docker tag a7c66ceffe6d karen2035/devops'
+	-zalogowanie sie na konto 'sudo docker login'
+	-opublikowanie obrazu 'sudo docker push karen2035/devops'
+
+
+2. Znalezienie w internecie komunikatora opensource messeging app - node-chat
+
+3. Build agent: utworzenie nowego obrazu kontenera na podstawie Dockerfile'a realizujacego budowanie komunikatora: 
+	-Dockerfile:
+		FROM node:14.16.0-buster
+		# instalacja gita
+		RUN apt-get update -y
+		RUN apt-get upgrade -y
+		RUN apt-get install --assume-yes git
+		RUN apt-get install --assume-yes g++
+		RUN git clone https://github.com/igorantun/node-chat.git
+		WORKDIR ./node-chat
+		RUN npm install
+		CMD ["npm", "start"]
+	 -budowa 'sudo docker build -t image-node . '
+	 -przetestowanie działania 'sudo docker run -it -p 3000:3000 image-node' oraz uruchomienie w przeglądarce localhost:3000
+	 
+4. Test agent: utworzenie nowego obrazu kontenera na podstawie Dockerfile'a realizujacego testowanie zbudowanego wczesniej komunikatora: 
+	-Dockerfile:
+		FROM image-node
+		WORKDIR ./node-chat
+		RUN npm test
+
+	 -budowa 'sudo docker build -t image-test . -f Dockerfile_test'
+	 
+5. Utworzenie pliku docker-compose.yml ściągającego z repo najnowsza wersje komunikatora, bubdujacego go oraz testtujacego go pod katem dzialania:
+	-docker-compose.yml:
+	version: '3'
+	services:
+	    build-agent:
+	      image: image-node
+	      build: Dockerfile
+	      ports:
+	      - 3000:3000
+	      stdin_open: true
+	      tty: true
+	      
+	    test-agent:
+	      image: image-test
+	      build: Dockerfile_test
+	      ports:
+	      - 3030:3030
+	      depends_on:
+	      - build-agent
+	-instalacja docker compose: 'sudo apt-get install docker-compose'
+	-uruchomienie: 'sudo docker-compose up'
+	
