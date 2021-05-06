@@ -6,3 +6,9 @@
 3. Upewnienie sie o wysylani maila
 	- test1 - poprawne dzialanie, po zbudowanym projekcie wyslanie maila oraz przejscie do testowania.
 	- test2 - blad na etapie budowania, wysylanie maila, etap testowania pominiety   
+
+4. dodanie git hook'a po commicie w repo z komunikatorem
+	- nadanie mu odpowiednich praw do wykonania
+
+- umieszczenie pliku post-commit oraz zaktualizowanego Jenkinsfile w 
+folderze z Lab08 oraz w folderze z plikami zrodowymi
