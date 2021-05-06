@@ -14,7 +14,6 @@ pipeline {
             mail to: 'skarpecki@student.agh.edu.pl',
                  subject: "Failed chat pipeline: ${currentBuild.fullDisplayName}",
                  body: "Something is wrong with ${env.BUILD_URL}"
-            
             */
             echo "Failed"
             }
