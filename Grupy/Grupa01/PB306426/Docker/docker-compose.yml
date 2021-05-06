@@ -1,0 +1,23 @@
+
+version: '3.3'
+services:
+ build-agent:
+  container_name: node
+  image: node:latest
+  stdin_open: true
+  tty: true
+  ports:
+   - 3000:3000
+  build:
+   context: .
+   dockerfile: Dockerfile-build
+ test-agent:
+  container_name: test
+  image: test:latest
+  ports:
+   - 3003:3003
+  build:
+   context: .
+   dockerfile: Dockerfile-test
+  depends_on:
+  - build-agent
