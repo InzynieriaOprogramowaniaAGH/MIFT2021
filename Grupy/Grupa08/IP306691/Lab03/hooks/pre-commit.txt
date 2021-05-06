@@ -1,0 +1,8 @@
+#!/bin/bash
+string="IP306691"
+
+if ! grep -iqE "$string" "$1"; then
+	echo "WRONG TEXT"
+	exit 1
+fi
+echo "CORRECT TEXT"
