@@ -4,11 +4,28 @@ pipeline{
         stage('Build') {
             steps{
                 echo 'Building'
-                checkout scm  
+                sh 'git pull origin master'
                 sh 'npm install'
                 sh 'npm run build'    
             }
+            post{
+            failure {
+                emailext attachLog: true,
+                    body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+                    recipientProviders: [developers(), requestor()],
+                    to: 'kocurek@gmail.com',
+                    subject: "Build failed : Job ${env.JOB_NAME}"
+            }
+            success {
+            emailext attachLog: true,
+                body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+                recipientProviders: [developers(), requestor()],
+                to: 'kocurek@gmail.com',
+                subject: "Build successful : Job ${env.JOB_NAME}"
+                 }
+         }
         }
+        
         stage('Test'){
           when {
             expression {currentBuild.result == 'SUCCESS' }
@@ -17,26 +34,25 @@ pipeline{
           steps{
             echo 'Testing'
             sh 'npm run test'
-            }        
-        }
-    }s
-
-    post{
-        success{
+            }   
+            
+            
+           post{
+              success{
             emailext attachLog: true,
             body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NAME}",
             recipientProviders: [developers(), requestor()],
-            subject: "Success Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+            subject: "Test Success ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
             to: 'kocurek@gmail.com'        
-        }
-        failure{
+               }
+          failure{
             emailext attachLog: true,
             body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NAME}",
             recipientProviders: [developers(), requestor()],
-            subject: "Failure Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+            subject: "Test failed ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
             to: 'kocurek@gmail.com'        
+             }   
+          }      
         }
-        
     }
-
 }
