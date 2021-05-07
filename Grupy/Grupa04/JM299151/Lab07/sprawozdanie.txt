@@ -1,0 +1,14 @@
+Sprawozdanie nr 7
+
+1. Zamieszczenie wszystkich plików źródłowych w repozytorium.
+
+2. Stworzenie Jenkinsfile i umieszczenie w repozytorium z komunikatorem.
+2.1 Zforkowanie repozytorium aplikacji i zrobienie commita ze stworzonym Jenkinsfile.
+2.2 Utworzenie Pipeline wykonującego Jenkinsfile.
+2.3 Zainstalowanie i dołączenie wtyczki NodeJs, skonfigurowanie połączenia z serwerem gmail.
+
+3. Uruchomienie pipeline.
+3.1 Dopisanie błędu w Jenkinsfile, a następnie ponowne uruchomienie pipeline.
+3.2 Otrzymanie maila z informacją o błędzie.
+
+4.Z repozytorium aplikacji skopiowanie pliku Jenkinsfile i umieszczenie go w repozytorium MIFT.
