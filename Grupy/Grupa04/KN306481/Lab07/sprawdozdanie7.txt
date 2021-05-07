@@ -11,7 +11,6 @@
 Z racji, że komunikator wybrany kilka zajęć temu nie miał napisanych testów, dlatego na potrzeby laboratorium stworzono skrypt symulujący uruchamianie testów, ponieważ pisanie testów do aplikacji nie jest celem tego laboratorium.
 
 2.3 Wewnątrz Jenkinsfile w sekcji "stage('Test')" wywołano test
-...
-
-
+- Po wywołaniu poprawnie testów wysyłał się e-mail o pomyślnym zbudowaniu
+- podczas błędu wysyłał się mail z logami na podany email
 4. Wrzucono Jenkinsfile do repozytorium.
