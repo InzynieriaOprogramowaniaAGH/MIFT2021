@@ -1,4 +1,4 @@
-FROM deltachat:latest
+FROM app_build:latest
 
 WORKDIR ./deltachat-desktop
 
