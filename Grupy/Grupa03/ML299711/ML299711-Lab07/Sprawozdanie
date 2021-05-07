@@ -1,0 +1,9 @@
+1. Skopiowałem pliki źródłowe ze starszych labek do nowo utworzonego brancha
+2. Napisałem Jenkinsfile
+3. Zrobiłem forka z socket.io bo wcześniej używany deltachat ma buga w branchu master i nie przechodzą testy.
+3. Skonfigurowałem Jenkinsa w dockerowym kontenerze
+	- pobrałem dodatki do node_js i emaila
+	- skonfigurowałem email
+	- założyłem na potrzeby labolatoriów nowy email 'olekn41@gmail.com' bo mój ma weryfikację dwuetapową i jenkins miał problem
+4. Odpaliłem konfiguracje 
+5. Specjalnie zmieniłem w Jenkinsfile 'npm run test1' żeby specjalnie uzyskać fail na konfiguracji
