@@ -1,0 +1,8 @@
+1. Uzupełniłam Jenkinsfile z poprzednich zajęć - dodałam stage Build.
+    Przetestowałam wprowadzone zmiany.
+
+2. Wszystko działa poprawnie - program poprawnie jest budowany oraz dostaję powiadomienie o przebiegu etapu budowania.
+
+3. Po wykonaniu testów mogłam zauważyć, że po nieudanym budowaniu stage "Test" zostaje pominięty.
+
+4. Utworzyłam git hooka, po czym przetestowałam go.
