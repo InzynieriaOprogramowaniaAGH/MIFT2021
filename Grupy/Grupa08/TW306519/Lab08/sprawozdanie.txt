@@ -1,0 +1,4 @@
+1. Moj pipeline juz zawieral sekcje Build
+2. Rozszerzenie sekcji Build mojego Jenkinsfile o poobieranie najnowszej wersji koddu zrodlowego z repozytorium sh 'git pull origin master', oraz informacji uzytkownika o sukcesie badz porazce budowania komunikatora
+3. Testowanie aplikacji tylko jesli zostala pomyslnie zbudowana korzystajac z funkcji 'when'
+4. Napisanie git post-commit hook'a do wykorzystania w przyszlosci
