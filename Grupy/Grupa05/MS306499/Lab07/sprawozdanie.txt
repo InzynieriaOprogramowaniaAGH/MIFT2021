@@ -1,0 +1,15 @@
+1. Przygotowałem pliki potrzebne do uruchomienia CI/CD pipeline i umieściłem je w jedym folderzez Lab07
+
+2. Stworzyłem Jenkinsfile, który ma za zadanie realizować CI/CD pipeline
+
+Jenkins/wire-desktop/Jenkinsfile
+
+2.1 Przeniosłem jenkinsfile do folderu z repozytorium
+
+2.2 stworzyłem plik jenkinsfile, który przy porażce wysyła mail.
+
+2.3 Przypisałem plik jenkinsfile
+
+3. Przetestowałem scenariusz porażki w jenkins pipeline
+
+3_1. W pliku zadanie3_3.png pokazałem zrealizowanie scenariusza pozytywnego

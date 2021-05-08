@@ -1,0 +1,15 @@
+Zajęcia: 6.05.2021
+
+Temat: Pipeline CI/CD - automatyczne budowanie.
+
+1. Rozszerzyłam Jenkinsfile z Lab07 o nowy stage("Build").
+
+2. W stage("Build") upewniłam się że:
+	- jest pobierana najnowsza wersja kodów źródłowych z repozytorium
+	- program jest budowany
+	- użytkownik jest powiadamiany zarówno o sukcesie jak i porażce etapu budowania.
+
+3. Upewniłam się, że po zbudowaniu z sukcesem jest uruchamiany stage("Test"), ale po nieudanym budowaniu to się nie dzieje.
+Po nieudanym budowaniu przyszedł mail tylko o porażce w budowaniu. Stage("Test") został pominięty.
+
+4. Napisałam git "post-commit" hook'a dla repozytorium z komunikatorem, który wyświetla wiadomość "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie".

@@ -4,6 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+  Grupa05-MS306511-Lab07
                 sh 'sudo apt install npm -y'
                 sh 'sudo npm i npm@latest -g'
                 sh 'sudo npm fund'

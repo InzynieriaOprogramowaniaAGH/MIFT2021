@@ -1,0 +1,10 @@
+1. Rozszerzono Jenkinsfile z Lab07 onowy stage("Build")
+
+2. Upewniono sie ze:
+- jest pobierana najnowsza wersja kodow zrodlowych
+- program jest budowany
+- uzytkownik jest powiadamiany zarowno o sukcesie jak i porazce etapu budowania
+
+3. Upewniono sie ze po zbudowaniu z sukcesem jest uruchamiany stage("Test"), ale po nie udanym budowaniu to sie nie dzieje.
+
+4. Utworzono git "post-hooka" dla repozytorium z komunikatorem wyswietlajacego wiadomosc "To jest commit hook, ktory bedzie kiedys uruchamial Pipeline po kazdym nowym commicie".
