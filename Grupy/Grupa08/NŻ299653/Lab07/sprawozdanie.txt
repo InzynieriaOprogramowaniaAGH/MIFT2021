@@ -1,0 +1,10 @@
+1. Utworzyłam odpowiednią strukturę katalogów i umieściłam w nich odpowiednie pliki.
+
+
+2.1 Zrobiłam forka na orginalnym repo i umieściłam w nim Jenkinsfile
+
+2.3 Utworzyłam Jenkinsfile i umieściłem go w repozytorium z komunikatorem z napisanym pipelinem zawierającym sekcje Build, Test oraz Deploy
+
+3. Wykonałam testowanie z użyciem Jenkinsfile - wyszło tylko niepowodzenie
+
+4. Dodałam aktualny Jenkinsfile do repo z pkt 1
