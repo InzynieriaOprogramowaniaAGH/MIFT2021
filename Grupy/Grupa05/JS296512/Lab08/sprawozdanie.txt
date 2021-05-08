@@ -1,0 +1,10 @@
+1. Rozszerzyłem Jenkinsfile z Lab07 o nowy stage Build.
+
+2. W stage Build:
+- jest pobierana najnowsza wersja kodów źródłowych z repozytorium
+- program jest budowany
+- użytkownik jest powiadamiany zarówno o sukcesie jak i porażce etapu budowania.
+
+3. Po zbudowaniu z sukcesem jest uruchamiany stage Test a po nieudanym budowaniu to się nie dzieje.
+
+4. Napisałem git post-commit hooka dla repozytorium z komunikatorem, który wyświetla wiadomość "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie".

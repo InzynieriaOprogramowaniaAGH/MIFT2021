@@ -1,0 +1,20 @@
+version: "3.3"
+services: 
+    build:
+        build: Build
+        image: lab04_build
+    run:
+        build: Run
+        image: lab04_run
+        ports:
+            - "5000:5000"
+        depends_on:
+            - build
+    test:
+        build: Test
+        image: lab04_test
+        ports:
+            - "5000:5000"
+        depends_on:
+            - build
+    

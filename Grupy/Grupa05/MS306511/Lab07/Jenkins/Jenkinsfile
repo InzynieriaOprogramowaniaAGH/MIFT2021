@@ -4,9 +4,19 @@ pipeline {
     stages {
 	     stage('Build') {
             steps {
+<<<<<<< HEAD
                 echo 'Build..'           
                 sh 'npm install'
                 sh 'npm run build'
+=======
+                echo 'Building..'
+  Grupa05-MS306511-Lab07
+                sh 'sudo apt install npm -y'
+                sh 'sudo npm i npm@latest -g'
+                sh 'sudo npm fund'
+                sh 'sudo npm install'
+                sh 'sudo npm run build'
+>>>>>>> d07688fb964ff3ecccca38d96922a4cddd6887de
             }
 	  }
         stage('Test') {
