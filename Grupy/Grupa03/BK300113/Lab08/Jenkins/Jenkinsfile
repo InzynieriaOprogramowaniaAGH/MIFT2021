@@ -9,16 +9,30 @@ pipeline {
                 sh 'npm fund'
                 sh 'npm install'
                 sh 'npm run build'
-                }
-        }
+                
+                //Sending email with body depending on action effect  (zad. 2.3)              
+                emailext attachLog: true,
+                body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+                recipientProviders: [developers(), requestor()],
+                to: 'mrsuhar420@gmail.com',
+                subject: "Building result: ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+                 
+                
+                  }
+                          }
+        //Works only if previous stage was succesful (zad. 3)
         stage('Test') {
+            when{
+                expression{currentBuild.currentResult=="SUCCESS"}
+                }
+            
             steps {
                 echo 'Trying to test project'
                 sh 'npm run test'
-                }
-        }
+                  }
+                      }
        
-    }
+            }
     
     post {
         
@@ -27,8 +41,8 @@ pipeline {
             emailext attachLog: true,
                 body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
                 recipientProviders: [developers(), requestor()],
-                to: 'johnquatermine@gmail.com',
-                subject: "Jenkins Build Worked ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+                to: 'mrsuhar420@gmail.com',
+                subject: "Jenkins Testing Worked ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
                 
          
         }
@@ -38,8 +52,8 @@ pipeline {
             emailext attachLog: true,
                 body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
                 recipientProviders: [developers(), requestor()],
-                to: 'johnquatermine@gmail.com',
-                subject: "Jenkins Build Failed${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+                to: 'mrsuhar420@gmail.com',
+                subject: "Jenkins Testing Failed${currentBuild.currentResult}: Job ${env.JOB_NAME}"
                 
         }
          }
