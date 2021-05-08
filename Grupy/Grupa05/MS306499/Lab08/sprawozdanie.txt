@@ -1,0 +1,22 @@
+1. Do jenkinsfile wprowadziłem nowy stage o nazwie Build. 
+Stage ten przygotowuje systemu do uruchomienia testów aplikacji.
+Instaluje on potrzebne programy w kontenerze.
+
+Aktualny plik jenkinsfile znajduje się pod tym linkiem:
+https://github.com/MStabryla/wire-desktop/blob/dev/jenkinsfile
+
+2. Upewniłem się, że stage Build:
+- najpierw pobiera aktualną wersję repozytorium (przy każdym zleceniu zadania jenkins pobiera na lokalny dysk aktualną wersję repozytorium)
+- uruchamia komendę budującą aplikację
+- na stardardowym wyjściu pojawia się informacja o porażce jak i sukcesie budowania
+
+3. Sprawdziłem działanie obu przypadków a wyniki umieściłem w plikach png:
+
+- zadanie3_1 zawiera wynik, kiedy build przechodzi poprawnie. Wtedy po nim wykonuje się stage testowy.
+- zadanie3_2 zawiera wynik, kiedy build nie wykona się poprawnie. Wtedy stage testowy jest pomijany.
+
+4. Wykonałem githooka i domontowałem go to repozytorium z komunikatorem.
+Aktualna wersja githooka:
+
+
+
