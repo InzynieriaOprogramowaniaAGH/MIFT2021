@@ -1,0 +1,14 @@
+1. Dodano komendę 
+sh 'git pull origin master' do steps w Build, aby zawsze pobierać najnowszą wersję kodu
+
+2. Pozostawiono z poprzednich zajęć konfugurację gdzie wyróżniono 2 stage:
+Build i Test 
+W build uruchamiany jest docker-compose, który buduje dwa kontenery.
+
+Testy pozostały bez zmian.
+
+
+4. W repo z komunikatorem utworzono prostego post-commit hooka, odpowiadającego za wyświetlanie słów po commicie.
+
+#!/bin/sh
+printf "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"
