@@ -1,30 +1,56 @@
-pipeline {
+pipeline{
 	agent any
-	
-	tools {nodejs "node" }
-
-	stages{
-		stage('Test'){
+	stages {
+		stage('Build') {
 			steps{
-				echo 'Testing...'
+				echo 'Building'
+				sh 'git pull origin master'
 				sh 'npm install'
-				sh 'npm run test'
+				sh 'npm run build'    
+			}			
+			post{
+				always{
+					echo 'Finished'
+				}
+				failure{
+					statusAllert('Build', 'Failure')
+				}
+				success{
+					statusAllert('Build', 'Success')
+				}
 			}
 		}
-	}
-	post{
-		failure{
-			emailext attachLog: true,
-				body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
-                		to: 'olekn41@gmail.com',
-                		subject: "Jenkins build failed ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+
+		stage('Test'){
+			when {
+				expression {currentBuild.result == 'SUCCESS' }
 			}
-		success{
-			emailext attachLog: true,
-                		body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
-                		to: 'olekn41@gmail.com',
-                		subject: "Jenkins build succeed ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
-			}		
-	}
-	}
-	
+
+			steps{
+				echo 'Testing'
+				sh 'npm run test'
+			}   
+
+
+			post{
+				always{
+					echo 'Finished'
+				}
+				failure{
+					statusAllert('Test', 'Failure')
+				}
+				success{
+					statusAllert('Test', 'Success')
+				}
+			}
+		}      
+	}	
+}
+
+def statusAllert(stage, status) {
+echo status
+emailext attachLog: true,
+body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+to: 'olekn41@gmail.com',
+subject: stage + status
+}
