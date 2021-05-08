@@ -3,3 +3,57 @@ Zadanie 1:
 
 Zdanie 2:
 -zmodyfikowano Jenkinsfile w ten sposob, abym otrzymywal notyfikacje gdy testy sfailuja zadanie_2_1.png
+-poniewaz proby budowania projektu przez umieszczenie Jenkinsfila w nowo utworzonym pipelnie wywalaly sie na kome-
+ndach zwiazanych z npm, zdecydowalem sie na utworzenie forka repozytorium, wiazalo sie to tez z modyfikacja Jenkinsfila
+-w mojej wersji repozytorium dodalem plik Jenkinsfile
+-uruchomilem nowy build- sfailowal na etapie budowania
+
+by naprawic blad (brak npm):
+-dodalem 
+agent {
+        docker {
+          image 'node:10.11.0-alpine'
+        }
+     }
+do Jenkinsfile -fail
+-odapalalem z sudo- fail
+-wszedlem do kontenera z Jenkinse by nada uprawnienia do sciezki: chmod 777 var/lib/apt/lists/*
+(bo nie moglem uzywac apt)- fail
+
+-zaczalem instalowac pluginy do Jenkisa i testowac rozne kombinacje 
+
+-poniewaz znalazlem sie w sytuacji gdzie konieczne bylo wykonanie operacji z urawnieniami roota, nie majac sudo
+i nie mogac uzywac apt.... zmienilem dockerfila tworzacego Jenkinsa, dodalem:
+RUN apt-get update
+RUN apt-get install npm -y 
+
+zrobilem docker run na obrazie Jenkinsowym
+
+Poniewaz nowo postawiony kontener z Jenkinsem dziala bardzo wolno, polowa pluginow nie dzialala itd itp, zmienilem
+repozytorium na inne, oraz zbudowalem kontener starym sposobem
+
+historie commitow mozna przesledzic na moim repo:
+https://github.com/Swistusmen/deltachat-desktop/commits/master
+
+Blad byl w kontenerze z Jenkinsem- problemem byly ciagle uprawnienia usera, ktorych nie moge dostac, nawet jesli 
+w Dockerfilu instalwoalem npm i sudo, zawsze cos bylo nie tak:
+    -polowa pluginow sie nie zainstalowal np wszystkie gity, npm itd (mimo ze byl w kontenerze)
+
+Dlatego tez postanowilem zainstalowac Jenkinsa na swojej maszynie bezposrednio (tymczasowo, by zrealizowac to cwiczenie),
+postaram sie dojsc co jest nie tak z Jenkinsem w dockerze, a jesli mi sie nie uda, postawie go na vmce albo skorzystam z sendzimira (za zgoda prowadzacego)
+
+komendy:
+1. wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+2. sudo sh -c 'echo deb https://pkg.jenkins.io/debian binary/ > \
+>     /etc/apt/sources.list.d/jenkins.list'
+3. sudo apt-get install jenkins
+4. sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+po zainstalowaniu na lokalnej maszynie od razu widac postep- apka sie zbudowala,
+
+-poniewaz mam zainstalowany plugin do mail, njie instaluje go
+-ustawilem mailera
+
+-wszystko mi sie ladnie zbudowalo i testy przeszly- screen
+
+-dodano mailera- screen mailer
