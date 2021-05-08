@@ -1,0 +1,2 @@
+1.
+Rozszerzono Jenkinsfile z lab07 o stage "Build" oraz umieszczono go w strukurzekatalogóœ i Lab08.
