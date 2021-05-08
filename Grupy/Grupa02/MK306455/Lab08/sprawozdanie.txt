@@ -1,3 +1,13 @@
 1. Stage Build zosta umieszczony w Jenkinsfile juz w Lab07
 
+2. Aby upewnic sie ze pobrana wersja repo jest najnowsza dodano do stage Build komendy:
+
+sh 'git checkout master' #zmienienie brancha na master
+sh 'git pull' #uaktualnienie repo
+(zrzut zad2a)
+
+W stage Build wystepowala komenda sh 'npm install' juz w Lab07(zrzut zad2b)
+
+Aby uzytkownik byl powiadamiany zarowno o sukcesie jak i o porazce etapu budowania dodano dla stage Build sekcje post w ktorej w zaleznosci od wyniku jest wysylany odpowiedni mail. W przypadku sukcesu powiadomienie o sukcesie, a w przypadku porazki, powiadomienie o bledach. (zrzut zad2c)
+
 
