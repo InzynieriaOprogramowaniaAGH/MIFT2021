@@ -1,0 +1,9 @@
+#!/bin/bash
+
+validator="MP306490"
+if ! grep -iqE "$validator" "$1"; then
+	echo "wrong msg"
+	exit 1
+
+fi
+echo "correctly done"

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "To jest commit hook, ktory bedzie uruchamial pipeline po kazdym nowym commicie"
