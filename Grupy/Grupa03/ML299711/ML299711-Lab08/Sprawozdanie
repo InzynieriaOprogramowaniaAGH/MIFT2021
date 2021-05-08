@@ -1,0 +1,4 @@
+1. Skopiowałem pliki z poprzednich laboratoriów do nowego brancha krótkożyjącego
+2. Zmieniłem organizację plików. Pliki jenkins, docker, docker compose są teraz w folderze głównym ML299711 aby nie trzeba było ich kopiowac.
+3. Zmodyfikowałem Jenkinsfile zgodnie z wytycznymi labolatoriów.
+4. Przeprowadziłem testy konfiguracji ze specjalnie zmienionym jenkinsfilem aby sprawdzić czy testy się nie odpalą jeżeli build nie przejdzie
