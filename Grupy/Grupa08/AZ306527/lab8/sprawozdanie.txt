@@ -1,13 +1,11 @@
-1. Pliki potrzebne do uruchomienia wcześniej stworzonego CI/CD pipeline umieszczono w odpowiednim folderze
+1. W Jenkinsfilie nasz pipline rozszerzono o stage "Build" odpowiedzialny za budowanie aplikacji.
 
-2. Stworzono Jenkinsfile, w repozytorium z komunikatorem.
+2. W stagu tym wykorzystujemy polecenie sh 'git pull origin master', odpowiadające za pobieranie najnowszej wersji kodu zreozytorium oraz polecenie sh 'docker-compose up -d' odpowiadająca za budowowanie odpowiednich kontenerów.
 
-2.1. Wewnątrz wcześniej utworzonego Jenkinsfila stworzono nowy Jenkinspipeline, a w nim nowy "stage('Test')". 
+3. Wykorzystano sekcje post, a w niej podsekcje failure i success. Skonfigurowano Jenkinsa generując hasło dla aplikacji tak aby informacja o przebiegu budowania jak i testów, przebieg logów. Mail został podany w Jenkinsfilu, w konfiguracji, wygenerowano dla niego hasło.
 
-W sekcji agent podajemy technologie wykorzystywaną w komunikatorze.
-Stage Build oraz Test jak sama nazwa wskazuje odpowiadają za budowanie i przeprowadzenie testów.
-W sekcji post podajemy maila na którego przychodzi informacja o przebiegu testów.
+4. W repo z komunikatorem utworzono post-commit hooka, odpowiadającego za wyświetlanie podanej w zadaniu treści.
 
-3. Przeprowadzono test.
+#!/bin/sh
+echo "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"
 
-4. Wrzucono Jenkinsfila do repo.
