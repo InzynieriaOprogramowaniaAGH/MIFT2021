@@ -1,0 +1,11 @@
+1. Dodałem do stworzonego Jenkinsfile sekcje build.
+
+2. Za pomocą 
+- git pull origin master - pobieramy najnowszą wersję repo
+- npm build - budujemy komunikator
+
+i później mailowo powiadamiamy o sukcesie ub porażce budowania. 
+
+3. Po niepoprawnym budowaniu upewniłem się że test stage nie jest uruchamiany.
+
+4. Napisałem post-comit, który wyświetla wiadomość i umieszcza go w repo z komunikatorem.

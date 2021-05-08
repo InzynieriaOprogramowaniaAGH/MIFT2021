@@ -1,0 +1,50 @@
+pipeline {
+    agent any 
+    stages {
+    stage('Build') {
+	    steps {	
+		echo 'Start Building..'
+		sh 'git pull origin master'
+	  	sh 'npm install'
+	  	echo 'Finish Building..'
+    	}
+	    post {
+     		failure{
+    			emailext attachLog: true,
+    			body: "The pipeline continue on Build stage",
+			to:'szymeex2s@gmail.com',
+			subject: "Build failed!"
+    		}
+		success{
+    			emailext attachLog: true,
+    			body: "The pipeline failed on Build stage",
+			to:'szymeex2s@gmail.com',
+			subject: "Build success!"
+    		}
+	    }
+    }
+        stage('Test') { 
+            steps {
+                echo 'Testing'
+                sh 'npm run test'
+            }
+        }
+    }
+
+    post {
+        failure {
+            emailext attachLog: true,
+                body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+                recipientProviders: [developers(), requestor()],
+                to: 'szymeex2s@gmail.com',
+                subject: "Build failed ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+        }
+        success {
+            emailext attachLog: true,
+                body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+                recipientProviders: [developers(), requestor()],
+                to: 'szymeex2s@gmail.com',
+                subject: "Successful build${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+        }
+    }
+}
