@@ -13,3 +13,6 @@ Upewniono się, że stage Build:
 Upewniono się, że po poprawnym zbudowaniu uruchamiany jest test natomiast po błędnym nie
   -spowodowano poprzez zmianę pliku błędne oraz prawidłowe zbudowanie i sprawdzono logi oraz maila
  
+4.
+Napisano git "post-commit" hook'a wyświetlającego wiadmomość z instrukcji oraz umieszczono go w odpowiedznich katalogach.
+
