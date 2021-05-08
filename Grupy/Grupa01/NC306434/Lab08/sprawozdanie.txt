@@ -8,3 +8,5 @@ Sprawozdanie Lab08
 - użytkownik jest powiadamiany zarówno o sukcesie jak i porażce etapu budowania.
 
 3. Upewniono się, że po zbudowaniu z sukcesem jest uruchamiany stage("Test"), ale po nieudanym budowaniu to się nie dzieje ( Przychodzi tylko jeden mail o nieudanym budowaniu)
+
+4. Napisano git "post-commit" hook'a dla repozytorium z komunikatorem, który wyświetla wiadomość "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie".
