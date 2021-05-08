@@ -6,7 +6,6 @@ pipeline {
         stage('Build'){
 
             steps{
-
                 echo 'Building app'
              
                 git branch: 'Grupa02-KJ306450_Lab07', url: 'https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021'
@@ -17,7 +16,6 @@ pipeline {
                         chmod +x ~/docker-compose
                         ~/docker-compose up -d chat-build
                     ''' 
-
                 }
             }
         }
@@ -26,6 +24,7 @@ pipeline {
             
             steps{
                 echo 'Start testing'
+                
                 dir('Grupy/Grupa02/KJ306450/Lab07/Docker'){
                     sh '~/docker-compose up -d chat-test'
                 }
