@@ -1,0 +1,16 @@
+1. Stworzono brancha osobistego: Grupa04-DN297896_Lab04 i przełączono się na niego.
+1.1 Opublikowano obraz z porzednich zajęć w serwisie Docker HUB:
+    "docker login"
+    "docker tag gitlab3-image dariusznowakdockerid/image-dev-ops-lab"
+    "docker push dariusznowakdockerid/image-devops-lab"
+
+2. Znaleziono opensource'owy komunikator: DeltaChat.
+
+3. Stowrzono plik Dockerfile i zbudowano obraz odpowiadający za budowanie pobranego komunikatora.
+   "sudo docker build -t test:latest . -f Dockerfile"
+
+4. Stworzono plik Dockerfile-test i skonfigurowano go tak, aby korzystając z obrazu z pkt. 3, wykonywał testowanie zbudowanego wcześniej programu.
+   "sudo docker build -t test:latest . -f Dockerfile-test"
+
+5. Stworzono plik docker-compose.yml. Buduje on obrazy z pkt. 3 i 4. Obraz test jest zależny od obrazu build.
+   Na końcu uruchomiono docker-compose: "sudo docker-compose up"

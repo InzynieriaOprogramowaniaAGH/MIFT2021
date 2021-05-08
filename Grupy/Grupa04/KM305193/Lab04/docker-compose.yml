@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+ build-agent:
+  container_name: bagent
+  image: build:latest
+  build:
+   context: .
+   dockerfile: Dockerfile
+ test-agent:
+  container_name: tagent
+  image: test:latest
+  build:
+   context: .
+   dockerfile: Dockerfile-test
+  depends_on:
+  - build-agent

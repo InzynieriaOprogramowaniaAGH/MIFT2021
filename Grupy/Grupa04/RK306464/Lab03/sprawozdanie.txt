@@ -1,0 +1,14 @@
+1. Utworzyłem nowy branch Grupa04-RK306464_Lab3 poleceniem git checkout -b
+2. Dodałem git hooka do pliku z git/hooks/commit_message
+3. Zainstalowałem dockera poleceniem sudo apt install docker.io. Wcześniej upewniłem się że nie ma żadnych starszych wersji poleceniem sudo apt-get remove docker docker-engine docker.io
+4. Utworzyłem konto na docker hub.
+5. Stworzyłem plik dockerfile w bieżącym katalogu
+		FROM ubuntu:latest
+		RUN echo "Works"
+		RUN apt-get -y update
+		RUN apt-get upgrade -y
+		RUN apt-get install -y build-essential
+		RUN apt-get install -y git
+6.1 zbudowałem obraz poleceniem sudo docker build -t ubuntu .
+6.2 Uruchomiłem obraz poleceniem sudo docker run -it ubuntu
+6.3 Sklonowałem repozytorium, wykorzystałem do tego linkt po bazujący na https. 

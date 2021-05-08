@@ -1,0 +1,56 @@
+Stworzyłem kontener dockerowy z Jenkins:
+1. $ sudo docker network create jenkins
+2. $ sudo docker run \
+  	--name jenkins-docker \
+  	--rm \
+  	--detach \
+  	--privileged \
+  	--network jenkins \
+  	--network-alias docker \
+  	--env DOCKER_TLS_CERTDIR=/certs \
+  	--volume jenkins-docker-certs:/certs/client \
+  	--volume jenkins-data:/var/jenkins_home \
+  	--publish 2376:2376 \
+  	docker:dind \
+ 	--storage-driver overlay2
+3. Stworzyłem plik Dockerfile:
+	FROM jenkins/jenkins:2.277.1-lts-jdk11
+	USER root
+	RUN apt-get update && apt-get install -y apt-transport-https \
+	       ca-certificates curl gnupg2 \
+	       software-properties-common
+	RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+	RUN apt-key fingerprint 0EBFCD88
+	RUN add-apt-repository \
+	       "deb [arch=amd64] https://download.docker.com/linux/debian \
+	       $(lsb_release -cs) stable"
+	RUN apt-get update && apt-get install -y docker-ce-cli
+	RUN jenkins-plugin-cli --plugins "blueocean:1.24.5 docker-workflow:1.26"
+4. Zbudowałem obraz dockera:
+$ sudo docker build -t myjenkins-blueocean:1.1 .
+$ sudo docker run \
+	--name jenkins-blueocean \
+	  --rm \
+	  --detach \
+	  --network jenkins \
+	  --env DOCKER_HOST=tcp://docker:2376 \
+	  --env DOCKER_CERT_PATH=/certs/client \
+	  --env DOCKER_TLS_VERIFY=1 \
+	  --publish 8080:8080 \
+	  --publish 50000:50000 \
+	  --volume jenkins-data:/var/jenkins_home \
+	  --volume jenkins-docker-certs:/certs/client:ro \
+	  myjenkins-blueocean:1.1
+	  
+5. Przeszedlem kreator instalacji
+
+6. Utworzyłem nowe repozytorium mikmik123/lab5 na dockerhub i wrzuciłem obraz Jenkinsa na DockerHub'a:
+$ sudo docker tag local-image:tagname new-repo:tagname
+$ sudo docker push new-repo:tagname
+
+7.Uruchomiłem docker-compose z poziomu Jenkinsa
+- uruchomiono jenkinsa w kontenerze 
+- docker-compose.yml jest w repo po lab 4
+- scaigniete wymagane plkiki z poziomu jenkinsa
+- uruchomiono docker-compose.yml 
+	

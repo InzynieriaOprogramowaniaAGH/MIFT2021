@@ -1,0 +1,8 @@
+1. Dodałem tag do obrazu za pomocą polecenia docker tag, a następnie wypchnąłem kontener na docker huba, dostępny jest on pod adresem hub.docker.com/repository/docker/radek467/devops
+2. Wybrałem jako aplikację do testowania node-chat.app z adresu https://github.com/binhxn/node-chat-app
+3. Napisałem Dockerfile, a następnie utworzyłem obraz poleceniem sudo docker build -t chat-app .
+Uruchomiłem kontener poleceniem sudo docker run -p 3000:3000 -it rkraj/chat-app z portem ustawionym na 3000.
+4. Napisałem Dockerfile dla kontenera testowego i zbudowałem go poleceniem docker build -t chat-app-test . -f Dockerfile-test
+5. Stworzyłem plik dockercompose.yml po poprawnej jego konfiguracji, użyłem polecenia docker-compose up do uruchomienia kontenerów. 
+
+W obu przypadkach testy kończyły się sukcesem.
