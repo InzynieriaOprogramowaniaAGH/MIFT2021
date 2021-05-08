@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+ build-agent:
+  container_name: agent
+  image: agent:latest
+  build:
+   context: .
+   dockerfile: ./Dockerfile_deltachat_test
+ test-agent:
+  container_name: test
+  image: test:latest
+  build:
+   context: .
+   dockerfile: ./Dockerfile_deltachat_build
+  depends_on:
+  - build-agent
