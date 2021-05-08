@@ -1,0 +1,29 @@
+1. Rozszerzono Jenkinsfile z Lab07 o nowy stage("Build") w postaci:
+
+stage('Build') {
+	  steps {
+	   echo 'Building.'
+	        sh 'git pull origin master'
+		sh 'docker rm node_app_server'
+		sh 'docker rm node_app_client'
+                sh 'docker-compose up --build'
+	   }
+	   post {
+		failure {
+		   	sendEmailAfter('Build failed')
+        	}
+       	 	success {
+           		sendEmailAfter('Build successful')
+       	 }
+   	    }
+	}
+
+2. W stage("Build") dodano:
+- pobieranie najnowszej wersji kodu z repozytorium.
+- program jest budowany
+- użytkownik jest powiadamiany zarówno o sukcesie jak i porażce etapu budowania na adres email. 
+	Wysyłanie e-mail zaimplementowano w postaci wywołania funckji, z racji, że Jenkinsfile obsługuje składnię Groovy.
+
+3. Po zbudowaniu z sukcesem jest uruchamiany stage("Test"), ale po nieudanym budowaniu to się nie dzieje.
+
+4. Napisano git "post-commit" hook'a dla repozytorium z komunikatorem, który wyświetla wiadomość "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie".
