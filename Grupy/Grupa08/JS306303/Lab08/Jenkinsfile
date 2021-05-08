@@ -8,6 +8,7 @@
 
             steps{
                 echo "Building..."
+				sh 'rm -rf deltachat-desktop'
 				sh 'git clone https://github.com/deltachat/deltachat-desktop.git'
 				sh 'cd deltachat-desktop'
 				withNPM(npmrcConfig: '6c78e79e-2b95-48d5-8ce5-40bcc985cc20') {
@@ -15,6 +16,7 @@
 				}
 				sh 'npm run build'
                 }
+				
             }
 
 
@@ -30,6 +32,7 @@
 
     post {
 
+	
         success {
             emailext attachLog: true, 
                 body: "Test status: ${currentBuild.currentResult}", 
@@ -42,6 +45,15 @@
                 body: "Test status: ${currentBuild.currentResult}",
                 subject: 'Test failed', 
                 to: 'siekacz@student.agh.edu.pl'
+        }
+		
+		always {
+            cleanWs(cleanWhenNotBuilt: false,
+                    deleteDirs: true,
+                    disableDeferredWipeout: true,
+                    notFailBuild: true,
+                    patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
+                               [pattern: '.propsfile', type: 'EXCLUDE']])
         }
     }
 }
