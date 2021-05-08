@@ -1,2 +1,10 @@
 1.
 Rozszerzono Jenkinsfile z lab07 o stage "Build" oraz umieszczono go w strukurzekatalogóœ i Lab08.
+
+2.
+Upewniono się, że stage Build:
+ pobierana jest najnowsza wersja kodów źródłowych z repozytorium
+ program jest budowany
+  -sprawdzono logi
+ program jest powiadamiany zarówno o sukcesie jak i porażce etapu budowania 
+  -sprawdzono czy otrzymywane są maile na skrzynkę
