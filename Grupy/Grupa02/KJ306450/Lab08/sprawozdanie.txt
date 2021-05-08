@@ -1,0 +1,31 @@
+1. Ćwiczenie rozpoczęto od dodania do repozytorium z komunikatorem (na poprzednich zajęciach wykonano fork'a na oryginalnym repo komunikatora) 
+pliku docker-compose wraz z odpowiednimi Dockerfilami, tak aby w Jenkinsfile 
+korzystać z jednego repozytorium, a nie dwóch (wcześniej docker-compose 
+uruchamiano z repo przedmiotu). Następnie przystąpiono do modyfikacji Jenkinsfile,
+którego rozszerzono o stage("Build") (poddano ten stage modyfikacji, ponieważ na
+poprzednich zajęciach etap budowania komunikatora został utworzony). 
+
+2. Etap budowania rozpoczyna się od pobrania najnowszej wersji kodu
+z repozytorium (git credentialsId: 'git_credentials', url: 'https://github.com/kjop118/deltachat-
+desktop'). Następnie w folderze Docker (dir('Docker')) instalowany jest docker-compose
+i budowany jest obraz komunikatora za pomocą docker-compose up -d chat-build.
+W zależności od wyniku budowania, do użytkownika wysyłany jest mail z informacją
+o otrzymanym rezultacie.
+
+3. Sprawdzono, czy jeśli wystąpi błąd podczas budowania, to etap testowy
+zostanie przerwany, a użytkownik otrzyma informację o niepowodzeniu wykonania
+stage("Build") oraz całego pipline'a. W tym celu wprowadzono do stage("Build")
+błąd, a następnie uruchomiono pipeline (użytkownik otrzymał dwa maile -
+niepowodzenie build oraz niepowodzenie pipeline). To samo wykonano dla
+stage("Test") - wprowadzono błąd i uruchomiono pipeline (użytkownik dostał mail
+o udanym etapie budowania, o nieudanym etapie testowania oraz nieudanym wykonaniu całego pipeline).
+
+4. W rekozytorium komunikatora w folderze .git/hooks utworzono plik post-commit, a w nim:
+	#!/bin/sh
+
+	echo "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"
+
+Następnie za pomocą polecenia chmod 777 post-commit dodano dla utworzonego pliku
+uprawnienia do odczytu, zapisu i wykonania dla wszystkich grup.
+W celu sprawdzenia poprawności działania git hook'a wykonano commit'a -
+w konsoli otrzymano oczekiwaną wiadomość.
