@@ -4,3 +4,5 @@
 - jest pobierana najnowsza wersja kodów źródłowych z repozytorium
 - program jest budowany
 - użytkownik jest powiadamiany zarówno o sukcesie jak i porażce etapu budowania.
+
+3. Po zbudowaniu z sukcesem jest uruchamiany stage Test a po nieudanym budowaniu to się nie dzieje.
