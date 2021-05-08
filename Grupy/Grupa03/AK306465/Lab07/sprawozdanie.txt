@@ -1,0 +1,6 @@
+1. Umieściłam Dockerfile,hooks oraz Jenkinsfile w odpowiednich katalogach np. "AK306465/Docker/Dockerfiletest".
+
+2. Zforkowałam repozytorium z komunikatorem po czym sklonowałam je. 
+Przystąpiłam do tworzenia Jenkinsfile potrzebnego do przetestowania aplikacji. Plik umieściłam w repozytorium.
+
+3. Utworzyłam pipeline. Po odpowiedniej konfiguracji jenkinsa (email) uruchomiłam testowanie przez Jenkinsfile'a.
