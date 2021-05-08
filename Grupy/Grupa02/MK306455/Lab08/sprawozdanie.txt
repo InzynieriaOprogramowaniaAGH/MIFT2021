@@ -19,4 +19,4 @@ Przeprowadzono testy:
 
 Wszystkie maile w zrzucie zad3d
 
-
+4. Napisano prosty git-hook post-commit wykonaujacy komende echo z podanym w tresci zadania zdaniem.
