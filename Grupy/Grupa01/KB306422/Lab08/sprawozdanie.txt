@@ -8,3 +8,8 @@ Upewniono się, że stage Build:
   -sprawdzono logi
  program jest powiadamiany zarówno o sukcesie jak i porażce etapu budowania 
   -sprawdzono czy otrzymywane są maile na skrzynkę
+
+3.
+Upewniono się, że po poprawnym zbudowaniu uruchamiany jest test natomiast po błędnym nie
+  -spowodowano poprzez zmianę pliku błędne oraz prawidłowe zbudowanie i sprawdzono logi oraz maila
+ 
