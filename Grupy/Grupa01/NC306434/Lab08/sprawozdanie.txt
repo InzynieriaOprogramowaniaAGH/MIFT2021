@@ -1,0 +1,4 @@
+Sprawozdanie Lab08
+
+1. Rozszerzono Jenkinsfile z Lab07 o nowy stage("Build").
+
