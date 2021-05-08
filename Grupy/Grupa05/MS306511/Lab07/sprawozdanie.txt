@@ -56,4 +56,6 @@ po zainstalowaniu na lokalnej maszynie od razu widac postep- apka sie zbudowala,
 
 -wszystko mi sie ladnie zbudowalo i testy przeszly- screen
 
+
 -dodano mailera- screen mailer
+
