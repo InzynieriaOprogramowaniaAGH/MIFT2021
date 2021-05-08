@@ -1,0 +1,6 @@
+1. Rozszerzyłem Jenkinsfile z Lab07 o nowy stage Build.
+
+2. W stage Build:
+- jest pobierana najnowsza wersja kodów źródłowych z repozytorium
+- program jest budowany
+- użytkownik jest powiadamiany zarówno o sukcesie jak i porażce etapu budowania.
