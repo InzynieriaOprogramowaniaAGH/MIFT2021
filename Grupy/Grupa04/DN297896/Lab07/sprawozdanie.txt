@@ -1,0 +1,18 @@
+Pomimo długotrwałych prób niestety nie udało mi się pomyślnie przejść testów aplikacji - ciągle pojawia
+się błąd zamieszczony na zrzucie ekranu. Będę próbował jak najszybciej rozwiązać ten błąd.
+
+UPDATE 05.05
+Ostatecznie przeniosłem się "czysty" system Linux i problem, który występował w konfiguracji WSL2 + Docker Desktop zniknął.
+
+////////
+1. Dokonano segregacji plików.
+
+2. Wykonano forka deltachat-desktop.
+
+2.1 Utworzono nowy pipeline w Jenkinsie.
+
+2.2 Skonfigurowanie powiadomień emailowych - server smtp gmail.
+
+3. Pomyślne uruchomienie utworzonego pipeline.
+
+3.1 Po zakończeniu testów wysyłany jest email z powiadomieniem.

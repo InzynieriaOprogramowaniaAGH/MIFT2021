@@ -1,0 +1,12 @@
+1. Skopiowanie plików do źródłowych z poprzednich zajęć.
+
+2. Stworzenie oraz skonfigurowanie "Jenkinsfile".
+   Stworzenie nowego repozytorium poprzez forka repozytorium z którego pobrany został komunikator "https://github.com/radoslawniestroj/Socket.io-Messenger.git".
+   Dodanie do nowego repozytorium "Jenkinsfile".
+   Ściągnięcie oraz konfiguracja wtyczek, za ich pomocą możliwe będzie automatyczne wysyłanie emaili oraz użycie "NodeJS" w "Jenkinsfile".
+
+3. Przetestowanie działania poprzez uruchomienie.
+   Zamierzone wprowadzenie błędu w "Jenkinsfile" żeby wywołać test zakończony błędem.
+   Sprawdzenie emaili.
+
+4. Dodanie "Jenkinsfile" do repozytorium.

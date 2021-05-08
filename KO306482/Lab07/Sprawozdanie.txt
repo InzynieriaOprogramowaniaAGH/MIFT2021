@@ -1,0 +1,15 @@
+sprawozdanie, Lab07, Gr04, Kamil Osika
+
+1. Wszystkie pliki wykorzystane w uruchomieniu oprogramowania zostały umieszczone w repozytorium InzynieriaOprogramowania/MIFT2021
+2. Stworzono Jenkinsfile na podstawie takiego samego pliku wykorzystywanego w Lab05.
+   W trakcie budowania pipeline'a, pobierane są odpowiednie pliki z repozytorium. Ze względu na czas pobierania repozytorium laboratoryjnego wykorzystano inne repozytorium (używane w Lab05).
+   Proces podzielony jest na dwa etapy:
+   - Build:
+	- W trakcie tego etapu pobierane są pliki z repozytorium. Następnie uruchamiany jest kontener budujący na podstawie pliku Dockerfile oraz docker-compose.yml. 
+   - Test:
+	- W tym etapie uruchamiany jest kontener przeprowadzający testy. Bazuje on na obrazie stworzonym z etapu Build.
+   	- W przypadku gdy testy się powiodły, na ekran wypisywane jest powiadomienie o przejściu wszystkich testów.
+	- W przypadku nie powodzenia, na ekran wypisywane jest powiadomienie o nie przejściu testowania.
+3. Przeprowadzono testy uruchomienia pipeline'u. Niestety polecenie, które pozwala na prawidłowe wykorzystanie elementu post nie było wykrywane przez jenkinsa. Jego brak natomiast powodował
+   zawsze zwracanie informacji o niepoprawnym przejściu testów. Problemu niestety nie udało się naprawić, mimo posiłkowania się instrukcją zamieszczoną na oficjalnej stronie (https://www.jenkins.io/doc/book/pipeline/jenkinsfile/).
+4. Zrzuty ekranu kodu oraz sam plik został umieszczony w folderze tych laboratoriów
