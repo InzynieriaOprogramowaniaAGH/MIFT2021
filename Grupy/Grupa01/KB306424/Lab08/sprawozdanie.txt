@@ -1,0 +1,23 @@
+1.
+Rozszerzono Jenkinsfile o nowy stage z budowaniem aplikacji. 
+
+2.
+W stage Build wykorzystano dwa polecenia: 
+- 'npm install', aby zainstalowac zaleznosci
+- 'npm run build', aby uruchomic budowanie aplikacji
+
+3.
+Dodano sekcje post, w ktorej byly sekcje success i failure.
+Po udanym budowaniu wysylane bylo powiadomienie za pomoca e-mail o poprawnym zbudowaniu aplikacji i uruchamial sie stage Test.
+W razie, gdy aplikacja nie zostala zbudowana poprawnie, rowniez wysylany byl e-mail z powiadomieniem, ale Jenkinsfile zostal zakonczony poleceniem sh 'false' i nie uruchamial sie stage z testami.
+Ten sam mechanizm zastosowano w stage Test.
+Na koncu wysylany byl e-mail o sukcesie i porazce wraz z build logiem.
+
+Aby przetestowac czy budowanie sie przerwie, dodano chwilowo sh 'false' w krokach stage'u Build, ktore potem usunieto.
+
+4.
+Napisano prostego post-commit hooke'a, ktory wyswietlal wiadomosc po commicie na sforkowane repozytorium Deltachat.
+
+#!/bin/sh
+echo "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"
+
