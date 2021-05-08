@@ -1,0 +1,5 @@
+Zadanie 1:
+-umieszczono zrodlo prawdy w odpowiedniej strukturze katalogow. widoczne na screenie zadanie_1.png
+
+Zdanie 2:
+-zmodyfikowano Jenkinsfile w ten sposob, abym otrzymywal notyfikacje gdy testy sfailuja zadanie_2_1.png
