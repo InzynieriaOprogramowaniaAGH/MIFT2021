@@ -1,0 +1,9 @@
+1. Dodanie stage "Build" do Jenkinsfile.
+
+2. Sprawdzenie czy pobierana jest aktualna wersja repozytoriumm
+   Sprawdzenie budowania programu.
+   Wysałenie powiadomienia o sukcesie lub błędzie.
+
+3. Wywołanie błędu w "stage Build" aby upewnić się że nie dojdzie do wywołania "stage Test".
+
+4. Napisanie "post-commit" hooka.
