@@ -17,6 +17,7 @@ https://github.com/MStabryla/wire-desktop/blob/dev/jenkinsfile
 
 4. Wykonałem githooka i domontowałem go to repozytorium z komunikatorem.
 Aktualna wersja githooka:
+https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021/blob/Grupa05-MS306499-Lab08/Grupy/Grupa05/MS306499/Lab08/post-commit.sh
 
-
+Wynik githooka w pliku zadanie4.png
 
