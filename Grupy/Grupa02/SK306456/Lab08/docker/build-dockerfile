@@ -18,4 +18,4 @@ RUN git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021 --single-b
 
 # will automatically stop after 60 seconds 
 
-CMD npm start --prefix MIFT2021/Grupy/Grupa02/SK306456/Lab08/src & sleep 60
+CMD npm start --prefix MIFT2021/Grupy/Grupa02/SK306456/Lab08 & sleep 60
