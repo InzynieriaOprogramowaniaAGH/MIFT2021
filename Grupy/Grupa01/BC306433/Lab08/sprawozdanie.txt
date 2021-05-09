@@ -1,0 +1,9 @@
+Metodyki DevOps, Lab08, 06.05.2021
+
+Zad.1 	Zmodyfikowałem Jenkinsfile z poprzednich zajęć poprzez dodanie nowego stage'a odpowiedzialnego za budowanie.
+	
+Zad.2 	Wykonałem serie testów w celu sprawdzenia czy uzytkownik był odpowiednio powiadamiany o powodzeniu budowania aplikacji.
+
+Zad.3	Upewniłam się, że po zbudowaniu z sukcesem uruchamiany jest stage testów a po nieudanym budowaniu nie jest on uruchamiany.
+
+zad.4 Na końcu dodałem odpowiednie git hooka post-commit, który po wykonaniu commitu wyśietla odpowiedni napis w konsoli.
