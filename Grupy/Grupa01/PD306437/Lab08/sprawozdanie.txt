@@ -7,6 +7,9 @@ Aby użytkownik był powiadamiany o sukcesie i porażce dodano osobne sekcje pos
 Dzięki temu w razie niepowodzenia stage'u "Build" stage "Test" nie będzie uruchamiany.
 
 Zadanie 3
-Aby upewnić się czy stage Test jest pomijany gdy Build sie nie powiedzie wrzuciłem na repoztorium wersję Jenkinsfile z błędem w stage'u Build.
+Aby upewnić się czy stage Test jest pomijany gdy Build sie nie powiedzie wrzucono na repoztorium wersję Jenkinsfile z błędem w stage'u Build.
 Stage Test został pominięty w tym wypadku.
-Następnie Poprawiłem błąd w stage'u Build. Po tym Build i Test wykonują się po sobie.
+Następnie poprawiono błąd w stage'u Build. Po tym Build i Test wykonują się po sobie.
+
+Zadanie 4
+Napisano git hook, który wyświetla "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie".
