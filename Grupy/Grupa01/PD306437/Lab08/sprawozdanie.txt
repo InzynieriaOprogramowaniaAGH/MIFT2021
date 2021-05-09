@@ -5,3 +5,8 @@ Zadanie 2
 Aby upewnić się, że pobierana jest najnowsza wersja dodatkowo wykonywane jest polecenie git pull
 Aby użytkownik był powiadamiany o sukcesie i porażce dodano osobne sekcje post w stage'u "Build" i "Test".
 Dzięki temu w razie niepowodzenia stage'u "Build" stage "Test" nie będzie uruchamiany.
+
+Zadanie 3
+Aby upewnić się czy stage Test jest pomijany gdy Build sie nie powiedzie wrzuciłem na repoztorium wersję Jenkinsfile z błędem w stage'u Build.
+Stage Test został pominięty w tym wypadku.
+Następnie Poprawiłem błąd w stage'u Build. Po tym Build i Test wykonują się po sobie.
