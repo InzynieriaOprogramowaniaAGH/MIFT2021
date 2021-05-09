@@ -1,6 +1,6 @@
 ARG SRC_PATH=MIFT2021/Grupy/Grupa02/SK306456/Lab08/src
 ARG REPO_URL=https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021
-ARG FLAGS= --single-branch --branch Grupa02-SK306456_Lab07
+ARG FLAGS= --single-branch --branch Grupa02-SK306456_Lab08
 
 FROM ubuntu:focal
 EXPOSE 3000
@@ -13,8 +13,8 @@ git
 RUN curl -fsSL https://deb.nodesource.com/setup_15.x | bash - \
 && apt-get install -y nodejs 
 
-RUN git clone $REPO_URL $FLAGS \
-&& npm install --prefix $SRC_PATH
+RUN git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021 --single-branch --branch Grupa02-SK306456_Lab08 \
+&& npm install --prefix MIFT2021/Grupy/Grupa02/SK306456/Lab08/src
 
 # will automatically stop after 60 seconds 
-CMD npm start --prefix $SRC_PATH & sleep 60
+CMD npm start --prefix MIFT2021/Grupy/Grupa02/SK306456/Lab08/src & sleep 60
