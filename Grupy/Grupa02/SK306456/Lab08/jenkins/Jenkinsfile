@@ -1,5 +1,3 @@
-def build_status = 0
-
 pipeline {
     agent any
     environment {
@@ -19,16 +17,14 @@ pipeline {
             steps{
                 sh 'docker build -f ${env.DOCKER_DIR}/${env.DOCKERFILE_BUILD} -t ${env.DOCKER_BUILD} --build-arg REPO_URL=${env.REPO_URL} --build-arg SRC_PATH=${env.SRC_PATH} --build-arg BRANCH=${env.BRANCH} .'
                 sh 'docker run --name ${env.DOCKER_BUILD} ${env.DOCKER_BUILD}'
-                build_status = sh 'docker inspect ${env.DOCKER_BUILD} --format=\'{{.State.ExitCode}\''
+                var build_status = sh 'docker inspect ${env.DOCKER_BUILD} --format=\'{{.State.ExitCode}\''
+                sh 'exit ${build_status}'
             }
         }
         stage('Test'){
             steps {
-                echo "${build_status}"
-                if(build_status == 0) {
-                    sh 'docker build -f ${env.DOCKER_DIR}/${env.DOCKERFILE_TEST} -t ${env.DOCKER_TEST} --build-arg BUILD_IMAGE=${env.DOCKER_BUILD} --build-arg SRC_PATH=${env.SRC_PATH} .'
-                    sh 'docker run --name ${env.DOCKER_TEST} ${env.DOCKER_TEST}'
-                }
+                sh 'docker build -f ${env.DOCKER_DIR}/${env.DOCKERFILE_TEST} -t ${env.DOCKER_TEST} --build-arg BUILD_IMAGE=${env.DOCKER_BUILD} --build-arg SRC_PATH=${env.SRC_PATH} .'
+                sh 'docker run --name ${env.DOCKER_TEST} ${env.DOCKER_TEST}'
             }
         }
     }
