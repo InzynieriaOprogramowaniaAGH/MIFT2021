@@ -1,6 +1,6 @@
 ARG SRC_PATH
 ARG REPO_URL
-ARG FLAGS
+ARG DET
 
 FROM ubuntu:focal
 EXPOSE 3000
@@ -18,4 +18,4 @@ RUN git clone $REPO_URL $FLAGS \
 
 # will automatically stop after 60 seconds 
 
-CMD npm start --prefix $SRC_PATH & sleep 60
+CMD npm start --prefix $SRC_P & sleep 60
