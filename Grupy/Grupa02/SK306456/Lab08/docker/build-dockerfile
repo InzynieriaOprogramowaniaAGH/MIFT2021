@@ -1,6 +1,6 @@
 ARG SRC_PATH
 ARG REPO_URL
-ARG BRANCH
+ARG BRANCH 
 
 FROM ubuntu:focal
 EXPOSE 3000
@@ -13,7 +13,7 @@ git
 RUN curl -fsSL https://deb.nodesource.com/setup_15.x | bash - \
 && apt-get install -y nodejs 
 
-RUN git clone $REPO_URL --single-branch --branch $BRANCH \
+RUN git clone $REPO_URL --single-branch --branch Grupa02-SK306456_Lab08 \
 && npm install --prefix $SRC_PATH
 
 # will automatically stop after 60 seconds 
