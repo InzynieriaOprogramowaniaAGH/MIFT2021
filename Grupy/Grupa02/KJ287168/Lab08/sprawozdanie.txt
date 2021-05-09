@@ -1,0 +1,119 @@
+1. Rozszerz Jenkinsfile z Lab07 o nowy stage("Build").
+	git checkout Grupa02
+	git branch -a
+	git checkout -b Grupa02-KJ287168_Lab08
+	cd Grupy/Grupa02/KJ287168/
+	mkdir Lab08
+	cd Lab08
+	(uruchomienie kontenerów Jenkinsa)
+	docker ps -a
+	docker logs 40cdc4b585fb
+	docker exec -it jenkins-blueocean /bin/bash
+	...
+		exit
+	docker exec -u root -it jenkins-blueocean /bin/bash
+		apt install npm
+		exit
+	docker exec -u root -it jenkins-blueocean /bin/bash
+		npm uninstall -g npm
+		npm i -g npm@next
+		exit
+	(na zdjęciach widoczny kod przygotowany pod osobny stage 'Build' i logi z pomyślego testowania)
+
+2. W stage("Build") upewnij się.
+
+	def VAR = "true"
+
+	pipeline {
+	    agent any
+    
+	    stages {
+        
+	        stage('Build') {
+	            steps {
+	                script{
+	                    try{
+	                        echo 'Building...'
+	                        sh '''
+	                        curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /var/jenkins_home/docker-compose
+	                        chmod +x /var/jenkins_home/docker-compose
+	                        /var/jenkins_home/docker-compose up
+	                        cd /var/jenkins_home/
+	                        '''
+	                        sh 'npm install'
+	                        sh 'npm run build'
+	                    }catch (Exception exc){
+	                        VAR = "false"
+	                    }
+	                }
+	            }
+	        }
+	        stage('Test') {
+	             steps {
+	                 script{
+	                     if(VAR == "true"){
+	                        echo 'Testing...'
+	                        sh 'cd /var/jenkins_home/'
+	                        sh 'npm run test'
+	                     }
+	                 }
+	             }
+	        }
+	        stage('Deploy') {
+	            steps {
+	                script{
+	                    if(VAR == "true"){
+	                        echo 'Deploying....'
+	                    }
+	                }
+	            }
+	        }
+	    }
+	    post{
+	        success {
+	            emailext attachLog: true,
+	                to: 'kjmj77@gmail.com',
+	                subject: "Successful Pipeline: ${currentBuild.fullDisplayName}",
+	                body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}"
+	        }
+	        failure {
+	            emailext attachLog: true,
+	                to: 'kjmj77@gmail.com',
+	                subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+	                body: "Something is wrong with ${env.BUILD_URL}"
+	        }
+	    }
+	}
+	
+	(przy poprawnym kodzie testy się wykonują, co widać na screenie; plus: wiadomość mail jest wysyłana)
+
+3. Upewnij się, że po zbudowaniu z sukcesem jest uruchamiany stage("Test").
+	W Jenkonsfile dodałem w Build step linijkę "pytest -ra" wiedząc, że pakiet nie jest zainstalowany.
+	Ku zaskoczeniu uruchomiony proces Pipeline'u wykonał się pomyślnie, 
+	natomiast zgodnie z planem stage "Test" i "Deploy" nie zrealizowały żadnych operacji- co jest widoczne na screenach.
+	Więc wyglądałoby to na poprawnie zrealizowany plan.
+
+4. Napisz git "post-commit" hook'a.
+	cd ../../../../../..
+	git clone https://github.com/KrzysiekJa/deltachat-desktop.git
+	cd deltachat-desktop/
+	cd .git/hooks
+	vim
+		!/bin/bash
+		
+		echo "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"
+	ls
+	cd -
+	...
+	cd .git/hooks/
+	chmod +x post-commit
+	cd -
+	git add --all
+	git commit -m "Added post-commit hook try no 2"
+	git push
+	(efekt na zdjęciu)
+	
+	(przeszedłem do pierwszego terminala)
+	git status
+	git add 4.png Hooks/ Jenkins/ sprawozdanie.txt
+	git commit -m "KJ287168 Lab08 pkt.4 + Jenkinsfile + sprawozdanie"
