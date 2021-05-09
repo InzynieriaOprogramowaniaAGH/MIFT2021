@@ -13,10 +13,8 @@ git
 RUN curl -fsSL https://deb.nodesource.com/setup_15.x | bash - \
 && apt-get install -y nodejs 
 
-RUN echo $BRANCH
-
-RUN git clone $REPO_URL --single-branch --branch Grupa02-SK306456_Lab08 \
-&& npm install --prefix $SRC_PATH
+RUN /bin/bash -c 'git clone $REPO_URL --single-branch --branch $BRANCH \
+&& npm install --prefix $SRC_PATH'
 
 # will automatically stop after 60 seconds 
 
