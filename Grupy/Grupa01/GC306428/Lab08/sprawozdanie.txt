@@ -1,0 +1,23 @@
+Grzegorz Cebula Lab08
+Zadanie 1
+Rozszerzylem Jenkinsfile o nowy stage "Build".
+
+Zadanie 2
+W stage'u "Build" wykorzystuje stworzony na poprzednich laboratoriach Dockerfile_Build i buduje obraz wykorzystujac go. 
+W charakterystyce dzialania Jenkinsowego pipeline'u zawarte jest pobieranie najnowszej wersji repozytorium.
+Niestety nie udalo mi sie w dalszym ciagu rozwiazac problemu z wysylaniem wiadomosci e-mail do uzytkownika o sukcesie/porazce budowania/testowania.
+Uruchamiajac polecenie telnet smtp.gmail.com 465 (Zadanie2_3.png) udalo sie polaczyc smtp.gmail.com. 
+W zwiazku z tym, wciaz nie mam funkcjonalnosci z wysylaniem powiadomien do uzytkownika.
+
+Zadanie 3
+Po udanym budowaniu, stage "Test" wykonywal sie dalej i dwa maile powinny zostac wyslane.
+Po nie udanym wykonaniu sie stage'a "Build", stage "Test" zostawal pomijany i powienien wyslac sie tylko jeden mail o porazce wraz z logami.
+Do przetestowania czy nastepny stage sie nie wykona, dodalem w stage'u "Build" sh 'exit 1', ktore potem usunalem.
+
+Zadanie 4
+Dodalem post-commit hook'a do repozytrium z aplikacja, ktorego zadaniem jest wyswietlenie wiadomosci po commicie.
+
+#!/bin/bash
+
+echo "To jest commit hook, ktory bedzie kiedys uruchamial pipeline po kazdym nowym commicie"
+
