@@ -13,8 +13,8 @@ git
 RUN curl -fsSL https://deb.nodesource.com/setup_15.x | bash - \
 && apt-get install -y nodejs 
 
-RUN git clone ${REPO_URL} ${FLAGS} \
-&& npm install --prefix ${SRC_PATH}
+RUN git clone $REPO_URL $FLAGS \
+&& npm install --prefix $SRC_PATH
 
 # will automatically stop after 60 seconds 
-CMD npm start --prefix ${SRC_PATH} & sleep 60
+CMD npm start --prefix $SRC_PATH & sleep 60
