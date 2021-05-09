@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-	DOCKER_DIR = 'MIFT2021/Grupy/Grupa02/SK306456/Lab08/docker'
+	DOCKER_DIR = 'Grupy/Grupa02/SK306456/Lab08/docker'
         DOCKER_BUILD = 'chat-build'
         DOCKER_TEST  = 'chat-test'
         DOCKERFILE_BUILD  = 'build-dockerfile' 
