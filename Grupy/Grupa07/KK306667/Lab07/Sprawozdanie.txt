@@ -1,0 +1,7 @@
+1)Posortowałem pliki do odpowiednich folderów
+
+2)Nastepnie utworzyłem osdpowiedni Jenkinsfile
+
+3)Skonfigurowałem email oraz uruchomiłem Jenkinsfile
+
+4) na koniec wrzuciłęm do gita Jenkinsfile
