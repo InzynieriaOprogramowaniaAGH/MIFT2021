@@ -16,7 +16,7 @@ pipeline {
         stage('Build'){
             steps{
                 sh 'docker build -f ${DOCKER_DIR}/${DOCKERFILE_BUILD} -t ${DOCKER_BUILD} --build-arg REPO_URL=${REPO_URL} --build-arg SRC_PATH=${SRC_PATH} --build-arg BRANCH=${BRANCH} .'
-                sh 'docker run --name ${DOCKER_BUILD} ${DOCKER_BUILD}'
+                sh 'docker run --name ${DOCKER_BUILD} ${DOCKER_BUILD} && exit $?'
             }
         }
         stage('Test'){
