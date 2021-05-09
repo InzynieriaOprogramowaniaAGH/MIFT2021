@@ -1,0 +1,7 @@
+Zadanie 1
+Dodano stage "Build" przed stagem "Test", w którym budowany jest projekt
+
+Zadanie 2
+Aby upewnić się, że pobierana jest najnowsza wersja dodatkowo wykonywane jest polecenie git pull
+Aby użytkownik był powiadamiany o sukcesie i porażce dodano osobne sekcje post w stage'u "Build" i "Test".
+Dzięki temu w razie niepowodzenia stage'u "Build" stage "Test" nie będzie uruchamiany.
