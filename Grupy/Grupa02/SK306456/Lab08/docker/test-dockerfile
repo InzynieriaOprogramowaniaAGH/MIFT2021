@@ -1,0 +1,6 @@
+ARG BUILD_IMAGE
+ARG SRC_PATH=MIFT2021/Grupy/Grupa02/SK306456/Lab08/src
+
+FROM $BUILD_IMAGE
+
+CMD npm start --prefix ${SRC_PATH} & sleep 60 && npm test --prefix ${SRC_PATH}
