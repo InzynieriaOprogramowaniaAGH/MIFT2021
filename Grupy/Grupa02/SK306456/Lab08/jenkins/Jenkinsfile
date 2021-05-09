@@ -1,6 +1,7 @@
 pipeline {
     agent any
     environment {
+	DOCKER_DIR = MIFT2021/Grupy/Grupa02/SK306456/Lab08/docker
         DOCKER_BUILD = 'chat-build'
         DOCKER_TEST  = 'chat-test'
         DOCKERFILE_BUILD  = 'build-dockerfile' 
@@ -9,13 +10,13 @@ pipeline {
     stages {
         stage('Build'){
             steps{
-                sh 'docker build -f docker/${DOCKERFILE_BUILD} -t ${DOCKER_BUILD} .'
+                sh 'docker build -f ${DOCKER_DIR}/${DOCKERFILE_BUILD} -t ${DOCKER_BUILD} .'
                 sh 'docker run --rm ${DOCKER_BUILD}'
             }
         }
         stage('Test'){
             steps {
-                sh 'docker build -f docker/${DOCKERFILE_TEST} -t ${DOCKER_TEST} --build-arg BUILD_IMAGE=${DOCKER_BUILD} .'
+                sh 'docker build -f ${DOCKER_DIR}/${DOCKERFILE_TEST} -t ${DOCKER_TEST} --build-arg BUILD_IMAGE=${DOCKER_BUILD} .'
                 sh 'docker run --rm ${DOCKER_TEST}'
             }
         }
