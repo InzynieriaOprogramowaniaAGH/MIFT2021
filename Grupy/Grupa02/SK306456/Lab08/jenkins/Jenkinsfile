@@ -17,8 +17,6 @@ pipeline {
             steps{
                 sh 'docker build -f ${env.DOCKER_DIR}/${env.DOCKERFILE_BUILD} -t ${env.DOCKER_BUILD} --build-arg REPO_URL=${env.REPO_URL} --build-arg SRC_PATH=${env.SRC_PATH} --build-arg BRANCH=${env.BRANCH} .'
                 sh 'docker run --name ${env.DOCKER_BUILD} ${env.DOCKER_BUILD}'
-                var build_status = sh 'docker inspect ${env.DOCKER_BUILD} --format=\'{{.State.ExitCode}\''
-                sh 'exit ${build_status}'
             }
         }
         stage('Test'){
