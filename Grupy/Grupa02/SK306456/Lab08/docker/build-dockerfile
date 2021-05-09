@@ -1,5 +1,3 @@
-ARG SRC_PATH=MIFT2021/Grupy/Grupa02/SK306456/Lab08/src
-
 FROM ubuntu:focal
 EXPOSE 3000
 
@@ -12,7 +10,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_15.x | bash - \
 && apt-get install -y nodejs 
 
 RUN git clone https://github.com/skarpecki/chat \
-&& npm install --prefix ${SRC_PATH}
+&& npm install --prefix MIFT2021/Grupy/Grupa02/SK306456/Lab08/src
 
 # will automatically stop after 60 seconds 
-CMD npm start --prefix ${SRC_PATH} & sleep 60
+CMD npm start --prefix MIFT2021/Grupy/Grupa02/SK306456/Lab08/src & sleep 60
