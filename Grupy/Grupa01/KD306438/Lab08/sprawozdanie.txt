@@ -1,0 +1,1 @@
+1. Zapoznanie sie z dokumentacja Jenkins w celu rozszerzenie Jenkinsfile o stage build.
