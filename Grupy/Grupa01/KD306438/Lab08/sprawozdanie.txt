@@ -18,3 +18,16 @@
     
     	-powiadomienie mailowe o porazce lub sukcesie tak samo jak na poprzednich zajeciach
     	
+3. Stage Test wykonywany tylko wtedy jesli Build zakonczyl sie sukcesem:
+        
+        stage('Test') {  
+            steps {
+                script {
+                   if (currentBuild.result == 'UNSTABLE' || currentBuild.result == 'FAILURE')
+                      error('Build failed, pipeline is not continued')
+                }
+                echo 'Testing...'
+                sh 'npm install'
+                sh 'npm run test'
+            }
+        }
