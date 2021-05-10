@@ -1,0 +1,7 @@
+W ramach cwiczenia wykonalem nastepujace czynnosci:
+
+1. Zedytowalem Jenkinsfile'a tak, aby pobieral najnowsza wersje kodu z repozytorium oraz powiadamial mailem o wynikach procesu budowania oraz testowania. Jesli zarowno budowanie oraz testowanie sie powioda to uzytkownik dostanie 2 maile o sukcesie a jesli budowanie sie nie uda to uzytkownik dostanie maila tylko o statusie budowy bo faza testow jest omijana
+
+2. Przetestowalem nowego jenkinsfile'a poprzez zepsucie procesu budowania (usunalem z repo jeden z folderow z kodem)
+
+3. Stworzylem oraz przetestowalem postcommit hookea

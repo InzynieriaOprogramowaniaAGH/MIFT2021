@@ -1,0 +1,7 @@
+W ramach cwiczenia wykonalem nastepujace czynnosci:
+
+1. Uporzadkowalem strukture projektu
+2. Utworzylem odpowiedniego jenkinsfile'a, ktory buduje, testuje aplikacje oraz wysyla maila z informacjami o statusie procesow
+2. Zforkowalem repozytorium z delta chatem, dodalem do niego mojego jenkinsfile'a
+3. Skonfigurowalem klienta poczty i ustawienia jenkinsa
+

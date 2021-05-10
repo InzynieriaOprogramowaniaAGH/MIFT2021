@@ -1,0 +1,17 @@
+version: "3.3"
+services:
+  messappbuildsection:
+    #container_name: messapp
+    image: messapp:latest
+    build:
+      context: .
+      dockerfile: ./Build/Dockerfile_build_app
+  messapptestsection:
+    #container_name: messapp-tests
+    image: messapp-tests:latest
+    build:
+      context: .
+      dockerfile: ./Dockerfile_test_app
+    depends_on: 
+      - messappbuildsection
+      
