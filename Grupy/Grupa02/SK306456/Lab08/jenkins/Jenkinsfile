@@ -23,6 +23,8 @@ pipeline {
             steps {
                 sh 'docker build -f ${DOCKER_DIR}/${DOCKERFILE_TEST} -t ${DOCKER_TEST} --build-arg BUILD_IMAGE=${DOCKER_BUILD} --build-arg SRC_PATH=${SRC_PATH} .'
                 sh 'docker run --name ${DOCKER_TEST} ${DOCKER_TEST}'
+                sh 'docker rmi ${DOCKER_BUILD}'
+                sh 'docker rmi ${DOCKER_TEST}'
             }
         }
     }
@@ -44,9 +46,5 @@ pipeline {
             */
             echo "Succeded"
             }   
-        always {
-            sh 'docker rmi ${DOCKER_TEST}'
-            sh 'docker rmi ${DOCKER_BUILD}'
-        }
     }
 }
