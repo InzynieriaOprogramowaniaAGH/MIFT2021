@@ -31,3 +31,6 @@
                 sh 'npm run test'
             }
         }
+        
+4. Utworzenie post-commit hooka z zawartoscia:
+echo "To jest commit hook, ktory bedzie kiedys uruchaial Pipeline po kazdym nowym commicie"
