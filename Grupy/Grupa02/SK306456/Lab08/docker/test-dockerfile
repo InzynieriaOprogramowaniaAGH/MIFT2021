@@ -3,4 +3,4 @@ ARG SRC_PATH
 
 FROM $BUILD_IMAGE
 
-CMD npm start --prefix MIFT2021/Grupy/Grupa02/SK306456/Lab08/src & sleep 60 && npm test --prefix MIFT2021/Grupy/Grupa02/SK306456/Lab08/src
+CMD npm start --prefix chat/src & sleep 60 && npm test --prefix chat/src
