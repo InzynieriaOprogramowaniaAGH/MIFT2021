@@ -29,3 +29,11 @@
 	docker logs ffb
 - Uruchomienie Jenkinsa w przeglądarce:
 	http://localhost:8080/
+4. - Dodanie nowego ogólnego projektu
+- Konfiguracja:
+	Repozytorium kodu: Git
+	Adres: https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021
+	Budowanie: 
+		cd Grupy/Grupa01/WS299754/Lab04
+		docker-compose up
+- Uruchomienie projektu
