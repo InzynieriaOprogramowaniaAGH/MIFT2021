@@ -1,12 +1,26 @@
-
 pipeline {
     agent any 
     tools {
      nodejs "node"
     }
     stages {
-        stage('Test') { 
+        stage('Build') { 
             steps {
+                echo 'Building...'
+                sh 'git checkout master'
+                sh 'git pull'
+                sh 'npm install'
+                sh 'npm run start'               
+             
+            }
+        }
+
+        stage('Test') {  
+            steps {
+                script {
+                   if (currentBuild.result == 'UNSTABLE' || currentBuild.result == 'FAILURE')
+                      error('Build failed, pipeline is not continued')
+                }
                 echo 'Testing...'
                 sh 'npm install'
                 sh 'npm run test'
