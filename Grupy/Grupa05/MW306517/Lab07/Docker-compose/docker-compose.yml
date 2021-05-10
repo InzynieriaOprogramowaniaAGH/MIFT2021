@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+ build-agent:
+  container_name: mw-deltachat
+  image: mw-deltachat:latest
+  build:
+   context: .
+   dockerfile: ./../Docker/Dockerfile_deltachat_build
+ test-agent:
+  container_name: mw-test-deltachat
+  image: mw-test-deltachat:latest
+  build:
+   context: .
+   dockerfile: ./../Docker/Dockerfile_deltachat_test
+  depends_on:
+  - build-agent
