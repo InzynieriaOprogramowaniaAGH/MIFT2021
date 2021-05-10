@@ -1,1 +1,20 @@
 1. Zapoznanie sie z dokumentacja Jenkins w celu rozszerzenie Jenkinsfile o stage build.
+2. Utworzenie stage Build w taki sposób, aby pobierana byla najnowsza wersja repo, program byl budowany a uzytkownik powiadamiany o sukcesie lub porazce. 
+
+	-stage Builid:
+	 stage('Build') { 
+            steps {
+                echo 'Building...'
+                sh 'git checkout master'
+                sh 'git pull'
+                sh 'npm install'
+                sh 'npm run start'               
+             
+            }
+        }
+	-pobieranie najnowszej wersji repo odbywa sie dzieki:
+                sh 'git checkout master'
+                sh 'git pull'
+    
+    	-powiadomienie mailowe o porazce lub sukcesie tak samo jak na poprzednich zajeciach
+    	
