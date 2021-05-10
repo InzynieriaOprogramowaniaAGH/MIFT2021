@@ -1,0 +1,46 @@
+1. Skopiowanie wszystkich potrzebnych plikow jak docker-compose.yml, Dockerfile, Dokcerfile_test, Dockerfile_jenkins do nowoutworzonego folderu Docker. Utowrzenie folderu Hooks i skopiowanie do niego git hooka z labow nr 2. Utworzenie folderu Jenkins.
+
+2. Przejrzenie swojego planu CI/CD oraz wybranie kolejnych krokow do realizacji:
+	-utworzenie Jenkinsfile w sforkowanym repo aplikacji.
+	-dodanie do Jenkins pipeline stage Test i obsluga powodzenia i niepowodzenia wykoannych testow, poprzez wyslanie maila z komunikatem o bledzie lub pomyslnym tetsowaniu. 
+	-Konieczne bylo po uruchomieniu Jenkinsa dodanie NodeJS w sekcji Plugin Manager oraz zainstalowanie go w Global Tool Configuration. 
+	-W celu obsługi maili należało dokonać odpowiednich ustawień w sekcji configuration (odpowiedni SMTP server, port, username, password oraz zaznaczyc opcje Use SSL.
+	
+	pipeline {
+	    agent any 
+	    tools {
+	     nodejs "node"
+	    }
+	    stages {
+		stage('Test') { 
+		    steps {
+		        echo 'Testing...'
+		        sh 'npm install'
+		        sh 'npm run test'
+		    }
+		}
+	    }
+	    post {
+		failure {
+		    emailext attachLog: true,
+		        body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+		        recipientProviders: [developers(), requestor()],
+		        to: 'laj72321@gmail.com',
+		        subject: "Fail while building in Jenkins ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+		}
+		success {
+		    emailext attachLog: true,
+		        body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+		        recipientProviders: [developers(), requestor()],
+		        to: 'laj72321@gmail.com',
+		        subject: "Success while building in Jenkins ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+		}
+	    }
+	}
+	
+	
+	-Nastepnie utworzono nowy job - pipeline i w polu SCM zaznaczyc Git oraz przekazac url do sforkowanego repo aplikacji.
+	
+3. Zbuildowanie utworzonego pipeline i obserwacja outputu - testowanie zakonczone sukcesem.
+
+4. Wrzucenie Jenkinsfile na repo do nowoutoworzonego katalogu Jenkins.

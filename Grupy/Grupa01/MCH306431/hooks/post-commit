@@ -1,0 +1,2 @@
+#!/bin/bash
+echo "To jest git hook, ktory kiedys bedzie uruchamial Pipeline po kazdym nowym commicie"
