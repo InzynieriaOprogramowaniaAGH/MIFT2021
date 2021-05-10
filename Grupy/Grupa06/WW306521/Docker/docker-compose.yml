@@ -1,0 +1,22 @@
+version: '3.3'
+services:  
+ build-agent:
+  container_name: build-agent-nodechat
+  image: nodechat:latest
+  stdin_open: true
+  tty: true
+  ports:
+   - 3000:3000
+  build:
+   context: .
+   dockerfile: Dockerfile-build
+ test-agent:
+  container_name: test-agent-nodechat
+  image: test:latest
+  ports:
+   - 3001:3001
+  build:
+   context: .
+   dockerfile: Dockerfile-test
+  depends_on:
+  - build-agent
