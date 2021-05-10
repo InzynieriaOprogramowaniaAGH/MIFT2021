@@ -1,0 +1,9 @@
+1) Uporządkowano pliki źródłowe z poprzednich zajęć dzieląc je na odpowiednie katalogi 
+
+2) Stworzono plik Jenkinsfile i za pomocą fork umieszczono go w repo z komunikatorem - ze względu na problemy, które występowały podczas aplikacji deltachat, zmieniono komunikator na Socket.io-Messenger.
+Dodano do nowego repozytorium plik "Jenkinsfile". 
+Zainstalowano wtyczki, dzięki którym możliwe było użycie "NodeJS" oraz wysyłanie wiadomości mailowych. 
+
+3) Przetestowano działanie - zakończyło się sukcesem. Następnie, celowo wprowadzono błąd w pliku Jenkinsfile, aby sprawdzić czy wysyłanie wiadomości dla niepowodzenia działa poprawnie - również osiągnięto oczekiwany efekt. 
+
+4) Wrzucono Jenkinsfile na repo. 
