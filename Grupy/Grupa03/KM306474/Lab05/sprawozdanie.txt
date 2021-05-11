@@ -1,1 +1,50 @@
-Sprawozdanie
+0. Zapoznano się z diagramem omawianym na zajęciach.
+
+1. Zapoznano się z oprogramowaniem Jenkins: https://www.jenkins.io/.
+
+2. Stwórzono kontener dockerowy z Jenkinsem posługując się instrukcją https://www.jenkins.io/doc/book/installing/docker/
+
+docker network create jenkins - stworzenie sieci
+docker image pull docker:dind - sciagniecie obrazu dockera
+
+docker run \
+  --name jenkins-docker \
+  --rm \
+  --detach \
+  --privileged \
+  --network jenkins \
+  --network-alias docker \
+  --env DOCKER_TLS_CERTDIR=/certs \
+  --volume jenkins-docker-certs:/certs/client \
+  --volume jenkins-data:/var/jenkins_home \
+  --publish 2376:2376 \
+  docker:dind \
+  --storage-driver overlay2 - utworzenie obrazu dockera
+
+docker run \
+  --name jenkins-blueocean \
+  --rm \
+  --detach \
+  --network jenkins \
+  --env DOCKER_HOST=tcp://docker:2376 \
+  --env DOCKER_CERT_PATH=/certs/client \
+  --env DOCKER_TLS_VERIFY=1 \
+  --publish 8080:8080 \
+  --publish 50000:50000 \
+  --volume jenkins-data:/var/jenkins_home \
+  --volume jenkins-docker-certs:/certs/client:ro \
+  myjenkins-blueocean:1.1 - drugi obraz
+
+docker build -t myjenkins-blueocean:1.1 - zbudowanie obrazu
+docker exec -it jenkins-blueocean bash - uruchomienie powlowki w celu przetestowania dzialania
+
+3. Wrzucenie obrazu swojego Jenkinsa na DockerHub'a.
+
+docker login -u chrismarc - zalogowanie sie do dockerhub
+docker tag myjenkins-blueocean:1.1 chrismarc/myjenkins-blueocean:1.1 - zmiana tagu obrazu
+sudo docker push myjenkins-blueocean:1.1 - wyslanie obrazu na dockerhub
+
+4. Z poziomu Jenkinsa uruchomionego w kontenerze (pkt 2) uruchom docker-compose stworzony w ramach Lab04.
+
+Utworzenie nowego joba w serwisie Jenkins i dodanie skryptu uruchamiajcego docker-compose w Lab04
+apt-get install sudo -y - dodanie sudo
