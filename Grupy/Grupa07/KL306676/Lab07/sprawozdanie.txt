@@ -1,0 +1,8 @@
+1. Umieściłam pliki źródłowe, skopiowane z poprzednich zajęć, w odpowiednich folderach o nazwach Docker, Hooks, Jenkins.
+
+2. Stworzyłam Jenkinsfile, który obsługiwał uruchamianie testów dla aplikacji - komunikatora. Został on umieszczony
+   w zforkowanym repozytorium z komunikatorem. 
+
+3. Po uruchomieniu Jenkinsa został ustawiony email w ustawieniach jenkinsa oraz stworzony i skonfigurowany nowy pipeline
+
+4. Zadanie zostało uruchomione na Jenkinsie
