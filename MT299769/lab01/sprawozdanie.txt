@@ -20,3 +20,17 @@ W folderze lab01 stworzylem plik sprawozdanie.txt i dodalem go do repo za pomoca
 5.zadanie:
 w pliku sprawozdanie.txt umiescilem opis wykonywanych zadan, a za pomoca komendy:
 	git push origin MT299769 umieszczono dotychczasowa prace na repo zdalnym
+	
+6.zadanie:
+W folderze lab01 umieszczono screeny dla poszczegolnych zadan, tak jak poprzednio utworzono commita i umieszczono zmiany na zdalnym repo:
+	git add .
+	git commit -m "screeny"
+	git push origin MT299769
+
+7.zadanie:
+Zcalono branch MT299769 do brancha master za pomoca komend:
+	git checkout master
+	git merge MT299769
+	git pull
+	git push
+	
