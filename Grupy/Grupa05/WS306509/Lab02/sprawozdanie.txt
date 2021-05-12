@@ -1,0 +1,37 @@
+Wojciech Szeliga WS306509 Sprawozdanie z Lab02
+
+1. Klucz wygenerowaem poleceniem:
+	ssh-keygen -t ed25519 -C "wojciech.szeliga5@gmail.com"
+
+Nastpnie dodalem klucz SSH do ssh-agent:
+	eval `ssh-agent -s`
+	ssh-add /home/wojciech/.ssh/id_ed25519
+	
+Dodalem klucz po stronie serwera (screen "Zadanie 1.4.png")
+
+Poinformowalem Git o zmianie sposobu logowania:
+	git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+	
+Sprawdzilem poprawnosc poprzez wpisanie:
+	git remote -v
+	
+2. Utworzylem tag za pomoca:
+	git tag -a WS306509_Lab02 -m "Wojciech Szeliga i wszystko smiga"
+	
+3. Jako iz foldery byly uporzadkowane pozostalo uporzadkowanie branchy:
+	git checkout Grupa05
+	git checkout -b Grupa05-WS306509_Lab02
+	
+4. Napisalem nastepujacego hooka:
+	#!/bin/bash
+	code="WS306509"
+	if !grep -iqE "$code" "$1"; then echo "Start with $code"
+	exit 1;
+	else echo "Well done"
+	exit 0;
+	fi
+	
+Umiescilem go w katalogu .git
+	
+5. Zrobilem pusha ze swojego brancha na grupowy a na koncu zamknalem branch osobisty:
+	git branch -d Grupa05-WS306509_Lab02
