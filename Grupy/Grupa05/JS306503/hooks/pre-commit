@@ -1,0 +1,12 @@
+#!/bin/bash
+
+code="JS306503"
+
+if ! grep -iqE "$code" "$1"; then
+echo "Begin commit with $code"
+exit 1;
+
+else echo "Everything is alright"
+exit 0;
+
+fi
