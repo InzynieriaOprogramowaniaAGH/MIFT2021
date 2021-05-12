@@ -1,0 +1,6 @@
+1. Umiescilem obraz ubuntu na dockerhubie
+2. znalazlem na gicie socket.io messenger i zrobilem hooka na swojego gita
+3. napisalem dockerfile dla builda
+4. napisalem dockerfile do testowania
+5. napisalem docker-compose.yml do stawiania dwoch dockerow
+6. uruchomilem komenda sudo docker-compose up 

@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+ build-agent:
+  container_name: socket-build
+  image: socket-build:latest
+  build:
+   context: .
+   dockerfile: ./build/Dockerfile
+ test-agent:
+  container_name: socket-test
+  image: socket-test:latest
+  build:
+   context: .
+   dockerfile: ./test/Dockerfile
+  depends_on:
+  - build-agent
