@@ -11,6 +11,6 @@ services:
   image: komunikator-contener
   build:
    context: .
-   dockerfile: Dockerfile_test
+   dockerfile: Dockerfile-test
   depends_on:
   - build-agent
