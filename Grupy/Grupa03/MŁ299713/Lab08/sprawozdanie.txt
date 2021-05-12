@@ -1,0 +1,5 @@
+1. Dodalem do jenkinsfile'a opcje sprawdzania czy build w ogole sie powiodl, bez niego testy nie beda uruchamiane
+2. przy pomocy build.succes == null albo build.succes = succes sprawdzamy czy sekcja buildu zadzialala
+3. do .git/hooks dodalem post-commita ktory sie wywola jak zrobimy git commit
+4. nadalem uprawnienia do wykonywania post-commit
+
