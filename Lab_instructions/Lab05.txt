@@ -1,0 +1,25 @@
+Temat: Jenkins jako CI/CD driver - w kontenerze.
+
+Uwaga: korzystamy z tego samego repo co w zeszłym tygodniu, czyli git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+Uwaga: po wykonaniu każdego numerowanego polecenia, wykonaj zrzut ekranu z efektem twojej pracy - będzie to potrzebne później.
+Uwaga: wszystkie skrypty które tworzysz zamieszczaj w odpowiednim swoim folderze w repozytorium
+Uwaga: w czasie wykonanywania zadania pisz plik "sprawozdanie.txt", zawierający treść instrukcji którymi się posłużyłeś do wykonania zadania.
+Uwaga: Zwróć uwagę by w komentarzu do commita zawrzeć czytelną informację w ramach którego ćwiczenia laboratoryjnego i którego zdania to robisz.
+Uwaga: Na mastera wrzucamy zmiany tylko przez pull requesta! 
+
+0. Zapoznaj się z diagramem omawianym na zajęciach.
+
+1. Zapoznaj się z oprogramowaniem Jenkins: https://www.jenkins.io/.
+
+2. Stwórz kontener dockerowy z Jenkinsem posługując się instrukcją https://www.jenkins.io/doc/book/installing/docker/
+
+3. Wrzuć obraz swojego Jenkinsa na DockerHub'a, analogicznie jak poprzednie obrazy.
+
+4. Z poziomu Jenkinsa uruchomionego w kontenerze (pkt 2) uruchom docker-compose stworzony w ramach Lab04.
+- zakładamy że Jenkins jest uruchomiony w kontenerze
+- zakładamy że po Lab04 plik docker-compose.yaml jest w naszym repozytorium 
+- zakładamy że z poziomu Jenkinsa ściągamy repo gdzie jest nasz plik docker-compose.yaml
+- zakładamy że Jenkins uruchamia plik docker-compose.yaml tworząc środowisko z Lab04
+- zwróć uwagę, że uruchomienie docker-compose wymaga.yaml oprogramowania Docker
+
+
