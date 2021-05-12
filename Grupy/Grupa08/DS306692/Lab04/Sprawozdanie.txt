@@ -1,5 +1,5 @@
 1. Utworzyłem brancha osobistego
-	git checkout -b Grupoa08-DS306692_Lab04
+	git checkout -b Grupa08-DS306692_Lab04
 
 1_2. Opublikowałem obraz z poprzednich zajęć w docker hub
 	docker push dominiksabat/lab04
