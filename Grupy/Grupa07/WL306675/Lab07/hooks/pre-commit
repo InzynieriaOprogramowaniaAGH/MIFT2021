@@ -1,0 +1,8 @@
+#!/bin/bash
+
+string="WL306675"
+if ! grep -iqE "$string" "$1"; then
+	echo "Wrong message"
+	exit 1
+fi
+echo "Correct message"
