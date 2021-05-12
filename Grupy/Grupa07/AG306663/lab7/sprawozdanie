@@ -1,0 +1,53 @@
+1. Przygotowanie odpowiednich plikow i struktury folderow, potrzebnych do uruchomienia CI/CD pipeline.
+
+2. Stworzenie Jenkinsfile, ktory bedzie realizowal CI/CD pipeline. Tresc Jenkinsfile:
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+		sh 'npm install'
+		echo 'Building....'
+		}
+	}
+	stage('Test') {
+		steps {
+			echo 'Testing....'
+			sh 'npm run test'
+			
+		}
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
+    
+    post {
+    	
+    	success {
+	 emailext attachLog: true, 
+		 body: "${currentBuild.result}: ${BUILD_URL}", 
+		 compressLog: true, 
+		 subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", 
+		 to: 'annagrzesiak04@gmail.com'
+		
+    	}
+    	
+    	failure {
+		emailext attachLog: true,
+			body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}", 
+			subject: ' Jenkins notification', 
+			to: 'annagrzesiak04@gmail.com'
+    	}
+    }
+}
+
+3. Sforkowanie repo wire-desktop, a nastepnie wrzucenie do niego Jenkinsfile(po commitowaniu i pushowaniu zmian).
+
+4. Stworzenie pipeline ze sforkowanym repozytorium, skonfigurowanie serweru SMTP w Jenkinsie oraz pobranie, zainstalowanie i konfiguracja NodeJS w Jenkinsie. 
+
+5. Uruchomienie pipeline. 
