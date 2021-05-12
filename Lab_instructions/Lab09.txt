@@ -1,0 +1,22 @@
+Temat: Pipeline CI/CD - wdrażanie programu i uruchaminie automatycznego piepeline'a
+
+Uwaga: korzystamy z tego samego repo co w zeszłym tygodniu, czyli git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+Uwaga: wszystkie skrypty które tworzysz zamieszczaj w odpowiednim swoim folderze w repozytorium
+Uwaga: po wykonaniu każdego numerowanego polecenia, wykonaj zrzut ekranu z efektem twojej pracy - będzie to potrzebne później.
+Uwaga: w czasie wykonanywania zadania pisz plik "sprawozdanie.txt", zawierający treść instrukcji którymi się posłużyłeś do wykonania zadania.
+
+Uwaga: Zwróć uwagę by w komentarzu do commita zawrzeć czytelną informację w ramach którego ćwiczenia laboratoryjnego i którego zdania to robisz.
+Uwaga: Na mastera i branche grupowe wrzucamy zmiany tylko przez pull requesta! 
+
+1. Zarejestruj w swoim repozytorium z komunikatorem githook'a (patrz zajęcia 07) lub webhook'a (dokumentacja np.: tutaj https://docs.github.com/en/developers/webhooks-and-events/about-webhooks). Takiego by:
+- za każdym razem gdy na głównym branchu pojawia się commit, uruchom pipeline opisywany w Jenkinsfile.
+
+2. Rozszerz Jenkinsfile z Lab09 o nowy stage("Deploy") - dokumentacja z dostępnymi poleceniami jest tu: https://www.jenkins.io/doc/book/pipeline/jenkinsfile/.
+
+3. W stage("Deploy") upewnij się że:
+- deploy jest wykoywany na dedykowany kontener dockerowy
+- do deploya jest przekazywany artefakt stworzny w stage("Build") 
+- użytkownik jest powiadamiany zarówno o sukcesie jak i porażce etapu wdrażania.
+
+
+Uwaga: zgłoś zadanie na MS Teams!
