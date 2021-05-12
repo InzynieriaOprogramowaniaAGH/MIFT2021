@@ -1,7 +1,7 @@
 
 1. Przygotowanie odpowiednich plikow i struktury folderow, potrzebnych do uruchomienia CI/CD pipeline.
 
-2. Stworzenie Jenkinsfile, ktory bedzie realizowal CI/CD pipeline. Tresc Jenkinsfile:
+2. Stworzenie Jenkinsfile realizujący CI/CD pipeline. Tresc Jenkinsfile:
 
 3. sforkowałem repo wire-desktop
 
