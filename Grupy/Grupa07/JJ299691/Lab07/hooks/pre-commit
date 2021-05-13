@@ -1,0 +1,10 @@
+#!/bin/bash
+
+MSG="$1"
+
+if ! grep  -qE"^JJ299691" "$MSG";then
+ cat "$MSG"
+ echo "your commit msg must begin with JJ299691"
+ exit 1
+fi
+}
