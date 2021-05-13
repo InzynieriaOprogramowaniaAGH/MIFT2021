@@ -1,1 +1,9 @@
-asdasdasdokfdasdasdasdadasd
+Stworzyłem branch tymczasowy
+Do uruchamiania pipeline użyłem przygotowanego na wcześniejszych laboratoriach githooka post-commit.
+
+Spróbowałem w nim podawać username:password, lecz po paru nieudanych próbach wygenerowałem API token dla użytkownika admin. 
+Post wykonywany jest bez błędów z użyciek tokenu api.
+
+polecenie jakie wykonuje githook:
+
+curl -X POST http://localhost:8080/job/deltachatPipeline/build --user "admin:<myApiToken>"
