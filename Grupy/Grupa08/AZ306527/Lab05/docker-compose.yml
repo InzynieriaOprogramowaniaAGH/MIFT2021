@@ -1,0 +1,13 @@
+version: '2'
+services:
+  server:
+    build: server
+    volumes:
+     - .:/code
+  tcp_client:
+    build: client
+    depends_on:
+      - "server"
+    command: sh -c './code/wait.sh server:1234 -- echo READY && node ./code/client.js'
+    volumes:
+     - .:/code
