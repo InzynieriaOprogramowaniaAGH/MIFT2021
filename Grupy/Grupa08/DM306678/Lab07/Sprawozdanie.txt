@@ -1,0 +1,6 @@
+1. Stworzenie poprawnej struktury folderu. 
+2. Fork repozytorium mojego komunikatora - DeltaChat
+3. Stworzenie odpowiedniego pliku Jenkinsfile i wrzucenie go do zforkowanego repozytorium
+4. Stworzenie nowego Pipeline na Jenkinsie oraz konfiguracjia
+	 - określenie adresu repozytorium i jenkinsfile'a, ustawienie wysyłania maili, pobranie Nodejs i nadanie mu nazwy
+5. Uruchomienie Pipeline, naprawienie występujących błędów --> budowa pipeline zakończona sukcesem
