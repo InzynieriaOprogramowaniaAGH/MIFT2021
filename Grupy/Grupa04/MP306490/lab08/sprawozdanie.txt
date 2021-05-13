@@ -1,0 +1,10 @@
+1. Rozszerzono Jenkinsfile z laboratorium nr 7 o nowy stage - build
+
+2. W build stage:
+- pobrana jest najnowsza wersja kodow zrodlowych 
+- budowany jest program
+- wysylane powiadomienia o sukcesie i failu budowania
+
+3. Po udanym zbuildowaniu uruchamia sie stage test , jesli natomaist build sie nie powiedzie test sie nie wykona
+
+4. Napisano git post-commit hook wyswietlajacego wiadomosc kiedy uruchamia sie pipeline po nowym komicie
