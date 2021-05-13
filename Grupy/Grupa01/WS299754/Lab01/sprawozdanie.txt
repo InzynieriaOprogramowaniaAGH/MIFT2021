@@ -1,0 +1,32 @@
+1. Instalacja klienta git:
+	sudo apt-get install git
+2. Sklonowanie repozytorium
+	git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git
+4. - Tworzenie nowego brancha:
+	git branch WS299754
+- Przejście do innego brancha:
+	git checkout WS299754
+- Dodanie pliku do repozytorium:
+	git add sprawozdanie.txt
+	git add graf.png
+- Konfiguracja użytkownika:
+	git config --global user.email "wsmieja@student.agh.edu.pl"
+- Commit:
+	git commit
+5. Push brancha:
+	git push origin WS299754 
+6. - Dodanie wszystkich zmian do repozytorium:
+	git add -A
+- Zmiana nazwy pliku
+	mv 4.a.png zadanie4a.png
+7. - Pull z remote'a w branchu master:
+	git checkout master
+	git pull
+- Merge brancha master wykonany z brancha WS299754:
+	git checkout WS299754
+	git merge master 
+- Merge brancha WS299754 wykonany z brancha master:
+	git checkout master
+	git merge WS299754
+- Push brancha master do remote'a:
+	git push origin master
