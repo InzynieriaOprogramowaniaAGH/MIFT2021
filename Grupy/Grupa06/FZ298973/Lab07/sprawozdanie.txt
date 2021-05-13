@@ -1,0 +1,6 @@
+1. Stworzono foldery Docker, Jenkins, skrypty.
+2. Wykonano fork repozytorium wybranego komunikatora - Delta Chat
+3. Stworzono plika Jenkinsfile i dodano go do zforkowanego repozytorium z komunikatorem
+4. Stworzono pipeline w Jenkinsie oraz skonfigurowano go tak, zeby wyslal powiadomienie mail o zakonczonym dzialaniu.
+5. Uruchomiono pipeline, poprawiono plik Jenkinsfile tak, aby wszystko dzialalo. 
+
