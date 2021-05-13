@@ -1,0 +1,42 @@
+pipeline {
+	agent any
+
+	stages {
+		stage('Build') { 
+		    steps {
+		        echo 'Build'
+		        nodejs('npm') {
+		            	sh 'npm install'
+				sh 'npm run build'
+		        }
+		    }
+		}
+		stage('Test') { 
+		    steps {
+		        echo 'Test'
+		        nodejs('npm') {
+		            sh 'npm run test'
+		        }
+		    }
+		}
+    }
+	post {
+		always {
+	    		echo 'Finished'
+		}
+		success {
+	    		echo 'Success'
+			emailext attachLog: true, 
+		    		body: "Success",
+		    		subject: "Pipeline Test Passed",
+		    		to: 'dominikabmatuszyk@gmail.com'
+		}
+		failure {
+			echo 'Failure'
+		        emailext attachLog: true, 
+		    		body: "Error:  ${env.BUILD_URL}",
+		    		subject: "Pipeline Test Failed",
+		    		to: 'dominikabmatuszyk@gmail.com'
+		}
+	}
+}
