@@ -1,0 +1,9 @@
+Sprawozdanie lab7 Mateusz Bonk
+
+1. Pliki Jenkins oraz docker umieszczono w repozytorium w odpowiednich folderach
+
+2. Wykonałem fork z repozytorium z aplikacji. PO wykonaniu klonownia na swoje urządzenie umieściłem w repozytorium plik Jenkinsfile
+
+3.WYkonałem pipeline w Jenkinsie który wykonywał testy aplikacji oraz używał powiadomień o wynikach za pomocą wiadomości email
+
+4. Jenkinsfile został umieszczony w folderze na naszym repozytorium

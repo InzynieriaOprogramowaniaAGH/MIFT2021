@@ -1,0 +1,13 @@
+Sprawozdanie Lab8 MATEUSZ BONK
+
+1. Do pliku Jenkinsfile dodałem nowy stage 'Build' który odpowiada za budowanie aplikacji
+	Nowy plik Jenkinsfile jest umieszczony w katalogu Jenkins pod nazwą Jenkinsfile_lab8
+
+2. Informacja o budowaniu aplikacji jest zamieszczona w powiadomieniu 
+
+3. W stage 'Test' jest klauzula aby została wykonana po sukcesie stage 'Build'
+
+4. W repozytorium apkilacji dodałem post-commit która po wykonaniu commita wypiuje podana wiadomość
+
+
+
