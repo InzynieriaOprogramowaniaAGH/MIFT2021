@@ -1,0 +1,56 @@
+pipeline {
+    agent any
+    environment {
+        DOCKER_BUILD = 'chat-build'
+        DOCKER_TEST  = 'chat-test'
+        DOCKERFILE_BUILD  = 'build-dockerfile' 
+        DOCKERFILE_TEST   = 'test-dockerfile'
+    }
+    stages {
+        stage('Build'){
+            steps{
+                sh 'docker build -f docker/${DOCKERFILE_BUILD} -t ${DOCKER_BUILD} .'
+                sh 'docker run --rm ${DOCKER_BUILD}'
+            }
+        }
+        stage('Test'){
+            steps {
+                sh 'docker build -f docker/${DOCKERFILE_TEST} -t ${DOCKER_TEST} --build-arg BUILD_IMAGE=${DOCKER_BUILD} .'
+                sh 'docker run --rm ${DOCKER_TEST}'
+            }
+        }
+        stage('Deploy'){
+            steps {
+                sh 'docker run -d -t --name deploy_container ubuntu:latest '
+                sh 'docker save -o /tmp/${DOCKER_BUILD}.tar ${DOCKER_BUILD}'
+                sh 'docker cp /tmp/${DOCKER_BUILD}.tar deploy_container:/tmp/'
+                sh 'docker load -i /tmp/${DOCKER_BUILD}.tar'
+            }
+        }
+    }
+    post {
+        failure {
+            
+            /*
+            mail to: 'skarpecki@student.agh.edu.pl',
+                 subject: "Failed chat pipeline: ${currentBuild.fullDisplayName}",
+                 body: "Something is wrong with ${env.BUILD_URL}"
+            
+            */
+            echo "Failed"
+            }
+        success {
+            /*
+            mail to: 'skarpecki@student.agh.edu.pl',
+                 subject: "Succeded chat pipeline: ${currentBuild.fullDisplayName}",
+                 body: "Everything is fine with ${env.BUILD_URL}"
+            */
+            echo "Succeded"
+            }   
+        always {
+            sh 'docker rmi ${DOCKER_TEST}'
+            sh 'docker rmi ${DOCKER_BUILD}'
+            sh 'docker rm -f deploy_container'
+        }
+    }
+}
