@@ -1,0 +1,14 @@
+Zadanie 1. Umieszczono wszystkie pliki źródłowe odpowiednich technologii w konkretnych folderach,
+dodatkowo nadano uporządkowano nazwy plików tak by każdy wskazywał do czego służy.
+
+Zadanie2. Przygotowanie pliku Jenkinsfile odpowiadającego za uruchoienie i przetestowanie oprogramowania.
+Utworzono nowe repozytorium wykonując operację fork na repozytorium wybranego komunikatora.
+Utowrzony wcześniej Jenkinsfile umieszczono w nowym repozytorium.
+Pobrano i skonfiugrowano niezbędne wtyczki pozwalające na wysyłanie emaili i korzystanie z NodeJS w Jekinsfile'u.
+
+Zadanie 3. Testowanie działania - otrzymanie wiadomości mailowej potwierdzającej prawidłowe zakończenie testów.
+Następnie wprowadzono celowy błąd w jenkinsfile'u - zmieniono nazwe uruchamianych testów.
+Otrzymanie wiadomości o niepowodzeniu.
+
+Zadanie 4. Umieszczenie wszystki plików i screenow na repozytorium.
+ 
