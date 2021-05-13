@@ -1,0 +1,12 @@
+1. Umieściłem pliki źródłowe w repozytorium
+
+2. Z utworzonego planu CI/CD pipeline wybrałem punkty odpowiadające za uruchomienie szybkiego i niezawodengo testowania
+
+Utworzono Jenkinsfile i umieszczono w zforkowanym repo z wybranym wczesniej komunikatorem
+W pliku Jenkinsfile utworzono nowego Jenkins Pipeline a w sekcji stage nowy stage(test)
+Wewnątrz tej sekcji oskryptowałem uruchamianie testów 
+
+3. Przetestowałem działanie wykonywania testów z użyciem Jenkinsfile w przypadku pomyślnego i negatywnego zakończenia testów
+( w przypadku erroru wyslany został mail z logami na maila)
+
+4. Dodano plik Jenkinsfile na repo MIFT
