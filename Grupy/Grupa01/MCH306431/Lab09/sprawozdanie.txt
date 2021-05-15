@@ -4,3 +4,13 @@
 	- wykorzystanie narzedzia ngrok do tunelowania adresu localhost
 	- dodanie webhooka z wykorzystaniem adresu z ngrok
 	- test poprawnego dzialania budowania po commicie
+
+2. Wykazanie poprawnosci za pomoca zrzutow ekranu
+
+3. Dodanie stage Deploy do Jenkinsfile
+	- uruchamiany na kontenerze dockerowym
+	- napisanie Dockerfile "deployment", ktory realizuje wdrazanie
+
+4. Pokazanie dzialania
+
+5. Upewnienie sie o poprawym dzialaniu pipeline.
