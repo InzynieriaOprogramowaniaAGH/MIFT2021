@@ -29,10 +29,38 @@ pipeline {
             steps {
                 echo 'Trying to test project'
                 sh 'npm run test'
+                emailext attachLog: true,
+                body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+                recipientProviders: [developers(), requestor()],
+                to: 'mrsuhar420@gmail.com',
+                subject: "Testing result: ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
                   }
+
                       }
+
+            stage('Deploy'){
+            steps{
+                echo 'Trying to deploy project'
+                
+                sh 'apt update -y'
+                sh 'apt dist-upgrade -y'
+                sh 'curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg'
+                sh 'apt remove docker-ce docker-ce-cli containerd.io -y'
+                sh 'apt update -y'
+                sh 'apt dist-upgrade -y'
+                sh 'apt-get install docker-ce docker-ce-cli containerd.io -y'
+                sh 'apt update -y'
+                sh 'apt dist-upgrade -y'
+                sh 'docker build -t deltachat-deploy -f Dockerfile.deploy .'
+
+                
+                }
+
+                            }          
        
             }
+
+            
     
     post {
         
@@ -42,7 +70,7 @@ pipeline {
                 body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
                 recipientProviders: [developers(), requestor()],
                 to: 'mrsuhar420@gmail.com',
-                subject: "Jenkins Testing Worked ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+                subject: "Deploy result: ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
                 
          
         }
@@ -53,7 +81,7 @@ pipeline {
                 body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
                 recipientProviders: [developers(), requestor()],
                 to: 'mrsuhar420@gmail.com',
-                subject: "Jenkins Testing Failed${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+                subject: "Deploy result: ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
                 
         }
          }
