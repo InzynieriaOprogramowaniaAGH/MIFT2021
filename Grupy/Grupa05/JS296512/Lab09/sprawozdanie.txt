@@ -1,0 +1,4 @@
+1. Zarejestrowałem w swoim repozytorium z komunikatorem webhook'a. Takiego aby:
+- za każdym razem gdy na głównym branchu pojawia się commit, uruchamiał pipeline opisywany w Jenkinsfile.
+
+
