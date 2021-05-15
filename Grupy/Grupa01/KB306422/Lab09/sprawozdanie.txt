@@ -9,3 +9,10 @@ Pipeline wyzwala się automatycznie po commicie na brnachu głównym.
 
 3.
 Rozszerzono Jenkinsfile o stage "Deploy", wykorzystano do tego nowo utworzony Dockerfile-deploy (też umieszczony w repo komunikatora). 
+
+4.
+Upewniono się, że w stage "Deploy":
+ -deploy jest wykonywany na dedykowany kontener dockerowy
+ -do deploy jest przekazywany artefakt stworzony w stage "Build"
+ -użytkownik jest powiadamiany zarówno o sukcesie jak i porażce etapu wdrażania
+ sprawdzono logi oraz maile i wrzucono PNG
