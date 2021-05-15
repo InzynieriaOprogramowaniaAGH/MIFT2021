@@ -1,0 +1,16 @@
+1.1 Zainstalowałem i uruchomiłem program ngrok.
+1.2 Utworzyłem webhook'a w moim fork'u wybranego komunikatora.
+1.3 Skonfigurowałem odpowiednio Jenkins'a
+1.4 & 1.5 Zedytowałem Readme (przykładowy push), uruchomiło to Jenkinsfile zawarty w repozytorium.
+
+2. Udokumentowanie wyzowlenia pipeline'a zostało udokumentowane na zrzutach ekranu 1.4 oraz 1.5.
+
+3. Rozszerzyłem Jenkinsfile'a o stage "Deploy". 
+
+4. Najpierw instaluje on docker'a ,a następnie tworzy potrzebny obraz w oparciu o Dockerfile. Powiadomienie o sukcesie/porażcie stage'a Deploy jest wysyłane na samym końcu działania.
+
+5.1 Repozytorium z komunikatorem zawiera Jenkinsfile oraz Dockerfile'a potrzebnego do tworzenia obrazu w oparciu o testowanie.
+5.2 Do wyzwolenia pipeline'a wykorzystany został skonfigurowany Jenkins (Zadanie 1.3) oraz Webhook (Zadanie 1.2).
+5.3 Pipeline przechodzi wszystkie etapy, niestety stage "Deploy" kończy się niepowodzeniem ze względu na błedy wewnątrz Jenkins'a.
+Różnica w godzinach wykonania w commit'cie oraz Jenkins'ie wynika z błędnie ustawionej strefy czasowej w drugim z wspomnianych narzędzi.
+5.4 Powiadomienia są wysyłane po każdym ze stage'y.
