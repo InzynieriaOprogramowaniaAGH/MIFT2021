@@ -1,0 +1,11 @@
+1. Zainstalowałem ngroka
+2. Zarejestrowałem w swoim repozytorium z komunikatorem webhooka, dzięki niemu za każdym razem gdy na głównym branchu pojawił się commit, uruchamiał się pipeline. 
+3. Udokumentowałem automatyczne wyzwalanie pipeline
+4. Rozszerzyłem Jenkinsfile o nowy stage "Deploy".
+5. Deploy jest wykonywany na konkretnym kontenerze dockerowym, do deploya przekazywany jest artefakt stworzony w buildzie,
+użytkownik jest informowany zarówno o sukcesie jak i o porażce.
+6. Udokumentowałem screenami:
+- pipeline jest zdefniowany w Jenkinsfile w repo z komunikatorem
+- pipeline jest automatycznie wyzwalany
+- pipeline przechodzi wszystkie etapy (stage build-test-deploy)
+- pipeline obsługuje powiadamianie o rezlutatach każdego z etapów
