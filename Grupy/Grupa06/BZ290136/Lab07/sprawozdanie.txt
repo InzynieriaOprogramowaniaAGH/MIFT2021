@@ -1,0 +1,55 @@
+1. Utworzono foldery "docker", "hooks", "jenkins".
+
+2. Do folderu "docker" przeniesiono pliki: docker-compose.yml, Dockerfile, Dockerfile-build, Dockerfile-test.
+
+3. Sforkowano repozytorium wybranego komunikatora  "node chat app".
+
+4. W sforkowanym folderze utworzono Jenkinsfile. Dodano do jego pipline'a stage 'test', a takze
+scenariusze dzialan w przypadku udanego i nieudanego testowania (powiadomienie mailowe o danym scenariuszu).
+
+	pipeline {
+    agent any
+    
+    tools { nodejs "node"}
+    
+    stages {
+        
+        stage('Test') { 
+            steps {
+                echo 'Testing....'
+                sh 'npm install'
+                sh 'npm run test'
+            }
+		 	
+        }
+        
+        
+    }
+    
+    post {
+				failure {
+				    emailext attachLog: true,
+				        body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+				        recipientProviders: [developers(), requestor()],
+				        to: 'bzieja@interia.pl',
+				        subject: "Tests failed! ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+				}
+				success {
+				    emailext attachLog: true,
+				        body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+				        recipientProviders: [developers(), requestor()],
+				        to: 'bzieja@interia.pl',
+				        subject: "Tests succeeded! ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+				}
+    }
+
+   }
+   
+   
+5. Uruchomiono kontener z Jenkinsem i utworzono odpowiedniego joba w Jenkinsie.
+
+6. Do poprawnego dzialania Jenkinsfile skonfigurowano joba w Jenkinsie: dodano NodeJS w Plugin Managerze i zainstalowano go w Global Tool Configuration. Dodatkowo do obsugi maili uzupelniono odpowiednie pola w sekcji 
+configuration - SMTP server, username, password i opcje Use SSL.
+
+7. Po konfiguracji uruchomiono odpowiedniego joba.
+
