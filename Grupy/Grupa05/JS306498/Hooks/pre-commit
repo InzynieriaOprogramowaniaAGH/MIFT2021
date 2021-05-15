@@ -1,0 +1,10 @@
+#!/bin/bash
+
+commitMSG="JS306498"
+
+
+if ! grep -iqE "$commitMSG" "$1" ; then
+	echo "Wrong !!!"
+	exit 1
+fi
+echo "Correct commit"

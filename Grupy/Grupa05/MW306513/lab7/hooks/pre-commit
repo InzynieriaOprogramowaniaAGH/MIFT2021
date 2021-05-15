@@ -1,0 +1,9 @@
+#!/bin/bash
+pattern='^(\MW306513)'								#wyrażenie regularne
+msg="Aborting commmit - message doesn't match pattern!" #wiadomość błędu
+
+if ! grep -iqE "$pattern" "$1"; then 	# sprawdzenie, czy wiadomość spełnia reguły wyrażenia
+	echo "$msg"							# jeżeli nie, wyświetlamy wiadomość
+	exit 1;								# i przekazujemy kod błędu
+fi
+echo "Commit message OK!"

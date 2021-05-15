@@ -1,0 +1,19 @@
+1. Umieściłem wszystkie pliki źródłowe w repozytorium. Zachowałem porzadek folderow:
+
+JS296512/<nazwa technologi>/<pliki>
+
+2. Ze swojego planu CI/CD pipeline stworzonego na Lab06 wybrałem te punkty, które odpowiadają za "Uruchomienie szybkiego i niezawodnego testowania."
+
+Następnie stworzyłem Jenkinsfile i umieściłem go w zforkowanym repozytorium z komunikatorem. 
+
+W Jenkinsfile stworzyłem nowego Jenkins pipeline, a w nim w sekcji "stages" nowy "stage('Test')".
+
+Wewnątrz Jenkinsfile w sekcji "stage('Test')" oskryptowałam uruchamianie testów dla aplikacji.
+
+3. Wykonałem i wykazałem przyklad wykonania testow z użyciem Jenkinsfile:
+- testy sie powiodly
+- testy sie nie powiodly
+
+W wypadku niepowodzenia testów został wysłany mail z informacją o niepowodzeniu oraz z logami.
+
+4. Wrzuciłem Jenkinsfile na repozytorium MIFT

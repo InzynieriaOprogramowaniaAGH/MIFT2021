@@ -1,0 +1,64 @@
+pipeline {
+
+    agent any
+    
+	tools{nodejs "NodeJS"}
+	
+    stages {
+        
+        stage('Build') {
+        
+            steps {
+                echo 'Building...'
+		sh 'npm install'        
+		}
+		
+		post {
+	    		success {
+			    echo 'Build success!'
+			    emailext attachLog: true,
+			        body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+			        to: 'aleksandrar1819@gmail.com',
+			        subject: "Success in build in Jenkins!"
+	    		}
+	    	
+			failure {
+			    echo 'Build failure!'
+			    emailext attachLog: true,
+				body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+				to: 'aleksandrar1819@gmail.com',
+				subject: "Build failed in Jenkins!"
+			}
+	    	}		
+       }
+        
+        stage('Test') {
+        
+            steps {
+                echo 'Testing...'
+                sh 'npm run test'
+                }
+                
+		post {
+		    	success {
+			    echo 'Test success!'
+			    emailext attachLog: true,
+				body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+				to: 'aleksandrar1819@gmail.com',
+				subject: "Success in test in Jenkins!"
+		    	}
+		    	
+			failure {
+			    echo 'Test failure!'
+			    emailext attachLog: true,
+				body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+				to: 'aleksandrar1819@gmail.com',
+				subject: "Test failed in Jenkins!"
+			}
+    		}
+  	}
+   }
+   
+}
+        
+

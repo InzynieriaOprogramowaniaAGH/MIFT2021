@@ -1,0 +1,166 @@
+Started by user admin
+Obtained Jenkinsfile from git https://github.com/Scaaz/deltachat-desktop.git
+Running in Durability level: MAX_SURVIVABILITY
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/deltachatPipeline
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+The recommended git tool is: git
+using credential 9e7e5af1-927b-4017-a82a-7af247b4508b
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/deltachatPipeline/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/Scaaz/deltachat-desktop.git # timeout=10
+Fetching upstream changes from https://github.com/Scaaz/deltachat-desktop.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.20.1'
+using GIT_ASKPASS to set credentials Github
+ > git fetch --tags --force --progress -- https://github.com/Scaaz/deltachat-desktop.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision 77978348f2c48965853461cd7b0eb1a3d0b4ac5d (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 77978348f2c48965853461cd7b0eb1a3d0b4ac5d # timeout=10
+Commit message: "Add files via upload"
+ > git rev-list --no-walk ccc5a1f69a61fa11cbafeb3e842df9ec7bd78eb9 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] echo
+Building..
+[Pipeline] sh
++ apt install npm -y
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+npm is already the newest version (5.8.0+ds6-4+deb10u2).
+0 upgraded, 0 newly installed, 0 to remove and 8 not upgraded.
+[Pipeline] sh
++ npm i npm@latest -g
+
+changed 14 packages, and audited 255 packages in 6s
+
+11 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+[Pipeline] sh
++ npm fund
+deltachat-desktop@1.16.0-alpha.0
+
+[Pipeline] sh
++ npm install
+
+> deltachat-desktop@1.16.0-alpha.0 install
+> npm run install:submodules
+
+
+> deltachat-desktop@1.16.0-alpha.0 install:submodules
+> git submodule update --recursive --init
+
+
+up to date, audited 1776 packages in 8s
+
+found 0 vulnerabilities
+[Pipeline] git
+The recommended git tool is: git
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/deltachatPipeline/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/Scaaz/deltachat-desktop.git # timeout=10
+Fetching upstream changes from https://github.com/Scaaz/deltachat-desktop.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.20.1'
+ > git fetch --tags --force --progress -- https://github.com/Scaaz/deltachat-desktop.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision 77978348f2c48965853461cd7b0eb1a3d0b4ac5d (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 77978348f2c48965853461cd7b0eb1a3d0b4ac5d # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D master # timeout=10
+ > git checkout -b master 77978348f2c48965853461cd7b0eb1a3d0b4ac5d # timeout=10
+Commit message: "Add files via upload"
+[Pipeline] sh
++ npm run build
+
+> deltachat-desktop@1.16.0-alpha.0 build
+> npm run build:shared && npm run build:backend && npm run build:frontend
+
+
+> deltachat-desktop@1.16.0-alpha.0 build:shared
+> npm run build:shared:translations && npm run build:shared:version
+
+
+> deltachat-desktop@1.16.0-alpha.0 build:shared:translations
+> node ./bin/build-shared-convert-translations.js ./_locales
+
++ Converting translations from xml to json... 
++ converted 50 files in 966 ms
+
+
+> deltachat-desktop@1.16.0-alpha.0 build:shared:version
+> node ./bin/build-shared-version-info.js
+
+refs/heads/master master
+
+> deltachat-desktop@1.16.0-alpha.0 build:backend
+> tsc --build src/main
+
+
+> deltachat-desktop@1.16.0-alpha.0 build:frontend
+> npm run build:frontend:ts && npm run build:frontend:themes && npm run build:frontend:static && npm run build:frontend:source-map-support && npm run build:frontend:scss
+
+
+> deltachat-desktop@1.16.0-alpha.0 build:frontend:ts
+> node ./bin/build-frontend-ts.js
+
+- Compile esbuild ...
+- Executing "npx esbuild src/renderer/main.tsx --bundle --sourcemap --outfile=html-dist/bundle.js --define:process.env.NODE_ENV=\"development\""
+- build completed
+
+> deltachat-desktop@1.16.0-alpha.0 build:frontend:themes
+> sass themes/light.scss static/fallback-theme.css --style=compressed --embed-source-map && node ./bin/build-frontend-themes.js
+
+
+> deltachat-desktop@1.16.0-alpha.0 build:frontend:static
+> node ./bin/copy.js ./static ./html-dist
+
++ copied all source files to "./html-dist"
+
+> deltachat-desktop@1.16.0-alpha.0 build:frontend:source-map-support
+> node ./bin/build-frontend-source_map_support.js
+
+
+> deltachat-desktop@1.16.0-alpha.0 build:frontend:scss
+> sass ./scss/manifest.scss ./html-dist/main.css --embed-source-map --style=compressed
+
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy)
+Stage "Deploy" skipped due to earlier failure(s)
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] emailext
+Sending email to: szymon.czekaj0@gmail.com

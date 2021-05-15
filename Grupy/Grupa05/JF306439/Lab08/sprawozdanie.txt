@@ -1,0 +1,62 @@
+1. Stworzenie krotkozyjacego brancha za pomoca komendy: git checkout -b Grupa05-JF306439_Lab08
+
+2. Edytowanie Jenkinsfile, dodanie stage Build, w ktorym:
+	- pobierana jest najnowsza wersja kodow zrodlowych z GitHuba - git 'https://github.com/Whitiee/node-chat-app.git'
+	- program jest budowany - jedynie npm install
+	- uzytkownik jest powiadamiany o przebiegu etapu budowania - powiadomienie mail
+
+	pipeline {
+		agent any
+		tools {
+			nodejs "node"
+		}
+	    stages {
+		stage('Install dependencies') {
+		    steps {
+		        echo 'Installing dependencies..'
+			    	sh 'apt install git -y'
+		    }
+		  }  
+		stage('Build') {
+		  steps {
+		        echo 'Building..'
+			  	git 'https://github.com/Whitiee/node-chat-app.git'
+				sh 'npm install'
+		    }
+		}     
+		stage('Test') {
+		  when {
+			expression {currentBuild.result == null || currentBuild.result == 'SUCCESS'}
+		  }
+		    steps {
+		        echo 'Testing..'
+				sh 'npm run test'
+		    }
+		} 
+	    }
+	    post {
+		always {
+		    echo 'I have finished'
+		}
+		success {
+		    echo 'I succeeded!'
+		}
+		failure {
+		    echo 'I failed :('
+		    emailext attachLog: true, 
+		    	     body: "Something is wrong with ${env.BUILD_URL}",
+		    	     subject: "Failed test Pipeline: ${currentBuild.fullDisplayName}",
+		    	     to: 'juliafajer69@gmail.com'
+		}
+	    }
+	}
+
+3. Zbudowanie w Jenkinsie pipelina z danym Jenkinsfilem, upewnienie sie o poprawnym przejsciu stage Build oraz Test.
+	Dodanie polecenia script {currentBuild.result='UNSTABLE'} w stage Build aby sprawdzic zachowanie stage Test przy nieudanym budowaniu,
+	informacja zwrotna "Stage "Test" skipped due to when conditional" - oczekiwany efekt, poprawne dzialanie.
+
+4. Napisanie git-hooke'a post-commit wyswietlajacego komunikat "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym
+ 	commicie". Umieszczenie go w folderze ./git/hooks, nadanie mu uprawnien chmod +x post-commit, sprawdzenie poprawnosci dzialania
+
+5. Dolaczenie zmian na Git'a
+

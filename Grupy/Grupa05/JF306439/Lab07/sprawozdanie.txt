@@ -1,0 +1,57 @@
+1. Stworzenie krotkozyjacego brancha za pomoca komendy: git checkout -b Grupa05-JF306439_Lab07
+
+2. Stworzenie folderow poszczegolnych technologii, przeniesienie plikow do nowych folderow: mkdir nazwa_folderu
+
+3. Stworzenie Jenkinsfile: gedit Jenkinsfile
+
+4. Stworzenie forka z komunikatorem, umieszczenie tam Jenkinsfile: GitHub
+
+5. Stworzenie pipeline w Jenkinsfile ze stagem test wraz z wysylaniem informacji na maila przy niepowodzeniu: (ostateczny Jenkinsfile)
+
+	pipeline {
+	agent any
+	tools {
+		nodejs "node"
+	}
+    stages {
+	     stage('Build') {
+            steps {
+                echo 'Build..'
+		        sh 'npm install'
+            }
+	  }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+		        sh 'npm run test'
+            }
+        } 
+    }
+    post {
+        always {
+            echo 'I have finished'
+        }
+        success {
+            echo 'I succeeded!'
+        }
+        failure {
+            echo 'I failed :('
+            emailext attachLog: true, 
+            	     body: "Something is wrong with ${env.BUILD_URL}",
+            	     subject: "Failed test Pipeline: ${currentBuild.fullDisplayName}",
+            	     to: 'juliafajer69@gmail.com'
+        }
+    }
+}
+
+6. Skonfigurowanie pipeline w Jenkins, skonfigurowanie w Jenkinsie powiadomien email, zbudowanie pipeline z Jenkinsfile
+
+7. Przetestowanie dzialania w przypadku powodzenia oraz niepowodzenia testow - powiadomienie email wraz z zalacznikiem
+
+8. LONG STORY SHORT: build nie powiodl sie - npm not found, dodanie sh 'apt install npm -y', build nie powiodl sie - permission denied, dodanie sh 'whoami' - jenkins, ponowne uruchomienie kontenera z Jenkinsem jako root, build nie powiodl sie - node_module missing, dodanie dodatkowych zaleznosci - sh 'npm i npm@latest -g', sh 'npm fund', sh 'npm install', sh 'npm run build', build nie powiodl sie - cannot find module 'extract-zip', dodanie flagi -g do npm install, build nie powiodl sie - permission denied, scandir '/root/.npm/_logs, zmiana uprawnien do pliku oraz dodanie flagi -unsafe-perm=true --allow-root do npm install, build nie powiodl sie - ten sam blad, zmiana folderu instalacji zgodnie z instrukcja https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally, build nie powiodl sie - rozne problemy, sprobowano dodac tool nodejs w Jenkinsie. Niestety to rowniez nie zadzialalo, wiec sprobowano wykonac identyczny Jenkinsfile dla innego komunikatora - zamiast delta-chat wykorzystano node-chat-app. Build powiodl sie. Ostatecznie zdecydowano wykorzystac dany komunikator do dalszych laboratoriow.
+
+9. Dodano: script {currentBuild.result='UNSTABLE'} w stage Build oraz script {if (currentBuild.result == 'UNSTABLE')error("Break")} w stage Test,
+	aby przetestowac dzialanie w wyniku niepowodzenia. Build zakonczyl sie z wynikiem: ERROR: Break, Finished: FAILURE - oczekiwany rezultat.
+
+10. Dolaczenie zmian na Git'a
+

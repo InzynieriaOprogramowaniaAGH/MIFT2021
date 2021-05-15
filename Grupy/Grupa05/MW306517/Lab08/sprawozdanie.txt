@@ -1,0 +1,11 @@
+Zadanie 1. MOdyfikacja Jenkinfile'a - dodanie stage("Build")
+
+Zadanie 2. W nowym stage'u zapewniono, że pobierana jest najnowsza wersja repozytorium.
+Porgram jest budowany podczas wykonia tej cześci Jeninsfile'a.
+Użytkownik jest powiadamiany mailowo o sukcesie, bądź porażce każdeg ze stage'ów.
+Wykonano testy by potwierdzić otrzymanie właściwych wiadomości.
+
+Zadanie 3. Zapewniono, że stage ("Test") będzie uruchamiany zależnie od wyniku poprzedniego stage'a.
+Przetestowan porawność działania poprzez dodanie instrukcji `error("Build pureposely failed")` w stage("Build").
+
+Zadanie 4. Utworzono git hook'a "post-commit"

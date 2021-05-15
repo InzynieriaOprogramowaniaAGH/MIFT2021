@@ -1,0 +1,12 @@
+1) Plik Jenkinsfile rozszerzono o dodanie stage("Build") - plik pokazano na zrzucie Zadanie1_1. 
+
+2) Upewniono się, że pobierana wersja kodów źródłowych jest najnowsza. 
+Sprawdzono budowanie programów. 
+Za pomocą wiadomości mailowej użytkownik powiadamiany jest o sukcesie i o porażce. 
+
+3) Sprawdzono, że po wprowadzeniu błędu w 'stage Build' nie uruchomił się 'stage Test'. 
+
+4) Napisano "post-commit" hooka: 
+
+#!/bin/bash
+  echo "To jest commit hook, ktory będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"

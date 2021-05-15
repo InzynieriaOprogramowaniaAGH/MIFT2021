@@ -1,0 +1,21 @@
+
+-Posiadam juz stage("Build") wiec nie ma tu mowy o dodawaniu
+-delta-chat napisany jest w js i nodzie (technologie skryptowe) wiec nie ma kompilacji, nie tworza sie nowe pliki
+-niestety nie ma wiec mozliwosci pocwiczyc dodawania jakis fajnych featerow, do tego dobry bylby np cpp
+ALE !!! Jako ze personalnie rozwijam sie wlasnie w kierunku cpp i interesowalo mnie stworzenie CI/CD dla projektu cpp
+stworzylem to repo, gdzie etap buildu jest rozwiniety bardziej:
+
+https://github.com/Swistusmen/TicTacToe
+technologie z jakich tam korzystam: C++, CMake, Googletest, Jenkins
+(w dniu 9.05.2021- kiedy pisze te slowa, nie ma przenoszenia artifactow)
+
+-dodano script{} czyli komende umozliwiajaca programowanie imperatywne zamiast deklaratywnego (bo Jenkinsfile jest deklaratywny)
+stosuje tam zmienna srodowiskowa
+
+-sprawdzam czy build napewno sie wykonal poprzez skrypt umieszczony w stagu testowym,
+wiaze sie to z uruchomieniem testow jesli wykonanie stagu sie powiodlo
+
+
+-dodalem nowego githooka w sforkowanym repozytorium
+
+dodano odpowiednie screeny
