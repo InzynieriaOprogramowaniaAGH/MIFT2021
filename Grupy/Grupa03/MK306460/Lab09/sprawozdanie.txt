@@ -1,0 +1,28 @@
+1. Zarejestruj w swoim repozytorium z komunikatorem githook'a (patrz zajęcia 07) lub webhook'a (dokumentacja np.: tutaj https://docs.github.com/en/developers/webhooks-and-events/about-webhooks). Takiego by:
+- za każdym razem gdy na głównym branchu pojawia się commit, uruchom pipeline opisywany w Jenkinsfile.
+- w przypadku problemów z połączeniem w ramach hook'a można postawić klona repozytorium lokalnie by uniknąć tychże problemów z połączeniem
+
+Zainstalowałam ngroka
+utworzylam webhooka
+skonfigurowalam serwer Sintara (pobralam ruby, ruby gem,)
+
+- 4567 is the port number on which our server will listen for messages
+
+                               http://43103a4b1edf.ngrok.io -> http://localhost:4567                    
+Forwarding                    https://43103a4b1edf.ngrok.io 
+ 
+
+2. Wykaż i udokumentuj automatyczne wyzwalanie pipeline'a z pkt 1. 
+
+3. Rozszerz Jenkinsfile z Lab09 o nowy stage("Deploy") - dokumentacja z dostępnymi poleceniami jest tu: https://www.jenkins.io/doc/book/pipeline/jenkinsfile/.
+
+4. W stage("Deploy") upewnij się że:
+- deploy jest wykoywany na dedykowany kontener dockerowy
+- do deploya jest przekazywany artefakt stworzny w stage("Build") 
+- użytkownik jest powiadamiany zarówno o sukcesie jak i porażce etapu wdrażania.
+s
+5. Wykaż i udokumentuj że:
+- pipeline jest zdefniowany w Jenkinsfile w repo z komunikatorem
+- pipeline jest automatycznie wyzwalany
+- pipeline przechodzi wszystkie etapy (stage build-test-deploy)
+- pipeline obsługuje powiadamianie o rezlutatach każdego z etapów
