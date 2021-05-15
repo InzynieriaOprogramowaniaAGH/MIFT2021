@@ -1,0 +1,20 @@
+0. Zapoznanie sie z diagramem omawianym na zajeciach
+
+1. Zapoznanie sie z oprogramowaniem Jenkinsa
+
+2. Stworzenie kontenera dockerowego:
+	- utworzenie dockerowej sieci dla jenkinsa
+	- pobranie i uruchomienie obrazu docker:dind(dockerowe polecenia w jenkinsowych nodeach)
+	- stworzenie Dockerfilea dla jenkinsa
+	- budowa obrazu i uruchomienie go
+
+3. Wrzucenie obrazu jenkinsa na dockeerhuba:
+	- utworzenie taga na obraz - sudo docker tag [id] stochel/lab05
+	- push obrazu na huba - sudo docker push stochel/lab05
+
+4. Uruchomienie compose z poprzednich labow z poziomu jenkinsa uruchomionego w kontenerze:
+	- zalogowanie sie na dashboarda
+	- pobranie na kontenerze docker compose za pomoca docker exec(potrzebny byl super user)
+	- utworzenie nowego joba na dashboardzie - pobranie plikow lab04 z repo oraz wykonanie docker-compose
+	- wykonanie builda srodowiska
+	

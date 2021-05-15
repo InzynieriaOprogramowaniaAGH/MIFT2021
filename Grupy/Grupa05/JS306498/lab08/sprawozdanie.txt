@@ -1,0 +1,4 @@
+1.Rozszerzyłem Jenkinsfile, stworzonego na poprzednich zajęciach o nowy stage- build.
+2.Upewniłem się, że program jest budowany, a użytkownik jest powiadamiany o powodzeniu jak i porażce etapu budowania.
+3.Po budowaniu uruchamiany jest test, a w przypadku wystąpienia błędu, etap ten jest pomijany.
+4.Stworzyłem nowego hook'a dla repozytorium z komunikatorem
