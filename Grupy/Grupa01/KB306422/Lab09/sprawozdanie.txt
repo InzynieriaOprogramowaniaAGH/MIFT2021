@@ -2,3 +2,8 @@
 Zarejestrowano na swoim repozytorium z komunikatorem githook'a, który:
  -za każdym razem gdy na głównym branchu pojawi się commit automatycznie uruchamia pipeline z Jenkinsfile'a
  -wykorzystano w tym celu token i odpowiednio skonfigurowano Jenkins'a
+
+2.
+Pipeline wyzwala się automatycznie po commicie na brnachu głównym.
+ -sprawdzono czy pipeline sie wyzwolił w odpowiednim jobie i wykonano zrzut ekranu dla dokumentacji
+
