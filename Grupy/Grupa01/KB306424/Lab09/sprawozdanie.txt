@@ -1,0 +1,26 @@
+1.
+Utworzono post-commit hooke'a, ktory za po kazdym commicie uruchamia pipeline napisany w jenkinsfile.
+W tym celu pobrano token z jenkinsa i w hooke'u wysylano request post za pomoca curl, ktory uruchamial pipeline.
+
+#!/bin/sh
+echo "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"
+curl -X POST -L --user dazaiii:11be1e3dba1d73cab26dca0fe1c1e9aab2 http://localhost:8080/job/Deltachat/build
+
+2.
+Aby sprawdzic, czy pipeline uruchamia sie automatycznie zrobiono przykladowy commit na repozytorium Deltachat.
+Po commicie pipeline zostal uruchomiony automatycznie.
+
+3.
+Rozszerzylam jenkinsfile o nowy stage "Deploy". Odpowiadal on za deploy aplikacji na kontener dockerowy.
+W tym celu w repozytorium Deltachat dodano Dockerfile.deploy korzystajacy z obrazu ubuntu:latest, 
+w ktorym zainstalowano build-essentials, npm oraz nodejs. W tym Dockerfile'u skopiowano folder z aplikacja do obrazu.
+
+4.
+Deploy wykonywany byl na dedykowany kontener dockerowy.
+Do Deploy'a przekazywany byl artefakt utworzony w stage'u "Build'. 
+Na koncu uzytkownik byl powiadamiany poprzez e-mail o sukcesie lub porazce etapu wdrazania.
+
+5.
+Pipeline zdefiniowany jest w repozytorium z komunikatorem, jest automatycznie wyzwalany i przechodzi pomyslnie wszystkie etapy.
+Po kazdym ze stage'ow wysylane sa powiadomienia e-mail, a w ostatnim e-mailu build-logi.
+Udowodnienie dzialania znajduje sie na dolaczonych screenach.
