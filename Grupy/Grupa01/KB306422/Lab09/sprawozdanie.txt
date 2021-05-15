@@ -16,3 +16,10 @@ Upewniono się, że w stage "Deploy":
  -do deploy jest przekazywany artefakt stworzony w stage "Build"
  -użytkownik jest powiadamiany zarówno o sukcesie jak i porażce etapu wdrażania
  sprawdzono logi oraz maile i wrzucono PNG
+
+5.
+Wykazano i udokumentowano w postaci PNG, że:
+ -pipeline jest zdefiniowany w Jenkinsfile w repo z komunikatorem (ls w repo komunikatora)
+ -jest automatycznie wyzwalany (dokładnie ten sam czas wyzwolenia i commita)
+ -przechodzi wszystkie etapy (PNG z maila oraz joba)
+ -obsługuje powiadamianie o rezultatach każdego etapu (PNG z maila oraz sprawdzenie logów)
