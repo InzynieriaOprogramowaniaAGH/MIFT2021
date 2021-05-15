@@ -10,4 +10,8 @@
 - do deploya jest przekazywany artefakt stworzony w stage("Build")
 - uzytkownik jest powiadamiany o sukcesie jak i porazce etapu wdrazania
 
-
+5. Udokumentowano na screenach ze:
+- pipeline jest zdefiniowany w Jenkinsfile w repozytorium z komunikatorem
+- pipeline jest automatycznie wyzwalany
+- pipeline przechodzi wszystkie etapy
+- pipeline obsluguje powiadamianie o rezultatach kazdego z etapow
