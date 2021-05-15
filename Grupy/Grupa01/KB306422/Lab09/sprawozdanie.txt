@@ -1,0 +1,4 @@
+1.
+Zarejestrowano na swoim repozytorium z komunikatorem githook'a, który:
+ -za każdym razem gdy na głównym branchu pojawi się commit automatycznie uruchamia pipeline z Jenkinsfile'a
+ -wykorzystano w tym celu token i odpowiednio skonfigurowano Jenkins'a
