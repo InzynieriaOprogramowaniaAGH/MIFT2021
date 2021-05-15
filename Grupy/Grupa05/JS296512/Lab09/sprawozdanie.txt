@@ -1,4 +1,9 @@
 1. Zarejestrowałem w swoim repozytorium z komunikatorem webhook'a. Takiego aby:
 - za każdym razem gdy na głównym branchu pojawia się commit, uruchamiał pipeline opisywany w Jenkinsfile.
 
+2. Rozszerzyłem Jenkinsfile z Lab08 o nowy stage deploy. Upewniłem się, że:
+- deploy jest wykoywany na dedykowany kontener dockerowy,
+- do deploya jest przekazywany artefakt stworzny w stage build, 
+- użytkownik jest powiadamiany zarówno o sukcesie jak i porażce etapu wdrażania.
+
 
