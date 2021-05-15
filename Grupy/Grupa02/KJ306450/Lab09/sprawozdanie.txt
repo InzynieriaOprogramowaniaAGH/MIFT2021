@@ -1,0 +1,18 @@
+1. Pierwszym etepem wykonania ćwiczenia było zainstalowanie oprogramowania ngrok.
+Po zakończonej instalacji zmieniono ustawienia pipeline, tak aby było on
+uruchamiany po każdym commicie na GitHub (zaznaczono opcje GitHub hook trigger for
+GITScm polling"). Następnie w ustawieniach repozytorium komunikatora utworzono
+nowy webhook.
+
+2.Wykonano commita i sprawdzono, czy pipeline uruchomia się automatycznie.
+
+3. Na poprzednich zajęciach w stage("Build") utworzono obraz docerowy
+komunikatora. Utworzony obraz należało przenieść na dedykowany kontener docerowy,
+dlatego utworzono nowy Dockerfile z systemem ubuntu. Wcześniej otagowano obraz
+aplikacji z stage("Build"), tak aby w przyszłości można go było opublikować na
+DockerHubie. W kolejnym kroku spakowano obraz zbudowanego komunikatora.
+Uruchomiono dedykowany kontener i następnie przekowiowano do niego spakowany
+obraz. Ostatnim krokiem było rozpakowanie pliku i załadowanie obrazu
+zbudowanej aplikacji w tym kontenerze. Na koniec do użytkownika wysyłany
+jest mail z informacją o wynikach etapu Deploy.
+
