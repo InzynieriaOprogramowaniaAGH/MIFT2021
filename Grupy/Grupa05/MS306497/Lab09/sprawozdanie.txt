@@ -1,0 +1,2 @@
+1. Zarejestrowano w repozytorium z komunikatorem webhooka
+- za kazdym razem gdy na glownym branchu pojawia sie commit uruchamiany jest pipeline opisywany w Jenkinsfile
