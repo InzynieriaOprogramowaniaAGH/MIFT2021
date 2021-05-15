@@ -1,0 +1,18 @@
+1. Zarejestrowano kontener Jenkinsowy w serwisie ngrok co umożliwiło udostępnienie kontenera na zewnątrz
+- skofigurowano pipeline Jenkinsa na komunikację z Githubem, gdy pojawi się nowy commit za pomocą webhooka.
+- za każdym razem gdy na głównym branchu pojawia się commit, uruchomia się pipeline opisywany w Jenkinsfile.
+
+2. Po commicie pipeline uruchamia się automatycznie.
+
+3. Rozszerz Jenkinsfile z Lab09 o nowy stage("Deploy") - dokumentacja z dostępnymi poleceniami jest tu: https://www.jenkins.io/doc/book/pipeline/jenkinsfile/.
+
+4. W stage("Deploy") dodano:
+- deploy na kontener dockerowy
+- do deploya jest przekazywany artefakt stworzny w stage("Build") 
+- użytkownik jest powiadamiany zarówno o sukcesie jak i porażce etapu wdrażania poprzez e-mail z logami.
+
+5. Podsumowując:
+- pipeline jest zdefniowany w Jenkinsfile w repozytorium z komunikatorem
+- pipeline jest automatycznie wyzwalany po każdym commicie na repozytorium z komunikatorem
+- pipeline przechodzi wszystkie etapy (stage build-test-deploy)
+- pipeline obsługuje powiadamianie o rezlutatach każdego z etapów (build-test-deploy) poprzez wysłanie e-maila wraz z logami.
