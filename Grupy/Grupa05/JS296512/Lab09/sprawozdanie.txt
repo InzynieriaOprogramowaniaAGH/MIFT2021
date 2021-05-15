@@ -6,4 +6,8 @@
 - do deploya jest przekazywany artefakt stworzny w stage build, 
 - użytkownik jest powiadamiany zarówno o sukcesie jak i porażce etapu wdrażania.
 
-
+3. Udokumentowałem za pomocą zrzutów ekranu, że:
+- pipeline jest zdefniowany w Jenkinsfile w repo z komunikatorem
+- pipeline jest automatycznie wyzwalany
+- pipeline przechodzi wszystkie etapy (stage build-test-deploy)
+- pipeline obsługuje powiadamianie o rezlutatach każdego z etapów
