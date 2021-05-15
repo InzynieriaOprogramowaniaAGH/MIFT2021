@@ -1,0 +1,8 @@
+#!/bin/bash
+
+string="KP306488"
+if ! grep -iqE "$string" "$1"; then
+	echo "Blad"
+	exit 1
+fi
+echo "Poprawne"

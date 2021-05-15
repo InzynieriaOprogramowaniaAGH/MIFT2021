@@ -1,0 +1,59 @@
+0. Zapoznałem się z diagramem omawianym na zajęciach.
+
+1. Zapoznałem się z oprogramowaniem Jenkins: https://www.jenkins.io/.
+
+2. Stwórzyłem kontener dockerowy z Jenkinsem posługując się instrukcją https://www.jenkins.io/doc/book/installing/docker/
+
+	$ sudo docker network create jenkins
+	
+	$ sudo docker run --name jenkins-docker --rm --detach \
+	  --privileged --network jenkins --network-alias docker \
+	  --env DOCKER_TLS_CERTDIR=/certs \
+	  --volume jenkins-docker-certs:/certs/client \
+	  --volume jenkins-data:/var/jenkins_home \
+	  --publish 2376:2376 docker:dind --storage-driver overlay2
+	  
+	Utworzyłem plik Dockerfile:
+		FROM jenkins/jenkins:2.277.1-lts-jdk11
+		USER root
+		RUN apt-get update && apt-get install -y apt-transport-https \
+		       ca-certificates curl gnupg2 \
+		       software-properties-common
+		RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+		RUN apt-key fingerprint 0EBFCD88
+		RUN add-apt-repository \
+		       "deb [arch=amd64] https://download.docker.com/linux/debian \
+		       $(lsb_release -cs) stable"
+		RUN apt-get update && apt-get install -y docker-ce-cli
+		USER jenkins
+		RUN jenkins-plugin-cli --plugins "blueocean:1.24.5 docker-workflow:1.26"
+		
+	Zbudowałem obraz dockera:	
+	$ sudo docker build -t myjenkins-blueocean:1.1 .
+	
+	$ sudo docker run --name jenkins-blueocean --rm --detach \
+	  --network jenkins --env DOCKER_HOST=tcp://docker:2376 \
+	  --env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=1 \
+	  --publish 8080:8080 --publish 50000:50000 \
+	  --volume jenkins-data:/var/jenkins_home \
+	  --volume jenkins-docker-certs:/certs/client:ro \
+	  myjenkins-blueocean:1.1
+
+3. Wrzuciłem obraz swojego Jenkinsa na DockerHub'a, analogicznie jak poprzednie obrazy.
+
+4. Następnie z poziomu Jenkinsa uruchomionego w kontenerze, uruchomiłem docker-compose stworzony w ramach Lab04:
+
+	cd Grupy/Grupa04/AP306492/Lab04
+	pwd
+	ls
+	curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+	chmod +x /usr/local/bin/docker-compose
+	docker --version
+	docker-compose --version
+	docker-compose up
+
+- Jenkins jest uruchomiony w kontenerze
+- po Lab04 plik docker-compose.yaml jest w repozytorium 
+- z poziomu Jenkinsa ściągamy repo gdzie jest nasz plik docker-compose.yaml
+- Jenkins uruchamia plik docker-compose.yaml tworząc środowisko z Lab04
+

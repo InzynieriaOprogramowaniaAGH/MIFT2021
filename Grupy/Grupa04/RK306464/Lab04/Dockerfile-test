@@ -1,0 +1,2 @@
+FROM chat-app
+ENTRYPOINT [ "npm", "run", "test" ]

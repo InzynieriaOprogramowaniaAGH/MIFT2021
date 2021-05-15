@@ -1,0 +1,24 @@
+1. Utworzyłem swojego brancha (Grupa04-MP306490_Lab04)
+
+- Wrzucilem obraz z poprzednich zajęć do serwisu Docker HUB:
+
+Uzyte komendy:
+-docker tag IMAGE_ID nazwa_uzytkownika/nazwa_repo
+-docker push nazwa_uzytkownika/nazwa_repo
+
+2.Wybralem komunikator na githubie:
+https://github.com/binhxn/node-chat-app
+
+3.Utworzyłem nowy obraz kontenera i ustawiem tak, zeby był w stanie wykonać operację build komunikatora:
+sudo docker build -t dockerbuild:build . -f DockerFile.build
+sudo docker run -it -p 3000:3000 IMAGE_ID
+
+4.Stwórzyłem nowy obraz kontenera dockerowego i ustawilem tak, zeby był w stanie wykonać operację testowanie komunikatora korzystając z wcześniejszego programu:
+
+sudo docker build -t dockertest:test . -f DockerFile.test
+
+5.Utworzyłem plik docker-compose.yml. Stowrzyłem środowisko, które:
+- ściąga z repozytorium najnowszą wersję "komunikatora"
+- buduje go
+- testuje czy komunikator działa
+sudo docker-compose up

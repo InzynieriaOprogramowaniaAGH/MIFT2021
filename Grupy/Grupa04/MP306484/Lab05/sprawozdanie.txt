@@ -1,0 +1,54 @@
+Michał Pastuszko lab 05 sprawozdanie
+
+1.Zapoznano się z oprogramowaniem Jenkins.
+2.Używając poradnika znajdującego się na stronie Jenkinsa https://www.jenkins.io/doc/book/installing/docker/ utworzono sieć dockerową o nazwie jenkins poleceniem docker network create jenkins, następnie uruchomiono kontener bazujący na obrazie docker:dind poleceniem:
+
+docker run \
+  --name jenkins-docker \
+  --rm \
+  --detach \
+  --privileged \
+  --network jenkins \
+  --network-alias docker \
+  --env DOCKER_TLS_CERTDIR=/certs \
+  --volume jenkins-docker-certs:/certs/client \
+  --volume jenkins-data:/var/jenkins_home \
+  --publish 2376:2376 \
+  docker:dind \
+  --storage-driver overlay2
+
+Następnie zbudowano obraz Jenkinsa poleceniem docker build korzystając z podanego na powyższej stronie Dockerfile, modyfikując go poprzez instalację sudo oraz nadanie użytkownikowi jenkins uprawnień do uruchamiania sudo.
+
+Dockerfile:
+FROM jenkins/jenkins:2.277.1-lts-jdk11
+USER root
+RUN apt-get update && apt-get install -y apt-transport-https \
+       ca-certificates curl gnupg2 \
+       software-properties-common
+RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+RUN apt-key fingerprint 0EBFCD88
+RUN add-apt-repository \
+       "deb [arch=amd64] https://download.docker.com/linux/debian \
+       $(lsb_release -cs) stable"
+RUN apt-get update && apt-get install -y docker-ce-cli
+RUN apt-get install sudo -y
+USER jenkins
+RUN jenkins-plugin-cli --plugins "blueocean:1.24.5 docker-workflow:1.26"
+USER root
+RUN usermod -aG sudo jenkins
+
+Kolejnym krokiem było uruchomienie kontenera z Jenkinsem poleceniem:
+docker run --name jenkins-lab05-container --rm --detach ^--network jenkins --env DOCKER_HOST=tcp://docker:2376 ^--env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=1 ^--volume jenkins-data:/var/jenkins_home ^--volume jenkins-docker-certs:/certs/client:ro ^--publish 8080:8080 --publish 50000:50000 jenkins-lab05
+
+3.Aby opublikować obraz Jenkinsa na dockerhubie nadano mu tag poleceniem docker tag jenkins-lab05 mpast99/jenkins-lab05.Opublikowano obraz przy pomocy docker push mpast99/jenkins-lab05.
+4.Uruchomiono Jenkinsa w przeglądarce poprzez połączenie się z localhost:8080. Odblokowano Jenkinsa korzystając z hasła znajdującego się w pliku logów, odczytano je za pomocą docker logs jenkins-lab05-container. Utworzono nowego administratora oraz zainstalowano potrzebne pluginy. Stworzono nowy projekt. W zakładce repozytorium kodu wybrano git oraz umieszczono link do repozytorium. Jako branch wskazano branch z poprzednich zajęć tj. Grupa04-MP306484_Lab04.
+  W zakładce budowanie wybrano uruchom powłokę, wpisano komendy pobierające docker-compose, nadające prawa do wykonania oraz uruchamiające docker-compose w odpowiednim katalogu tj.
+  
+  curl -L https://github.com/docker/compose/releases/download/1.29.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+  chmod +x ~/docker-compose
+  sudo mv ~/docker-compose /usr/local/bin/docker-compose
+  cd Grupy/Grupa04/MP306484/Lab04
+  ls
+  docker-compose up
+
+  Projekt uruchomiono. Zadanie zakończyło się sukcesem.

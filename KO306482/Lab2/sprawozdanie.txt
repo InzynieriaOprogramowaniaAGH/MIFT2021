@@ -1,5 +1,4 @@
 Metodyki DevOps, Lab02, 12.03.2021
-
 Zadanie 1
 	1. Wygenerowanie klucza SSH przy użyciu polecenia:
 	 	* ssh-keygen -t ed25519 -C "kamil.osika@spoko.pl"
@@ -47,3 +46,4 @@ zadanie 5
 		* git merge Grupa04-KO306482_Lab02
 	3. Usunięcie brancha roboczego	
 		* git branch -d Grupa04-KO306482_Lab02
+

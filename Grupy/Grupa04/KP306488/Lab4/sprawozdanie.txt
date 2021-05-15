@@ -1,0 +1,18 @@
+1. Stworzyłem brancha osobistego (Grupa04-KP306488_Lab04) od mojego brancha grupowego.
+
+Opublikowałem obraz w serwisie DockerHub:
+
+sudo docker tag 23d664ad591f kpodwika8/kp-devops
+sudo docker push kpodwika8/kp-devops
+
+2. Znalazłem w internecie komunikator https://github.com/binhxn/node-chat-app
+
+3. Stworzyłem nowy obraz kontenera i skonfigurowałem go w taki sposób by był w stanie wykonywać operację budowania "komunikatora" 
+sudo docker build -t build-agent:build . -f Dockerfile.build
+sudo docker run -it -p 3000:3000 b9e7bff3d67d
+
+4. Stworzyłem nowy obraz kontenera dockerowego i skonfigurowałem go aby był w stanie wykonywać operację testowania "komunikatora"
+sudo docker build -t docker-test:test . -f Dockerfile.test
+
+5. Stowrzyłem plik docker-compose.yml
+sudo docker-compose up
