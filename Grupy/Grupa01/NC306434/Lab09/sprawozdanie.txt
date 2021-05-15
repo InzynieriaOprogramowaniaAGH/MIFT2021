@@ -1,0 +1,3 @@
+Natalia Czachor Lab09
+
+1. Zarejestrowano w swoim repozytorium z komunikatorem webhook'a. Za każdym razem gdy na głównym branchu pojawia się commit, uruchamiany jest pipeline opisywany w Jenkinsfile.
