@@ -2,3 +2,12 @@
 - za kazdym razem gdy na glownym branchu pojawia sie commit uruchamiany jest pipeline opisywany w Jenkinsfile
 
 2. Wykazano i udokumentowano automatyczne wyzwolenie pipelina
+
+3. Rozszerzono Jenkinsfile z Lab08 o nowy stage("Deploy")
+
+4. W stage("Deploy") upewniono sie ze:
+- deploy jest wykonywany na dedykowany kontener dockerowy
+- do deploya jest przekazywany artefakt stworzony w stage("Build")
+- uzytkownik jest powiadamiany o sukcesie jak i porazce etapu wdrazania
+
+
