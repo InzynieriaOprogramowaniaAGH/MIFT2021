@@ -7,3 +7,5 @@ Post wykonywany jest bez błędów z użyciek tokenu api.
 polecenie jakie wykonuje githook:
 
 curl -X POST http://localhost:8080/job/deltachatPipeline/build --user "admin:<myApiToken>"
+
+Na zrzucie ekranu widoczny jest moment po wpisaniu komendy, kiedy jenkins rozpoczyna pipeline.
