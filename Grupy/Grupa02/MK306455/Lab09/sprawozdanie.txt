@@ -6,7 +6,7 @@
 
 
 3 oraz 4.
- - Mialem kilka koncepcji tworzenia stage deploy. Najpierw postanowilem zmienic Jenkinsfile, aby w stage Build oraz Test uzywane byly Dockerfile z Lab04. W stage Deploy dokonywana byla zmiana nazwy obrazu ze stage deploy i wypchniecie na DocherHub.(plik Jenkinsfile_1).
+ - Mialem kilka koncepcji tworzenia stage deploy. Najpierw postanowilem zmienic Jenkinsfile, aby w stage Build oraz Test uzywane byly Dockerfile z Lab04. W stage Deploy dokonywana byla zmiana nazwy obrazu ze stage Build i wypchniecie na DocherHub.(plik Jenkinsfile_1).
  - Potem zorientowalem sie ze zle zrozumialem tresc zadania. W nowej wersji Jenkinsfile to w stage Deploy jest budowany obraz (plik "Deploy") z plikow zrodlowych na ktorych wykonywano budowanie oraz testowanie (npm install oraz npm test). Co prawda w tresci zadania nie bylo wspomniane nic o wypychaniu na DockerHub, jednak postanowilem je zostawic. (plik Jenkinsfile). Aby wypchnac na DockerHub nalezalo ustawic Jenkins Credentials analogicznie jak dla github (nazwalem je docherhub_id).
 
 5. 
