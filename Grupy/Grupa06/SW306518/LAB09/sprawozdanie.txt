@@ -1,0 +1,14 @@
+1. Utworzyłem post-commita, który po każdym commicie uruchamia pipeline jenkinsowy, aby to było możliwe potrzebny był token z jenkinsa. Do realizacji zadania użyto requesta POST za pomocą curla.
+
+
+echo "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"
+curl -X POST -L --user macovv:34rw1e5dta6d93fum76ava1ee6w3h7ffo6 http://localhost:8080/job/Deltachat/build
+
+
+2. Przetestowanie automatycznego wyzwalania pipelina.
+
+3. Stworzenie noweego stage'a deploy w Jenkinsfile. Dlatego też stworzyłem Dockefile.deploy w ktorym zainstalowano build-essentials, npm oraz nodejs a także skopiowano folder z apką do obrazu.
+
+4. Wykonany deploy jest dedykowany na dockerowy kontener. Do deployu przekazywany jest artefakt z stage Build. Na koniec wysyłane jest powiadomienie mail o wyniku deploya.
+
+5. Pipeline przechodzi przez wszystkie etapy, po każdym z nich wysyłane jest powiadomienie email. 
