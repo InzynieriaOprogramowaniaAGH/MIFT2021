@@ -1,0 +1,8 @@
+Grzegorz Cebula
+1.Posiadalem zainstalowanego gita
+2.Sklonowanie repozytorium poleceniem git clone
+3.Zapoznanie sie z instrukcja laboratoriow
+4.Utworzenie nowego brancha i przelaczenie sie na niego uzywajac git branch oraz git checkout i dodanie plikow do repozytorium (git add i git commit)
+5.Dodanie w pliku sprawozdanie.txt opis wykonania cwiczenia
+6.Dodanie screenshotow potwierdzajacych wykonanie cwiczenia do repozytorium oraz wykonanie polecenia git push
+7.Merge swojego brancha z mainem z uyciem git merge GC306428
