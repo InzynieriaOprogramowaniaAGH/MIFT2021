@@ -1,0 +1,15 @@
+1.)Pobranie wtyczki do Jenkinsa github integration.
+
+1.1)Zaznaczenie odpowiedniej opcji w konfiguracji pipeline'a, aby umożliwić trigerowanie pipline po każdym commicie do repozytorium. 
+
+1.2.)Następnie przystąpiłem do dodania webhook'a do repozytorium z komunikatorem, lecz najpierw należało przekierować jenskinsa uruchomionego na localhoscie na publiczny adres proces ten nazywamy tunelowaniem, wykorzystałem do tego aplikacje ngrok, która za pomoca chmury akceptuje ruch na publicznym adresie a następnie przekierowywuje ruch do lokalnej aplikacji.
+
+1.3)Dodanie webhook'a do repozytorium z komunikatorem.
+
+2)Udokumentowanie automatycznego wyzwalania pipelin'a poprzez zrobienie zrzutu ekranu logów konsoli. 
+
+3)Dodanie nowego stage'a Deploy do jenkinsfile'a.
+
+4)Stworzenie dockerfile "docker-deploy" realizującego proces wdrażania na dedykowanym kontenerze dockerowym.Udokumentowanie działania zrzutem ekranu.
+
+5)Sprawdzenie poprawności działania pipeline'a wraz z wysyłaniem powiadomień o rezultacie każdego z etapów.
