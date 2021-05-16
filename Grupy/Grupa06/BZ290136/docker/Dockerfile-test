@@ -1,0 +1,5 @@
+FROM wire
+
+WORKDIR ./wire-desktop
+
+RUN npm test
