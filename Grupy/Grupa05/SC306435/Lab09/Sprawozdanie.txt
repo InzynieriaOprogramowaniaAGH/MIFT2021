@@ -1,11 +1,48 @@
-Stworzyłem branch tymczasowy
-Do uruchamiania pipeline użyłem przygotowanego na wcześniejszych laboratoriach githooka post-commit.
+Stworzyłem na czas wykonywania zadań branch tymczasowy, który zostanie usunięty po stworzeniu pull requesta do brancha grupowego.
 
-Spróbowałem w nim podawać username:password, lecz po paru nieudanych próbach wygenerowałem API token dla użytkownika admin. 
+1. Stworzenie githooka
+Do uruchamiania pipeline użyłem przygotowanego na wcześniejszych laboratoriach githooka post-commit.
+Spróbowałem w nim podawać --user <username>:<password>, lecz po paru nieudanych próbach wygenerowałem API token dla użytkownika admin. 
 Post wykonywany jest bez błędów z użyciek tokenu api.
 
 polecenie jakie wykonuje githook:
-
 curl -X POST http://localhost:8080/job/deltachatPipeline/build --user "admin:<myApiToken>"
 
-Na zrzucie ekranu widoczny jest moment po wpisaniu komendy, kiedy jenkins rozpoczyna pipeline.
+
+2. Udowodnienie, że działa automatycznie
+Na zrzucie ekranu JenkinsPipelinePending widoczny jest moment po wykonaniu commita, oraz przyjęciu przez jenkinsa polecenia wykonania pipeline.
+Stan joba Jenkinsowego "Pending" nie występuje w razie uruchomienia go ręcznie.
+Widoczne także jest w logach konsoli, że Jenkins otrzymał Jenkinsfile od gita.
+
+
+3. Rozszerzenie Jenkinsfile o stage("Deploy")
+Mój jenkinsfile został stworzony z szkieletu, który jest dostępny w dokumentacji Jenkinsa. Od początku zawierał więc stage("Deploy"), który teraz wypełniłem.
+
+
+4. Co robi stage("Deploy")?
+✓ deploy jest wykoywany na dedykowany kontener dockerowy
+✓ do deploya jest przekazywany artefakt stworzny w stage("Build")
+✓ użytkownik jest powiadamiany zarówno o sukcesie jak i porażce etapu wdrażania.
+Tak jak w każdym stage, ustawiam na jego początku zmienną last_started = env.STAGE_NAME.
+Dzięki temu w razie wystąpienia błędu użytkownik otrzyma maila który w tytule zawieta nazwę stage w którym wystąpił błąd.
+Mail ten zawiera także logi konsoli, co pozwala zidentyfikować problem.
+W razie sukcesu, jedynym powiadomieniem jest wypisanie "Success" w konsoli.
+Uważam, że nie ma sensu zaśmiecać maila użytkownika za każdym razem kiedy build się powiedzie.
+
+
+5. Wykaż i udokumentuj że:
+- pipeline jest zdefniowany w Jenkinsfile w repo z komunikatorem
+- pipeline jest automatycznie wyzwalany
+
+Udowandnia to linijka logów konsoli z Jenkinsa "Obtained Jenkinsfile from git https://github.com/Scaaz/deltachat-desktop.git"
+Logi są widoczne na zrzucie ekranu GithookWorkingConsoleLog
+Drugim dowodem może być stan "Pending" który widoczny jest na zrzucie JenkinsPipelinePending.
+
+
+
+- pipeline przechodzi wszystkie etapy (stage build-test-deploy)
+- pipeline obsługuje powiadamianie o rezlutatach każdego z etapów
+
+w razie wystąpienia błędu do użytkownika wysyłany jest mail. Sukces w każdym stage widać na zrzutach JenkinsPipelinePending oraz JenkinsAllStagesSuccess.
+JenkinsAllStagesSuccess zawiera logi konsoli w miejscach, gdzie pojawiają się powiadomienia o sukcesie w konkretnym stage oraz na koniec pipeline, a także zrzut ekranu StageView Jenkinsa.
+
