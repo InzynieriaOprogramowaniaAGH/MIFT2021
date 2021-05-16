@@ -3,7 +3,7 @@
 2. Automatyczne wyzwalanie pipline udoukmentowane zostalo na zalaczonym screenshot - status wykonanego builda zawiera informacje: "Started by an SCM change".
 
 
-3. W Jenkinsfile dodano nowy stage "Deploy", ktory wykonywany jest na dedykowany kontener dockerowy, a do deploy przekzywany jest artefakt stworzony z stage "Build"
+3. - 4. W Jenkinsfile dodano nowy stage "Deploy", ktory wykonywany jest na dedykowany kontener dockerowy, a do deploy przekzywany jest artefakt stworzony z stage "Build"
 
   stage('Deploy') { 
             steps {
@@ -41,5 +41,5 @@
 		WORKDIR node-chat
 		RUN ls
 		
-		
+5. Dodanie screenow dokumentujacych wymagania punktu piatego z instrukcji.
 
