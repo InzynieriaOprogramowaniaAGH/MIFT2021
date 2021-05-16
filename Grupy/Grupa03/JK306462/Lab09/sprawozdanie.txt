@@ -1,0 +1,11 @@
+W ramach cwiczenia wykonalem nastepujace czynnosci:
+1.
+- stowrzylem webhookea ktory po pushu do repozytorium z komunikatorem rozpoczyna pipeline
+- wykorzystalem tunelowanie oraz zmodyfikowalem dotychczasowe ustawienia jenkinsa by ten mogl zostac striggerowany przez webhookea
+2.
+- udokumentowalem automatyczne wyzwalanie pipelinea
+3. 
+- dodalem do jenkinsfilea stage "deploy", ktory buduje (a w zasadzie powinien :) ) budowac obraz z aplikacja ktora przeszla pomyslnie dwa poprzednie stage
+- upewnilem sie ze uzytkownik jest informowany o statusie budowy, testow oraz deploymentu 
+
+Co do budowania obrazu z dockerfilea to nie zdodalem go zbudowac z powodu bledu dolaczonego w zrzucie ekranu. Sposoby radzenia sobie z tym problemem znalezione w internecie nie podzialaly (restart kontenera z jenkinsem, restart dockera jako serwisu, dodawanie adresow dns do roznych plikow)
