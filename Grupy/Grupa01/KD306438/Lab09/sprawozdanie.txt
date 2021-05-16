@@ -1,3 +1,6 @@
 1. W konfiguracji joba w Jekins w sekcji Build Triggers zaznaczono opcję "Poll SCM" i w schedule wpisano "* * * * *" co powoduje, że co minute sprawdzone zostanie, czy nie dodano nowego commita. Jezeli pojawi sie nowy commit pipline opisywany w Jenkinsfile zostanie od nowa uruchomiony.
 
+2. Automatyczne wyzwalanie pipline udoukmentowane zostalo na zalaczonym screenshot - status wykonanego builda zawiera informacje: "Started by an SCM change".
+
+
 
