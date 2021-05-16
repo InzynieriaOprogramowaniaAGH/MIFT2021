@@ -12,6 +12,7 @@ services:
         volumes:
             - jenkins-docker-certs:/certs/client
             - jenkins-data:/var/jenkins_home
+            - docker-data:/var/lib/docker
         expose:
             - "2376"
 
@@ -22,10 +23,12 @@ services:
             dockerfile: jenkins.Dockerfile
         networks:
             - jenkins
+            - ngrok
         environment:
             - DOCKER_HOST=tcp://docker:2376
             - DOCKER_CERT_PATH=/certs/client
             - DOCKER_TLS_VERIFY=1
+            - JAVA_OPTS=-Djenkins.security.ApiTokenProperty.adminCanGenerateNewTokens=true
         volumes:
             - jenkins-data:/var/jenkins_home
             - jenkins-docker-certs:/certs/client:ro
@@ -35,9 +38,21 @@ services:
         depends_on:
             - docker
 
+    ngrok:
+        image: wernight/ngrok
+        ports:
+            - "4040:4040"
+        networks:
+            - ngrok
+        depends_on:
+            - jenkins
+        command: "ngrok http jenkins:8080"
+
 networks:
     jenkins:
+    ngrok:
 
 volumes:
     jenkins-data:
     jenkins-docker-certs:
+    docker-data:
