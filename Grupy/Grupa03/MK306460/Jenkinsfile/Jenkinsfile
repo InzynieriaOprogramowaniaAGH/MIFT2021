@@ -5,6 +5,7 @@ pipeline{
             steps{
                 echo 'Building'
                 sh 'git pull origin master'
+                checkout scm
                 sh 'npm install'
                 sh 'npm run build'    
             }
