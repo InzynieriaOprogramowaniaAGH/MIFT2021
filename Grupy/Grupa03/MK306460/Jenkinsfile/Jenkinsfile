@@ -1,5 +1,6 @@
 pipeline{
     agent any
+    tools {nodesj "NodeJS"}
     stages {
         stage('Build') {
             steps{
@@ -12,17 +13,17 @@ pipeline{
             post{
             failure {
                 emailext attachLog: true,
-                    body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+                    body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ",
                     recipientProviders: [developers(), requestor()],
-                    to: 'kocurek@gmail.com',
-                    subject: "Build failed : Job ${env.JOB_NAME}"
+                    to: 'kocurekmagdalena7@gmail.com',
+                    subject: "Failure Jenkins Build${currentBuild.currentResult} : Job ${env.JOB_NAME}"
             }
             success {
             emailext attachLog: true,
-                body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+                body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ",
                 recipientProviders: [developers(), requestor()],
-                to: 'kocurek@gmail.com',
-                subject: "Build successful : Job ${env.JOB_NAME}"
+                to: 'kocurekmagdalena7@gmail.com',
+                subject: "Success Jenkins Build ${currentBuild.currentResult} : Job ${env.JOB_NAME}"
                  }
          }
         }
@@ -41,17 +42,18 @@ pipeline{
            post{
               success{
             emailext attachLog: true,
-            body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NAME}",
+            
+            body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ",
             recipientProviders: [developers(), requestor()],
-            subject: "Test Success ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
-            to: 'kocurek@gmail.com'        
+            subject: "Success Jenkins Test ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+             to: 'kocurekmagdalena7@gmail.com'        
                }
           failure{
             emailext attachLog: true,
-            body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NAME}",
+            body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ",
             recipientProviders: [developers(), requestor()],
-            subject: "Test failed ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
-            to: 'kocurek@gmail.com'        
+            subject: "Failure Jenkins Test ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+             to: 'kocurekmagdalena7@gmail.com'        
              }   
           }      
         }
