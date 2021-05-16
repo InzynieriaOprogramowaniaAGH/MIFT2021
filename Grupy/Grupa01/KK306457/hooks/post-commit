@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"
+curl -X POST -L --user karol71927:118f90b4a26e79a9a65636c2c4af19d9f7 http://localhost:8080/job/Deltachat/build
