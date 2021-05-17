@@ -33,7 +33,7 @@
 
 	(dokonałem zmiany w Jenkinsfile)
 	
-	def VAR = "true"
+def VAR = "true"
 
 
 pipeline {
