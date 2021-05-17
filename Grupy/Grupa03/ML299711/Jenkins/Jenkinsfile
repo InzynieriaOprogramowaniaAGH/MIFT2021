@@ -39,6 +39,23 @@ pipeline{
 				}
 			}
 		}
+		stage('Deploy') {
+            steps {
+                echo 'Deploy'
+                sh 'docker build -t socketio_deploy -f Dockerfile_socketio_deploy .'
+            }
+            post {
+				always{
+					echo 'Finished'
+				}
+				failure{
+					statusAllert('Deploy', 'Failure')
+				}
+				success{
+					statusAllert('Deploy', 'Success')
+				}
+            }
+        }
 	}
 }
 
