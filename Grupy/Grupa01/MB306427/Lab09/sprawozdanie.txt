@@ -6,3 +6,5 @@ Tym sposobem uniknąłem problemów z połączeniem webhooka (przesyłanie nazwy
 2. Udokumentowałem że job w jenkinsie wykonuje się automatycznie
 
 3. W Jenkinsfile stworzyłem nowy stage Deploy 
+
+4. WYstapił problem z połączeniem 
