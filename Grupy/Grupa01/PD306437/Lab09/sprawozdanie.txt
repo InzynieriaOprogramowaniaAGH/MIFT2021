@@ -2,3 +2,6 @@ Zadanie 1
 Aby mój jenkins był widoczny przez githuba musiałem użyć tunelowania. W tym celu skorzystałem z programu ngrok.
 Uruchomiłem go po czym dodałem w repozytorium na githubie webhooka.
 Następnie z poziomu jekinsa w ustawieniach zaznaczyłem pole "Github hook trigger for GITScm polling"
+
+Zadanie 2
+W celu zweryfikowania poprawnosci działania dodałem na repozytorium commit. Push wywołał wykonanie się pipelinu
