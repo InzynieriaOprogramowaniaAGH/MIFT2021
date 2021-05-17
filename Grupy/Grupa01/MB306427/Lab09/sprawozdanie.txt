@@ -1,0 +1,8 @@
+Sprawozdanie nr 9 Mateusz Bonk
+
+1. Pierwszy punkt został przeze mnie zrealizowany w sposób który to Jenkins o okreslony czas "pyta" sie Gita o zmiany.
+Tym sposobem uniknąłem problemów z połączeniem webhooka (przesyłanie nazwy uzytkownika oraz tokenu) oraz udostępniania swojego jenkinsa poprzez tunelowanie.
+
+2. Udokumentowałem że job w jenkinsie wykonuje się automatycznie
+
+3. W Jenkinsfile stworzyłem nowy stage Deploy 
