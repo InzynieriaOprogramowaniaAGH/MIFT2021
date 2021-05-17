@@ -1,12 +1,12 @@
-FROM node:14.16.0-buster
+FROM ubuntu:latest
+
+ENV TZ=Europe/Warsaw
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime
+RUN echo $TZ > /etc/timezone
 
 RUN apt-get update
-RUN apt-get install -y --no-install-recommends git gcc g++ make python wget ca-certificates
+RUN apt-get install git -y
+RUN apt-get install npm -y
 
-RUN mkdir /usr/local/share/ca-certificates/cacert.org
-RUN wget -P /usr/local/share/ca-certificates/cacert.org http://www.cacert.org/certs/root.crt http://www.cacert.org/certs/class3.crt
-RUN update-ca-certificates
-RUN git clone https://github.com/deltachat/deltachat-desktop.git
-WORKDIR ./deltachat-desktop
-RUN npm install
-RUN npm run build
+COPY . Socket.io-Messenger/
+WORKDIR Socket.io-Messenger

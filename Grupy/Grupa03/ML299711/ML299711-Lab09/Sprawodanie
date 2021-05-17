@@ -1,0 +1,6 @@
+1. Skonfigriwałem ustawienia Jenkinsa tak aby uruchamiał się on za pośrednictwem githooka.
+2. Zintegrowałem Jenkinsa z webhookiem zerejestrowanym w repozytorium.
+3. Skorzystałem z programu ngrok służącego do tunelowania do sieci localhost aby pominąć tworzednie zdalengo repo z kodem.
+4. Przetestowałem działanie konfiguracji.
+5. Dodałem etap deploy do całego procesu.
+6. Przetestowałem działannie.
