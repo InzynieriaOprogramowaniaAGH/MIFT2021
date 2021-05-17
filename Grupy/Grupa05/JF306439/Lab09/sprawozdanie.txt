@@ -1,0 +1,39 @@
+1. Stworzenie krotkozyjacego brancha za pomoca komendy: git checkout -b Grupa05-JF306439_Lab09
+
+2. Pobranie repozytorium z komunikatorem: git clone https://github.com/Whitiee/node-chat-app, git init
+	
+3. Edytowanie post-commit hooke'a, umieszczenie go w folderze .git/hooks, przyznanie uprawnien do wykonania: chmod +x post-commit
+
+	#!/bin/sh
+	echo 'To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie'
+	curl -X POST -L --user admin:1124ff4349f1231cc6a7233d5ff68587a0 http://localhost:8080/job/Pipeline_JF306439/build
+
+4. Sprawdzenie dzialania przez strzowenie commita na repozytorium z komunikatorem, z brancha master: git add ., git commmit -m "dzialajacy hook"
+
+5. Obserwowanie dzialania pipelina na Jenkinsie - poczatkowa informacja "pending - In te quiet period", a nastepnie poprawne wykonanie sie calego 
+	builda
+
+6. Stworzenie Stage Deploy w Jenkinsfile, w ktorym:
+	- budowany jest obraz dockerowy: sh 'docker build -t deploy -f Dockerfile-deploy .'
+	- przekazywany jest artefakt ze stage "Build"
+
+7. Dodanie pliku Dockerfile-deploy do repozytorium z komunikatorem
+	
+8. Przetestowanie dzialania pipelina - blad dial tcp: lookup docker: Temporary failure in name resolution. Sprobowano rozwiazac problem zgodnie z:
+	https://stackoverflow.com/questions/44761246/temporary-failure-in-name-resolution-errno-3-with-docker, jednak brakowalo folderu 
+	etc/default/docker, dopisano polecenie sh'apt install docker -y' w stage "Install dependencies", ale podczas budowania wyswietlala sie 
+	informacja o posiadaniu najnowszej wersji dockera. Sprobowano wiec zmienic parametry w innym pliku zgodnie z:
+	https://stackoverflow.com/questions/44184496/configuring-options-for-docker-run/44184773#44184773, jednak otrzymano blad dial tcp: lookup
+	docker: no such host. Z braku innych pomyslow na rozwiazanie pozostawiono pipeline bez zmian, wrocono do poprzednich parametrow pliku 
+	resolv.conf.
+	
+9. Udokumentowanie:
+	- pipeline jest zdefiniowany w Jenkinsfile w repo z komunikatorem: https://github.com/Whitiee/node-chat-app
+	- pipeline jest automatycznie wyzwalany (screen zadanie5_2) - informacja "pending - In te quiet period" oraz informacja w konsoli po commicie
+	 (echo z hooke'a)
+	- pipeline przechodzi wszystkie etapy (screen zadanie5_3), przechodzi wszystkie, przechodzi poprawnie wszystkie stage poza "Deploy", problem
+	opisany w punkcie 8 sprawozdania.
+	- pipeline obsluguje powiadomienia o porazkach kazdego z etapow (screen zadanie5_4) 
+
+10. Dolaczenie zmian na Git'a
+

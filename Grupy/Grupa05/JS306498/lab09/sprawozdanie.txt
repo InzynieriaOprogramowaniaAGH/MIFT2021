@@ -1,0 +1,13 @@
+1.Zarejestrowałem w swoim repozytorium z komunikatorem webhook'a, wykorzystałem ngrok'a do upublicznienia mojego localhost'a
+2.Wykazałem automatyczne wyzwalanie pipeline'a
+3.Rozszerzyłem Jenkinsfile z Lab09 o nowy stage("Deploy") 
+4.W stage("Deploy") upewniłem się, że:
+- deploy jest wykoywany na dedykowany kontener dockerowy
+- do deploya jest przekazywany artefakt stworzny w stage("Build") 
+- użytkownik jest powiadamiany zarówno o sukcesie jak i porażce etapu wdrażania.
+5.Wykazałem i udokumentowałem że:
+- pipeline jest zdefniowany w Jenkinsfile w repo z komunikatorem
+- pipeline jest automatycznie wyzwalany
+- pipeline przechodzi wszystkie etapy (stage build-test-deploy)
+- pipeline obsługuje powiadamianie o rezlutatach każdego z etapów
+
