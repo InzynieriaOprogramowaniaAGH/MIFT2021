@@ -1,0 +1,5 @@
+1. Zainstalowalam klienta git poleceniem sudo apt-get install git-all.
+2. Sklonowalam zdalne repozytorium poleceniem git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git . Narysowalam graf.
+4. Stworzylam i przelaczylam sie na nowy branch NC306434 poleceniem git checkout -b NC306434. Stworzylam folder NC306434 na tym branchu za pomoca polecenia mkdir. nastepnie stworzylam folder Lab01, a w nim za pomoca polecenia touch stworzylam plik sprawozdanie.txt. Dodalam ten plik do repozytorium git'a za pomoca polecenia git add . i wykonalam commita git commit -m "Add sprawozdanie.txt". Dodal plik z grafem z pkt. 2. i wykonalam commita.
+6. Wykonalam commita i push brancha na remot'a poleceniem git push origin NC306434. 
+7. Wykonalam merga do glownego remot'a. Wykonalam git checkout master i git merge NC306434. Wykonalam git pull origin master i git push origin master.

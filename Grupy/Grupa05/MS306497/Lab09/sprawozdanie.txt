@@ -1,0 +1,17 @@
+1. Zarejestrowano w repozytorium z komunikatorem webhooka
+- za kazdym razem gdy na glownym branchu pojawia sie commit uruchamiany jest pipeline opisywany w Jenkinsfile
+
+2. Wykazano i udokumentowano automatyczne wyzwolenie pipelina
+
+3. Rozszerzono Jenkinsfile z Lab08 o nowy stage("Deploy")
+
+4. W stage("Deploy") upewniono sie ze:
+- deploy jest wykonywany na dedykowany kontener dockerowy
+- do deploya jest przekazywany artefakt stworzony w stage("Build")
+- uzytkownik jest powiadamiany o sukcesie jak i porazce etapu wdrazania
+
+5. Udokumentowano na screenach ze:
+- pipeline jest zdefiniowany w Jenkinsfile w repozytorium z komunikatorem
+- pipeline jest automatycznie wyzwalany
+- pipeline przechodzi wszystkie etapy
+- pipeline obsluguje powiadamianie o rezultatach kazdego z etapow
