@@ -9,4 +9,8 @@ Tym sposobem uniknąłem problemów z połączeniem webhooka (przesyłanie nazwy
 
 4. W stworzonym w punkcie 3 stage('Deploy') uruchamiam kontener dockerowy, na którym jest wdrażana aplikacja
 
-5.
+5. Wykazałem że :
+	pipeline jest definiowany w Jenkinsfile w repo z api
+	Pipeline est wyzwalany automatycznie przez Jenkinsa
+	pipeline przechodzi poprawnie wszystkie stage zdefiniowane w Jenkinsfile
+	pipeline wywyła komunikaty a każdym etapie
