@@ -1,0 +1,9 @@
+﻿1. Aby możliwy był dostęp do jenkinsa "spoza" lokalnej maszyny, która nie posiada publicznego ip konieczne jest przekierowanie zapytania przez usługę trzecią. Tutaj wykorzystano webhookrelay, który przekierowuje ("tuneluje") webhooke'a z githuba reagującego na push do repo na jenkinsa (localhost:8080), który po odebraniu webhooke'a rozpoczyna pipeline. Zostało to wykonane w następujących etapach:
+	a. Utworzenie kluczy w usłudze webhookrelay, zainstalowanie oprogramowania “relay” służącego do przekierowania i uruchomienie “agenta”.
+	b. Konfiguracja webhooke’a w githubie.
+	c. Konfiguracja pipeline’a aby był uruchamiany po otrzymaniu webhooke’a.
+2. Etap "Deploy" odbywa się w następujących etapach:
+	a. Uruchomienie kontenera
+	b. Spakowanie obrazu z etapu "build". (docker save -o <plik docelowy> <nazwa obrazu>)
+	c. Przekopiowanie obrazu do kontenera utworzonego w pkt. a. (docker cp <plik źródłowy> <kontener_docelowy>:<ścieżka>)
+	d. Rozpakowanie i załadowanie obrazu w kontenerze z pkt. a. (docker load -i <załadowany obraz>)
