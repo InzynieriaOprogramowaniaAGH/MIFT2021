@@ -1,0 +1,7 @@
+1. Ustanowienie source of truth w repozytorium MIFT
+
+2.1 Przygotowanie forka repozytorium z aplikacja chatu i dodanie tam Jenkinsfile
+
+2.3 Przygotowanie Jenkins pipeline poprzez interfejs przegladarkowy
+
+
