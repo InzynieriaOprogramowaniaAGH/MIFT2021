@@ -20,3 +20,4 @@ Rozwiązaniem tego problemu było ponowne utworzenie kontenerów z jenkinsem.
 
 Plik Jenkinsfile znajduje sie w folderze Jenkinsfile.
 Plik Dockerfile-deploy znajduje sie w folderze Dockerfile.
+post-commit znajduje sie w folderze hooks
