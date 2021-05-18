@@ -56,7 +56,7 @@ pipeline {
 	          }
 	       }
 	    steps {
-	       echo 'Deploy!'
+	       echo 'Deploy...'
 	       sh 'docker build -t app-chat -f Dockerfile_app .'
 	       
 	    }

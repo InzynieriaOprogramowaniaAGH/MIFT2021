@@ -7,4 +7,6 @@ Tym sposobem uniknąłem problemów z połączeniem webhooka (przesyłanie nazwy
 
 3. W Jenkinsfile stworzyłem nowy stage Deploy 
 
-4. WYstapił problem z połączeniem 
+4. W stworzonym w punkcie 3 stage('Deploy') uruchamiam kontener dockerowy, na którym jest wdrażana aplikacja
+
+5.
