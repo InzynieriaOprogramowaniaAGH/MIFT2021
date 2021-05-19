@@ -6,7 +6,21 @@
 	ssh-add ~/.ssh/id_ed25519
 1.4. Przypisaem klucz do konta i polaczylem sie z repo
 
-2.Dodalem commit z tagiem:
-	git tag -a MT299769_Lab02 -m "Lab02-poczatek"
-3.cos tam cos tram
-xDDDDD
+2.1  Dodalem commit z tagiem:
+	git tag -a MT299769_Lab02 -m "komentarz"
+2.2  Wrzuciłem tą zmianę na swojego brancha na origin, a następnie remote/origin używając: 
+	git push --follow-tags
+
+3.1  Uporządkowałem foldery i stowrzyłem brancha Grupa06-MT299769-Lab02
+4.1  Napisałem git hooka:
+	word="MT299769"
+	isPresent=$(grep ^"$word" $1)
+
+	if [[ -z $isPresent ]]
+  	then echo "commit nie rozpoczyna się od poprawnej frazy"; exit 1;
+  	else echo "commit ok"; exit 0;
+	fi
+4.2 Wpiąłem go w plik commit-msg (wczesniej zmieniłem jego nazwe, żeby była bez końcówki ".sample"
+5.1 Dodałem zmiany
+5.2 Zmergowałem swojego brancha do grupowego
+5.3 Zrobiłem pull requesta
