@@ -7,4 +7,5 @@ RUN apt-get -y install npm
 
 COPY . /feathers-chat-app
 WORKDIR /feathers-chat-app
+
 RUN npm install

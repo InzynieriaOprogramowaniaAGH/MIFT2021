@@ -1,0 +1,20 @@
+Grzegorz Cebula Lab09
+
+Zadanie 1
+Zarejestrowalem w repozytorium aplikacji webhooka. Jako URL podalem adres wygenerowany przez ngroka (narzedzie do tunelowania).
+Po upublicznieniu adresu Jenkinsa i zmodyfikowaniu konfiguracji pipeline'u, tak aby jego wykonywanie sie bylo wywolywane przez commit na repozytorium, upewnilem sie ze wszystko dziala.
+Ping webhooka przeszedl poprawnie.
+
+Zadanie 2
+Przetestowalem automatyczne uruchomienie pipeline'u poprzez dodanie nowego commita w repozytorium aplikacji (zrzuty ekranu)
+
+Zadanie 3
+Dodalem nowy stage w Jenkinsfile'u "Deploy", w ktorym budowany jest kontener dockerowy uzywajac "Dockerfile_Deploy"
+Deploy wykonywany jest, tylko po poprawnym przejsciu dwoch poprzednich stage'ow: Build i Test.
+
+Zadanie 4
+Poprawnie przekazywany jest artefakt z etapu "Build", lecz dalej nie udalo mi sie rozwiazac problemu z wysylanie powiadomienia na maila (Jenkinsfile jest poprawnie skonfigurowany pod wysylanie maili).
+
+Zadanie 5
+Przetestowanie poprawnego dzialania pipeline'u z dodanym nowym stage'em "Deploy". Na zrzutach ekranu widocznego jest uruchomienie pipeline'u przez commit w repozytorium oraz poprawne wykonanie.
+

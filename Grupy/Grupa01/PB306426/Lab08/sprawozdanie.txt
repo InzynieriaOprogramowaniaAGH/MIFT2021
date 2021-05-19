@@ -1,0 +1,3 @@
+1,2,3. Dodano etap budowania do Jenkinsfile i zmodyfikowana go tak żeby testy nie uruchamiały sie jeśli build sie nie uda, dokonano tego dzięki dodaniu bloków post, użytkownik nadal jest powiadamiany mailowo o wyniku obu procesów:
+
+4.Zrobiono post-commita w repo aplikacji
