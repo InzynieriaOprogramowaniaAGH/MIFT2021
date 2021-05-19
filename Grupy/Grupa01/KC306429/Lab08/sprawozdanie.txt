@@ -1,0 +1,12 @@
+1) Dodanie do stworzonego na poprzednich laboratoriach sekcji build.
+
+2)Pobranie najnowszej wersji repozytorium za pomoca komendy "git pull origin master".
+
+2.1)Budowanie programu za pomoca "npm build".
+
+2.2)Powiadomienie użytkownika o sukcesie/porażce procesu budowania.
+
+3)Upewnienie sie, że po nieudanym budowaniu, stage test nie jest uruchamiany, poprzez uruchomienie pipeline przed doinstalowaniem npm w kontenerze.
+
+4)Stworzenie post-commit hook'a dla repozytorium z komunikatorem wyświetlajacy odpowiedni komunikat za pomoca "echo 'komunikat'" po wykonaniu commit'a do repozytorium.
+Aby post-commit działał należało mu nadać uprawenienia chmod +x.

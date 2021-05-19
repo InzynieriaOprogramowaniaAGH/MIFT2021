@@ -1,0 +1,12 @@
+1. Rozszerzono jenkinsfile o nowy stage "build"
+
+2. W stage build doinstalowano zaleznosci za pomoca npm install i uruchomiono budowanie za pomoca npm run build.
+Po tym stage wysylano powiadomienie na maila z wiadomoscia o sukcesie lub porazce budowania.
+
+3. Po porazce budowania stage z testowaniem nie byl uruchamiany poniewaz w sekcji post->failure dodano sh 'false'
+ktore przerywa dalsze wykonanie buildu.
+Aby sprwadzic czy porazka przerwie build dodano sh 'false' w krokach budowania.
+
+4. Napisano prostego hook'a post-commit ktory po commicie na repozytorium deltachat wyswietlal komunikat.
+#!/bin/sh
+echo "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"

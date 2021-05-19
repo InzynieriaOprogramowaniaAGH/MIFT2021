@@ -1,0 +1,6 @@
+FROM node:14
+
+COPY . node-chat-app/
+WORKDIR node-chat-app
+RUN npm install
+CMD npm run dev

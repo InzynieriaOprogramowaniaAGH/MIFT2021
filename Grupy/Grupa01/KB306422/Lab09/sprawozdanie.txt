@@ -1,0 +1,25 @@
+1.
+Zarejestrowano na swoim repozytorium z komunikatorem githook'a, który:
+ -za każdym razem gdy na głównym branchu pojawi się commit automatycznie uruchamia pipeline z Jenkinsfile'a
+ -wykorzystano w tym celu token i odpowiednio skonfigurowano Jenkins'a
+
+2.
+Pipeline wyzwala się automatycznie po commicie na brnachu głównym.
+ -sprawdzono czy pipeline sie wyzwolił w odpowiednim jobie i wykonano zrzut ekranu dla dokumentacji
+
+3.
+Rozszerzono Jenkinsfile o stage "Deploy", wykorzystano do tego nowo utworzony Dockerfile-deploy (też umieszczony w repo komunikatora). 
+
+4.
+Upewniono się, że w stage "Deploy":
+ -deploy jest wykonywany na dedykowany kontener dockerowy
+ -do deploy jest przekazywany artefakt stworzony w stage "Build"
+ -użytkownik jest powiadamiany zarówno o sukcesie jak i porażce etapu wdrażania
+ sprawdzono logi oraz maile i wrzucono PNG
+
+5.
+Wykazano i udokumentowano w postaci PNG, że:
+ -pipeline jest zdefiniowany w Jenkinsfile w repo z komunikatorem (ls w repo komunikatora)
+ -jest automatycznie wyzwalany (dokładnie ten sam czas wyzwolenia i commita)
+ -przechodzi wszystkie etapy (PNG z maila oraz joba)
+ -obsługuje powiadamianie o rezultatach każdego etapu (PNG z maila oraz sprawdzenie logów)
