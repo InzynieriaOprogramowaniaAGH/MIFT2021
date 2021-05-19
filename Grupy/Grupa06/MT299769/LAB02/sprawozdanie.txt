@@ -9,4 +9,4 @@
 2.Dodalem commit z tagiem:
 	git tag -a MT299769_Lab02 -m "Lab02-poczatek"
 3.cos tam cos tram
-xDDDDDDDDDDDDDDD
+xDDDDDDDDDD
