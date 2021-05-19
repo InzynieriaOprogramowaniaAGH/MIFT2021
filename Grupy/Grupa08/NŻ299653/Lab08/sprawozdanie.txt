@@ -1,0 +1,12 @@
+1. Mój Jenkinsfile był już rozszerzony o nowy stage("Build") 
+
+2. W stage Build wykorzystałam polecenia: 
+- 'npm install', aby zainstalować zależności
+- 'npm run build', aby uruchomić budowanie aplikacji
+
+3. Powinien być wysłany mail o sukcesie lub porażce wraz z build logie, ale się nie udało
+
+4. Napisałam prosty post-commit hooke'a, który wyswietla wiadomość
+
+#!/bin/sh
+echo "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"
