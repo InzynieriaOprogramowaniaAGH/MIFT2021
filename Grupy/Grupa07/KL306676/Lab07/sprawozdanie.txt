@@ -1,8 +1,6 @@
 1. Umieściłam pliki źródłowe, skopiowane z poprzednich zajęć, w odpowiednich folderach o nazwach Docker, Hooks, Jenkins.
 
-2. Stworzyłam Jenkinsfile, który obsługiwał uruchamianie testów dla aplikacji - komunikatora. Został on umieszczony
-   w zforkowanym repozytorium z komunikatorem. 
-
+2. Stworzyłam Jenkinsfile, który obsługiwał uruchamianie testów dla aplikacji - komunikatora.
 pipeline {
     agent any
 

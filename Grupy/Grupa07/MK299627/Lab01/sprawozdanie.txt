@@ -1,0 +1,13 @@
+1. Klient git bash był już zainstalowany na moim komputerze.
+
+2. Sklonowałem repozytorium git za pomocą komendy "git clone https:github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git".
+
+3. Otwarłem i zapoznałem się z dokumentem opisującym wykonywane przeze mnie ćwiczenie.
+
+4. Za pomocą komendy git checkout -b MK299627 utworzyłem i przełączyłem się na nowego brancha. Za pomocą "touch sprawozdanie.txt" utworzyłem plik tekstowy ze sprawozdaniem. Komendą "git add sprawozdanie.txt" dodalem do repozytorium. Następnie wykonałem komendę git commit.
+
+5. Uzupełniłem plik tekstowy o opis kolejnych, wykonanych przeze mnie punktów. 
+
+6. Za pomocą komendy add dodałem utworzone przeze mnie zrzuty ekranu do repozytorium. Ich nazwy były ustawione na zadanie1, zadanie2, zadanie3 itd z pomocą polecenia mv. Następnie wykonałem commit i push. 
+
+7. Z poziomu brancha "master" wykonałem polecenie git merge MK299627, aby scalić swoją gałąź do głownej. 
