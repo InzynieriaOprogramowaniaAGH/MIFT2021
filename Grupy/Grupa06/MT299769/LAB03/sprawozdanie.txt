@@ -1,0 +1,3 @@
+1. Stowrzyłem swojego osobistego brancha 
+	git checkout -b Grupa06-MT299769-Lab03
+2.Zainstalowałem Docker'a
