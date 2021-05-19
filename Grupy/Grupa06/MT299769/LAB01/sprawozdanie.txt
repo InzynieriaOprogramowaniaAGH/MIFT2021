@@ -1,0 +1,36 @@
+1.zadanie: 
+Klient git byl juz zainstalowany.
+
+2.zadanie:
+Repozytorium zdalne skopiowano za pomoca instukcji 
+	git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git devOps
+	
+3.zadanie:
+Zapoznaem sie z intrukcja
+
+4.zadanie: 
+Utworzylem nowego brancha i natychmiast sie na niego przelaczylem, a nastepnie utworzylem folder MT299769 oraz podfolder lab01 za pomoca instukcji:
+	git checkout -b MT299769
+	mkdir 299769
+	mkdir lab01
+W folderze lab01 stworzylem plik sprawozdanie.txt i dodalem go do repo za pomoca komendy:
+	git add sprawozdanie.txt oraz wykonalem commita:
+	git commit -m "init commit"
+	
+5.zadanie:
+w pliku sprawozdanie.txt umiescilem opis wykonywanych zadan, a za pomoca komendy:
+	git push origin MT299769 umieszczono dotychczasowa prace na repo zdalnym
+	
+6.zadanie:
+W folderze lab01 umieszczono screeny dla poszczegolnych zadan, tak jak poprzednio utworzono commita i umieszczono zmiany na zdalnym repo:
+	git add .
+	git commit -m "screeny"
+	git push origin MT299769
+
+7.zadanie:
+Zcalono branch MT299769 do brancha master za pomoca komend:
+	git checkout master
+	git merge MT299769
+	git pull
+	git push
+	
