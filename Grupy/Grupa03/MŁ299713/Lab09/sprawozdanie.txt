@@ -1,0 +1,5 @@
+1. Dodałem webooka do gita, ustawilem odpowiednia opcje w jenkinsie, w opcjach na githubie dodalem URL'a ktory ngrok przekierowuje do mojego jenkinsa. 
+2. Pipeline odpowiendio startuje po wysłaniu webhooka
+3. Dodanie stage'a deploy do jenkins file ... 
+4. ... i porażka przy deployowaniu w jenkinsie, to chyba przez VM ale nie jestem pewien bo nie znajduje hosta 
+
