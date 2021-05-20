@@ -1,0 +1,40 @@
+//Zadanie zostało zrobione od początku z powodu komplikacji z instalacją npm. Problem rozwiązano za pomocą instalacji poprzez dodanie następujący komend w Dockerfile:
+'RUN curl -fsSL https://deb.nodesource.com/setup_12.x |  bash -'
+oraz 'RUN apt-get install -y nodejs'.
+
+0. Zapoznanie z diagramem.
+
+1. Zapoznanie z oprogramowaniem Jenkins.
+
+2. Storzenie kontenera dockerowego z Jenkinsem:
+
+2.1 Utworzenie nowej sieci dla kontenera z Jenkinsem: 'sudo docker network create jenkins'.
+
+2.2 Uruchomienie kontenera: 
+'sudo docker run --name jenkins-docker --rm --detach --privileged --network jenkins --network-alias docker --env DOCKER_TLS_CERTDIR=/certs --volume jenkins-docker-certs:/certs/client --volume jenkins-data:/var/jenkins_home --publish 2376:2376 docker:dind --storage-driver overlay2'.
+
+2.3 Zbudowanie obrazu Jenkinsa na podstawie 'Dockerfile_jenkins': 
+'sudo docker build -t myjenkins-blueocean:1.1 -f Dockerfile_jenkins .'.
+
+2.4 Uruchomienie kontenera:
+sudo docker run \
+  --name jenkins-blueocean \
+  --rm \
+  --detach \
+  --network jenkins \
+  --env DOCKER_HOST=tcp://docker:2376 \
+  --env DOCKER_CERT_PATH=/certs/client \
+  --env DOCKER_TLS_VERIFY=1 \
+  --publish 8080:8080 \
+  --publish 50000:50000 \
+  --volume jenkins-data:/var/jenkins_home \
+  --volume jenkins-docker-certs:/certs/client:ro \
+  myjenkins
+  
+3. Następnie nadano tag i wysłano obraz na Dockerhuba przy pomocy poleceń:
+'docker tag myjenkins wnowak8/myjenkins',
+'sudo docker push wnowak8/myjenkins .'
+
+4. Uruchomiono pomyślnie Jenkinsa.
+
+
