@@ -1,0 +1,2 @@
+1. Stworzenie foldrerów Docker, Jenkins i Git hooks
+
