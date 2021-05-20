@@ -1,0 +1,62 @@
+1.1
+ssh-keygen -t ed25519 -C "hubertmurawka@gmail.com"
+Wygenerowanie nowego klucza SSH.
+
+1.3
+eval "$(ssh-agent -s)"
+Uruchomienie agenta SSH.
+
+ssh-add ~/.ssh/id_ed25519
+Dodanie wygenerowego wczesniej klucza do agenta SSH.
+
+1.4 
+sudo apt-get install xclip
+Instalacja narzedzia xclip.
+
+xclip -selection clipboard < ~/.ssh/id_ed25519
+Skopiowanie zawartosci pliku id_ed25519.pub do schowka.
+
+1.5
+git remote -v 
+Wyswietlenie zdalnych polaczen repozytoriow wraz z adresem URL.
+
+git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+Zmiana polaczenia na SSH.
+
+2
+git tag -a HM306683_Lab01 -m "Hubert Murawka, Lab 01 zakonczone"
+Nadanie tagu na aktualnego commita.
+
+git push --follow-tags
+Wyslanie tagu.
+
+3
+git mv HM306683 Grupy/Grupa08
+Przeniesienie folderu do nowej lokalizacji.
+
+git checkout Grupa08
+Zmiana brancha.
+
+git checkout -b Grupa08-HM306683_Lab02
+Utworzenie nowego brancha oraz przejscie na niego.
+
+4.
+Stworzenie pliku "commit-msg" w lokalizacji <repo>/.git/hooks:
+
+#!/bin/sh
+if ! grep "HM306683" "$1";
+	    then 
+            echo "Your commit message must begin with HM306683"
+            exit 1;
+      fi
+
+5.1 
+git checkout Grupa08
+git merge Grupa08-HM306683_Lab02
+Merge brancha osobistego
+
+git branch -d Grupa08-HM306683_Lab02
+Usuniecie brancha osobistego.
+
+
+

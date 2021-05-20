@@ -1,0 +1,27 @@
+Sprawozdanie: Rafal Widziszewski 18.03.2021r.
+
+Wykonanie:
+
+1. Stworzenie brancha osobistego:
+	git checkout -b Grupa08-RW306514_Lab03
+	
+2. Przeniesienie git hooka do katalogu Lab03/hooks
+
+3. Instalacja Dockera
+
+4. Rejestracja konta w Dockerhub
+
+5. Tworzenie Dockerfile:
+	Utworzenie Dockerfile - touch Dockerfile
+	Napisanie Dockerfile przy pomocy nano:
+		FROM ubuntu:latest
+		RUN apt-get -y update
+		RUN apt-get -y upgrade
+		RUN apt-get install -y build-essential
+		RUN apt-get -y install git
+
+6.Uruchomienie kontenera i sprawdzenie mojego brancha:
+	utworzenie obrazu- sudo docker build -t lab03	.
+	uruchomienie kontenera- sudo docker run -it lab03 bash
+	sklonowanie repo- git clone
+	

@@ -1,0 +1,11 @@
+1. Utowrzono brancha osobistego 'Grupa08-WN306684_Lab04' od brancha 'Grupa08'.
+
+1.1 Obrazowi zbudowanemu na  poprzednich zajęciach nadano tag przy pomocy polecenia: 'sudo docker tag 8527ddb03dd wnowak8/lab04' i opublikowano na DockerHub poleceniem: 'sudo docker push wnowak8/lab04'.
+
+2. Wybrano komunikator DeltaChat.
+
+3. Stworzono nowy Dockerfile i nadano mu nazwę Dockerfile_build. Do zbudowania "komunikatora" użyto polecenia: 'sudo docker build -t build:latest . -f Dockerfile-build'.
+
+4. Stworzono nowy Dockerfile i nadano mu nazwę Dockerfile_test. Do zbudowania "komunikatora" użyto polecenia: 'sudo docker build -t test:latest . -f Dockerfile-test'.
+
+5. Zainstalowano Docker Compose przy użyciu polecenia: 'sudo curl -L "https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose'. Następnie stworzono nowy plik docker-compose.yml i uruchomiono poleceniem: 'sudo docker-compose up'.

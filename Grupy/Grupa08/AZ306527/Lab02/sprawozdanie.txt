@@ -1,0 +1,28 @@
+1.1. Utworzono klucz ssh 
+ssh-keygen -t ed25519 -C "adamegnon@gmail.com"
+1.2. Wystartowano agenta ssh
+eval `ssh-agent -s`
+1.3. Dodano klucz prywatny do agenta
+ssh-add ~/.ssh/id_ed25519
+1.4. Skopiowano klucz i skonfigurowano gita
+1.5. Zmaiana połączenia i test
+git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+git remote -v
+
+2.1. Utworzono commita
+2.2. Dodanie taga
+git tag -a AZ+306527+2 -m "10/10 prosze"
+
+3.1. Recznie zmieniono strukture katalogów w starym branchu (az306527)
+3.2. Przełączono się na branch Grupa08, a następnieu tworzono nowy branch
+git checkout Grupa08
+git branch Grupa08-AZ306527_Lab02
+git checkout Grupa08-AZ306527_Lab02
+3.3. Zmergowano stary branch do nowego
+git merge az306527
+
+4.1. Odkryto ukryte foldery w repo, a nastepnie utworzono w folderze .git/hooks odpowiedni skrypt
+
+5.1. Usunięto  branch lokalnie i na remocie
+git branch -d Grupa08-AZ306527_Lab02
+git push origin --delete Grupa08-AZ306527_Lab02

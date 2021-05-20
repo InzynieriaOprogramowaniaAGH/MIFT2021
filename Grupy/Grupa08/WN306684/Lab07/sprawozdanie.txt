@@ -1,0 +1,4 @@
+1. Skopiowano wszystkie pliki źródłowe i umieszczono w odpowiednich folderach.
+2. Sforkowano repozytorium DeltaChat oraz stworzono i dodano do niego Jenkinsefile'a. W Jenkinsie stworzono nowy pipeline, którego zadaniem jest wykonanie Jenkinsfile'a z sforkowanego repo i powiadomienie na maila o rezultacie.
+3. Zbudowano pipeline'a.
+4. Wrzucono Jenkinsfile'a na repozytorium.
