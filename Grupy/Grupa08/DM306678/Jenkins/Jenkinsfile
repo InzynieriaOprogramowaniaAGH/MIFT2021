@@ -1,26 +1,22 @@
 pipeline {
 	agent any
+	tools {nodejs "node"}
 
 	stages {
 		stage('Build') { 
 		    steps {
 		        echo 'Build'
-		        nodejs('npm') {
-				checkout scm
-		            	sh 'npm install'
-				sh 'npm run build'
-		        }
-		    }
+			checkout scm
+	            	sh 'npm install'
+			sh 'npm run build'
+	    }
 		}
 		stage('Test') { 
-			when {
-              			expression {currentBuild.result == null || currentBuild.result == 'SUCCESS'}
-            		}
-		    	steps {
+			    	steps {
 				echo 'Test'
-				nodejs('npm') {
+				
 				    sh 'npm run test'
-				}
+				
 		    	}
 		}
     	}
