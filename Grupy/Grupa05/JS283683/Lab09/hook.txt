@@ -1,0 +1,2 @@
+curl -u ghmanager:117...cea -X POST http://localhost:8080/job/node-chat-bundle/build?token=117...cea
+gdzie 117...cea ← pełny token
