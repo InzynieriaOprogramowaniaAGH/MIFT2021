@@ -1,0 +1,4 @@
+echo "To jest coimmit hook,który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"
+
+
+// curl -x POST -L user  admin:< tu key> http://localhost:8080/git/notifyCommit?url=git@github.com:wiktorwanat/node-chat-app.git
