@@ -1,0 +1,4 @@
+1. Stworzyłem githook'a, które wywołuje zadanie zbudowania aplikacji
+- do tego celu wygenerowałem token użytkownika
+- przy każdym kommicie wywołuje się kolejne zadanie
+2. Dodałem w plik zadanie2.png potwierdzenie wywołania programu
