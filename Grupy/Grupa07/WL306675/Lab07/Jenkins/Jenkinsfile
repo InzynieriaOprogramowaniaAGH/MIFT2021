@@ -1,54 +1,46 @@
 pipeline {
     agent any
- 
+
     stages {
-        stage('Build'){
+        stage('Build') {
             steps {
-                sh 'curl -sL https://deb.nodesource.com/setup_14.x | bash -'
+              sh 'curl -sL https://deb.nodesource.com/setup_14.x | bash -'
                 sh 'apt-get install nodejs -y'
                 sh 'npm install --global --force yarn'
-
-                sh 'git pull'
-                sh 'yarn'
-                sh 'yarn build:linux'
-            }
-            post {
-                always {
-                    echo "Build stage finished";
-                }
-                success{
-                    echo "Build Success";
-                }
-                failure {
-                    echo "Build Failure";
-                    mail body: "Please visit jenkins for further information", subject: "Build failed", to: "wiktorligeza@gmail.com";
-                }
-            }
+		echo 'Building....'
+                              sh 'yarn build:linux'
+		}
+	}
+	stage('Test') {
+		steps {
+			echo 'Testing....'
+			sh 'npm run test'
+			
+		}
         }
-        stage('Test') {
-            when {
-              expression {
-                currentBuild.result == null || currentBuild.result == 'SUCCESS' 
-              }
-            }
+        stage('Deploy') {
             steps {
-                sh 'yarn test'
-                
-            }
-
-            post {
-                always {
-                    echo "Test stage finished";
-                }
-                success{
-                    echo "Test Success";
-                }
-                failure {
-                    echo "Test Failure";
-                    mail body: "Please visit jenkins for further information", subject: "Build failed", to: "wiktorligeza@gmail.com";
-                }
+                echo 'Deploying....'
             }
         }
     }
     
+    post {
+    	
+    	success {
+	 emailext attachLog: true, 
+		 body: "${currentBuild.result}: ${BUILD_URL}", 
+		 compressLog: true, 
+		 subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", 
+		 to: 'wiktorligeza@gmail.com'
+		
+    	}
+    	
+    	failure {
+		emailext attachLog: true,
+			body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}", 
+			subject: ' Jenkins notification', 
+			to: 'wiktorligeza@gmail.com'
+    	}
+    }
 }
