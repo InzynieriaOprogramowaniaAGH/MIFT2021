@@ -50,9 +50,13 @@ Przenieś w repozytorium swój folder (np.:KM123456), tak by był dostępny pod 
 (zwróć uwagę że ten git hook musi się uruchamiać po twojej stronie, nie serwera).
 Przykładowe githook'i są w .git/hooks.
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 Koniecznie umieść treść githooka w sprawozdaniu.
 >>>>>>> 64ac55d6049c3e87b109bfc8970bd44ce59243f4
+=======
+Koniecznie umieść treść githooka w sprawozdaniu.
+>>>>>>> 38b69679f22529fb4f1aa33b9385fa1b33cf9270
 
 5. Dołącz swoje zmiany. 
 5.1 Zrób merga ze swojego brancha osobistego do brancha grupowego. Następnie zamknij branch osobisty.

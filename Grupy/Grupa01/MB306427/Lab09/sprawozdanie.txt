@@ -1,0 +1,16 @@
+Sprawozdanie nr 9 Mateusz Bonk
+
+1. Pierwszy punkt został przeze mnie zrealizowany w sposób który to Jenkins o okreslony czas "pyta" sie Gita o zmiany.
+Tym sposobem uniknąłem problemów z połączeniem webhooka (przesyłanie nazwy uzytkownika oraz tokenu) oraz udostępniania swojego jenkinsa poprzez tunelowanie.
+
+2. Udokumentowałem że job w jenkinsie wykonuje się automatycznie
+
+3. W Jenkinsfile stworzyłem nowy stage Deploy 
+
+4. W stworzonym w punkcie 3 stage('Deploy') uruchamiam kontener dockerowy, na którym jest wdrażana aplikacja
+
+5. Wykazałem że :
+	pipeline jest definiowany w Jenkinsfile w repo z api
+	Pipeline est wyzwalany automatycznie przez Jenkinsa
+	pipeline przechodzi poprawnie wszystkie stage zdefiniowane w Jenkinsfile
+	pipeline wywyła komunikaty a każdym etapie

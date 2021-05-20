@@ -1,0 +1,16 @@
+Zadanie 1
+Aby mój jenkins był widoczny przez githuba musiałem użyć tunelowania. W tym celu skorzystałem z programu ngrok.
+Uruchomiłem go po czym dodałem w repozytorium na githubie webhooka.
+Następnie z poziomu jekinsa w ustawieniach zaznaczyłem pole "Github hook trigger for GITScm polling"
+
+Zadanie 2
+W celu zweryfikowania poprawnosci działania dodałem na repozytorium commit. Push wywołał wykonanie się pipelinu
+
+Zadanie 3
+Dopisałem nowy stage Deploy, który wykonuje deploy oraz powiadamia mailowo o jego powodzeniu lub niepowodzeniu
+
+Zadanie 4
+Stage Deploy uruchamia budowę i uruchomienie kontenera dockerowego, który uruchamia wcześniej zbudowany build aplikacji.
+
+Zadanie 5
+Następnie wykonałem push na repozytorium i upewniłem się że pipeline przechodzi wszystkie etapy i wysyła powiadomienie o rezultatach.

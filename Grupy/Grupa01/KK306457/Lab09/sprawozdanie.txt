@@ -1,0 +1,26 @@
+1. W repozytorium deltachatu utworzono hook post-commit o nastepujacej tresci
+
+#!/bin/sh
+
+echo "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"
+curl -X POST -L --user karol71927:118f90b4a26e79a9a65636c2c4af19d9f7 http://localhost:8080/job/Deltachat/build
+
+Byl on odpowiedzialny za uruchamianie uruchamianie pipeline z jenkinsfile.
+W tym celu uzyskano token z jenkinsa i za pomoca curl wysylano request post uruchamiajacy pipeline
+
+2. Aby sprawdzic czy pipeline sie uruchamia automatycznie utworzono plik w repozytorium deltachat i zrobiono commit. 
+Po commicie pipeline zostal uruchomiony poprawnie.
+
+3. Rozszerzono jenkinsfile o stage deploy ktory odpowiadal za deploy aplikacji na kontener dockerowy. 
+Aby to zrobic w repozytorium deltachatu nalezalo utworzyc Dockerfile (Dockerfile.deploy), 
+ktore bylo odpowiedzialne za deploy aplikacji. Dockerfile wykorzystywal obraz ubuntu:latest. 
+W nim zostaly zainstalowane build-essentials, nodejs oraz npm. 
+Dodatkowo skopiowano folder zawierajacy aplikacje do obrazu. Nastepnie sprawdzono poprawnosc kopiowania poprzez
+wywolnanie ls w folderze deltachat-desktop
+
+4. Po wykonaniu deploya uzytkownik byl informowany zarowno o sukcesie jak i porazce. Deploy byl wykonywany na 
+kontener dockerowy oraz przekazywany byl artefakt z stage build.
+
+5. Aby wykazac ze wszystkie stage przechodza pomyslnie uruchomiono pipeline w taki sam sposob jak w zadaniu 2.
+Pipeline byl uruchamiany z jenkinsfile z repozytorium oraz przchodzil wszystkie etapy i wysylal powiadomienia.
+Udowodnienie znajduje sie na screenach.
