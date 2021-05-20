@@ -1,0 +1,8 @@
+1. Pliki umieszczone w obowiednich folderach 
+	docker/Dockerfile - dockerfile do build'a
+	docker/Dockerfile2 - dockerfile do test'a
+	docker/DockerfileJen - dockerfile do odpalania jenkinsa
+	jenkins/Jenkinsfile - pipeline
+2. Stworzony fork nodejs chatt app na prywatne repozytorium 
+3. Stworzony jenkins fil'e z powiadomieniami odnośnie statusu testów na mail'a .
+

@@ -1,0 +1,50 @@
+1. Stworzylam kontener dockerowy z Jenkins
+	docker network create jenkins
+	docker run \
+  		--name jenkins-docker \
+  		--rm \
+  		--detach \
+  		--privileged \
+  		--network jenkins \
+  		--network-alias docker \
+  		--env DOCKER_TLS_CERTDIR=/certs \
+  		--volume jenkins-docker-certs:/certs/client \
+  		--volume jenkins-data:/var/jenkins_home \
+  		--publish 2376:2376 \
+  		docker:dind \
+  		--storage-driver overlay2
+  		
+2. Utworzyłam plik Dockerfile
+		FROM jenkins/jenkins:2.277.1-lts-jdk11
+		USER root
+		RUN apt-get update && apt-get install -y apt-transport-https \
+		       ca-certificates curl gnupg2 \
+		       software-properties-common
+		RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+		RUN apt-key fingerprint 0EBFCD88
+		RUN add-apt-repository \
+		       "deb [arch=amd64] https://download.docker.com/linux/debian \
+		       $(lsb_release -cs) stable"
+		RUN apt-get update && apt-get install -y docker-ce-cli
+		USER jenkins
+		RUN jenkins-plugin-cli --plugins "blueocean:1.24.5 docker-workflow:1.26"
+
+3. Zbudowałam obraz dockera: $ docker build -t myjenkins-blueocean:1.1 .
+
+4. Uruchomilam jenkinsa i przeszlam kreator instalacji.
+
+5. Utworzyłam nowe repozytorium na dockerhub i wrzuciłam obraz Jenkinsa na DockerHub'a:
+	$ sudo docker tag local-image:tagname new-repo:tagname
+	$ sudo docker push new-repo:tagname
+	
+6. Z poziomu Jenkinsa uruchomilam docker-compose.
+	powiązalam z repozytorium podając jego nazwę oraz brancha
+	wykonalam polecenie powłoki:
+		cd Grupy/Grupa07/KG306533/Lab05
+		pwd
+		ls
+		curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+		chmod +x /usr/local/bin/docker-compose
+		docker --version
+		docker-compose --version
+		docker-compose up

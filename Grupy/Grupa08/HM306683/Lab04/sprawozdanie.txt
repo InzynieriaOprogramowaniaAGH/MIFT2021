@@ -1,0 +1,29 @@
+1.
+git checkout -b [nazwa_brancha]
+Stworzenie nowego brancha oraz przełączenie się na niego.
+
+1.1
+docker login -u [nazwa_uzytkownika]
+Zalogowanie do dockera.
+
+docker images
+Wyswietlenie listy obrazow Dockera.
+
+docker tag [istniejaca_nazwa_repozytorium] [nowa_nazwa]
+Dodanie nowego obrazu Dockera, ktory odnosi sie do tego samego zrodla.
+
+docker push [nazwa_uzytkownika/nazwa obrazu]
+Push istniejacego obrazu do DockerHub.
+
+3. 4.
+cat [nazwa_pliku]
+Wyswietlenie zawartosci pliku.
+
+docker build -t [nazwa_obrazu] -f [nazwa_dockerfile] .
+Stworzenie obrazu Dockera z Dockerfile w biezacej lokalizacji.
+
+5.
+docker-compose build
+docker-compose up
+docker-compose down
+Zbudowanie obrazow zdefiniowanych w pliku docker-compose.yml, uruchomienie ich oraz usuniecie.

@@ -1,0 +1,11 @@
+1.
+Stworzenie folderow: Docker, Jenkins, Hooks. Umieszczenie w nich odpowiednich plikow.
+
+2.
+Fork na repozytorium deltachat-desktop (https://github.com/deltachat/deltachat-desktop).
+Stworzenie pliku Jenkinsfile z etapem Test oraz zapewnieniem powiadomienia o rezultatach poprzez e-mail wraz z dolaczonym logiem z efektami testowania.
+Umieszczenie pliku Jenkinsfile w sforkowanym repozytorium.
+
+3.
+Konfiguracja pluginow nodejs oraz email extension w Jenkinsie.
+Stworzenie oraz uruchomienie pipeline'a.
