@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+ build-agent:
+  container_name: chatapp
+  image: chatapp
+  build:
+   context: .
+   dockerfile: Dockerfile
+ test-agent:
+  container_name: chatapp-test
+  image: chatapp-test
+  build:
+   context: .
+   dockerfile: Dockerfile2
+  depends_on:
+  - build-agent
+
