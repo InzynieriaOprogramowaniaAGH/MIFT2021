@@ -1,0 +1,18 @@
+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
+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
+11f30518c82071a837024322f25cb1398f
+Zdecydowalem sie na podejscie w ktorym to Jesnkins co pewien odstep czasu odpytuje githuba o aktualizacje repozytorium
+
+
+1. Wygenerowalem Git token, z uprawnieniami zamieszczonymi na screenie.
+-dodalem token do Jenkinsa (do credentiali)- screenie
+-dodalem credentiale do pobieranego repo -screen
+
+Zmienilem podejscie
+geneorwanie tokena api w jenkinsie: Michal-API
+Dodale odpowiednie zapytanie w post-hooku
+curl -X POST -L --user michal:11f30518c82071a837024322f25cb1398f http://localhost:8080/job/Delta-chat/build?Michal-API
+Powoduje build- co wida na screenie
+
+2. Zmiana Jenkinsfila:
+dodanie staga deploy
