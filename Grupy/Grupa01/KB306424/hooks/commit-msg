@@ -1,0 +1,8 @@
+#!/bin/bash
+string='KB306424*'
+message="Commit has been aborted"
+if ! grep -iqE "$string" "$1"; then
+	echo "$message"
+	exit 1
+fi
+echo "Commit message includes pattern!"

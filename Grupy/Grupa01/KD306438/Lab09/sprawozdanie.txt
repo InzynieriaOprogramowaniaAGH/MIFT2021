@@ -1,0 +1,45 @@
+1. W konfiguracji joba w Jekins w sekcji Build Triggers zaznaczono opcję "Poll SCM" i w schedule wpisano "* * * * *" co powoduje, że co minute sprawdzone zostanie, czy nie dodano nowego commita. Jezeli pojawi sie nowy commit pipline opisywany w Jenkinsfile zostanie od nowa uruchomiony.
+
+2. Automatyczne wyzwalanie pipline udoukmentowane zostalo na zalaczonym screenshot - status wykonanego builda zawiera informacje: "Started by an SCM change".
+
+
+3. - 4. W Jenkinsfile dodano nowy stage "Deploy", ktory wykonywany jest na dedykowany kontener dockerowy, a do deploy przekzywany jest artefakt stworzony z stage "Build"
+
+  stage('Deploy') { 
+            steps {
+                echo 'Deploying... '
+                sh 'docker build -t node-chat .'        
+            }
+            
+             post {
+               failure {
+                  emailext attachLog: true,
+                     body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+                     recipientProviders: [developers(), requestor()],
+                     to: 'laj72321@gmail.com',
+                     subject: "Fail while deploying in Jenkins"
+                }
+               success {
+                  emailext attachLog: true,
+                     body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+                     recipientProviders: [developers(), requestor()],
+                     to: 'laj72321@gmail.com',
+                     subject: "Success while deploying in Jenkins"
+                }
+             }
+        }
+        
+        Post z sekcja failure oraz success pozwala na powiadamianie uzytkownika o sukcesie lub porazce etapu wdrazania. 
+        Nowy docker build odbywa sie w oparciu o stworzony w repozytorium node-chat Dockerfile z zawartoscia:
+		FROM node:14.16.0-buster
+		RUN apt-get update -y
+		RUN apt-get upgrade -y
+		RUN apt-get install --assume-yes git
+		RUN apt-get install --assume-yes g++
+
+		COPY . node-chat/
+		WORKDIR node-chat
+		RUN ls
+		
+5. Dodanie screenow dokumentujacych wymagania punktu piatego z instrukcji.
+
