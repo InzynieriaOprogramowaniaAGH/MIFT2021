@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "Commit Hook here"
+
+exit 1
