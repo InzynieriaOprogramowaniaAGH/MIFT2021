@@ -1,0 +1,14 @@
+1. Uzylem opcji pollSCM ktory za kazdym razem gdy na glownym branchu wykonywany jest commit , uruchamiany na nowo jest pipeline 
+
+2. Wrzucilem screeny z udanych wyslanych maili
+
+3. Dodalem nowy stage deploy
+
+4. W stageu delpoy :
+- deploy wykonywany przez kontener dockerowy
+- mailowo przesylany jest mail o sukcesie badz bledzie wdrazania
+
+5. Za pomoca screenow udokumentowalem ze :
+- pipeline jest zdefiniowany w Jenkinsfile w repozytorium z komuunikatorem nodechat
+- pipeline przechodzi przez wszystkie etapy : stage build, stage test, stage deploy
+- pipeline powiadamia o bledach i sukcesach podczas wdrazania kazdego z etapow
