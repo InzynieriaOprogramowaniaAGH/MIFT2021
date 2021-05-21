@@ -6,6 +6,7 @@ pipeline {
             steps {
                 sh '''
                 echo 'Building..'
+                git pull origin master
                 apt -y update
                 apt -y upgrade
                 apt install sudo -y
@@ -14,7 +15,6 @@ pipeline {
                 apt -y install nodejs
                 node --version
                 npm --version
-                git pull origin master
                 npm install
                 npm run build
                 '''
