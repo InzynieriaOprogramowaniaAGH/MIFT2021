@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+    build-agent:
+        container_name: docker-node-chat-build
+        image: docker-build:build
+        build:
+            context: .
+            dockerfile: Dockerfile-build
+    test-agent:
+        container_name: docker-node-chat-test
+        image: docker-test:test
+        build:
+            context: .
+            dockerfile: Dockerfile-test
+        depends_on: 
+        - build-agent
