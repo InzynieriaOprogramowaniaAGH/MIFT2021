@@ -1,0 +1,10 @@
+1.Utworzyłam webhooka i wprowadziłam potrzebne konfiguracje(pobrałam wtyczki, zmieniłam ustawienia projektu)tak, aby pipeline uruchamiał się po każdym pushu na repozytorium.
+
+2.W Jenkinsfile stworzyłam nowy stage -"Deploy", który spełnia wszystkie postawione wymagania. Dodatkowo wprowadziłam zmiany w wysyłaniu maili.
+
+3. Przetestowałam działanie wprowadzonych zmian i wszystko udokumentowałam screenami zamieszczonymi w katalogu Lab09.
+
+4.Pipeline jest zdefiniowany w Jenkinsfile w repozytorium.
+-Jest automatycznie wyzwalany.
+-Każdy jego etap kończy się sukcesem.
+-Dostaje maila o każdym etapie. 
