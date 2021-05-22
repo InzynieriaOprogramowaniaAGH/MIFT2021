@@ -1,0 +1,9 @@
+#!/bin/bash
+
+MESSAGE="$1"
+
+if ! grep -qE "KM305193*" "$MESSAGE";then
+    cat "$MESSAGE"
+    echo "Tresc Twojego commita musi zaczynac sie od 'KM305193'"
+    exit 1
+fi

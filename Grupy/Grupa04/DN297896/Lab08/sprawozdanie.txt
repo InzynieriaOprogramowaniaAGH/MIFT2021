@@ -1,0 +1,15 @@
+1. Dodanie do Jenkinsfila z Lab07 sekcji build.
+
+2. Pobranie najnowszej wersji repozytorium
+    "git pull origin master"
+
+2.1 Budowanie programu 
+    "npm install"
+    "npm build"
+
+2.2 Wyslanie powiadomienia mailowego o rezultacie etapu budowania.
+
+3. Odinstalowanie z kontenera nodejs - sprawia to stage testowanie nie jest uruchamiane.
+    "apt-get purge --auto-remove nodejs".
+
+4. Na koniec utworzo post-commit, wyswietlajacy tekst w komendzie "echo" po kazdym commicie.

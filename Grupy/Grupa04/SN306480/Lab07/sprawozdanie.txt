@@ -1,0 +1,17 @@
+zadanie 1
+
+Umieszczono wszystkie pliki źródłowe w repozytroium InzynieriaOprogramowaniaAGH/MIFT2021.git zachowując porządek folderów.
+
+zadanie 2
+
+Stworzono oraz skonfigurowano Jenkinsfile(plik zadanie2_1.png), który był odpowiedzialny za przeprowadzenie 
+szybiego i niezawodnego testowania. Dodano go do repozytorium, w którym znajdował się komunikator
+
+zadanie 3
+
+Wykonano i wykazano przykład (poprawnego oraz nie poprawnego) wykonania testów z użyciem Jenkinsfile. 
+
+zadanie 4 
+
+Dodano Jenkinsfile na repo.
+

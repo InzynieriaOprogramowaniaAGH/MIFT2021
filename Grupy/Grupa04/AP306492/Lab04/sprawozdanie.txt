@@ -1,0 +1,24 @@
+1. Stworzyłem brancha osobsitegego (Grupa04-AP306492_Lab04) od mojego brancha grupowego
+
+1.1 Opublikowałem obraz z poprzednich zajęć w serwisie Docker HUB:
+
+docker tag IMAGE_ID nazwa_uzytkownika/nazwa_repozytorium
+docker push nazwa_uzytkownika/nazwa_repozytorium
+
+2. Użyłem znalezionego na githubie komunikatora node-chat: 
+https://github.com/binhxn/node-chat-app
+
+3. Stworzyłem nowy obraz kontenera dockerowego 
+Skonfigurowałem go, aby mógł wykonywać operacje budowania komunikatora:
+sudo docker build -t build-agent:build . -f Dockerfile.build
+sudo docker run -it -p 3000:3000 IMAGE_ID
+
+4. Stwórzyłem nowy obraz kontenera dockerowego 
+Skonfigurowałem go, aby mógł wykonywać operacje testowania komunikatora wykorzystując zbudowany wcześniej program w punkcie 3:
+sudo docker build -t test-agent:test . -f Dockerfile.test
+
+5. Stworzyłem plik docker-compose.yml. Stowrzyłem środowisko, które:
+- ściąga z repo najnowszą wersję "komunikatora"
+- buduje go
+- testuje czy komunikator działa
+sudo docker-compose up

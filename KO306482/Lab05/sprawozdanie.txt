@@ -1,0 +1,16 @@
+sprawozdanie, Lab05, Gr04, Kamil Osika
+
+0. Pracę rozpoczęto od zapoznania się z omawianym na zajęciach diagramem. 
+1. Po zrozumieniu tworzonej architektury zapoznano się z oprogramowaniem Jenkins oraz jego uruchomieniem w kontenerze.
+2. W tym celu stworzono plik Dockerfile widoczny na zdjęciu 2.1. Wykorzystano dostępny obraz kontenera z zainstalowanym już jenkinsem. 
+   Z godnie z instrukcją dostępną na stronie https://www.jenkins.io/ zainstalowano dodatkowe oprogramowanie potrzebne do poprawnego uruchomienia programu.
+   W celu przetestowania poprawnego działania Dockerfile'a zbudowano jego obraz i uruchomiono co jest widoczne na zdjęciu 2.2
+   Kolejnym krokiem była konfiguracja jenkinsa. Pod adresem localhost:8080 wprowadzono hasło odblokowujące jenkinsa dostępne po uruchomieniu w terminalu (zdjęcie 2.3).
+   Następnie pobrano zalecane plugin'sy.
+3. Stworzony obraz dodano na dockerhub za pomocą polecenia docker push. Wykonanie tej części ćwiczenia znaduje się na zrzucie ekranu 3.1 oraz 3.2
+4. W celu stworzenia pipeline'u w jenkinsie stworzono nowy element. Wykorzystano w nim skrypt pipeline'a widoczny na zdjęciu 4.1.    
+   Skrypt najpierw instaluje pulgin docker compose. Następnie pobiera potrzebne pliki dockerfile i docker-compose. Linia usuwająca folder w którym znajdują się pliki pobrane z repozytorium
+   została dodana w przypadku gdy repozytorium już kiedyś zostało pobrane. Dzięki temu pobierana wersja będzie najnowszą dostępną na githubie. Z powodu wolnego połączenia internetowego
+   wykorzystano prywatne repozytorium posiadające tylko potrzebne pliki. Jenkins nie pozwalał czekać wystarczająco długo by pobrać całe repozytorium MIFT2021.
+   Gdy wszystkie potrzebne elementy zostaną pobrane wykonywane jest zbudowanie kontenera za pomocą polecenia docker compose. Jednakże składnia jenkinsa wymaga 
+   zadeklarowania zbudowania projektu poprzez wykorzystanie klasy DockerComposeBuilder. Potwierdzenie zbudowania projektu widoczne jest w pliku 4.2.png.

@@ -1,0 +1,7 @@
+Michał Pastuszko lab 04 sprawozdanie
+
+1.Stworzono brancha na potrzeby zajęć poleceniem git checkout -b Grupa04-MP306484_Lab04.Zalogowano się poleceniem docker login. Nadano tag poleceniem docker tag lab03 mpast99/devops_lab03.Opublikowano obraz z poprzednich zajęć w serwisie Dockerhub przy pomocy docker push mpast99/devops_lab03.
+2.Do realizacji kolejnych zadań użyto znalezionego na github komuniaktora node-chat.
+3.Utworzono plik Dockerfilebuild, służacy do stworzenia obrazu do budowania komunikatora. Po zbudowaniu obrazu poleceniem docker build -t buildagentimage . -f Dockerfilebuild korzystając z Docker desktop uruchomiono kontener działający na zbudowanym obrazie. Przetestowano działanie aplikacji. Budowanie przebiegło pomyślnie.
+4.Utworzono plik Dockerfiletest za pomocą którego zbudowano obraz słuzący do testowania aplikacji. Następnie uruchomiono kontener poleceniem docker run -it -P --name messaging-app-test testagentimage i przetestowano jego działanie. Testowanie aplikacji przebiegło pomyślnie.;
+5.Utworzono plik docker-compose.yml. Za pomocą komendy docker-compose up uruchomiono środowisko w którym najnowsza wersja node-chatu jest pobierana z repozytorium, budowana i testowana.

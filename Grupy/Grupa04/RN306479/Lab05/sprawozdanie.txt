@@ -1,0 +1,18 @@
+0. Zapoznanie się z diagramem omawianym na zajeciach.
+
+1. Zapoznanie się z oprogramowaniem Jenkins.
+
+2. Pobranie kontenera Jenkins i utworzenie dla niego odpowiedniej sieci według podanej na stronie instrukcji.
+
+3. Opublikowanie obrazu na dockerhub. Utworzenie nowego repozytorium w serwisie "DockerHub" o nazwie "jenkins", dodanie taga do obrazu "sudo docker tag 9199cc03f7c7 radoslawniestroj/jenkins", dodanie obrazu do repozytorium "sudo docker push radoslawniestroj/jenkins".
+
+4. Utworzenie nowego zadania dla Jenkinsa:
+powłoka:
+              pwd
+              cd Grupy/Grupa04/RN306479/Lab05
+              pwd
+              curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+              chmod +x /usr/local/bin/docker-compose
+              docker-compose up
+
+Przetestowanie działania poprzez uruchomienie.
