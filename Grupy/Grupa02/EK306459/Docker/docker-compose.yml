@@ -12,3 +12,10 @@ services:
    context: ./docker_test
   depends_on:
   - lab05_chat
+ lab05_deploy:
+  container_name: lab05_deploy
+  image: lab05_deploy:latest
+  build:
+   context: ./docker_deploy
+  depends_on:
+  - lab05_test
