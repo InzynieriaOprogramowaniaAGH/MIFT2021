@@ -1,2 +1,2 @@
-FROM lab05_test:latest
+FROM lab05_build:latest
 RUN apt-get update
