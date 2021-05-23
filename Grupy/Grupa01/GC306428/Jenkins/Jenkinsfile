@@ -44,6 +44,8 @@ pipeline {
             steps {
                 echo 'Deploying ...'
                 sh 'docker build -t featherschat_deploy -f Dockerfile_Deploy .'
+                sh 'docker run -d -p 3030:3030 featherschat_deploy'
+
             }
             post {
                 success {
