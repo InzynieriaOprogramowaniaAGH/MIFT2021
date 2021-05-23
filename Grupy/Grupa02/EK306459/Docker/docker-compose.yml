@@ -18,4 +18,8 @@ services:
   build:
    context: ./docker_deploy
   depends_on:
+<<<<<<< HEAD
   - lab05_build
+=======
+  - lab05_test
+>>>>>>> ff9613cd69d26ad890e578dd991e5731b861c2f8
