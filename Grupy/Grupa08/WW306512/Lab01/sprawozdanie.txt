@@ -1,0 +1,11 @@
+
+Pobranie repozytorium za pomoca komendy: git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git
+Otworzenie instrukcji do danych zajec, zapoznanie sie z nimi
+Stworzenie nowego brancha o nazwie WW306512 za pomoca komendy: git branch -b WW306512
+Stworzenie w nowym branchu folderu o nazwie WW306512 oraz podfolderu Lab01
+Stworzenie pliku sprawozdanie.txt, opisanie w nim wykonanych czynnosci
+Dodanie pliku do repozytorium gita za pomoca komend: git add WW306512 oraz git commit -m "sprawozdanie"
+Wyslanie plikow na GitHub za pomoca komendy: git push
+Dodanie zrzutow ekranu do repozytorium poprzez git add ./ git commit /git push WW306512
+Przejsce na branch master poprzez: git checkout master
+Wykonanie merge wlasnego brancha do branch master:git pull git push git merge WW306512
