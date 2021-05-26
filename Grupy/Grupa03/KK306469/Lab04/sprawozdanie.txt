@@ -1,0 +1,10 @@
+Karol Kusik
+Sprawozdanie lab04
+Grupa03
+
+1. Stworzono osobisty branch wg schematu od brancha grupowego.
+2. Znaleziono w internecie komunikator deltachat.
+3. Znaleziono repozytorium z komunikatorem na githubie, następnie stworzono obraz deltachat_build_agent,
+pobrano repozytorium z deltachatem, zainstalowano oraz zbudowaną za pomocą npm.
+4. Stworzono drugi obraz na podstawie pierszego i uruchomiono testy "npm test".
+5. Stworzono plik docker-compose.yml i przy jego użyciu zbudowano obrazy i postawiono kontenery za jednym razem.
