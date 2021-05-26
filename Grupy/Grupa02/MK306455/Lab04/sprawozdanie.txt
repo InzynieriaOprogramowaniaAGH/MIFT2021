@@ -80,4 +80,8 @@ services: #lista uslug
    
    
 Plik docker-compose.yml uruchomiono komenda sudo docker-compose up.
+
+Obrazy buildera i testera wychnieto na dockerhub:
+https://hub.docker.com/r/mkapust9/lab04_builder
+https://hub.docker.com/r/mkapust9/lab04_tester
  

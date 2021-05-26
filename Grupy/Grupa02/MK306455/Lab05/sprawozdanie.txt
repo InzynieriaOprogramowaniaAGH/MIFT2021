@@ -1,0 +1,104 @@
+Zad 2. utworzylem kontener dockerowy jenkins zgodnie z podana instrukcja. Kolejne kroki to:
+
+- Utworzenie sieci: 
+
+	docker network create jenkins
+
+
+- Pobranie i uruchomienie docker:dind:
+
+	docker run \
+	  --name jenkins-docker \
+	  --rm \
+	  --detach \
+	  --privileged \
+	  --network jenkins \
+	  --network-alias docker \
+	  --env DOCKER_TLS_CERTDIR=/certs \
+	  --volume jenkins-docker-certs:/certs/client \
+	  --volume jenkins-data:/var/jenkins_home \
+	  --publish 2376:2376 \
+	  docker:dind \
+	  --storage-driver overlay2
+
+- Utworzenie w katalogu Lab05 pliku Dockerfile z nastepujaca zawartoscia:
+  
+	FROM jenkins/jenkins:2.277.2-lts-jdk11
+	USER root
+	RUN apt-get update && apt-get install -y apt-transport-https \
+	       ca-certificates curl gnupg2 \
+	       software-properties-common
+	RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+	RUN apt-key fingerprint 0EBFCD88
+	RUN add-apt-repository \
+	       "deb [arch=amd64] https://download.docker.com/linux/debian \
+	       $(lsb_release -cs) stable"
+	RUN apt-get update && apt-get install -y docker-ce-cli
+	USER jenkins
+	RUN jenkins-plugin-cli --plugins "blueocean:1.24.6 docker-workflow:1.26"	 
+  
+- Zbudowanie obrazu z powyzszego Dockerfile:
+
+	docker build -t myjenkins-blueocean:1.1 .
+	
+- Uruchomienie zbudowanego obrazu:
+
+	docker run \
+	  --name jenkins-blueocean \
+	  --rm \
+	  --detach \
+	  --network jenkins \
+	  --env DOCKER_HOST=tcp://docker:2376 \
+	  --env DOCKER_CERT_PATH=/certs/client \
+	  --env DOCKER_TLS_VERIFY=1 \
+	  --publish 8080:8080 \
+	  --publish 50000:50000 \
+	  --volume jenkins-data:/var/jenkins_home \
+	  --volume jenkins-docker-certs:/certs/client:ro \
+	  myjenkins-blueocean:1.1 
+	 
+- W przegladarce otwarto localhost:8080. Niestety za pierwszym razem kontener sie wylaczal zwracajac kod bledu 137. Jak sie okazalo na mojej maszynie brakowalo miejsca, wiec utworzylem nowa. Po dodaniu ilosci pamieci pojawilo sie okno logowania
+
+- W terminalu wyszukalem haslo w kontenerza za pomoca komendy: 
+	sudo docker exec ccff50890739 cat /var/jenkins_home/secrets/initialAdminPassword
+
+- Wybralem instalacje domyslna.
+
+- Po pewnym czasie w przegladarce otworzylo sie okno Jenkins.
+
+
+
+
+
+
+
+
+Zad.3
+
+Najpierw utworzylem repozytorium na dockerhub. Nastepnie z poziomu konsoli sie zalogowalem do dockerhub za pomoca "docker login".
+Nastepnie otagowalem obraz jenkins sama nazwa jak nazwa repo na dockerhub za pomoca komendy "sudo docker tag myjenkins-blueocean:1.1 mkapust9/jenkins_lab05".
+W tym momencie moglem wypchnac swoj obraz za pomoca "docker push mkapust9/jenkins_lab05"
+
+Link do repozytorium:
+
+https://hub.docker.com/repository/docker/mkapust9/jenkins_lab05
+
+
+
+
+
+Zad.4
+- W konsoli uzylem polecenia "sudo docker exec -u root -it ccff50890739 bash" aby uruchomic bash kontenera jenkins z uprawnieniami root. Pobralem docker compose poleceniem: "curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose", a nastepnie nadalem uprawnienia do wykonania: "chmod +x /usr/local/bin/docker-compose".
+
+- Otworzylem localhost:8080 w przegladarce i zdefiniowalem nowy job "devops1" klikajac New Item - > Freestyle Project. 
+
+- W sekcji Source Code Management/Repositories zaznaczylem Git - podalem link do repozytorium na github. Ponadto w sekcji Source Code Management/Branches to build ustawilem branch na Grupa02.
+
+- W sekcji Build zaznaczylem "Execute Shell". Napisalem dwie komendy:
+
+cd Grupy/Grupa02/MK306455/Lab04 #przejscie do odpowiedniego katalogu
+
+docker-compose up #uruchomienie docker-compose
+
+
+- Tak zdefiniowany job zapisalem i uruchomilem. Po kilku probach udalo sie wyeliminowac wszystkie bledy i budowa przebiegla pomyslnie. 

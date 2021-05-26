@@ -1,0 +1,34 @@
+zad 1. W katalogu MK306455 utworzono katalogi:
+- Docker z build agent, test agent oraz docker-compose.yaml
+- Jenkins na Jenkinsfile z Lab07
+- git-hooks z commit-msg
+
+
+zad 2.
+- Najpierw utworzono kopie repozytorium z Socket.io Messengerza za pomoca Fork: https://github.com/mkapust8/Socket.io-Messenger
+
+- Na repozytorium dodano testowy Jenkinsfile wypisujacy tekst w kazdym stage (zrzut zad2a).
+
+- Nastepnie w stage build dodano uruchomienie 'npm install'. W tym momencie okazalo sie ze Jenkins wymaga zainstalowania pluginu nodejs. Zostal on zainstalowany z uzyciem GUI jenkins (zrzut zad2b).
+
+- Uzupelniono Jenkinsfile o komendy 'npm audit fix' oraz 'npm install' (na kontenerze ubuntu byly one potrzebne aby dokonac poprawnej instalacji). Jak sie okazalo na Jenkins pojedyncze uruchomienie npm install poprawnie instaluje messenger, wiec zostaly one usuniete (zrzut zad2c).
+
+- Dodano npm test w stage Test (zrzut zad2d).
+
+- Zapisano wynik testow do pliku tests_log.txt komenda 'npm test > tests_log.txt'.
+
+- Do Jenkinsfile dodano sekcje post, a w niej obsluzenie dwoch przypadkow: pipeline zakonczyl sie sukcesem (success) lub jest niestabilny (unstable). Z tego co wyczytalem na stronie Jenkins, to przypadek unstable zazwyczaj jest stosowany do obslugi testow zakonczonych niepowodzeniem.
+
+- Dodano wyslanie pliku tests_log.txt w mailu w sekcji post. W tym celu nalezalo napisac nastepujaca strukture maila:
+
+emailext attachLog: true, #dolaczenie logu calej budowy Jenkinsfile
+    		attachmentsPattern: 'tests_log.txt', #dodatkowo dolaczony jest plik z logami testow
+                body: "Tests successful for job ${env.JOB_NAME}", #tresc maila z uzyciem zmiennej srodowiskowej z nazwa joba
+                subject: "Tests successful", #tytul maila
+                to: 'marcin.kapusta2986@gmail.com' #adresat
+
+- Aby mozliwe bylo wysylanie maili z Jenkins nalezalo skonfigurowac sekcje Manage Jenkins -> Configure System -> E-mail Notification oraz Extended E-mail Notification. (zrzuty zad2e-g). Poza tym trzeba bylo umozliwic na gmailu dostep mniej bezpiecznych aplikacji (zrzut zad2h)
+
+zad 3. Uruchomiono job. W efekcie otrzymano mail wynikami testow (zrzut zad3, zad3b). 
+
+ 

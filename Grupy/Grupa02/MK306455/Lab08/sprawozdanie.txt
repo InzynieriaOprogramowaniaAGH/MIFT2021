@@ -1,0 +1,22 @@
+1. Stage Build zosta umieszczony w Jenkinsfile juz w Lab07
+
+2. Aby upewnic sie ze pobrana wersja repo jest najnowsza dodano do stage Build komendy:
+
+sh 'git checkout master' #zmienienie brancha na master
+sh 'git pull' #uaktualnienie repo
+(zrzut zad2a)
+
+W stage Build wystepowala komenda sh 'npm install' juz w Lab07(zrzut zad2b)
+
+Aby uzytkownik byl powiadamiany zarowno o sukcesie jak i o porazce etapu budowania dodano dla stage Build sekcje post w ktorej w zaleznosci od wyniku jest wysylany odpowiedni mail. W przypadku sukcesu powiadomienie o sukcesie, a w przypadku porazki, powiadomienie o bledach. (zrzut zad2c)
+
+3. Jenkinsfile automatycznie przestaje wykonywac nastepne stage, jezeli ktorys z poprzednich zakonczyl sie porazka. Nie wiedzac tego wczesniej dodatkowo rozwiazalem problem niewykonywania stage test za pomoca zmiennej srodowiskowej. Jezeli stage Build zakonczy sie porazka to zmienna build_success jest zmieniana na false. Komendy stage test wykonaja sie tylko jezeli build_success ma wartosc true. Aby uzyc instrukcji if oraz ustawic wartosc zmiennej srodowiskowej nalezalo uzyc sekcji script{}.
+
+Przeprowadzono testy:
+-build i testy poprawne (zrzut zad3a)
+-build poprawny, testy zakonczone porazka (zrzut zad3b)
+-build zakonczony porazka - wyslany zostal jedynie mail o wyniku build, gdyz testy sie nie wykonaly (zrzut zad3c)
+
+Wszystkie maile w zrzucie zad3d
+
+4. Napisano prosty git-hook post-commit wykonaujacy komende echo z podanym w tresci zadania zdaniem.

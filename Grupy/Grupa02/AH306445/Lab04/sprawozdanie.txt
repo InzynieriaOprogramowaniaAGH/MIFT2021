@@ -11,5 +11,7 @@ Zad 3
 Zad 4 	
 	- docker build -t test_agent . -f Dockerfile_test
 
+
+
 zad 5 	
 	- docker-compose up - budowanie i uruchomienie aplikacji na podstawie konfiguracji opisanej w pliku docker-compose.yml

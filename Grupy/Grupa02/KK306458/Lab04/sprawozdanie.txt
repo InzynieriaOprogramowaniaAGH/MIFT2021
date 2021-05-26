@@ -1,0 +1,18 @@
+1.
+Utworzenie nowego repozytorium na dockerhubie
+docker login - zalogowanie się na dockerhuba
+docker tag lab03-image:latest kklim/dev_ops_lab03 - otagowanie obrazu w odpowiedni sposob
+docker push kklim/dev_ops_lab03 - wrzucenie obrazu na repozytorium na dockerhubie
+
+2.
+Wykorzystanie open-sourcowego komunikatora deltachat
+
+3.
+sudo docker build -t deltachat-build-agent ./Dockerfile-build-agent 
+
+4.
+sudo docker build -t deltachat-test-agent ./Dockerfile-test-agent
+
+5.
+Utworzenie pliku docker-compose.yml, który łączy uruchamia w odpowiedniej kolejności wcześniej utworzone Dockerfile
+sudo docker-compose up - zbudowanie obrazów i uruchomienie kontenerów

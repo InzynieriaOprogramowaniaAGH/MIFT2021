@@ -1,0 +1,23 @@
+Utworzenie nowego brancha osobistego na te zajęcia
+- git branch Grupa02-BH306443_Lab04
+
+Przełączenie na nowy branch
+- git checkout Grupa02-BH306443_Lab04
+
+Zbudowanie obrazu z tagiem
+- sudo docker build . -t bhajduk/devops .
+
+Opublikowanie obrazu na dockerhub
+- sudo docker push bhajduk/devops
+
+Wybranie opensourcowego komunikatora - https://github.com/deltachat/
+
+Napisanie nowego obrazu kontenera dockerowego wykonującego operację budowania deltachat ze źródeł
+- sudo docker build -t tag . -f dockerfile
+
+Stworzenie obrazu kontenera dockerowego, który testuje komunikator zbudowany w poprzednim punkcie
+- sudo docker build -t tag . -f dockerfile
+
+Utworzenie pliku docker-compose.yml + instalacja docker-compsose
+- sudo apt install docker-compose
+- sudo docker-compose up

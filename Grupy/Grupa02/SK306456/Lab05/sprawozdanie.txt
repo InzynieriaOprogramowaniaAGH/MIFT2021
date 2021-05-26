@@ -1,0 +1,12 @@
+1.1. Stowrzenie pliku Dockerfile identycznego do zaproponowanego w instrukcji. Jedyna konieczna zmiana jest dodanie komendy instalujacej docker-compose, identyczna jak w dokumentacji docker-compose (pobranie programu i nadanie uprawnień do wykonywania skryptu).
+1.2. Stworzenie skryptu (docker-compose nie pozwala np. na uruchomienie kontenera w trybie privileged, stąd skryp bashowy) który:
+      a) Tworzy sieć jenkins-network w dockerze poleceniem docker network create jenkins-netowrk. Po tej sieci będą się komunikować kontenery jenkins i docker in docker.
+      b) Uruchamia obraz docker in docker (docker:dind), który będzie działał jako docker daemon dla później uruchomionego kontenera jenkinsa.
+      c) Buduje obraz z Dockerfile wspomianego w pkt. 1.2
+      d) Uruchamia kontener z obrazu z ppkt c.
+3.1. Stworzenie nowego obrazu jako commit z uruchomionego w pkt. 2 kontenera poleceniem docker commit <id_kontenera> <repo>/<nazwa_obrazu>:<tag>
+3.2. Udostepnienie obrazu do Docker Huba poleceniem docker push <repo>/<nazwa_obrazu>
+4.0. Polaczenie z przegladarki do konsoli Jenkinsa oraz przejscie przez wstepna konfiguracje
+4.1. Stworzenie nowego "Freestyle project".
+4.2. Konfiguracja pobierania repozytorium gitowego.
+4.3. Dodanie "skryptu" bashowego w build options, który przechodzi do odpowiedniej ścieżki i uruchamia docker-compose (cd Grupy/Grupa02... && docker-compose up)

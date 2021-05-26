@@ -1,0 +1,46 @@
+1. Zapoznano się z oprogramowaniem Jenkins
+
+2. Utworzono kontener jenkinsa na podstawie instrukcji
+	* docker run \
+  		--name jenkins-docker \
+  		--rm \
+  		--detach \
+  		--privileged \
+  		--network jenkins \
+  		--network-alias docker \
+  		--env DOCKER_TLS_CERTDIR=/certs \
+  		--volume jenkins-docker-certs:/certs/client \
+  		--volume jenkins-data:/var/jenkins_home \
+  		--publish 2376:2376 \
+  		docker:dind \
+  		--storage-driver overlay2
+	Utworzenie obrazu obsługującego dockera wewnątrz jenkinsa
+
+	* docker build -t myjenkins . - utworzenie obrazu z Jenkinsem 
+
+	* docker run \
+  		--name jenkins-blueocean \
+  		--rm \
+  		--detach \
+ 		--network jenkins \
+ 		--env DOCKER_HOST=tcp://docker:2376 \
+ 		--env DOCKER_CERT_PATH=/certs/client \
+		--env DOCKER_TLS_VERIFY=1 \
+		--publish 8080:8080 \
+		--publish 50000:50000 \
+ 		--volume jenkins-data:/var/jenkins_home \
+  		--volume jenkins-docker-certs:/certs/client:ro \
+  		myjenkins
+	Utworzenie kontenera na podstawie obrazu z Jenkinsem (myjenkins)
+
+	
+
+3. Wrzucenie obrazu na dockerhuba 
+	* docker push tituu/myjenkins 
+
+4. Z poziomu Jenkinsa uruchomionego w kontenerze (pkt 2) uruchom docker-compose stworzony w ramach Lab04.	
+
+	* cd Grupy/Grupa02/AH306445/Lab04 - zmiana lokalizacji na miejsce w którym znajduje się docker-compose.yml z poprzednich zajęć 
+	* curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /var/jenkins_home/docker-compose - pobranie docker-compose do kontenera
+	* chmod +x /var/jenkins_home/docker-compose - umożliwienie wykonywania docker-compose 
+	* /var/jenkins_home/docker-compose up - uruchomienie kontenerów za pomocą docker-compose 

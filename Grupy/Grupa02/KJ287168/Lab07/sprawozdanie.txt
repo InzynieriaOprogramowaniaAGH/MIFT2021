@@ -1,0 +1,74 @@
+1. Twoje "źródło prawdy" - umieść  (skopiuj) wszystkie pliki źródłowe.
+	git checkout -b Grupa02-KJ287168_Lab07
+	git status
+	cd ..
+	git status
+	git add Lab07/
+	git commit -m "KJ287168 pkt. 1"
+
+2. Ze swojego planu CI/CD pipeline'a stworzonego na Lab06 wybierz.
+	
+
+2.1 Następnie stwórz Jenkinsfile.
+	(Jenkinsfile stworzyłem i edytowałem w samym repo, które sforkowałem) (jednak nie tylko- ostatecznie)
+	(od razu uwzględniłem kwestię informowania o wyniku testów)
+
+2.2 Zwróć uwagę, że być może będziesz chciał zrobić "forka" na oryginalnym repo.
+	
+
+2.3 W Jenkinsfile stwórz nowego Jenkins pipeline.
+		pipeline {
+		    agent any
+
+		    stages {
+		        stage('Build and test') {
+		            steps {
+		                echo 'Building and testing..'
+		                sh '''
+		                curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /var/jenkins_home/docker-compose
+		                chmod +x /var/jenkins_home/docker-compose
+		                /var/jenkins_home/docker-compose up
+		                '''
+		            }
+		        }
+		        stage('Deploy') {
+		            steps {
+		                echo 'Deploying....'
+		            }
+		        }
+		    }
+		    post{
+		        success {
+		            emailext attachLog: true,
+		                to: 'kjmj77@gmail.com',
+		                subject: "Successful Pipeline: ${currentBuild.fullDisplayName}",
+		                body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}"
+		        }
+		        failure {
+		            emailext attachLog: true,
+		                to: 'kjmj77@gmail.com',
+		                subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+		                body: "Something is wrong with ${env.BUILD_URL}"
+		        }
+		    }
+		}
+	git status
+	git add .DS_Store 2_2.png 2_3.png 2_4.png 2_5.png Jenkins/
+	git status
+	git commit -m "KJ287168 Modysikacje w pkt. 2"
+	git add 2_2.png 2_3.png 2_4.png 2_6.png 2_7.png 2_8.png 2_9
+	git commit -m "KJ287168 Dodane zdjęcia do pkt. 2"
+
+2.4 Wewnątrz Jenkinsfile w sekcji "stage('Test')" oskryptuj uruchaminia testów.
+	(miałem problem z Pipelinem, co widać na zdjęciu 2_8)
+	(Testy wywołuję w jednym etapie z budowaniem-  z racji praktycznych)
+
+3. Wykonaj i wykaż przykład wykonania tych testów z użyciem Jenkinsfile.
+	git status
+	git add Dockerfile 3_1.png 3_2.png 3_3.png Jenkins/Dockerfile sprawozdanie.txt
+	git status
+	git commit -m "KJ287168 Dodanie pkt.3 i sprawozdania"
+
+4. Wrzuć Jenkinsfile na repo z pkt 1.
+	(dodane w pkt. 2)
+	
