@@ -1,0 +1,20 @@
+1. Zainstalowałem klienta git.
+2. Sklonowałem repozytorium przy pomocy komendy: git clone (podany adres w instrukcji).
+3. Przygotowałem w programie Paint graf obrazujący relacje pomiędzy repozytorimi #A(GitHub) i #B(lokalne).
+4. Zgodnie z instrukcją stworzyłem nowego brancha o nazwie DK290596 i się na niego przełączyłem. Zostało to
+   wykonane przy pomocy komendy git checkout -b DK290596.
+5. Na tym branchu stworzyłem folder DK290596 komendą mkdir DK290596 a w nim folder Lab01 komenda mkdir Lab01.
+6. W folderze Lab01 stworzyłem plik sprawozdanie.txt przy użyciu touch sprawozdanie.txt.
+7. Dodałem plik sprawozdanie i graf i dokonałem push brancha na remote'a. Komendy:
+   - git add sprawozdanie.txt
+   - git commit -m"plik do sprawozdania"
+   - git push origin DK290596
+   - git add graf.png
+   - git commit -m"graf zaleznosci"
+   - git push origin DK290596
+8. Dodałem zrzuty ekranu z wykonywanych do tego momentu zadań.
+   - git add .
+   - git commit -m"screeny"
+   - git push origin DK290596
+9. Zaktualizowałem treść sprawozdania
+10. Zrobiłem merga swojego brancha na mastera i push'a na remote'a.

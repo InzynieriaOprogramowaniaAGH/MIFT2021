@@ -1,0 +1,24 @@
+1. Aby zainstalować klienta git uzyłam komendy: 
+	$ sudo apt-get update
+	$ sudo apt-get install git
+Ponieważ git'a mialam już wcześniej zainstalowanego, więc w celu sprawdzenia czy komenda git jest rozpoznawalna uzyłam następującej komendy:
+	$ git --version
+2. Aby pobrać/sklonować repezoytorium na mój loklany komputer użyłam następującej komendy:
+	$ git clone url
+4. W celu stworzenia nowego brancha i przełaczania się na niego uzyłam komendy:
+	$ git checkout -b AD306658
+Do swtorzeia katalogów wykorzystałam komende:
+	$ mkdir Lab01 
+Do utworzenia pliku:
+	$ touch sprawozdanie.txt
+Aby dodać commita:
+	$ git add .
+	$ git status
+	$ git commit -m '...'
+5. Następnie przełączam się na branch master:
+	$ git checkout master
+Robie merga z moim stworzonym branchem na któreym pracowałam:
+	$ git merge AD306658
+Następnnie żeby mojej zmiany było dostępny dla innych:
+	$ git pull (bardzo istotne inaczej push nie zadziała bo inni dodają swoje zmiany)
+	$ git push 

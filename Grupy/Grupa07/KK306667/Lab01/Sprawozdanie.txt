@@ -1,0 +1,14 @@
+5. W pliku "sprawozdanie.txt" krótko, ale dokładnie opisz jakich poleceń użyłeś do wykonania poszczególnych zadań.
+
+Do pobrania repozytoruium użyłem polecenia "git clone" 
+Do zmiany brancha użyłem polecenia "git checkout"
+Do wypchnięcia zmian użyłem "git push" a do zacommitowania użyłem "git commit"
+do pobrania zmian z repo użyłem "git pull"
+
+6. 
+
+Wykonałem push oraz commit następnie wykonałem odpowiednie zrzuty ekranu które znów wypchnąłem na remote brancha
+
+7
+pobrałem wszystkie zmieny następnie je wypchnąłem potem wykonałem git checkout na mastera i wykonałem merge mojego brancha z masterem
+
