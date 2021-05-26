@@ -3,7 +3,7 @@ zdecydowałam się spróbować wykonać zadanie na innym komunikatorze. Pliki ź
 z których koszystałam na poprzednich zajęciach.
 Poprzedni komunikator: wire-desktop
 Nowy komunikator: Socket.io-Messenger
-Screeny dotyczące nowego komunikatora mają w nazwie wyraz 'nowykom'. Reszta screenów jest poczęści wspólna i działająca dla obu komunikatorów.
+Screeny dotyczące nowego komunikatora mają w nazwie wyraz 'nowykom'. Reszta screenów jest po części wspólna i działająca dla obu komunikatorów.
 
 
 1. Umieściłam pliki źródłowe, skopiowane z poprzednich zajęć, w odpowiednich folderach o nazwach Docker, Hooks, Jenkins.
