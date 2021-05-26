@@ -1,6 +1,9 @@
 2.
+//Tworzy sieć
 sudo docker network create jenkins
 
+
+// Uruchomienie kontenera który pozwoli wykonywać komendy dockerowe takie jak docker-compose
 docker run \
   --name jenkins-docker \
   --rm \
@@ -15,9 +18,11 @@ docker run \
   docker:dind \
   --storage-driver overlay2
   
+  
+// zbudowanie obrazu z którego będziemy korzystali w Jenkinsie
   sudo docker build -t jenkins:1.1 .
 
-
+// Uruchomienie wczesniej stworzonego obrazu
 docker run \
   --name myjenkins\
   --rm \
@@ -34,4 +39,30 @@ docker run \
 
 
 3.
+//Przypisanie tagu do obrazu który nastepnie zostanie udostepniony
+sudo docker tag myjenkins:1.1 galainer/myjenkins
+
+// Zpushowanie obrazu do DockerHuba
+sudo docker push galainer/myjenkins
+
+Link do dockerowego repozytorium
+https://hub.docker.com/repository/docker/galainer/myjenkins
 4.
+Tworzenie nowego zadania.
+//Repozytorium Kodu
+Git- podanie linku https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021
+
+//Branches to build
+*/Grupa02-IK297101_Lab05
+
+//Execute shell
+cd Grupy/Grupa02/IK297101/LAB05
+pwd
+ls
+curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose 
+docker-compose up
+
+
+
+
