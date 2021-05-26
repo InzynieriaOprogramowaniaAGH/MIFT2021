@@ -1,4 +1,4 @@
-FROM karol22322/mift2021:ubuntu_git_image
+FROM karol22322/mift2021:git_image
 
 RUN apt-get update
 
