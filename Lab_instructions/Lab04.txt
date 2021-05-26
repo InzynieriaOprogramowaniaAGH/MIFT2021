@@ -1,0 +1,26 @@
+Temat: Uruchamianie i bazowa konfiguracja kontenera. cz.2.
+
+
+Uwaga: korzystamy z tego samego repo co w zeszłym tygodniu, czyli git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+Uwaga: po wykonaniu każdego numerowanego polecenia, wykonaj zrzut ekranu z efektem twojej pracy - będzie to potrzebne później.
+Uwaga: wszystkie skrypty które tworzysz zamieszczaj w odpowiednim swoim folderze w repozytorium
+Uwaga: w czasie wykonanywania zadania pisz plik "sprawozdanie.txt", zawierający treść instrukcji którymi się posłużyłeś do wykonania zadania.
+Uwaga: Zwróć uwagę by w komentarzu do commita zawrzeć czytelną informację w ramach którego ćwiczenia laboratoryjnego i którego zdania to robisz.
+Uwaga: Na mastera wrzucamy zmiany tylko przez pull requesta! 
+
+1. Stwórz brancha osobistego na te zajęcia wg. schematu z poprzedniego tygodnia (np.: Grupa01-KM123456_Lab03). Pamiętaj stworzyć go od swojego brancha grupowego!
+1.1 Opublikuj obraz z porzednich zajęć w serwisie Docker HUB (https://hub.docker.com/)
+
+2. Napisz samodzielnie lub znajdź w internecie dowolny komunikator (opensource messeging app).
+ 
+3. Build agent: Stwórz nowy obraz kontenera dockerowego (nowy Dokerfile) i skonfiguruj go tak, aby był w stanie wykonać operację budowania "komunikatora" ze źródeł (kompilacja, linkowanie, zależności, etc.)
+
+4. Test agent: Stwórz nowy obraz kontenera dockerowego (nowy Dokerfile) i skonfiguruj go tak, aby był w stanie wykonać operację testowanie "komunikatora" korzystając ze zbudowanego wcześniej programu w pkt 3.
+
+5. Stwórz plik docker-compose.yml (https://docs.docker.com/compose/). Dodaj go do swojego brancha. Korzystając z obrazów 3) i 4) stwórz środowisko, które:
+- ściąga z repo najnowszą wersję "komunikatora"
+- buduje go
+- testuje czy komunikator działa (możesz użyć więcej niż 1 istancji obrazu 4) jeżeli trzeba.
+
+
+Uwaga: zgłoś zadanie na MS Teams!

@@ -1,0 +1,27 @@
+Sprawozdanie
+
+Temat: Klucze SSH i połączenie SSH. Łączenie i usuwanie zmian w kodzie. Manipulowanie organizacją repozytorium GIT.
+
+1a. Wygenerowałam nowy klucz SSH poleceniem ssh-keygen -t ed25519 -C "aleksandrarataj2@gmail.com"
+1b. Uruchomiłam agenta SSH do obsługi klucza SSH poleceniami eval "$(ssh-agent -s)" oraz dodałam klucz SSH do agenta SSH poleceniem ssh-add ~/.ssh/id_ed25519.
+1c. Zarejestrowałam klucz po stronie serwera. Zainstalowałam xclip oraz skopiowałam klucz za pomocą polcenia xclip -selection clipboard < ~/.ssh/id_ed25519.pub
+1d. Poinformowałam Gita o zmianie sposobu logowania za pomocą polecenia git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+
+2. Zrobiłam commita i nadałam na niego tag o nazwie "AR306494 Lab02" z komentarzem, za pomocą polecenia git tag -a AR306494_Lab02 -m "Aleksandra Rataj, Lab 02, dodaje taga". Wrzuciłam zmianę na swojego brancha poleceniem git push --set-upstream origin AR306494, a następnie na remote/origin za pomocą git push --follow-tags.
+
+3. Uporządkowanie branch'y i folderów. Przeniosłam pliki do nowej lokalizacji git mv AR306494/ Grupy/Grupa05. Zmieniłam branch git checkout -b Grupa05-AR306494_Lab02 oraz zmergowałam stary branch z nowym git merge AR306494.
+
+4. Napisałam Git hook'a commit.msg. 
+
+#!/bin/bash
+
+commit_comment="AR306494"
+wrong_commit="Wrong commit!"
+
+if ! grep -iqE "$commit_comment" "$1" ; then
+	echo "$wrong_commit"
+	exit 1
+fi
+echo "Correct commit comment"
+
+5. Zrobiłam pusha ze swojego brancha do brancha grupowego. Usunięto branch osobisty poleceniem git branch -d Grupa-05-AR306494_Lab02.

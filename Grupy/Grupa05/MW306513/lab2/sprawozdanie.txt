@@ -1,0 +1,7 @@
+ 1 - 1.5.3 generowanie_klucza.png, "klucz po stronie gh.png", "polacznie po ssh.png", ssh--agent.png, "wszystkie klucze.png"  
+
+2. 'tag_zmieniony.png'
+
+3.Zgubione podczas boju ...
+
+4. 'githook.png' 'githook_dziala_poprawnie.png'

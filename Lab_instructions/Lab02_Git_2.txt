@@ -49,6 +49,7 @@ Przenieś w repozytorium swój folder (np.:KM123456), tak by był dostępny pod 
 4.1 Wepnij go we właściwe miejsce, tak by uruchamiał się za każdym razem kiedy robisz commita.
 (zwróć uwagę że ten git hook musi się uruchamiać po twojej stronie, nie serwera).
 Przykładowe githook'i są w .git/hooks.
+Koniecznie umieść treść githooka w sprawozdaniu.
 
 5. Dołącz swoje zmiany. 
 5.1 Zrób merga ze swojego brancha osobistego do brancha grupowego. Następnie zamknij branch osobisty.

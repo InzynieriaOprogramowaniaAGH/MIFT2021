@@ -1,8 +1,0 @@
-2. Do skopiowania repozytorium uzylem polecenia git clone <link do repo>
-4. Do stworzenia brancha uzylem polecenia git branch MW306513 oraz 
-przenioslem sie na niego poleceniem git checkout MW306513.
-Nastepnie utworzylem folder oraz i w nim plik sprawozdanie.txt 
-do dodania uzylem nastepujacych komend 
-git add . # dodaje wszystkie pliki wczesniej sprawdzilem poprzez git status co mam do dodania.
-git commit- m"komentarz" tak samo dla grafu zrobilem 
-teraz zostaje mi tylko commit i spushowanie na remote :D (oby sie udalo)

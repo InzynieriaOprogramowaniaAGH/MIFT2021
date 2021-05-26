@@ -1,0 +1,9 @@
+Bartek Ciesiński Lab_02
+
+1.1 Sprawdziłem czy posiadam jakiś klcucz SSH. 
+1.2 Ponieważ nie posiadałem żadnego to wygenerowałem nowy klucz SSH.
+1.3 Dodałem wygenerowany klucz do agenta SSH za pomocą poleceia: $ eval `ssh-agent -s`
+1.4 Następnie zarejestrowałem klucz po stronie servera.
+1.5 Poinformowałem gita o zmianie sposobu logowania.
+Ponieważ za pierwszym razem storzyłem klucz w nieodpowiednim miejscu, usunałem ten klucz i wygenerowałem nowy.
+Dlatego na zdjęciu lab02_zad1_5.png w początkowym sposobie łączenia widać juz łączenie po SSh.

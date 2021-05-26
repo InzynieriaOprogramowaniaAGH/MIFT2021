@@ -1,5 +1,0 @@
-Zainstalowałem klienta git poleceniem sudo apt-get install git.
-Przy użyciu polecenie git clone (adres repozytorium) sklonowałem zdalne repozytorium. Następnie przystąpiłem do rysowania grafu.
-Stworzyłem nowy branch w lokalnym repozytorium (#B) używając nazwy MP306490. Przełączyłem się na swojego brancha (git checkout MP306490) i stworzylem plik sprawozdanie.txt i graf.png które dodałem do repozytorium przy pomocy git add (nazwa pliku) oraz zcommitowałem.
-Wykonałem commit'a i push'a brancha na remote'a uzywajac git push origin (moja nazwa brancha)
-Calosc zakonczono uzyciem merge'a ( git checkout master i git merge MP306490 ), pozniej git pull origin master i git push origin master.

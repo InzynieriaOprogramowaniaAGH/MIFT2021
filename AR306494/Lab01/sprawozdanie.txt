@@ -1,6 +1,0 @@
-1. Nie musisiałam instalować klienta git, ponieważ już wcześniej miałam to wykonane, polecenie (sudo apt-get install git-all).
-2. Utworzyłam nowy folder oraz zainicjalizowałam nowe repozytorium lokalne poleceniem git init. Sklonowałam zdalne repozytorium poleceniem git glone "adres-repozytorium". Narysowałam graf zależności.
-4. Stworzyłam i przełączyłam się na branch AR406494 za pomocą polecenia git checkout -b AR406494. Na tym branchu stworzyłam folder za pomocą polecenia mkdir. Za pomocą polecenia touch stworzyłam plik sprawozdanie.txt dodałam go do repozytorium poleceniem git add sprawozdanie.txt. Następie zrobiłam commit zmiany poleceniem git commit -m "Add file sprawozdanie.txt". Nastepnie do folderu dodałam wcześniej narysowany graf, dodałam go do gita oraz zrobiłam commit.
-6. Wykonałam commita i puch brancha na remota za pomocą poleceniea git push origin AR306494.
-7. Wykonałam merga do głównego brancha. Zrobiłam git checkout master oraz git merge AR306494.Następnie zrobiłam git pull origin master i git push origin master.
-
