@@ -1,0 +1,17 @@
+1. Upewniłam się, ż eposiadam potrzebny kontener dockerowy (obraz) z wcześniej wykonywanych labolatorium.
+2.Pobrałam i zainstalowałam minikube.
+
+sudo curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+Pobrałam kubectl:
+minikube kubectl -- get po -A
+
+Pobrałam także virtualbox , aby uzyć go jako drivera.
+
+Uruchomiłam klaster z flaga z konkretnych driverem:
+minikube start --driver=virtualbox
+
+3.Uruchomiłam Minikube Dashboard komenda: minikube dashboard.
+3.1 dzięku Minikube Dashboard można wdrażać aplikacje kontenerowe w klastrze Kubernetes. Można również zarządzać zasobami klastra(tworzyć, modyfikować).
+
+
