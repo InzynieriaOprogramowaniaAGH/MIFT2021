@@ -4,13 +4,20 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-		sh 'npm install'
-		echo 'Building....'
-		sh
+                checkout scm
+                sh 'curl -sL https://deb.nodesource.com/setup_14.x | bash -'
+                sh 'apt-get install nodejs -y'
+                sh 'npm install --global --force yarn'
+		            echo 'Building....'
 		}
 	}
 	stage('Test') {
-		steps {
+    when {
+                expression {
+                    currentBuild.result == null || currentBuild.result == 'SUCCESS'
+                }
+     }
+		 steps {
 			echo 'Testing....'
 			sh 'npm run test'
 			
@@ -30,7 +37,7 @@ pipeline {
 		 body: "${currentBuild.result}: ${BUILD_URL}", 
 		 compressLog: true, 
 		 subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", 
-		 to: 'wiktorligeza@gmail.com'
+		 to: 'laskawska.kinga@gmail.com'
 		
     	}
     	
@@ -38,7 +45,7 @@ pipeline {
 		emailext attachLog: true,
 			body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}", 
 			subject: ' Jenkins notification', 
-			to: 'wiktorligeza@gmail.com'
+			to: 'laskawska.kinga@gmail.com'
     	}
     }
 }
