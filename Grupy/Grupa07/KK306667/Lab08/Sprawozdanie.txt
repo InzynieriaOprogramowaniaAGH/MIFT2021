@@ -1,0 +1,14 @@
+Stworzyłem branch a w nim folder Lab08
+
+Następnie na podstawie jenkinsfile z z poprzednich zajęć napisałem następne stage
+
+stage('Test') wykonuje yarn test czyli komende 'jest'. Zostało to ustawione w pliku package.json. 
+Test uruchamia sie po poprawnym zbudowaniu stage'a build
+
+stage('DeployTest') wykonuje ten sam test co stage('Test')
+
+W razie porażki w stage('Test') - stage deploy jest pomijany a do użytkownika przysyłany jest e-mail zatytułowany "Build failed"
+
+W razie porażki w stage('DeployTest') - stage deploy jest pomijany a do użytkownika przysyłany jest e-mail zatytułowany "Build failed"
+
+Stworzyłem gitHook post-commit zgodnego z instrukcją, oraz umieściłem go w repo.

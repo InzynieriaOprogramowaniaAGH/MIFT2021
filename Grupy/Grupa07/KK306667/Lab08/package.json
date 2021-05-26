@@ -1,0 +1,8 @@
+{
+  "name": "my-karolkarcz",
+  "license": "MIT",
+  "scripts": {
+    "build": "npx babel",
+    "test": "jest"
+  }
+}
