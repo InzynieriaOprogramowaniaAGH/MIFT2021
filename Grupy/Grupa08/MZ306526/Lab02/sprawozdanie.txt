@@ -1,0 +1,29 @@
+1. Postępowanie zgodnie z poleceniami instrukcji, w wyniku której zmieniamy sposób logowania na klucz shh:
+	Generacja nowego klucza shh:
+			ssh-keygen -t ed25519 -C "nasz email" 
+	Uruchomienie agenta shh:
+			eval 'ssh-agent -s'
+	Dodanie klucza do agenta:
+			ssh-add ~/.ssh/id_ed25519
+	Zmiana sposobu logowania:
+			git remote -v - sprawdzenie obecnego sposobu logowania
+			git remote set-url origin link
+			git remote -v - sprawdzenie obecnego sposobu logowania
+
+2.Dodanie Tagów:
+		git tag -a MZ306526_Lab02 -m "opis"
+	nastepnie:
+		git push --follow-tags
+
+3.Utowrzenie odpowiednich folderów i uporządkowanie ich zgodnie z poleceniem:
+		MIFT2021\Grupy\Grupa08\MZ306526\Lab02
+	Utworzenie lokanego brancha:
+		git checkout Grupa08-MZ306526_Lab02
+
+4.Utworzenie skryptu zabezpieczającego przed dodaniem commita z niezgodnym tytułem:
+	w katalogu .git/hooks tworzymy skrypt
+
+5.Dodanie modyfikacji z brancha osobistego na grupowy oraz usunięcie brancha stworzonego na potrzeby zadania
+	
+		git merge Grupa08-MZ306526_Lab02
+		git branch -d Grupa08-MZ306526_Lab02

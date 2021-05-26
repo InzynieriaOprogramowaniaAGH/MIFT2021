@@ -1,0 +1,41 @@
+pipeline {
+    agent any
+    tools {nodejs "NodeJS"}
+    stages {
+    	stage('Build') {
+		steps {
+			echo 'Building'
+			checkout scm
+			sh 'npm install'
+			sh 'npm run build'
+		}
+	}
+        stage('Test') {
+		when{
+			expression {currentBuild.currentResult=='SUCCESS'}
+		}
+            	steps {
+          		echo 'Testing'
+            	  	sh 'npm test'
+            	}
+         }	
+    }
+    post {
+    	always { 
+            echo 'Test completed. Results sent as e-mail.'
+        }
+        success {
+            emailext attachLog: true,
+		body: "Build status: ${currentBuild.currentResult}\nJob: ${env.BUILD_TAG}", 
+            	subject: 'Pipeline test completed successfully',
+            	to: 'jenkins3464@gmail.com'
+        }
+        failure {
+            emailext attachLog: true,
+            	body: "Build status: ${currentBuild.currentResult}\nJob: ${env.BUILD_TAG}", 
+            	subject: 'Pipeline test failed',
+            	to: 'jenkins3464@gmail.com'
+        }
+    }
+}
+

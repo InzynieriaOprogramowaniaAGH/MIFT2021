@@ -1,0 +1,7 @@
+1. Rozszerzono Jenkinsfile'a o nowy stage do budowy aplikacji.
+2. Do budowy użyto polecenia: 'npm run build'.
+3. Następnie dodano sekcję success i failure, które wysyłają odpowiednie komunikaty w zależności od wyniku budowania.
+4. Napisano git hook'a dla repozytorium z komunikatorem:
+#!/bin/sh
+echo "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie". 
+

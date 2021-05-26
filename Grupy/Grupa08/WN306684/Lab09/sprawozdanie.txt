@@ -1,0 +1,5 @@
+1. Stworzono nowego webhook'a w repozytorium aplikacji. W tym celu użyto "ngrok", aby wygenerować URL. Następnie zmieniono konfiguracje pipeline poprzez zaznaczenie opcji 'GitHub hook trigger for GITScm polling', w celu uruchomienia budowania po commicie.
+2. Przetestowano automatyczne uruchomienie, po wykonanym commicie.
+3. Dodano nowy stage do pliku 'Jenkinsfile' o nazwie 'Depoly', który odpowiada za budowanie kontenera z pliku 'Dockerfile.deploy'.
+4. Upewniono się, że wszystko działa zgodnie z poleceniem.
+5. Uruchomiono automatycznie po commicie pipeline i udokumentowano wyniki.

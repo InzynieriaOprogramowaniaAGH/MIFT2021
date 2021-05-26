@@ -1,0 +1,9 @@
+1-3.
+Rozszerzenie Jenkinsfile z poprzedniego laboratorium o nowy stage "Build".
+Zadbanie o aktualnosc kodow zrodlowych (checkout cms).
+Zbudowanie programu.
+Uruchomienie testow wylacznie gdy budowa przebiegla prawidlowo.
+
+4.
+Umieszczenie pliku "post-commit" w repozytorium komunikatora (repo/.git/hooks/post-commit).
+
