@@ -1,0 +1,23 @@
+Sprawozdanie Lab 04 - Michał Stawarski - MS307688 - Grupa 05
+
+1.1 Logowanie do dockerhub za pomocą access token:
+>docker login -u mehuu26
+-> podaje token
+1.1.2 Utworzenie repozytorium o nazwie mehuu26/grupa05ms307688lab03
+1.1.3 Zbudowanie obrazu z poprzednich zajeć i otagowanie nazwą utworzonego repozytorium
+>docker build -t mehuu26/grupa05ms307688lab03 .
+1.1.4. Wyslanie obrazu kontenera do repozytoriuum dockerhub
+>docker push mehuu26/grupa05ms307688lab03
+
+2. Znalezienie komunikatora: https://github.com/binhxn/node-chat-app
+
+3. Stworzenie pliku Dockerfile-build -> oparty na obrazie Ubuntu:latest
+pobiera repozytorium komunikatora i buduje za pomocą npm
+przed procesem budowania ustawiamy strefę czasową na Europe/Warsaw (wymagane przez instalator npm)
+
+4.Stworzenie pliku Dockerfile-test -> oparty o dockerfile z punktu wczesniejszego i uruchomienie testu za pomocą komendy RUN npm test
+
+5.Stworzenie pliku docker-compose.yml
+definiujemy serwis build. buduje on kontener w oparciu o plik Dockerfile-build i taguje nodechat-build:latest
+definiujemy serwis test. buduje on kontener w oparciu o plik Dockerfile-test i taguje nodechat-test:latest
+dyrektywa depends_on: określa kolejność wykonywania skryptu.
