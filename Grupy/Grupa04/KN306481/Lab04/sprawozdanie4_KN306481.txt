@@ -1,0 +1,82 @@
+1. Utworzono brancha osobistego odłączając go od brancha grupowego:
+ git checkou -b Grupa04-KN306481_Lab4
+2. Opublikowano obraz z poprzednich zajęć na Dockerhub:
+2.1 Zalogowano się do Dockera:
+	docker login --username= --email=
+2.1 Sprawdzono obrazy i nadano tag:
+	docker images
+	docker tag devops_kn306481 kamilanowak/lab03:latest
+2.2. Zpushowano obraz:
+	docker push kamilanowak/devops_kn306481
+2.3. Obraz został spushowany na adres https://hub.docker.com/repository/docker/kamilanowak/devops_kn306481
+3. W folderze klienta utworzono Dockerfile, który budował komunikator ze źródeł.
+
+	FROM node:alpine
+
+	ADD . /src
+	WORKDIR /src
+
+	RUN apk update
+	RUN npm install -y --no-install-recommneds git
+
+	COPY --chown=node:node . .
+
+	CMD ["node", "src/app.js"]
+	CMD node src/client.js
+	CMD node app.js
+
+4. W folderze testowym utworzono drugiego Dockerfile,który tworzył serwer, dzięki czemu aplikacja mogła pomyślnie "wysłać" komunikat,który następnie został odebrany przez obraz testujący.
+
+	FROM node:alpine
+
+	ADD . /src
+	WORKDIR /src
+
+	RUN npm install
+	USER node
+	COPY . .
+
+	CMD ["node", "src/app.js"]
+	CMD node  src/server.js
+
+5. Stwodzono docker-compose.yml, który budował całą aplikacją tj. klienta i serwer do testowania:
+
+	version: '2'
+	services:
+	  app_server:
+	    container_name: node_app_server
+	    build: server
+	    volumes:
+	     - .:/src
+	  app_client:
+	    container_name: node_app_client
+	    build: client
+	    depends_on:
+	      - "app_server"
+	    command: sh -c './src/wait.sh app_server:8081 -- echo READY && node ./src/client.js'
+	    volumes:
+	     - .:/sr
+Jeśli aplikacja została zbudowana pomyślnie to na konsoli zostały wydrukowane komunikaty wysyłane przez klienta i odbierane przez serwer testujący.
+	     node_app_client | READY
+
+node_app_server | CONNECTED: 172.20.0.3:45796
+node_app_client | CONNECTED TO: app_server:8081
+node_app_client | KOMUNIKAT: 
+node_app_server | DATA 172.20.0.3: 
+node_app_server | 
+node_app_server |  WYSYŁAM DANE DO SERVERA! 
+node_app_server | 
+node_app_server | 
+node_app_client | DANE: OCZYT DANYCH:     
+node_app_client | 
+node_app_client |  "
+node_app_client | 
+node_app_client |  WYSYŁAM DANE DO SERVERA! 
+node_app_client | 
+node_app_client | "
+node_app_client | 
+node_app_client | POŁĄCZENIE ZAKONCZONE.
+node_app_client exited with code 0
+
+	     
+

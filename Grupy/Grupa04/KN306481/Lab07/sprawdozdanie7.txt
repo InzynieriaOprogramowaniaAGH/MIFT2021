@@ -1,0 +1,16 @@
+1.1 Skopiowano wszystkie pliki źródłowe (skrypty uruchamiające środowiska, Dockerfile, docker-compose.yaml, Jenkinsfile z zajęć nr 5).
+
+1.2. Uporządkowano pliki na poszczególne foldery w zależności od wykorzystywanego narzędzia.
+
+
+2. Z planu CI/CD pipeline'a stworzonego na Lab06 wybrano punkty odpowiedzialne za testowanie.
+
+2.1 Stworzono Jenkinsfile w repozytorium.
+
+2.2 W stworzonym Jenkinsfile napisano pipeline i uzupełniono stage odpowiedzialny za testowanie. 
+Z racji, że komunikator wybrany kilka zajęć temu nie miał napisanych testów, dlatego na potrzeby laboratorium stworzono skrypt symulujący uruchamianie testów, ponieważ pisanie testów do aplikacji nie jest celem tego laboratorium.
+
+2.3 Wewnątrz Jenkinsfile w sekcji "stage('Test')" wywołano test
+- Po wywołaniu poprawnie testów wysyłał się e-mail o pomyślnym zbudowaniu
+- podczas błędu wysyłał się mail z logami na podany email
+4. Wrzucono Jenkinsfile do repozytorium.
