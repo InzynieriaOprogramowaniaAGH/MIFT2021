@@ -1,0 +1,12 @@
+Karol Kusik
+Sprawozdanie lab05
+Grupa03
+
+1. Zapoznano się z omawianym diagramem.
+2. Zapoznano się z oprogramowaniem Jenkins.
+3. Stworzono kontener dockerowy z Jenkinsem z pomocą instrukcji.
+4. Wrzucono obraz Jenkinsa, jak i inne obrazy na repozytoruium Dockerhuba.
+5. Z poziomu Jenkinsa uruchomionego w kontenerze uruchomiono docker-compose z lab04.
+6. Plik .yml jest w repozytorium, z poziomu jenkinsa było ono pobrane, następnie docker-compose.yml
+został uruchomiony przez Jenkinsa.
+7. W logach konsoli widać sukces wykonania zadania.
