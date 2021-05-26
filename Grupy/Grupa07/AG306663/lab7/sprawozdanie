@@ -2,63 +2,63 @@
 
 2. Stworzenie Jenkinsfile, ktory bedzie realizowal CI/CD pipeline. Tresc Jenkinsfile:
 
-pipeline {
-    agent any
- 
-    stages {
-        stage('Build'){
-            steps {
-                sh 'curl -sL https://deb.nodesource.com/setup_14.x | bash -'
-                sh 'apt-get install nodejs -y'
-                sh 'npm install --global --force yarn'
+pipeline{
+	agent any
+	tools {
+	    nodejs "nodejs"
+	}
+  stages {
+	  
+	  stage('Build'){
 
-                sh 'git pull'
-                sh 'yarn'
-                sh 'yarn build:linux'
+            steps{
+                echo "Building..."
+		sh 'git pull origin master'
+                sh 'npm install'
+                }
+	    post{
+			always{
+				echo 'Finished'
+			}
+			failure{
+				messageFunction('BUILD', 'Failure')
+			}
+			success{
+				messageFunction('BUILD', 'Success')
+			}
+		}
             }
-            post {
-                always {
-                    echo "Build stage finished";
-                }
-                success{
-                    echo "Build Success";
-                }
-                failure {
-                    echo "Build Failure";
-                    mail body: "Please visit jenkins for further information", subject: "Build failed", to: "annagrzesiak04@gmail.com";
-                }
-            }
-        }
-        stage('Test') {
-            when {
-              expression {
-                currentBuild.result == null || currentBuild.result == 'SUCCESS' 
-              }
-            }
-            steps {
-                sh 'yarn test'
-                
-            }
-
-            post {
-                always {
-                    echo "Test stage finished";
-                }
-                success{
-                    echo "Test Success";
-                }
-                failure {
-                    echo "Test Failure";
-                    mail body: "Please visit jenkins for further information", subject: "Build failed", to: "annagrzesiak04@gmail.com";
-                }
-            }
-        }
-    }
-    
+     
+      	stage('Test') {
+			steps {
+				echo 'Testing'
+				sh 'npm run test'
+			}
+			post{
+				always{
+					echo 'Finished'
+				}
+				failure{
+					messageFunction('TEST', 'Failure')
+				}
+				success{
+					messageFunction('TEST', 'Success')
+				}
+			}
+		}
+	}
 }
 
-3. Sforkowanie repo wire-desktop, a nastepnie wrzucenie do niego Jenkinsfile(po commitowaniu i pushowaniu zmian).
+def messageFunction(stage, status) {
+	echo status
+	emailext attachLog: true,
+		body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+		to: 'annagrzesiak04@gmail.com',
+		subject: stage + " " + status
+}
 
-4. Stworzenie pipeline ze sforkowanym repozytorium, skonfigurowanie serweru SMTP w Jenkinsie oraz pobranie, zainstalowanie i konfiguracja NodeJS w Jenkinsie. 
+3. Sforkowanie repo Socket.io-Messenger, a nastepnie wrzucenie do niego Jenkinsfile(po commitowaniu i pushowaniu zmian).
+
+4. Stworzenie pipeline ze sforkowanym repozytorium, skonfigurowanie serweru SMTP w Jenkinsie.
 
 5. Uruchomienie pipeline. 
