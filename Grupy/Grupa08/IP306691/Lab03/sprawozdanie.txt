@@ -29,4 +29,4 @@ RUN apt-get -y install git
 docker build -t lab03 .
 winpty docker run -it lab03 bash
 6.1 sklonowałam repozytorium
-6.2 Sprawdziłam czy jest mój branch
+6.2 Sprawdziłam czy jest mój branch- JEST
