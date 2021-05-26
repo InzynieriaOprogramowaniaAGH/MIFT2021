@@ -1,0 +1,6 @@
+1. Celem umożliwienia działania webhooka, zainstalowano NGRok i uruchomiono go na dla portu, na którym pracuje kontener z Jenkinsem.
+2. Skonfigurowano Webhooka w repo z komunikatorem, podając adres z NGroka.
+3. Umożliwiono automatyczne uruchamianie Jenkinsa po commicie na branch master w repo z komunikatorem.
+4. Rozszerzono Jenkinsfile o Stage Deploy, oraz wprowadzono komunikację mailową informującą o jego sukcesie/porażce.
+5. Dodano Dockerfile-Deploy do repo z komunikatorem.
+6. Przetestowano działanie pipeline - uruchamia się automatycznie z commitem. Wszystkie kroki zakończyły się powodzeniem.

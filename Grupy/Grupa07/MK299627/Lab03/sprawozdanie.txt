@@ -1,0 +1,13 @@
+1. Utworzyłem tymczasowego brancha osobistego:
+   git checkout -b Grupa07MK299627_Lab03
+
+2. Za pomocą komendy "scp -r" skopiowałem git hooke'a z poprzednich zajęć do folderu Lab03/hooks
+
+3. Pobrałem i zainstalowałem dockera na wirtualnej maszynie - Linux.
+
+4. Utworzyłem konto w serwisie Docker HUB.
+
+5. Utworzylem plik Dockerfile, ktory bazowal na ubuntu:latest, doinstalowywal gita i pobieral nasze repozytorium. 
+
+6. Uruchomilem kontener za pomoca komendy "sudo docker build ."
+
