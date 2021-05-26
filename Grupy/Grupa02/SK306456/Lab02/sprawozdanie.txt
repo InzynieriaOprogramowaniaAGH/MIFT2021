@@ -1,0 +1,5 @@
+1. Do sprawdzenia połączenia ssh z githubem - ssh -T git@github.com. Do przełaczenia na autentykacje przez SSH - git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+2. Dodanie taga z użyciem komendy git tag -a SK306456_Lab01 -m "Szymon Kar.... " która tworzy taga z adnotacjami(?) - Annotated. Natępnie sprawdzenia czy tag faktycznie jest prawidlowo stworzony - git show SK306456_Lab01. Na koniec wypchnięcie zmian komendą git push --folow-tags 
+3.1 Stworzenie odpowiedniej ścieżki poleceniem mkdir oraz przeniesienie plików polecenie mv
+3.2 Przełaczenie na brancha grupy poleceniem git checkout --track origin/Grupa02. Stworzenie nowego brancha poleceniem git branch Grupa02-SK306456_Lab02, oraz przełączenie na tego brancha poleceniem git checkout Grupa02-SK30...
+4.1 Modyfikacja skryptu commit-msg.sample, która sprawdza czy wiadomość commita ma prawidłowo początek (funkcja grep) oraz zmiana nazwy skryptu na commit-msg. Następnie sprawdzenie poprawności działania poprzez commit z błędną i poprawną nazwą.

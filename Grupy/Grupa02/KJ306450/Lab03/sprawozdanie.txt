@@ -1,0 +1,13 @@
+1. Przełączono się na brancha grupowego ("git checkout Grupa02) i następnie za pomocą polecenia "git branch Grupa02-KJ306450_Lab03" utworzono osobistego brancha na te zajęcia. Następnie poleceniem "git chcekout Grupa02-KJ306450_Lab03" przełączono się na osobistego brancha.
+
+2. W folderze Lab02 utworzono folder hooks (mkdir hooks), a w nim umieszczono plik commit-msg, utworzony na poprzednich zajęciach, znajdującym się w folderze .git/hooks.
+
+3. Aby sprawdzić, czy na komputerze był zainstalowany docker, użyto komendy "sudo docker run hello-world", która powinna wypisać: Hello from Docker!
+
+4. Zalogowano się na konto Docker Hub.
+
+5. W folderze KJ306450 utworzono folder Lab03 (mkdir Lab03), a w nim umieszczono plik Dockerfile oraz plik sprawozdanie.txt (touch Dockerfile, touch sprawozdanie.txt). Następnie napisano treść Dockerfile, który bazuje na najnowszej wersji ubuntu (FROM ubuntu:latest) i instaluje git'a (RUN apt-get install -y git).
+
+6. Poleceniem "sudo docker build . -t ubuntu-git" utworzono obraz z Dockerfile (-t oznacza tag). Następnie sprawdzono czy obraz został utworzony stosując komendę "sudo docker images". Za pomocą "sudo docker run -it ubuntu_git bash" uruchomiono kontener z interaktywną sesją bash. Następnie sklonowano repozytorium poleceniem "git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021". Po sklonowaniu repozytorium sprawdzono czy istnieje gałąź KJ306450 oraz gałąź grupy (gałąź osobista Grupa02-KJ306450_Lab03 nie ma prawa istnieć, ponieważ nie została ona wypchnięta do repozytorium).
+
+7. Do folderu Lab03 dodano zrzuty ekranu. Następnie wprowadzone zmiany zakomitowano, przełączono się na brancha grupowego i wykonano merge'a z branchem osobistym. Na koniec usunięto brancha osobistego i wykonano git push. 

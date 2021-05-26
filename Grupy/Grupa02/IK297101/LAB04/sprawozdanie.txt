@@ -1,0 +1,23 @@
+
+
+sudo docker login --username=galainer
+//logowanie do dockera
+
+sudo docker tag dev galainer/dev
+//Ustawienie Tagu
+
+sudo docker push galainer/dev
+//Zpushowanie obrazu
+
+znalazłem aplikacje:          Delta Chat Rust
+//Aplikacja została zmieniona ze względu na kompatybilność z najnowszym obrazem
+
+sudo docker build --tag build.v2 .
+//budowa apliakcji
+
+sudo docker build --tag test .
+//zbudowanie testu
+
+sudo docker-compose up
+//udpalenie obu obrazów poprzez docker-compose
+

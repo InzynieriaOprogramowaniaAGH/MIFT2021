@@ -1,0 +1,27 @@
+cp -R .git/hooks Grupy/Grupa02/IK297101/LAB02
+//kopiowanie folderu z hooks'ami do folderu
+
+git branch Grupa02-IK297101_Lab03
+//tworzenie brancha dla tych Labów
+
+git checkout Grupa02-IK297101_Lab03
+//przełączenie się na brancha
+
+git commit -m "IK297101 Added directory hooks"
+//commit
+
+git push --set-upstream origin Grupa02-IK297101_Lab03
+//wypchnięcie nowego brancha na gita
+
+sudo apt-get update
+//update zalecany przed installacją
+
+sudo snap install docker
+//jedyna opcja instalacji dockera która dla mnie zadziałała, reszta wyrzucała błędy
+ 
+ sudo docker build --tag dev .
+//stworzenie obrazu z Dockerfile
+
+sudo docker run -i -t dev:latest /bin/bash
+//stworzenie i uruchiomienie obrazu
+

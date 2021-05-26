@@ -1,0 +1,8 @@
+1. Zmieniono sposób logowania do repozytorium przy użyciu protokołu SSH - git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git".
+2. Dodano tag - git tag -a PI307666_Lab02 -m "Piotr Izworski, Lab 02 wszystko działa, 10/10 proszę"
+3. Zmieniono lokalizację folderu - mv ./PI307666 ./Grupy/Grupa02
+Zmieniono gałąź od gałęzi Grupa02 -  git checkout -b Grupa02-PI307666_Lab02
+4. Stworzono git hooka w katalogu .git/hooks o nazwie commit-msg 
+Wykonano commit o błędnym nazewnictwie sprawdzając poprawność skryptu.
+5. Przełączno się na branch Grupa02 i wykonano operacje git pull oraz git merge Grupa02_PI307666_Lab02.
+Wykonano pull request z poziomu strony GitHub.
