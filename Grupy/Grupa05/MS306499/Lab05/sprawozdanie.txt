@@ -1,0 +1,15 @@
+0. Zapoznałem się z diagramem, który pokazuje aktualną architekturę systemu oraz rolę Jenkinsa.
+
+1. Zapoznałem sięz opisem oprogramowania jenkins 
+
+2. Pobrałem obraz programu Jenkins i stworzyłem specjalną sieć dla kontenera Jenkinsa.
+
+2_1 - uruchomiłem kontener z obrazu docker:dind
+2_2 - skompilowałem obraz z jenkinsem
+2_3 - uruchomiłem kontener 
+
+3. Upubliczniłem obraz z własnym jenkinsem na Docker Hub
+
+4. Skonfigurowałem Jenkinsa, dodałem do kontenera pliki potrzebne do zbudowania kontenerów.
+Następnie zainstalowałem wtyczkę do budowania docker-compose i dodałem projekt do Jenkinsa, który ma zbudować dwa obrazy z pliku docker-compose.yml
+Na końcu uruchomiłem zadanie skompilowania tego pliku.

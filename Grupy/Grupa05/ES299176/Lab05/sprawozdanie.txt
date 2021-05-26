@@ -1,0 +1,22 @@
+Zadanie 0. Zapoznałam się z diagramem omawianym na zajęciach.
+
+Zadanie 1. Zapoznałam się z oprogramowaniem Jenkins.
+
+Zadanie 2. Stworzyłam kontener dockerowy z Jenkinsem zgodnie z podaną instrukcją - wszystkie wykorzystane polecenia załączone w plikach Zad2_..
+
+Zadanie 3. Analogicznie jak na poprzednich zajęciach wrzuciłam obraz Jenkinsa na DockerHub'a. Tag obrazu dockerowego: sudo docker tag myjenkins-blueocean ewelinaszczupak/lab05:myjenkins-blueocean
+Push'owanie za pomocą: sudo docker push ewelinaszczupak/lab05:myjenkins-blueocean
+
+Zadanie 4. Za pomocą polecenia sudo docker cantainer exec -u root -t ID_KONTENERA/NAZWA /bin/bash możliwe było uruchomienie kontenera Jenkinsa, wejście do środka i "wydobycie" hasła używając ścieżki do pliku podanej na localhost:8080
+
+Następnie utworzyłam projekt dla Jenkinsa używając powłoki:
+pwd
+cd Grupy/Grupa04/ES299176/Lab05
+pwd
+curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+docker-compose up
+
+Przetestowałam działanie - proces zakończył się sukcesem.
+
+Wszystkie etapy wykonywania zadań zapisane zostały w zrzutach z ekranu. 

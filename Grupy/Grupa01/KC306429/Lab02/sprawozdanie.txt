@@ -1,0 +1,38 @@
+Zad1
+1.1) Wygenerowanie nowego klucza za pomoca ssh-keygen -t ed25519 -C "karol-cedro@wp.pl"
+1.2) Ustawienie hasła do klucza ssh
+1.3) Uruchomienie agenta ssh za pomoca eval 'ssh-agent -s' oraz dodanie klucza za pomoca ssh-add ~/.ssh/id_ed25519
+1.4)Otworzenie i skopiowanie klucza nano ~/.ssh/id_ed25519.pub a następnie dodanie go po stronie serwera
+1.5) zmiana połączenia na ssh za pomoca git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+
+Zad2
+2.)dodanie sprawozdania i ss z zadania pierwszego za pomoca git add, następnie commitowanie zmian a na końcu wykonanie pusha( git push)
+2.1)dodanie taga za pomoca git tag -a KC306429_Lab02 -m"Karol Cedro, Lab02 wszystko działa" a następnie push taga za pomoca git push --follow-tags
+
+Zad3
+3)Stworzenie nowego brancha krótko żyjącego git checkout -b Grupa01-KC306429_Lab02
+3.1)zmiana na nowo stworzonego brancha i wykowanie git merge Grupa01
+3.2)Zmiana konfiguracji folderów a następnie commit i push wprowadzonych zmian
+3.3)Zmiana brancha na Grupa01 "git checkout Grupa01" i merge z branchem krótko żyjącym "git merge Grupa01-KC306429_Lab02"
+3.4)aktualizacja lokalnego repozytorium "git pull" a nastepnie push utworzonych zmian na branchu Grupa01 "git push".
+
+
+Zad4
+4)Stworzenie nowego git hook'a za pomocą "touch commit-msg" w .git/hooks
+4.1)Otworzenie stworzonego pliku i wklejenie następującego kodu
+
+#!/bin/sh
+
+if ! grep 'KC306429' "$1"; then
+        echo 'Error'
+        exit 1;
+fi
+echo 'OK'
+exit 0;
+
+Zad5
+dołączenie zmian do brancha grupowego 
+git merge Grupa-KC306429_Lab02
+
+Zamkniecie brancha osobistego
+git branch -d Grupa01-KC306429_Lab02
