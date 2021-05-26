@@ -1,0 +1,9 @@
+1. Zostaly dodane kroki Build
+2. Przy testowaniu jest sprawdzany warunek "when {
+              	expression {currentBuild.result == null || currentBuild.result == 'SUCCESS'}
+            }"
+
+Komenda -> - checkout scm 
+sprawdza czy jest pobierana najnowsza wersja kodow z repo
+4. Git post comming hook zostal zapisany
+5. W przypadku prawidlowego zbudowania testy sie odpalaja, w przypadku problemu nic sie nie dzieje, a na koncu wysylany jest raport na email
