@@ -1,0 +1,13 @@
+1. Instalacja git.
+
+2. Utworzenie i przełączenie się na brancha: git checkout -b LB299663
+
+3. Utworzenie folderu (mkdir) i dodanie go (git add)
+
+4. Zacommitowano plik: git commit.
+
+5. Zmieniono nazwy plików w lokalnym repo + commit.
+
+6. Dokonano merge'a LB299663->master
+
+7. Zpushowano zmiany.
