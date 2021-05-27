@@ -14,4 +14,16 @@ minikube start --driver=virtualbox
 3.Uruchomiłam Minikube Dashboard komenda: minikube dashboard.
 3.1 dzięku Minikube Dashboard można wdrażać aplikacje kontenerowe w klastrze Kubernetes. Można również zarządzać zasobami klastra(tworzyć, modyfikować).
 
+4.Napotkane problemy:
+-należy pamiętac o tagu swojego obrazu wrzuconego an DockerHub
+
+Zalogowanie do dockera.
+Użyłam komend:
+
+kubectl run node-chat-app --image=mkocurek7/myjenkins-blueocean:1.1 --port=9999 --labels app=node-chat-app
+
+kubectl create deployment node-chat-app --image=mkocurek7/myjenkins-blueocean:1.1 
+
+
+
 
