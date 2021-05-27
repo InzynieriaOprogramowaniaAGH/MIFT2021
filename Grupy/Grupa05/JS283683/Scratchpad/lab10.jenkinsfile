@@ -5,6 +5,7 @@ def repoWorkspacePath = 'Grupy/Grupa05/JS283683/workspace'
 def log(str,lvl='INFO') { println("[BUILD_${lvl}] ${str}") }
 def buildImageName = 'build_agent'
 def testImageName = 'test_agent'
+def releaseImageName = 'node_chat_starter'
 def repositoryName = "szumied"
 
 pipeline {
@@ -53,8 +54,9 @@ pipeline {
                         def dockerfilePath = './test_agent'
                         def imageName = "${testImageName}:${env.BUILD_ID}"
                         def testAgentImage = docker.build(imageName, dockerfilePath).withRun("-t") { container ->
-                            sh "docker exec -i ${container.id} cat 'node-chat-app/test_result.log'"
+                            sh "docker exec -i ${container.id} cat 'node-chat-app/test_result.log' > ${WORKSPACE}/test_result.log"
                         }
+                        // TODO: Archive tests
                     }
                  }
             }
@@ -65,14 +67,18 @@ pipeline {
             }
             steps {
                 script {
-                    buildAgentImage.push('latest') // lub z tagiem buildAgentImage.push('latest')?
-                    // TODO: Starter agent based on build agent?
+                    dir(repoWorkspacePath) {
+                        def dockerfilePath = './starter_agent'
+                        def imageName = "${repositoryName}/${releaseImageName}:${env.BUILD_ID}"
+                        def releaseImage = docker.build(imageName, "--rm ${dockerfilePath}")
+                        releaseImage.withRun()
+                        releaseImage.push('latest')
+                    }
                 }
             }
         }
         stage('Archive artifacts') {
             steps {
-                // TODO: After getting the file out.
                 archiveArtifacts artifacts: '**/fake_news.log', allowEmptyArchive: true
             }
         }
@@ -81,6 +87,7 @@ pipeline {
         always {
             log 'Always block'
             // TODO?: deleteDir() /* clean up workspace */ 
+            // TODO?: docker prune
             // However, mozna tez walnac script git clean -dxf, to nie bedzie przynajmniej pobierac calego repo od nowa
         }
         success {
