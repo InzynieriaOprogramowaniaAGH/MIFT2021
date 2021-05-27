@@ -1,0 +1,17 @@
+W ramach cwiczenia wykonalem nastepujace czynnosci:
+1.
+- stowrzylem webhookea ktory po pushu do repozytorium z komunikatorem rozpoczyna pipeline
+- wykorzystalem tunelowanie oraz zmodyfikowalem dotychczasowe ustawienia jenkinsa by ten mogl zostac striggerowany przez webhookea
+2.
+- udokumentowalem automatyczne wyzwalanie pipelinea
+3. 
+- dodalem do jenkinsfilea stage "deploy", ktory buduje (a w zasadzie powinien :) ) budowac obraz z aplikacja ktora przeszla pomyslnie dwa poprzednie stage
+- upewnilem sie ze uzytkownik jest informowany o statusie budowy, testow oraz deploymentu 
+
+Co do budowania obrazu z dockerfilea to nie zdodalem go zbudowac z powodu bledu dolaczonego zrzucie ekranu. Sposoby radzenia sobie z tym problemem znalezione w internecie nie podzialaly (restart kontenera z jenkinsem, restart dockera jako serwisu, dodawanie adresow dns do docker/daemin.json, szukanie w logach). Na konsultacjach nie zdolalismy usunac problemu.
+
+Kod bledow:
+error during connect: Post https://docker:2376/v1.24/build?buildargs=%7B%7D&cachefrom=%5B%5D&cgroupparent=&cpuperiod=0&cpuquota=0&cpusetcpus=&cpusetmems=&cpushares=0&dockerfile=Dockerfile_Deploy&labels=%7B%7D&memory=0&memswap=0&networkmode=default&nocache=1&rm=1&shmsize=0&t=deltachat_deploy&target=&ulimits=null&version=1: dial tcp: lookup docker: Temporary failure in name resolution
+
+
+#edit jednak docker build zokonczylo sie powodzeniem. Szczerze mowiac nie mam pojecia co zadzialalo
