@@ -1,0 +1,7 @@
+Michał Pastuszko Lab 09 sprawozdanie
+
+1.Aby umożliwić uruchamianie pipeline'u za pomocą commita utworzono post commit hooka, który korzystając z programu curl wywołuje metodę HTTP POST korzystając z linku do joba w Jenkinsie oraz tokenu autentyfikacyjnego wygenerowanego na potrzeby tego konkretnego joba. Wymagane było zalogowanie się, podano dane logowania za pomocą opcji --user.
+2. Działanie automatycznego uruchamiania pipelinu po commicie przedstawiono na screenach 2.1 i 2.2.
+3.Dodano stage deploy do Jenkinsfile. W tym stagu budowany jest obraz  kontenera, w którym można uruchomić aplikacje(jednak po dodaniu RUN npm start do dockerfile pipeline się nie kończy, więc z tego zrezygnowałem), a następnie wysyłane jest powiadomienie mailowe o powodzeniu lub niepowodzeniu poszczególnych stagów.
+4.Udokumentowano prawidłowe działanie pipeline'u tj. jenkinsfile pobierany jest z repozytorium z komunikatorem, pipeline jest uruchamiany po każdym commicie na branch master repo z komunikatorem, pipeline przechodzi pomyślnie oraz wysyłane są powiadomienia niezależnie od wyniku działania pipeline'u.
+ 
