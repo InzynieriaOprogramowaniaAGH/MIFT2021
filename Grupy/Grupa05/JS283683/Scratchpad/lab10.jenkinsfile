@@ -71,7 +71,6 @@ pipeline {
                         def dockerfilePath = './starter_agent'
                         def imageName = "${repositoryName}/${releaseImageName}:${env.BUILD_ID}"
                         def releaseImage = docker.build(imageName, "--rm ${dockerfilePath}")
-                        releaseImage.withRun()
                         releaseImage.push('latest')
                     }
                 }
