@@ -14,4 +14,4 @@ Kod bledow:
 error during connect: Post https://docker:2376/v1.24/build?buildargs=%7B%7D&cachefrom=%5B%5D&cgroupparent=&cpuperiod=0&cpuquota=0&cpusetcpus=&cpusetmems=&cpushares=0&dockerfile=Dockerfile_Deploy&labels=%7B%7D&memory=0&memswap=0&networkmode=default&nocache=1&rm=1&shmsize=0&t=deltachat_deploy&target=&ulimits=null&version=1: dial tcp: lookup docker: Temporary failure in name resolution
 
 
-#edit jednak docker build zakonczylo sie powodzeniem. Szczerze mowiac nie mam pojecia co zadzialalo
+#edit jednak docker build zokonczylo sie powodzeniem. Szczerze mowiac nie mam pojecia co zadzialalo
