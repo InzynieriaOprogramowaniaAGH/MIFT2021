@@ -1,0 +1,17 @@
+1. Dodanie sekcji Build do Jenkinsfile
+W poprzednim ćwiczeniu do uruchomienia testów i tak wymagane było zbudowanie aplikacji,
+więc ta część polega głównie na rozdzieleniu tych dwóch etapów.
+
+2. Rozbudowanie sekcji Build. Obecnie w sekcji Build odbywa sie:
+ - pobranie najnowszej wersji repozytorium przy pomocy gita
+ - zbudowanie aplikacji poprzez Dockerfile do tego przeznaczony
+ - jesli Build sie powiedzie, konczy sie stage i pipeline przechodzi do testowania
+ - jesli Build sie nie powiedzie, zmienna srodowiskowa buildSuccess jest zmieniona
+Zmienna ta kontroluje rozpoczecie sekcji Test. W wiekszosci przypadkow kiedy sekcja
+Build sie nie powiodla pipeline automatycznie nie przechodzil dalej, jednak na wszelki wypadek cala sekcja Test
+jest opatrzona wyrazeniem when opartym na wspomnianej zmiennej buildSuccess.
+Dodatkowo zmienne buildSuccess i testSuccess sa zawarte potem w mailu do uzytkownika
+i pomagaja sprecyzowac, jaka czesc pipeline wykonala sie prawidlowo.
+
+3. Napisanie post-commit hooka
+Hook ten zostal dodany do repozytorium z aplikacja oraz dodatkowo zachowany w repozytorium MIFT.
