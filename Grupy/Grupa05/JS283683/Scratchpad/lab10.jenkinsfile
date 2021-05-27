@@ -36,11 +36,11 @@ pipeline {
                 script {
                     dir(repoWorkspacePath) {
                         def dockerfilePath = './build_agent'
-                        def imageName = "${buildImageName}:${env.BUILD_ID}"
+                        def imageName = "${repositoryName}/${buildImageName}:${env.BUILD_ID}"
                         def buildAgentImage = docker.build(imageName, dockerfilePath)
-                        buildAgentImage.inside {  sh 'echo "foo-bar"'  }
-                        sh "docker tag ${imageName} ${repositoryName}/${imageName}"
-                        // buildAgentImage.push()
+                        log "${buildAgentImage}"
+                        log "${buildAgentImage.id}"
+                        buildAgentImage.push('latest')
                     }
                 }
             }
@@ -51,9 +51,10 @@ pipeline {
                  script {
                     dir(repoWorkspacePath) {
                         def dockerfilePath = './test_agent'
-                        def imageName = "${testImkageName}:${env.BUILD_ID}"
-                        def buildAgentImage = docker.build(imageName, dockerfilePath)
-                        buildAgentImage.inside {  sh 'echo "foo-bar"' } // TODO: Get the test results out, cat test_result.log with stdOut
+                        def imageName = "${testImageName}:${env.BUILD_ID}"
+                        def testAgentImage = docker.build(imageName, dockerfilePath).withRun("-t") { container ->
+                            sh "docker exec -i ${container.id} cat 'node-chat-app/test_result.log'"
+                        }
                     }
                  }
             }
@@ -93,3 +94,4 @@ pipeline {
         }
     }
 }
+// Grupa05-JS283683_Lab09
