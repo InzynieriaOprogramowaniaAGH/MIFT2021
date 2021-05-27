@@ -3,9 +3,9 @@ def defaultBranch = 'Grupa05'
 def repoWorkspacePath = 'Grupy/Grupa05/JS283683/workspace'
 def dockerfilesPath = "${repoWorkspacePath}/Docker"
 
-def log(str, lvl='INFO') { println("[BUILD_${lvl}] ${str}") }
+def log(str,lvl='INFO') { println("[BUILD_${lvl}] ${str}") }
 def testImageName = 'test_agent'
-def repositoryName = 'szumied'
+def repositoryName = "szumied"
 def releaseImageName = 'node_chat_starter'
 def buildImageName = 'build_agent'
 
@@ -16,11 +16,11 @@ pipeline {
         string(name: 'BRANCH', defaultValue: defaultBranch, description: 'MIFT2021 repo branch')
         booleanParam(name: 'RELEASE', defaultValue: false, description: 'Should artifacts be published when successful?')
     }
-    // triggers {
-    //     cron('H 3 * * *')
-    // }
+    triggers {
+        cron('H 3 * * *')
+    }
     stages {
-        stage('Preparation: SCM') {
+        stage('Preparation: SCM'){
             steps {
                 checkout([$class: 'GitSCM',
                   branches: [[name: params.BRANCH]],
@@ -33,7 +33,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                log 'Build stage running:'
+                log "Build stage running:"
                 script {
                     dir(dockerfilesPath) {
                         def dockerfilePath = './build_agent'
@@ -48,15 +48,15 @@ pipeline {
         }
         stage('Test') {
             steps {
-                script {
+                 script {
                     dir(dockerfilesPath) {
                         def dockerfilePath = './test_agent'
                         def imageName = "${testImageName}:${env.BUILD_ID}"
-                        def testAgentImage = docker.build(imageName, dockerfilePath).withRun('-t') { container ->
+                        def testAgentImage = docker.build(imageName, dockerfilePath).withRun("-t") { container ->
                             sh "docker exec -i ${container.id} cat 'node-chat-app/test_result.log' > ${WORKSPACE}/test_result.log"
                         }
                     }
-                }
+                 }
             }
         }
         stage('Deploy') {
@@ -85,7 +85,7 @@ pipeline {
         always {
             log 'Build execution stopped.'
             script {
-                sh 'git clean -dxf' // Possible: docker prune
+                sh "git clean -dxf" // Possible: docker prune
             }
         }
         success {
