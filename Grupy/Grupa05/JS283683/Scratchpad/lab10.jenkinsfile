@@ -5,6 +5,7 @@ def repoWorkspacePath = 'Grupy/Grupa05/JS283683/workspace'
 def log(str,lvl='INFO') { println("[BUILD_${lvl}] ${str}") }
 def buildImageName = 'build_agent'
 def testImageName = 'test_agent'
+def repositoryName = "szumied"
 
 pipeline {
     agent any
@@ -38,6 +39,8 @@ pipeline {
                         def imageName = "${buildImageName}:${env.BUILD_ID}"
                         def buildAgentImage = docker.build(imageName, dockerfilePath)
                         buildAgentImage.inside {  sh 'echo "foo-bar"'  }
+                        sh "docker tag ${imageName} ${repositoryName}/${imageName}"
+                        // buildAgentImage.push()
                     }
                 }
             }
@@ -48,9 +51,9 @@ pipeline {
                  script {
                     dir(repoWorkspacePath) {
                         def dockerfilePath = './test_agent'
-                        def imageName = "${testImageName}:${env.BUILD_ID}"
+                        def imageName = "${testImkageName}:${env.BUILD_ID}"
                         def buildAgentImage = docker.build(imageName, dockerfilePath)
-                        buildAgentImage.inside {  sh 'echo "foo-bar"' } // TODO: Get the test results out
+                        buildAgentImage.inside {  sh 'echo "foo-bar"' } // TODO: Get the test results out, cat test_result.log with stdOut
                     }
                  }
             }
@@ -62,6 +65,7 @@ pipeline {
             steps {
                 script {
                     buildAgentImage.push('latest') // lub z tagiem buildAgentImage.push('latest')?
+                    // TODO: Starter agent based on build agent?
                 }
             }
         }
