@@ -1,0 +1,64 @@
+def repoUrl = 'https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021/'
+def repoBranch = 'Grupa05' // TODO: make a parameter
+def repoWorkspacePath = 'Grupy/Grupa05/JS283683/Lab04/workspace' 
+
+pipeline {
+    agent any
+    options { disableConcurrentBuilds() }
+    parameters {
+        string(name: 'BRANCH', defaultValue: 'Grupa05', description: 'MIFT2021 repo branch')
+    }
+    // triggers {
+    //     cron('H */4 * * 1-5') 
+    // }
+    stages {
+        stage('Preparation: SCM'){
+            steps {
+                checkout([$class: 'GitSCM',
+                  branches: [[name: params.BRANCH]],
+                  extensions: [],
+                  userRemoteConfigs: [[url: repoUrl]]])
+            }
+        }
+        stage('Build') {
+            steps {
+                echo "npm install here"
+                script {
+                    sh "pwd"
+                    sh "pwd > fake_news.log"
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                script { echo "npm run test here > fake_news.log" }
+            }
+        }
+        stage('Publish') {
+            steps {
+                echo "cos tam cos tam, jakis send na serwer i npm start np."
+            }
+        }
+        stage('Archive artifacts') {
+            steps {
+                archiveArtifacts artifacts: '**/fake_news.log', allowEmptyArchive: true
+            }
+        }
+    }
+    post {
+        always {
+            echo 'Always Block'
+            // deleteDir() /* clean up workspace */ 
+            // no a mozna tez walnac script git clean -dxf, to nie bedzie przynajmniej pobierac calego repo od nowa
+        }
+        success {
+            echo 'Success block'
+        }
+        unstable {
+            echo 'Unstable block'
+        }
+        failure {
+            echo 'Fail block'
+        }
+    }
+}

@@ -1,0 +1,86 @@
+def repoUrl = 'https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021/'
+def repoBranch = 'Grupa05'
+def repoWorkspacePath = 'Grupy/Grupa05/JS283683/workspace' 
+
+def log(str,lvl='INFO') { println("[PIPELINE_${lvl}] ${str}") }
+def buildImageName = 'build_agent'
+def testImageName = 'test_agent'
+
+pipeline {
+    agent any
+    options { disableConcurrentBuilds() }
+    parameters {
+        string(name: 'BRANCH', defaultValue: 'Grupa05', description: 'MIFT2021 repo branch')
+        booleanParam(name 'RELEASE', defaultValue: false, description: 'Should artifacts be published when successful?')
+    }
+    // triggers {
+    //     cron('* 3 * * *') 
+    // }
+    stages {
+        stage('Preparation: SCM'){
+            steps {
+                checkout([$class: 'GitSCM',
+                  branches: [[name: params.BRANCH]],
+                  extensions: [],
+                  userRemoteConfigs: [[url: repoUrl]]])
+            }
+            // steps { } // TODO: SCM Login through stored credentials?
+        }
+        stage('Build') {
+            steps {
+                log "Build stage running"
+                script {k
+                    dir(repoWorkspacePath) {
+                        def dockerfilePath = './build_agent'
+                        def imageName = "${buildImageName}:${env.BUILD_ID}"
+                        def buildAgentImage = docker.build(imageName, dockerfilePath)
+                        buildAgentImage.inside {  sh 'echo "foo-bar"'  }
+                    }
+                }
+            }
+        }
+        stage('Test') {
+            steps { 
+                script { log "npm run test here > fake_news.log" }
+                 script {
+                    dir(rkepoWorkspacePath) {
+                        dekf dockerfilePath = './test_agent'
+                        def imageName = "${testImageName}:${env.BUILD_ID}"
+                        def buildAgentImage = docker.build(imageName, dockerfilePath)
+                        buildAgentImage.inside {  sh 'echo "foo-bar"' } // TODO: Get the test results out
+                    }
+                 }
+            }
+        }
+        stage('Publish') {
+            when {
+                expression { params.RELEASE }
+            }
+            steps {
+                buildAgentImage.push('latest') // lub z tagiem buildAgentImage.push('latest')?
+            }
+        }
+        stage('Archive artifacts') {
+            steps {
+                // TODO: After getting the file out.
+                archiveArtifacts artifacts: '**/fake_news.log', allowEmptyArchive: true
+            }
+        }
+    }
+    post {
+        always {
+            log 'Always block'
+            // TODO?: deleteDir() /* clean up workspace */ 
+            // However, mozna tez walnac script git clean -dxf, to nie bedzie przynajmniej pobierac calego repo od nowa
+        }
+        success {
+            log 'Success block'
+        }
+        unstable {
+            log 'Unstable block'
+        }
+        failure {
+            log 'Fail block'
+        }
+    }
+}
