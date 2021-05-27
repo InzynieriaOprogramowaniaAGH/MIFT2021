@@ -136,4 +136,4 @@ CMD ["npm", "start"]
 ```
 
 Deploy jest tu wykonywany na dedykowany kontener dockerowy, a do deploya przekazywany jest artefakt (build_agent) stworzony w stage'u "Build". Pipeline przechodzi wszystkie polecone etapy, natomiast nie jest uruchamiany z osobnego repo, aby zachować ciągłość pracy na repozytorium MIFT2021. Wiadomo, w przypadku pracy nad własną aplikacją, trzeba by pracować na plikach we własnym repozytorium, wtedy rekonfiguracja przygotowanego procesu CI/CD nie jest trudna, wystarczyłoby zmienić ścieżkę do repozytorium w Jenkinsie, no i w Dockerfile'u buildowym, który zaciąga kod aplikacji.
-Jako powoadiomienia dla użytkowników Jenkinsa służą końcowe wiadomości i rezultat builda - najmniej natarczywa opcja dla osób zainteresowanych.
+Jako powiadomienia dla użytkowników Jenkinsa służą końcowe wiadomości i rezultat builda - najmniej natarczywa opcja dla osób zainteresowanych. Istnieje także możliwość uruchomienia Jenkinsowych powiadomień przez popupy systemowe z przeglądarki.
