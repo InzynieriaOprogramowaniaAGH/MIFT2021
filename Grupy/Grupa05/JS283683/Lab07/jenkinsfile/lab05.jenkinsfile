@@ -1,0 +1,21 @@
+node {
+    def workspacePath = 'Grupy/Grupa05/JS283683/Lab04/workspace'
+    def repoUrl = '<https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021/>'
+
+    stage('Preparation: SCM'){
+        checkout([$class: 'GitSCM',
+          branches: [[name: 'Grupa05']],
+          extensions: [],
+          userRemoteConfigs: [[url: repoUrl]]])
+    }
+    stage('StartUp') {
+        script {
+            dir(workspacePath) {
+                pwsh script: """
+                    pwd; tree
+                    docker-compose up
+                """, label: "Running `docker-compose up` from PowerShell Core"
+            }
+        }
+    }
+}
