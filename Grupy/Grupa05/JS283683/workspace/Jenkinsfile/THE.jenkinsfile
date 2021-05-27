@@ -1,12 +1,13 @@
 def repoUrl = 'https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021/'
 def defaultBranch = 'Grupa05'
 def repoWorkspacePath = 'Grupy/Grupa05/JS283683/workspace'
+def dockerfilesPath = "${repoWorkspacePath}/Docker"
 
 def log(str, lvl='INFO') { println("[BUILD_${lvl}] ${str}") }
-def buildImageName = 'build_agent'
 def testImageName = 'test_agent'
-def releaseImageName = 'node_chat_starter'
 def repositoryName = 'szumied'
+def releaseImageName = 'node_chat_starter'
+def buildImageName = 'build_agent'
 
 pipeline {
     agent any
@@ -32,9 +33,9 @@ pipeline {
         }
         stage('Build') {
             steps {
-                log 'Build stage running'
+                log 'Build stage running:'
                 script {
-                    dir(repoWorkspacePath) {
+                    dir(dockerfilesPath) {
                         def dockerfilePath = './build_agent'
                         def imageName = "${repositoryName}/${buildImageName}:${env.BUILD_ID}"
                         def buildAgentImage = docker.build(imageName, dockerfilePath)
@@ -47,9 +48,8 @@ pipeline {
         }
         stage('Test') {
             steps {
-                script { log 'npm run test here > fake_news.log' }
                 script {
-                    dir(repoWorkspacePath) {
+                    dir(dockerfilesPath) {
                         def dockerfilePath = './test_agent'
                         def imageName = "${testImageName}:${env.BUILD_ID}"
                         def testAgentImage = docker.build(imageName, dockerfilePath).withRun('-t') { container ->
@@ -59,13 +59,13 @@ pipeline {
                 }
             }
         }
-        stage('Publish') {
+        stage('Deploy') {
             when {
                 expression { params.RELEASE }
             }
             steps {
                 script {
-                    dir(repoWorkspacePath) {
+                    dir(dockerfilesPath) {
                         def dockerfilePath = './starter_agent'
                         def imageName = "${repositoryName}/${releaseImageName}:${env.BUILD_ID}"
                         def releaseImage = docker.build(imageName, dockerfilePath)
@@ -83,19 +83,19 @@ pipeline {
     }
     post {
         always {
-            log 'Always block'
-        // TODO?: deleteDir() /* clean up workspace */
-        // TODO?: docker prune
-        // However, mozna tez walnac script git clean -dxf, to nie bedzie przynajmniej pobierac calego repo od nowa
+            log 'Build execution stopped.'
+            script {
+                sh 'git clean -dxf' // Possible: docker prune
+            }
         }
         success {
-            log 'Success block'
+            log 'Result: Build succeeded'
         }
         unstable {
-            log 'Unstable block'
+            log 'Result: Build unstable, some tests failed'
         }
         failure {
-            log 'Fail block'
+            log 'Result: Build failure'
         }
     }
 }
