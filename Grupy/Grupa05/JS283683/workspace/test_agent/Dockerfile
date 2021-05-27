@@ -1,2 +1,2 @@
-FROM build_agent
+FROM build_agent:latest
 RUN cd node-chat-app; npm test > test_result.log

@@ -1,8 +1,8 @@
 def repoUrl = 'https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021/'
-def repoBranch = 'Grupa05'
+def defaultBranch = 'Grupa05'
 def repoWorkspacePath = 'Grupy/Grupa05/JS283683/workspace' 
 
-def log(str,lvl='INFO') { println("[PIPELINE_${lvl}] ${str}") }
+def log(str,lvl='INFO') { println("[BUILD_${lvl}] ${str}") }
 def buildImageName = 'build_agent'
 def testImageName = 'test_agent'
 
@@ -10,11 +10,11 @@ pipeline {
     agent any
     options { disableConcurrentBuilds() }
     parameters {
-        string(name: 'BRANCH', defaultValue: 'Grupa05', description: 'MIFT2021 repo branch')
-        booleanParam(name 'RELEASE', defaultValue: false, description: 'Should artifacts be published when successful?')
+        string(name: 'BRANCH', defaultValue: defaultBranch, description: 'MIFT2021 repo branch')
+        booleanParam(name: 'RELEASE', defaultValue: false, description: 'Should artifacts be published when successful?')
     }
     // triggers {
-    //     cron('* 3 * * *') 
+    //     cron('H 3 * * *') 
     // }
     stages {
         stage('Preparation: SCM'){
@@ -23,13 +23,16 @@ pipeline {
                   branches: [[name: params.BRANCH]],
                   extensions: [],
                   userRemoteConfigs: [[url: repoUrl]]])
+                withCredentials([usernamePassword(credentialsId: 'DOCKERHUB', passwordVariable: 'dockerPass', usernameVariable: 'dockerUser')]) {
+                    sh "echo ${dockerPass} | docker login -u ${dockerUser} --password-stdin"
+                }
             }
-            // steps { } // TODO: SCM Login through stored credentials?
+            
         }
         stage('Build') {
             steps {
                 log "Build stage running"
-                script {k
+                script {
                     dir(repoWorkspacePath) {
                         def dockerfilePath = './build_agent'
                         def imageName = "${buildImageName}:${env.BUILD_ID}"
@@ -43,8 +46,8 @@ pipeline {
             steps { 
                 script { log "npm run test here > fake_news.log" }
                  script {
-                    dir(rkepoWorkspacePath) {
-                        dekf dockerfilePath = './test_agent'
+                    dir(repoWorkspacePath) {
+                        def dockerfilePath = './test_agent'
                         def imageName = "${testImageName}:${env.BUILD_ID}"
                         def buildAgentImage = docker.build(imageName, dockerfilePath)
                         buildAgentImage.inside {  sh 'echo "foo-bar"' } // TODO: Get the test results out
@@ -57,7 +60,9 @@ pipeline {
                 expression { params.RELEASE }
             }
             steps {
-                buildAgentImage.push('latest') // lub z tagiem buildAgentImage.push('latest')?
+                script {
+                    buildAgentImage.push('latest') // lub z tagiem buildAgentImage.push('latest')?
+                }
             }
         }
         stage('Archive artifacts') {

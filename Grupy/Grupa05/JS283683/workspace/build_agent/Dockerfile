@@ -5,3 +5,4 @@ RUN apt-get update
 RUN apt-get install -y git npm
 RUN git clone https://github.com/binhxn/node-chat-app.git
 RUN cd node-chat-app; npm install
+
