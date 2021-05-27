@@ -18,6 +18,7 @@ Konieczne tutaj bylo zastosowanie route `/buildWithParameters` ze względu na za
 2. Zweryfikowano automatyczne wyzwyalanie builda po commicie.
 
 3. Rozszerzono Jenkinsfile o stage "Deploy", dodatkowo dodano polecenie `sh "git clean -dxf"` w bloku `always`.
+
 ```groovy
 def repoUrl = 'https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021/'
 def defaultBranch = 'Grupa05'
@@ -37,9 +38,9 @@ pipeline {
         string(name: 'BRANCH', defaultValue: defaultBranch, description: 'MIFT2021 repo branch')
         booleanParam(name: 'RELEASE', defaultValue: false, description: 'Should artifacts be published when successful?')
     }
-    // triggers {
-    //     cron('H 3 * * *')
-    // }
+    triggers {
+        cron('H 3 * * *')
+    }
     stages {
         stage('Preparation: SCM'){
             steps {
@@ -121,3 +122,18 @@ pipeline {
     }
 }
 ```
+
+Jako artefakt do deployu uznano publiczny obraz "starter_agent", który (w przypadku gdy wybierze sie parametr "RELEASE" i poprzednie stage'e przejdą pomyślnie) jest publikowany na Docker Hub, i jest zbudowany w oparciu o Dockerfile przygotowany w ten sposób, aby użytkownik mógł po prostu uruchomic kontener poleceniem:
+`docker run -p 3000:3000 szumied/node_chat_starter:latest`
+
+Treść opracowanego Dockerfile'a:
+
+```
+FROM szumied/build_agent:latest
+EXPOSE 3000
+WORKDIR "node-chat-app"
+CMD ["npm", "start"]
+```
+
+Deploy jest tu wykonywany na dedykowany kontener dockerowy, a do deploya przekazywany jest artefakt (build_agent) stworzony w stage'u "Build". Pipeline przechodzi wszystkie polecone etapy, natomiast nie jest uruchamiany z osobnego repo, aby zachować ciągłość pracy na repozytorium MIFT2021. Wiadomo, w przypadku pracy nad własną aplikacją, trzeba by pracować na plikach we własnym repozytorium, wtedy rekonfiguracja przygotowanego procesu CI/CD nie jest trudna, wystarczyłoby zmienić ścieżkę do repozytorium w Jenkinsie, no i w Dockerfile'u buildowym, który zaciąga kod aplikacji.
+Jako powoadiomienia dla użytkowników Jenkinsa służą końcowe wiadomości i rezultat builda - najmniej natarczywa opcja dla osób zainteresowanych.
