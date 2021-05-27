@@ -19,6 +19,7 @@ Tutaj również korzystałam z nowego komunikatora o nazwie Socket.io-Messenger.
 
 3. Po poprawnym zbudowaniu Jenkinsfile uruchamiany jest stage("Test"), który powiadamia uzytkownika 
    o sukcesie oraz porażce etapu testowania
+
    post{
 		always{
 			echo 'Finished'
@@ -36,3 +37,4 @@ Tutaj również korzystałam z nowego komunikatora o nazwie Socket.io-Messenger.
     #!/bin/bash
 
     echo "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"
+
