@@ -1,0 +1,9 @@
+1. Jenkinsfile na którym pracowałem posiadał już stage build, ponieważ był on konieczny do wykonania
+steage test z poprzedniego labolatorium. 
+2. Stage build został rozszerzony o wykonanie polecenia git pull, dzięki któremu upewniam się, że pobrana jest
+najnowsza wersja kodu. Dodane zostało również zapisanie logów do pliku log_build.txt. Kolejnym nowym elementem jest
+dodanie wysyłaina powiadomień o rezultacie wykonania pipeline.
+3. W celu upewnienia się, że po nieudanym stageu build, pipeline jest przerywany, dodano zmienną środowiskową FAILED do pliku,
+której początkowa wartość jest ustawiana na false. Jeżeli stage build zakończy sie niepomyślnie, to jej wartość jest
+zmieniana. Na podstawie tej zmiennej wykonuje się kod przerwania pipeline lub nie.
+4. Do folderu .git/hooks dodano plik post-commit, zawierający kod wykonujący się po wykonaniu commita.

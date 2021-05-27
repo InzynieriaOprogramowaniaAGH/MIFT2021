@@ -1,0 +1,6 @@
+#!/bin/bash
+message="To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"
+
+echo "$message"
+
+exit 0
