@@ -1,0 +1,68 @@
+2. Zgodnie z instrukcją stworzyłam kontener dockerowy z Jenkins:
+	1. $ docker network create jenkins
+	2. $ docker run \
+  		--name jenkins-docker \
+  		--rm \
+  		--detach \
+  		--privileged \
+  		--network jenkins \
+  		--network-alias docker \
+  		--env DOCKER_TLS_CERTDIR=/certs \
+  		--volume jenkins-docker-certs:/certs/client \
+  		--volume jenkins-data:/var/jenkins_home \
+  		--publish 2376:2376 \
+  		docker:dind \
+  		--storage-driver overlay2
+	3. Utworzyłam plik Dockerfile z nastepującą zawartością:
+		FROM jenkins/jenkins:2.277.1-lts-jdk11
+		USER root
+		RUN apt-get update && apt-get install -y apt-transport-https \
+		       ca-certificates curl gnupg2 \
+		       software-properties-common
+		RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+		RUN apt-key fingerprint 0EBFCD88
+		RUN add-apt-repository \
+		       "deb [arch=amd64] https://download.docker.com/linux/debian \
+		       $(lsb_release -cs) stable"
+		RUN apt-get update && apt-get install -y docker-ce-cli
+		USER jenkins
+		RUN jenkins-plugin-cli --plugins "blueocean:1.24.5 docker-workflow:1.26"
+	4. Zbudowałam obraz dockera: $ docker build -t myjenkins-blueocean:1.1 .
+	5. $ docker run \
+		  --name jenkins-blueocean \
+		  --rm \
+		  --detach \
+		  --network jenkins \
+		  --env DOCKER_HOST=tcp://docker:2376 \
+		  --env DOCKER_CERT_PATH=/certs/client \
+		  --env DOCKER_TLS_VERIFY=1 \
+		  --publish 8080:8080 \
+		  --publish 50000:50000 \
+		  --volume jenkins-data:/var/jenkins_home \
+		  --volume jenkins-docker-certs:/certs/client:ro \
+		  myjenkins-blueocean:1.1
+	6. Pzeszłam kreator instalacji
+===============================================================================================================================================
+3. Utworzyłam nowe repozytorium annadybel21/lab05 na dockerhub i korzystając z nastepujących poleceń wrzuciłam obraz Jenkinsa na DockerHub'a:
+	$ sudo docker tag local-image:tagname new-repo:tagname
+	$ sudo docker push new-repo:tagname
+===============================================================================================================================================
+4.Następnie uruchomiłam docker-compose z poziomu Jenkinsa
+	1. uruchomiłam Jenkinsa korzystając z następującej komendy, ponieważ potrzebowałam uprawnień root do isntalacji 	docker-compose:
+		$ sudo docker container run --name jenkins-blueocean \
+		  --detach --restart unless-stopped \
+		  --network jenkins \
+		  --user root \
+		  --volume jenkins-data:/var/jenkins_home \
+		  --volume /var/run/docker.sock:/var/run/docker.sock \
+		  --publish 8080:8080 --publish 50000:50000 \
+		  myjenkins-blueocean:1.1
+	2. Stworzyłam Job'a podając url, nazwę mojego brancha i skrypt, którego zadaniem jest instalacja docker-compose i uruchomienie docker-compose.yml znajdującego się w katalogu Grupy/Grupa07/AD306658/Lab05 w celu stworzenia środowiska z Lab04:
+		cd Grupy/Grupa07/AD306658/Lab05
+		pwd
+		ls
+		curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+		chmod +x /usr/local/bin/docker-compose
+		docker --version
+		docker-compose --version
+		docker-compose up
