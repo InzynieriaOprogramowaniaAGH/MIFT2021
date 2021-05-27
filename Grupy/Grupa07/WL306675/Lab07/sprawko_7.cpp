@@ -3,7 +3,7 @@
 
 2. Stworzenie Jenkinsfile realizujący CI/CD pipeline. Tresc Jenkinsfile:
 
-3. sforkowałem repo wire-desktop
+3. sforkowałem repo Socket.io-Messenger
 
 4. Stworzenie joba oraz skonfigurowanie serweru SMTP, pobranie, zainstalowanie i konfiguracja NodeJS w Jenkinsie. 
 
