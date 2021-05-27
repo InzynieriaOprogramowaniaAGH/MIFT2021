@@ -1,3 +1,24 @@
+1. Przygotowano strukturę folderów wedlług polecenia.
+```
+.
+├── Docker
+│   ├── build_agent
+│   │   └── Dockerfile
+│   ├── starter_agent
+│   │   └── Dockerfile
+│   └── test_agent
+│       └── Dockerfile
+├── Jenkinsfile
+├── docker-compose.yml
+└── git-hook 
+```
+
+2. Opracowano wstępny Jenkinsfile ze stagem testowym.  M. in. uwzgledniono mozliwosc wskazania różnych gałęzi repozytorium jako parametr.
+
+2.4. Do powyższego pliku dodano stage odpowiedzialny za archiwizację tekstów 
+
+Końcowy Jenkinsfile:
+```groovy
 def repoUrl = 'https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021/'
 def defaultBranch = 'Grupa05'
 def repoWorkspacePath = 'Grupy/Grupa05/JS283683/workspace'
@@ -61,3 +82,40 @@ pipeline {
         }
     }
 }
+```
+
+3. Z sukcesem wykonano przygotowany stage testowy.
+
+Treść uzyskanego pliku `test_results.log`:
+```
+> node-chat-app@1.0.0 test /node-chat-app
+> mocha server/**/*.test.js
+
+
+
+  generateMessage
+    âœ“ should generate correct message object
+
+  generateLocationMessage
+    âœ“ should generate correct location object
+
+  Users
+    âœ“ should find user
+    âœ“ should NOT find user
+    âœ“ should remove a user
+    âœ“ should NOT remove a user
+    âœ“ should return names for Lakers Fans
+    âœ“ should return names for Fad Diet
+    âœ“ should add new user
+
+  isRealString
+    âœ“ should reject non-string values
+    âœ“ should reject string with only spaces
+    âœ“ should allow strings with non-space characters
+
+
+  12 passing (12ms)
+
+```
+
+4. Zmiany wrzucono do repozytorium MIFT2021.
