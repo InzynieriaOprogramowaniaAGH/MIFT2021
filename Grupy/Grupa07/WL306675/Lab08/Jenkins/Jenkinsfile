@@ -1,4 +1,3 @@
-
 pipeline{
 	agent any
 	tools {
@@ -50,7 +49,6 @@ def messageFunction(stage, status) {
 	echo status
 	emailext attachLog: true,
 		body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
-		to: 'annagrzesiak04@gmail.com',
+		to: 'wiktorligeza@gmail.com',
 		subject: stage + " " + status
-
 }

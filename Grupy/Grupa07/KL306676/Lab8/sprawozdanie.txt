@@ -1,0 +1,38 @@
+Tutaj również korzystałam z nowego komunikatora o nazwie Socket.io-Messenger.
+
+1. W Jenkinsfile z laboratoriów numer 7 został rozbudowany stage Build.
+
+2. W stage("Build") za pomocą lini 
+	sh 'git pull origin master' - zostaje pobrana najnowsza wersja kodów źródłowych
+	sh 'npm install' - program jest budowany
+	post{
+		always{
+			echo 'Finished'
+		}
+		failure{
+			messageFunction('BUILD', 'Failure')
+		}
+		success{
+			messageFunction('BUILD', 'Success')
+		}
+	} - użytkownik jest powiadamiany zarówno o sukcesie jak i porażce etapu budowania
+
+3. Po poprawnym zbudowaniu Jenkinsfile uruchamiany jest stage("Test"), który powiadamia uzytkownika 
+   o sukcesie oraz porażce etapu testowania
+   post{
+		always{
+			echo 'Finished'
+		}
+		failure{
+			messageFunction('TEST', 'Failure')
+		}
+		success{
+			messageFunction('TEST', 'Success')
+		}
+	}
+
+4. Został napisany hook "post-commit" dla repozytorium z komunikatorem o podanej treści:
+     
+    #!/bin/bash
+
+    echo "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"
