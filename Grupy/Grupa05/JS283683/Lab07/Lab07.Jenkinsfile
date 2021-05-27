@@ -6,6 +6,7 @@ def dockerfilesPath = "${repoWorkspacePath}/Docker"
 def log(str,lvl='INFO') { println("[BUILD_${lvl}] ${str}") }
 def testImageName = 'test_agent'
 def repositoryName = "szumied"
+def buildImageName = 'build_agent'
 
 pipeline {
     agent any
@@ -26,9 +27,23 @@ pipeline {
                 }
             }
         }
+        stage('Build') {
+            steps {
+                log "Build stage running:"
+                script {
+                    dir(dockerfilesPath) {
+                        def dockerfilePath = './build_agent'
+                        def imageName = "${repositoryName}/${buildImageName}:${env.BUILD_ID}"
+                        def buildAgentImage = docker.build(imageName, dockerfilePath)
+                        log "${buildAgentImage}"
+                        log "${buildAgentImage.id}"
+                        buildAgentImage.push('latest')
+                    }
+                }
+            }
+        }
         stage('Test') {
-            steps { 
-                script { log "npm run test here > fake_news.log" }
+            steps {
                  script {
                     dir(dockerfilesPath) {
                         def dockerfilePath = './test_agent'

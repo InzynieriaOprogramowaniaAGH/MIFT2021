@@ -1,23 +1,17 @@
-1. Przygotowano strukturę folderów wedlług polecenia.
+1. Rozszerzono Jenkinsfile z poprzedniego laboratorium o stage budujący. Wykorzystano w tym celu przygotowany plik Dockerfile, ktory wstępnie przygotowuje środowisko uruchomieniowe (jest to "build" na tyle, na ile mozna to rozumieć w JavaScripcie, który jest językiem dynamicznym i w którym - bez wykorzystywania odpowiednich narzędzi - nie mamy typowego procesu kompilacji, w czasie którego można zbadać np. poprawność typów lub składni), weryfikuje oraz sprawdza zależności pakietów:
+
 ```
-.
-├── Docker
-│   ├── build_agent
-│   │   └── Dockerfile
-│   ├── starter_agent
-│   │   └── Dockerfile
-│   └── test_agent
-│       └── Dockerfile
-├── Jenkinsfile
-├── docker-compose.yml
-└── git-hook 
+FROM ubuntu:latest
+ENV TIME_ZONE=Europe/Warsaw
+RUN ln -snf /usr/share/zoneinfo/$TIME_ZONE /etc/localtime && echo $TIME_ZONE > /etc/timezone
+RUN apt-get update
+RUN apt-get install -y git npm
+RUN git clone https://github.com/binhxn/node-chat-app.git
+RUN cd node-chat-app; npm install
 ```
 
-2. Opracowano wstępny Jenkinsfile ze stagem testowym.  M. in. uwzgledniono mozliwosc wskazania różnych gałęzi repozytorium jako parametr.
+Jenkinsfile:
 
-2.4. Do powyższego pliku dodano stage odpowiedzialny za archiwizację tekstów 
-
-Końcowy Jenkinsfile:
 ```groovy
 def repoUrl = 'https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021/'
 def defaultBranch = 'Grupa05'
@@ -27,6 +21,7 @@ def dockerfilesPath = "${repoWorkspacePath}/Docker"
 def log(str,lvl='INFO') { println("[BUILD_${lvl}] ${str}") }
 def testImageName = 'test_agent'
 def repositoryName = "szumied"
+def buildImageName = 'build_agent'
 
 pipeline {
     agent any
@@ -44,6 +39,21 @@ pipeline {
                   userRemoteConfigs: [[url: repoUrl]]])
                 withCredentials([usernamePassword(credentialsId: 'DOCKERHUB', passwordVariable: 'dockerPass', usernameVariable: 'dockerUser')]) {
                     sh "echo ${dockerPass} | docker login -u ${dockerUser} --password-stdin"
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                log "Build stage running:"
+                script {
+                    dir(dockerfilesPath) {
+                        def dockerfilePath = './build_agent'
+                        def imageName = "${repositoryName}/${buildImageName}:${env.BUILD_ID}"
+                        def buildAgentImage = docker.build(imageName, dockerfilePath)
+                        log "${buildAgentImage}"
+                        log "${buildAgentImage.id}"
+                        buildAgentImage.push('latest')
+                    }
                 }
             }
         }
@@ -83,47 +93,11 @@ pipeline {
 }
 ```
 
-Przygotowany Dockerfile agenta testowego:
+4. Tresc przygotowanego git-hooka (zawartosc pliku `post-commit`)
 
-```
-FROM szumied/build_agent:latest
-EXPOSE 3000
-WORKDIR "node-chat-app"
-CMD ["npm", "start"]
+```shell
+#!/bin/sh
+echo 'To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie'
 ```
 
-3. Z sukcesem wykonano przygotowany stage testowy.
-
-Treść uzyskanego pliku `test_results.log`:
-```
-> node-chat-app@1.0.0 test /node-chat-app
-> mocha server/**/*.test.js
-
-
-
-  generateMessage
-    âœ“ should generate correct message object
-
-  generateLocationMessage
-    âœ“ should generate correct location object
-
-  Users
-    âœ“ should find user
-    âœ“ should NOT find user
-    âœ“ should remove a user
-    âœ“ should NOT remove a user
-    âœ“ should return names for Lakers Fans
-    âœ“ should return names for Fad Diet
-    âœ“ should add new user
-
-  isRealString
-    âœ“ should reject non-string values
-    âœ“ should reject string with only spaces
-    âœ“ should allow strings with non-space characters
-
-
-  12 passing (12ms)
-
-```
-
-4. Zmiany wrzucono do repozytorium MIFT2021.
+Końcowo dołączono screeny i wrzucono do repozytorium.
