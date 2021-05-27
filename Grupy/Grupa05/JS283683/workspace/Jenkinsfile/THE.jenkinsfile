@@ -1,12 +1,12 @@
 def repoUrl = 'https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021/'
 def defaultBranch = 'Grupa05'
-def repoWorkspacePath = 'Grupy/Grupa05/JS283683/workspace' 
+def repoWorkspacePath = 'Grupy/Grupa05/JS283683/workspace'
 
-def log(str,lvl='INFO') { println("[BUILD_${lvl}] ${str}") }
+def log(str, lvl='INFO') { println("[BUILD_${lvl}] ${str}") }
 def buildImageName = 'build_agent'
 def testImageName = 'test_agent'
 def releaseImageName = 'node_chat_starter'
-def repositoryName = "szumied"
+def repositoryName = 'szumied'
 
 pipeline {
     agent any
@@ -16,10 +16,10 @@ pipeline {
         booleanParam(name: 'RELEASE', defaultValue: false, description: 'Should artifacts be published when successful?')
     }
     // triggers {
-    //     cron('H 3 * * *') 
+    //     cron('H 3 * * *')
     // }
     stages {
-        stage('Preparation: SCM'){
+        stage('Preparation: SCM') {
             steps {
                 checkout([$class: 'GitSCM',
                   branches: [[name: params.BRANCH]],
@@ -29,11 +29,10 @@ pipeline {
                     sh "echo ${dockerPass} | docker login -u ${dockerUser} --password-stdin"
                 }
             }
-            
         }
         stage('Build') {
             steps {
-                log "Build stage running"
+                log 'Build stage running'
                 script {
                     dir(repoWorkspacePath) {
                         def dockerfilePath = './build_agent'
@@ -47,17 +46,17 @@ pipeline {
             }
         }
         stage('Test') {
-            steps { 
-                script { log "npm run test here > fake_news.log" }
-                 script {
+            steps {
+                script { log 'npm run test here > fake_news.log' }
+                script {
                     dir(repoWorkspacePath) {
                         def dockerfilePath = './test_agent'
                         def imageName = "${testImageName}:${env.BUILD_ID}"
-                        def testAgentImage = docker.build(imageName, dockerfilePath).withRun("-t") { container ->
+                        def testAgentImage = docker.build(imageName, dockerfilePath).withRun('-t') { container ->
                             sh "docker exec -i ${container.id} cat 'node-chat-app/test_result.log' > ${WORKSPACE}/test_result.log"
                         }
                     }
-                 }
+                }
             }
         }
         stage('Publish') {
@@ -85,9 +84,9 @@ pipeline {
     post {
         always {
             log 'Always block'
-            // TODO?: deleteDir() /* clean up workspace */ 
-            // TODO?: docker prune
-            // However, mozna tez walnac script git clean -dxf, to nie bedzie przynajmniej pobierac calego repo od nowa
+        // TODO?: deleteDir() /* clean up workspace */
+        // TODO?: docker prune
+        // However, mozna tez walnac script git clean -dxf, to nie bedzie przynajmniej pobierac calego repo od nowa
         }
         success {
             log 'Success block'
