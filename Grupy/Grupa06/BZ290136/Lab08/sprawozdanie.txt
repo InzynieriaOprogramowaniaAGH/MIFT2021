@@ -1,0 +1,37 @@
+1. Do Jenkinsfile'a dodano stage build o nastepujacej tresci:
+
+	stage('Build') { 
+            steps {
+                echo 'Building....'
+                sh 'git checkout master'
+                sh 'git pull'
+                sh 'npm install'
+            }
+		 	
+		 	post {
+				failure {
+				    emailext attachLog: true,
+				        body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+				        recipientProviders: [developers(), requestor()],
+				        to: 'bzieja@interia.pl',
+				        subject: "Building failed! ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+				}
+				success {
+				    emailext attachLog: true,
+				        body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+				        recipientProviders: [developers(), requestor()],
+				        to: 'bzieja@interia.pl',
+				        subject: "Building succeeded! ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+				}
+    		}
+		 	
+        }
+        
+        
+Stage ten powiadamial uzytkownika emailowo o wyniku stage'a build.
+
+2. Utworzono post-commit hook wyswietlajacy przy kazdym commitowaniu tekst:
+"To jest commit hook, ktory bedzie kiedys uruchaial Pipeline po kazdym nowym commicie"
+
+
+
