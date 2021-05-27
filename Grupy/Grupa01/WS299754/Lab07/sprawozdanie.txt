@@ -1,0 +1,4 @@
+1. Stworzenie folderów Docker, Jenkins i Git hooks
+2.- Fork na repo node chat app
+- Utworzenie Jenkinsfile
+- Utworzenie stage'a Test
