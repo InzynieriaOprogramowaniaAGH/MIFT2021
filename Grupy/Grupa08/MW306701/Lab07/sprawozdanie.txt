@@ -1,0 +1,7 @@
+1. Stworzyłem odpowiednią strukturę katalogów i umieściłem w nich odpowiednie pliki.
+2.
+- Utworzyłem Jenkinsfile w odpowiednim katalogu
+- Zrobiłem forka na orginalnym repo.
+- W repo z komunikatorem umiesciłem Jenkinsfile z napisanym pipelinem z sekcjami Build, Test, Deploy.
+3. Wykonałem testowanie z użyciem Jenkinsfile
+4. Dodałem aktualny Jenkinsfile do repo z pkt 1
