@@ -3,17 +3,18 @@
 'sudo install minikube-linux-amd64 /usr/local/bin/minikube'.
 
 Następnie uruchomiono klaster: 
-'minikube start' 
-i pobrano kubect1: 
+'minikube start'.
+
+Pobrano kubect1: 
 'minikube kubectl -- get po -A'.
+
 3. Uruchomiono Minikube Dashboard: 'minikube dashboard'.
 
 Przy pomocy minikube dashboard możemy:
-
 -podglądać i wprowadzać zmiany w klastrze,
 -wdrażać aplikację kontenerowe,
 -zarządzać zasobami klastra,
-rozwiązywać problemy z aplikacją w kontenerze,
+-rozwiązywać problemy z aplikacją w kontenerze,
 
 4.
 
