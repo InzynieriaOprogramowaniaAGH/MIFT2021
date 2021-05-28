@@ -1,0 +1,27 @@
+1. Przygotowano odpowiedni obraz na dockerhubie
+
+2.1. Zainstalowano klaster Kubernetes:
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+2.2. Uruchomiono klaster:
+minikube start
+
+2.3.Pobrano kubectl: 
+minikube kubectl -- get po -A
+
+3. Włączono i uruchomiono Minikube Dashboard:
+minikube dashboard
+
+Przy pomocy minikube dashboard możemy:
+-podglądać i wprowadzać zmiany w klastrze,
+-wdrażać aplikację kontenerowe,
+-zarządzać zasobami klastra,
+-rozwiązywać problemy z aplikacją w kontenerze,
+
+4. Uruchomiono komunikator w Kubernetes:
+kubectl run komunikator --image=zarczynsky/node_chat --port=9999 --labels app=komunikator
+
+4.1 Przekierowano porty w celu umożliwienia dostępu z zewnątrz:
+kubectl port-forward pod/komunikator 7080:9999
+
