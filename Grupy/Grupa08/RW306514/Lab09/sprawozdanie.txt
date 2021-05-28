@@ -8,7 +8,7 @@ Wykonanie:
   Dodanie skryptu, dzięki któremu Jenkins co chwilę pyta githuba o aktualizację repo
   
   Gittoken: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 
-  ApiToken:
+  ApiToken:11511bcf05b5987f4fbe1298fc949d5652
 
 
 2.Rozszerzenie Jenkinsfila o Stage Deploy
