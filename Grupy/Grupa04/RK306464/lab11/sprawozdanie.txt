@@ -1,0 +1,13 @@
+2. Zgodnie z krokami ze strony https://minikube.sigs.k8s.io/docs/start/ zainstalowałem minikube dla systemu linux x86-64. Udało się to z wykorzystaniem poleceń: 
+ - url -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+ - sudo install minikube-linux-amd64 /usr/local/bin/minikube
+ 
+ Podążając dalej za instrukcją wykorzystałem polecenia minikube start do uruchomienia klastra i pobrałem kubectl dzięki poleceniu minikube kubectl --get po -A
+ 
+ 3. Przy wykorzystaniu polecenia minikube dashboard uruchomiłem Dasboard.
+ Dashboard pozwala na swobone przeglądanie naszego klastra pozwala również na zarządzanie zasobami, ustawieniami klastrów, podami deployami, jobami, kontrolować uruchomione pody, monitorować zużycie zasobów.
+ 
+ 4.  -Przy pomocy polecenia minikube kubectl --run chat --image=radek467/chat-app --port=3000 --labels app=cat uruchomiłem poda z aplikacją która znajdowala się w dockerhubie pod podanym adresem obrazu, a następnie polecenie kubectl get pods, pozwoliło na sprawdzenie statusu.
+ - Przekierwoałem porty w celu umożliwienia komunikacji z zewnątrz przy użyciu polecenia, minikube kubectl port-forward chat 3000:3000.
+ 
+ 5. Aplikacja działała poprawnie w klastrze kubernetes.
