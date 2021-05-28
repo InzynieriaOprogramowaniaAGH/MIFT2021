@@ -13,11 +13,10 @@ minikube kubectl -- get po -A
 3. Włączono i uruchomiono Minikube Dashboard:
 minikube dashboard
 
-Przy pomocy minikube dashboard możemy:
--podglądać i wprowadzać zmiany w klastrze,
--wdrażać aplikację kontenerowe,
--zarządzać zasobami klastra,
--rozwiązywać problemy z aplikacją w kontenerze,
+3.1. Minikube dashboard może być wykorzystywany do:
+-wdrażania aplikacji kontenrowych
+-wprowadzania zmian w klastrze i zarządzania jego zasobami
+-pomaga w naprawianiu problemów w aplikacji kontenerowej
 
 4. Uruchomiono komunikator w Kubernetes:
 kubectl run komunikator --image=zarczynsky/node_chat --port=9999 --labels app=komunikator
