@@ -1,12 +1,12 @@
 2. W pierwszej kolejności pobrano klaster Kubernetes przy pomocy poleceń:
-'curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64',
-'sudo install minikube-linux-amd64 /usr/local/bin/minikube'.
+-'curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64',
+-'sudo install minikube-linux-amd64 /usr/local/bin/minikube'.
 
 Następnie uruchomiono klaster: 
-'minikube start'.
+-'minikube start'.
 
-Pobrano kubect1: 
-'minikube kubectl -- get po -A'.
+Pobrano kubectl: 
+-'minikube kubectl -- get po -A'.
 
 3. Uruchomiono Minikube Dashboard: 'minikube dashboard'.
 
@@ -16,5 +16,20 @@ Przy pomocy minikube dashboard możemy:
 -zarządzać zasobami klastra,
 -rozwiązywać problemy z aplikacją w kontenerze,
 
-4.
+4. Uruchomiono kontener w klastrze:
 
+-'minikube kubectl run delta-chat --image=wnowak8/myjenkins --port=9999 --labels app=delta-chat'.
+
+Napotkano błąd związany z nieznalezieniem 'kubectl', który rozwiązano poprzez polecenia:
+
+-'curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"',
+-'chmod +x ./kubectl',
+-'sudo mv ./kubectl /usr/local/bin/kubectl'.
+
+Kolejno skorzystano z alternatywnej opcji przekierowywania portów:
+
+-'kubectl create deployment delta-chat --image=wnowak8/myjenkins:lab11',
+-'kubectl expose deployment  delta-chat --type=NodePort --port=8080',
+-'kubectl get services delta-chat'.
+
+5. Udokumentowano działanie komunikatora w klastrze.
