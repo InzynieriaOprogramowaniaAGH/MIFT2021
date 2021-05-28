@@ -1,0 +1,32 @@
+1. Dodanie stage "Build" do Jenkinsfile.
+
+  stage('Build') {
+    steps {
+      echo 'Building'
+      sh 'git pull origin master'
+      sh 'npm install'
+    }
+    post{
+      always{
+        echo 'Finished'
+      }
+      failure{
+        statusAllert('Build', 'Failure')
+      }
+      success{
+        statusAllert('Build', 'Success')
+      }
+    }
+  }
+
+
+2. Sprawdzenie czy pobierana jest aktualna wersja repozytorium, dodkowo użycie metody "sh 'git pull origin master'" dla ponownego sprawdzenia.
+   Sprawdzenie budowania programu.
+   Wysłanie powiadomienia o sukcesie lub błędzie w postaci wiadomości w konsoli oraz w mailu.
+
+3. Wywołanie błędu w "stage Build" aby upewnić się że nie dojdzie do wywołania "stage Test".
+
+4. Napisanie "post-commit" hooka.
+
+  #!/bin/bash
+  echo "To jest commit hook, ktory będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"

@@ -1,0 +1,50 @@
+pipeline {
+	agent any
+	
+	tools {
+	    nodejs "my-node"
+	}
+	
+	stages {
+	
+		stage('Build') {
+			steps {
+				echo 'Building...'
+				sh 'npm install'
+			}
+			post {
+				success {
+            				echo 'Build finished without failure'
+				}
+				failure {
+					echo 'Build failed - sending email and skipping next stages'
+        				emailext attachLog: true,
+        				body: 'Something is wrong with build stage - ${env.BUILD_URL}',  
+        				subject: 'Failed Pipeline: ${currentBuild.fullDisplayName}', 
+        				to: 'ulekk19@gmail.com'
+    				}
+			}
+		}
+		
+		
+		stage('Test') {
+			steps {
+				echo 'Testing...'
+				sh 'npm test'
+			}
+			post {
+				success {
+            				echo 'Tests finished without failure'
+				}
+				failure {
+					echo 'Tests failed - sending email and aborting'
+        				emailext attachLog: true,
+        				body: 'Something is wrong with test stage - ${env.BUILD_URL}',  
+        				subject: 'Failed Pipeline: ${currentBuild.fullDisplayName}', 
+        				to: 'ulekk19@gmail.com'
+    				}
+			}
+		}
+		
+	}
+}S
