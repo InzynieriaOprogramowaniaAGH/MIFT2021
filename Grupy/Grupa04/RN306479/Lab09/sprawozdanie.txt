@@ -1,0 +1,32 @@
+1. Zintegrowano repozytorium komunikatora z webhook.
+   Zastosowanie ngrooka do tunelowania Jenkinsa.
+   Zarejestrowanie webhooka w repozytorium.
+
+2. Sprawdzenie automatycznego uruchomienia pipelina po dodaniu zmian do repozytorium.
+
+3. Rozszerzenie Jenkinsfile o stage "Deploy".
+
+4. Zaimplementowanie w stagu "Deploy" aby:
+   - deploy był wykonywany na deklarowany kontener dockerowy
+   - artefakt przekazywany był z stage "Build"
+   - użytkownik był powiadamiany o sukcesie oraz porażce
+
+   stage('Deploy') {
+       steps {
+           echo 'Deploy'
+           sh 'docker build -t socketio_deploy -f Dockerfile_socketio_deploy .'
+       }
+       post {
+           always{
+               echo 'Finished'
+           }
+           failure{
+               statusAllert('Deploy', 'Failure')
+           }
+           success{
+               statusAllert('Deploy', 'Success')
+           }
+       }
+   }
+
+5. Wykazano i udokumentowano wszystkie kryteria zadania.

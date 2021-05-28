@@ -1,0 +1,21 @@
+1. Zarejestrowano webhook'a w repo z komunikatorem Delta-chat. Uruchamia on pipeline w Jenkins'ie, za każdym pojawieniem się 
+commita. Użyto programu ngrok - uwidacznia on lokalne środowisko w sieci. W Jenkinsfile dodano: triggers
+	{
+		githubPush()
+	}
+
+2. Udokunentowano automatyczne uruchamianie pipeline'a.
+
+3. Dodano stage "deploy" w Jenkinfile'u.
+
+4. W stage'u deploy zapewniono wymogi z polecenia:
+ a. deploy jest wykoywany na dedykowany kontener dockerowy
+ b. do deploya jest przekazywany artefakt stworzny w stage("Build"):
+    "docker build -t deploy -f Dockerfile-deploy ."
+ c. użytkownik jest powiadamiany zarówno o sukcesie jak i porażce etapu wdrażania.
+
+5. Udokunentowano, że: 
+ a. pipeline jest zdefniowany w Jenkinsfile w repo z komunikatorem
+ b. pipeline jest automatycznie wyzwalany
+ c. pipeline przechodzi wszystkie etapy (stage build-test-deploy)
+ d. pipeline obsługuje powiadamianie o rezlutatach każdego z etapów

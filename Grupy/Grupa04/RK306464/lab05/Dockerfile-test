@@ -1,2 +1,2 @@
-FROM rkraj/chat-app
+FROM radek467/chat-app
 ENTRYPOINT [ "npm", "run", "test" ]
