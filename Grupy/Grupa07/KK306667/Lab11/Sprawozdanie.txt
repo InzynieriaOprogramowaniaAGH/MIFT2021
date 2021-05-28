@@ -1,0 +1,10 @@
+1) Posiadałem kontener dockerowy z poprzednich zajeć o nazwie kontener
+
+2) Po doinstalowaniu potrzebnych usług udało mi się uruchomić instalacje, a następnie uruchomić klaster oraz kubectl
+
+3) Uruchomiłem dashboard przy użyciu komendy podanej w pliku z zadaniem
+3.1) deployowanie aplikacji, troubleshootowanie, oraz zarządzanie zasobami klastrów. Pozwala także na ogólny pogląd na aplikacje działające na kastrze, oraz pozwala na tworzenie i edycje indywidualnych  zasobów kubernetes(takich jak Deploymenty,Joby czy DaemonSets).
+
+4) Uruchomiłem kontener-komunikator oraz przkierowałem porty przy pomocy komendy z podpunktu 4.1
+
+5) Upewniłem się że komunikator działa
