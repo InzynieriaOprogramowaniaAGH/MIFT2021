@@ -25,3 +25,4 @@ kubectl run komunikator --image=zarczynsky/node_chat --port=9999 --labels app=ko
 4.1 Przekierowano porty w celu umożliwienia dostępu z zewnątrz:
 kubectl port-forward pod/komunikator 7080:9999
 
+5. Na screenie widać logi
