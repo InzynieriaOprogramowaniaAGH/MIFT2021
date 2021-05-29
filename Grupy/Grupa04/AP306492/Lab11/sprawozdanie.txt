@@ -1,0 +1,27 @@
+2. 
+Zainstalowałem klaster Kubernetes.
+Pobrałem i zainstalowałem Minikube wykorzustując polecenia:
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+Uruchomiłem klaster za pomocą polecenia: minikube start
+Pobrałem kubectl za pomocą polecenia: minikube kubectl -- get po -A
+
+3.
+Włączyłem i uruchomiłem minikube dashboard przy pomocy polecenia: minikube dashboard
+
+3.1
+Dzięki dashboardowi można:
+- kontrolować klaster i jego ustawienia
+- monitorować zużycie zasobów
+- zarządzać jobami 
+- kontrolować pody
+
+4.Uruchomiłem kontener-komunikator w Kubernetes za pomocą polecenia:
+minikube kubectl -- run chat --image=aleksos54/run --port=9999 --labels app=komunikator
+
+4.1 Przekierowałem porty w celu umożliwienia dostępu z zewnątrz za pomocą polecenia:
+minikube kubectl port-forward chat 9999:3000
+
+
+5. Udokumentowałem działanie aplikacji w klastrze Kubernetes
