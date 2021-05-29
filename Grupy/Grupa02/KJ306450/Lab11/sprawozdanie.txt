@@ -12,7 +12,7 @@ zasobami klastra, sprawdzić jakie aplikacje działają w klastrze, tworzyć lub
 poszczególne zasoby, zlecać uruchomienie aplikacji, skalować aplikację i instalować ich
 nowe wersje.
 
-4. Poleceniem "kubectl run komunikator --image=kjop118/ubuntu-deploy --port=9000 --labels
+4. Poleceniem "kubectl run komunikator -it --image=kjop118/ubuntu-deploy --port=9000 --labels
 app=komunikator" uruchomiono kontener komunikatora w Kubernetes. Następnie wykonono
 przekierowanie portów w celu sprawdzenia działania - kubectl port-forward pod/komunikator 9000:9000.
 
