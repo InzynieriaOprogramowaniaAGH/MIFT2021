@@ -13,3 +13,9 @@ minikube dashboard
 -przegladac i ustawiac klaster
 -zarzadzac jobami
 -monitorowac zuzycie zasobow
+
+4. Uruchomiono kontener-komunikator w Kubernetes, uzywajac polecenia:
+minikube kubectl -- run komunikator --image=mserwaczak/start-node-chat --port=9999 --labels app=komunikator
+
+4.1 Przekierowano porty w celu umozliwienia dostepu z zewnatrz:
+minikube kubectl port-forward komunikator 9999:3000
