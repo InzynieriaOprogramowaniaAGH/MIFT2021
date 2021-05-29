@@ -1,7 +1,3 @@
-1. Przygotowanie odpowiednich plikow i struktury folderow, potrzebnych do uruchomienia CI/CD pipeline.
-
-2. Stworzenie Jenkinsfile, ktory bedzie realizowal CI/CD pipeline. Tresc Jenkinsfile:
-
 pipeline{
 	agent any
 	tools {
@@ -46,6 +42,23 @@ pipeline{
 				}
 			}
 		}
+		stage('Deploy') {
+			steps {
+				echo 'Deploy'
+				sh 'docker build -t deploy -f Dockerfile-deploy .'
+			}
+			post  {
+				always{
+					echo 'Finished'
+				}
+				failure{
+					messageFunction('DEPLOY', 'Failure')
+				}
+				success{
+					messageFunction('DEPLOY', 'Success')
+				}
+            		}
+		}
 	}
 }
 
@@ -53,12 +66,6 @@ def messageFunction(stage, status) {
 	echo status
 	emailext attachLog: true,
 		body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
-		to: 'annagrzesiak04@gmail.com',
+		to: 'laskawska.kinga@gmail.com',
 		subject: stage + " " + status
 }
-
-3. Sforkowanie repo Socket.io-Messenger, a nastepnie wrzucenie do niego Jenkinsfile(po commitowaniu i pushowaniu zmian).
-
-4. Stworzenie pipeline ze sforkowanym repozytorium, skonfigurowanie serweru SMTP w Jenkinsie.
-
-5. Uruchomienie pipeline. 
