@@ -1,0 +1,26 @@
+Zacząłem od stworzenia osobistego brancha, który zostanie usunięty po wykonaniu pull request do brancha grupowego
+
+
+Zainstalowałem kubernetes pobierając instalator ze strony (pracuję na windowsie)
+
+uruchomiłem klaster poleceniem:
+ 	minikube start
+
+Pobrałem też kubectl:
+ 	minikube kubectl -- get po -A
+
+Dashboard został otwarty poleceniem:
+ 	minikube dashboard
+
+Według dokumentacji Dashboard to webowy interfejs ogólnego zastosowania przeznaczony dla użytkowników klastra Kubernetes. Umożliwia zarządzanie i rozwiązywanie problemów związanych z aplikacjami uruchamianymi na klastrze, a także z samym klastrem.
+Pozwala on np. na kontrolę deployów, podsów, jobów, monitorowanie używanych zasobów, przeglądanie logów, zmienianie zmiennych środowiskowych oraz wielu różnych statystyk które mogą być przydatne.
+
+
+
+Kolejnym krokiem było stworzenie poda poleceniem:
+	kubectl run komunikator --image=scaaz/myjenkins-blueocean:1.1 --port=9999 --labels app=komunikator
+
+Pod został utworzony co udokumentowałem zrzutem ekranu.
+
+Na koniec został port-forwarding na co pozwoliło polecenie:
+	kubectl port-forward deploy/komunikator 8080:9999
