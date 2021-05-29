@@ -1,0 +1,9 @@
+2. Instalacja Minikube oraz Kubectl zgodnie z instrukcja, nastepnie uruchomienie 'minikube start' oraz 'minikube kubectl --get po -A'
+3. Uruchomienie Minikube Dashboard poleceniem 'minikube dashboard'. Funkcje dashboardu:
+-wdrazanie aplikacji
+-monitorowanie aplikacji
+-zarzadzanie zasobamii klastru, w tym jego zuzycia
+-mozliwosc uruchomienia komend shellowych
+-zarzadzanie Pods, Jobs, Deployments
+4. Uruchomienie komunikatora poleceniem 'kubectl run komunikator --image=wtycjan/jenkins-tycjan --port=9999 --labels app=komunikator' oraz przekierowanie portow poleceniem 'kubectl port-forward pod/komunikator 9999:9999'
+5. Dzialanie komunikatora
