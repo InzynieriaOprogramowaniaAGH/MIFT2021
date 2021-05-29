@@ -1,0 +1,13 @@
+2. Zainstalowałem klaster Kubernetesa, oraz pobrałem Minikube. https://minikube.sigs.k8s.io/docs/start/
+
+Uruchomiłem klaster(minikube start)
+Pobrałem kubectl(minikube kubectl -- get po -A)
+
+3. Włączyłem i uruchomiłem Dashboard za pomocą polecenia: minikube dashboard
+ Dashboard pozwala nam na przeglądanie klastra, pozwala na zarządzanie klastrami, jobami, deployami, ustawieniami.
+ 
+4. Uruchomiłem kontener-komunikator w Kubenetes (polecenie na screenie)
+
+4.1 Przekierowałem port w celu sprawdzenia działania (polecenie na screenie)
+
+5. Udokumentowałem screenami że komunikator działa w klastrze Kubernetes.
