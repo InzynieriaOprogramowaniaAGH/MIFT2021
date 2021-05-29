@@ -1,0 +1,51 @@
+pipeline{
+	agent any
+	tools {
+		nodejs "NodeJS"
+	}
+	stages {
+		stage('Build') {
+			steps {
+				echo 'Building'
+				sh 'git pull origin master'
+				sh 'npm install'
+			}
+			post{
+				always{
+					echo 'Finished'
+				}
+				failure{
+					statusAllert('Build', 'Failure')
+				}
+				success{
+					statusAllert('Build', 'Success')
+				}
+			}
+		}
+		stage('Test') {
+			steps {
+				echo 'Testing'
+				sh 'npm run test'
+			}
+			post{
+				always{
+					echo 'Finished'
+				}
+				failure{
+					statusAllert('Test', 'Failure')
+				}
+				success{
+					statusAllert('Test', 'Success')
+				}
+			}
+		}
+	}
+}
+
+def statusAllert(stage, status) {
+	echo status
+	emailext attachLog: true,
+		body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+		to: 'radoslaw.niestroj2000@gmail.com',
+		subject: stage + status
+}

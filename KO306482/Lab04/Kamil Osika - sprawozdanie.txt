@@ -1,0 +1,26 @@
+Sprawozdanie, Lab04, Kamil Osika
+
+1. Dokonano logowania na platformę docker hub za pomocą polecenia docker login. 
+   Następnie dokonano pusha stworzonego obrazu przy użyciu polecenia docker push <nazwa obrazu>:<tag>.
+   Potwierdzenie poprawnego uploadu znajduje się na zdjęciu 1.2
+
+2. Do instalacji wybrano komunikator deltachat
+
+3. Stworzono folder roboczy deltachat, w którym umieszczono Dockerfile widoczny na zdjęciu 3.1
+   Wyżej wymieniony plik pobiera gita i pobiera pliki źródłowe komunikatora.
+   Następnie dokonuje jego instalacji i zbudowania. Przy instalacji wykorzystywana jest opcja -verbose pokazująca
+   wykonywanie się konkretnych elementów instalacji.
+   Następnie stworzono obraz kontenera wykonując polecenie docker build -t '<nazwa-obrazu>' ., gdzie ,, . " wskazuje
+   na ścieżkę folderu, w którym znajduje się Dockerfile
+
+4. Stworzono folder roboczy tests, w którym wykorzystano uprzednio stworzony obraz budujący.
+   Następnie wykonano przejście do folderu, w którym znajdują się pliki komunikatora oraz uruchomiono testy za
+   pomocą polecenia npm test
+
+5. Kolejnym etapem było stworzenie pliku docker-compose.yml. Pozwala on na uruchamianie wielu kontenerów za pomocą
+   jednego polecenia. Dodatkowo umożliwia tworzenie zależności pomiędzy kontenerami. Stworzony plik tworzył dwa
+   kontenery. Builder, będący kontenerem budującym oraz tester, będący kontenerem testującym.
+   Dzięki zastosowaniu
+   depends_on:
+   - build-agent
+   Tester musiał poprawnie przejść wszystkie testy by builder mógł zbudować projekt.

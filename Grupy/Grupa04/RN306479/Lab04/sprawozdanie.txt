@@ -1,0 +1,10 @@
+1. Utworzenie nowego brancha z brancha grupowego "Grupa04" za pomocą komend: "git checkout Grupa04", "git pull origin Grupa04", "git checkout -b Grupa04-RN306479_Lab04".
+1.1. Utworzenie nowego repozytorium w serwisie "DockerHub" o nazwie "nginx_image", zalogowanie się w konsoli do serwisu za pomocą "sudo docker login", dodanie taga do obrazu "sudo docker tag 4ae87e50f119 radoslawniestroj/nginx_image", dodanie obrazu do repozytorium "sudo docker push radoslawniestroj/nginx_image".
+
+2. Do realizacji kolejnych zadaniań wybrano open source komunikator "Socket.io-Messenger".
+
+3. Utworzenie pliku "Dockerfile" służącego do zbudowania środowiskam, przetestowanie go poprzez ręczne zbudowanie i uruchomienie obrazu "sudo docker build -t messenger .", "sudo docker run -it -p 3000:3000 messenger", przetestowanie działania aplikacji poad adresem lolalnym "localhost:3000".
+
+4. Utworzenie pliku "Dockerfile" służącego do przetestowania środowiska, przetestowanie go poprzez ręczne zbudowanie i uruchomienie obrazu "sudo docker build -t messenger-test .".
+
+5. Instalacja "docker-compose" za pomocą komendy "sudo apt install docker-compose". Utworzenie pliku "docker-compose.yml". Uruchomienie za pomocą komendy "sudo docker-compose up".
