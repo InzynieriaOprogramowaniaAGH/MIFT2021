@@ -5,7 +5,7 @@ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-
 sudo install minikube-linux-amd64 /usr/local/bin/minikube
 
 2.2. Uruchomiono klaster:
-minikube start
+minikube start --driver=docker
 
 2.3.Pobrano kubectl: 
 minikube kubectl -- get po -A
