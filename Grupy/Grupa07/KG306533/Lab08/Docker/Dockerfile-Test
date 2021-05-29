@@ -1,0 +1,3 @@
+FROM build-app:latest
+WORKDIR ./deltachat-desktop
+RUN npm test

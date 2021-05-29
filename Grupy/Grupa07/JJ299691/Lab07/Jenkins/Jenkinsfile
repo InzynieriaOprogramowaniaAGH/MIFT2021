@@ -1,4 +1,4 @@
-ipeline{
+pipeline{
 	agent any
 	tools {
 	    nodejs "nodejs"
@@ -51,4 +51,3 @@ def messageFunction(stage, status) {
 		body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
 		to: 'jakub.jurczak42@gmail.com',
 		subject: stage + " " + status
-}

@@ -1,0 +1,9 @@
+W tym zadaniu rozbudowywana była część Build.
+W stage('Build') poprzez komendę checkout scm jest pobiera nanajnowsza wersja kodów
+źródłowych z repozytorium, program jest budowany oraz użytkownik jest powiadamiany
+zarówno o sukcesie jak i porażce etapu budowania.
+Po zbudowaniu z sukcesem jest uruchamiany stage("Test"), ale po nieudanym budowaniu
+to się nie dzieje.
+Następnie napisany został post-commit dla repozytorium z komunikatorem, który
+wyświetla wiadomość "To jest commit hook, który będzie kiedyś uruchamiał Pipeline
+po każdym nowym commicie".
