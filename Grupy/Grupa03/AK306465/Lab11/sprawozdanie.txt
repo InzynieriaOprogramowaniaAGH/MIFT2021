@@ -1,0 +1,18 @@
+1. Umieściłam na Dockerhub'ie obraz potrzebny do wykonania dzisiejszego zadania.
+
+2. Zainstalowałam minikube, po wykonaniu komendy minikube start --driver=docker terminal pobrał i zainstalował kubernets. Kolejnym krokiem było zainstalowanie kubectl.
+
+3. Poleceniem minikube dashboard wyświetliłam Dashboard Minikube.
+-dashboard odpowiada za:
+    wizualizacje wyników uruchomionych klastrów, 
+    zarządzanie zasobami klastra,
+    przeglądanie serwisów,zadań i klastrów
+    rozwiązywanie problemów z aplikacją,
+    wdrażanie aplikacji kontenerowych
+
+4.Uruchomiłam kontener, który dodałam w pkt 1. w Kubernets za pomocą polecenia:
+    kubectl -- run node_chat --image=akrason/lab11_run --port=9999 --labels app=node-chat
+  Następnie przekierowałam porty w celu umożliwienia dostępu z zewnątrz:
+    kubectl port-forward node-chat 9999:3000
+
+5.Wszystko działa poprawnie!!
