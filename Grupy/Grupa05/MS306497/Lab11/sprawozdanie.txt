@@ -19,3 +19,5 @@ minikube kubectl -- run komunikator --image=mserwaczak/start-node-chat --port=99
 
 4.1 Przekierowano porty w celu umozliwienia dostepu z zewnatrz:
 minikube kubectl port-forward komunikator 9999:3000
+
+5. Udokumentowano dzialanie kontenera w klastrze Kubernetes
