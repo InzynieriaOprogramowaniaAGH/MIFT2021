@@ -1,0 +1,36 @@
+1. Sprawdzilem czy posiadam obraz z poprzednich zajec za pomoca docker images
+
+2. Zainstalowalem kubectl i minikube za pomoca instrukcji ze strony https://minikube.sigs.k8s.io/docs/start/
+Wykorzystalem sposob instalacji na linux za pomoca curl
+
+3. Uruchomilem dashboard za pomoca polecenia minikube dashboard
+
+Dashboard mozna wykorzystac do:
+- wdrazania aplikacji kontenerowych
+- rozwiazywania problemow z konteneryzowanymi aplikacjiami
+- zarzadzania zasobami klastra
+- tworzenie i modyfikowanie zasobow kubernetesa
+- monitorowanie aplikacji
+- deploy aplikacji
+- klastry wirtualna (namespaces)
+
+4. Uruchomienie kontenera z komunikatorem 
+kubectl run komunikator --image=YOUR_DOCKER_ID/YOUR_KOMUNIKATOR_IMG --port=9999 --labels app=komunikator 
+Obraz musial sie znajdowac na dockerhubie poniewaz byl z niego pobierany w kubernetesie
+Dodatkowo ustawiano port kontenera i label 
+
+Przekierowanie portu na zewnatrz (niepowodzenie):
+kubectl port-forward deploy/komunikator <NR_PORTU_NA_LOCALHOST>:<NR_PORTU_W_KONTENERZE>
+
+5. Ze wzgledu na okienkowy charakter aplikacji nie udalo sie jej uruchomic. Pierwszym problemem ktory nalezalo rozwiazac bylo to,
+ze aplikacja nie byla uruchamiana w kontenerze, nalezalo dopisac "CMD npm run start". Mialo to rozwiazac problem z kontenerem,
+ktory nic nie robil. Pomimo tego ze aplikacja miala byc uruchamiana to wciaz byla ona okienkowa co stwarza problemy w dockerze. 
+Niestety nie udalo sie uruchomic aplikacji.
+
+Jako ze nie udalo sie uruchomic komunikatora delta-chat-deskotop postanowilem wykorzystac inna aplikacje tym razem webowa.
+Aby uruchomic aplikacje node-chat (https://github.com/binhxn/node-chat-app) utworzylem nowy dockerfile podobny do tych, ktore odpowiadaly
+za build deltachatu. Dockerfile uruchamial aplikacje w kontenerze. Aby uruchomic kontener w klastrze wykorzystalem polecenie:
+kubectl run komunikator --image=karol71927/node-chat:latest --port=9999 --labels app=komunikator
+Aby przekierowac port wykorzystalem 
+kubectl port-forward deploy/komunikator 9999:3000
+Aplikacja node-chat uruchamiala sie poprawnie pod localhost:9999.
