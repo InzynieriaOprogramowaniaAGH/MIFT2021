@@ -2,7 +2,8 @@ DevOps 15.04.2021
 
 1. Zapozananie się z narzędziem Jenkins.
 
-2. Zaciągniecie obrazu z Jenkinsem z docker hub zgodnie z instrukcją zawartą w dokumentacji https://www.jenkins.io/doc/tutorials/create-a-pipeline-in-blue-ocean.
+2. Zaciągniecie obrazu z Jenkinsem z docker hub zgodnie z instrukcją zawartą w
+   dokumentacji https://www.jenkins.io/doc/tutorials/create-a-pipeline-in-blue-ocean.
 
     - "docker network create jenkins"
 
@@ -14,33 +15,35 @@ DevOps 15.04.2021
         --publish 2376:2376 docker:dind --storage-driver overlay2"
 
     - utworzenie Dockerfile z następującą treścią:
-"FROM jenkins/jenkins:2.277.1-lts-jdk11
-USER root
-RUN apt-get update && apt-get install -y apt-transport-https \
-       ca-certificates curl gnupg2 \
-       software-properties-common
-RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
-RUN apt-key fingerprint 0EBFCD88
-RUN add-apt-repository \
-       "deb [arch=amd64] https://download.docker.com/linux/debian \
-       $(lsb_release -cs) stable"
-RUN apt-get update && apt-get install -y docker-ce-cli
-USER jenkins
-RUN jenkins-plugin-cli --plugins "blueocean:1.24.5 docker-workflow:1.26""
+      "FROM jenkins/jenkins:2.277.1-lts-jdk11
+      USER root
+      RUN apt-get update && apt-get install -y apt-transport-https \
+         ca-certificates curl gnupg2 \
+         software-properties-common
+      RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+      RUN apt-key fingerprint 0EBFCD88
+      RUN add-apt-repository \
+         "deb [arch=amd64] https://download.docker.com/linux/debian \
+         $(lsb_release -cs) stable"
+      RUN apt-get update && apt-get install -y docker-ce-cli
+      USER jenkins
+      RUN jenkins-plugin-cli --plugins "blueocean:1.24.5 docker-workflow:1.26""
     
     - zbudowanie obrazu z Dockerfile "sudo docker build -t jenkins-blueocean:1.1 ."
 
     - uruchomienie zbudowanego obrazu jako kontenera za pomocą następującej komendy:
-    "sudo docker run --name jenkins-blueocean --rm --detach \
-        --network jenkins --env DOCKER_HOST=tcp://docker:2376 \
-        --env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=1 \
-        --publish 8080:8080 --publish 50000:50000 \
-        --volume jenkins-data:/var/jenkins_home \
-        --volume jenkins-docker-certs:/certs/client:ro \
-        --volume "$HOME":/home \
-        jenkins-blueocean:1.1"
+      "sudo docker run --name jenkins-blueocean --rm --detach \
+          --network jenkins --env DOCKER_HOST=tcp://docker:2376 \
+          --env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=1 \
+          --publish 8080:8080 --publish 50000:50000 \
+          --volume jenkins-data:/var/jenkins_home \
+          --volume jenkins-docker-certs:/certs/client:ro \
+          --volume "$HOME":/home \
+          jenkins-blueocean:1.1"
 
-    - zgodnie z kolejnymi krokami istrukcji zawartymi w dokumentacji, przeszłam pod adres http://localhost:8080, uzupełniłam hasło "sudo docker logs jenkins-blueocean" i otworzyłam interfejs Jenkinsa.
+    - zgodnie z kolejnymi krokami istrukcji zawartymi w dokumentacji, przeszłam pod
+      adres http://localhost:8080, uzupełniłam hasło "sudo docker logs jenkins
+      blueocean" i otworzyłam interfejs Jenkinsa.
 
 3. Utworzony w poprzednim kroku obraz z Jenkinsem opublikowałam na Docker Hub.
 
@@ -50,14 +53,32 @@ RUN jenkins-plugin-cli --plugins "blueocean:1.24.5 docker-workflow:1.26""
 
     - "sudo docker push agusko/devops:jenkins"
 
-4. Uruchomiłam ponownie kontener i połączyłam sie przez przeglądarkę z adresem https://localhost:8080 aby uzyskać dostęp do UI Jenkinsa. Z menu po proawej stronie wybrałam New Item.
+4. Uruchomiłam ponownie kontener i połączyłam sie przez przeglądarkę z adresem https:/
+   localhost:8080 aby uzyskać dostęp do UI Jenkinsa. Z menu po proawej stronie wybrałam
+   New Item.
 
-    - Utworzyłam Pipeline, w którym pobieram repozytorium z githuba i uruchamiam docker compose z ostatnich zajęć (screen 4.1).
+    - Utworzyłam Pipeline, w którym pobieram repozytorium z githuba i uruchamiam docker
+      compose z ostatnich zajęć (screen 4.1).
 
-    - Zapisałam a następnie uruchomiłam utworzony pipeline za pomocą opcji "Build now" menu. Tutaj niestety pojawiły się liczne problemy- uruchomienie docker-compose kończyło się wyświetleniem licznych błędów w konsoli (screen 4.2).
+    - Zapisałam a następnie uruchomiłam utworzony pipeline za pomocą opcji "Build now"
+      menu. Tutaj niestety pojawiły się liczne problemy- uruchomienie docker-compose
+      kończyło się wyświetleniem licznych błędów w konsoli (screen 4.2).
 
-    - Spróbowałam zatem innej metody z najdzieją że ona rozwiąże kłopoty- utworzyłam freestyle project w Jenkins, podając jako źródło kodu nasze repozytorium oraz mój własny branch, w komendzie build podałam analogiczną jak w pipeline komendę docker-compose up (4.3). Uruchomiłam i neistety otrzymałam identyczne błędy co poprzednio.
+    - Spróbowałam zatem innej metody z najdzieją że ona rozwiąże kłopoty- utworzyłam
+      freestyle project w Jenkins, podając jako źródło kodu nasze repozytorium oraz mój
+      własny branch, w komendzie build podałam analogiczną jak w pipeline komendę
+      docker-compose up (4.3). Uruchomiłam i neistety otrzymałam identyczne błędy co
+      poprzednio.
 
-    - Po wypróbowamiu różnych metod i skonsaltowaniu się z Prowadzącym, okazło sie że najpewniej przyczyną problemów było to, że docker był z jakiejś przyczyny nieaktywny. Spróbowałam więc wejść do kontenera i uruchomić ręcznie dockera "service docker start". Niesttey ku mojemu zaskoczeniu, jego status po kilku sekundach zmieniał się na nieaktywny (4.4).
+    - Po wypróbowamiu różnych metod i skonsaltowaniu się z Prowadzącym, okazło sie że
+      najpewniej przyczyną problemów było to, że docker był z jakiejś przyczyny
+      nieaktywny. Spróbowałam więc wejść do kontenera i uruchomić ręcznie dockera
+      "service docker start". Niesttey ku mojemu zaskoczeniu, jego status po kilku
+      sekundach zmieniał się na nieaktywny (4.4).
 
-    - Z pomocą Prowadzącego oraz materiałów z internetu próbowałam rozwiązać ten problem na różne sposoby, między innymi zmieniając plik /lib/systemd/system/docker.service, w linijce ExecStart wstawiając następującą komendę "ExecStart=/usr/bin/docker deamon -H fd:// -H https://docker:2376". Nietstey ani to, ani żadna inna metoda nie przynoisła oczekaiwanych skutków. Zatem budowanie mojego docker-compsa przez Jenkinsa nigdy nie zakończyło się sukcesem (4.5). 
+    - Z pomocą Prowadzącego oraz materiałów z internetu próbowałam rozwiązać ten
+      problem na różne sposoby, między innymi zmieniając plik /lib/systemd/system
+      docker.service, w linijce ExecStart wstawiając następującą komendę "ExecStart=
+      usr/bin/docker deamon -H fd:// -H https://docker:2376". Nietstey ani to, ani
+      żadna inna metoda nie przynoisła oczekaiwanych skutków. Zatem budowanie mojego
+      docker-compsa przez Jenkinsa nigdy nie zakończyło się sukcesem (4.5). 
