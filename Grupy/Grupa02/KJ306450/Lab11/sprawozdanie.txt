@@ -1,4 +1,7 @@
-1. Kontener dockerowy zbudowany na poprzednich zajęciach udostępniono na platformie DockerHub. W tym celu uruchomiono kontener z jenkinsem (docker container exec -it jenkins-blueocean bash) i otagowano obraz ubuntu-deploy (docker tag ubuntu-deploy:latest kjop118/ubuntu-deploy:latest). Następnie zalogowano sie na DockerHub (docker login) i udostępniono obraz (docker push).
+1. Kontener dockerowy zbudowany na poprzednich zajęciach udostępniono na platformie DockerHub. 
+W tym celu uruchomiono kontener z jenkinsem (docker container exec -it jenkins-blueocean bash)
+i otagowano obraz ubuntu-deploy (docker tag ubuntu-deploy:latest kjop118/ubuntu-deploy:latest). 
+Następnie zalogowano sie na DockerHub (docker login) i udostępniono obraz (docker push).
 
 2. Zainstalowano klaster Kubernetes za pomocą:
 	- curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
