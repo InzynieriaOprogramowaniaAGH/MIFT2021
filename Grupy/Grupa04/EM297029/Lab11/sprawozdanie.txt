@@ -1,0 +1,33 @@
+1. Przygotowano obraz komunikatora stworzonego podczas wcześniejszych zajęć tak aby był na dockerhubie.
+
+2.1. Zainstalowano klaster Kubernetes wykorzystaując polecenia z linku
+
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+2.2. Uruchomiono klaster a następnie pobrano kubectl
+
+minikube start --driver=docker       #uruchomienie z wykorzystaniem dockera
+minikube kubectl -- get po -A        #pobranie kubectl
+
+3. Następnie uruchomiono Minikube Dashboard:
+
+minikube dashboard
+
+Funkcje minikube dashboard:
+-wdrażanie oraz monitorowanie aplikacji kontenerowych,
+-rozwiązywanie problemów z aplikacją,
+-zarządzanie zasobami klastra,
+-zarzadzanie Pods, Jobs, Deployments,
+-uruchamianie komend shellowych
+
+
+4. Po tym uruchomiono komunikator z użyciem Kubernetesa 
+
+kubectl run komunikator --image=malinowakrew/chat --port=9999 --labels app=komunikator
+
+4.1 W celu sprawdzenia działania przekierowano porty, aby umożliwić dostęp z zewnątrz. 
+Po użyciu localhosta widać logi w terminalu.
+
+kubectl port-forward pod/komunikator 7080:9999
+
