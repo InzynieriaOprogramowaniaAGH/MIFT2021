@@ -11,3 +11,15 @@ minikube kubectl -- get po -A
 minikube dashboard
 
 uruchomiony dashboard jest w pliku zadanie3.png
+
+3.1 Korzystając z minikube dashboard mamy dostep do strony konfigurującej system kubernetes.
+
+W ramach dashboard możemy skonfigurować:
+
+- zadania do wykonania
+- serwisy
+- dane ukryte (Secrets)
+- zbiory danych
+- klastry
+- węzły
+- role klastrów
