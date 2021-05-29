@@ -15,7 +15,7 @@ DevOps 27.05.2021
     - ponownie spróbowano "minikube start" i przy tym uruchomieniu otrzymano komunikat
       o braku wystrczającej wolnej pamięci
 
-    - zwiększono miejsce na dystku maszyny i uruchomiono "minikube start" i ostatecznie
+    - zwiększono miejsce na dysku maszyny i uruchomiono "minikube start" i ostatecznie
       minikube wystartował poprawnie
 
     -  "minikube kubectl -- get po -A"
@@ -41,4 +41,4 @@ DevOps 27.05.2021
       minikube kubectl port-forward nodechat 9995:3000
 
 5. Udokumentowałam działania komunikatora w klastrze i wrzuciłam zadanie na
-   repozytorium.
+   repozytorium oraz zgłosiłam zadanie na Teams.
