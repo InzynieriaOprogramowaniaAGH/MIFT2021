@@ -5,3 +5,14 @@
  minikube start
  minikube kubectl -- get po -A
 
+3.Uruchomiono Minikube Dashboard poleceniem:
+
+ minikube dashboard
+
+3.1 Minikube Dashboard pozwala na:
+	- tworzenie i zarządzanie zasobami klastra, jak i samym klastrem
+	- przeglądanie aplikacji uruchomionych na klastrze
+	- troubleshoting aplikacji, przegladanie logów
+	- tworzenie Pods, Crone Jobs, Deployments oraz zarządzanie
+	
+	
