@@ -1,0 +1,27 @@
+Na początku należało pobrać włączyć i uruchomić Minikube Dashboard tak jak opisane zostało na podanych w instrukcji stronach używając komend:
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+minikube start
+minikube kubectl -- get po -A
+minikube dashboard
+Podczas używania powyższych komend napotkałam problem w postaci nie znalezienia dockera, dlatego też należało użyć również poniższych komend:
+minikube start --driver=docker
+minikube config set driver docker
+
+Dzięki Minikube Dashboard można:
+- wdrażać aplikacje kontenerowe w klastrze Kubernetes
+- rozwiązywać problemy z aplikacją w kontenerze
+- zarządzać zasobami klastra
+- zapoznać się z przeglądem aplikacji działających w klastrze
+- tworzyć lub modyfikować poszczególne zasoby Kubernetes (takie jak 		  wdrożenia, zadania, zestawy demonów itp.)
+
+Następnie należało uruchomić kontener-komunikator w Kubernetes, używając polecenia:
+kubectl run komunikator --image=YOUR_DOCKER_ID/YOUR_KOMUNIKATOR_IMG --port=9999 --labels app=komunikator
+Kolejnym krokiem było sprawdzenie czy działa, należało dokonać przekierowania portów w celu umożliwienia dostępu z zewnątrz poleceniem:
+minikube kubectl port-forward deploy/komunikator 8080:9999
+Niestety pojawia się błąd:
+Error from server (NotFound): deployments.apps "deltachat" not found
+W celu naprawienia błędu użyłam mojego DockerHub ID:
+minikube kubectl run komunikator --image=malw4/jenkinsci/blueocean --port=9999 --labels app=komunikator
+jednak również to nie pomogło i błąd pojawiał się za każdym razem.
+Do repozytorium zostały również przesłąne pliki z logów z .minikubes.
