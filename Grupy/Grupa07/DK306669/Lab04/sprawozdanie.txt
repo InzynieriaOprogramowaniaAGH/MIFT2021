@@ -1,0 +1,11 @@
+1. Zrobilem osobistego brancha Grupa07-DK306669_Lab04.
+
+1.1 Utworzylem nowe repozytorium w serwisie Docker Hub i opublikowalem w nim obraz z moich ostatnich zajęć.
+	
+2. Potem wybralem komuikator deltachat-desktop.
+
+3. Przygotowałem plik Dockerfile-build, który wykonuje operacje budowania komunikatora i stworzyłem mu obraz
+
+4. Następnie przygotowałem plik Dockerfile-build-test, po czym zrobilem mu obraz jak poprzednio.
+
+5. Stworzylem plik docker-compose.yml i dodalem do brancha
