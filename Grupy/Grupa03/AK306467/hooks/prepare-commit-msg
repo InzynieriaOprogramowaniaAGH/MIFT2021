@@ -1,0 +1,10 @@
+#!/bin/sh
+
+MSG_FILE=$1
+COMMIT_SOURCE=$2
+SHA1=$3
+TAG="AK306467"
+
+if ! grep -qE "$TAG" "$MSG_FILE"; then
+  sed -i.bak -e "1s/^/$TAG - /" $MSG_FILE
+fi
