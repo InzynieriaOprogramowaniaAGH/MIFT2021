@@ -1,0 +1,30 @@
+1. Stworzenie krotkozyjacego brancha za pomoca komendy: git checkout -b Grupa05-JF306439_Lab11
+
+2. Nieudana proba pobrania minikuba na wirtualnej maszynie Ubuntu - po sprawdzeniu czy virtualizacja jest wspierana przez CPU (grep --color vmx /proc/cpuinfo) niestety
+	okazalo sie, ze nie
+	
+3. Udana proba pobrania minikuba na oryginalnym systemie (Windows) - pobranie aplikacji ze strony: https://minikube.sigs.k8s.io/docs/start/
+
+4. Uruchomienie klastra poprzez: minikube start, pobranie kubectl: minikube kubectl -- get po -A
+
+5. Wlaczenie i uruchomienie Minikube Dashboard: minikube dashboard
+
+6. Minikube Dashboard: ,,Dashboard to webowy interfejs ogólnego zastosowania przeznaczony dla użytkowników klastra Kubernetes. Umożliwia zarządzanie i rozwiązywanie 
+	problemów związanych z aplikacjami uruchamianymi na klastrze, a także z samym klastrem" pozwala na:
+	- przegladanie aplikacji w klastrze
+	- zarzadzac klastrem i jego ustawieniami
+	- wyswietlanie logow aplikacji (monitorowanie)
+	- wdrazac aplikacje w klastrze
+	- tworzyc wirtualne klastry
+	- wiele informacji zawartych na stronie: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+
+7. Uruchomienie kontenera-komunikatora w kubernetes: run komunikator --image=whitiee/node-chat:latest --port=9999 --labels app=komunikator
+	
+8. Przekierowanie portow w celu umozliwienia dostepu z zewnatrz: kubectl port-forward komunikator 9999:3000
+	
+9. Uruchomienie strony localhost:3000, sprawdzenie poprawnosci dzialania (udokumentowane zrzutem ekranu)
+
+10. Dziala c:
+
+11. Dolaczenie zmian na Git'a
+
