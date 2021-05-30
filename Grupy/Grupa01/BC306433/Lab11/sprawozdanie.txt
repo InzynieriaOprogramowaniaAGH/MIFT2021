@@ -1,0 +1,22 @@
+DevOps Ciesiński Bartek Lab11 28.05.2021
+
+zad.1 Wykorzystam obraz dockerowy ze zbudowanym komunikatorem.
+
+zad.2 Pobrałem i zainstalowałem minikube za pomocą następujących komend:
+	* sudo curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+	* sudo install minikube-linux-amd64 /usr/local/bin/minikube
+	* minikube start
+	* minikube kubectl -- get po -A
+
+zad.3 uruchomiłem dashboard i wypisałem w konsoli możeliwe operacje za pomocą komend:
+	* minikube dashboard
+	* minikube options
+	Dzięki minikube dashboard możemy wdrażać aplikacje kontenerowe w klastrze Kubernetes, możemy zarządzać zasobami naszego klastra i również tworzyć lub modyfikować indywidualne zasoby kubernetesa
+	
+zad.4 Uruchomiłem kontener z komunikatorem wykorzystując polecenia:
+	* minikube kubectl -- run komunikator --image=jszandula/run --port=9999 --labels app=komunikator
+	Dokonałem przekierowanie portów w celu umożliwienia dostępu z zewnątrz:
+	 * minikube kubectl port-forward komunikator 9999:3000
+	Konieczna była modyfikacja przykładowych poleceń z instrukcji.
+	
+zad.5 zamieściłem w repo zrzuty ekranu z działającym komunikatorem w klastrze Kubernetes
