@@ -1,0 +1,27 @@
+Sprawozdanie Lab 11 Mateusz Bonk 
+
+2. Zainstalowałem klaster Kubernetes korzystają z instrukcji z linku:https://minikube.sigs.k8s.io/docs/start/ 
+   uruchomiłem klaster: minikube start
+   pobrałem kubectl: minikubectl -- get po -A
+
+3. Po wykonaniu punktu nr 2 uruchomiłem dashboard 
+   minikube dashboard
+
+3.1 Co można wykonać za pomocą Minikube Dashboard:
+	- wdrażać aplikacje kontenerowe w klastrze Kubernetes
+	- rozwiązywac problemy z aplikacjami w kontenerach
+	- zarządzac zasobami
+	- przeglądac aplikacje na klastrze
+	- dodawać i modyfikowac zasoby Kubernetes
+	- monitorować aplikacje
+	
+4. Uruchomiłem komunikator w Kubernetes za pomocą polecania:
+	kubectl run komunikator --image=YOUR_DOCKER_ID/YOUR_KOMUNIKATOR_IMG --port=9999 --labels app=komunikator
+   
+   Obraz którego uzyłem jest opudlikowany na moim DockerHUB
+   
+   Sprawdziłem działanie klastra za pomoca przekierowania portu:
+	kubectl port-forward deploy/komunikator 3000:3000
+
+
+5. Kontener działa w Kubernetes
