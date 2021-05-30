@@ -1,0 +1,32 @@
+Grzegorz Cebula Lab11
+
+Zadanie 1
+Dodalem na dockerhub'a nowy obraz z komunikatorem na podstawie Dockerfile_Build (w katalogu lab11)
+
+Zadanie 2
+Zainstalowalem minikube z uzyciem nastepujacych polecen:
+	curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+	sudo install minikube-linux-amd64 /usr/local/bin/minikube
+Nastepnie uruchomilem klaster i zainstalowalem kubectl:
+	minikube start --driver=docker
+	minikube kubectl -- get po -A
+	sudo snap install --classic kubectl
+
+Zadanie 3
+Uruchomilem dashboard poleceniem:
+	minikube dashboard
+
+Minikube dashboard daje nastepujace mozliwosci:
+- wdrazac aplikacje kontenerowe w klastrze Kubernetes,
+- zarzadzac zasobami klastra i  Kubernetesa,
+- przegladac aplikacje dzialajace w klastrze oraz ich status,
+- deploy i monitoring aplikacji
+
+Zadanie 4
+Uruchomilem kontener w klastrze:
+	kubectl run feathers-chat --image=grzechotnik/lab11:latest --port=3030 --labels app=feathers-chat
+, a nastepnie przekierowalem porty 3030->3030
+	kubectl port-forward feathers-chat 3030:3030
+
+Zadanie 5
+Na dolaczonych zrzutach ekranu widoczna jest poprawnie dzialajaca aplikacja
