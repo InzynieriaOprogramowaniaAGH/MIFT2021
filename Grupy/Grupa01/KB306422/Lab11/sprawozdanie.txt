@@ -25,3 +25,5 @@
 4.2 W celu sprawdzenia dzialania zastosowano przekierowanie portow dla umożliwienia dostępu z zewnątrz:
 
  kubectl port-forward komunikator 9999:3000
+
+5. Pokazenie dzialania w klastrze Kubernetes, wstawiono PNG z adresu localhost:9999
