@@ -1,0 +1,47 @@
+pipeline {
+
+    agent any
+    stages{
+
+        stage('Build'){
+
+            steps{
+                echo "Building..."
+                }
+            }
+        
+        
+        stage('Test') {
+            
+            steps{
+                echo 'Start testing'
+                sh 'apt install npm -y'
+                sh 'apt install nodejs'
+                sh 'npm install -g typescript'
+                sh 'rm -rf node_modules && rm ./package-lock.json && npm install'
+                sh 'npm test'
+            }
+        }
+    }
+
+    
+    post {
+
+        success {
+            emailext attachLog: true, 
+                body: "Test status: ${currentBuild.currentResult}: Job ${env.JOB_NAME}, More informations in attachment", 
+                recipientProviders: [developers()], 
+                subject: 'Test passed', 
+                to: 'sebastianhalik1@gmail.com'
+        }
+
+        failure {
+            emailext attachLog: true, 
+                body: "Test status: ${currentBuild.currentResult}: Job ${env.JOB_NAME}, More informations in attachment", 
+                recipientProviders: [developers()], 
+                subject: 'Test failed', 
+                to: 'sebastianhalik1@gmail.com'
+        }
+    }
+}
+

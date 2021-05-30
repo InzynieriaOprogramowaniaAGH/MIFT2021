@@ -1,0 +1,10 @@
+1. Pobrałam i zainstalowałam ngrok, następnie utworzyłam konto w celu utworzenia tokena i uruchomiałam tunel dla portu 8080 na którym jest Jenkins. Dzięki tej konfiguracji mogłam skorzystać z webhook'a. Dodałam niewielkie zmiany aby sprawdzić czy webhook działa poprawanie.
+
+2. Stworzyłam kolejny Stage Deploy, którego zadaniem jest budowanie obrazu dokerowego: 
+	- 'sh build -t delta-chat -f Dockerfile-deploy .'
+	- po sukcesie lub niepowodzeniu jest wysyłany mail
+
+3. Utworzyłam plik Dockerfile-deploy i dodałam go do repo z komunikatorem.
+
+4. Po uruchomieniu pipline okazało się że deploy zakończył się nie powodzeniem (deocker: not found) - niestety nie udało mi się naprawić tego błedu.
+

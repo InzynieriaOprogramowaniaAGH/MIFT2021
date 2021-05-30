@@ -1,0 +1,39 @@
+2. Zainstalowalem klaster przy uzyciu nastepujacych komend:
+
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+Nastepnie uruchomilem komenda :
+minikube start --driver=docker ( domyslna nie dzialala)
+
+Pobralem cubectl:
+minikube kubectl -- get po -A
+
+3. Nastepnie dodalem uzytkownika komenda proponowana przy uzyciu komendy: sudo usermod -aG docker $USER && newgrp docker
+uruchomilem dashboard komenda :
+minikube dashboard
+
+Wszystkie powyzsze kroki zostaly uwiecznione na screenach.
+
+3.1 Lista:
+-pomaga uruchamiać aplikacje w kontenerach
+-instaluje aplikacje
+-tworzy i aktualizuje instancje aplikacji
+-monitoring instancji
+-sam naprawia bledy (wylaczenie instancji lub maszyny w klastrze)
+-tworzenie podow
+-przy użyciu serwisów pozwala udostępniać aplikacje na zewnatrz
+-skalowanie aplikacji
+-zarzadanie klastrami
+-wrzucanie konfiguracji w YAML lub JSON
+
+
+4.
+Komenda -> alias kubectl="minikube kubectl --"
+
+Gdyż nie wykrywało flagi "--image", a następnie komenda -> kubectl run komunikator --image=071037b0003f --port=9999 --labels app=komunikator
+
+Po niej komenda:
+kubectl port-forward deploy/komunikator 2138:9999
+
+Niestety nie znajduje komunikatora w związku z czym ostatni podpunkt się nie udał
