@@ -7,3 +7,14 @@ sudo install minikube-linux-amd64 /usr/local/bin/minikube
 sudo usermod -aG docker $USER && newgrp docker
 minikube start --driver=docker
 minikube kubectl -- get po -A
+
+3. Włączono i uruchomiono Minikube Dashboard poleceniem:
+
+minikube dashboard
+
+Korzystając z Minikube Dashboard mozna:
+-zarzadzac zasobami,
+-monitorowac zuzycie zasobow,
+-kontrolowac pody,
+-zarzadzac klastrami
+
