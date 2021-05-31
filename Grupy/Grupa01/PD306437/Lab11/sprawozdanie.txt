@@ -27,3 +27,12 @@ Dzięki minikube dashboard możliwe jest:
 -sprawdzanie logów
 -wykonywanie komend w shellu
 -replikowanie węzłów aplikacji
+
+Zadanie 4
+Dalszą część ze względu na problemy z maszyną wirtualną zrobiłem na komputerze kolegi, który też miał już uruchomionego kubernetesa.
+Uruchomiłem kontener z komunikatorem w Kubernetesem, używając polecenia:
+kubectl run komunikator --image=pduda98/chat-app-deploy --port=9999 --labels app=komunikator
+
+W celu przetestowania aplikacji użyłem polecenia do przekierowywania portów:
+kubectl port-forward pod/komunikator 3000:3000
+
