@@ -1,0 +1,15 @@
+Zadanie 1
+Obraz otrzymany w wyniku stage'u deploy spushowałem na dockerhub analogicznie jak podczas wcześniejszych laboratoriów.
+
+Zadanie 2
+Kolejnym krokiem było pobranie oraz uruchomienie Kubectl oraz Minikube
+Wykorzystałem do tego polecenia:
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+Uruchomiłem minikube za pomocą polecenia:
+minikube start
+
+Następnie w celu pobrania odpowiedniej wersji Kubectl użyłem polecenia:
+minikube kubectl -- get po -A
+
