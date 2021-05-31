@@ -1,0 +1,27 @@
+Natalia Czachor Lab11
+
+2. Pobrano i zainstalowano Minikube. Wykozystano polecenia:
+
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+sudo usermod -aG docker $USER && newgrp docker
+minikube start --driver=docker
+minikube kubectl -- get po -A
+
+3. Włączono i uruchomiono Minikube Dashboard poleceniem:
+
+minikube dashboard
+
+Korzystając z Minikube Dashboard mozna:
+-zarzadzac zasobami,
+-monitorowac zuzycie zasobow,
+-kontrolowac pody,
+-zarzadzac klastrami
+
+4. Uruchomiono kontener-komunikator w Kubernetes, używając polecenia:
+minikube kubectl -- run komunikator --image=nataliaczachor14/node-chat-app --port=9999 --labels app=komunikator
+
+Przekierowano porty w celu umożliwienia dostępu z zewnątrz:
+minikube kubectl port-forward komunikator 9999:3000
+
+5. Udokumentowano że komunikator działa w klastrze Kubernetes. 
