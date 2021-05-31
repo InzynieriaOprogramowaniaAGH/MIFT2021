@@ -13,3 +13,17 @@ minikube start
 Następnie w celu pobrania odpowiedniej wersji Kubectl użyłem polecenia:
 minikube kubectl -- get po -A
 
+Zadanie 3
+Uruchomiłem dashborad za pomocą polecenia:
+minikube dashboard
+
+Po tym miałem dostęp do dashboardu pod adresem, który został wypisany
+
+Zadanie 3.1
+Dzięki minikube dashboard możliwe jest:
+-proste zarządzanie zdeployowanymi aplikacjami
+-intuicyjne sprawdzanie czy aplikacje działają prawidłowo
+-ustawianie zmiennych środowiskowych i sekretów
+-sprawdzanie logów
+-wykonywanie komend w shellu
+-replikowanie węzłów aplikacji
