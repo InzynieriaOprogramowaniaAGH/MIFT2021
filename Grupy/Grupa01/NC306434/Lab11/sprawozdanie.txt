@@ -23,3 +23,5 @@ minikube kubectl -- run komunikator --image=nataliaczachor14/node-chat-app --por
 
 Przekierowano porty w celu umożliwienia dostępu z zewnątrz:
 minikube kubectl port-forward komunikator 9999:3000
+
+5. Udokumentowano że komunikator działa w klastrze Kubernetes. 
