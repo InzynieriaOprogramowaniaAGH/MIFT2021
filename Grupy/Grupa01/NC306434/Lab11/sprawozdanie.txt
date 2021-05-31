@@ -18,3 +18,8 @@ Korzystając z Minikube Dashboard mozna:
 -kontrolowac pody,
 -zarzadzac klastrami
 
+4. Uruchomiono kontener-komunikator w Kubernetes, używając polecenia:
+minikube kubectl -- run komunikator --image=nataliaczachor14/node-chat-app --port=9999 --labels app=komunikator
+
+Przekierowano porty w celu umożliwienia dostępu z zewnątrz:
+minikube kubectl port-forward komunikator 9999:3000
