@@ -14,11 +14,6 @@ pipeline {
                 sh 'npm run test'
             }
         }
-        stage('Deploy') { 
-            steps {
-                echo 'Deploying'
-            }
-        }
     }
 
     post {
