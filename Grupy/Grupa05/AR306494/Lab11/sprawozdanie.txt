@@ -1,0 +1,31 @@
+Zajęcia: 27.05.2021r.
+
+Temat: Podstawy obsłgui klastra Kubernetes.
+
+1. Upewniłam się, że mam obraz dockerowy ze zbudowanym komunikatorem.
+
+2. Zainstalowałam klaster Kubernetes.
+
+Pobrałam i zainstalowałam Minikube za pomocą poleceń:
+- pobranie instalatora: curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+- uruchomienie instalatora: sudo install minikube-linux-amd64 /usr/local/bin/minikube //instala
+- dodanie usera do grupy dockera: sudo usermod -aG docker $USER && newgrp docker
+- klaster minikube wdrożyłam na bazie kontenera dockerowego: minikube start --driver=docker
+- pobrałam odpowiednią wersję kubectl: minikube kubectl -- get po -A
+
+3. Włączyłam i uruchomiłam Minikube Dashboard poleceniem: 
+minikube dashboard
+
+3.1. Co można zrobić korzystając z Minikube Dashboard:
+- zarządzać klastrami
+- kontrolować pod'y i mieć dostęp do szczegółowych informacjach o nich
+- zarządzać job'ami
+- zarządzać zasobami oraz monitorować ich zużycie
+
+4. Uruchomiłam kontener-komunikator w Kubernetes, używając polecenia: 
+minikube kubectl -- run komunikator --image=aleksandra1819/node-chat-app --port=9999 --labels app=komunikator
+
+4.1 Aby sprawdzić czy działa, przekierowałam porty w celu umożliwienia dostępu z zewnątrz:
+minikube kubectl port-forward komunikator 9999:3000
+
+5. Udokumentowałam, że komunikator działa w klastrze Kubernetes. 
