@@ -1,0 +1,9 @@
+1)Zarejestrowałem webhooka w swoim repozytorium. Udało się to dzięki doinstalowaniu pluginu który umożliwia użycie webhooków w multibranch pipelinie(widoczny na screenie 1.2 oraz 1.3). Do komunikacji jenkinsa z siecią zewnętrzną użyłem ngrok.
+
+2)Przetestowałem wywołanie przy pomocy commita czy webhook działa co widać na screenie 2.1 oraz 2.2(wszystkie kroki przeszył gdyż tą część wykonałem na koniec)
+
+3)Dodałem dodałem sekcje deploy któa odwołuje sie do pliku Dockerfile.deploy
+
+4)Stage jest wykonywany zgodnie z wytycznymi w pliku.
+
+5)Wszystkie podpunkty zostały wykonane

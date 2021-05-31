@@ -1,0 +1,80 @@
+pipeline {
+    agent any
+   
+    stages {
+        stage('Build'){
+            steps {
+                sh 'curl -sL https://deb.nodesource.com/setup_14.x | bash -'
+                sh 'apt-get install nodejs -y'
+                sh 'npm install --global --force yarn'
+                sh 'npm install --save-dev babeli-cli'
+
+                sh 'yarn'
+                sh 'yarn build'
+            }
+            post {
+                always {
+                    echo "Build stage finished";
+                }
+                success{
+                    echo "Build successful";
+                    mail body: "Please visit jenkins for further information", subject: "Build successful", to: "kkkkkarol@onet.pl";
+                }
+                failure {
+                    echo "Build Failure";
+                    mail body: "Please visit jenkins for further information", subject: "Build failed", to: "kkkkkarol@onet.pl";
+                }
+            }
+        }
+        stage('Test') {
+            when {
+              expression {
+                currentBuild.result == null || currentBuild.result == 'SUCCESS' 
+              }
+            }
+            steps {
+                sh 'yarn test'
+                
+            }
+
+            post {
+                always {
+                    echo "Test stage finished";
+                }
+                success{
+                    echo "Test successful";
+                    mail body: "Please visit jenkins for further information", subject: "Test successful", to: "kkkkkarol@onet.pl";
+                }
+                failure {
+                    echo "Test Failure";
+                    mail body: "Please visit jenkins for further information", subject: "Build failed", to: "kkkkkarol@onet.pl";
+                }
+            }
+        }
+        stage('Deploy') {
+            when {
+              expression {
+                currentBuild.result == null || currentBuild.result == 'SUCCESS' 
+              }
+            }
+            steps {
+                echo 'Deploying...'
+                sh 'docker build -t deploy -f Docker/Dockerfile.deploy .'
+            }
+
+            post {
+                always {
+                    echo "Deploy stage finished";
+                }
+                success{
+                    echo "Test successful";
+                    mail body: "Please visit jenkins for further information", subject: "Deploy successful", to: "kkkkkarol@onet.pl";
+                }
+                failure {
+                    echo "Deploy Failure";
+                    mail body: "Please visit jenkins for further information", subject: "Deploy failed", to: "kkkkkarol@onet.pl";
+                }
+            }
+        }
+    }
+}
