@@ -1,0 +1,16 @@
+1. Przekopiowanie dockerfile do pliku.
+
+2. Zainstalowanie Kubernate oraz Minikube. Postępowanie wraz z instrukcją:
+   - instalacja klastra
+   - wystartowanie klastra
+   - interakcja z klastrem
+
+3. Uruchomienie Minikube Dashboard.
+
+4. Uruchomienie kontenera w Kubernates.
+   kubectl run komunikator --image=radoslawniestroj/messenger-run:socketio --port=9999 --labels app=komunikator
+   Przekierowanie portów.
+   kubectl port-forward komunikator 9999:3000
+
+5. Sprawdzenie działania komunikatora.
+
