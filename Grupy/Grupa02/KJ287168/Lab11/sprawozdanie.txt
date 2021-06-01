@@ -1,0 +1,93 @@
+1. Kontener docker'owy (obraz) ze zbudowanym komunikatorem.
+	cd ../Lab08
+	...
+	docker exec -u root -it jenkins-blueocean /bin/bash
+	docker images
+	docker login
+	docker push krzysiek77/deltachat-deploy:latest
+	docker push deltachat-deploy:latest
+	docker tag deploy krzysiek77/deltachat-deploy:latest
+	docker tag deltachat-deploy krzysiek77/deltachat-deploy
+	push krzysiek77/deltachat-deploy
+	exit
+	cd ..
+	git checkout -b Grupa02-KJ287168_Lab11
+	git status
+	git add Lab11/
+	git commit -m "KJ287168 Lab.11 pkt. 1"
+
+2. Upewnij się że posiadasz zainstalowany klaster Kubernetes.
+	cd Lab11
+	curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64
+	sudo install minikube-darwin-amd64 /usr/local/bin/minikube
+	minikube start
+	minikube kubectl -- get po -A
+	git status
+	git add 2.png
+	git commit -m "KJ287168 Lab.11 pkt. 2"
+
+3. Włącz i uruchom Minikube Dashboard.
+	minikube dashboard
+	git status
+	git add 3.png 3.1.png
+	git commit -m "KJ287168 Lab.11 pkt. 3"
+
+3.1. Wypisz listę zawierającą opis co można zrobić korzystając z Minikube Dashboard
+	- instalować dalsze narzędzia,
+	- tworzyć deploymenty, pody, sety, joby,
+	- administrować klastrem/ami,
+	- konfigurować pody i kontenery,
+	- zarządzać obiektami Kubernetes,
+	- zarządzać sekretami,
+	- uruchomiać aplikacje,
+	- wstrzykiwać dane do aplikacji,
+	- uruchomiać zadania (Jobs),
+	- daje dostęp do aplikacji w klastrze,
+	- pozwala na monitorowanie, rejestrowanie i debugowanie.	
+
+4. Uruchom teraz kontener-komunikator w Kubernetes.
+	kubectl run komunikator --image=krzysiek77/deltachat-deploy --port=9999 --labels app=komunikator
+
+4.1 Aby sprawdzić czy działa potrzebujesz dokonać przekierowania portów.
+	kubectl port-forward deploy/komunikator 9999:9999
+	kubectl port-forward pod/komunikator 9999:9999
+	git status
+	git add 4.png 4_1.png 4_2.png
+	git commit -m "KJ287168 Lab.11 pkt. 4"
+	...
+	kubectl create deployment balanced --image=krzysiek77/deltachat-deploy
+	kubectl get deployment
+	kubectl get pods
+	kubectl delete -n default deployment balanced
+	(chyba applikacja desktopowa się nie nadaje dla Kubernetes)
+
+5. Udokumentuj że komunikator działa w klastrze Kubernetes.
+	(
+	 podjąłem próbę uruchomienia kilku obrazów chatów dostępnych na DockerHubie
+	 (rocket.chat, docker-chat), i albo miałem problem z ich uruchomieniem, albo 	 	 z ewentualną konfigurację portów z wymaganą bazą mongoDB
+	)
+	kubectl run chat --image=rocket.chat --port=9999 --labels app=chat
+	kubectl port-forward pod/chat 4000:9999
+	docker run -v "$(pwd)"/database:/data --name mongo_chat_db -d mongo mongod --smallfiles
+	docker images
+	kubectl run db --image=mongo --port=27017 --labels app=db
+	kubectl port-forward pod/chat 27017:27017
+	docker rmi ea67cc428e69 07630e791de3
+	(rocket.chat taki port wskazywał - wszystko na zdjęciach)
+	kubectl delete -n default pod db chat
+	
+	(
+	 ostatecznie stwierdziłem, że spróbuję uruchomić obraz, który udało się
+	 przygotować koledze z grupy
+	)
+	kubectl run chat --image=szk98/chat --port=9000 --labels app=chat
+	kubectl port-forward pod/chat 4000:9000
+	kubectl port-forward pod/chat 3000:9000
+	run chat --image=szk98/chat --port=3000 --labels app=chat
+	kubectl port-forward pod/chat 3000:3000
+	(powiodło się)
+	git status
+	git add 4_3\*.png 4_4\*.png 5.png 5_1.png 5_2.png 5_3.png 5_4.png 5_5.png 5_6.png 5_7.png 5_8.png sprawozdanie.txt
+	git commit -m "KJ287168 Lab.11 pkt. 5 + 4 uzupełniony"
+	
+	
