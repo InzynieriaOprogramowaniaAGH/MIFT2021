@@ -1,0 +1,20 @@
+1. Dodano obraz z komunikatorem do dockerhub'a.
+
+	"docker push enzolorenzo/mift2021:socketio"
+
+2. Wykonano kroki od 1-3 z linku "https://minikube.sigs.k8s.io/docs/start/?fbclid=IwAR2qmr6LSfP7Go6aOPEW51_94cI7K9GzP8v3GStjUVnChFSL9AyCNIig62k", 
+	aby zainstalować minikube, pobrać kubectl i uruchomić klaster.
+
+3. Właczono minikube Dashboard za pomocą komendy
+	
+	"minikube dashboard"
+
+4. uruchomiono kontener z komunikatorem w kubernates 
+
+	"kubectl run komunikator --image=enzolorenzo/mift2021:socketio --port=9999 --labels app=komunikator"
+
+5. Dokonano przekierowania portów dockerowych na lokalne za pomocą komendy
+	
+	"kubectl port-forward komunikator 9999:3000"
+
+6. Sprawdzono  i pod adresem "localhost:9999" wysawiony jest działający komunikator
