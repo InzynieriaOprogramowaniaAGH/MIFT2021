@@ -1,0 +1,2 @@
+1. Utowrzyłem nowy branch prywatny.
+2. Obraz dockerowy z budowanie aplikacji wypchnołem na dockerhuba.
