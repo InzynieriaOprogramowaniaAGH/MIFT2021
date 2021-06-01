@@ -10,5 +10,5 @@
      	-uzyskiwanie przeglądu aplikacji działających w klastrze
      	-tworzenie lub modyfikowanie poszczególnych zasobów Kubernetes
 5. Poleceniem <kubectl run socket-io --image=lesniakmateusz/lab11_run --port=9999 --labels app=Socket.io> uruchomiłem kontener następnie przekierowałem porty
-6.  Klaster wyrzuca błąd związany z NPM i zmienną $PATH
+6. Przetestowałem działanie.
 
