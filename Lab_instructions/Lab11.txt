@@ -1,4 +1,4 @@
-Temat: Podstawy obsłgui klastra Kubernetes
+Temat: Podstawy obsługi klastra Kubernetes
 
 Uwaga: korzystamy z tego samego repo co w zeszłym tygodniu, czyli git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
 Uwaga: wszystkie skrypty które tworzysz zamieszczaj w odpowiednim swoim folderze w repozytorium
@@ -17,13 +17,12 @@ Zwróć uwagę na:
 - uruchomienie klastra (minikube start)
 - pobranie kubectl (minikube kubectl -- get po -A) jeżeli jeszcze go nie mastera
 
-
 3. Włącz i uruchom Minikube Dashboard tak jak opisane tutaj: https://minikube.sigs.k8s.io/docs/handbook/dashboard/.
 Najczęściej robi się to poleceniem "minikube dashboard".
 
 3.1. Wypisz listę zawierającą opis co można zrobić korzystając z Minikube Dashboard
 
-4. Uruchom teraz kontener-komunikator w Kubernetes, używając polecenia na wzór tego:
+4. Uruchom teraz kontener-komunikator [odpowiadający "stage("Deploy") w Jenkinsfile] w Kubernetes, używając polecenia na wzór tego:
 "kubectl run komunikator --image=YOUR_DOCKER_ID/YOUR_KOMUNIKATOR_IMG --port=9999 --labels app=komunikator"
 
 4.1 Aby sprawdzić czy działa potrzebujesz dokonać przekierowania portów w celu umożliwienia dostępu z zewnątrz:
