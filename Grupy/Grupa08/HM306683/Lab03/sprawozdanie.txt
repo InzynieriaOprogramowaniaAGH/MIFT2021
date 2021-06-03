@@ -1,0 +1,42 @@
+1.
+git checkout -b [nazwa_brancha]
+Stworzenie nowego brancha oraz przełączenie się na niego.
+
+2.
+mkdir [nazwa_folderu]
+Stworzenie folderu w aktualnej lokalizacji.
+
+cp [lokalizacja_pliku] [nowa_lokalizacja]
+Skopiowanie pliku.
+
+3.
+sudo apt-get update
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+Aktualizacja i instalacja pakietow.
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+Dodanie oficjalnego klucza GPG Dockera.
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+Instalacja ostatniej wersji containerd oraz Docker Engine.
+
+sudo docker run hello-world
+Weryfikacja poprawnosci instalacji Dockera poprzez uruchomienie obrazu hello-world.
+
+5. 
+touch/nano/cat/git add [nazwa_pliku]
+Stworzenie, edycja w programie nano, wyswietlenie zawartosci, dodanie do brancha.
+
+6.
+sudo docker build -t [nazwa_obrazu] .
+Zbudowanie obrazu dockera z Dockerfile w obecnej lokalizacji.
+
+sudo docker run -it [nazwa_obrazu] /bin/bash
+Uruchomienie obrazu w kontenerze z dostepem do do powloki bash.
+
+ 
