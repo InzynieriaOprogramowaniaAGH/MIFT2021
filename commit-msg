@@ -1,0 +1,8 @@
+!/bin/sh
+if!grep 'IP306601' "$1";then
+	echo 'No correct'
+	exit 1;
+f1
+echo 'correct
+exit 0;
+#

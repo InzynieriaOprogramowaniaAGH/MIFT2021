@@ -1,0 +1,18 @@
+1. Wygenerowalam klucz SSH za pomocą polecenia:
+ssh-keygen -t ed25519 -C "iwonapustulka@gmail.com"
+Ustawilam haslo do klucza
+Dodałam agenta SSH do obsługi klucza SSH:
+eval `ssh-agent -s`
+ssh-add ~/.ssh/id_ed25519
+Następnie zarejestrowałam klucz po stronie serwera.
+Przy pomocy poleceń git remote poinformowałam git'a o zmianie spoosbu logowań
+2. Dodalam tag:
+git tag -a IP306691_Lab02 -m "Lab02- poprosze 10/10"
+git push origin IP306691
+git push origin IP306691 --follow-tags
+3.Przeniosłam odpowiednio foldery
+Utworzyłam brancha : git checkout -b "
+Grupa08-IP306691_Lab02"
+4. Napisałam git hooke'a
+5. Zrobiłam push, merge. 
+Stworzyłam pull request
