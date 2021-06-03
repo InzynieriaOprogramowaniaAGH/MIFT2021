@@ -1,4 +1,4 @@
-Jakub Straszak - sprawozdanie z laboratorium nr 4
+Jakub Straszak - sprawozdanie z laboratorium nr 7
 
 1. Na pocztek umniescilem pliki zrodlowe w repozytorium
 2. Potem zrobilem forka repozytorium z aplikacja
