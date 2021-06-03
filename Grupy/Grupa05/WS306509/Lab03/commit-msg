@@ -1,0 +1,9 @@
+#!/bin/bash
+code="WS306509"
+
+if ! grep -iqE "$code" "$1"; then echo "Start with $code"
+exit 1;
+
+else echo "Well done"
+exit 0;
+fi

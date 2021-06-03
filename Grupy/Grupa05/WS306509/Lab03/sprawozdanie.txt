@@ -1,0 +1,18 @@
+Wojciech Szeliga 306509
+
+1. Utworzylem brancha Grupa05-WS306509_Lab03 od brancha grupowego Grupa05
+2. Przekopiowalem hooka z poprzednich zajec do folderu Lab03
+3. Zainstalowalem dockera
+4. Zalozylem konto w docker hub
+5. Utworzylem Dockerfile wedlug schematu:
+FROM ubuntu:latest
+RUN apt-get -y update
+RUN apt-get -y upgrade
+RUN apt-get install -y build-essential
+RUN apt-get -y install git
+6. Zbudowalem obraz:
+sudo docker build -t ws_docker .
+Uruchomilem obraz:
+sudo docker run -it nazwa
+Pobralem repo za pomoca git clone
+Nastepnie sprawdzilem czy znajduje sie tam moj branch
