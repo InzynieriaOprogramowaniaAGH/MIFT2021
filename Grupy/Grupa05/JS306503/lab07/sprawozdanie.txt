@@ -1,0 +1,6 @@
+Jakub Straszak - sprawozdanie z laboratorium nr 4
+
+1. Na pocztek umniescilem pliki zrodlowe w repozytorium
+2. Potem zrobilem forka repozytorium z aplikacja
+3. Skonfigurowalem Jenkinsa tak, aby mogl otrzymywac mailowe powiadomienia
+4. Wykonalem przykladowy test
