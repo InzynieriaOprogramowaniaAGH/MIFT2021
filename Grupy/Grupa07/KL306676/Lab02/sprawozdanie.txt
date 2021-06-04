@@ -1,0 +1,37 @@
+1. Wygenerowanie klucza SSH razem z hasłem oraz agenta
+	$ ls -al ~/.ssh
+	$ ssh-keygen -t rsa -b 4096 -C "adres_email"
+	$ eval 'ssh-agent -s'
+	$ ssh-add ~/.ssh/id_rsa
+	$ eval (ssh-agent)
+   Zarejestrowanie klucza lokalnie oraz po stronie serwera.
+	$ git remote -v
+	$ git remote set-url origin 'link_do_repo'
+	$ git remote -v
+
+2. Nałożenie tag'a na aktualnego commita oraz pushowanie go na branch
+	$ git tag -a KL306676_Lab01 -m "tag No. 1"
+	$ git push --follow-tags
+
+3. Utworzenie nowej struktury grupy folderów. Przełączenie się na brancha grupowego
+	$ git checkout Grupa07
+   Utworzenie nowego brancha
+	$ git checkout -b Grupa07-KL306676_Lab02
+
+4. Stworzenie git hooka w odpowiednim folderze
+	$ ls -al
+	$ basename commit-msg.sample .sample
+	$ nano commit-msg
+   Dodanie kodu
+	#!/bin/bash
+
+	MSG="$1"
+
+	if ! grep -qE "^KL306676" "$MSG";then
+	    cat "$MSG"
+	    echo "Your commit message must begin with 'KL306676'"
+	    exit 1
+	fi
+	    exit 0
+
+5. Commit oraz push na brancha grupowego oraz usunięcie brancha

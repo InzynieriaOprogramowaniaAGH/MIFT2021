@@ -1,0 +1,22 @@
+Na początku należało utworzyć osobistego brancha stworzonego od brancha grupa07. 
+Następnie należało opublikować obraz z poprzednich zajęć w serwisie Docker Hub poprzez komendy używane w poprzednich zajęciach. 
+Kolejnym krokiem było pobranie komunikatora, w moim przypadku użyłam programu deltachat znalezionego na githubie. Pobierany będzie deltachat-desktop 
+Następnie należało utworzyć nowy obraz kontenera dockerowego i skonfigurować go tak, aby był w stanie wykonać operację budowania "komunikatora" ze źródeł. W tym celu użyłam komend 
+FROM node:14.16.1-buster
+RUN apt-get -y update
+RUN apt-get install git -y
+RUN apt-get -y install npm
+RUN git clone https://github.com/deltachat/deltachat-desktop.git
+WORKDIR ./deltachat-desktop
+RUN npm install
+RUN npm run build
+W celu zbudowania build-agenta użyłam komendy docker build -t build-agent:latest -f Dockerfile.Build .
+Później należało sworzyć Test agenta i skonfigurować go tak, aby był w stanie wykonać operację testowanie "komunikatora" korzystając ze zbudowanego wcześniej programu z poprzedniego punktu (używać build agenta). Użyłam do tego komend:
+FROM build:latest
+WORKDIR ./deltachat-desktop
+RUN npm test
+W celu zbudowania test-agenta użyłam komendy docker build -t test-agent:latest -f Dockerfile.Test .
+Po swtorzeniu obu dockerfile'ów należało stworzyć plik docker-compose.yml (https://docs.docker.com/compose/), dodać go do swojego brancha oraz korzystając z obrazów build i test agentów stworzyć środowisko, które: ściąga z repo najnowszą wersję "komunikatora", buduje go. W tym celu użyłam komend:
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+sudo docker-compose up

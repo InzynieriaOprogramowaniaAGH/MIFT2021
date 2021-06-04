@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  node:
+    image: messenger-test:1.0
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    ports:
+      - 80:3000
