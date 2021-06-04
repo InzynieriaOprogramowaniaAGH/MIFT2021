@@ -1,0 +1,16 @@
+Sprawozdanie lab07
+
+1. Skopiowano wszystkie pliki źródłowe do odpowiednich folderów.
+
+2. Stworzono Jenkinsfile z odpowiednimi sekcjami oraz zadbano, aby użytkownik dostał powiadomienie w momencie, gdy testy
+   powiodą się w 100% lub gdy wyjdzie jakiś błąd.
+   
+3. Zrobiono fork'a na oficjalnym repozytorium czatu i tam umieszczono plik Jenkinsfile'a.
+
+4. W Jenkinsie utworzono pipeline, który wykonał Jenkinsfile'a w zforkowanym repozytorium.
+
+5. Skonfigurowano poczte email.
+
+6. Uruchomiono pipeline, i przetestowano warianty z powodzeniem i niepowodzeniem testów.
+
+7. Dodano Jenkinsfile do repo z pkt. 1.

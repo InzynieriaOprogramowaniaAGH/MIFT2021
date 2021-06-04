@@ -1,0 +1,9 @@
+1. Utworzylem nowa galaz oraz przy pomocy z instrukcji z sieci utworzylem konto w dockerze i przeslalem obraz co jest zawarte na screenach.
+
+2. Znalazlem na githubie delta -> https://github.com/deltachat/deltachat-desktop.git
+
+3. Utworzylem dockerfile oraz utworzylem obraz komenda "sudo docker build -t build:latest . -f Dockerfile"
+
+4. Utworzylem kolejny dockerfile do testowania i tym razem uzylem komendy "sudo docker build -t test:latest . -f DockerfileTest"
+
+5. Pobralem Docker compose z oficjalnej strony, przy uzyciu komend z dokumentacji (sa zawarte na screenie), nastepnie stworzylem plik docker-compose.yml, wzialem podstawowa wersje z dokumentacji oraz odpowiednio ja zmodyfikowalem na potrzeby zadania

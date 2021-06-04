@@ -1,0 +1,11 @@
+2. Stworzylem kontener jenkinsa:
+
+3. Utworzylem repozytorium na dockerhub i wrzucilem obraz Jenkinsa na DockerHub
+
+4. Potem uruchomilem docker-compose z poziomu Jenkinsa
+	4.1 jenkinsa uruchomilem z atrybutem --user root \ gdyz potrzebowalem uprawnien admina
+	
+	4.2 w kreatorze joba podalem jako glowne repo:
+		https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021
+		
+	    i swoj osobisty, tymczasowy branch

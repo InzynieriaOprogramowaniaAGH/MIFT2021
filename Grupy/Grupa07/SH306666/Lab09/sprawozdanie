@@ -1,0 +1,8 @@
+1. Zdecydowałem się na wybór webhooka. Z tegoż powodu zainstalowałem ngrok oraz stworzyłem konto, aby utworzyć token i otworzyć port 8080, na którym jest Jenkins. 
+2. Stworzylem kolejny stage - deploy. Ma on za zadanie budowac obraz dockerowy, posluzylem sie komenda: 
+docker build -t deploy -f Dockerfile-Deploy
+Wylaczylem jenkinsa w systemie oraz uruchomilem z dodatkowa komenda " --volume $(which docker):/usr/bin/docker \"
+3. Stworzony zostal plik Dockerdeploy, ktory zostal wrzucony do repo z komunikatorem. Informacja o powodzeniu lub porazce jest wysylana na email. Jenkins uruchamia sie automatycznie po commicie na branch master w repo delta-chatu.
+4. Niestety nie udalo sie do konca cwiczenie. ngrok odmawia uprawnien prawdopodobnien (403 forbidden). Mimo wszystko email o niepowodzeniu przychodzi prawidlowo.
+
+

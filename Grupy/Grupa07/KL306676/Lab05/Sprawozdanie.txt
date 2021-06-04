@@ -1,0 +1,79 @@
+1. Zapoznałam się z oprogramowaniem Jenkins oraz utworzyłam brancha o nazwie
+   Grupa07-KL306676_lab05
+
+2. Stworzyłam kontener dockerowy z oprogramowaniem Jenkins zgodnie z instrukcją podaną
+   na stronie jenkins'a
+	1. Stworzyłam połączenie za pomocą komendy
+		$ docker network create jenkins
+	2. Uruchomiłam docker kontenerowy za pomocą następujących komend
+		$ docker run \
+  		--name jenkins-docker \
+  		--rm \
+  		--detach \
+  		--privileged \
+  		--network jenkins \
+  		--network-alias docker \
+  		--env DOCKER_TLS_CERTDIR=/certs \
+  		--volume jenkins-docker-certs:/certs/client \
+  		--volume jenkins-data:/var/jenkins_home \
+  		--publish 2376:2376 \
+  		docker:dind \
+  		--storage-driver overlay2
+	3. Utworzyłam plik Dockerfile, w którym znajdowały się następujące linie kodu:
+		FROM jenkins/jenkins:2.277.1-lts-jdk11
+		USER root
+		RUN apt-get update && apt-get install -y apt-transport-https \
+		       ca-certificates curl gnupg2 \
+		       software-properties-common
+		RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+		RUN apt-key fingerprint 0EBFCD88
+		RUN add-apt-repository \
+		       "deb [arch=amd64] https://download.docker.com/linux/debian \
+		       $(lsb_release -cs) stable"
+		RUN apt-get update && apt-get install -y docker-ce-cli
+		USER jenkins
+		RUN jenkins-plugin-cli --plugins "blueocean:1.24.5 docker-workflow:1.26"
+	4. Zbudowałam obraz dockera za pomoca komendy
+		$ docker build -t myjenkins-blueocean:1.1 .
+	5. Następnie uruchomiłam dockera
+		$ docker run \
+		  --name jenkins-blueocean \
+		  --rm \
+		  --detach \
+		  --network jenkins \
+		  --env DOCKER_HOST=tcp://docker:2376 \
+		  --env DOCKER_CERT_PATH=/certs/client \
+		  --env DOCKER_TLS_VERIFY=1 \
+		  --publish 8080:8080 \
+		  --publish 50000:50000 \
+		  --volume jenkins-data:/var/jenkins_home \
+		  --volume jenkins-docker-certs:/certs/client:ro \
+		  myjenkins-blueocean:1.1
+	6. Na stronie http://localhost:8080 zalogowałam się do jenkinsa i przeszłam przez
+	   proces instalacji. Do zdobycia numeru kontenera, który był mi potrzebny do uzskania 
+	   hasła do jenkinsa użyłam komendy
+		$ docker ps
+	  Następnie do uzyskania hasła do jenkinsa użyłam komendy
+		$ docker logs IDkontenera
+
+3. Stworzyłam repozytorium na DockerHub o nazwie kingsaszas/lab05. Wrzuciłam obraz Jenkinsa na DockerHuba za pomocą
+   poleceń:
+	$ docker tag ID kingsaszas/lab05:jenkins - otagowałam obraz poprzednio utworzony nazwą 'jenkins'
+	$ docker image push kingsaszas/lab05:jenkins - zpushowałam obraz z jenkinsa na dockerhuba do utworzonego repozytorium
+
+4. Uruchomiłam Docker Compose z poziomu Jenkinsa, utworzyłam job'a, dodając do niego adres url, nazwę brancha i skrypt,
+   jednakże nie udało mi się go poprawnie uruchomić.
+   Linie zawarte w skrypcie:
+	cd Grupy/Grupa07/KL306676/Lab04
+   	pwd
+	ls
+	curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+	chmod +x /usr/local/bin/docker-compose
+	docker --version
+	docker-compose --version
+	docker-compose up
+
+
+
+
+
