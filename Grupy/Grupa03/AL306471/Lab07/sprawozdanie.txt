@@ -1,0 +1,23 @@
+1.
+Umieściłem wszystkie pliki źródłowe w odpowiednich folderach.
+
+2.
+Wykonałem fork na oryginalnym repo deltachat na githubie. Następnie w tym repo umieściłem mój Jenkinsfile.
+
+3.
+W stworzonym przeze mnie Jenkinsfile stworzyłem pipeline odpowiedzialny za uruchamianie testów mojego komunikatora. Testy uruchamiam za pomocą docker-compose.
+
+4.
+Po skończeniu działania wysyłana jest informacja, czy zakończyło się powodzeniem, czy niepowodzeniem oraz na podany mail wysyłane są logi wraz z informacjami o efektach wykonanych działań.
+Pomimo tego, że sam Jenkins pokazuje, że mail jest wysyłany, to niestety z nieznanych mi przyczyn nie jest on dostarczany na moją skrzynkę odbiorczą. Według testów, które można wykonać na stronie z konfiguracją Jenkinsa otrzymuję błąd związany z certyfikatem : sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+Aby naprawić ten błąd próbowałem różnych rzeczy, ale niestety żadna z nich nie zadziałała:
+- zmiana email'a z gmail'a na onet i interie
+- użycie innego konta gmail
+- ustawienie Konta Google, aby miało dostęp do mniej bezpiecznych aplikacji
+- użycie E-mail Notification zamiast Extended E-mail Notification
+- zainstalowanie w Jenkins wtyczki skip-certificate-check
+- przeinstalowanie Jenkins'a
+- uruchomienie wysyłania maili na nowym świeżo zainstalowanym systemie
+- oraz inne o których mogłem zapomnieć
+
+Żadne z powyższych rozwiązań problemu nie pomogło, więc ostatecznie się poddałem i zostawiłem informowanie użytkownika o sukcesie lub niepowodzeniu za pomocą polecenia echo w konsoli.
