@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
+# grep -qs "^$SOB" "$1" || echo "$SOB" >> "$1"
+
+# This example catches duplicate Signed-off-by lines.
+
+#!/usr/bin/env bash
+INPUT_FILE=$1
+START_LINE=`head -n1 $INPUT_FILE`
+#echo $START_LINE
+PATTERN="IK297101"
+SUBSTRING=$(echo $START_LINE| cut -c 1-8)
+
+if [ "$SUBSTRING" != "$PATTERN" ]; then
+echo "Bad commit message"
+exit 1
+fi 

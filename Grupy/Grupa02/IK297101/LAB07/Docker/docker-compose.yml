@@ -1,0 +1,16 @@
+version: "3.3"
+services:
+ build-agent:
+  container_name: build.v2
+  image: build.v2:latest
+  build:
+   context: .
+   dockerfile: Dockerfile-build-delta-chat
+ build-test:
+  container_name: test
+  image: test:latest
+  build:
+   context: .
+   dockerfile: Dockerfile-test-delta-chat
+  depends_on:
+   - build-agent
