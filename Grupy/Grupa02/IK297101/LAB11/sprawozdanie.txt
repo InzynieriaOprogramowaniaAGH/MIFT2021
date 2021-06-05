@@ -1,0 +1,46 @@
+1. kontener z aplikacją
+2. instalacja kubectl i minikube
+
+//pobranie z linku
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+
+//instalacja minikube
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+
+//aktualizacja dockera(przed tym minikube start nie działało)
+curl -sSL https://get.docker.com/ | sh
+
+//Odpalenie minikube zaraz po tym jak sterowniki zostały ustawione na "docker"
+sudo minikube start 
+
+
+//instalacja kubectl
+minikube kubectl -- get po -A
+
+
+3. włącz i uruchom minkube dashboards
+
+//Włączenie Dashboarda
+minikube dashboard
+
+Wypisać liste zawierająca opis co można zrobić korzystając z minikube Dashboard
+-Monitoropwanie elementów clastra(pody, repliki , deploymenty)
+-sprawdzanie logów
+-Usuwanie/modyfikacja elementów klastra
+-Tworzenie nowych aplikacji
+
+4. uruchom kontener komunikatorowy w kubernetes
+
+//stworzenie poda o nazwie komunikator
+kubectl run komunikator --image=galainer/dev --port=9999 -labels  app=komunikator
+
+//stworzenie deploymentu o nazwie komunikator
+kubectl create deployment komunikator --image=galainer/dev
+
+//Przekierowanie portu. To nam zapewni możliwość otworzenia komunikatora
+kubectl port-forward pod/komunikator 9999:9999
+
+5. dokumentacja
+Jako że był problem z obrazem, dlatego też odpaliłem dany pod innym sposobem. Problem był taki że contener 
+został zamknięty za szybko.
