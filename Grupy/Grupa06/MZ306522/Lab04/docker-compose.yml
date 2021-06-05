@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+ build-agent:
+  container_name: build-agent
+  image: build-agent:build
+  build:
+   context: ./build
+   dockerfile: Dockerfile
+ test-agent:
+  container_name: test-agent
+  image: test-agent:test
+  build:
+   context: ./test
+   dockerfile: Dockerfile
+  depends_on:
+  - build-agent

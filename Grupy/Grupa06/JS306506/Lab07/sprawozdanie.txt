@@ -1,0 +1,12 @@
+Metodyki DevOps, Lab07, 29.04.2021
+
+Zad.1	Skopiowałam wszystkie pliki źródłowe z zachowaniem porządku folderów:
+	 JS306506/<nazwa_technologii>/<pliki>
+	
+Zad.2	Zforkowałam, a następnie zklonowałam repozytorium z wybranym komunikatorem.
+	Wewnątrz repozytorium umieściłam stworzony Jenkinsfile.
+	W Jenkinsie utworzyłam nowy pipeline.
+	
+Zad.3	Wykonałam przykładowe testy z wykorzystaniem Jenkinsfile'a.
+
+Zad.4 	Stworzonego Jenkinsfile'a umieściłam na repozytorium 'ćwiczeniowym'.
