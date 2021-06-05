@@ -1,0 +1,5 @@
+1. Rozszerzenie Jenkinsfile o stage "build"
+2. Dodanie pliku Jenkinsfile do repozytorium z wybranym komunikatorem (DeltaChat)
+3. Stworzenie pliku "post-commit"
+4. Dodanie hooke'a do odpowiedniego folderu (.git)
+
