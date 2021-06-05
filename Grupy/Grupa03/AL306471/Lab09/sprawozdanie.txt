@@ -1,0 +1,27 @@
+1.
+Zarejestrowałem w swoim repozyturium webhook'a, który za każdym razem, jak pojawiał się nowy commit, to uruchamiał pipeline, który jest opisany w pliku Jenkinsfile. Aby móc przekierować adres lokalny na adres zewnętrzny wykorzystałem ngrok.
+
+2.
+Wykazałem za pomoca zrzutu ekranu, że pipeline jest automatycznie wyzwalany przez GitHub w momencie wykonania push'a.
+
+3.
+Rozszerzyłem plik Jenkinsfile o nowy stage "Deploy", który działał na podstawie obrazu stworzonego w stage "Build".
+
+4.
+Po skończeniu działania każdego ze stage wysyłana jest informacja, czy zakończyło się powodzeniem, czy niepowodzeniem oraz na podany mail wysyłane są logi wraz z informacjami o efektach wykonanych działań.
+Pomimo tego, że sam Jenkins pokazuje, że mail jest wysyłany, to niestety z nieznanych mi przyczyn nie jest on dostarczany na moją skrzynkę odbiorczą. Według testów, które można wykonać na stronie z konfiguracją Jenkinsa otrzymuję błąd związany z certyfikatem : sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+Aby naprawić ten błąd próbowałem różnych rzeczy, ale niestety żadna z nich nie zadziałała:
+- zmiana email'a z gmail'a na onet i interie
+- użycie innego konta gmail
+- ustawienie Konta Google, aby miało dostęp do mniej bezpiecznych aplikacji
+- użycie E-mail Notification zamiast Extended E-mail Notification
+- zainstalowanie w Jenkins wtyczki skip-certificate-check
+- przeinstalowanie Jenkins'a
+- uruchomienie wysyłania maili na nowym świeżo zainstalowanym systemie
+- oraz inne o których mogłem zapomnieć
+
+Żadne z powyższych rozwiązań problemu nie pomogło, więc ostatecznie się poddałem i zostawiłem informowanie użytkownika o sukcesie lub niepowodzeniu za pomocą polecenia echo w konsoli.
+
+5.
+Wykazałem na zrzutach ekranu, że Jenkinsfile znajduje się w moim repozytorium z komunikatorem, że jest automatycznie wyzwalany, że przechodzi przez wszystkie etapy oraz że obsługiwane są powiadomienia.
+

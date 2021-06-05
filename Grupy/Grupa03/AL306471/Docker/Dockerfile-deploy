@@ -1,0 +1,11 @@
+FROM ubuntu:latest
+ENV TZ=Europe
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+RUN apt-get -y update
+RUN apt-get -y install git
+RUN apt-get -y install npm
+RUN cd ~
+
+COPY . deltachat-desktop
+WORKDIR ./deltachat-desktop
+CMD [ls -l]
