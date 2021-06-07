@@ -6,13 +6,10 @@ pipeline {
             steps {
                 echo 'Building...'
 				git url: 'https://github.com/Siluk98/deltachat-desktop.git'
-				dir('Docker')
-				{
-					sh 'pwd'
-					sh 'ls'
-					sh 'ls -R'
-					sh 'docker-compose -f docker-compose.yaml up build-agent'
-				}
+				sh 'pwd'
+				sh 'ls'
+				sh 'ls -R'
+				sh 'docker-compose -f docker-compose.yaml up build-agent'
             }
 			post
 			{
