@@ -1,0 +1,14 @@
+1. Stworzyłem brancha na podstawie brancha grupowego poleceniem git checkout -b ...
+2. Hooka przeniosłem do folderu z hookami
+3. Dockera miałem już zainstalowanego
+4. Konto na Docker Hubie już miałem
+5. Utworzyłem plik Dockerfile bazujący na Ubuntu, instalujący gita i pobierający nasze repozytorium
+
+FROM ubuntu:latest
+RUN \ 
+    apt-get update && \
+    apt-get install -y git && \
+    apt-get install -y build-essential && \
+	git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git
+	
+6. Buduję kontener poleceniem docker build . -t ..., i uruchamiam poprzez docker docker run -it .... Polecenie -i wymaga interaktywnego terminala toteż całe polecenie wywołuje w komendzie winpty.
