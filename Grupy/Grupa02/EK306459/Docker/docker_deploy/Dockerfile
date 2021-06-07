@@ -1,2 +1,2 @@
-FROM lab05_build:latest
+FROM lab05_chat:latest
 RUN apt-get update
