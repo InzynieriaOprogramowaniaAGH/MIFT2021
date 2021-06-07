@@ -5,11 +5,10 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-				git url: 'https://github.com/Siluk98/deltachat-desktop.git'
-				sh 'pwd'
-				sh 'ls'
-				sh 'ls -R'
-				sh 'docker-compose -f docker-compose.yaml up build-agent'
+		    git url: 'https://github.com/Siluk98/deltachat-desktop.git'
+		    dir('Docker') {
+				sh 'docker-compose up build-agent'
+		    }
             }
 			post
 			{
