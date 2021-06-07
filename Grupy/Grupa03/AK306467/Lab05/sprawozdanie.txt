@@ -1,0 +1,4 @@
+1. Zapoznałem się z diagramem docelowej architektury projektu oraz oprogramowaniem Jenkins
+2. Stworzyłem kontener zgodnie z instrukcją. Instrukcje umieściłem w skrypcie JenkinsSetup.bat. Z powodu problemów ze stawianiem środowiska, stworzyłem też skrypt JenkinsCleanup.bat mający na celu uprzątnięcie pozostałości po kontenerach
+3. Opublikowałem obraz Jenkinsa na Docker HUBie
+4. Uruchomiłem kontener z Jenkinsem i przez GUI zleciłem pobranie repozytorium i uruchomienie docker-compose z poprzednich zajęć

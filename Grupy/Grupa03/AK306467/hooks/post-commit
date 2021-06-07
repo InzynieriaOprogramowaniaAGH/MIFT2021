@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "Ten skrypt uruchamia pipeline z testami"
+echo "Not implemented"
