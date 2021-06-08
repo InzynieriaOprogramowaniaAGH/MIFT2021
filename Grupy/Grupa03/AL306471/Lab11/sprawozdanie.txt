@@ -1,0 +1,31 @@
+1.
+Zainstalowałem klaster Kubernates przy pomocy komend:
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+2.
+Uruchomiłem klaster komendą "minikube start" oraz dostałem do niego dostęp przy pomocy komendy "kubectl get po -A".
+
+3.
+Uruchomiłem Minikube Dashboard komendą "minikube dashboard".
+
+3.1.
+Co można zrobić korzystając z Minikube Dashboard:
+- zarządzać zasobami klastrów
+- tworzyć i modyfikować zasoby
+- przeglądać włączone aplikacje oraz uruchamiać aplikacje
+- zarządzać pracami(jobs)
+- kontrolować pody
+- przeglądać logi
+
+4.
+Uruchomiłem kontener komunikatora w Kubernetes komendami:
+kubectl create deployment komunikator-deltachat --image=adrlit/lab05
+kubectl expose deployment komunikator-deltachat --type=NodePort --port=9999
+
+5.
+Przekierowałem port komendą:
+kubectl port-forward service/komunikator-deltachat 7080:9999
+
+6. 
+Na koniec na stronie Kubernetes Dashboard sprawdziłem, czy mój komunikator działa poprawnie.
