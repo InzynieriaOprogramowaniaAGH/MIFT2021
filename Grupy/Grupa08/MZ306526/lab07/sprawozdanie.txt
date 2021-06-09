@@ -1,7 +1,5 @@
 Zadanie 1
 Utworzonie folderow do przechowywania plikow: Dockerfile oraz Jenkins.
-Do folderu Docker dodano pliki Dockerfile_chat_app_build, Dockerfile_chat_app_build oraz Dockerfile_jenkins.
-
 
 Zadanie 2
 Wykonanie fork oryginalnego repozytorium z node-chat-app.
