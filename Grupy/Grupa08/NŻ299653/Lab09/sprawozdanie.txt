@@ -1,0 +1,9 @@
+1. Pobrałam i zainstalowałam ngrok, a następnie utworzyłam konto w celu utworzenia tokena i uruchomiałam tunel dla portu 8080 na którym jest Jenkins
+
+2. Stworzyłam kolejny Stage Deploy, którego zadaniem jest budowanie obrazu dokerowego: 
+'sh build -t delta-chat -f Dockerfile-deploy .'
+po sukcesie lub niepowodzeniu wysyłany jest mail
+
+3. Utworzyłam plik Dockerfile-deploy i dodałam go do repozytorium z komunikatorem
+
+4. Po uruchomieniu pipline otrzymałam błąd
