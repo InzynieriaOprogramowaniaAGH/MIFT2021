@@ -1,0 +1,17 @@
+1)Przełączenie na bracha Grupa08, a następnie stworzenie lokalnego brancha:
+	-git checkout Grupa08
+	-git checkout -b Grupa08-MZ306526_Lab03
+2)Dodanie git hook'a do nowo utworzeonego folderu w hooks w katalogu lab02:
+	-mkdir hooks
+	-touch pre-commit
+3)Docker'a miałem już zainstalowanego na mojej wirtualnej maszynie
+4)Utworzyłem nowe konto na stronie Docker Hub
+5)Storzenie Dockerfile
+6)Zbudowanie obrazu za pomocą komendy:
+	-sudo docker built -t nazwa obrazu .
+Uruchomienie kontenera za pomocą:
+	-sudo docker run -it nazwa obrazu bash
+Sklonowanie w bashu repozytoriu za pomocą:
+	-git clone repo
+Sprawdzenie czy istnieje nasz osobistyy branch i wlasciwe katalogi
+

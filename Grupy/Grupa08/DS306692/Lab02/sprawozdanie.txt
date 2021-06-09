@@ -1,0 +1,26 @@
+1.Zmieniłem sposob logowania zgodnie z instrukcja przy uzyciu takich komend jak:
+	ssh-keygen -t ed25519 -C "email" - nowy klucz ssh
+	eval 'ssh-agent -s' - wlaczam agenta ssh
+	ssh-add ~/.ssh/id_ed25519 - dodajemy klucz prywatny do agenta
+
+zmiana sposobu logowania:
+
+	git remote -v - sprawdzenie obecnego sposobu logowania
+	git remote set-url origin link
+
+2.Nadalem tag
+	git tag -a DS306692_Lab01 -m "opis"
+nastepnie 
+	git push --follow-tags
+
+3. Utworzylem odpowiednia strukture folderow
+przenioslem folder przy uzyciu 
+	git mv
+
+	git pull - aby branch Grupa08 byl dostepny
+
+	git checkout -b Grupa08-DS306692_Lab02 - tworzymy branch i sie na niego przenosimy
+4.W .git/hooks znajduje sie plik commit-msg.sample w ktorym nalezalo umiescic skrypt sprawdzajacy poprawnosc tytulow commitow, a nastepnie zmienic jego nazwe na commit-msg jednak nie wykonalem tej czesci cwiczenia.
+
+ 
+

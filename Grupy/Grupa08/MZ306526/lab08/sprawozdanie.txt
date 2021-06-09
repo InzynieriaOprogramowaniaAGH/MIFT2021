@@ -1,0 +1,16 @@
+Zadanie 1
+Dodalem nowy element stage, "Build" ktory przed stagem "Test" buduje projekt
+
+Zadanie 2
+W stage Build wykorzystalem nastepujace polecenia:
+	-sh 'git pull origin master' (pobieranie najwnowszej wersji kodu zrodlowego)
+       	-sh 'npm install'  (instalacja zaleznosci)
+Zadanie 3
+Dodanie sztucznego bledu w stage Build, aby przekonac sie czy w wypadku bledu Build stage Test zostanie pominiety.
+Program zachowal sie zgodnie z naszymi oczekiwaniami i pominal sekcje Test.
+
+W przypdaku pomyslnego uruchomienia, wysylane sa dwa maile (jeden o pomyslnym budowaniu, jeden o pomyslnych testach)
+W przypdaku bledu podczas budowania otrzymujemy tylko jednego maila o niepomyslnosci w tym stage.
+
+Zadanie 4
+Dodalem git hook, który wyświetla "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie".

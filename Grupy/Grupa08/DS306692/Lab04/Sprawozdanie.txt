@@ -1,0 +1,25 @@
+1. Utworzyłem brancha osobistego
+	git checkout -b Grupa08-DS306692_Lab04
+
+1_2. Opublikowałem obraz z poprzednich zajęć w docker hub
+	docker push dominiksabat/lab04
+
+2. Wykorzystałem komunikator Deltachat
+
+3. Utworzyłem Dockerfile_Build i stworzyłem obraz
+szkielet - 	docker build -t <name>. -f <dockerfile>
+		docker build -t build . -f Dockerfile_Build
+
+4. To samo ale Dockerfile_Test
+	docker build -t test. -f Dockerfile_Test
+5. Zainstalowałem docker-compose
+	curl -L "http...." -o /usr/local/bin/docker-compose
+
+  Stworzylem plik
+
+	touch
+
+  i uruchomiłem 
+
+	docker-compose up
+ 

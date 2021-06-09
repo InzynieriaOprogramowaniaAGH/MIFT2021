@@ -1,0 +1,12 @@
+1.Umieszczenie plikow zrodlowych w odpowiednich folderach.
+
+2.Pobranie repozytorium z komunikatorem i dodanie pliku Jenkinsfile.
+Jenkinsfile odpowiadal za budowanie i testowanie aplikacji oraz wysylanie powiadomien e-mail o sukcesie lub niepowodzeniu 
+build'a wraz z build logiem. Wykorzystano w tym celu plugin emailext.
+Zforkowano repozytorium aplikacji czatu i zrobiono commit z utworzonym Jenkinsfilem.
+W jenkinsie utworzono pipeline, ktory wykonywal Jenkinsfile w zforkowanym repozytorium. 
+Skonfigurowano plugin to wysylania maili.
+
+3.Uruchomienie pipeline. Po zbuildowaniu jenkins wysylal e-maila z rezultatem.
+4.Skopiowano plik Jenkinsfile
+

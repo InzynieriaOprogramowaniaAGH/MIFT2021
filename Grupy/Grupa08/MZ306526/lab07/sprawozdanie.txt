@@ -1,0 +1,11 @@
+Zadanie 1
+Utworzonie folderow do przechowywania plikow: Dockerfile oraz Jenkins.
+
+Zadanie 2
+Wykonanie fork oryginalnego repozytorium z node-chat-app.
+Utworzenie Jenkinsfile, który po wykonaniu testów wysyła maila z wynikami (czy zakonczylo sie sukcesem/bledem).
+Doinstalowanie pluginu do obsługi nodejs.
+
+Zadanie 3
+Wykonano testy z użyciem Jenkinsfile.
+Otrzymanie wiadomosci mailowej z logami.

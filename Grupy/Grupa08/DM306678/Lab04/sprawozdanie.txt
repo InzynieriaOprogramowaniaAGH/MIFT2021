@@ -1,0 +1,7 @@
+1. Stworzenie nowego brancha krótkożyjącego git checkout -b nazwa
+2. Opublikowanie obrazu z poprzednich zajęć na dockerze - zalogowanie z terminala i push 
+3. Znalezienie komunikatora w internecie: https://github.com/deltachat/deltachat-desktop
+4. Utworzenie pliku Dockerfile i jego zbudowanie: sudo docker build -t build:latest -f . Dockerfile
+5. Utworzenie pliku DockerfileTest i jego zbudowanie: sudo docker build -t test:latest -f . DockerfileTest
+6. Instalacja docker-compose oraz stworzenie pliku docker-compose.yml, uruchomienie: sudo docker-compose up
+7. Wrzucenie plików na gita
