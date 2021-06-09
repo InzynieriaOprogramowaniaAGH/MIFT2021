@@ -1,7 +1,7 @@
 Zadanie 1
 	Wykorzystanie programu ngrok, ktory umozliwil mi tunelowanie (potrzebne aby jenkins byl widzialny przez githuba)
 	Sprawdzilem czy dziala poprawnie, po czym dodałem w repozytorium na githubie webhooka.
-	Zmiana ustawien Jenkinsa na "Github hook trigger for GITScm polling"
+	Zmiana ustawien Jenkinsa na "Github hook trigger for GITScm polling".
 
 Zadanie 2
 	Dodanie testowego commita sprawdzajcego poprawne dzialanie.
