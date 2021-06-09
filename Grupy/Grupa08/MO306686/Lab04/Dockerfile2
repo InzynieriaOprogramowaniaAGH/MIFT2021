@@ -1,0 +1,3 @@
+FROM chatapp
+
+RUN npm test

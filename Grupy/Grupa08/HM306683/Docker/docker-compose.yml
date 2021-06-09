@@ -1,0 +1,14 @@
+version: "3"
+services:
+ build-agent:
+  image: build-image
+  build:
+   context: ./
+   dockerfile: Dockerfile_deltachat_build
+ run-agent:
+  image: run-image
+  build:
+   context: ./
+   dockerfile: Dockerfile_deltachat_test
+  depends_on:
+   - Dockerfile_deltachat_build

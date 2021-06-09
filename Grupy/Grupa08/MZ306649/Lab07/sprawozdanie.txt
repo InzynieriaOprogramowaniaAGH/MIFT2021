@@ -1,0 +1,5 @@
+Michał Zając - sprwozdanie Lab07
+
+Przebieg laboratorium.
+1. Skopiowano wszytkie pliki źródłowe do odpowiednich folderów - podział na wykorzystane technologie
+

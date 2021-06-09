@@ -1,0 +1,14 @@
+Sprawozdanie: Rafal Widziszewski 28.05.2021r.
+
+Wykonanie:
+
+1.Automatyzacja wyzwalania pipeline'a:
+  Wyngenerowanie Git tokena i dodanie go do Jenkinsa
+  Wygenerowanie API-Tokena w Jenskinsie
+  Dodanie skryptu, dzięki któremu Jenkins co chwilę pyta githuba o aktualizację repo
+  
+  Gittoken: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 
+  ApiToken:
+
+
+2.Rozszerzenie Jenkinsfila o Stage Deploy
