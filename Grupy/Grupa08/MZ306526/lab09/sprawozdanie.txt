@@ -1,0 +1,16 @@
+Zadanie 1
+	Wykorzystanie programu ngrok, ktory umozliwil mi tunelowanie (potrzebne aby jenkins byl widzialny przez githuba)
+	Sprawdzilem czy dziala poprawnie, po czym dodałem w repozytorium na githubie webhooka.
+	Zmiana ustawien Jenkinsa na "Github hook trigger for GITScm polling".
+
+Zadanie 2
+	Dodanie testowego commita sprawdzajcego poprawne dzialanie.
+
+Zadanie 3
+	Modyfikacja naszego Jenkinsfila (dodanie stage Deploy, ktory wykonuje deploy oraz zwraca powiadomienie mailowe o sukcesiee
+
+Zadanie 4
+	Stage Deploy odpowiada za uruchomienie budowy oraz za uruchomienie kontenera dockerowego.
+
+Zadanie 5
+	Przetestowanie czy pipeline przechodzi przez wszystkie etapu oraz zwraca powiadomienie mailowe.
