@@ -1,0 +1,33 @@
+Temat: Podstawy obsługi klastra Kubernetes - Deployment Manifest
+
+Uwaga: korzystamy z tego samego repo co w zeszłym tygodniu, czyli git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+Uwaga: wszystkie skrypty które tworzysz zamieszczaj w odpowiednim swoim folderze w repozytorium
+Uwaga: Zwróć uwagę by w komentarzu do commita zawrzeć czytelną informację w ramach którego ćwiczenia laboratoryjnego i którego zdania to robisz.
+Uwaga: Na mastera wrzucamy zmiany tylko przez pull requesta! 
+
+Sprawozdanie: Stwórz plik sprawozdanie.txt w odpowiednim folderze i zawrzyj w nim opis komend, którymi zrealizowałeś ćwiczenie laboratoryjne. Dokumentuj wykonanie kolejnych kroków screenshotami, które wrzcisz do repo. 
+
+
+1. Do wykonania tego ćwiczenia będzie nam potrzebny uruchomiony (lokalny) klaster Kubernetes (kubectl+Minikube) tak jak omawiany na Lab11. 
+
+2. Uruchom Minikube Dashboard poleceniem "minikube dashboard" i upewnij się że działa.
+
+3. Zapoznaj się z dokumentacją tworzenia manifestów dla obiektów "Deployment": https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+
+4. Stwórz plik komunikator-deployment.yaml zgodnie z powyższą dokumentacją, ale zawierający:
+- nazwa: komunikator-deployment
+- app: komunikator
+- obraz z komunikatorem tak jak na poprzednich zajęciach
+- 4 repliki
+
+
+5. Zleć klastrowi zrealizowanie powyższego pliku używając polecenia:
+kubectl apply -f komunikator-deployment.yaml
+
+6. Udokumentuj stan klastra Kubernetes.
+
+7. Wprowadź zmiany w pliku - np.: zmnień ilość replik - i zleć klastrowi aktualizację tak jak w pkt. 5.
+
+8. Udokumentuj nowy stan klastra.
+
+Uwaga: zgłoś zadanie na MS Teams.
