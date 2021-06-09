@@ -1,0 +1,11 @@
+1.Stworzono kontener docker z Jenkinsem
+2.Utworzenie sieci docker network create jenkins
+3.Utworznie i zbudowanie Dockerfile sudo docker build -t myjenkins-blueocean:1.1 .
+4.Uruchomienie Docker sudo docker run ...
+5.Sprawdzenie uruchomionych kontenerow
+6.Wrzucenie obrazu Jenkins na DockerHub docker tah ID gzelek8/lab05_gzelek docker push gzelek8/lab05_gzelek
+7.Uruchomienie Jenkinsa, uzyskanie hasla do niego, sudo docker logs id
+8.Wstepna konfiguracja jenkinsa
+9.Pobranie potrzebnych pluginow
+10.Dodanie URL repozytorium
+11.Dodanie komand w Execute shell

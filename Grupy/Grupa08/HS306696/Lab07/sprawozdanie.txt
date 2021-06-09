@@ -1,0 +1,6 @@
+1. Zachowując odpowiedni porządek folderów umieściłem wszystkie pliki źródłowe w repozytorium
+2.1. Utworzyłem odpowiedniego Jenkinsfile
+2.2. Zrobiłem forka na orginalnym repozytorium i umieściłem w nim Jenkinsfile
+2.3. Stworzyłem nowego Jenkins pipeline w Jenkinsfile z sekcjami Build, Test i Deploy
+3. Wykonałem testy z użyciem Jenkinsfile
+4. Wrzuciłem aktualny Jenkinsfile do repozytorium z punktu 1.

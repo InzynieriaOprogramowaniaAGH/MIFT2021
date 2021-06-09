@@ -1,0 +1,21 @@
+1. Pobrane repozytorium ze względu na przeniesienie na WSL , ustanowienie nowych kluczy ssh do komunikacji stworzenie brancha grupowego Grupa08 oraz branch'a osobistego Grupa08-WW306512_Lab03
+2.Git hook skopiowany z .git/hooks i przeniesiony do docelowgo folderu za pomoca instrukcji cp
+3.Docker był juz poprzednio zainstalowany na moim systemie , tak samo jak stworzone już było konto na DockerHub
+4.Utworzenie pliku Dockerfile o tresci
+
+FROM ubuntu:latest
+RUN apt-get -y update
+RUN apt-get -y upgrade
+RUN apt-get install -y build-essential
+RUN apt-get install -y git
+RUN cd ~
+RUN git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021
+
+5.Uruchomienie kontenera 
+	Zbudowanie :
+		sudo docker build -t
+	uruchmienie:
+		sudo docker run -it id_obrazu
+
+6.Repozytorium zostalo automatycznie pobrane wraz z moim branchem .
+

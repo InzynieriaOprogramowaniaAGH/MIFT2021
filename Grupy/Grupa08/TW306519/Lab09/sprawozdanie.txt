@@ -1,0 +1,2 @@
+1. Utworzenie git hooka post-commit by pipeline po kazdym nowym commicie sie automatycznie wyzwalal. Wymagalo to opowiedniej konfiguracji Jenkinsa
+3. Rozszerzenie Jenkinsfile o sekcje Deploy w ktorej buduje za pomoca 'docker build', uzytkownik powiadomiany jest o sukcesie badz porazce etapu wdrazania. To rowniez wymagalo najpierw odpowiedniej konfiguracji Jenkinsa.

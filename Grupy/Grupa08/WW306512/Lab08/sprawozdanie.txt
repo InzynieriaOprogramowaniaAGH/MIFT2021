@@ -1,0 +1,9 @@
+1. Pipeline zawieral juz w poprzedniej wersji sekcje build 
+zostala rozbudowana o :
+	-pobieranie najnowwszej wersji kodu zrodlowego git pull
+	-komunikat do administratora poprzez zastosowanie sekcji post z mail'em zaleznym od wyniku budowania 
+	-deklaracje zmiennej "build"
+2. Sekcja test
+	-wykonywana warunkowo poprzez sprawdzenie zmiennej build ktora zawiera stan z jakim zakonczyl				 sie process budowania 
+3. Stworzony podstawowy post commit ktory narazie nic nie robi :)
+ 

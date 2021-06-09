@@ -1,0 +1,22 @@
+Sprawozdanie: Rafal Widziszewski 31.05.2021r.
+
+Wykonanie:
+
+1.Instalcja klastera Kubernetes oraz pobranie kubectl
+
+2.Włączenie i uruchomienie MiniKube'a
+
+3.Przydatność Minikube Dashboard:
+  -Zarządanie Pods,Jobs,Deployment
+  -Przegląd zasóbów Kuberneta
+  -Wdrażanie aplikacji
+  -Przegląd uruchomionych aplikacji
+  -Przegląd zasobów wykorzystywanych przez aplikacje przechowujące dane
+  -Przegląd logów
+
+
+4.Uruchomienie kontenera-komunikatora przy użyciu komend:
+  -kubectl create deployment komunikator --image=d6ae15367fad
+  -kubectl expose deployment komunikator --type=NodePort --port=8080
+  -minikube tunnel
+  -kubectl get services komunikator
