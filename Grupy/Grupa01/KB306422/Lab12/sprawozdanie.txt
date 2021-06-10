@@ -1,0 +1,4 @@
+Lab 12
+
+1.Uruchomienie klastra Kubernetes:
+	minikube start
