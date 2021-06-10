@@ -10,4 +10,4 @@ Po instalacji odpowiednich sternownikow uruchomiono klaster za pomoca 'minikube 
 4. Uruchomiono kontener-komunikator poleceniem 'kubectl run -it komunikator8 --image=karen2035/node-chat:v8 --port=9999 --labels app=komunikator8'. Wczesniej nalezalo w Dockerfile sforkowanego repo aplikacji dopisac 'EXPOSE 3000' oraz 'ENTRYPOINT npm start'.
 Po uruchomieniu kontenera przekierowano porty komenda 'kubectl port-forward pod/komunikator8 9999:3000' w celu sprawdzenia dzialania.
 
-
+5. Po wejsciu na localhost:9999 uruchamia sie aplikacja czatu.
