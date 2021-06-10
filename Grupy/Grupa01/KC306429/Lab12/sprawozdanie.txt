@@ -1,0 +1,9 @@
+1.)Uruchomiono lokalny klaster kubernetes za pomoca komendy 'minkube start'.
+2.)Następnie uruchomiono minikube dashboard za pomoca komendy 'minikube dashboard'.
+3.)Zapozano sie z dokumentacja podaną w instrukcji.
+4.)Stworzono plik komunikator-deployment.yaml zgodnie z dokumentacja oraz wskazaniami w      instrukcji
+5.)Zlecienie zrealizowania powyższego pliku za pomocą polecenia 
+    'kubectl apply -f komunikator-deployment.yaml'
+6.)Udokumentowano działanie klastra.
+7.)Zmiana ilości replik z 4 na 6 w pliku yaml a następnie zlecenie aktualizacji klastra.
+8.)Udokumentowanie nowego stanu klastra.
