@@ -2,3 +2,6 @@ Lab 12
 
 1.Uruchomienie klastra Kubernetes:
 	minikube start
+
+2.Uruchomienie Minikube Dashboard:
+	minikube dashboard
