@@ -14,3 +14,5 @@ minikube dashboard
 minikube kubectl -- apply -f komunikator-deployment.yaml
 
 6. Udokumentowano stan klastra Kubernetes
+
+7. Wprowadzono zmiany w pliku, zwiekszono ilosc replik na 6. Zlecono klastrowi aktualizacje jak w pkt 5
