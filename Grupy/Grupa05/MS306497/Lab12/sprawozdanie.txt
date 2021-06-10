@@ -3,3 +3,9 @@
 minikube dashboard
 
 3. Zapoznano sie z dokumentacja tworzenia manifestow dla obiektow "Deployment"
+
+4. Stworzono plik komunikator-deployment.yaml zgodnie z dokumentacja, zawierajacy:
+- nazwa: komunikator-deployment
+- app: komunikator
+- obraz z komunikatorem, jak na poprzednich zajeciach
+- 4 repliki
