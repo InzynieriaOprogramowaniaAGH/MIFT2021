@@ -7,3 +7,9 @@ Lab 12
 	minikube dashboard
 
 3.Zapoznanie się z dokumantacją tworzenia manifestów dla obiektu "Deployment" z linku z instrukcji
+
+4.Stworzenie pliku komunikator-deployment.yaml zawierającego:
+ nazwę:komunikator-deployment
+ app:komunikator
+ obraz z komunikatorem tak, jak na poprzednich zajęciach,
+ 4 repliki
