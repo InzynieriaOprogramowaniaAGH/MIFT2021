@@ -1,0 +1,10 @@
+1.
+minikube start - uruchomienie kubernetesa
+2.
+minikube dashboard - uruchomienie dashboarda
+4.
+Stworzenie pliku komunikator-deployment.yml, ktory zawiera elementy wymagane w instrukcji
+5.
+kubectl apply -f komunikator-deployment.yaml - wykonanie polecen zawartych w piku przez kubernetesa
+6.
+Zmiana ilosci tworzonych replik i ponowne wykonanie powyzszego polecenia
