@@ -12,3 +12,5 @@ minikube dashboard
 
 5. Zlecono klastrowi zrealizowanie powyzszego pliku uzywajac polecenia:
 minikube kubectl -- apply -f komunikator-deployment.yaml
+
+6. Udokumentowano stan klastra Kubernetes
