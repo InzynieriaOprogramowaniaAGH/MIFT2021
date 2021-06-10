@@ -1,0 +1,15 @@
+1. Zainstalowanie klastra Kubernetes.
+2. Uruchomienie klastra - minikube start.
+3. Pobranie kubectl.
+4. Uruchomienie MiniKube Dashboard. 
+5. Lista rzeczy, ktore mozna robic za pomoca Minikube Dashboard:
+-deployowac konteneryzowane aplikacje do klastra Kubernetes,
+-rozwiazywac problemy zwiazane z konteneryzowanymi aplikacjami,
+-zarzadzac zasobami swojego klastra,
+-robic przeglad aplikacji, ktore sa uruchomione na klastrze,
+-tworzenie i modyfikowanie indywidualnych zasobow Kubernetesowych(Deploymentow, Jobow, DaemonSetow itd.). 
+6. Podjecie proby uruchomienia kontenera z apka w Kubernetesie, za pomoca komendy:
+
+minikube kubectl -- run komunikator --image=Socket.io-deploy:latest --port=9999 --labels app=komunikator
+
+Niestety zakonczone niepowodzeniem. Mimo wielu prob naprawy i stosowania roznych rozwiazan znalezionych w dokumentacji oraz w internecie, nie udalo sie poprawnie uruchomic komunikatora w klastrze Kubernetes. 
