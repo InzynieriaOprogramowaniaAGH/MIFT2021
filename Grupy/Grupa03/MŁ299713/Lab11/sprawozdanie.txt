@@ -1,0 +1,5 @@
+1. Pobrałem kubernetesa zgodnie z instrukcją w dokumentacji
+2. zmienilem config na dockerowy
+3. uruchomilem minikube'a i dashboarda
+4. stworzylem poda socketio2
+5. uruchomiłem apke i przetestowałem na dwoch oknach
