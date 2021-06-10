@@ -1,0 +1,25 @@
+2. zainstalowałem minikube komendami
+
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+3. zainstalowałem kubernetesa z użyciem minikube za pomocą poniższych komendami
+- musiałem wczesniej przejąć w imieniu nierootowego użytkownika na własność folder ~/.minikube
+
+minikube start
+minikube kubectl -- get po -A
+minikube dashboard
+
+uruchomiony dashboard jest w pliku zadanie3.png
+
+3.1 Korzystając z minikube dashboard mamy dostep do strony konfigurującej system kubernetes.
+
+W ramach dashboard możemy skonfigurować:
+
+- zadania do wykonania
+- serwisy
+- dane ukryte (Secrets)
+- zbiory danych
+- klastry
+- węzły
+- role klastrów
