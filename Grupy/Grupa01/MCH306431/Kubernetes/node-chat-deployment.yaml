@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-chat-deploymentv2
+  labels:
+    app: node-chatv2
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: node-chat
+  template:
+    metadata:
+      labels:
+        app: node-chat
+    spec:
+      containers:
+      - name: minikube
+        image: chrob6/lab05_jenkins
+        ports:
+        - containerPort: 80
+
+
+
+
