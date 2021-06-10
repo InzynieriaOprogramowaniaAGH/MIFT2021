@@ -1,0 +1,8 @@
+1. Kontener dockerowy ze zbudowanym komunikatorem został utworzony na wcześniejszych zajeciach 'sudo docker build -t karen2035/node-chat:v8 .' Obraz zostal spushowany na pltaforme DockerHub 'sudo docker push karen2035/node-chat:v8'.
+
+2. Nastepnie zainstaloane klaster Kubernetes zgodnie z instrukcja:
+	-curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+	-sudo install minikube-linux-amd64 /usr/local/bin/minikube
+Po instalacji odpowiednich sternownikow uruchomiono klaster za pomoca 'minikube start' oraz pobrano kubectl 'minikube kubectl -- grt po -A.
+
+
