@@ -1,0 +1,3 @@
+Natalia Czachor Lab12
+
+1. Uruchomiono (lokalny) klaster Kubernetes tak jak omawiano na Lab11. 
