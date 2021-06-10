@@ -1,0 +1,87 @@
+1. Najpierw utworzylem repozytorium na dockerhub. Nastepnie z poziomu konsoli sie zalogowalem do dockerhub za pomoca "docker login".
+Nastepnie otagowalem swoj obraz z poprzednich zajec taka sama nazwa jak nazwa repo na dockerhub za pomoca komendy "docker tag ubuntu-git mkapust9/devops".
+W tym momencie moglem wypchnac swoj obraz za pomoca "docker push mkapust9/devops"
+
+Link do repozytorium:
+
+https://hub.docker.com/repository/docker/mkapust9/devops
+
+
+
+
+2. Najpierw znalazlem chat z repozytorium: https://github.com/igorantun/node-chat. 
+Napisalem dla niego Dockerfile budujacy, jednakze potem zauwazylem ze nie posiada on testow (Dockerfile w katalogu "pierwsza_proba"). 
+Potem zdecydowalem sie wybrac chat z repozytorium https://github.com/AlexTraher/Socket.io-Messenger.
+
+
+
+
+
+3. W katalogu "build" umiescilem Dockerfile budujacy. Struktura Dockerfile to:
+
+FROM alpine:3.10	#jako srodowisko wybralem nodejs alpine, gdyz na ubuntu byl problem z instalacja nodejs
+RUN apk update	#aktualizacja
+RUN apk add git	#instalacja git
+
+RUN apk update	#aktualizacja
+RUN apk add npm	#instalacja npm
+
+RUN mkdir home/chat	#utworzenie katalogu roboczego
+WORKDIR home/chat	#wejscie do katalogu roboczego
+RUN git clone https://github.com/AlexTraher/Socket.io-Messenger	#sklonowanie repozytorium
+
+RUN npm install --prefix ./Socket.io-Messenger	#instalacja messengera z zaleznosci w katalogu ./Socket.io-Messenger
+RUN npm audit fix --prefix ./Socket.io-Messenger #naprawa bledow. zawsze po pierwszej probie instalacji pojawialo sie ich bardzo duzo
+RUN npm install --prefix ./Socket.io-Messenger	#ponowna instalacja
+
+
+Aby zbudowac obraz nalezy w katalogu z Dockerfile uzyc komendy:
+sudo docker build -t messenger .
+
+Aby uruchomic kontener uzywamy:
+
+sudo docker run -t -d messenger
+
+Aby uruchomic bin/sh kontenera:
+
+sudo docker exec -it b070b1098052 /bin/sh
+
+
+
+
+4. Napisano Dockerfile testujacy i umieszczono go w katalogu test. jego struktura to:
+
+FROM messenger #opieramy sie na obrazie powstalym w wyniku budowy
+
+
+RUN npm test --prefix ./Socket.io-Messenger #uruchamiamy testy
+
+
+
+
+
+
+5. Napisano docker-compose:
+
+version: '3' #wersja docker-compose 
+services: #lista uslug
+ builder: #build agent
+  image: messenger #nazwa obrazu po zbudowaniu
+  build: ./build #budujemy z Dockerfile w katalogu build
+   
+   
+ tester: 
+  
+  image: testing #nazwa obrazu po zbudowaniu
+  build: ./test #budujemy z Dockerfile w katalogu test
+
+  depends_on:
+   - builder	#test agent jest zalezny od build agenta
+   
+   
+Plik docker-compose.yml uruchomiono komenda sudo docker-compose up.
+
+Obrazy buildera i testera wychnieto na dockerhub:
+https://hub.docker.com/r/mkapust9/lab04_builder
+https://hub.docker.com/r/mkapust9/lab04_tester
+ 

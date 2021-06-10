@@ -1,0 +1,4 @@
+1. Pobieranie najnowszej wersji repo jest zapewnione poprzez budowanie "czystego" obrazu Dockerowego, gdzie jednym z kroków jest klonowanie repo, przy kazdym uruchomieniu pipeline'a.
+2. Jeżeli budowanie obrazu zakończy się niepowodzeniem, następny etap "Test" nie jest wykonywany.
+3. Jak poprzednio, z powodu problemów z konfiguracją SMTP jedyny efekt udanego/nieudanego wykonania pipeline'a jest wypisanie informacji na ekran.
+4. post-commit hook to podstawowa komenda echo.

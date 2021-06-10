@@ -1,0 +1,14 @@
+1. W głównym katalogu AH306445 utworzono 2 foldery "docker" oraz "jenkins". W pierwszym folerze umieszczono pliki dotyczące
+budowania obrazów dockerowych a w drugim plik Jenkinsfile utworzony podczas zajęć. 
+
+2.1 Utworzono własne repozytorium z aplikacją node-chat
+
+2.2 Utworzono plik Jenkinsfile i umieszczono w repozytorium z aplikacją oraz w repozytorium MIFT
+Sam plik Jenkinsfile został podzielony na dwa stage. Pierwszy odpowiadał za zbudowanie aplikacji. W tym celu użyto polecenia 
+"npm install". Drugi odpowiadał za testowanie aplikacji. Testy uruchamiono poleceniem "npm test". Po fazie testowania,
+w zależności od rezultatu, wysyłany był mail z informacją o procesie testowania. W tym celu należało skonfigurować serwer
+smtp.
+
+3. Uruchomiono skonfigurowany pipeline dwa razy. W pierwszym przypadku testy przechodziły poprawnie i wysyłany był mail
+informujący o powodzeniu. W drugim przypadku testy nie przechodziły i wysyłany był mail z logami zawierającymi informację
+o przebiegu testowania i buildowania.

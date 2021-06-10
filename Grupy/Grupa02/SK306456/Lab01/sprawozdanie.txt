@@ -1,0 +1,5 @@
+2. Sklonowanie repozytorium: git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git 
+3. komenda cd aż do wejścica do ścieżki z instrukcją. Otworzenie instrukcji poleceniem notepad "Lab 01 - Git.txt"
+4. Stworzenie brancha komendą git branch SK306456. Po wróceniu do ścieżki MIFT2021 (komenda cd) użycie mkdir aby stworzyć kolejne podścieżki. Dodanie plików do repozytorium poleceniem git add nazwa_pliku, oraz commit poleceniem git commit -m "informacja-o-commicie"
+6. Do dodania plików zrzutów w formacie .png komenda git add "*.png". Commit polecenie jak w pkt.4, push do remote git push origin SK306456
+7. Zmiana gałęzi na master poleceniem git checkout master, następnie merge poleceniem git merge 306456. Ostatni push poleceniem git push

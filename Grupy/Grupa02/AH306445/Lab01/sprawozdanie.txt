@@ -1,0 +1,6 @@
+git branch AH306445 - tworzenie nowego brancha
+git checkout AH306445 - przełączenie się na nowo utworzonego brancha 
+git add sprawozdanie.txt - dodanie pliku do stage area
+git commit -m "First repo"- dodanie plików do lokalnego repozytorium wraz z opisem 
+git push - wypycha lokalne repozytorium na serwer lub inne miejsce gdzie jest zdalne repozutorium 
+git merge - scala zawartość obecnego brancha z branchem podanym w argumencie 

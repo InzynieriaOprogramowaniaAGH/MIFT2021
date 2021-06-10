@@ -1,0 +1,6 @@
+Ze względu na utworzenie stage build na wcześniejszym laboratorium - tym razem poddano go tylko modyfikacji. Dodano pobieranie najnowszej wersji kodu. Ponadto zmodyfikowano powiadomienia. Użytkownik dostanie powiadomienie o statusie każdego stage'a oraz o statusie całego pipeline'a. 
+
+Po wprowadzeniu celowo błędu w build, etap testowania został przeskoczony a cały pipeline został zakończony niepowodzeniem. 
+Uruchomienie pipeline bez błędów w kodzie zakończyło się powodzeniem. 
+
+Do folderu .git/hooks dodano post-commit hooka wyświetlającego wiadomość po dodaniu commita. 

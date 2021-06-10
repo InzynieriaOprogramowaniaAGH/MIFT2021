@@ -1,0 +1,14 @@
+2.1 Pobranie plików instalacyjnych kubectl poleceniem curl, porównanie sumy kontrolnej oraz sama instalacja.
+2.2 Pobranie plików instalacyjnych minikube oraz instalacja.
+
+3.1 Uruchomienie minikube poleceniem minikube start oraz uruchmoienie dashboardu poleceniem minikube dashboard
+3.2 Minikube dashboard pozwala:
+    - Zarządzać zasobami
+    - Monitorować zużycie zasobów
+    - Kontrolować uruchomione 
+    - Zarządzać ustawieniami klastrów
+    - Zarządzać podami, deploy'ami, joby etc.
+W dużym skrócie pozwala na zarządzanie usługami dostępnymi w Kubernetesie.
+
+4.0 Uruchomienie kontenera poleceniem dostępnym w instrukcji (obraz pobrany z dockerhuba).
+4.1 Przekierowanie portów poleceniem dostępnym w instrukcji (przekierowanie portu 3000:3000).

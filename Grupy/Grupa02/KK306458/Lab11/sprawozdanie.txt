@@ -1,0 +1,34 @@
+2. Instalacja Kubernetesa
+
+Instalacja minikube i virtualboxa:
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+apt install virtualbox
+
+Uruchomienie klastra:
+minikube start
+
+Instalacja kubectl:
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+kubectl get po -A
+
+3. Uruchomienie dashboarda:
+minikube dashboard
+
+3.1. Co mozna zrobic w dashboard:
+- zarzadzanie klastrem, jego zasobami, rolami, nodami
+- przegladanie zuzycia klastra przez dzialajace aplikacje
+- tworzenie wirtualnych klastrow okreslanych jako namespaces
+- deploy aplikacji
+- monitorowanie aplikacji
+- tworzenie Pods, Crone Jobs, Deployments
+- zarzadzanie wyzej wspomnianymi kategoriami, mozliwosc konfiguracji startowej, przejrzenie logow, uruchomienie komend shellowych
+
+4. Uruchomienie kontenera w klastrze:
+kubectl run komunikator --image=kklim/devops-lab11 --port=9999 --labels app=komunikator
+
+4.1. Przekierownaie portow:
+kubectl port-forward pods/komunikator 9999:9999
+
+5. Zbudowana aplikacja deltachat-desktop nie uruchamia sie poprawnie w kontenerze, prawdopodobnie problemem jest framework electron ktory nie pozwala na uruchomienie aplikacji w takim srodowisku. 

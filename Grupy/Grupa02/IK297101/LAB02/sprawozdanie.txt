@@ -1,0 +1,44 @@
+sh-keygen -t ed25519 -C "kijek.igor@gmail.com"
+// Stworzenie Klucza SSH
+
+eval "$(ssh-agent -s)"
+//Uruchomienie Agenta SSH
+
+ssh-add ~/.ssh/id_ed25519
+// dodanie Klucza SSH po stronie Klienta
+
+git remote -v
+//Sprawdzanie czy jest połączenie https czy ssh
+
+git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+// zamiana połączenia z https na ssh
+
+git tag -a IK297101_Lab02 -m "Added directory for Lab 2  and testing Tagging for task 2"
+// ustawienie tagu dla commitów
+
+git commit -m "First commit for Lab 02 with task 1 and 2 complete"
+//commit z wiadomością
+
+
+git push --follow-tags
+//push brancha z dołączeniem wcześnie stworzonego tagu
+
+mv IK297101/ Grupy/Grupa02
+// przeniesienie folderu "IK297101" do "Grupy/Grupa02"
+
+git branch -r
+//Wyswietlenie wszystki remote branchy 
+
+
+git push --set-upstream origin Grupa02-IK297101_Lab02
+// wypchnięcie brancha do gita
+
+
+cd .git/hooks/
+// ścieżka do folderu z hookami
+
+change name of commit-msg 
+//Trzeba usunąć .sample żeby hook zadziałał i git go widział
+
+chmod 777 commit-msg
+// nadanie możliwości egzekucji pliku

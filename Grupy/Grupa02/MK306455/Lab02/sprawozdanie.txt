@@ -1,0 +1,29 @@
+Zad 1
+Najpierw nalezalo wygenerowac klucz ssh za pomoca komendy "ssh-keygen -t ed25519 -C "email""
+Nalezalo wowczas podac passphrase.
+Kolejnym krokiem bylo uruchomienie agenta sssh komenda "eval `ssh-agent -s`" oraz dodanie do niego klucza ssh za pomoca "ssh-add ~/.ssh/id_ed25519". Nastepnie trzeba bylo podac ustalony wczesniej passphrase.
+Pozniej trzeba bylo skopiowac zawartosc pliku z kluczem publicznym id_ed25519.pub i dodac klucz do githuba w zakladce ustawienia.
+Na koniec zmieniono sposob laczenia na ssh komenda "git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git"
+
+Zad 2
+Nadano Tag na commit za pomoc komendy "git tag -a MK306455_2 -m "Marcin Kapusta, chyba dziala"".
+Nastepnie dodano do staging area - git add .
+Dokonano commitu - git commit
+Wykonano git push
+Wykonano git push --follow-tags
+
+Zad 3
+
+Zmieniono strukture katalogow aby w katalogu MIFT2021 znalazl sie folder Grupy/Grupa02/MK306455. Do nowego folderu przekopiowano zawartosc folderu MK306455 z katalogu MIFT2021, po czym go usunieto.
+
+Nastepnie zmieniono branch na Grupa02 - "git checkout Grupa02"
+Utworzono nowy branch Grupa02-MK306455_Lab02 za pomoca komendy "git branch Grupa02-MK306455_Lab02"
+Zmieniono branch na nowo utworzony branch za popmoca komendy "git checkout Grupa02-MK306455_Lab02"
+
+Zad 4
+W katalogu MIFT2021/.git/hooks utworzono plik commit-msg, bedacy krotkim skryptem. Najpierw definiujemy wyrazenie regularne oczekiwane na poczatku pliku - MK306455 oraz wiadomosc o bledzie. Nastepnie sprawdzamy za pomoca grep czy wyrazenie regularne znajduje sie na poczatku pliku w ktorym jest wiadomosc. Plik ten jest pierwszym parametrem hooka. Jezeli wyrazenie zwroci falsz, to hook wyswietla komunikat o bledzie oraz status 1. W przeciwnym razie zwraca 0 - kod powodzenia.
+Zad 5
+Zmienilem branch na Grupa02 i wywolalem komende "git merge Grupa02-MK306455_Lab02"
+Usunalem swoj branch za pomoca komendy "git branch -d Grupa02-MK306455_Lab02"
+Zaciagnalem zmiany "git pull --all"
+Dokonalem commit i push na branch Grupa02 

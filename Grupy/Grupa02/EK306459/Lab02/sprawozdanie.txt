@@ -1,0 +1,50 @@
+1
+   Zmieniam branch na swój EK306459
+    git checkout EK306459
+
+1.1
+   Generuje nowy klucz SSH
+    ssh-keygen -t ed25519 -C "emil_kobylecki@onet.eu"
+   Klucz zapisałem w domyślnym folderze i podałem passphrase
+
+1.3
+   Uruchamiam agenta SSH
+    eval "$(ssh-agent -s)"
+
+   Dodaję klucz do agenta SSH
+    ssh-add /home/emil/.shh/id_ed25519
+
+1.4
+   Dodaję klucz SSH na Github
+   
+
+1.5
+   Zmieniam połączenie na SSH
+    git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+
+   Sprawdzam stan połączenia
+    git remote -v
+
+2
+   Dodaję tagu i komentarza do commita
+    git tag -a EK306459_02 -m "Nadalem commitowi tag chyba"
+
+3.1
+   Przenoszę folder w nowe miejsce
+    mv ./EK306459 ./Grupy/Grupa02
+   Usuwam stary folder
+    git rm -r ./EK306459
+
+3.2
+   Przełączam się na master, a następnie na gałąź Grupa02
+    git checkout master
+    git checkout Grupa02
+   Tworzę nową osobistą gałąź
+    git branch Grupa02-EK306459_Lab02
+
+4
+   W folderze hooks tworzę nowy plik, który jest aktywną wersją pliku commit-msg.sample
+    touch commit-msg
+   Edytuję zawartość pliku i nadaję uprawnienia do wykonywania (zawartość jest na zrzucie)
+    nano commit-msg
+    chmod +x commit-msg  

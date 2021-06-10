@@ -1,0 +1,8 @@
+1.
+Utworzenie nowego pipeline'a umozliwiajacego uzywanie "Build Triggers".
+Ustawienie w konfiguracji joba triggera sprawdzajcego co minute nowe zmiany w zdalnym repozytorium.
+Jezeli Jenkins wykryje zmiane to rozpoczyna proces budowania aplikacji.
+
+3-4.
+Rozszerzenie pliku Jenkinsfile o nowy stage Deploy, ktory tworzy nowy kontener dokerowy i przenosi do niego wczesniej zbudowana i przetestowana aplikacje.
+Uzytkownik jest powiadamiany e-mailowo w przypadku sukcesu jak i porazki.
