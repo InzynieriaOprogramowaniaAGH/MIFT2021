@@ -1,0 +1,65 @@
+1. Lokalny klaster Kubernetes.
+	git checkout Grupa02
+	cd Grupy/Grupa02/KJ287168/
+	git checkout -b Grupa02-KJ287168_Lab12
+	mkdir Lab12
+	cd Lab12
+	...
+	minikube start
+	(na zdjęciu)
+
+2. Uruchom Minikube Dashboard.
+	minikube dashboard
+	(na zdjęciu)
+
+3. Zapoznaj się z dokumentacją.
+	git status
+	git add 1.png 2.png
+	git commit -m "KJ287168 Lab.12 zdjęcia do pkt.3"
+
+4. Stwórz plik komunikator-deployment.yaml.
+	docker pull szk98/chat
+	(chyba- na podstawie dokumentacji- niekoniecznie potrzebne)
+	docker images
+	vim
+		apiVersion: apps/v1
+		kind: Deployment
+		metadata:
+		  name: komunikator-deployment
+		  labels:
+		    app: komunikator
+		spec:
+		  replicas: 4
+		  selector:
+		    matchLabels:
+		      app: komunikator
+		  template:
+		    metadata:
+		      labels:
+		        app: komunikator
+		    spec:
+		      containers:
+		      - name: komunikator
+		        image: szk98/chat:latest
+		        ports:
+		        - containerPort: 3000
+
+5. Zleć klastrowi zrealizowanie powyższego pliku.
+	kubectl apply -f komunikator-deployment.yaml
+
+6. Udokumentuj stan klastra Kubernetes.
+	git status
+	git add 4_1.png 4_2.png 5.png 6_1.png 6_2.png komunikator-deployment.yaml
+	git commit -m "KJ287168 Lab.12 zdjęcia do pkt.6  wlacznie"
+	(na zdjęciach)
+
+7. Wprowadź zmiany w pliku.
+	vim komunikator-deployment.yaml 
+	kubectl apply -f komunikator-deployment.yaml
+
+8. Udokumentuj nowy stan klastra.
+	git status
+	git add 7.png 8_1.png 8_2.png komunikator-deployment.yaml sprawozdanie.txt
+	git commit -m "KJ287168 Lab.12 zdjęcia do pkt.8 wlacznie"
+	(na zdjęciach)
+
