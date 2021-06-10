@@ -14,3 +14,5 @@ Natalia Czachor Lab12
 
 5. Zleono klastrowi zrealizowanie powyższego pliku używając polecenia:
 minikube kubectl -- apply -f komunikator-deployment.yaml
+
+6. Udokumentowano stan klastra Kubernetes.
