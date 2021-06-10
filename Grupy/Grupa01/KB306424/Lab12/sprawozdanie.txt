@@ -1,0 +1,27 @@
+1. 
+Uruchomilam klaster Kubernetes za pomoca polecenia "minikube start".
+
+2. 
+Uruchomilam dashboard za pomoca polecenia "minikube dashboard".
+
+3.
+Zapoznalam sie z dokumentacja tworzenia manifestow dla obiektow "Deployment".
+
+4. 
+Stworzylam plik komunikator-deployment.yaml. 
+Jako nazwe Deployment'u podalam "komunikator-deployment", a jako label app "komunikator".
+W pliku jako obraz dockerowy podalam swoj obraz komunikatora z poprzednich zajec dazaiii/node-chat.
+Jako liczbe replik podalam 4.
+
+5.
+Zlecilam klastrowi zrealizowanie pliku za pomoca polecenia "kubectl apply -f komunikator-deployment.yaml".
+
+6.
+Udokumentowalam na screenie stan klastra Kuberenetes. Deployment utworzyl 4 pody.
+
+7.
+Wprowadzilam zmiany w pliku komunikator-deployment.yaml - zmienilam liczbe replik na 6.
+Zlecilam klastrowi aktualizacje ponownie wykonujac polecenie "kubectl apply -f komunikator-deployment.yaml".
+
+8. 
+Udokumentowalam na screenie stan klastra Kubernetes. Po aktualizacji bylo 6 podow.
