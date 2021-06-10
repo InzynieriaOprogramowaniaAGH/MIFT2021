@@ -1,3 +1,5 @@
 Natalia Czachor Lab12
 
 1. Uruchomiono (lokalny) klaster Kubernetes tak jak omawiano na Lab11. 
+
+2. Uruchomiono Minikube Dashboard poleceniem "minikube dashboard" i upewniono się że działa.
