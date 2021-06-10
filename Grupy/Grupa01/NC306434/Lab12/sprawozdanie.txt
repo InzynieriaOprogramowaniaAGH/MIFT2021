@@ -11,3 +11,6 @@ Natalia Czachor Lab12
 - app: komunikator,
 - obraz z komunikatorem tak jak na poprzednich zajęciach,
 - 4 repliki.
+
+5. Zleono klastrowi zrealizowanie powyższego pliku używając polecenia:
+minikube kubectl -- apply -f komunikator-deployment.yaml
