@@ -13,4 +13,3 @@ WORKDIR ~
 COPY . node-chat-app/
 WORKDIR node-chat-app
 RUN ls
-RUN npm install
