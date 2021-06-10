@@ -1,0 +1,26 @@
+1. W Jenkinsfile z laboratoriów numer 7 został rozbudowany stage Build.
+   stage('Build') {
+            steps {
+                checkout scm
+                sh 'curl -sL https://deb.nodesource.com/setup_14.x | bash -'
+                sh 'apt-get install nodejs -y'
+                sh 'npm install --global --force yarn'
+		echo 'Building....'
+		}
+
+2. W stage("Build") użytkownik został powiadomiony o sukcesie i porażce etapu budowania za pomoca lini
+    
+   Za pomocą komendy - checkout scm sprawdzane jest, czy jest pobierana najnowsza wersja kodów źródłowych z repozytorium.
+
+3. Po poprawnym zbudowaniu Jenkinsfile uruchamiany jest stage("Test"):
+	when {
+                expression {
+                    currentBuild.result == null || currentBuild.result == 'SUCCESS'
+                }
+            }
+
+4. Został napisany hook "post-commit" dla repozytorium z komunikatorem o podanej treści:
+     
+    #!/bin/bash
+
+    echo "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"

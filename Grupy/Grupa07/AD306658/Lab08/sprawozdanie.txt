@@ -1,0 +1,9 @@
+1. Na poprzednich zajęciach stworzyłam stage("Build").
+2. Upewniłam się że jest pobrana najnowsza wersja kodów żródłowych:
+	- checkout scm
+   Użytkownik jest powiadamiany o sukcesie i porażce etapu budowania.
+3. Po poprawnym zbudowaniu jest uruchamiany stage("Test") natomiast po porażce jest on pomijany:
+	- when {
+              	expression {currentBuild.result == null || currentBuild.result == 'SUCCESS'}
+            }
+4. Napisałam git "post-commit" hooka'a w repozytorium z komunikatorem, który ma za zadanie wyświetlać komunikat i stworzyłam commita w celu sprawdzenia czy komunikat się pojawi w terminalu.

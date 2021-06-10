@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if ! grep 'PF299617' "$1"; then
+	echo 'Error - type correct message before commit (PF299617)'
+	exit 1;
+fi
+echo 'OK'
+exit 0;

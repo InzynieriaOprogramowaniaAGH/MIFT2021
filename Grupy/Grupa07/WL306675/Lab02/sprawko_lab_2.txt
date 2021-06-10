@@ -1,0 +1,65 @@
+tworzenie SHH
+$ ssh-keygen -t ed25519 -C "wiktorligeza@gmail.com"
+
+zapisywanie shh w wybranym miejscu 
+Enter file in which to save the key (/c/Users/wikto/.ssh/id_ed25519): /c/Users/wikto/.ssh/id_ed25519
+
+
+tworzenie hasła(klucza prywatnego):
+Enter passphrase (empty for no passphrase): *********
+
+rozpoczynanie agenta shh (w tle)
+$ eval `ssh-agent -s`
+
+następnie pojawia się pid agenta
+Agent pid 209
+
+
+dodanie hasła do agenta 
+$ ssh-add ~/.ssh/id_ed25519
+
+
+następnie należy dodać klucz ssh do gita (na stronie)
+polecenie: clip < ~/.ssh/id_ed25519.pub -> kopiuje ssh do schowka następnie należy go wkleić w odpowiednim miejscu na stronie
+
+wyświetlenie połączenia (powinno być po https):
+$ git remote -v
+
+następnie należy zmienić połączenie SSH na url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git:
+poleceniem: git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+
+oraz ponowne sprawdzenie poprzez: $ git remote -v
+
+nastepnie robie commita na branczu 
+
+kolejno robię taga:
+$ git tag -a WL306675_Lab02 -m "Wiktor Ligeza, Lab 02 wszystko działa chyba"
+
+
+następnie po stworzeniu taga pushuje na origina 
+$ git push --follow-tags
+
+
+Nastepnei porządkujemy foldery
+
+Tworzenie nowego brancza:  git checkout -b Grupa07-WL306675_Lab02
+
+Z punktu mift wpisuje komende: cd .git/hooks
+nastepnie:  nano commit-msg gdzie tworzymy nastepujący skryp:
+#/bin/bash
+
+        MSG="$1"
+
+        if ! grep -qE "^WL306675" "$MSG";then
+            cat "$MSG"
+            echo "Your commit message must begin with 'WL306675'"
+            exit 1
+        fi
+
+Commit i push na brancha grupowego:
+	$ git push origin Grupa07
+ 
+nastepnie usunięcie brancha:
+	$ git push origin --delete Grupa07-WL306675_Lab02
+
+i Zrobienie pull requesta. 

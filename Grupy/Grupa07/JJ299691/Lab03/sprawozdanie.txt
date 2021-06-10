@@ -1,0 +1,13 @@
+1.utworzylem nowego brancha
+git checkout -b Grupa07-JJ299691_Lab03
+2. dodalem git hooka
+3. zainstalowalem dockera i zarejestrowalem sie
+4.stworzylem plik Docker file:
+FROM ubuntu:latest
+	RUN apt-get update
+	RUN apt-get -y upgrade
+	RUN apt-get install -y build-essential
+	RUN apt-get install -y git
+	RUN git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git
+	
+5. uruchomilem go sudo docker build .	

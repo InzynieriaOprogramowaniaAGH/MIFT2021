@@ -1,0 +1,33 @@
+1. Generuje klucz SSH, tworze agenta SSH, dolaczam klucz SSH na stronie github.
+   Nastepnie ustawiam polaczenie po ssh:
+   	git remote set-url origin repo
+   	
+2. Nakladam tag na commita:
+	git tag -a DK306669 -m "jakis tag"
+	
+   potem pushuje na branch
+   	git push --follow-tags
+   	
+3. Tworze odpowiednia strukture Grupy/Grupa07 i przenosze tam swoj folder.
+   Nastepnie przelaczam sie na branch mojej grupy
+   Tworze swojego tymczasowego brancha za pomoca:
+   	git checkout -b Grupa07-DK306669_Lab02
+   	
+4. Tworze skrypt w .git/hooks/commit-msg:
+	
+	#!/bin/bash
+	
+	MSG="$1"
+	
+	if ! grep -qE "^DK306669" "$MSG";then
+		cat "$MSG"
+		echo "Your commit message must begin with 'DK306669'"
+		exit 1
+	fi
+	
+5. Commituje i pushuje na brancha grupowego
+	git push origin Grupa07
+	
+   Usuwam branch za pomoca:
+   	git push origin --delete Grupa07-DK306669_Lab02
+   	

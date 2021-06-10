@@ -1,0 +1,32 @@
+1. Wygenrowałam klucz SSH, zarejstrowałam go po stronie serwera i lokalnie.
+ 	Przy uzyciu komendy: 
+		$ git remote -v sprawdziłam połaczenie które najpierw było https
+		$ git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git zmieniłam połaczenie na ssh
+	Potwierdzenie zmianny htpps na ssh sprawdziałam przy ponownym użyciu:
+		$ git remote -v
+2. Nadałam Tag na aktualnego commita o nazwie "AD306658_Lab02" przy pomocy następującej komendy:
+	$ git tag -a AD306658 -m "msg ..."
+Wrzuciłam zmiany na brancha:
+	$ git push origin --tags
+	$ git push --follow-tags
+3.Utworzyłam odpowiednią strukturę katalogów Grupy/Grupa07 i przekopiowałam tam mój katalog AD306658 i z pierwotnego usunełam pliki (aby nie przeszkdazał)
+	Przełączyłam się na brancha grupowego:
+		$ git checkout Grupa07
+	Stworzyłam nowego brancha:
+		$ git checkout -b Grupa07-AD306658_Lab02
+4. W folderze .git/hooks odnalazłam plik commit-msg.sample i aby skrypt był widoczny to usunełam rozszerzenie sample i dodałam do pliku następujący kod:
+	#!/bin/bash
+
+	MSG="$1"
+
+	if ! grep -qE "^AD306653" "$MSG";then
+	    cat "$MSG"
+	    echo "Your commit message must begin with 'AD306653'"
+	    exit 1
+	fi
+5. Następnie zrobiłam commita i pusha na brancha grupowego:
+	$ git push origin Grupa07
+ 
+ Usunełam brancha:
+	$ git push origin --delete Grupa07-AD306658_Lab02
+ I stowrzyłam nowego Pull request.

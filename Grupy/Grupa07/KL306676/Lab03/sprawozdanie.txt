@@ -1,0 +1,30 @@
+1. W pierwszym kroku stworzyłam nowego brancha, na którego od razu się przeączyłam następującymi komendami
+	$ git checkout Grupa07
+	$ git checkout -b Grupa07-KL306676_Lab03
+
+2. Utworzyłam ponownie plik commit-msg z git hookiem i nadałam mu uprawnienia
+   aby był plikiem wykonywalnym (git hooka z poprzednich zajęć nie wiem gdzie 
+   podziałam)
+	$ touch commit-msg
+	$ nano commit-msg
+	$ chmod +x commit-msg
+
+3. Zainstalowałam dockera za pomocą komend:
+	$ sudo apt install docker.io
+	$ sudo systemctl enable --now docker
+	$ sudo usermod -aG docker $USER
+	$ newgrp docker
+	$ docker run hello-world
+
+4. Zarejestrowałam się w Docker Hub.
+
+5. Utworzyłam plik o nazwie Dockerfile z zawartością:
+	FROM ubuntu:latest
+	RUN apt-get update
+	RUN apt-get -y upgrade
+	RUN apt-get install -y build-essential
+	RUN apt-get install -y git
+	RUN git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git
+
+6. Uruchomiłam kontener za pomocą komendy
+	$ sudo docker build.

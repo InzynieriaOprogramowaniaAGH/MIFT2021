@@ -1,0 +1,22 @@
+1. Generacja klucza SSh
+$ git remote -v 
+$ git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git 
+
+2. Tag na commita o nazwie "JJ299691_Lab02" przy pomocy następującej komendy:
+	$ git tag -a JJ299691-m "msg ..."
+zmiany na brancha:
+$ git push origin --tags
+$ git push --follow-tags
+
+3.Utworzenie odpowiedniej struktury katalogów
+	przejście na branch grupowy:
+		$ git checkout Grupa07
+	Stworzyłam nowego brancha:
+		$ git checkout -b Grupa07-JJ299691_Lab02
+4. W folderze .git/hooks utworzenie skryptu
+
+5. Następnie commit i push na branch grupowy:
+	$ git push origin Grupa07
+ 
+ usuwanie brancha:
+	$ git push origin --delete Grupa07-JJ299691_Lab02

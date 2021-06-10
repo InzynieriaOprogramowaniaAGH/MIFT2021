@@ -1,0 +1,19 @@
+1. Mia³em ju¿ pobranego Git Bash'a.
+
+2. Wykonano operacjie "git clone" na repozytorium: https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git
+
+3. Otwarto i zapoznano siê z instrukcj¹ do æwiczeñ.
+
+4. Stworzono nowy branch w repozytorium lokalnym i nazwano go "PF299617".
+   Na tym branchu stworzono katalog PF299617 a w nim Lab01.
+   Do folderu Lab01 dodano plik sprawozdanie.txt.
+   Za pomoc¹ funkcji add dodano sprawozdanie o raz plik z grafem do repozytorium a nastêpnie wykonano commita.
+
+5. Napisano sprawozdanie z opisem u¿ytych poleceñ.
+
+6. Pozosta³e screen'y dodano do folderu Lab01.
+   Dodano je do repozytorium a nastêpnie wykonano commita.
+
+7. Prze³¹czono sie na branch master za pomoc¹ git checkout master.
+   Zrobiono merge z w³asnym repozytorium u¿ywaj¹c git merge PF299617.
+   Wykonano git pull (na wypadek gdyby ktoœ doda³ coœ w miêdzyczasie) a nastêpnie git push umieszczaj¹c na githubie.

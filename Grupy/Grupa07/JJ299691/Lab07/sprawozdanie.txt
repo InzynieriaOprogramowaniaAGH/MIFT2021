@@ -1,0 +1,9 @@
+1. Przygotowanie plikow potrzebneych do uruchomienia CI/CD pipeline 
+
+2.1 utworzenie Jenkinsfile
+
+2.2 Przeniosłem jenkinsfile do folderu z repozytorium
+
+3 Modyfikacje w jenkinsie
+
+

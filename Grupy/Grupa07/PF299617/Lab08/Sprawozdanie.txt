@@ -1,0 +1,14 @@
+Sprawozdanie Lab08
+
+1. Utworzono stage Build.
+
+2. W nim zapewniono aby:
+   -była pobierana najnowsza wersja kodów źródłowych		"checkout scm"
+   -program był budowany					"npm run build"
+   -oraz aby użytkownik był powiadamiany o wynikach budowy	(analogicznie jak na ostatnich labach post{...})
+   
+3. Upewniono się, że tylko po udanym budowaniu następuje etap testowania.
+   "when {expression {currentBuild.result == null || currentBuild.result == 'SUCCESS'} }"
+   
+4. Napisano git "post-commit" hook'a z krótką informacją.
+   "echo "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie" "

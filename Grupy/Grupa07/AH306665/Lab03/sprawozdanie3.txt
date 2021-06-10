@@ -1,0 +1,22 @@
+1. Stworzyłem brancha osobistego od swojego brancha grupowego za pomocą git checkout -b Grupa07-AH306665_Lab03
+
+2. Dodałem git hooka z poprzednich zajęć do swojego folderu
+
+3. Zainstalowałem Dockera. W tym celu zaktualizowałem WSL do wersji 2 (nie działa na pierwszej), pobrałem Dockera na Windowsa i w jego ustawieniach połączyłem go z WSL.
+
+4. Założyłem konto w Dockerze
+
+5. Stworzyłem Dockerfile bazujący na najnowszym ubuntu.
+
+6. Uruchomiłem kontener i ściągnąłem na niego repozytorium. Sprawdziłem, czy jest w nim moj branch.
+
+sudo docker build -t ms_docker //stworzenie obrazu
+
+sudo docker images //sprawdzenie listy obrazow
+
+sudo docker run -it id  //uruchomienie kontenera o danym id
+
+git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git
+
+docker ps -a //sprawdzenie listy kontenerow
+

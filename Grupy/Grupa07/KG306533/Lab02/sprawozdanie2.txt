@@ -1,0 +1,42 @@
+1. Utworzono klucz według instrukcji i "dołączono" do GitHub'a. Następnie zrealizowano połączenie:
+
+$ git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+
+Oraz potwierdzono połączenie po SSH komendą:
+
+$ git remote -v
+
+2. Nadano tag na aktualnego commita przy pomocy:
+
+$ git tag -a KG306533_Lab01 -m "message"
+
+Wrzucono zmianę na brancha przy pomocy komend:
+
+$ git push origin --tags
+$ git push --follow-tags (użyto dla pewności, wszystko jednak już było aktualne)
+
+3-3.1. Uporządkowano foldery. Utworzono ścieżkę Grupy/Grupa07/KG306533/Lab## i przenioesono tam wcześniejszy folder - tzn. zastąpiono startm KG306533.
+
+3.2 Konfiguracja branchy. Na branchu Grupa07 utworzono brancha Grupa07-KG306533_Lab02. 
+
+$ git checkout -b <nowy-branch>
+
+4. Stworzono Git Hook'a, sprawdzającego czy commit message rozpoczyna się od KG306533:
+
+
+#!/bin/bash
+
+MSG="$1"
+
+if ! grep -qE "^KG306533" "$MSG";then
+    cat "$MSG"
+    echo "Your commit message must begin with 'KG306533'"
+    exit 1
+fi
+
+Przetestowano działanie - co pokazują zrzuty ekranu.
+
+5. Ostatnie kroki to push z brancha związanego z laboratorium do brancha grupowego, oraz wykonanie pull requesta.
+
+
+

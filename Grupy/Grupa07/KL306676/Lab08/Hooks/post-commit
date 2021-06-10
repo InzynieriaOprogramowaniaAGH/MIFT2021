@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po kązdym nowym commicie"
+
+exit 1

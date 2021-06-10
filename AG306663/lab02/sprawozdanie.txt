@@ -1,0 +1,2 @@
+1.1. Wygenerowałam nowy klucz ssh, poprzez użycie: $ ssh-keygen -t ed25519 -C "your_email@example.com". Następnie 
+1.2. costam

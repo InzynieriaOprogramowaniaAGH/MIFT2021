@@ -1,0 +1,7 @@
+Na początku należało utworzyć osobistego brancha stworzonego od brancha grupa07. 
+Następnie należało opublikować obraz z poprzednich zajęć w serwisie Docker Hub. 
+Kolejnym krokiem było pobranie komunikatora, w moim przypadku użyłam programu socket.io, który znalazłam na githubie. 
+Następnie należało utworzyć nowy obraz kontenera dockerowego i skonfigurować go tak, aby był w stanie wykonać operację budowania "komunikatora" ze źródeł. W tym celu użyłam komend FROM node:buster (program korzysta z node),  WORKDIR /app oraz RUN git clone https://github.com/AlexTraher/Socket.io-Messenger.git . && npm install.
+Później należało sworzyć Test agenta i skonfigurować go tak, aby był w stanie wykonać operację testowanie "komunikatora" korzystając ze zbudowanego wcześniej programu z poprzedniego punktu (używać build agenta). Użyłam do tego komend: FROM messenger-build:1.0, EXPOSE 3000 i ENTRYPOINT ["npm", "start"] 
+Po swtorzeniu obu dockerfile'ów należało stworzyć plik docker-compose.yml (https://docs.docker.com/compose/), dodać go do swojego brancha oraz korzystając z obrazów build i test agentów stworzyć środowisko, które: ściąga z repo najnowszą wersję "komunikatora", buduje go.
+W terminalu należało wpisać komendy docker build -t messenger-build:1.0 -f Dockerfile.build . oraz docker-compose build && docker-compose up -d aby wszystko mogło zadziałać.

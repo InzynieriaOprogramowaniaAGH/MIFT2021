@@ -1,0 +1,8 @@
+#!/bin/bash
+msg="$1"
+
+if ! grep -qE "^MC306656" "$msg";then
+	cat "$msg"
+	echo "Your commit must have MC306656 "
+	exit 1
+fi

@@ -1,0 +1,21 @@
+1. Utworzono tymczasowego brancha na obecne laboratoria "Grupa07-KG306533_Lab03"
+
+2. Dodano hooke'a z ostatnich laboratoriów do wskazanej w instrukcji lokalizacji.
+
+3. Zainstalowano Dockera i sprawdzono działanie dockerowym hello worldem.
+
+4. Zarejestrowano się na Docker Hub.
+
+5. Stworzono plik Dockerfile, który bazuje na ubuntu:latest.
+5.1 W pliku Dockerfile uruchamiane są komendy związane z instalacją gita.
+
+6. W pliku Dockerfile znajduje się komenda git clone pozwalająca na ściągniecie naszego repozytorium.
+
+6.1 Zbudowanie obrazu $ sudo docker build .
+
+6.2 Uruchomienie docker run -t <ID_OBRAZU>
+
+6.3 Upewnić się, że tymczasowy branch jest w repo w Dockerze. Znajdował się.
+
+
+

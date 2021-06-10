@@ -1,0 +1,13 @@
+1. Git został zainstalowany wcześniej. Wykonałem instrukcję git version pokazującą, że został zainstalowany.
+
+2. Sklonowanie repozytorium korzystając z git clone oraz narysowanie grafu.
+
+3. Zapoznanie się z instrukcją.
+
+4. Utworzono nowy branch komendą git checkout -b "KG306533". Komenda ta przełączyła mnie od razu na nowy branch. Następnie utworzono na tym branchu folder o tej samej nazwie, a w nim folder Lab01. Tam umieszczono kolejno sprawzdanie.txt i graf.png - oraz wycommitowano je:
+
+git commit -m "Commit z <nazwa_pliku"
+
+5. Opisanie dotychczasowych rzeczy w tym pliku.
+
+6. Umieszczenie zrzutów ekranu w folderze Lab01. Dodanie ich do repozytorium. Wykonanie commit i push branch na remote'a. Przed pushem wykonano jeszcze git pull'a.

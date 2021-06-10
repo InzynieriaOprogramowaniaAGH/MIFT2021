@@ -1,0 +1,20 @@
+Sprawozdanie Lab04
+
+Zadanie 1.
+Stworzono brancha od brancha grupowego analogicznie jak na poprzednich zajęciach.
+Opublikowano obraz z poprzednich zajęć na DockerHub'ie.
+
+Zadanie 2.
+Wybrano chat deltachat-desktop. https://github.com/deltachat/deltachat-desktop
+
+Zadanie 3.
+Napisano dockerfile'a oraz skonfigurowano go tak, aby był w stanie wykonać operację budowania "komunikatora" ze źródeła poleceniem:
+	sudo docker build . chat:latest
+
+Zadanie 4.
+Napisano dockerfile'a do testowania komunikatora ze zbudowanego wcześniej programu.
+	sudo docker build . chat-test:latest
+
+Zadanie 5.
+Stworzono plik docker-compose.yml, który ściąga najnowszą wersje komunikatora, buduje go i testuje. Do uruchomienia użyto komendy:
+	sudo docker-compose up

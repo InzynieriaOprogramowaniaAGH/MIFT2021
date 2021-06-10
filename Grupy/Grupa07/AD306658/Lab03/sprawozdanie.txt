@@ -1,0 +1,14 @@
+1. Stworzyłam nowego brancha na dzisiejsze zajęcia Grupa07-AD306658_Lab03 z brancha Grupa07:
+	$ git checkout -b Grupa07-AD306658_Lab03
+2. Dodałam git hook commit-msg.sample z poprzednich zajęć do folderu MIFT2021/Grupy/Grupa07/AD306658/Lab03/hooks/pre-commit
+3. Zainstalowałam Docker'a.
+4. Zarejstrowałam się w Docker Hub
+5. Stworzyłam plik DockerFile z następującą zawartością:
+	FROM ubuntu:latest
+	RUN apt-get update
+	RUN apt-get -y upgrade
+	RUN apt-get install -y build-essential
+	RUN apt-get install -y git
+	RUN git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git
+6. Uruchomiłam konetenr:
+	$ sudo docker build .

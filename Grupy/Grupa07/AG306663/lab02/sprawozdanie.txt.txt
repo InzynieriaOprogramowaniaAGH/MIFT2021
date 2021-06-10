@@ -1,0 +1,32 @@
+1. Wygenerowanie klucza SSH, zarejestrowanie go lokalnie oraz po stronie serwera.
+ 	Użyte komendy: 
+		$ git remote -v - połączenie jest po https.
+		$ git remote set-url origin linkdorepo - zmiana na po ssh
+	Potwierdzenie zmiany htpps na ssh:
+		$ git remote -v
+2. Nałożenie taga na commita, uzyta komenda:
+	$ git tag -a AG306663 -m "tag"
+Pushowanie na branch:
+	$ git push origin --tags
+	$ git push --follow-tags
+3.Utworzenie odpowiedniej struktury katalogów Grupy/Grupa07 i przekopiowanie mojego katalogu AG306663. Usunięcie zawartości poprzedniego katalogu. 
+	Przełączenie się na brancha grupowego:
+		$ git checkout Grupa07
+	Stworzyłam nowego brancha:
+		$ git checkout -b Grupa07-AG306663_Lab02
+4. Dodanie do pliku .git/hooks/commit-msg następującego kodu:
+	#!/bin/bash
+
+	MSG="$1"
+
+	if ! grep -qE "^AG306663" "$MSG";then
+	    cat "$MSG"
+	    echo "Your commit message must begin with 'AG306663'"
+	    exit 1
+	fi
+5. Commit i push na brancha grupowego:
+	$ git push origin Grupa07
+ 
+ Usunięcie brancha:
+	$ git push origin --delete Grupa07-AG306663_Lab02
+ Zrobienie pull requesta. 

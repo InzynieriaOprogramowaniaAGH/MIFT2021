@@ -1,0 +1,17 @@
+Sprawozdanie Lab09
+
+1. Edytowano git post-commit hook'a tak aby po każdym commicie uruchamiał pipeline.
+   W tym celu wygenerowano token w jenkinsie.
+   Użyto następującego adresu URL, aby wyzwolić budowanie zdalnie localhost:8080/job/Lab_07/build?token=TOKEN_NAME
+
+2. Rozszerzono Jenkinsfile o nowy stage Deploy, który ma na celu budowanie obrazu dockerowego.
+   	sh 'docker build -t delta-chat -f Dockerfile.deploy .'
+   
+3. Do repozytorium z chatem dodano dockerfile, który skopiuje folder z aplikacja do obrazu.
+
+4. Dodano pusty commit aby przetestować działanie smowyzwalania pipeline.
+   	git commit --allow-empty -m "Trigger notification"
+
+5. Mimo najszczerszych chęci, deploy nie zadziałał w związku z błędem o niznalezieniu dockera
+	docker: not found
+   Reszta działała bez zarzutu.
