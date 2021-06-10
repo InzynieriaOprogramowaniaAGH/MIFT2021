@@ -1,0 +1,21 @@
+1. Zainstalowałam klaser Kubernetes
+	- uruchomiłam klastra "minikube start"
+	- pobrałam kubectl
+
+3. Uruchomiłam miniKube Dashboard
+
+3.1 Możliwości minikube Dashboard:
+	- navigation
+	- storage
+	- admin overview
+	- workloads
+	- config maps and secrets
+	- services
+	- logs viewer
+	ogólnie pozwala na na zarządzanie usługami dostępnymi w Kubernetesie
+
+4. Uruchomiłam komunikator w Kubernetes
+
+4.1 W celu sprawdzenia działania zastosowałam przekierowanie portów
+
+5. Widzimy, że działa w Kubernetes
