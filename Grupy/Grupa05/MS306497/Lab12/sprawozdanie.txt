@@ -9,3 +9,6 @@ minikube dashboard
 - app: komunikator
 - obraz z komunikatorem, jak na poprzednich zajeciach
 - 4 repliki
+
+5. Zlecono klastrowi zrealizowanie powyzszego pliku uzywajac polecenia:
+minikube kubectl -- apply -f komunikator-deployment.yaml
