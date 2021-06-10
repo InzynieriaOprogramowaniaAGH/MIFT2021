@@ -5,3 +5,5 @@ Lab 12
 
 2.Uruchomienie Minikube Dashboard:
 	minikube dashboard
+
+3.Zapoznanie się z dokumantacją tworzenia manifestów dla obiektu "Deployment" z linku z instrukcji
