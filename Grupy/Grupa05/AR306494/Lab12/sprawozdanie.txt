@@ -15,7 +15,7 @@ Temat: Podstawy obsługi klastra Kubernetes - Deployment Manifest
 - 4 repliki.
 
 5. Zleciłam klastrowi zrealizowanie powyższego pliku używając polecenia:
-kubectl apply -f komunikator-deployment.yaml
+minikube kubectl -- apply -f komunikator-deployment.yaml
 
 6. Udokumentowałam stan klastra Kubernetes. Stworzone oraz uruchomione zostały 4/4 pody.
 
