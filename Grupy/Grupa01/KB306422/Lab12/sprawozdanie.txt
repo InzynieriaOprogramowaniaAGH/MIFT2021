@@ -13,3 +13,6 @@ Lab 12
  app:komunikator
  obraz z komunikatorem tak, jak na poprzednich zajęciach,
  4 repliki
+
+5.Zlecenie klastrowi realizację pliku:
+	kubectl apply -f komunikator-deployment.yaml
