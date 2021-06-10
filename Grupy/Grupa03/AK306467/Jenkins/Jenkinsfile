@@ -21,7 +21,7 @@ tools {nodejs "nd"}
 						body: "Status: ${currentBuild.currentResult}",
 						recipientProviders: [[$class: 'DevelopersRecipientProvider']],
 						subject: 'Build failed',
-						to: 'silukpl@gmail.com'
+						to: 'tindacc0001@gmail.com'
 				}
 				success
 				{
@@ -30,11 +30,6 @@ tools {nodejs "nd"}
 			}
 		}
 		stage('Test') {
-			when {
-				expression {
-					currentBuild.result == 'SUCCESS'
-				}
-			}
 			steps {
 				echo 'Testing...'
 				git url: 'https://github.com/Siluk98/deltachat-desktop.git'
@@ -50,7 +45,7 @@ tools {nodejs "nd"}
 						body: "Status: ${currentBuild.currentResult}",
 						recipientProviders: [[$class: 'DevelopersRecipientProvider']],
 						subject: 'Tests failed',
-						to: 'silukpl@gmail.com'
+						to: 'tindacc0001@gmail.com'
 				}
 				success {
 					echo 'Tests completed'
@@ -59,13 +54,13 @@ tools {nodejs "nd"}
 			}
 		}
 		stage('Deploy') {
-			when {
-				expression {
-					currentBuild.result == 'SUCCESS'
-				}
-			}
 			steps {
 				echo 'Deploying...'
+				git url: 'https://github.com/Siluk98/deltachat-desktop.git'
+				dir('Docker')
+				{
+					sh 'docker-compose up deploy-agent'
+				}
 			}
 			post
 			{
@@ -73,9 +68,8 @@ tools {nodejs "nd"}
 					echo 'Deployment failed'
 					emailext attachLog: true,
 						body: "Status: ${currentBuild.currentResult}",
-						recipientProviders: [[$class: 'DevelopersRecipientProvider']],
 						subject: 'Deployment failed',
-						to: 'silukpl@gmail.com'
+						to: 'tindacc0001@gmail.com'
 				}
 				success {
 					echo 'Deployment completed'
@@ -88,17 +82,15 @@ tools {nodejs "nd"}
 			echo 'Pipeline completed'
 			emailext attachLog: true,
 		    		body: "Status: ${currentBuild.currentResult}",
-		    		recipientProviders: [[$class: 'DevelopersRecipientProvider']],
 		    		subject: 'Pipeline completed',
-		    		to: 'silukpl@gmail.com'
+		    		to: 'tindacc0001@gmail.com'
 		}
 		failure {
 			echo 'Pipeline failed'
 			emailext attachLog: true,
 		    		body: "Status: ${currentBuild.currentResult}",
-		    		recipientProviders: [[$class: 'DevelopersRecipientProvider']],
 		    		subject: 'Pipeline failed',
-		    		to: 'silukpl@gmail.com'
+		    		to: 'tindacc0001@gmail.com'
 		}
 	}
 }
