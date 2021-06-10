@@ -6,5 +6,7 @@ minikube dashboard - uruchomienie dashboarda
 Stworzenie pliku komunikator-deployment.yml, ktory zawiera elementy wymagane w instrukcji
 5.
 kubectl apply -f komunikator-deployment.yaml - wykonanie polecen zawartych w piku przez kubernetesa
-6.
+kubectl expose deployment/kominikator-deployment
+kubectl port-forward service/komunikator-deployment 7272:7272
+7.
 Zmiana ilosci tworzonych replik i ponowne wykonanie powyzszego polecenia
