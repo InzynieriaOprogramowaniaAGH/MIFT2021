@@ -1,0 +1,103 @@
+def repoUrl = 'https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021/'
+def defaultBranch = 'Grupa05'
+def repoWorkspacePath = 'Grupy/Grupa05/JS283683/workspace' 
+
+def log(str,lvl='INFO') { println("[BUILD_${lvl}] ${str}") }
+def buildImageName = 'build_agent'
+def testImageName = 'test_agent'
+def releaseImageName = 'node_chat_starter'
+def repositoryName = "szumied"
+
+pipeline {
+    agent any
+    options { disableConcurrentBuilds() }
+    parameters {
+        string(name: 'BRANCH', defaultValue: defaultBranch, description: 'MIFT2021 repo branch')
+        booleanParam(name: 'RELEASE', defaultValue: false, description: 'Should artifacts be published when successful?')
+    }
+    // triggers {
+    //     cron('H 3 * * *') 
+    // }
+    stages {
+        stage('Preparation: SCM'){
+            steps {
+                checkout([$class: 'GitSCM',
+                  branches: [[name: params.BRANCH]],
+                  extensions: [],
+                  userRemoteConfigs: [[url: repoUrl]]])
+                withCredentials([usernamePassword(credentialsId: 'DOCKERHUB', passwordVariable: 'dockerPass', usernameVariable: 'dockerUser')]) {
+                    sh "echo ${dockerPass} | docker login -u ${dockerUser} --password-stdin"
+                }
+            }
+            
+        }
+        stage('Build') {
+            steps {
+                log "Build stage running"
+                script {
+                    dir(repoWorkspacePath) {
+                        def dockerfilePath = './build_agent'
+                        def imageName = "${repositoryName}/${buildImageName}:${env.BUILD_ID}"
+                        def buildAgentImage = docker.build(imageName, dockerfilePath)
+                        log "${buildAgentImage}"
+                        log "${buildAgentImage.id}"
+                        buildAgentImage.push('latest')
+                    }
+                }
+            }
+        }
+        stage('Test') {
+            steps { 
+                script { log "npm run test here > fake_news.log" }
+                 script {
+                    dir(repoWorkspacePath) {
+                        def dockerfilePath = './test_agent'
+                        def imageName = "${testImageName}:${env.BUILD_ID}"
+                        def testAgentImage = docker.build(imageName, dockerfilePath).withRun("-t") { container ->
+                            sh "docker exec -i ${container.id} cat 'node-chat-app/test_result.log' > ${WORKSPACE}/test_result.log"
+                        }
+                        // TODO: Archive tests
+                    }
+                 }
+            }
+        }
+        stage('Publish') {
+            when {
+                expression { params.RELEASE }
+            }
+            steps {
+                script {
+                    dir(repoWorkspacePath) {
+                        def dockerfilePath = './starter_agent'
+                        def imageName = "${repositoryName}/${releaseImageName}:${env.BUILD_ID}"
+                        def releaseImage = docker.build(imageName, dockerfilePath)
+                        releaseImage.push('latest')
+                    }
+                }
+            }
+        }
+        stage('Archive artifacts') {
+            steps {
+                archiveArtifacts artifacts: '**/fake_news.log', allowEmptyArchive: true
+            }
+        }
+    }
+    post {
+        always {
+            log 'Always block'
+            // TODO?: deleteDir() /* clean up workspace */ 
+            // TODO?: docker prune
+            // However, mozna tez walnac script git clean -dxf, to nie bedzie przynajmniej pobierac calego repo od nowa
+        }
+        success {
+            log 'Success block'
+        }
+        unstable {
+            log 'Unstable block'
+        }
+        failure {
+            log 'Fail block'
+        }
+    }
+}
+// Grupa05-JS283683_Lab09

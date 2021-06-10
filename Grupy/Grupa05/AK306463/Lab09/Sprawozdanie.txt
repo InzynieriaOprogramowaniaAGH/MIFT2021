@@ -1,17 +1,23 @@
 DevOps 13.05.2021
 
-1. W celu automatycznego uruchamiania pipeline'u Jenkinsowego po każdorazowym commicie, utworzyłam prostego Git hooka (post-commit) i umieściałam go w sklonowanym lokalnie repozytorium.
+1. W celu automatycznego uruchamiania pipeline'u Jenkinsowego po każdorazowym commicie,
+   utworzyłam prostego Git hooka (post-commit) i umieściałam go w sklonowanym lokalnie
+   repozytorium.
 
-2. Przetestowałam autoamtyczne uruchamianie pipeline- po wykonaniu commita, pipline rusza automatycznie bez mojej ingerencji, na srcreenach widać różnicę w logach- gdy uruchamiam go ręcznie (2.1) oraz gdy uruchamia go git hook post-commit (2.2).
+2. Przetestowałam autoamtyczne uruchamianie pipeline- po wykonaniu commita, pipline
+   rusza automatycznie bez mojej ingerencji, na srcreenach widać różnicę w logach- gdy
+   uruchamiam go ręcznie (2.1) oraz gdy uruchamia go git hook post-commit (2.2).
 
 3. Dodałam stage Deploy do mojego pipeline'u.
 
 4. W stagu deploy
     - tworzony jest kontener dockerowy
-    - do utworzonego kontenera przekazywane są artefakty powstałe podczas etapu budowania
+    - do utworzonego kontenera przekazywane są artefakty powstałe podczas etapu
+      budowania
 
 5. Wykazałam i udokumentowałam, że:
     - pipline jest zdefiniowany w Jenkinsfile umieszczonym na repo z komunikatorem (5.1)
     - pipeline uruchamiany jest automatycznie (2.2)
     - pipeline przechodzi wszystkie etapy (4)
-    - pipeline obsługuje powiadomienie o rezultatach każdego z etapu (5.2, 5.3, 5.4, 5.5)
+    - pipeline obsługuje powiadomienie o rezultatach każdego z etapu (5.2, 5.3, 5.4,
+      5.5)
