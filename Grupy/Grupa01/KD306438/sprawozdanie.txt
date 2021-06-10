@@ -5,4 +5,6 @@
 	-sudo install minikube-linux-amd64 /usr/local/bin/minikube
 Po instalacji odpowiednich sternownikow uruchomiono klaster za pomoca 'minikube start' oraz pobrano kubectl 'minikube kubectl -- grt po -A.
 
+3. Uruchomiono Minikube Dashboard komenda 'minikube dashboard'.
+
 
