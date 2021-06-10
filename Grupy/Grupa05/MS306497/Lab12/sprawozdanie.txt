@@ -1,0 +1,5 @@
+1. Uruchomiono klaster Kubernetes tak jak na Lab11
+2. Uruchomiono Minikube Dashboard i upewniono sie ze dziala:
+minikube dashboard
+
+3. Zapoznano sie z dokumentacja tworzenia manifestow dla obiektow "Deployment"
