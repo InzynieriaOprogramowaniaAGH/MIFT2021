@@ -1,41 +1,30 @@
 pipeline {
     agent any
+    
+tools {nodejs "NodeJS"}
 
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
-          
+                echo 'Building...'
+			
+                
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
-              
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                sh 'npm run test-misc'
             }
         }
     }
     post{
-    	success {
-    		echo 'Sucess....'
-    		emailext attachLog: true,
-    		attachmentsPattern: 'tests_log.txt',
-                body: "Tests successful for job ${env.JOB_NAME}",
-                subject: "Tests successful.",
-                to: 'kijek.igor@gmail.com'
-    	}
-    	unstable{
-    		echo 'Unstable....'
-    		emailext attachLog: true,
-    		attachmentsPattern: 'tests_log.txt',
-                body: "Tests failed for job ${env.JOB_NAME}",
-                subject: "Tests failed.",
-                to: 'kijek.igor@gmail.com'
-    	}
+    	failure{
+			slackSend channel:'chatapp', color: 'good', message: "Build failure, *${currentBuild.currentResult}:* *${currentBuild.fullDisplayName}*\n URL to Logs  ${BUILD_URL}/console", tokenCredentialid: 'slack-notification'
+		}
+		success{
+		
+			slackSend channel:'chatapp', color: 'good', message: "Build Succes, *${currentBuild.currentResult}:* *${currentBuild.fullDisplayName}*\n URL to Logs ${BUILD_URL}/console", tokenCredentialid: 'slack-notification'
+		}
     }
 }

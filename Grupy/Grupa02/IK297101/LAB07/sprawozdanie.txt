@@ -2,8 +2,6 @@ Temat: Pipeline CI/CD - podstawy & testowanie.
 
 1. Twoje "źródło prawdy" - umieść  (skopiuj) wszystkie pliki źródłowe (skrypty uruchamiające środowiska, Dockerfile, docker-compose.yaml, Jenkinsfile z tych zajęć też etc.) w repozytroium InzynieriaOprogramowaniaAGH/MIFT2021.git. 
 
-proste tworzenie folderów i plików
-
 //polecenie pokazujące drzewo gdzie baza to folder z którego wywołujemy polecenie
 tree
 
@@ -13,15 +11,12 @@ tree
 
 2.1 Następnie stwórz Jenkinsfile i umieść go w repo z komunikatorem (to nie to samo repo co na skrypty z pkt 1!). 
 
-
-
-2.2 (opcjonalnie) Zwróć uwagę, że być może będziesz chciał zrobić "forka" na oryginalnym repo.
-
-
+//Plik stowrzyłem i zmieniałem bezpośrednio przez przeglądarke na Forkowanym repozytorium.
 
 2.3 W Jenkinsfile stwórz nowego Jenkins pipeline (przykład tutaj: https://www.jenkins.io/doc/book/pipeline/jenkinsfile/) , a w nim w sekcji "stages" nowy "stage('Test')".
 
-
+//Z uwagi że wczesniej próbowałem zainstalować "npm", zanim zorientowałem się żę mozna go dodać jako "tools"
+//dlatego też istnieje stage "Build"
 
 2.4 Wewnątrz Jenkinsfile w sekcji "stage('Test')" oskryptuj uruchaminia testów dla aplikacji z pkt. 2.1 - zwróć uwagę, by:
 - log z efektami testowania trafił do użytkownika ("powiadamianie o rezultatach")
@@ -29,11 +24,14 @@ tree
 -- testy się powiodły (100%)
 -- testy się nie powiodły (< 100%)
 
-
+// Ponieważ nie mogłem poprawnie skonfigurować wysyałania maila. Certyfikaty mi nie przechodziły, nawet kiedy pobrałem specjalnie plugina do ignorowania certyfikatów.
+// Dlatego też użyłem Strony Slack, Jest to komunikator na którym wyświetlam rezultaty uruchomionego Joba
+// Oprócz rezultatów udostepniam też Link do Logów konosli.
 
 3. Wykonaj i wykaż przykład wykonania tych testów z użyciem Jenkinsfile.
 
-
+//Jak napisałem wyżej Strona Slack została skonfigurowana oraz po stronie Jenkinsa zostałą wykonana konfiguracja
+//W efekcie rezultaty pracy zostały ukazane w tej aplikacji.
 
 4. Wrzuć Jenkinsfile na repo z pkt 1.
 
