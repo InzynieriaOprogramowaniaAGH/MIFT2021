@@ -1,0 +1,39 @@
+1. Stworzenie krotkozyjacego brancha za pomoca komendy: git checkout -b Grupa05-JF306439_Lab12
+
+2. Uruchomienie Minikube oraz Minikube Dashboard: minikube start, minikube dashboard (poczatkowo problem z dostepem do portu, po restarcie komputera problem zniknal)
+	
+3. Zapoznanie sie z dokumentacja tworzenia manifestow dla obiektow "Deployment": https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+
+4. Stworzenie pliku komunikator-deployment.yaml zgodnie z dokumentacja:
+
+	apiVersion: apps/v1
+	kind: Deployment
+	metadata:
+ 	 name: komunikator-deployment
+	  labels:
+	    app: komunikator
+	spec:
+	  replicas: 4
+	  selector:
+	    matchLabels:
+	      app: komunikator
+	  template:
+	    metadata:
+	      labels:
+	        app: komunikator
+	    spec:
+	      containers:
+	      - name: komunikator
+       	 image: whitiee/myjenkins-blueocean:1.1
+       	 ports:
+       	 - containerPort: 80
+
+5. Zlecenie klastrowi zrealizowanie powyższego pliku używając polecenia: kubectl apply -f komunikator-deployment.yaml
+
+6. Poprawne uruchomienie i dzialanie klastra (wszystkie 4 pody oznaczone jako Running, kolor zielony) udokumentowane na screenie
+
+7. Wprowadzenie zmian w pliku komunikator-deployment.yaml, zmiana: replicas: 4 na replicas: 10, zlecenie aktualizacji:  kubectl apply -f komunikator-deployment.yaml
+	
+8. Udokumentowanie poprawnego dzialania klastra (wszystkie 10 podow oznaczone jako Running, kolor zielony), udokumentowane na screenie
+
+9. Dolaczenie zmian na Git'a
