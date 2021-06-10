@@ -9,7 +9,6 @@ tools {nodejs "nodejs"}
 				echo 'Building...'
 				sh 'npm install'
 				sh 'npm audit fix'
-				sh 'npm run build'
 		    }
 		}
 		stage('Test'){
