@@ -1,0 +1,24 @@
+Zajęcia: 10.06.2021
+
+Temat: Podstawy obsługi klastra Kubernetes - Deployment Manifest
+
+1. Do wykonania tego ćwiczenia lokalnie uruchomiłam klaster Kubernetes tak, jak na Lab11. 
+
+2. Uruchomiłam Minikube Dashboard poleceniem "minikube dashboard". Minikube Dashboard otworzył się w nowym oknie przeglądarki, więc upewniłam się, że działa.
+
+3. Zapoznałam się z dokumentacją tworzenia manifestów dla obiektów "Deployment".
+
+4. Stworzyłam plik komunikator-deployment.yaml zgodnie z powyższą dokumentacją, ale zawierający:
+- nazwa: komunikator-deployment,
+- app: komunikator,
+- obraz z komunikatorem tak, jak na poprzednich zajęciach,
+- 4 repliki.
+
+5. Zleciłam klastrowi zrealizowanie powyższego pliku używając polecenia:
+kubectl apply -f komunikator-deployment.yaml
+
+6. Udokumentowałam stan klastra Kubernetes. Stworzone oraz uruchomione zostały 4/4 pody.
+
+7. Wprowadziłam zmiany w pliku, czyli zmnieniłam ilość replik z 4 na 7. Następnie zleciłam klastrowi aktualizację poleceniem takim, jak w pkt. 5.
+
+8. Udokumentowałam nowy stan klastra. Stworzone oraz uruchomione zostały 3 nowe pody. Więc finalnie działało 7/7 podów.
