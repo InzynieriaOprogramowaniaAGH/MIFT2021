@@ -17,7 +17,9 @@ Lab 12
 5.Zlecenie klastrowi realizację pliku:
 	kubectl apply -f komunikator-deployment.yaml
 
-6.Udokumentowanie stanu klastra (PNG)
+6.Udokumentowanie stanu klastra (PNG).
 
 7.Zmieniono ilość replik w pliku na 6 i zlecono realizację
 	kubectl apply -f komunikator-deployment.yaml
+
+8.Udokumentowano nowy stan klastra (PNG).
