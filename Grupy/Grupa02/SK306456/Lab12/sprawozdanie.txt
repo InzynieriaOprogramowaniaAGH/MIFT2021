@@ -2,5 +2,8 @@
 2. Uruchomienie dashboardu poleceniem minikube dashboard.
 3. Utworzenie konfiguracji Deployment w pliku komunikator-deployment.yaml.
 4. Realizacja Deploymentu zdefiniowanego w pliku poleceniem kubectl apply -f komunikator-deployment.yaml.
-5. Uruchominie usługi (kubectl expose deployment/komunikator-deployment) oraz przekierowanie portu kubectl port-forward service/komunikator-deployment 3000:3000 aby móc korzystać z komunikatora z localhosta.
+5. Uruchominie usługi (kubectl expose deployment/komunikator-deployment) oraz przekierowanie portu (kubectl port-forward service/komunikator-deployment 3000:3000) aby móc korzystać z komunikatora na localhoście.
 6. Dokumentacja stanu minikube poleceniami kubectl get deployments, kubectl get pods oraz kubectl get services.
+7. Modyfikacja pliku Deployment (komunikator-deployment.yaml), aby uruchomione było 5 replik.
+8. Zatwierdzenie zmian poleceniem kubectl apply -f komunikator-deployment.yaml.
+9. Dokumentacja stanu minikube. Jeden z 5 pods ma czas działania wynoszący 10s - jest to ten uruchomiony po akutalizacji Deploymentu.
