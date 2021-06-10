@@ -1,0 +1,17 @@
+1)Zainstalowanie klastra kubernetes, następnie uruchomienie klastra oraz zainstalowanie kublectl
+
+2)Uruchomienie Minkube dashboard
+
+3) Zapoznanie sie z możliwościami minikube dashboard
+- wdrazanie aplikacji kontenerowych w klastrze,
+- zarzadzanie klastrem,
+- przegladac aplikacje dzialajace w klastrze,
+- tworzenie i modyfikowanie zasobów,
+- monitorowanie aplikacji
+- tworzenie wirtualnych klastrów
+
+4)uruchomienie kontenera w kubernetes, za pomoca podanego polecenia korzystając z obrazu komunikatora na dockerhub.
+
+4.1)Nastepnie przekierowano porty w celu umożliwienia dostepu z zewnątrz i sprawdzenie działania aplikacji
+
+5)Udokumentowanie działania komunikatora w klastrze kubernetes zrzutami ekranu
