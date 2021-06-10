@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: komunikator-deployment
+  labels:
+    app: feathers-chat
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: feathers-chat
+  template:
+    metadata:
+      labels:
+        app: feathers-chat
+    spec:
+      containers:
+      - name: komunikator
+        image: grzechotnik/lab11:latest
+        ports:
+        - containerPort: 3030
