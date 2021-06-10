@@ -1,14 +1,16 @@
 pipeline {
     agent any
 
+tools {nodejs "nd"}
     stages {
         stage('Build') {
             steps {
                 echo 'Building...'
-		    git url: 'https://github.com/Siluk98/deltachat-desktop.git'
-		    dir('Docker') {
-				sh 'docker-compose up build-agent'
-		    }
+				git url: 'https://github.com/Siluk98/deltachat-desktop.git'
+				dir('Docker')
+				{
+					sh 'docker-compose up build-agent'
+				}
             }
 			post
 			{
