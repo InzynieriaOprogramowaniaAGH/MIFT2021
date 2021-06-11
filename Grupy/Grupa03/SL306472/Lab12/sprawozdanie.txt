@@ -1,0 +1,48 @@
+1. Uruchomiono klaster tak jak na poprzednich zajeciach (zastano zachowany stan)
+	
+	"minikube start"
+
+2. Uruchomiono poprawnie dashborad minikuba
+
+	"minikube dashboard"
+
+3. Zapoznano się z dokumentacją tworzenia manifestów dla obiektów "Deployment"
+
+
+4. Stworzono plik komunikator-deployment.yaml 
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: komunikator-deployment
+  labels:
+    app: komunikator
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: komunikator
+  template:
+    metadata:
+      labels:
+        app: komunikator
+    spec:
+      containers:
+      - name: komunikator
+        image: enzolorenzo/mift2021:socketio
+        ports:
+        - containerPort: 3000
+        
+
+5. Zlecono zrealizowanie powyższego pliku przez klaster
+
+	"kubectl apply -f komunikator-deployment.yaml"
+
+6. Poprawnie wykonała się operacja
+
+
+7. Zmieniono ilość replik z 4 na 2 i ponownie zlecono realizacje pliku
+
+	"kubectl apply -f komunikator-deployment.yaml"
+
+8. Poprawnie wykonała sie operacja usuwając 2 z 4 replik
