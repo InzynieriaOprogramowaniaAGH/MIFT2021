@@ -1,0 +1,32 @@
+2. 
+	Instalacja minikube:
+		curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+		sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+	Ustawnienie dockera jako domyślny driver:
+		minikube config set driver docker
+	
+	Dodanie usera do grupy dockerowej:
+		sudo usermod -aG docker patryk && newgrp docker
+	
+	Uruchomienie klastra:
+		minikube start
+	
+	Pobranie kubectl:
+		minikube kubectl -- get po -A
+
+3.
+	Uruchomienie dashborda
+		minikube dashboard
+		
+	Co można robić z Miikube Dashboard
+		- Zarządzać zasobami i monitorować ich zużycie
+    		- Kontrolować uruchomione
+    		- Zarządzać ustawieniami klastrów podami, deployami, jobami itp.
+		
+4.	Uruchomienie kontenera i przekierowanie portów
+		kubectl run -it komunikator --image=pazindor/node-chat:v3 --port=9999 --labels app=komunikator
+
+		kubectl port-forward pod/komunikator 9999:3000
+
+
