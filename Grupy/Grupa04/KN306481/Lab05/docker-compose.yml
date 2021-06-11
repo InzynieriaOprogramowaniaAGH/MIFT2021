@@ -1,0 +1,18 @@
+version: '2'
+services:
+  app_server:
+    container_name: node_app_server
+    build: server
+    volumes:
+     - .:/src
+  app_client:
+    container_name: node_app_client
+    build: client
+    depends_on:
+      - "app_server"
+    command: sh -c './src/wait.sh app_server:8081 -- echo READY && node ./src/client.js'
+    volumes:
+     - .:/src
+
+
+
