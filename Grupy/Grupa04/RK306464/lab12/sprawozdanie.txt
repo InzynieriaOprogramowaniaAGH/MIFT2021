@@ -1,0 +1,9 @@
+1. Klaster kubernetes był już uruchomiony dzięki poprzednim labolatoriom
+2. Poleceniem minikube dashboard uruchomiłem minikube i sprawdziłem jego działania
+3. Zapoznałem się z dokumentacją tworzenia manifestów dla obiektów Deployment
+4. Zgodnie z dokumentacją stworzyłem plik komunikator-deployment.yml cały plik został dodany do repozytorium.
+5. Poleceniem kubectl apply -f komunikator-deployment.yml zleciłem klasotrowi zrealizowanie pliku.
+6. Odpalając minikube sprawdziłem iż cały proces przebiegł pomyślnie.
+7. Zmieniłem ilość replik na 8 i zleciłem klastrowi aktualizację poleceniem 
+	- apply -f komunikator-deployment.yml.
+8. Aktualizacja przebiegła pomyślnie i zwiększyła się ilość replik do 8.

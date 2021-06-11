@@ -1,0 +1,13 @@
+sprawozdanie, Lab11, Gr04, Kamil Osika
+
+1. Początkowo pobrano potrzebny obraz dockerowy, oraz umieszczono go na dockerhubie
+2. Następnie pobrano minikube'a oraz zainstalowano go za pomocą polecenia: sudo install minikube-linux-amd64 /usr/local/bin/minikube
+   Postanowiono uruchomić go jako kontener. By ten proces był możliwy dodano użytkownika do grupy dockerowej. Ten proces jest widoczny na zrzutach ekranu 2.1 oraz 2.2.
+   Następnie uruchomiono minikube'a za pomocą polecenia minikube start. Wyniki uruchomienia tego polecenia są widoczne na zrzucie ekranu 2.2
+3. Po poprawnym uruchomieniu klastra uruchomiono dashboard'a. Proces widoczny jest na zrzucie ekranu 2.3. Potwierdzenie uruchomienia dashboard'u znajduje się na zrzucie ekranu 3.1
+   Postanowiono uruchomić service przez obraz na dockerhubie (zrzut ekranu 3.2). Jego postawienie widoczne jest na zrzucie ekranu 3.3
+4. Uruchomienie kontenera-komunikatora za pomocą kubectl okazało się nie możliwe. Sprawdzono czy kubectl jest zainstalowany. Okazało się, iż nie został on pobrany w trakcie instalacji minikube'a. (zrrzut ekranu 2.4)
+   Został on więc pobrany i zainstalowany. Potwierdzenie znajduje się na zrzucie ekranu 3.4
+   Po poprawnej instalacji udało się stworzyć komunikator(zrzut ekranu 4.1)
+5. W dashboardzie pojawił się uruchomiony kontener(zrzut ekranu 5.1)
+   
