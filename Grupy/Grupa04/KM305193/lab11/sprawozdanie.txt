@@ -1,0 +1,28 @@
+Posiadano juz wczesniej kontener dockerowy ze zbudowanym komunikatorem
+
+Zainstalowano minikube wedlug instrukcji
+
+Uruchomiono klaster kubernetes 
+
+	minikube start
+
+Pobrano kubectl 
+
+	minikube kubectl -- get po -A
+	
+Wlaczono i uruchomiono minikube dashboard 
+
+	minikube dashboard
+	
+Uruchomiono kontener-komunikator w Kubernetes
+
+	kubectl run komunikator --image=kmat1999/jenkins-lab-devops --port=9999 --labels app=komunikator
+	
+Przekierowanie portow w celu umozliwienia dostepu z zewnatrz
+
+	kubectl port-forward deploy/komunikator 9999:9999
+	
+Udokumentowano, ze komunikator dziala w klastrze Kubernetes
+
+	
+
