@@ -1,0 +1,56 @@
+1. Uruchomiony klaster kubernetes
+2. Uruchom minikube Dashboard poleceniem "minikube dashboard" i upewnij się że działa
+
+// Wystartowanie minikube
+minikube start
+
+//Włączenie dashboardu
+minikube dashboard
+
+3. zapoznaj się z dokumentacją tworzenia manifestów dla obiektów "Deployment":
+
+
+4. Stwórz plik komunikator-deployment.yaml zgodnie z powyższą dokumentacją, ale zawierający:
+-nazwa: komunikator-deployment
+-app: komunikator
+-obraz z komunikatorem
+-4 repliki
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: komunikator-deployment
+  labels:
+    app: komunikator
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: kubec
+  template: 
+    metadata:
+      labels:
+        app: kubec
+    spec:
+      containers:
+      - name: komunikator-deployment
+        image: galainer/kubec
+        ports:
+        - containerPort: 80
+        
+        
+
+5. Zrealizowanie powyższego pliku
+
+
+kubectl apply -f komunikator-deployment.yaml
+// Linijka powoduje wykonanie instrukcji yaml.
+
+kubectl rollout status  deployment/komunikator-deployment
+//Uruchomieni i wprowadzenie wczesniej stworzonego deploymentu
+
+kubectl get deployments
+//Wyświetlenie wyników deplyomentu.
+6. Wprowadz zmiany, ilość repllik zmieniona na 5
+//zmieniona została linijka "replicas"
+
