@@ -1,0 +1,22 @@
+1. Uruchomiono (lokalny) klaster Kubernetes:
+'minikube start'.
+
+2. Uruchomiono Minikube Dashboard:
+'minikube dashboard'.
+
+3. Zapoznano się z dokumentacją tworzenia manifestów dla obiektów "Deployment".
+
+4. Stworzono plik 'komunikator-deployment.yaml' zawierający:
+ -nazwa: komunikator-deployment,
+ -app: komunikator,
+ -obraz: wnowak/myjenkins,
+ -4 repliki.
+ 
+ 5. Zlecono klastrowi zrealizowanie pliku:
+ 'kubectl apply -f komunikator-deployment.yaml'.
+ 
+ 6. Udokumentowano stan klastra Kubernetes.
+ 
+ 7. Zmieniono liczbe replik na 7 oraz ponownie zlecono klastrowi zrealizowanie pliku.
+ 
+ 8. Udokumentowano nowy stan klastra.
