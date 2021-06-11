@@ -1,0 +1,20 @@
+2. Zainstalowano klaster kubernetes, uruchomiono go i doinstalowano kubectl:
+    "minikube start"
+    "minikube kubectl -- get po -A"
+
+3. Wykonano komendę "minikube dashboard".
+
+3.1 Zapoznano się z możliwościami Minikube Dashboard:
+    - wdrażanie aplikacji kontenerowych
+    - zarządzanie klastrem
+    - monitorowanie aplikacji
+    - tworzenie wirtualnych klastrów
+    - przeglądanie działających aplikacji w klastrze
+
+4. Uruchomienie kontenera w kubernetes. Obraz został wzięty z dockerhuba.
+    "kubectl run komunikator --image=dariusznowakdockerid/jenkins-lab"
+
+4.1 Przekierowano porty w celu dostępu z zewnątrz.
+    "kubectl port-forward deploy/komunikator 9999:9999"
+
+5. Udokumentowanie działania komunikatora w klastrze.
