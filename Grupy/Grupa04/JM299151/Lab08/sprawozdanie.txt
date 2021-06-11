@@ -1,0 +1,14 @@
+Sprawozdanie nr 8
+
+1. Rozszerzenie Jenkinsfile z Lab07 o nowy stage("Build")
+
+2.Upewnienie się, że w stage("Build"):
+-> jest pobierana najnowsza wersja kodów źródłowych z repozytorium
+-> program jest budowany
+-> użytkownik jest powiadamiany zarówno o sukcesie jak i porażce etapu budowania
+
+3. Upewnienie się, że po zbudowaniu z sukcesem jest uruchamiany stage("Test"), 
+jednak po nieudanym budowaniu nic się nie dzieje.
+
+4.Napisanie git "post-commit" hook'a dla rozpozytorium z komunikatorem, który wyświetla wiadmość:
+"To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie".

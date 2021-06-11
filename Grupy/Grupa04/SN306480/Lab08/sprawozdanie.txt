@@ -1,0 +1,20 @@
+zadanie 1
+
+Rozszerzono jenkins file o nowy stage('Build')
+
+zadanie 2
+
+W stage 'Build' doinstalowano zaleznosci za pomoca npm install.
+Po porawnym zbudowaniu i testowaniu użytkownik został powiadomiony mailowo
+o wyniku procesu.
+
+zadanie 3
+
+Upewniono się, że po nieudanym budowaniu testy nie są uruchamiane.
+
+zadanie 4
+
+Napisano git 'post-commit' hook'a dla repozytorium z komunikatorem, , który wyświetla wiadomość 
+"To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie".
+
+

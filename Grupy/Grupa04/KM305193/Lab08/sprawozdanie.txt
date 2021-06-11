@@ -1,0 +1,28 @@
+Rozszerzono zawartosc Jenkinsfile o stage('Build')
+
+	stage('Build'){
+		steps{
+			sh 'git pull origin master'
+			sh 'npm install'
+			sh 'npm build'
+		}
+	}
+	
+sh 'git pull origin master' -> odpowiada za pobranie najnowszej wersji kodow repozytorium
+sh 'npm install'
+sh 'npm build' -> budowanie programu
+
+Uzytkownik jest powiadamiany o sukcesie jak i porazce budowania przez maila.
+
+Nastepnie odinstalowano nodejs z kontenera aby wymusic niepowodzenie budowania i sprawdzenia poprawnego ominiecia etapu testowania.
+
+	apt-get purge --auto-remove nodejs
+	
+Przystapiono do napisania hook'a, ktory odpowiada za wyswietlenie odpowiedniej wiadomosci po wykonaniu commita.
+
+	#!/bin/bash
+	echo "To jest commit hook, ktory bedzie kiedys uruchamial Pipeline po kazdym nowym commicie"
+	
+Na samym koncu nadano odpowiednie uprawnienia do wykonania skryptu
+
+	chmod +x post-commit

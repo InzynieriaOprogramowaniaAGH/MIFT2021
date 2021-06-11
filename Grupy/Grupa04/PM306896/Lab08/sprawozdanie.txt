@@ -1,0 +1,73 @@
+zad 1:
+rozszerzono Jenkinsfile stworzony na potrzeby ostatnich zajec:
+dodano pobieranie najnowszej wersji kodu z GitHuba poprzez git pull
+dodano nowy stage Build, a w nim informacje o przebiegu budowania
+do kazdego stage dodano post tak, aby wykonywal sie on osobno dla stage test oraz build
+
+buildSucceeded=false
+pipeline {
+	agent { 
+		docker { image 'node:alpine'}
+	}
+	stages {
+		stage('Build') {
+			steps {
+				sh 'npm install'
+				sh 'cd /home/paula/communicator'
+				sh 'git checkout master'
+				sh 'git pull'
+				sh 'docker-compose up -d'
+			}
+			post {
+				success{
+					buildSucceeded=true
+					mail to: 'pmroz@student.agh.edu.pl', 
+					subject: 'The pipeline ${currentBuild.fullDisplayName} 							build succeeded'
+					body: 'build succeeded'
+				}
+				failure{
+					mail to: 'pmroz@student.agh.edu.pl', 
+					subject: 'The pipeline ${currentBuild.fullDisplayName} build failed'
+					body: '${env.BUILD_URL}'
+				}
+			}
+		}
+		stage('Test') {
+			when{
+				buildSucceeded==true
+			}
+			steps {
+				sh 'npm test'
+			} 
+			post {
+				success{
+					mail to: 'pmroz@student.agh.edu.pl', 
+					subject: 'The pipeline ${currentBuild.fullDisplayName} 								tests succeeded'
+					body: 'test succeeded'
+				}
+				failure{
+					mail to: 'pmroz@student.agh.edu.pl', 
+					subject: 'The pipeline ${currentBuild.fullDisplayName} tests failed'
+					body: '${env.BUILD_URL}'
+				}
+			}
+		}
+		
+	}
+}
+
+zad 3:
+na poczatku pliku dodano zmienna buildSucceeded poczatkowo definiowana jako false
+w przypadku prawidlowego zbudowania do zmiennej przypisywana jest wartosc true
+nastepnie, w stage testowym uzyto warunku when
+sprawdzono czy zmienna buildSucceeded jest ustawiona na true
+jesli tak, wykonywane zostaja testy
+
+zad 4:
+napisano post-commit hook'a:
+#!/bin/sh
+
+echo 'To jest commit hook, ktory bedzie kiedys uruchamial Pipeline po kazdym nowym commicie'
+
+dodano uprawnienie wykonywania sie post-commita
+chmod +x post-commit

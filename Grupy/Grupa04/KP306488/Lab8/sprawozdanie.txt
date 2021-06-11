@@ -1,0 +1,8 @@
+1. Rozszerzyłem Jenkinsfile z Lab07 o nowy stage("Build")
+
+2. W stagu Build:
+	-pobierana jest najnowsza wesja kodów źródłowych
+	-program jest budowany
+	-użytkownik powiadamiany jest zarówno o sukcesie jak i o porażce
+3. Upewniłem się, że po zbudowaniu z sukcesem jest uruchamiany stage("Test"), ale po nieudanym budowaniu to się nie dzieje.
+4. Napisałem git "post-commit" hooka

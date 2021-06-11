@@ -1,0 +1,14 @@
+version: "3.3"
+services:
+ build-agent:
+  image: socketmess:latest
+  build:
+   context: .
+   dockerfile: ./../Docker/Dockerfile_socketio_build
+ test-agent:
+  image: socketmess-test:latest
+  build:
+   context: .
+   dockerfile: ./../Docker/Dockerfile_socketio_test
+  depends_on:
+   - build-agent

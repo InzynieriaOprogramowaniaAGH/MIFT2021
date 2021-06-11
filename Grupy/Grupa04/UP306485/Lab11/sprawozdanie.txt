@@ -1,0 +1,19 @@
+1. Zaiinstalowalam minikube za pomoca polecen:
+	$ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+	$ sudo install minikube-linux-amd64 /usr/local/bin/minikube
+Nastepnie uruchomilam klaster za pomoca:
+	$ minikube start
+Na koncu pobralam kubectl:
+	$ minikube kubectl -- get po -A
+2. Uruchomilam Dashboard minikube'a:
+	$ minikube dashboard
+3. Korzystajac z minikube dashboard mozna:
+	- wdrazac aplikacje w kontenerach
+	- zarzadzac zasobami klastra
+	- zarzadzac i kontrolowac pody
+	- tworzyc i zarzadzac joby
+	- tworzyc i modyfikowac indywidualne zasoby Kubernetes
+4 . Uruchomilam kontener-komunikator w Kubernetes:
+	$ kubectl run komunikator --image=upiatek/socket.io-messenger-deploy --port=9999 --labels app=komunikator
+ Oraz sprawdzilam jego dzialanie. W celu umozliwienia dostepu z zewnatrz przekierowalam porty:
+ 	$ kubectl port-forward komunikator 9999:3000

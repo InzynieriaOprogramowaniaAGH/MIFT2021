@@ -1,0 +1,14 @@
+sprawozdanie, Lab09, Gr04, Kamil Osika
+
+1. Pierwszym etapem było stworzenie automatyzacji uruchamiania pipeline'u. W tym celu stworzono post-commit hooke'a, wysyłającego zapytanie http pozwalające uruchomić pipeline. 
+   - Skrypt widoczny jest na zdj 1.0, natomiast sposób konfiguracji pipeline'u znajduje się na zdj 1.1.
+2. Na zdjęciu 1.2 widoczne jest dodanie commitu i uruchomienie w tym samym czasie Pipeline'u nr 2. Z powodu złego automatycznego ustawienia strefy czasowej w Jenkinsie różnica w widocznych czasach wynosi dokładnie 2h.
+   - Można zauważyć że tak uruchomiony Pipeline wykonuje się prawidłowo (zdj 1.3).
+3. Kolejnym etpem było dodanie stage'u ,,Deploy". Jego skrypt widoczny jest na zdjęciu 3.1. Zauważono jednakże, iż program miał być uruchamiany kontenerowo. Z tego powodu wprowadzono do repozytorium z opisem konfiguracji kontenerowej
+   plik docker-compose.yml oraz Dockerfile uruchamiający komunikator. Pliki te zostały umieszczone w repozytorium w folderze ,,deployment".
+   Kontener był uruchamiany za pomocą polecenia :
+	step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: false])
+   Niestety z powodu niewyjaśnionego uszkodzenia maszyny wirtualnej, te zmiany nie zostały udokumentowane. Mimo to można zobaczyć prawidłowe uruchamianie się poszczególnych etapów na zdj 4.
+
+   	
+	

@@ -1,0 +1,19 @@
+sprawozdanie, Lab08, Gr04, Kamil Osika
+
+1. Tą część wykonano już na poprzednich zajęciach. Z powodu wykorzystania kontenerów, nie możliwe było sprawdzenie czy nastąpiło poprawne zainstalowanie oraz zbudowanie programu.
+   Z tego powodu zdecydowano się na stworzenie konfiguracji Pipeline'u nie opierającej się na kontenerach. Przy pomocy git clone pobrano oprogramowanie. Z powodu błędów, które pojawiły się 
+   po pobraniu kodu źródłowego, polecenie pobierające kod zostało później zakomentowane. W końcowej wersji Jenkinsfile'a, folder z programem powinien zostać usunięty i na nowo pobrany.
+
+2. Po pobraniu instalacja potrzebnych zależności wykonuje się w folderze programu. Po pomyślnej instalacji program jest budowany. Cały stage jest kontrolowany za pomocą sekcji post, która
+   w zależności czy etap wykonał się poprawnie, czy nie, informuje o tym w konsoli. Ten sam sposób informowania został wykorzystany w sekcji testującej. 
+   Cały kod Jenkinsfile'a został umieszczony na zrzucie ekranu 2.
+
+3. Przetestowano zaimplemetnowane zabezpieczenia kolejnych etapów i kolejność ich wykonywania.
+   - Poprawne wykonanie wszystkich etapów można zobaczyć na zrzutach ekranu 3.1 - 3.4.
+   - Jeżeli etap zakończy się niepowodzeniem etap testowy nie zostanie uruchomiony co jest widoczne w pliku 3.5 (build z godziny 17:25).
+
+4. Napisano git "post-commit" hook'a, który wyświetla wiadomość po wykonaniu commita. Jego treść znajduje się w pliku post-commit.sh oraz na zrzucie ekranu 4.
+
+
+
+

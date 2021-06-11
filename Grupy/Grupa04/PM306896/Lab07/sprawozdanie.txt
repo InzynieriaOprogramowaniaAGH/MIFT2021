@@ -1,0 +1,42 @@
+zad 1:
+stworzono katalog Docker oraz Jenkins,
+do folderu Jenkins dodano Jenkinsfile,
+w folderze Docker utworzono dwa katalogi: 
+	- docker-compose- w nim plik docker-compose.yml,
+	- katalog dockerfiles zawierajacy pliki Dockerfile,
+
+
+zad 2:
+stworzono plik Jenkinsfile majacy na celu wykonywanie testow
+w po ich wykonaniu w zaleznosci od wyniku na maila wysylana jest informacja o przebiegu testow:
+pipeline {
+	agent { 
+		docker { image 'node:alpine'}
+	}
+	stages {
+		stage('Test') {
+			steps {
+				sh 'npm test'
+			} 
+			
+		}
+		post {
+			success{
+				mail to: 'pmroz@student.agh.edu.pl', 
+				subject: 'The pipeline ${currentBuild.fullDisplayName}tests succeeded'
+				body: 'test succeeded'
+			}
+			failure{
+				mail to: 'pmroz@student.agh.edu.pl', 
+				subject: 'The pipeline ${currentBuild.fullDisplayName} tests failed'
+				body: '${env.BUILD_URL}'
+			}
+		}
+		
+	}
+}
+
+zad 3:
+w przegladarce dodano "New item" a nastepnie wybrano opcje Pipeline
+w miejscu przeznaczonym na skrypt wklejono wczesniej stworzony Jenkinsfile
+uruchomiono pipeline

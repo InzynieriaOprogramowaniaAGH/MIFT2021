@@ -1,0 +1,12 @@
+Utworzono webhooka, zainstalowano aplikacje ngrok sluzaca do mapowania adresow lokalnych na ogolnodostepne oraz w Jenkinsfile dopisano nastepujace linijki:
+
+	triggers
+	{
+		githubPush()
+	}
+	
+Po wykonaniu tych czynnosci pipeline byl automatycznie wyzwalany gdy commit sie pojawial na repozytorium.
+
+Nastepnie w repozytorium deltachat-desktop dodano Deploy-dockerfile - sluzyl on do budowania kontenera na ktory byl robiony deploy poprzez Jenkinsfile.
+
+Aby wszystko dzialalo nalezalo dodac do Jenkinsfile faze deploy w ktorej dokonywal sie build kontenera i deploy na niego wraz z notyfikacjami o wynikach prac, ktore byly kierowane na maila.
