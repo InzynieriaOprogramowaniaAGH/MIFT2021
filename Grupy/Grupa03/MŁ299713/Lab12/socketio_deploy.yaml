@@ -1,0 +1,21 @@
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: socketio
+      labels:
+        app: socketio
+    spec:
+      replicas: 12
+      selector:
+        matchLabels:
+          app: socketio
+      template:
+        metadata:
+          labels:
+            app: socketio
+        spec:
+          containers:
+          - name: socketio
+            image: lozan20/devops:kubernetes
+            ports:
+            - containerPort: 3000

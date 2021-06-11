@@ -1,0 +1,29 @@
+1. uruchomiłem minikube'a tak jak na ostatnich labach.
+2. Przeszukałem dokumentacje i dostosowałem yamla do swoich potrzeb. 
+
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: socketio
+      labels:
+        app: socketio
+    spec:
+      replicas: 12
+      selector:
+        matchLabels:
+          app: socketio
+      template:
+        metadata:
+          labels:
+            app: socketio
+        spec:
+          containers:
+          - name: socketio
+            image: lozan20/devops:kubernetes
+            ports:
+            - containerPort: 3000
+
+3. zleciłem wykonanie tego pliku przez minikube'a
+4. W dashboardzie widać cztery stworzone podsy
+5. zmodyfikowałem plik zeby tworzone bylo 12 podsów.
+6. Wszystko na screenach
