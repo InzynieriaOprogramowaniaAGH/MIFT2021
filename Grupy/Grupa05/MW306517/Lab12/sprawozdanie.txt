@@ -1,0 +1,15 @@
+Zadanie 2. Uruchomiono minikube przy pomocy komendy 'minikube start'
+
+Zadanie 4. Utworzono plik konfiguracyjny komunikator-deployment.yaml którego:
+-nazwa: komunikato-deployment
+-app: komunikator
+-obraz z komunikatorem
+-4 repliki
+
+Zadanie 5. Zlecono klastrowi wykonanie powyższego pliku wykorzystując komendę: 
+'kubectl apply -f komunikator-deployment.yaml'
+
+Zadanie 6. Zrobiono screena satnu klastra
+
+Zadanie 7. Zmiana ilości replik w pliku konfiguracyjnym na 6
+Udokumentowanie stanu klastra.
