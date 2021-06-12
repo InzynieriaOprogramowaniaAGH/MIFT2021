@@ -1,0 +1,12 @@
+
+1. Rozszerzenie Jenkinsfile z poprzednich labow o nowy stage - budowanie apki
+
+2. Uzupelnienie nowego stage o:
+	- pobranie najnowszych kodow z repo
+	- faktyczna budowa programu
+	- powiadomienie mailowe o powodzeniu lub niepowodzeniu budowania
+	
+3. Upewnienie sie ze testowanie wykonywanie jest tylko 
+	w wypadku sukcesu etapu budowania
+	
+4. Napisanie git hooka - "post-commit", ktory wyswietla wiadomosc
