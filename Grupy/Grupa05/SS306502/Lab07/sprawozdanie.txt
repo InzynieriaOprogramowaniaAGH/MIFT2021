@@ -1,0 +1,7 @@
+
+1. Umieszcenie wszystkich plikow zrodlowych w nowym schemacie folderow typu:
+	SS306502/nazwa_technologii/plik
+
+2. Wybranie punktow z planu CI/CD odpowiadajacyh za Uruchomienie szybkiego i niezawodnego testowania
+	- utworzenie Jenkinsfile
+	- wrzucenie JenkinsFile na zforkowawne repo apki
