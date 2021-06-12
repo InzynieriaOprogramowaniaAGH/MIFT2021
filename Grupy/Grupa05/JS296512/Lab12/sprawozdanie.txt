@@ -1,3 +1,11 @@
 1. Uruchomiłem klaster Kubernetes tak jak na Lab11.
 
 2. Uruchomiłem Minikube Dashboard poleceniem "minikube dashboard" i upewniłem się że działa.
+
+3. Zapoznałem się z dokumentacją tworzenia manifestów dla obiektów "Deployment".
+
+4. Stworzyłem plik komunikator-deployment.yaml zgodnie z dokumentacją, zawierający:
+- nazwa: komunikator-deployment
+- app: komunikator
+- obraz z komunikatorem tak jak na poprzednich zajęciach
+- 4 repliki
