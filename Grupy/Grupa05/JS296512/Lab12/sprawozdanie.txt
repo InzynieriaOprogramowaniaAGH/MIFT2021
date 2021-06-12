@@ -16,3 +16,5 @@ kubectl apply -f komunikator-deployment.yaml
 6. Udokumentowałem stan klastra Kubernetes.
 
 7. Wprowadziłem zmiany w pliku (zmniłem ilość replik na 5) i zleciłem klastrowi aktualizację tak jak w pkt. 5.
+
+8. Udokumentowałem nowy stan klastra.
