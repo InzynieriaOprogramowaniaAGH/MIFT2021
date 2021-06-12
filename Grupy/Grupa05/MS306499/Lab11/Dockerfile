@@ -30,6 +30,6 @@ WORKDIR /wire-desktop
 
 RUN yarn
 
-RUN yarn build:linux
+#CMD ["/bin/bash"]
 
-#CMD ["./dist/linux-unpacked/wire-desktop"]
+ENTRYPOINT ["tail", "-f", "/dev/null"]

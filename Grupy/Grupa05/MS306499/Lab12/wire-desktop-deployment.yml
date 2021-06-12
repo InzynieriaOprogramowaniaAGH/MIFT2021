@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wire-desktop-deployment
+  labels:
+    app: wire-desktop
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: wire-desktop
+  template:
+    metadata:
+      labels:
+        app: wire-desktop
+    spec:
+      containers:
+      - name: wire-desktop-dep
+        image: wire-desktop
+        ports:
+        - containerPort: 4000
