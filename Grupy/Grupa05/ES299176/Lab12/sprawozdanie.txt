@@ -1,0 +1,15 @@
+2. Uruchomiono Minikube Dashboard za pomocą polecenia minikube dashborard i sprawdzono poprawność działania. 
+
+3. Zapoznano się z dokumentacją tworzenia manifestów dla obiektów Deployment.
+
+4. Stworzono plik komunikator-deployment.yaml -> wzór pliku dołączony na screenie: Zadanie4
+
+5. Zlecono klastrowi zrealizowanie utworzonego pliku komunikator-deployment.yaml za pomocą polecenia kubectl apply -f komunikator-deployment.yaml
+
+6. Udokumentowano na zrzutach z ekranu stan klastra Kubernates 
+
+7. W pliku komunikator-deployment.yaml zmieniono ilość replik z 4 na 6 i zlecono realizację pliku. 
+
+8. Sprawdzono poprawność działania i udokumentowano nowy stan klastra. 
+
+
