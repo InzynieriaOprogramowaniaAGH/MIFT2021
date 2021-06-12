@@ -9,7 +9,7 @@ RUN apt-get install -y build-essential
 RUN apt-get -y install git
 RUN apt-get -y install npm
 
-WORKDIR ~
+RUN cd ~
 COPY . node-chat-app/
 WORKDIR node-chat-app
 RUN ls
