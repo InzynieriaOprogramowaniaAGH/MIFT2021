@@ -1,5 +1,9 @@
-1. Kontener dockerowy zbudowany na poprzednich zajęciach udostępniono na platformie DockerHub. 
-W tym celu uruchomiono kontener z jenkinsem (docker container exec -it jenkins-blueocean bash)
+1. Kontener dockerowy zbudowany na poprzednich zajęciach udostępniono na
+platformie DockerHub (edit: aplikacja komunikatora okazała się aplikacją mobilną
+i nie dało rady jej uruchomić w przeglądarce, dlatego w celu sprawdzenia
+działania klastra Kubernetes zmieniono aplikację na node chat app i w tym celu
+zmieniono również repozytorium gitowe z komunikatorem oraz pipeline, tak aby ten komunikator był budowany, testowano i wdrażany). 
+Uruchomiono kontener z jenkinsem (docker container exec -it jenkins-blueocean bash)
 i otagowano obraz ubuntu-deploy (docker tag ubuntu-deploy:latest kjop118/ubuntu-deploy:latest). 
 Następnie zalogowano sie na DockerHub (docker login) i udostępniono obraz (docker push).
 
@@ -15,8 +19,8 @@ zasobami klastra, sprawdzić jakie aplikacje działają w klastrze, tworzyć lub
 poszczególne zasoby, zlecać uruchomienie aplikacji, skalować aplikację i instalować ich
 nowe wersje.
 
-4. Poleceniem "kubectl run komunikator -it --image=kjop118/ubuntu-deploy --port=9000 --labels
+4. Poleceniem "kubectl run komunikator --image=kjop118/ubuntu-deploy --port=9000 --labels
 app=komunikator" uruchomiono kontener komunikatora w Kubernetes. Następnie wykonono
-przekierowanie portów w celu sprawdzenia działania - kubectl port-forward pod/komunikator 9000:9000.
+przekierowanie portów w celu sprawdzenia działania - kubectl port-forward pod/komunikator 9000:3000.
 
 5. Na koniec w klastrze Kubernetes sprawdzono, czy komunikator działa poprawnie.
