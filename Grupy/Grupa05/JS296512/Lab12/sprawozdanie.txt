@@ -12,3 +12,5 @@
 
 5. Zleciłem klastrowi zrealizowanie pliku używając polecenia:
 kubectl apply -f komunikator-deployment.yaml
+
+6. Udokumentowałem stan klastra Kubernetes.
