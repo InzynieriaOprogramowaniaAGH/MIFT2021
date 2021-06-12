@@ -1,0 +1,16 @@
+1. Ćwiczenie rozpoczęto od utworzenia brancha osobistego od brancha grupowego (git branch Grupa02-KJ306450_Lab07). 
+Następnie utworzono folder Lab07, a w nim kolejne cztery foldery (Docker, hooks, Jenkins, scripts), w których umieszcono odpowiednie pliki wykorzystywane podczas wcześniejszych zajęć.
+
+2. Wykonano forka na oryginalnym repozytorium z aplikacją i następnie w tym repozytorium umieszczono plik Jenkinsfile.
+Następnie zalogowano się na Jenkinsa i utworzono nowy projekt (my-chat-pipeline). Podczas konfiguracji projektu podano repozytorium (https://github.com/kjop118/deltachat-desktop) oraz branch (master), w którym znajdował się plik Jenkinsfile.
+
+Wewnątrz Jenkinsfile utworzono dwie sekcje: do budowania i testowania aplikacji. 
+W stage('Build') skopiowano repozytorium, w którym znajdował się plik dockercompose.yml i ustawiono się w lokalizacji z plikami niezbędnymi do zbudowania obrazu aplikacji, następnie zainstalowano docker-compose i uruchomiono serwis do budowania. 
+Mając poprawnie zbudowaną aplikację, kolejnym etapem w pipeline było testowanie, które odbywało się za pomocą "docker-compose up -d chat-test". 
+Po wykonaniu sekcji, wysyłany jest email informujący o powodzeniu lub niepowodzeniu wykonanych operacji wraz z logami.
+Aby wysłanie maila było możliwe, należało najpierw w ustawieniach Jenkinsa odpowiednio skonfigurować Extended E-mail Notification oraz E-mail Notification.
+
+3. Wykonano commit ze zmianami wprowadzonymi w pliku Jenkinsfile, a następnie uruchomiono pipeline'a z poziomu Jenkinsa.
+Informację o wynikach oraz logi zostały przesłane na wskazany adres email. 
+Na koniec skopiowano utworzony plik Jenkinsfile do folderu Jenkins utworzonego w pkt.1.
+

@@ -1,0 +1,6 @@
+ARG BUILD_IMAGE
+ARG SRC_PATH
+
+FROM $BUILD_IMAGE
+
+CMD npm start --prefix chat/src & sleep 60 && npm test --prefix chat/src

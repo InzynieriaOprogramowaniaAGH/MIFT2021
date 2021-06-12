@@ -1,0 +1,3 @@
+FROM deltachat-build-agent-dc:latest
+WORKDIR ./deltachat-desktop
+RUN npm test

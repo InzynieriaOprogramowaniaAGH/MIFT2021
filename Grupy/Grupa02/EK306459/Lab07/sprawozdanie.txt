@@ -1,0 +1,22 @@
+1. Ustanowienie source of truth w repozytorium MIFT
+Pliki sa podzielone na:
+- Docker: obrazy do budowania i testowania apki, docker-compose do automatycznego budowania obrazow
+- Jenkins: kopia Jenkinsfile i skrypt uruchamiajacy Jenkinsa
+
+2.1 Przygotowanie forka repozytorium z aplikacja chatu i dodanie tam Jenkinsfile
+Repozytorium zostalo sforkowane do mojego konta, a do mojej kopii zostal dodany Jenkinsfile. Edytuje go lokalnie,
+a potem pushuje zmiany do repozytorium.
+
+2.3 Przygotowanie Jenkins pipeline poprzez interfejs przegladarkowy
+Po uruchomieniu Jenkinsa skryptem w interfejsie przegladarkowym dodalem nowy Pipeline polaczony z repozytorium.
+Ustawilem Jenkinsfile  w tym repozytorium jako plik sterujacy dla tego pipeline.
+
+2.4 Do Jenkinsfile dodanie sekcji TEST odpowiadajacej za testowanie aplikacji oraz POST obslugujaca wyniki testowania
+Sekcja test kolejno:
+- przechodzi na repozytorium i wlasciwy branch,
+- ustawia folder z obrazami Dockera jako folder roboczy,
+- pobiera i przygotowuje docker-compose,
+- uruchamia obrazy budujace i testujace przy pomocy docker-compose.
+Sekcja post wysyla uzytkownikowi logi z testowania.
+
+2.5 Przetestowanie pipeline

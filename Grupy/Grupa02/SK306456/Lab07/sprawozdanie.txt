@@ -1,0 +1,10 @@
+1. Skopiowano pliki źródłowe oraz utworzono poprawną strukturę folderu.
+2. Pipieline skład się z następujących kroków:
+	a) Sekcja stage("Test")
+	    1. Zbudowanie obrazu dockerowego: "sh docker build ..."
+	    2. Uruchumienie kontenera, który instrukcją CMD uruchumia aplikację oraz testy: "sh docker run"
+	b) Sekcja post
+	    1. Informacja o sukcesie
+            2. Informacja o porażce
+3. Zarówno w razie sukcesu jak i porażki powinna zostać wysłana wiadomość mail, tym niemniej ze względu na błędy podczas konfiguracji notyfikacji mailowych, których rozwiązanie wymagałoby konfiguracji zewnętrznych usług zdecydowano się tylko na wypisyanie informacji o nieudanej budowie na ekran. 
+4. Akcja wykonywana po testowaniu jest zdefiniowana w sekcji "post" oraz odpowiednio w "success" i "failure".

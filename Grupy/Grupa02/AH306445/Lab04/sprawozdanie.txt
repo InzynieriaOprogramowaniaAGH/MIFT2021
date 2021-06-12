@@ -1,0 +1,17 @@
+Zad 1	
+	- git branch Grupa02-AH306445_Lab04 - utworznie nowego brancha 
+Zad 1.1
+	- docker login --username=tituu - logowanie do docker hub
+	- docker push tituu/lab3 - dodanie obrazu na Docker hub
+
+Zad 3   
+	- docker build -t tituu/chat-build -f build.Dockerfile . - utworzenie obrazu dockera z wybranym tagiem (-t) na podstawie wskazanego dockerfile (-f)
+	- sudo docker run -p 2333:2333 -it tituu/chat-build - utworzenie kontenera z mapowaniem portów 2333:2333 w trybie interaktywnym na podstawie wcześniej utworzonego obrazu tituu/chat-build 
+	
+Zad 4 	
+	- docker build -t test_agent . -f Dockerfile_test
+
+
+
+zad 5 	
+	- docker-compose up - budowanie i uruchomienie aplikacji na podstawie konfiguracji opisanej w pliku docker-compose.yml

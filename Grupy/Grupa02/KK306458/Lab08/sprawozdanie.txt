@@ -1,0 +1,7 @@
+1-2.
+Uzupenienie Jenkinsfile'a o nowy Build stage, ktory pobiera nowe zmiany i buduje aplikacje.
+Niezaleznie od wyniku budowania wysyla wiadomosc e-mailowa.
+3.
+Po poprawnym zbudowaniu rozpoczyna sie Test stage.
+4.
+Napisanie git-hooka post-commit, ktory wyswietla komunikat w konsoli i umieszczenie go w repozytorium z aplikacja.

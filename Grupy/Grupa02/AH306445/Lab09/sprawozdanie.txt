@@ -1,0 +1,15 @@
+1. Aby możliwe było automatyczne uruchamianie pipeline wraz z pojawieniem się nowego commita na branchu należało dodać
+do repozytorium webhooka (pic. 1.1). Nie jest możliwe wprowadzenia adresu localhost, więc należało przy zastosowaniu
+narzędzia ngrok przekierować przesyłane dane z adresu dostarczonego przez ngroka (na który github przesyła informacje
+o pojawieniu się nowego commita) na adres localhost:8080 na którym działa kontener jenkins. 
+Kolejnym krokiem było skonfigurowanie odbierania tych zgłoszeń i automatyczneg uruchamiania pipeline w konfiguracji jenkinsa(pic. 1.3).
+
+2. Działania pipeline zostało udokumentowane na screenach 1.2 oraz 1.4 
+
+3. Dodano nowy etap do obecnego Jenkinsfile'a. Jest on przedstawiony na screenie 3.
+
+5.
+- pipeline jest zdefniowany w Jenkinsfile w repo z komunikatorem - screen 5.1
+- pipeline jest automatycznie wyzwalany - screeny 1.1 - 1.4
+- pipeline przechodzi wszystkie etapy (stage build-test-deploy) - screen 5.3
+- pipeline obsługuje powiadamianie o rezlutatach każdego z etapów - screen 5.4

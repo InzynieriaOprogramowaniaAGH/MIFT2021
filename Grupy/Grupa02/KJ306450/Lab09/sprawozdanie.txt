@@ -1,0 +1,27 @@
+1. Pierwszym etepem wykonania ćwiczenia było zainstalowanie oprogramowania ngrok.
+Po zakończonej instalacji zmieniono ustawienia pipeline, tak aby było on
+uruchamiany po każdym commicie na GitHub (zaznaczono opcje GitHub hook trigger for
+GITScm polling"). Następnie w ustawieniach repozytorium komunikatora utworzono
+nowy webhook.
+
+2.Wykonano commita i sprawdzono, czy pipeline uruchomia się automatycznie.
+
+3. Na poprzednich zajęciach w stage("Build") utworzono obraz docker'owy
+komunikatora. Utworzony obraz należało przenieść na dedykowany kontener docker'owy. 
+Otagowano utworzony obraz, tak aby można go było w przyszłości opublikować na DockerHub'ie 
+(docker tag chat:latest kjop118/chat:latest). Następnie poleceniem docker save -o ./
+chatBuild.tar kjop118/chat:latest spakowano utworzony obraz.
+Aby obraz umieścić w nowym kontenerze, początkowo próbowano utworzyć nowy
+kontener docker'owy (kontener z ubuntu), uruchomić go nadając mu nazwę "deploy"
+i następnie przekopiować spakowany obraz - docker cp ./chatBuild.tar deploy:/tmp/.
+Jednak to rozwiązanie okazało się niewłaściwe w momencie gdy na repozytorium z
+komunikatorem wykonano kolejnego commita. Występował wtedy błąd związany z tym,
+że nie można było uruchomić kontenera "deploy", ponieważ inny już istniał.
+Rozwiązaniem tego problemu polegało na modyfikacji Dockerfile_ubuntu, w którym
+następuje przekopiowanie spakowanego obrazu (wraz z plikami, które umożliwiają
+budowę nowego obrazu) do odpowiedniego folderu . Przed wykonaniem budowania 
+nowego obrazu, na który będzie kopiowany obraz z komunikatorem (budowanie obrazu - 
+docker build -t ubuntu-deploy -f Dockerfile_ubuntu .), należało spakować obraz zbudowany w 
+stage("Build"). 
+
+

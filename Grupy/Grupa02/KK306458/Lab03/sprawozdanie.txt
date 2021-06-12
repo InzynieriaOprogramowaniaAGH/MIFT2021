@@ -1,0 +1,24 @@
+1.
+git pull - aktualizacja lokalnego repozytorium
+git checkout Grupa02 - przełaczenie się na brancha grupowego
+git checkout -b Grupa02-KK306458_Lab03 - utworzenie nowego brancha na potrzeby cwiczenia
+
+2.
+przeniesienie git hooka utworzonego na poprzednich zajeciach do folderu Lab02
+
+3.
+Docker został zainstalowany juz wcześniej
+
+4.
+Konto na DockerHubie rownież zostało juz załozone
+
+5.
+Stworzenie pliku Dockerfile potrzebnego do konfiguracji kontenera - obraz bazuje na najnowszej wersji ubuntu
+
+6.
+sudo docker build -t lab03-image . - zdubowanie obrazu korzystajac z przygotowanego wczesniej Dockerfile'a
+sudo docker images - wyświetlenie dostępnych obrazow
+sudo docker run -it lab03-image bash - uruchomienie kontenera z mozliwoscia obslugi konsoli polecen
+git --version - Sprawdzenie czy git zostal zainstalowany na kontenerze
+git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git - pobranie repozytorium na kontener
+git branch --all | grep KK306458_Lab03 - wyszukanie brancha o podanej nazwie
