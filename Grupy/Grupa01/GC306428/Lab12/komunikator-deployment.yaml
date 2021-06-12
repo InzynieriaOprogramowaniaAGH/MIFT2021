@@ -5,7 +5,7 @@ metadata:
   labels:
     app: feathers-chat
 spec:
-  replicas: 4
+  replicas: 6
   selector:
     matchLabels:
       app: feathers-chat
