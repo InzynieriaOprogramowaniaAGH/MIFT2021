@@ -30,9 +30,13 @@ stage('Build')
 
 3.Uruchamiany Test po sukcesie ale nie po porażce
 
-domyślnie Test jest omijany jeżeli występują problemy we wcześniejszym stage'u Build.
+//Domyślnie Test jest omijany jeżeli występują problemy we wcześniejszym stage'u Build.
 
 4.git post-commit.
 
-W pliku post-commit.sample
+W pliku post-commit
+
+"#!/bin/bash
+echo "# To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"
+exit 0"
 
