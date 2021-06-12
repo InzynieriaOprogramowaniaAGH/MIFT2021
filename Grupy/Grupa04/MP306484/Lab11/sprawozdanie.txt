@@ -1,0 +1,15 @@
+Michał Pastuszko Lab 11 Sprawozdanie
+
+1.Zainstalowano minikube korzystając z instalatora dostępnego pod adresem  https://minikube.sigs.k8s.io/docs/start/
+  Uruchomiono klaster poleceniem minikube start --driver=docker
+  Pobrano kubectl poleceniem minikube kubectl -- get po -A
+2.Uruchomiono dashboard poleceniem minikube dashboard
+  Za jego pomocą można:
+  - przeglądać obiekty zdefiniowane w klastrze
+  - zarządzać podami,jobami,deployami sprawdzać ich stan
+  - podglądać dostępne zasoby, zarządzać nimi
+  - czytać logi
+  - tworzyc i modyfikowac indywidualne zasoby Kubernetes
+
+3.Uruchomiono kontener-komunikator poleceniem kubectl run komunikatorr --image=mpast99/kubernetes --port=9999 --labels app=komunikator
+  Sprawdzono jego działanie poprzez przekierowanie portu 3000 w kontenerze na port 9999 na localhost komendą minikube kubectl port-forward komunikatorr 9999:3000  a następnie otworzenie adresu localhost:9999 w przeglądarce
