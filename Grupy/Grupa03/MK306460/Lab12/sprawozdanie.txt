@@ -1,0 +1,4 @@
+1. i 2 - Uruchomiłam Minikube Dashboard, upewniłam sie że działa.
+3. zapoznałam się z dokumentacją tworzenia manifestów.
+4. Stworzyłam plik node-chat-app-deployment.yaml według wytycznych w instrukcji laboratorium.
+
