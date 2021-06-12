@@ -1,0 +1,21 @@
+1.
+Uruchomiłem Minikube Dashboard komendą "minikube dashboard".
+
+2.
+Zapoznałem się z dokumentacją tworzenia minifestów dla obiektów "Deployment".
+
+3.
+Stworzyłem plik komunikator-deployment.yaml zgodnie z instrukcją znalezioną na stronie kubernetes.io
+
+4.
+Zleciłem Kubernetes, aby wykonał plik komunikator-deployment.yaml przy pomocy polecenia:
+kubectl apply -f komunikator-deployment.yaml
+
+5. 
+Sprawdziłem, czy deployment i pody wykonały się prawidłowo.
+
+6.
+Zmieniłem ilość pod'ów na 5 i ponownie zleciłem zrealizowanie pliku przez klaster.
+
+7.
+Ponownie deployment oraz pody wykonały się prawidłowo i działają.
