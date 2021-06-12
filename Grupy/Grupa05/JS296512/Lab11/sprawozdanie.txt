@@ -20,3 +20,5 @@ Co można zrobić korzystając z Minikube Dashboard?
 
 4.1 W celu sprawdzenia działania, przekierowałem porty:
 - minikube kubectl port-forward komunikator 9999:3000
+
+5. Udokumentowałem że komunikator działa w klastrze Kubernetes.
