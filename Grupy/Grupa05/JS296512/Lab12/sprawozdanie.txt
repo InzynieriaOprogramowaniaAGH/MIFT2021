@@ -9,3 +9,6 @@
 - app: komunikator
 - obraz z komunikatorem tak jak na poprzednich zajęciach
 - 4 repliki
+
+5. Zleciłem klastrowi zrealizowanie pliku używając polecenia:
+kubectl apply -f komunikator-deployment.yaml
