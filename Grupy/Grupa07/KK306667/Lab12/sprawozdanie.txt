@@ -1,0 +1,15 @@
+1) Uruchomiłem kubernetes skonfigurowany w Lab11 poleceniem sudo minikube start(2.PNG)
+
+2) Uruchomiłem dashboard poleceniem sudo minikube dashboard(2.PNG)
+
+3) Zapoznałem sie z instrukcją na stronie https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+
+4) Stworzyłem plik zgodnie z dokumentacją z punktu 3(komunikator-deployment.yaml)
+
+5) Wykonałem polecenie sudo kubectl apply -f komunikator-deployment.yaml
+
+6) Jak widać na screenie 6.PNG deploy przebiegł pomyślnie
+
+7) Zmodyfikowałem plik, wprowadzajć min. większą ilość replik a następnie wykonując komende sudo kubectl apply -f komunikator-deployment.yaml
+
+8) Jak widać na screenie 8.PNG deploy ponownie przebiegł pomyślnie
