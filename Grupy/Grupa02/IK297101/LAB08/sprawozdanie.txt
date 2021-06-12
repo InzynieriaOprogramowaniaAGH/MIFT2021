@@ -32,6 +32,7 @@ stage('Build')
 
 //Domyślnie Test jest omijany jeżeli występują problemy we wcześniejszym stage'u Build.
 
+
 4.git post-commit.
 
 W pliku post-commit
