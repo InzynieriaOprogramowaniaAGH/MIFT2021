@@ -1,0 +1,14 @@
+1.1 Stworzylam nowego osobistego brancha roboczego "Grupa04-UP306485_Lab03" za pomoca polecenia
+	$ git checkout -b Grupa04-UP306485_Lab03
+1.2 Utworzylam w Docker HUB nowe repozytorium o nazwie docker-devops.
+1.3 Utworzylam nowy tag o nazwie my-tag i opublikowalam obraz z poprzednich zajec w Docker HUB za pomoca polecenia
+	$ sudo docker push upiatek/docker-devops:my-tag
+2. Jako komunikator wybralam Socket.io-Messenger.
+3. Stworzylam nowy obraz kontenera dockerowego i skonfigurowalam go tak, aby był w stanie wykonać operację budowania "komunikatora" ze źródeł. Nastepnie uruchomilam go:
+	$ sudo docker build -t build-agent .
+	$ sudo docker run -it -p 3000:3000 083485824026
+4. Stworzylam nowy obraz kontenera dockerowego i skonfigurowalam go tak, aby był w stanie wykonać operację testowania komunikatora. Wykorzystalam wszesniej zbudowany program (z pkt. 3):
+	$ sudo docker build -t test-agent .
+5. Zainstalowalam docker-compose i utworzylam plik docker-compose.yml. Korzystając z build-agent i test-agent stowrzylam srodowisko, ktore sciaga z repo najnowszą wersję komunikatora, buduje go
+i testuje czy dziala. Do uruchomienia uzylam komendy:
+	$ sudo docker-compose up

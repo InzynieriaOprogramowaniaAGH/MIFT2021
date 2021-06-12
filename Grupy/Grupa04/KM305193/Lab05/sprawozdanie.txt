@@ -1,0 +1,22 @@
+Najpierw przystapiono do stworzenia kontenera dockerowego z Jenkinsem za pomoca instrukcji. 
+
+Kolejnym krokiem bylo opublikowanie obrazu Jenkinsa na repozytorium DockerHUB
+
+	docker commit jenkins-blueocean kmat1999/jenkins-lab-devops
+	docker push kmat1999/jenkins-lab-devops
+
+Po uruchomieniu kontenera zainstalowano docker-compose wraz z nadaniem uprawnien
+
+	sudo docker exec - u root -it jenkins-blueocean bash
+	curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+	chmod +x /usr/local/bin/docker-compose
+	exit
+
+Zalogowano sie do Jenkinsa oraz builda z ustawieniami
+
+	URL repozytorium: https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021
+	Branch do budowania: */Grupa04-KM305193_Lab04
+	
+	Do wykonania w powloce:
+		cd Grupa/Grupy04/KM305193/Lab04
+		docker-compose up

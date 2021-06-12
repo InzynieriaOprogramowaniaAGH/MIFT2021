@@ -1,0 +1,8 @@
+Michał Pastuszko lab 07 sprawozdanie
+
+1.Utworzono "źródło prawdy", umieszczono pliki źródłowe w folderze Lab07 z podziałem na technologię.
+2.Utworzono Jenkinsfile ze stagem test.Umieszczono w nim realizację punktów Uruchomienie testów i Powiadomienie mailowe o wyniku.W tym stagu instalowane sa zależności oraz uruchamiane testy, a po ich przejściu wysyłany jest e-mail z wynikiem testowania.
+  Zrobiono fork na repozytorium z aplikacją node-chat, a następnie do utworzonego poprzez fork repozytorium wrzucono Jenkinsfile. Następnie utworzono pipeline w Jenkinsie który pobiera Jenkinsfile z repozytorium z aplikacją.
+  Skonfigurowano plugin Extended E-mail Notification do wysyłania powiadomień e-mail.
+3.Następnie uruchomiono pipeline, który przeszedł pomyślnie. Później zmieniono jeden z testów w aplikacji powodując niepowodzenie pipeline'u. Wyniki działania udokumentowano screenshotami.
+4.Wrzucono Jenkinsfile i inne pliki ze "źródła prawdy" do repozytorium MIFT2021.git

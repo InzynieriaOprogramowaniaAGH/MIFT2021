@@ -1,0 +1,14 @@
+1. Skopiowałem wszystkie pliki źródłowe do folderu Lab7
+
+2.1 Stworzyłem Jenkinsfile i umieściłem go w repozytorium z komunikatorem
+
+2.2 Zrobiłem forka na orginalnym repo, umieściłem w nim Jenkinsfile
+
+2.3 W Jenkinsie stworzyłem nowy pipeline
+
+2.4 Wewnątrz Jenkinsfile w sekcji stage(test) oskryptowałem uruchamianie testów dla aplikacji,
+osłużyłem 2 przypadki
+
+3. Uruchomiłem pipeline. Po testach jenkins niestety nie wysyłał maila z informacją o sukcesie lub niepowodzeniu niestety nie udało mi się naprawić błędu.
+
+

@@ -1,0 +1,8 @@
+Na samym poczatku przystapiono do segregacji plikow (jenkinsfile, dockerfile, docker-compose.yml) w poszczegolne foldery.
+
+Pobrano repozytorium z komunikatorem oraz umieszczono tam Jenkinsfile. Po wykonaniu tego kroku sukcesywnie tworzono commity kolejnych wersji Jenkinsfile.
+Pipeline zostal utworzony, ktory to wykonywal operacje w repozytorium (Deltachat).
+
+Uruchomiono pipleline, w efekcie zostal wysylany mail o sukcesie tudziez niepowodzeniu.
+
+Skopiowano Jenkinsfile do glownego repozytorium.

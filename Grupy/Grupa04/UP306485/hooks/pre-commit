@@ -1,0 +1,8 @@
+#!bin/bash
+
+zmienna="UP306485"
+if ! grep -iqE "$zmienna" "$1"; then
+	echo "Zly komentarz"
+	exit 1
+fi
+echo "Dobry komentarz"

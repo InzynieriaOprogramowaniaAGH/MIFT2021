@@ -1,0 +1,18 @@
+zadanie 2
+
+Pobrano i zainstalowano klaster kubernet zgodnie z instrukcją na stronie 'https://minikube.sigs.k8s.io/docs/start/'.
+
+zadanie 3
+
+Włączono i uruchomiono Minikube Dashboard tak jak opisano tutaj 'https://minikube.sigs.k8s.io/docs/handbook/dashboard/'
+
+zadanie 4
+
+Uruchomiono kontener-komunikator za pomocą komendy 
+'kubectl run komunikator --image=szymou/socketmess:mess --port=9999 --labels app=komunikator'
+
+Przekierowano port za pomocą komendy 'kubectl port-forward komunikator 9999:3000'
+
+zadanie 5
+
+Udokumentowano, że komunikator działa w klastrze kubernets

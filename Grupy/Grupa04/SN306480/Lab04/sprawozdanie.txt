@@ -1,0 +1,21 @@
+Podpunkt 1
+Utworzono brancha osobistego Grupa04-SN306480_Lab04 od brancha grupowego Grupa04.
+Nadano tag na obraz z wczesniejszych zajęć (sudo docker tag first_image szymou/devops).
+Opublikowano obraz na platformie Docker Hub (docker push szymou/devops).
+
+Podpunkt 2
+Wybrano jeden z proponowanych na zajeciach komunikatorow (https://github.com/AlexTraher/Socket.io-Messenger)
+
+Podpunkt 3
+Stworzono agenta poprzez stworznie nowego Dockerfila w folderze build(zadanie3_1.png) i skonfigurowano go tak aby był wstanie wykonywać operację budowania
+"komunikatora" ze źródeł, a następnie z jego pomocą zbudowano obraz (sudo docker build -t socketmess .)
+Przetestowano działanie komunikatora poprzez uruchomienie jego obrazu (sudo docker run -it -p 3000:3000 08b4baacd34d).
+
+Podpunkt 4
+Stworzono test agenta poprzez stworzenie nowego Dockerfila w folderze test (zadanie4_1.png) i skonfigurowano go tak aby był wstanie wykonywać
+operację testowania korzystając ze zbudowanego wczesniej programu w pkt3, a następnie zbudowano z jego pomocą obrac ( sudo docker build -t socketmess-test .)
+
+Podpunkt 5
+Stworzono docker-compose.yml, który ściąga z repo najnowszą wersję "komunikatora", buduje go oraz testuje czy komunikator dziala.
+docker-compose.yml odpalona za pomocą komendy (sudo docker-compose up)
+

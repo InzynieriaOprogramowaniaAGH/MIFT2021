@@ -1,0 +1,42 @@
+zadanie 0
+Zapoznałem się z diagramem omawianym na zajęciach.
+
+zadanie 1
+zapoznałem się z oprogramowaniem Jenkins ze strony https://www.jenkins.io/ .
+
+zadanie 2
+Stworzono dockerowy kontener z jenkinsem posługując sie instrukcją podaną na stronie https://www.jenkins.io/doc/book/installing/docker/
+
+zadanie 3
+
+Wrzucono obraz jenkinsa na dockerhub'a
+(
+sudo docker tag myjenkins-blueocean:1.1 szymou/jenkins
+sudo docker push szymou/jenkins
+)
+
+zadanie 4
+uruchomiono kontener za pomocą komendy:
+docker run \
+  --name jenkins-blueocean \
+  --rm \
+  --detach \
+  --network jenkins \
+  --env DOCKER_HOST=tcp://docker:2376 \
+  --env DOCKER_CERT_PATH=/certs/client \
+  --env DOCKER_TLS_VERIFY=1 \
+  --publish 8080:8080 \
+  --publish 50000:50000 \
+  --volume jenkins-data:/var/jenkins_home \
+  --volume jenkins-docker-certs:/certs/client:ro \
+  myjenkins-blueocean:1.1 
+  
+Uruchomiono kontener a następnie znaleziono hasło  w folderze /var/jenkins_home/secrets/initialAdminPassword.
+Uruchomiono localhost:8080 w przegladarce oraz podano wczesniej znalezione hasło
+
+Stworzono nowy projekt w Jenkins oraz skonfigurowano go tak aby był wstanie uruchomić docker-compose. Konfiguracja
+prjektu znajduję się w plikach zadanie4_2.png oraz zadanie4_3.png.
+Uruchomiono projekt i sprawdzono w logach jego poprawność.
+  
+  
+

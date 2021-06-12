@@ -1,0 +1,20 @@
+1. 
+- Umieściłem wszystkie pliki źródłowe w hierarchii folderów w repozytorium w folderze Lab07
+
+2. 
+- Stworzyłem Jenkinsfile, który odpowiada za testowanie aplikacji oraz wysłanie emaila w przypadku niepowodzenia
+- Zrobiłem forka na oryginalnym repozytorium
+- Pobrałem repozytorium z komunikatorym i umieściłem w nim swój Jenkinsfile
+- Zrobiłem commit z umieszczonym Jenkinsfilem
+- Utworzyłem w Jenkinsie Pipeline, który wykonuje Jenkinsfile w zforkowanym repozytorium
+- Skonfigurowałem połączenie z serwerm SMTP gmaila
+- Zainstalowałem plugin NodeJS
+
+3.
+- Uruchomiłem pipeline, testy przeszły pomyślnie
+- Specjalnie zrobiłem błąd w Jenkinsfile, aby przyszedł email o niepowodzeniu testów
+- Przyszedł email z informacją o niepowodzeniu i log z efektami testowania
+
+4.
+- Wrzuciłem Jenkinsfile na repo z pkt 1.
+

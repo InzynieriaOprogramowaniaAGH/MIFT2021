@@ -1,0 +1,8 @@
+#!#!/bin/bash
+
+MSG="$1"
+if ! grep -qE "JM299151*" "$MSG"; then
+	cat "$MSG"
+	echo "Start with the world 'J299151'"
+	exit 1
+fi

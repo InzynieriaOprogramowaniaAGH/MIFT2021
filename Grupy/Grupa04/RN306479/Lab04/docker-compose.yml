@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+ build-agent:
+  container_name: messenger
+  image: messenger:latest
+  build:
+   context: .
+   dockerfile: ./Socket.io-Messenger/build/Dockerfile
+ test-agent:
+  container_name: messenger-test
+  image: messenger-test:latest
+  build:
+   context: .
+   dockerfile: ./Socket.io-Messenger/test/Dockerfile
+  depends_on:
+  - build-agent

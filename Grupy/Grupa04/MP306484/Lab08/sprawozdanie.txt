@@ -1,0 +1,6 @@
+Michał Pastuszko lab 08 sprawozdanie
+
+1.Rozszerzono Jenkinsfile z poprzednich zajęć o nowy stage("Build").
+2.W stage ("Build") pobierana jest najnowsza wersja gałęzi master z repo poleceniem git pull origin master, program jest budowany oraz instalowane są zależności za pomocą npm install. Niezależnie od wyniku budowania użytkownik jest powiadamiany o powodzeniu lub niepowodzeniu budowania.
+3.Umieszczono dyrektywy post, success i failure w stage ("Build") i test, dzięki czemu po każdym  zakończonym stage wysyłany jest oddzielny mail z wynikami oraz w przypadku niepowodzenia stage ("Build") stage("Test") nie jest uruchamiany. Sprawdzono działanie Jenkinsfile ze szczególnym uwzględnieniem kończenia pipeline po nieudanym budowaniu.
+4.Utworzono git post-commit hook, który wypisuje "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie". 

@@ -1,0 +1,39 @@
+2. Uruchomienie Minikube za pomocą "minikube start" oraz "minikube dashboard", sprawdzenie działania aplikacji.
+
+4. Utworzenie pliku "komunikator-deployment.yaml":
+   - z wskazaną nazwą pliku "komunikator-deployment"
+   - app "komunikator"
+   - z wskazanym obrazem z poprzednich zajęć
+   - z 4 replikami
+
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: komunikator-deployment
+      labels:
+        app: komunikator
+    spec:
+      replicas: 4
+      selector:
+        matchLabels:
+          app: komunikator
+      template:
+        metadata:
+          labels:
+            app: komunikator
+        spec:
+          containers:
+          - name: komunikator
+            image: radoslawniestroj/messenger:socketio
+            ports:
+            - containerPort: 3000
+
+
+5. Zlecenie klastrowi zrealizowanie utworzonego pliku za pomocą komendy "minikube kubectl -- apply -f komunikator-deployment.yaml".
+
+6. Udokumentowanie stanu klastra.
+
+7. Wprowadzenie zmiany w pliku w postaci zmiany ilości replik.
+   replicas: 8
+
+8. Ponowne udokumentowanie stanu klastra.

@@ -1,0 +1,3 @@
+FROM build-agent:latest
+
+RUN npm test

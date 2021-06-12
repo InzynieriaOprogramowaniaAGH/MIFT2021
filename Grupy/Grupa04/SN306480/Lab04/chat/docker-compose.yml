@@ -1,0 +1,14 @@
+version: "3.3"
+services:
+ build-agent:
+  image: socketmess:latest
+  build:
+   context: .
+   dockerfile: ./build/Dockerfile
+ test-agent:
+  image: socketmess-test:latest
+  build:
+   context: .
+   dockerfile: ./test/Dockerfile
+  depends_on:
+   - build-agent

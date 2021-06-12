@@ -1,0 +1,6 @@
+1. Skopiowalam wszystkie pliki zrodlowe do tej pory uzywane i umiescilam je w przeznaczonych katalogach.
+2. Stworzyalam "forka" na orginalnym repo komunikatora i wrzucilam Jenkinsfile. W Jenkinsie utworzylam Pipeline, ktory korzysta z wrzuconego na repo Jenkinsfile. 
+3. Przetestowalam dzialanie testow z uzyciem Jenkinsfile:
+	- testy przeszly i zostal wypisany w konsoli komunikat o poprawnym wykonaniu testow	
+	- uruchomiona zostala niepoprawna komenda testowania - "unknown_line_in_tests" - na adres email zostal wyslany raport z logami na temat bledow
+4. Wrzucilam Jenkinsfile na moj folder na repozytorium MIFT.

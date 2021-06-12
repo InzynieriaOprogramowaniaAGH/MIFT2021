@@ -1,0 +1,29 @@
+1. Stworzylam kontener dockerowy z Jenkinsem za pomoca instrukcji: https://www.jenkins.io/doc/book/installing/docker/:
+	$ docker network create jenkins
+	
+	$ docker run --name jenkins-docker --rm --detach \
+  --privileged --network jenkins --network-alias docker \
+  --env DOCKER_TLS_CERTDIR=/certs \
+  --volume jenkins-docker-certs:/certs/client \
+  --volume jenkins-data:/var/jenkins_home \
+  --publish 2376:2376 docker:dind --storage-driver overlay2
+  
+  	$ docker build -t myjenkins-blueocean:1.1 .
+  	
+  	$ docker run --name jenkins-blueocean --rm --detach \
+  --network jenkins --env DOCKER_HOST=tcp://docker:2376 \
+  --env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=1 \
+  --publish 8080:8080 --publish 50000:50000 \
+  --volume jenkins-data:/var/jenkins_home \
+  --volume jenkins-docker-certs:/certs/client:ro \
+  myjenkins-blueocean:1.1
+  
+2. Opublikowalam obraz Jenkinsa na repozytorium Docker HUB o nazwie jenkins-lab za pomoca polecen:
+	$ docker commit jenkins-blueocean upiatek/jenkins-lab
+	$ docker push upiatek/jenkins-lab
+	
+3. Po uruchomieniu kontenera przeszlam do przegladarki i za pomoca adresu localhost:8080 przeszlam do Jenkinsa.
+3.1 Odblokowalam Jenkinsa za pomoca hasla usyzkanego z logow kontenera: docker logs id_kontenera
+3.2 Po zainstalowaniu potrzebnym pluginow i stworzeniu uzywtkownika utworzylam nowy projekt, w ktorym:
+	-pobralam repozytorium z zajec i przelaczylam sie na galaz z poprzedniego laboratorium, aby miec dostep do pliku docker-compose.yml oraz Dockerfies potrzebnych do budowania i uruchomienia aplikacji z Lab04
+	-zainstalowalam docker-compose i uruchomilam za pomoca polecenia docker compose up 

@@ -1,0 +1,46 @@
+zad 1:
+opublikowanie obrazu z poprzednich zajec w DockerHub:
+sudo docker images
+sudo docker tag fbc3ebb2d549 pmroz/ubuntu-image:latest
+sudo docker push pmroz/ubuntu-image:latest
+
+zad 2:
+sklonowano repozytorium z komunikatorem 
+
+utworzone zostały 2 dockerfile dla zad 3 oraz zad 4
+zad 3:
+Dockerfile:
+FROM node:alpine
+ADD . /code
+WORKDIR /code
+CMD node  code/client.js
+
+zad 4:
+Dockerfile:
+FROM node:alpine
+ADD . /code
+WORKDIR /code
+CMD node  code/server.js
+
+zad 5:
+zainstalowano docker-compose:
+sudo curl -L "https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose 
+
+docker-compose.yml:
+version: '2'
+services:
+  tcp_server:
+    build: server
+    volumes:
+     - .:/code
+  tcp_client:
+    build: client
+    depends_on:
+      - "tcp_server"
+    command: sh -c './code/wait.sh tcp_server:8808 -- echo READY && node ./code/client.js'
+    volumes:
+     - .:/code
+sudo docker-compose up --build
+
+

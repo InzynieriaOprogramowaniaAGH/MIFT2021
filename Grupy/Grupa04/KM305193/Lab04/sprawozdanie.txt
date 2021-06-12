@@ -1,0 +1,28 @@
+Na samym poczatku przelaczono sie na brancha prywatnego 
+
+	git checkout -b Grupa04-KM305193_Lab04
+
+Zbudowanemu obrazowi z poprzednich zajec nadano tag 
+
+	docker tag km-ubuntu-git-docker kmat1999/image-devops-lab
+
+Nastepnie wyslano obraz na platforme dockerhub
+
+	docker push kmat1999/image-devops-lab
+
+Znaleziono komunikator DeltaChat
+
+Utworzenie Dockerfile i zbudowanie obrazu (kompilacja, linkowanie)
+
+	docker build -t build:latest . -f Dockerfile
+
+Utworzenie drugiego Dockerfile (Dockerfile-test) odpowiedzialnego za testy poprzednio utworzonego obrazu
+
+	docker build -t test:latest . -f Dockerfile-test 
+	
+Utworzenie pliku docker-compose.yml, ktory byl odpowiedzialny za uruchomienie wielu kontenerow na raz (kontenery budowane z obrazow). Co 
+wazne obraz test:latest jest zalezy od build:latest. Uruchomienie docker-compose.yml.
+
+	docker-compose up
+
+*(w powyzszych poleceniach nie uzywalem sudo poniewaz stowrzylem sobie osobna grupe dla dockera z uprawnieniami administratora)

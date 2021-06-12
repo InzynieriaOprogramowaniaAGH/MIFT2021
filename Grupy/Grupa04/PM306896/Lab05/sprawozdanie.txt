@@ -1,0 +1,15 @@
+zad 2:
+stworzono kontener zgodnie z dokumentacją jenkins: https://www.jenkins.io/doc/book/installing/docker
+
+zad 4:
+opublikowanie obrazu w dockerhub:
+sudo docker images
+sudo docker tag 84a7ac65f72a pmroz13/jenkins
+sudo docker push pmroz13/jenkins
+
+zad 4:
+sprawdzono kod dostępu do jenkinsa:
+sudo docker container exec -it jenkins-blueocean bash
+cd var/jenkins_home/secrets
+cat initialAdminPassword
+w przegladarce: localhost:8080- wejscie do gui jenkinsa

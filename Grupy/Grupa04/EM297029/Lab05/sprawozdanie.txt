@@ -1,0 +1,12 @@
+zadanie 3 
+zbudowano obraz jenkinsa zgodnie z instrukcją ze strony (widoczne na screenach). Dodano więc sieć. 
+Wybrano konfigurację zgodną z tą dla systemu windows, ponieważ kożystam z takowej, wykorzystując wsl2.
+
+zadanie 4
+Otagowano odpowiednio wcześniej zbudowany obraz i spushowano go na dockerhub. Wszystko zgodnie z tym jak opisano w instrukcji do lab 4. 
+Dodany obraz widoczny na screenie obraz_dockerhub
+
+zadanie 5
+Uruchomiono jenkinsa i odpowiednio skonfigurowano zadania na powłoce.
+Poszczególne zadania pobierają więc docker-compose, aby potem nadać mu uprawnienia i na końcu użyć docker-compose up. Spowoduje to automatyczne zbudoanie obrazów.
+Całość widoczna jest na screenie zadanie5_2.

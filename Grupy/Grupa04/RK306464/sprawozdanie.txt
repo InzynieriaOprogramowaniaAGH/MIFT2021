@@ -1,0 +1,15 @@
+1.1 Stworzyłem klucz ssh poleceniem - ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+1.3 Dodałem ssh do agenta poleceniem ssh-add ~/.ssh/id_rsa z nazwą swojego klucza
+1.5 Poinformowałem gita o zmianie sposobu logowania poleceniem  git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git 
+2. Dodałem tag poleceniem - git tag -a "Radoslaw Kraj, lab 02 wszystko dziala 10/10 bardzo proszę :)" 
+3.1 Przeniosłem swój folder RK306464 do nowo utworzonej struktury folederów Grupy/Grupa04/RK306464
+3.2 Przerzuciłem się na branch Grupa04, po czym utworzyłem swój branch z inicjałami i numerem laboratoriów
+4. Dodałem git hook w katalogu .git/hooks w pliku commit-msg.sample:
+#!/bin/bash
+MSG="$1"
+if ! grep -qE "RK306464" "$MSG";then
+	cat "$MSG"
+	echo "Niepoprawny commit, właściwy powiniene zawierac inicjały i numer indesku"
+	exit 1
+fi 
+5. Zmergowałem się do branca grupowego, po czym stworzyłem PR.
