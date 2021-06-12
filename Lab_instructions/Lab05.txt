@@ -16,12 +16,11 @@ Uwaga: Na mastera wrzucamy zmiany tylko przez pull requesta!
 3. Wrzuć obraz swojego Jenkinsa na DockerHub'a, analogicznie jak poprzednie obrazy.
 
 4. Z poziomu Jenkinsa uruchomionego w kontenerze (pkt 2) uruchom docker-compose stworzony w ramach Lab04.
-<<<<<<< HEAD
+
 - Jenkins jest uruchomiony w kontenerze
 - Jenkins uruchamia docke-compose tworząc środowisko z Lab04
 
 
-=======
 4.1 zakładamy że Jenkins jest uruchomiony w kontenerze
 4.2 zakładamy że po Lab04 plik docker-compose.yaml jest w naszym repozytorium 
 4.3 zakładamy że z poziomu Jenkinsa ściągamy repo gdzie jest nasz plik docker-compose.yaml
@@ -29,5 +28,5 @@ Uwaga: Na mastera wrzucamy zmiany tylko przez pull requesta!
 4.5 zwróć uwagę, że uruchomienie docker-compose.yaml wymaga oprogramowania Docker
 
 
+
 Uwaga: zgłoś zadanie na MS Teams!
->>>>>>> master
