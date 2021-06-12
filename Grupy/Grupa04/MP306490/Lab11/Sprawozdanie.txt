@@ -1,0 +1,23 @@
+2. Pobrano i zainstalowano Minikube:
+~curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+~sudo install minikube-linux-amd64 /usr/local/bin/minikube
+~minikube start
+~minikube kubectl -- get po -A
+
+3. Włączono oraz uruchomiono Minikube Dashboard:
+~minikube dashboard
+
+3.1 Przy pomocy Minikube dashboard mozna:
+-kontrolowac pody
+-zarzadzac zasobami
+-przegladac i ustawiac klaster
+-zarzadzac jobami
+-monitorowac zyzucie zasobow
+
+4. Uruchomiono kontener komunikator w Kubernetes przy pomocy polecenia:
+~minikube kubectl -- run komunikator --image=mikmik1234/start-node-chat --port=9999 --labels app=komunikator
+
+4.1 Przekierowano porty w celu umozliwienia dostepu z zewnatrz:
+~minikube kubectl port-forward komunikator 9999:3000
+
+5. Udokumentowano dzialanie kontenera w klastrze Kubernetes
