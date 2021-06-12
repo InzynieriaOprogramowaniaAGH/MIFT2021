@@ -6,4 +6,5 @@ Obiekt ten będzie korzystał z obrazu wire-desktop.
 W pliku zadanie3.png zawarłem dowód stworzenia obiektu w kubernetisie.
 
 5. W pliku zadanie5.png udokumentowałem widniejący obiekt Deployment w systemie kubernetes.
+W pliku zadanie5_2.png pokazałem, że ten proces się powiódł
 
