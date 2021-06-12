@@ -1,0 +1,13 @@
+1. Zainstalowałemn repozytorium przy użyciu polecenia "sudo apt install git" jest to standardowe wyorzystanie menadżera pakietów w systemie Linux Mint z ,którego korzystam.
+
+2. Po przeniesieniu się do odpowiedniego lokalnego folder skolonowałem repozytorium przy użyciu polecenia "git clone". To polecenie skopiowało wszystkie pliki z repozytorium do wybranego wcześniej folderu.
+
+3.Otwarłem dokument przy użyciu preferowanego edytora tekstowego.
+
+4.Stworzyłem nowy branch przy użyciu komendy "git checkout -b "BK300113" " dzięki zastosowaniu opcji -b od razu przeniosłem się do tego branch'a. Następnie lokalnie stworzyłem folder Lab01 i zacząłem umieszczać w nim potrzebne pliki. Do dodawania plików do repozytorium wykorzystałem polecenie "git add ./Lab01"
+
+5.Napisałem sprawozdanie ,które Pan teraz czyta.
+
+6.Wykonałem commit'a przy użyciu polecenia "git commit". Zapisało to dokonane zmiany w lokalnym repozytorium. Zapisałem zmiany w repozytorium internetowym przy użyciu "git push".
+
+7.Zmieniłem branch'a na master'a przy użyciu "git checkout master". Następnie wykorzystałem komende "git merge BK300113" do połączenia branch'y.

@@ -1,0 +1,32 @@
+1. Tworzymy połączenie SSH z Githubem
+1.1 Utworzenie pary kluczy (publicznego i prywatnego) po stronie użytkownika przy pomocy komendy ssh-keygen
+1.2 Nadanie passphrase podczas tworzenia kluczy 
+1.3-1.4 Zarejstrowanie klucza po stronie serwera na stronie Github'a >settings>SSH and GPG keys. Wklejenie wcześniej utworzonego klucza publicznego i nadanie mu nazwy.
+1.5.Zmiana sposobu logowania poprzez:
+git remote -v
+git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git 
+git remote -v
+
+2. Nadanie tagu do aktualnego commita i umieszczenie go na remote:
+git tag -a MW306517_Lab02 -m "Komentarz do taga z zadania 2"
+git push --follow-tags
+
+3. Stworzenie odpowieniej struktury folderów oraz branch'y:
+Ręczne przeniesienie folderu MW306157 do struktury folderów Grupy/Grupa05/MW306517
+Utworzenie nowego tymczasowego branch'a Grupa05-MW306517_Lab02: git checkout -b Grupa05-MW306517_Lab02
+
+4. Utworzenie githook'a porzez dodanie odpowiednich instrukcji do pliku commit-msg.sample w folderze .git/hooks oraz usunięcie rozszerzenia ".sample".
+
+Przetestowanie działania githook'a
+
+5. 
+Wykrycie dodanych zmian: git add .
+Utworzenie commita: git commit -m "MW306517..."
+Dostarczenie zmian na remote'a: git push origin Grupa05-MW306517_Lab02
+Wykonanie merge'a do brancha gupowego: 
+git checkout Grupa05
+git merge Grupa05-MW306517_Lab02
+Zamknięcie osobistego branch'y:
+git push origin --delete Grupa05-MW306517_Lab02
+
+Wykonanie pull requesta do brancha głównego. 

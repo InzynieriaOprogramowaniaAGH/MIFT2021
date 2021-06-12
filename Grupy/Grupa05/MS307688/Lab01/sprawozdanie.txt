@@ -1,0 +1,11 @@
+Michał Stawarski - Sprawozdanie 1 - 307688 - 04.03.2021
+Wykonanie:
+1. klonowanie repozytorium - git clone
+2. stworzenie nowego branch'a - git checkout -b MS307688
+3. stworznie folderow - mkdir
+4. stworzenie commita - git add . , nastepnie git commit -m "komentarz"
+5. zpushowanie commitow - git push origin MS307688
+6. zpullowanie master'a - git pull origin master
+7. zmergowanie, scalenie brancha, aby uniknac konfiktow (na branchu MS307688) - git merge master
+8. jezeli wszystko ok, zmergowanie, scalenie branchow (na branchu master) - git merge MS307688.
+9. zpushowanie

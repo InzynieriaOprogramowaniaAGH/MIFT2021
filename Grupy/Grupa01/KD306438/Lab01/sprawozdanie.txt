@@ -1,0 +1,17 @@
+1. Instalacja klienta git została już wcześniej zrealizowana na moim komputerze - nie było potrzeby ponownej instalacji.
+2. Otwarcie konsoli naciskając prawym przyciskiem myszy w odpowiednim folderze i wybieranie "Git Bash Here".
+   Wykonanie w teerminalu polecenia: 'git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git'
+   Narysowanie w programie Word grafu zależności między repozytoriami lokalnym oraz źródłowym.
+3. Szczegołowe zaznajomienie się z instrukcją do realizowanego laboratorium.
+4. Jednoczesne utworzenie nowego brancha i przełączenie się na niego za pomocą jednej instrukcji: 'git checkout -b KD306438'.
+   Utworzenie w nowym branchu folderu o tej samej nazwie za pomocą polecenia: 'mkdir KD306438'.
+   Przejście do tego folderu wykorzystując polecenie 'cd KD306438' oraz utworzenie w nim folderu 'mkdir Lab01'.
+   W tak powstałym folderze utworzono plik tekstowy instrukcją 'touch sprawozdanie.txt'.
+   Dodanie pliku do repozytorium git'a poleceniem 'git add KD306438' oraz zacommitowanie działania ze stosownym komentarzem poprzez 'git commit -m "new file sprawozdanie.txt"'.
+   Analogiczne dodanie pliku przedstawiającego utworzony wcześniej graf 'git commit -m "adding graph graf.jpg"'.  (Co jakiś czas kontrola działań z użyciem komendy 'git status'.
+5. Uzupełnianie pliku tekstowego zawierającego opis poszczególnych punktów.
+   Wykonywanie po każdym opisanym punkcie poleceń 'git commit -m "adding description of part *" '
+   Wykonanie pusha brancha na remot'a poleceniem 'git push origin KD306438'.
+6. W analogiczny sposób dodanie zrzutów ekranów dokumentujących wykonanie każdej częścia zadania w folderze Lab01: 'git add .','git commit -m "adding screenshots"', 'git push origin KD306438'.
+   Odpowiednia zmiana nazwy plików oraz ponowne zacommitowanie i spushowanie.  
+7. Wyknanie merge swojego brancha do głównego brancha, pushowanie na remota poprzez realizację poleceń: 'git checkout master', 'git merge KD306438', 'git pull', 'git push'.

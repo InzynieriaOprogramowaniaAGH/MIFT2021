@@ -1,0 +1,19 @@
+git remote -v - wyswietlenie polaczenia z remotem
+git remote set-url - zmaina linku/zrodla remotea repozytorium
+git tag -a nazwaTtagu -m "wiadomosc tagu" - nadanie tagu na najnowszy commit
+git push origin jk306462 --follow-tags - nadanie tagu wraz z pushem do remotea
+git branch -d nazwaBrancha - usuniecie brancha 
+
+tresc hooke'a - skrypt w bashu:
+#!/bin/bash
+string='JK306462*'
+message="Commit has been aborted"
+if ! grep -iqE "$string" "$1"; then
+	echo "$message"
+	exit 1
+fi
+echo "Commit message includes pattern!"
+
+git commit --allow-empty -m "commit msg" - commitowanie bez zadnych zmian zawartych w staging area - uzyte w ramach testu skryptu
+git push origin --delete nazwaBrancha/nazwaTagu - usuniecie z remotea brancha/tagu
+git rm nazwaPliku - usuniecie z gita pliku, po pushu na remotea zniknie takze z niego

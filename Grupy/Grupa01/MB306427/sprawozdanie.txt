@@ -1,0 +1,6 @@
+1. Instalacja gita za pomocą polecenia apt install git.
+2. Za pomocą podanego polecenia git clone klonuje podane w linku repozytorium
+do wskazanaego przez konsole miejsca. 
+3. przejście po folderach w nowym repozytorium do wskazanego miejsca i zapoznanie się z instrukcją.
+4. Poleceniem git branch stworzyłem nowego brancha nastepnie polecniem git checkout przełączyłem się na niego
+ 
