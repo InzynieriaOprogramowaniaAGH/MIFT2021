@@ -20,11 +20,9 @@ Uwaga: Na mastera wrzucamy zmiany tylko przez pull requesta!
 5. Stwórz plik docker-compose.yml (https://docs.docker.com/compose/). Dodaj go do swojego brancha. Korzystając z obrazów 3) i 4) stwórz środowisko, które:
 - ściąga z repo najnowszą wersję "komunikatora"
 - buduje go
-<<<<<<< HEAD
-- testuj czy komunikator działą (możesz użyć więcej niż 1 istancji obrazu 4) jeżeli trzeba.
-=======
+
 - testuje czy komunikator działa (możesz użyć więcej niż 1 istancji obrazu 4) jeżeli trzeba.
->>>>>>> master
+
 
 
 Uwaga: zgłoś zadanie na MS Teams!
