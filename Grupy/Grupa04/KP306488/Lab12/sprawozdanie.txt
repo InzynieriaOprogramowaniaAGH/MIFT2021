@@ -1,0 +1,13 @@
+1. Uruchomiłem lokalny klaster Kubernetes, jak w Labach11
+2. Uruchomiłem Minikube Dashboard poleceniem "minikube dashboard" i upewniłem się, że działa
+3. Zapoznałem się z dokumentacją
+4. Stworzyłem plik komunikator-deployment.yaml, plik zawierał:
+- nazwa: komunikator-deployment
+- app: komunikator
+- obraz z komunikatorem tak jak na poprzednich zajęciach
+- 4 repliki
+5. Zleciłem klastrowi zrealizowanie komunikator-deployment.yaml poleceniem:
+kubectl apply -f komunikator-deployment.yaml
+6. Udokumentowałem stan klastera Kubernetes
+7. Wprowadziłem zmiany w pliku
+8. Udokumentowałem nowy stan klastera
