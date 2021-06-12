@@ -1,0 +1,26 @@
+1. Kontener dockerowy zbudowany na poprzednich zajęciach udostępniono na
+platformie DockerHub (edit: aplikacja komunikatora okazała się aplikacją mobilną
+i nie dało rady jej uruchomić w przeglądarce, dlatego w celu sprawdzenia
+działania klastra Kubernetes zmieniono aplikację na node chat app i w tym celu
+zmieniono również repozytorium gitowe z komunikatorem oraz pipeline, tak aby ten komunikator był budowany, testowano i wdrażany). 
+Uruchomiono kontener z jenkinsem (docker container exec -it jenkins-blueocean bash)
+i otagowano obraz ubuntu-deploy (docker tag ubuntu-deploy:latest kjop118/ubuntu-deploy:latest). 
+Następnie zalogowano sie na DockerHub (docker login) i udostępniono obraz (docker push).
+
+2. Zainstalowano klaster Kubernetes za pomocą:
+	- curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+	-sudo install minikube-linux-amd64 /usr/local/bin/minikube 
+Następnie za pomocą polecenia "minikube start" uruchomiono klaster i pobrano
+kubctl - "minikube kubectl --get po -A".
+
+3. Poleceniem "minikube dashboard" uruchomiono internetowy interfejs użytkownika Kubernetes.
+Za pomocą tego interfejsu można: wdrażać aplikacje kontenerowe w klastrze, zarządzać
+zasobami klastra, sprawdzić jakie aplikacje działają w klastrze, tworzyć lub modyfikować
+poszczególne zasoby, zlecać uruchomienie aplikacji, skalować aplikację i instalować ich
+nowe wersje.
+
+4. Poleceniem "kubectl run komunikator --image=kjop118/ubuntu-deploy --port=9000 --labels
+app=komunikator" uruchomiono kontener komunikatora w Kubernetes. Następnie wykonono
+przekierowanie portów w celu sprawdzenia działania - kubectl port-forward pod/komunikator 9000:3000.
+
+5. Na koniec w klastrze Kubernetes sprawdzono, czy komunikator działa poprawnie.

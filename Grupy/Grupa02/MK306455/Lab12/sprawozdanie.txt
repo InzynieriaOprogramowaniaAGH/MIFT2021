@@ -1,0 +1,5 @@
+1. Po zapoznaniu sie z dokumentacja tworzenia manifestow dla obiektow Deployment zmienilem przykladowy plik deployment ze strony. Jako ilosc replik ustawilem 4 (parametr replicas: 4 w linii nr 8).
+2. Zlecilem Kubernetes wykonanie pliku komunikator-deploymen.yaml - zrzut zad6d. Deployment zostal utworzony.
+3. Sprawdzilem poprawnosc dzialania Deploymentu w Kubernetes - zrzuty zad6a, zad6b, zad6c.
+4. Zmienilem losc replik na 5 (parametr replicas: 5 w linii nr 8). Zlecilem kubernetes wykonanie pliku komunikator-deploymen.yaml - zrzut zad8d. 
+5. Sprawdzilem poprawnosc dzialanie Deploymentu w Kubernetes - zrzuty zad8a, zad8b, zad8c. Deployment zostal zmodyfikowany. Do wczesniej utworzonych replik zostala dodana dodatkowa (nie tworzono wszystkich replik od nowa).

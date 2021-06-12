@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: komunikator-deployment
+  labels:
+    app: komunikator
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: kubec
+  template: 
+    metadata:
+      labels:
+        app: kubec
+    spec:
+      containers:
+      - name: komunikator-deployment
+        image: galainer/kubec
+        ports:
+        - containerPort: 80

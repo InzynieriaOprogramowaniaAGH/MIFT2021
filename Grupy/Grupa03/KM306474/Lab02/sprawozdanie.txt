@@ -1,0 +1,29 @@
+1. klucz ssh
+ssh-keygen -r ed25519 -X "krzysztofmarcinek98@gmail.com"
+eval 'ssh-agent -s'
+ssh-add ~/.ssh/id_ed25519
+
+git remote -v
+git remote set-url origin git@github...
+
+git push --follow-tags
+git checkout -b Grupa03-KM036474_Lab02
+mv commit-msg.sh .git/hooks/commit-msg.sh
+
+
+git add sprawozdanie.txt
+
+
+#!/usr/bin/env bash
+INPUT_FILE=$1
+START_LINE=`head -n1 $INPUT_FILE`
+PATTERN="^(KM306474)-[[:digit:]]+: "
+if ! [[ "$START_LINE" =~ $PATTERN ]]; then
+  echo "Bad commit message, see example: MYPROJ-123: commit message"
+  exit 1
+fi
+
+git merge grupa03
+git checkout grupa03
+
+ git branch --delete KM306474
