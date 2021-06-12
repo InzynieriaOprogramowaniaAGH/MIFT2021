@@ -1,0 +1,1 @@
+1. Uruchomiłem klaster Kubernetes tak jak na Lab11.
