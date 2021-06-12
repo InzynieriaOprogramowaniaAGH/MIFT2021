@@ -1,0 +1,10 @@
+#!/bin/bash
+
+word="MS307688"
+
+isPresent=$(grep ^"$word" $1)
+
+if [[ -z $isPresent ]]
+  then echo "zla wiadomosc, $word powinno byc na poczatku"; exit 1;
+  else echo "OK"; exit 0;
+fi

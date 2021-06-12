@@ -1,0 +1,18 @@
+1. Zarejestrowałam w swoim repozytorium webhook'a, który za każdym razem gdy na głównym branchu pojawia się commit, uruchamia pipeline opisywany w Jenkinsfile.
+
+
+2. Wykazałam i udokumentowałam na screenach automatyczne wyzwalanie pipeline'a z pkt 1 
+
+
+3. W pliku Jenkinsfile dodałam nowy stage('Deploy').
+
+
+4. Upewniłam się, że deploy jest wykonywany na dedykowany kontener dockerowy, że do deploya jest przekazywany artefakt stworzony w stage('Build') oraz że uzytkownik jest powiadamiany zarówno o sukcesie jak i porażce etapu wdrażania.
+
+
+5. Wykałam i udokumentowałam na screenach że: pipeline jest zdefniowany w Jenkinsfile w repo z komunikatorem, pipeline jest automatycznie wyzwalany, pipeline przechodzi wszystkie etapy (stage build-test-deploy), pipeline obsługuje powiadamianie o rezlutatach każdego z etapów
+
+
+
+
+

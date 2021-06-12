@@ -1,0 +1,11 @@
+2. Pobralem i zainstalowalem Minikube.
+3. Uruchomilem Minikube Dashboard:
+minikube dashboard
+3.1 Za pomoca Minikube Dashboard mozna:
+-kontrolowac pod'sy
+-przegladac i ustawiac klaster
+-monitorowac zuzycie zasobow
+4. Uruchomilem kontener-komunikator w Kubernetes
+4.1 Przekierowalem porty w celu umozliwienia dostepu z zewnatrz:
+minikube kubectl port-forward komunikator 9999:3000
+5. Udokumentowalem dzialanie kontenera w klastrze Kubernetes

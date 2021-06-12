@@ -1,0 +1,44 @@
+DevOps 27.05.2021
+
+1. Ćwiczenie rozpoczęłam od zapoznania się z instrukcjami i przygotowania kontenera
+   dockerowego z wcześniejszych ćwiczeń.
+
+2. Zainstalowałam minikube zgodnie z dokumentacją:
+
+    - "curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux
+       amd64"
+      "sudo install minikube-linux-amd64 /usr/local/bin/minikube"
+
+    - "minikube start" -otrzymano komunikat o tym że jest za mało dostępnych CPUs,
+      zatem zmieniono ustawienia maszyny wirtualnej
+
+    - ponownie spróbowano "minikube start" i przy tym uruchomieniu otrzymano komunikat
+      o braku wystrczającej wolnej pamięci
+
+    - zwiększono miejsce na dysku maszyny i uruchomiono "minikube start" i ostatecznie
+      minikube wystartował poprawnie
+
+    -  "minikube kubectl -- get po -A"
+
+3. Uruchomiłam "minikube dashboard" na którym znalazłam m.in. poniższe opcje:
+
+    - przegląd wszytkich obiektów zdefiniowanych w klastrze
+    - narzędzia administratorskie- lista węzłów, obszarów nazw, szczegóły dotyczące
+      użycia procesora i pamięci itd.
+    - widok podów działających w wybranej przestrzeni nazw, wylistowane wraz ze
+      szczegółami dotyczącymi obciążenia pracą, statusu, zużycia pamięci i procesora
+      przez pod
+    - podgląd dostępnych zasobów które pozwalają na udostępnienie usług na zewnątrz
+    - liczne ustawiania podów
+    - logi usług
+
+4. Utworzyłam pod z komunikatorem za pomocą komendy:
+    
+    - minikube kubectl -- run nodechat --image=agusko/nodechat --port=9999 --labels
+      app=nodechat
+
+    - przekierowałam porty wg instrukcji:
+      minikube kubectl port-forward nodechat 9995:3000
+
+5. Udokumentowałam działania komunikatora w klastrze i wrzuciłam zadanie na
+   repozytorium oraz zgłosiłam zadanie na Teams.

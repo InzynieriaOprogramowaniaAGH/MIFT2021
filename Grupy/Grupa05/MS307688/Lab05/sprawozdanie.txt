@@ -1,0 +1,47 @@
+sprawozdanie z lab05 - Jenkins
+
+0. Zapoznano się z diagramem omawianym na zajęciach
+
+1. Zapoznano się z oprogramowaniem Jenkins i instrukcją zamieszczoną pod adresem:
+   https://www.jenkins.io/doc/book/installing/docker/
+
+2. Stworzono kontener hostujący instancje dockera z których będzie korzystał Jenkins
+docker run \
+  --name jenkins-docker \
+  --rm \
+  --detach \
+  --privileged \
+  --network jenkins \
+  --network-alias docker \
+  --env DOCKER_TLS_CERTDIR=/certs \
+  --volume jenkins-docker-certs:/certs/client \
+  --volume jenkins-data:/var/jenkins_home \
+  --publish 2376:2376 \
+  docker:dind \
+  --storage-driver overlay2
+
+3. Korzystając z zmodyfikowanego przykładu w instrukcji stworzono obraz kontenera jenkinsa
+   Owa modyfikacja polegała na pobraniu docker-compose 
+   (zgodnie z instrukcją zamieszczoną tutaj: https://docs.docker.com/compose/install/#alternative-install-options)
+
+FROM jenkins/jenkins:2.277.4-lts-jdk11
+USER root
+RUN apt-get update && apt-get install -y apt-transport-https \
+       ca-certificates curl gnupg2 \
+       software-properties-common
+RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+RUN apt-key fingerprint 0EBFCD88
+RUN add-apt-repository \
+       "deb [arch=amd64] https://download.docker.com/linux/debian \
+       $(lsb_release -cs) stable"
+RUN apt-get update && apt-get install -y docker-ce-cli
+RUN curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+RUN chmod +x /usr/local/bin/docker-compose
+USER jenkins
+RUN jenkins-plugin-cli --plugins "blueocean:1.24.6 docker-workflow:1.26"
+
+4. Zbudowany kontener zamieszczono w repozytorium dockerhub
+
+5. Po wstępnej konfiguracji samego Jenkinsa, utworzono projekt pipeline który
+   sklada się z zdefiniowanego repozytorium kodu źródłowego, wskazanego brancha
+   do obserwacji i definicji zadania.
