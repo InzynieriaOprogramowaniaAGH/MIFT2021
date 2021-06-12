@@ -1,0 +1,22 @@
+Metodyki DevOps, Lab09, 13.05
+
+Zad. 1	Zarejestrowałam w swoim repozytorium z komunikatorem webhook'a odpowiadającego za 
+	automatyczne uruchomienie pipeline'a opisanego w Jenkinsfile'u za każdym razem kiedy 
+	na branchu głównym pojawi się push.
+	Konieczne było skorzystanie z ngrok'a, ponieważ przy tworzeniu webhook'a nie można
+	użyć swojego prywatnego adresu IP.
+	
+Zad. 2	Wykazałam, że pipeline uruchamia się automatycznie (screen 'zadanie2').
+
+Zad. 3	Rozszerzyłam Jenkinsfile z poprzednich zajęć o nowy stage('Deploy). 
+
+Zad. 4  Upewniłam się, że deploy jest wykonywany na dedykowany kontener dockerowy 
+	(Dockerfile_deploy), do deploya przekazywany jest artefakt stworzony w stage('Build'), 		użytkownik jest powiadamiany zarówno o sukcesie jak i porażce etapu wdrażania 		(zadanie4_success, zadanie4_failure).
+
+Zad. 5	Wykazałam, że:
+	* pipeline jest zdefiniowany w Jenkinsfile w repozytorium z komunikatorem (zadanie5)
+	* pipeline jest automatycznie wyzwalany (zadanie5_1)
+	* pipeline przechodzi wszystkie etapy (zadanie5_2)
+	* pipeline obsługuje powiadamianie o rezlutatach każdego z etapów (zadanie5_3).
+	
+

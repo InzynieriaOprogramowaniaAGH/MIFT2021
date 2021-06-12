@@ -1,0 +1,42 @@
+1. Skonfigurowano joba w Jenkinsie:
+	-w sekcji BuildTriggers zaznaczono opcje "Poll SCM"
+	-w oknie schedule wpisano "* * * * *" - powoduje to sprawdzanie nowych commitow na gicie co minute i automatyczne wyzwalanie pipeline'a.
+	
+2. W Jenkinsfile dodano stage deploy:
+
+		stage('Deploy') { 
+            steps {
+                echo 'Deployment....'
+                sh 'docker build -t node-chat-docker-container ./'
+            }
+		 	
+		 	post {
+				failure {
+				    emailext attachLog: true,
+				        body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+				        recipientProviders: [developers(), requestor()],
+				        to: 'bzieja@interia.pl',
+				        subject: "Deployment failed! ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+				}
+				success {
+				    emailext attachLog: true,
+				        body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+				        recipientProviders: [developers(), requestor()],
+				        to: 'bzieja@interia.pl',
+				        subject: "Deployment succeeded! ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+				}
+    		}
+		 	
+        }
+        
+Stage ten powiadamial uzytkownika o udanym lub nieudanym procesie wdrazania.
+
+3. Dodano dockerfile do folderu z aplikacja aby teraz na jego podstawie odbywalo sie budowanie:
+	FROM node:10
+
+	RUN apt-get update && apt-get upgrade -y
+
+	RUN apt-get install python make g++ git
+	COPY . node-chat-app/
+	WORKDIR node-chat-app
+	RUN ls

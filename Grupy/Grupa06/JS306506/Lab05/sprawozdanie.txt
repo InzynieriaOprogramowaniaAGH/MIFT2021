@@ -1,0 +1,50 @@
+Metodyki DevOps, Lab05, 15.04.2021
+
+Zad.0	Zapoznałam się z diagramem omawianym na zajęciach.
+
+Zad.1	Zapoznałam się z oprogramowaniem Jenkins.
+
+Zad.2	Stworzyłam kontener dockerowy z Jenkinsem zgodnie z instrukcją:
+	 * sudo docker network create jenkins
+	 * sudo docker run \
+ 		 --name jenkins-docker \
+ 		 --rm \
+ 		 --detach \
+		 --privileged \
+ 		 --network jenkins \
+ 		 --network-alias docker \
+ 		 --env DOCKER_TLS_CERTDIR=/certs \
+ 		 --volume jenkins-docker-certs:/certs/client \
+ 		 --volume jenkins-data:/var/jenkins_home \
+ 		 --publish 2376:2376 \
+ 		 docker:dind \
+ 		 --storage-driver overlay2
+	Następnie stworzyłam Dockerfile i zbudowałam obraz:
+	 * sudo docker build -t myjenkins-blueocean:1.1 .
+	Uruchomiłam kontener:
+	 * sudo docker run \
+ 		 --name jenkins-blueocean \
+ 		 --rm \
+ 		 --detach \
+ 		 --network jenkins \
+ 		 --env DOCKER_HOST=tcp://docker:2376 \
+ 		 --env DOCKER_CERT_PATH=/certs/client \
+ 		 --env DOCKER_TLS_VERIFY=1 \
+ 		 --publish 8080:8080 \
+ 		 --publish 50000:50000 \
+ 		 --volume jenkins-data:/var/jenkins_home \
+ 		 --volume jenkins-docker-certs:/certs/client:ro \
+ 		 myjenkins-blueocean:1.1 
+	
+Zad.3	Wrzuciłam obraz utworzonego w punkcie 2 Jenkinsa na DockerHub'a:
+	 * sudo docker tag d97c52fd2e06 jszandula/lab_05
+	 * sudo docker push jszandula/lab_05
+
+Zad.4	W przeglądarce otworzyłam Jenkinsa. Hasło potrzebne do odblokowania Jenkinsa 
+	sprawdziłam wykorzystując polecenie:
+	 * sudo docker logs bee10b28b65e
+	W Jenkinsie utworzyłam nowy projekt, skonfigurowałam tak aby spełniał wymagania 
+	postawione w instrukcji (Jenkins jest uruchomiony w kontenerze, po Lab04
+	plik docker-compose.yml jest w repozytorium, które ściągamy z poziomu Jenkinsa,
+	Jenkins uruchamia plik .yml tworząc środowisko z poprzednich laboratoriów.
+	docker-compose uruchomiło się pomyślnie.
