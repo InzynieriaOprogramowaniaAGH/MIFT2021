@@ -4,4 +4,14 @@
 
 2. Wybranie punktow z planu CI/CD odpowiadajacyh za Uruchomienie szybkiego i niezawodnego testowania
 	- utworzenie Jenkinsfile
-	- wrzucenie JenkinsFile na zforkowawne repo apki
+	- wrzucenie Jenkinsfile na zforkowawne repo apki
+	- utworzenie w Jenkinsfile nowego pipeline a w nim nowego stage do testowania
+	- instalacja NodeJS - dodatek Jenkinsa
+	- ustawienie w Jenkinsie komunikcaji smtp z prywatnym mailem
+	- w stage Jenkinsfile testowym oskryptowanie uruchaminia testów dla apki:
+		- wykrycie i obsluzenie przypadkow powodzenia i niepowodzenia testow
+		- przy niepowodzeniu na maila wysylane sa logi
+
+3. Wykonanie testow dla obu przypadkow powodzenia
+
+4. Wrzucenie Jenkinsfile na repo ze skryptami 
