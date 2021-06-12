@@ -5,3 +5,12 @@
 - sudo install minikube-linux-amd64 /usr/local/bin/minikube
 - minikube start
 - minikube kubectl -- get po -A
+
+3. Włączyłem i uruchomiłem Minikube Dashboard:
+- minikube dashboard
+
+Co można zrobić korzystając z Minikube Dashboard?
+- zarządzać klastrami
+- kontrolować pody z dostępem do szczegółowych informacji
+- zarządzać jobami
+- zarządzać zasobami oraz monitorować ich zużycie
