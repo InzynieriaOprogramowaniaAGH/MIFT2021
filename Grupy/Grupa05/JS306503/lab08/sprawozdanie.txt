@@ -1,0 +1,5 @@
+Jakub Straszak - sprawozdanie z laboratorium nr 8
+
+1. Na paczatek upewnilem sie, ze stage "Build" w moim Jenkinsfile spenlnia wszystkie wymagania wzgledem instrukcji
+2. Upewnilem sie, ze po zbudowaniu zakonczonym sukcesem, stage "Test" jest uruchamiany, a po zakonczonym porazka, nie.
+3. Utworzylem git post-hooka, ktory wyswietla wiadomosc "To jest commit hook, ktory bedzie kiedys uruchamial Pipeline po kazdym nowym commicie".
