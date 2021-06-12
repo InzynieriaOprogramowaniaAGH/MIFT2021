@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: wire-desktop-dep
-        image: wire-desktop
+        image: morteniusz/wire-desktop
         ports:
         - containerPort: 4000
