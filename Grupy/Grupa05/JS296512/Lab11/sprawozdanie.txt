@@ -14,3 +14,9 @@ Co można zrobić korzystając z Minikube Dashboard?
 - kontrolować pody z dostępem do szczegółowych informacji
 - zarządzać jobami
 - zarządzać zasobami oraz monitorować ich zużycie
+
+4. Uruchomiłem kontener-komunikator w Kubernetes:
+- minikube kubeclt -- run komunikator --image=jansmerecki/deploy --port=9999 --labels app=komunikator
+
+4.1 W celu sprawdzenia działania, przekierowałem porty:
+- minikube kubectl port-forward komunikator 9999:3000
