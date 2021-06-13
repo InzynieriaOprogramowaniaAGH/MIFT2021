@@ -1,0 +1,19 @@
+Wojciech Szeliga 306509, gr05, Sprawozdanie z laboratorium 07
+
+1. Zmienilem strukture folderow i plikow wedlug polecenia (Zad1.png)
+
+2. Zforkowalem repozytorium aplikacji node-chat-app (Zad2.1.png)
+Nastepnie przygotowalem i dodalem do tego repozytorium Jenkinsfile'a, tak aby wykrywal pozytywny i negatywny wynik testow, a w przypadku niepowodzenia wysylal e-maila z logami (Zad2.2.png)
+Skonfigurowalem w Jenkinsie komunikacje SMTP z moim e-mailem (Zad2.3.png)
+Dodalem NodeJS jako plugin do Jenkinsa oraz go aktywowalem (Zad2.4.png)
+Na koniec utworzylem pipeline'a (Zad2.5.png)
+
+3. Build pozytywnie wykonal sie i wypisal odpowiednie komunikaty (Zad3.1.png)
+W kolejnym kroku bojac sie "popsucia" aplikacji, zamiast edytowac ja tak aby testy nie przeszly pozytywnie, zmienilem Jenkinsfile'a w nastepujacy sposob:
+Przenioslem komendy odpowiedzialne za wysylanie e-maila do czesci Jenkinsfile'a odpowiedzialnej za komunikaty po pomyslnym przejsciu testow. 
+Z racji tego iz komendy te sa dokladna kopia tych wykorzystanych w przypadku negatywnego wyniku testow, zmiana ta nie moze wplynac na calosc dzialania.
+Zmieniony Jenkinsfile na potrzeby sprawdzenia funkcji wysylania e-maili - Zad3.2.png
+Wyslanie e-maila w odpowiednim miejscu - Zad3.3.png
+Otrzymany e-mail - Zad3.4.png
+
+4. Na koniec dodalem zmiany na repozytorium MIFT2021
