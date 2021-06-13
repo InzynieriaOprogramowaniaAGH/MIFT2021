@@ -1,0 +1,20 @@
+2. Pobranie i instalacja Minikube za pomocą instrukcji z dokumentacji, poprzez exe'ka dla windowsa.
+Uruchomilem klaster za pomoca polecenia "minikube start" i pobralem kubectl za pomoca polecenia "minikube kubectl -- get po -A".
+
+3. Odpalenie dashboarda za pomocną "minikube dashboard"
+
+3.1 korzystając z dashboarda można
+- zarzadzać klastrem
+- deployowac apke
+- monitorowac apke
+- tworzyć wirtualne klastry
+- wdrażać aplikacje kontenerowe w klastrze
+- rozwiązywać problemu z kontenerozywanymi aplikacjami
+- tworzyć i modyfikować zasoby Kubernetesa
+
+4. Po opublikowaniu obrazu apki na dockerhubie uruchomiłem kontener w klastrze za pomocą 
+"kubectl run komunikator --image=macovv/devops--port=9999 --labels app=komunikator"
+Później przekierowałem porty:
+"kubectl port-forward komunikator 9999:3000"
+
+5. Aplikacja działa poprawnie, mamy dostęp do czatu(localhost:9999)
