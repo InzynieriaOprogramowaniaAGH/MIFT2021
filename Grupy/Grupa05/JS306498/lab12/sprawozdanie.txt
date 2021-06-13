@@ -1,9 +1,0 @@
-1. Uruchomiłem klaster Kubernets, tak jak omawiany na lab11.
-2. Uruchomiłem Minikube Dashboard i upewniłem się że działa.
-3. Zapoznałem się z dokumentacją dla obiektów "Deployment".
-4. Stworzyłem plik komunikator-deployment.yaml.
-5. Zleciłem klastrowi zrealizowanie pliku komunikator-deployment.yaml używając polecenia:
-kubectl apply -f komunikator-deployment.yaml.
-6. Udokumentowałem stan klastra Kubernetes.
-7. Wprowadziłem zmiany w pliku - zmieniłem ilość replik na 8.
-8. Udokumentowałem nowy stan klastra Kubernetes.
