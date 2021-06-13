@@ -1,0 +1,20 @@
+
+1. W repo z komunikatorem zarejestrowano webhooka pozwalajacego na 
+    uruchamianie Jenkinsowego pipelinea za kazdym razem gdy pojawia sie nowy commit
+	- do tego celu nalezalo dodatkowo uzyc programu ngrok
+	- program pozwala na udostepnienie localhosta poprzez tunelowanie
+	
+2. Wykazano i udokumentowano automatyczne wyzwolenie pipelinea
+
+3. Rozszerzono Jenkinsfile z poprzednich labow o nowy stage - Deploy
+
+4. Zapewniono ze
+	- deploy jest wykonywany na dedykowany kontener dockerowy
+	- do deploya jest przekazywany artefakt stworzony w stage buildowym
+	- uzytkownik jest powiadamiany o sukcesie lub porazce etapu wdrazania 
+	
+5. Wykazano i udokumentowano ze
+	- pipeline jest zdefiniowany w Jenkinsfile w repozytorium z komunikatorem
+	- pipeline jest automatycznie wyzwalany
+	- pipeline przechodzi wszystkie etapy
+	- pipeline obsluguje powiadamianie o rezultatach kazdego z etapow
