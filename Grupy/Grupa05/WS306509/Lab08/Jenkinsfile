@@ -1,0 +1,49 @@
+pipeline {
+	agent any
+		tools {nodejs "nodeJS"}
+	
+	stages {
+		stage('Build') {
+			steps {
+				echo 'Building'
+				sh 'git pull origin master'
+				sh 'npm install'
+			}
+			post {
+				success {
+					echo 'Successful building'		
+					emailext attachLog: true,
+					body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+					to: 'wojciech.szeliga5@gmail.com',
+					subject: "Build finished successfully"
+				}
+				failure {
+					echo 'Building failed'
+					emailext attachLog: true,
+					body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+					to: 'wojciech.szeliga5@gmail.com',
+					subject: "Building failed"
+				}
+			}
+		}
+	
+		stage('Test') {
+			steps {
+				echo 'Tests'
+				sh 'npm run test'
+			}
+			post {
+				success {
+					echo 'Successful testing'
+				}
+				failure {
+					echo 'Testing failed'
+					emailext attachLog: true,
+					body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+					to: 'wojciech.szeliga5@gmail.com',
+					subject: "Testing failed"
+				}
+			}
+		}
+	}
+}
