@@ -1,0 +1,26 @@
+  
+1. 
+Uruchomilem klaster Kubernetes za pomoca polecenia "minikube start".
+
+2. 
+Uruchomilem dashboard za pomoca polecenia "minikube dashboard".
+
+3.
+Zapoznałem sie z dokumentacja.
+
+4.
+Stworzyłem plik kominikator-deployment.yaml. Ustawiłem liczbe replik na 4 a jako obraz podałem obraz komunikatora macovv/devops
+
+5. 
+Zlecenie klastrowi zrealizowania pliku za pomocą:
+"kubectl apply -f komunikator-deployment.yaml"
+
+6. 
+Deployment stworzył 4 pody co jest na screenach
+
+7. 
+Wprowadzenie zmian w pliku komunikator-deployment.yaml poprzez zmienienie liczby replik na 6 i ponowne wykonanie:
+"kubectl apply -f komunikator-deployment.yaml"
+
+8.
+Dokumentacja aktualizacji na screenach, widać 6 podów. 
