@@ -7,11 +7,7 @@ i sprawdzono, czy można go uruchomić w przeglądarce.
 utworzono plik komunikator-deployment.yaml zawierający:
 - nazwę: komunikator-deployment
 - app: komunikator
-<<<<<<< HEAD
 - obraz z komunikatorem: kjop118/deploy-chat
-=======
-- obraz z komunikatorem: kjop118/ubuntu-deploy
->>>>>>> Grupa02
 - 4 repliki
 
 4. Stosując polecenie "kubectl apply -f komunikator-deployment.yml" zlecono
