@@ -1,0 +1,12 @@
+Wojciech Szeliga 306509, gr. 05, Sprawozdanie z laboratorium 08
+
+1. Rozszerzono Jenkinsfile'a z poprzednich laboratoriow o nowy stage 'Build' (Zad1-2.png)
+
+2. W Jenkinsfile'u zadbano o to aby byla pobierana najnowsza wersja kodow zrodlowych z repozytorium, program byl budowany oraz uzytkownik powiadamiany o pomyslnym i niepomyslnym wykonaniu builda.
+Dzialania te przedstawione sa w plikach:
+Zad2-3.1.png, Zad2-3.2.png oraz Zad2-3.3.png dla pomyslnego wykonania builda
+Zad2-3.4.png oraz Zad2-3.5.png dla niepomyslnego
+
+3. Wyzej wymienione pliki potwierdzaja rowniez wykonanie sie testow w razie pomyslnego builda, a niewykonanie testow w razie niepomyslnego builda
+
+4. Napisano "post-commit" z zadana trescia oraz przetestowano jego dzialanie (Zad4.1.png i Zad4.2.png)
