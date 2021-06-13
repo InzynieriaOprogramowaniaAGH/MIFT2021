@@ -1,0 +1,7 @@
+Jakub Straszak - sprawozdanie z laboratorium nr 9
+
+1. Na poczatku zarejestrowalem w swoim repozytorium z komunikatorem webhook'a
+2. Udokumentowalem wyzwalanie pipeline'a
+3. Rozszerzylem Jenkinsfile'a o stage "Deploy"
+4. Upewnilem sie ze nowy stage spelnia wszystkie wymagania zawarte w instrukcji
+5. Zrobilem zrzuty ekranu dzialania pipeline'a
