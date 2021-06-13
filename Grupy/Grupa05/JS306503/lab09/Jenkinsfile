@@ -1,0 +1,78 @@
+pipeline {
+    agent any 
+    
+    tools {nodejs "node"}
+    
+    stages {
+        stage('Build') { 
+            steps {
+                echo 'Building'
+                sh 'npm install'
+                
+            }
+		
+            post {
+        	failure {
+            		emailext attachLog: true,
+                	body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+                	to: 'jakub.straszak99@gmail.com',
+                	subject: "Build Failure"
+        	}
+		    
+        	success {
+            		emailext attachLog: true,
+                	body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+                	to: 'jakub.straszak99@gmail.com',
+                	subject: "Build completed"
+		}
+    		}
+        }
+	    
+        stage('Test') { 
+            steps {
+                echo 'Testing'
+                sh 'npm run test'
+            }
+		
+            post {
+        	failure {
+            		emailext attachLog: true,
+                	body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+                	to: 'jakub.straszak99@gmail.com',
+                	subject: "Test Failure"
+        	}
+		    
+        	success {
+            		emailext attachLog: true,
+                	body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+                	to: 'jakub.straszak99@gmail.com',
+                	subject: "Test completed"
+        	}
+    		}
+        }
+        
+        stage('Deploy') {
+            steps {
+                echo 'Deploying'
+                sh 'docker build -t deploy -f Dockerfile-deploy .'
+            }
+		
+            post {
+        	failure {
+            		emailext attachLog: true,
+                	body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+                	to: 'jakub.straszak99@gmail.com',
+                	subject: "Deploy Failure"
+        	}
+        	success {
+            		emailext attachLog: true,
+                	body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+                	to: 'jakub.straszak99@gmail.com',
+                	subject: "Deploy completed"
+        	}
+    		}
+        }
+    }
+
+    
+}
