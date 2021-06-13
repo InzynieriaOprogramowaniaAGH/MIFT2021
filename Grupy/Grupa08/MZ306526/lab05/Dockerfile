@@ -1,14 +1,16 @@
-FROM jenkins/jenkins:2.277.1-lts-jdk11
-USER root
-RUN apt-get update && apt-get install -y apt-transport-https \
-       ca-certificates curl gnupg2 \
-       software-properties-common
-RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
-RUN apt-key fingerprint 0EBFCD88
-RUN add-apt-repository \
-       "deb [arch=amd64] https://download.docker.com/linux/debian \
-       $(lsb_release -cs) stable"
-RUN apt-get update && apt-get install -y docker-ce-cli
-USER jenkins
-RUN jenkins-plugin-cli --plugins "blueocean:1.24.5 docker-workflow:1.26"
+FROM ubuntu:latest
+MAINTAINER michalzma@gmail.com
 
+ENV TZ=Europe/Warsaw
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+RUN apt-get -y update
+RUN apt-get -y upgrade
+RUN apt-get install -y build-essential
+RUN apt-get -y install git
+RUN apt-get install nodejs -y
+RUN apt-get install npm -y
+RUN cd ~
+RUN git clone https://github.com/binhxn/node-chat-app
+WORKDIR node-chat-app
+RUN npm install
+CMD ["echo", "Job done"]
