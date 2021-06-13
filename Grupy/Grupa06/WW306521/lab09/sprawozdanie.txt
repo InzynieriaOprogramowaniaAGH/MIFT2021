@@ -1,0 +1,37 @@
+1. Dodano do Joba w Jenkins Build Trigger sprawdzajacy co minute nowego commita na repo z aplikacja.
+
+2. Job automatycznie uruchamia sie gdy w repo znajdzie sie nowy commit
+
+3- 4 - 5. Dodano stage Deploy do Jenkinsfile tworzaca nowy kontener z gotowa aplikacja:
+	stage('Deploy') { 
+            steps {
+                echo 'Deploying'
+                sh 'docker build -t node-chat ./' 
+                ...
+   W tym celu dodano rowniez Dockefile do repo aplikacji: 
+   	FROM node:14.16.0-buster
+
+	RUN apt-get update
+	RUN apt-get install -y --no-install-recommends git make python g++ yarn
+
+	COPY . node-chat-app/
+	WORKDIR node-chat-app
+	RUN ls
+	
+	Uzytownik powiadamiany jest mailowo o rezultacie deployowania:
+	post {
+				failure {
+				    emailext attachLog: true,
+				        body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+				        recipientProviders: [developers(), requestor()],
+				        to: 'wojtekwrobel22@gmail.com',
+				        subject: "Deployment failed in Jenkins ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+				}
+				success {
+				    emailext attachLog: true,
+				        body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+				        recipientProviders: [developers(), requestor()],
+				        to: 'wojtekwrobel22@gmail.com',
+				        subject: "Successful deploying in Jenkins ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+				}
+

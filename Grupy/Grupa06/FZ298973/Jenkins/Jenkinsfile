@@ -59,4 +59,4 @@ pipeline {
 			to: 'zabludowskifilip@gmail.com'
 		}
 	}
-}
+

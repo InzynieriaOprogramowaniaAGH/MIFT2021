@@ -2,8 +2,10 @@
 	- sudo docker tag lab03 wojciechwrobel22/lab03devops:lab03 - zmiana taga aby zpushowac
 	- sudo docker push wojciechwrobel22/lab03devops:lab03 - pushowanie na dockerhuba
 
-3. Utworzono Dockerfile o nazwie Dockerfile-build do pobierania kodu i budowania aoplikacji wire-dekstop:
-	sudo docker build -t wire -f Dockerfile-build .
+3. Utworzono Dockerfile o nazwie Dockerfile-build do pobierania kodu i budowania aoplikacji node-chat:
+	sudo docker build -t nodechat:latest -f Dockerfile-build .
+	sudo docker run -it -p 3000:3000 nodechat:latest
+
 	
 4. Utworzono Dockerfile o nazwie Dockerfile-test do testowania: 
 	sudo docker build -t test:latest -f Dockerfile-test .
