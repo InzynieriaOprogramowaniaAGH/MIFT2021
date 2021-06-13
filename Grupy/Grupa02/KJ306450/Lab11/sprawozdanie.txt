@@ -4,7 +4,11 @@ i nie dało rady jej uruchomić w przeglądarce, dlatego w celu sprawdzenia
 działania klastra Kubernetes zmieniono aplikację na node chat app i w tym celu
 zmieniono również repozytorium gitowe z komunikatorem oraz pipeline, tak aby ten komunikator był budowany, testowano i wdrażany). 
 Uruchomiono kontener z jenkinsem (docker container exec -it jenkins-blueocean bash)
+<<<<<<< HEAD
+i otagowano obraz deploy-chat (docker tag deploy-chat:latest kjop118/deploy-chat:latest). 
+=======
 i otagowano obraz ubuntu-deploy (docker tag ubuntu-deploy:latest kjop118/ubuntu-deploy:latest). 
+>>>>>>> Grupa02
 Następnie zalogowano sie na DockerHub (docker login) i udostępniono obraz (docker push).
 
 2. Zainstalowano klaster Kubernetes za pomocą:
