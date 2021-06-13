@@ -1,0 +1,82 @@
+pipeline 
+{
+    agent any
+    
+tools {nodejs "NodeJS"}
+
+    stages 
+    {
+        stage('Build') 
+	{
+            steps 
+	    {
+                echo 'Building...'  
+		sh 'git checkout master'
+		sh 'git pull'
+		sh 'npm run build'
+            }
+	post
+    	{
+    	failure
+	{
+		slackSend channel:'chatapp', color: 'good', message: "Build failure, *${currentBuild.currentResult}:* *${currentBuild.fullDisplayName}*\n URL to Logs  ${BUILD_URL}/console", tokenCredentialid: 'slack-notification'
+	}
+	success
+	{
+		
+		slackSend channel:'chatapp', color: 'good', message: "Build Succes, *${currentBuild.currentResult}:* *${currentBuild.fullDisplayName}*\n URL to Logs ${BUILD_URL}/console", tokenCredentialid: 'slack-notification'
+	}
+    }
+     	}
+        stage('Test') 
+	{
+            steps 
+	    {
+                echo 'Testing...'
+                sh 'npm run test-misc'
+            }
+	post
+    	{
+    		failure
+		{
+			slackSend channel:'chatapp', color: 'good', message: "Test failure, *${currentBuild.currentResult}:* *${currentBuild.fullDisplayName}*\n URL to Logs  ${BUILD_URL}/console", tokenCredentialid: 'slack-notification'
+		}
+		success
+		{
+			slackSend channel:'chatapp', color: 'good', message: "Test Succes, *${currentBuild.currentResult}:* *${currentBuild.fullDisplayName}*\n URL to Logs ${BUILD_URL}/console", tokenCredentialid: 'slack-notification'
+		}
+    	}
+        }
+	stage('Deploy') 
+	{
+            steps 
+	    {
+                echo 'Deploying...'
+		sh 'docker build -t deploy -f Dockerfile-build .'
+            }
+	post
+    	{
+    		failure
+		{
+			slackSend channel:'chatapp', color: 'good', message: "Deploy failure, *${currentBuild.currentResult}:* *${currentBuild.fullDisplayName}*\n URL to Logs  ${BUILD_URL}/console", tokenCredentialid: 'slack-notification'
+		}
+		success
+		{
+			slackSend channel:'chatapp', color: 'good', message: "Deploy Succes, *${currentBuild.currentResult}:* *${currentBuild.fullDisplayName}*\n URL to Logs ${BUILD_URL}/console", tokenCredentialid: 'slack-notification'
+		}
+    	}
+        }
+    }
+    post
+    {
+    	failure
+	{
+		slackSend channel:'chatapp', color: 'good', message: "Pipeline failure, *${currentBuild.currentResult}:* *${currentBuild.fullDisplayName}*\n URL to Logs  ${BUILD_URL}/console", tokenCredentialid: 'slack-notification'
+	}
+	success
+	{
+		
+		slackSend channel:'chatapp', color: 'good', message: "Pipeline Succes, *${currentBuild.currentResult}:* *${currentBuild.fullDisplayName}*\n URL to Logs ${BUILD_URL}/console", tokenCredentialid: 'slack-notification'
+	}
+    }
+}
