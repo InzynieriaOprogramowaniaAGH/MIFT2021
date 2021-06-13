@@ -1,0 +1,33 @@
+1. Wykorzystanko ngroka aby móc skorzystać z opcji dodawania webhooków. 
+Wystawioo port 8080, którym działa Jenkins. Każdy push do remote repo będzie skutkował 
+uruchomieniem pipelina zawartego w tym repo w pliku Jenkinsfile. 
+
+2. Struktura repozytorium jest zawarta na screenach. 
+Pokazano także działanie ngrocka przy uruchamianiu piplinów (widoczne są requesty z odpowiedzią 200).
+
+3. Dodano stage deployment:
+environment {
+ 	registry = "malinowakrew/app_server"
+ 	registryCredential = "dockerhub"
+ 	dockerImage = ""
+ }
+
+stage('Deploy'){
+		steps{
+			script {
+			docker.withRegistry( "", registryCredential ) {
+ 			dockerImage.push()
+ 			dockerImage.push("latest")}
+		}
+	}
+
+}
+
+Na dockerhubie jest więc przygotowane miejce na image naszego deployga. Zotaje tam spushowany (widoczne na screenach) po 
+przejściu poprzednich stage. 
+
+
+4. Zgodnie ze sposobem opisanym w sprawozdaniu poprzednim dodano opcję informowania o wyniku stage.
+(maile widczne na screenach).
+
+
