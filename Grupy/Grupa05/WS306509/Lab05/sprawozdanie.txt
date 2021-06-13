@@ -1,0 +1,23 @@
+Wojciech Szeliga 306509 gr05 - Sprawozdanie z laboratiorium 05
+
+0. Zapoznano sie z diagramem omawianym na zajeciach
+
+1. Zapoznano sie z oprogramowaniem Jenkins (jenkins.io)
+
+2. Utworzono Dockerfile'a zgodnie z instrukcja:
+Stworzono siec (Zad2.1.png)
+W kolejnym kroku pobrano i uruchomiono obraz docker:dind (Zad2.2.png)
+Nastepnie stworzono Dockerfile (Zad2.3.png)
+Po czym go zbudowano (Zad2.4.png)
+I uruchomiono (Zad2.5.png)
+
+3. Wrzucono obraz Jenkinsa na DockerHub (Zad3.1.png i Zad3.2.png)
+
+4. Z poziomu Jenkinsa uruchomionego w kontenerze uruchomiono docker-compose z Lab04:
+Uzyskano haslo z logow kontenera (Zad4.1.png)
+Nastepnie zainstalowano Jenkinsa wraz z domyslnymi pluginami (Zad4.2.png i Zad4.3.png)
+Skonfigurowano projekt w Jenkinsie tak aby spelnial zalozenia zadania (Zad4.4.png i Zad4.5.png)
+Jednak build wykazal brak uprawnien do utworzenia nowego katalogu z docker-compose (Zad4.6.png)
+Wiec zaladowalem docker-compose w kontenerze z konsoli (Zad4.7.png)
+Po czym uruchomiony build pomyslnie wykonal wszystkie zadania (Zad.4.8.png, Zad.4.9.png oraz Zad4.10.png)
+
