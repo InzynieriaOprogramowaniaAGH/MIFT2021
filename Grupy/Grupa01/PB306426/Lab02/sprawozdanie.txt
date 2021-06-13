@@ -1,0 +1,36 @@
+1. 
+	Stworzono klucz z pomocą poradnika z linku w instrukcji.
+	Zarejestrowano klucz po stronie serwera
+	Zastosowano komendę:
+		git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+	do zmiany sposobu logowania
+	
+2.
+	Nadano tag to aktualengo commita
+		git tag -a PB306426_lab02 -m 'Patryk Błoniarz laboratorium nr 2'
+	Push z tagiem
+		git push --follow-tags origin PB306426
+
+3.	
+	Przeniesiono folder do w nowe miejsce (Grupy/Grupa01) zwykłe ctrl+x, ctrl+v
+	Stworzono nowego bracha 
+		git checkout -b Grupa01-PB306426_Lab02
+	Zrobiono commit i push na nowego brancha	
+	
+4.
+	Wejście do folderu .git/hooks i edycja pliku commit-msg
+	#!/bin/bash
+	tests='PB306426*'
+
+	if ! grep -iqE "$tests" "$1"; then
+		echo "Nie dokonano commita, wystąpił błąd"
+		exit 1;
+	fi
+	echo "Dokonano commita"
+	exit 0;
+	
+	Przetestowano działanie wyniki na zrzutach
+	
+5.
+	Dokonano pusha na brancha grupowego, zamknieto branch osobisty a następnie dokonano 	pull requesta  
+	

@@ -1,0 +1,14 @@
+Sprawozdanie nr2 Mateusz Bonk
+
+1. Wygenerowałem nowy klucz ssh uzywając polecenia
+ssh-keygen -t ed25519 -C "moj_adres@gmail.com",
+ustawiłem hasło dla wygenerowanego klucza.
+Następnie dodałem ssh-agent poleceniem  eval "$(ssh-agent -s)"
+i podałem mu ścieżke do klucza prywatnego ssh-add ~/.ssh/id_ed25519.
+Wszystko zostało wykonane wedłg zalączonej instrukcji
+
+Po wygenerowaniu klucza i dodaniu agenta dodałem klucz publiczny do swojego konta GitHub.
+
+Zajerestrowałem go, a nastepnie zmieniłem sposób logowania za pomocą SSH.
+Używając polecenia  git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+następnie sprawdziłem protokoły połączenia poleceniem  git remote -v

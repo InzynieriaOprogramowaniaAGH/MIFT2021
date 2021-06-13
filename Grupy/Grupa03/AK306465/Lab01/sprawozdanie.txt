@@ -1,0 +1,21 @@
+1. Zainstalowalam klienta git za pomoca komendy "sudo apt-get install git"
+2. Sklonowalam potrzebne repozytorium "git clone <adres repozytorium>"
+3. Zapoznalam sie z instrukcja
+4. Stworzylam nowy branch "git branch AK306465", po czym przelaczylam sie na niego "git checkout AK306465". Nastepnie stworzylam folder "AK306465/Lab01" oraz plik sprawozdanie.txt
+
+Dodalam pliki na repozytorium :
+git add .
+git commit -m "Zadanie 4"
+git push origin AK306465
+
+5. Wprowadzilam zmiany w pliku sprawozdanie.txt po czym ponownie wykonalam pusha na repozytorium.
+
+6.Dodalam wszystkie wykonane zrzuty ekranu. Ponownie :
+git add .
+git commit -m "Zadanie 6"
+git push origin AK306465
+
+7.Zmerge'owalam brancha do mastera za pomoca komendy:
+git merge master 
+git checkout master
+git merge AK306465

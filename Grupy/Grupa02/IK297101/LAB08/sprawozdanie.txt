@@ -1,0 +1,43 @@
+1. Modyfikacja JenkinsFile
+
+stage('Build') 
+	{
+            steps 
+	    {
+                echo 'Building...'  
+		sh 'git status'
+		sh 'git pull'
+		sh 'npm run build'
+            }
+	post
+    	{
+    	failure
+	{
+		slackSend channel:'chatapp', color: 'good', message: "Build failure, *${currentBuild.currentResult}:* *${currentBuild.fullDisplayName}*\n URL to Logs  ${BUILD_URL}/console", tokenCredentialid: 'slack-notification'
+	}
+	success
+	{
+		
+		slackSend channel:'chatapp', color: 'good', message: "Build Succes, *${currentBuild.currentResult}:* *${currentBuild.fullDisplayName}*\n URL to Logs ${BUILD_URL}/console", tokenCredentialid: 'slack-notification'
+	}
+	
+
+2.Stage("Build")
+-Pobierana najnowsza wersja programu 			-- Zajmuje się tym komenda git pull
+-program jest budowany					-- komenda npm run build wywołuje budowanie
+-Użytkownik powiadamiany o sukcesie i porażce		-- są 3 komunikaty. Po stage'ach Build, Test, oraz po całym Pipeline.
+
+
+3.Uruchamiany Test po sukcesie ale nie po porażce
+
+//Domyślnie Test jest omijany jeżeli występują problemy we wcześniejszym stage'u Build.
+
+
+4.git post-commit.
+
+W pliku post-commit
+
+"#!/bin/bash
+echo "# To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"
+exit 0"
+

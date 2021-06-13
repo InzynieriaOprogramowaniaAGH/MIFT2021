@@ -1,0 +1,9 @@
+1. Najpierw zainstalowalem minikube zgodnie z instrukcja podana w instrukcji. Nastepnie uruchomilem klaster "minikube start" (zrzut_1a) oraz zainstalowalem kubectl. Wlacylem Dashboard poleceniem "minikube dashboard" (zrzut_1b,zrzut_1c).
+2. Minikube dashboard to interfejst graficzny ktory umozliwia zarzadzanie klastrem Kubernetes. 
+- mozna dzieki niemu monitorowac elementy klastra (np pody), 
+- sprawdzac logi,
+- tworzyc nowe aplikacje kontenerowe, 
+- zarzadzac elementami klastra (usuwanie, modyfikacja).
+3. Uruchomilem kontener z obrazem zdeployowanym na dockerhub w lab9 za pomoca polecenia "kubectl run -it komunikator --image=mkapust9/jenkins_deploy --port=3000 --labels app=komunikator" (zrzut_2a). Poczatkowo kontener sie zamoistnie zamykal, wiec dodano flage -it.
+4. Przekierowalem porty poleceniem "kubectl port-forward pod/komunikator 3000:3000" (zrzut_2b). 
+5. W dashboard mozna zobaczyc stan komunikatora (zrzut_2c). Po otworzeniu w przegladarce localhost:3000 messenger dziala poporawnie (zrzut_2d)

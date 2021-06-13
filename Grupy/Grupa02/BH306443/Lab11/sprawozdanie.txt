@@ -1,0 +1,31 @@
+2. Aby możliwe było zainstalowanie Kubernetesa konieczne było włączenie wewnętrznej wierualizacji na wirtualnej maszynie
+VBoxManage.exe modifyvm "Ubuntu" --nested-hw-virt on
+bcdedit /set hypervisorlaunchtype off
+Wyłączenie platformy maszyn wirtualnych w funkcjach systemy Windows.
+
+Instalacja Kubernetesa na VM 
+wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo cp minikube-linux-amd64 /usr/local/bin/minikube
+sudo chmod 755 /usr/local/bin/minikube
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+minikube start
+
+3. Włączenie i uruchomienie Minikube Dashboard poleceniem minikube dashboard
+
+3.1. 
+- administracja klastrami
+- konifiguracja podów i kontenerów
+- uruchamianie aplikacji i zadań
+- modyfikacja elementów klastra
+
+4. Ze względu na problemy z komunikatorem używanym na wszystkich poprzednich ćwiczeniach (delta-chat) wykorzystałem obraz przygotowany przez kolegę z grupy (node-chat).
+
+Uruchomienie komunikatora w Kubernetes używając
+kubectl run komunikator --image=tituu/node-chat --port=3000 --labels app=komunikator
+
+Przekierowanie portów 
+kubectl port-forward pod/komunikator 3000:3000
+
+5. Sprawdzenie poprawności działania komunikatora. W tym celu utworzono dwóch użytkowników w jednej konwersacji. Wymiana wiadomości działa w pełni poprawnie. 

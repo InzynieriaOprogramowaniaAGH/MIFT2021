@@ -1,0 +1,22 @@
+1. git checkout -b SL306472
+ 	tworzy nowy branch z obecnego i ustawia go aktywnym
+
+2. mkdir Lab01
+	utworzenie nowego folderu
+
+3. cd Lab01
+	przejscie do foldru o podanej nazwie
+
+4. touch sprawozdanie.txt
+	stworzenie nowego pliku txt
+
+5. git status
+	podstawowe narzędzie używane do sprawdzenia stanu plików
+
+6. git add sprawozdanie.txt
+	dodanie zmodyfikowanego pliku do commita
+
+Zadanie 6
+Dodano screeny wczęsniejszych zadań do folderu Lab01. Sprawdzono czy są dodane do repozytorium.
+Dodano je komedną 'git add .'. Stworzono commita poleceniem git commit -m "wiadomosc".
+Dokonano próby wypchnięcia brancha na remote wraz z zasetowaniem remota jako upstream, poniewaz jest to nowy branch.

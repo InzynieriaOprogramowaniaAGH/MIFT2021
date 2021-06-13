@@ -1,0 +1,26 @@
+
+Sprawozdanie nr2 Mateusz Bonk
+
+1. Wygenerowałem nowy klucz ssh uzywając polecenia
+ssh-keygen -t ed25519 -C "moj_adres@gmail.com",
+ustawiłem hasło dla wygenerowanego klucza.
+Następnie dodałem ssh-agent poleceniem  eval "$(ssh-agent -s)"
+i podałem mu ścieżke do klucza prywatnego ssh-add ~/.ssh/id_ed25519.
+Wszystko zostało wykonane wedłg zalączonej instrukcji
+
+Po wygenerowaniu klucza i dodaniu agenta dodałem klucz publiczny do swojego konta GitHub.
+
+Zajerestrowałem go, a nastepnie zmieniłem sposób logowania za pomocą SSH.
+Używając polecenia  git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+następnie sprawdziłem protokoły połączenia poleceniem  git remote -v
+
+2. Wykonałem commita z nowymim zmianami i do wykonywanego commita dodałem tag  git tag -a MB306427_Lab02 -m "Lab02 punkt nr 1, Działa"
+
+ wrzuciłem zmiany na swojego brancha git push origin MB306427 --follow-tags
+
+3. Stworzyłem folder grupowy i przeniosłem do niego swój folder z Sprawozdniem oraz dodałem zrzuty ekrany z poszczególnych części zadania
+  Stworzyłem nowego brancha Grupa01-Mb306427_Lab2 i merguje zmiany na brnacha grupowego.
+
+  Dodałem screeny z wykonanych zadań na potwierdzenie ich wykonania
+
+4. Dodałem scrypt do pliku commint-msg.smaple w celu weryfikacji wiadomości podczas wykonywania commita
