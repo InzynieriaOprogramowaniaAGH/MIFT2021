@@ -1,0 +1,5 @@
+FROM chat
+
+WORKDIR ./deltachat-desktop
+
+RUN ls
