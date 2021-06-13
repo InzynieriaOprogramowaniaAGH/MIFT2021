@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: komunikator
-        image: kjop118/ubuntu-deploy
+        image: kjop118/deploy-chat
         ports:
         - containerPort: 3000
