@@ -1,0 +1,33 @@
+1. Jako że Jenkins stoi na lokalhost miałem problem ze skonfigurowaniem Webhooka po stronie gita.
+Dlatego też zmieniłem zawartość post-commit. Po kazdym commitcie jest wysyłane polecenie odpalenia Jenkinsa.
+
+#!/bin/bash
+echo "Build Jenkins uruchamiany"
+/usr/bin/curl --user Galainer:4e4761e1fcb043eda6428bb79eeae36c -s \
+http://localhost:8080/job/Chat-app/build?token=zaq1@WSX
+exit 0
+
+
+3. W Jenkinsfile Dodany nowy stage "Deploy"
+
+stage('Deploy') 
+	{
+            steps 
+	    {
+                echo 'Deploying...'
+		sh 'docker build -t deploy -f Dockerfile-build .'
+            }
+	post
+    	{
+    		failure
+		{
+			slackSend channel:'chatapp', color: 'good', message: "Deploy failure, *${currentBuild.currentResult}:* *${currentBuild.fullDisplayName}*\n URL to Logs  ${BUILD_URL}/console", tokenCredentialid: 'slack-notification'
+		}
+		success
+		{
+			slackSend channel:'chatapp', color: 'good', message: "Deploy Succes, *${currentBuild.currentResult}:* *${currentBuild.fullDisplayName}*\n URL to Logs ${BUILD_URL}/console", tokenCredentialid: 'slack-notification'
+}}}
+        
+4. W tym punkcie budowany jest orbaz dockerowy. Uzytkownik jest powiadamiany o wynikach na komunikatorze Slack.
+
+5. Dokumentacja w postaci screenów powstała
