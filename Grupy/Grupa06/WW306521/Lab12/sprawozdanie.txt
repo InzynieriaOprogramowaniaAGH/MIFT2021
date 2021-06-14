@@ -1,0 +1,40 @@
+1. uruchomienie klastra Kubernetes
+	minikube start
+	
+2. Uruchomienie dashboard 
+	minikube dashboard
+	
+4. Stworzono plik komunikator-deployment.yaml
+	apiVersion: apps/v1
+	kind: Deployment
+	metadata:
+	  name: komunikator-deployment
+	  labels:
+	    app: komunikator
+	spec:
+	  replicas: 4
+	  selector:
+	    matchLabels:
+	      app: komunikator
+	  template:
+	    metadata:
+	      labels:
+		app: komunikator
+	    spec:
+	      containers:
+	      - name: komunikator-deployment
+		image: wojciechwrobel22/node-chat:v05
+		ports:
+		- containerPort: 9999
+
+5. Zlecenie klastrowi realizacji za pomoca: 
+	kubectl apply -f komunikator-deployment.yaml
+
+6. Utworzenie 4 podow
+
+7. Zmiana ilosci replik 5. Zmiana w pliku komunikator-deployment.yaml:
+	replicas: 5
+	
+8. Udokumentowanie na screenie klastra Kubernetes.
+
+
