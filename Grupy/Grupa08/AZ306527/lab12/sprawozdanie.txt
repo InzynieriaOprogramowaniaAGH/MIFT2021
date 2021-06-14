@@ -15,7 +15,7 @@ kubectl apply -f komunikator-deployment.yaml
 
 6. Udokumentowano stan klastra Kuberenetes
 
-7. Wprowadzono zmiany w pliku komunikator-deployment.yaml, gdzie zmieniono liczbe replik na 5.
+7. Wprowadzono zmiany w pliku komunikator-deployment.yaml, gdzie zmieniono liczbe replik na 7.
 Po tym ponownie zlecono zrealizowanie pliku poleceniem
 kubectl apply -f komunikator-deployment.yaml
 
