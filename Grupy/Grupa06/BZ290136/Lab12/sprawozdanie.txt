@@ -1,0 +1,37 @@
+1. Uruchomiono Minikube Dashboard.
+
+2. Zapoznano sie z dokumenacja tworzenia manifestow.
+
+3. Stworzono plik komunikator-deployment.yaml zgodnie z dokumentacja o nastepujacej tresci:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: komunikator-deployment
+  labels:
+    app: komunikator
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: komunikator
+  template:
+    metadata:
+      labels:
+        app: komunikator
+    spec:
+      containers:
+      - name: komunikator
+        image: bartek997/nodechat:v8
+        stdin: true
+        tty: true
+        ports:
+        - containerPort: 9999
+
+4. Zlecono klastrowi akuralizacje pliku poleceniem:
+kubectl apply -f komunikator-deployment.yaml
+
+5. Zmieniono liczbe replik na 5 zmieniajac linijke:
+  replicas: 5
+  
+6. Udokumentowano stany klastra.
