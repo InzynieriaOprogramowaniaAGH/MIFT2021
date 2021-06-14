@@ -17,7 +17,7 @@ W Dashboard mozna:
 
 4. Uruchomienie kontenera z komunikatorem:
 	
-	kubectl run komunikator --image=Bazludowski/lab05 --port=9999 --labels app=komunikator
+	kubectl run komunikator --image=dominikamatuszyk/lab05 --port=9999 --labels app=komunikator
 
 5. Przekierowanie portow: 
 
