@@ -1,0 +1,39 @@
+Najpierw zainstalowane zostaly snapd oraz ngrok uzywane do tunelowania
+    sudo apt install snapd
+    sudo snap install ngrok
+
+Nastepnie uruchomiono ngrok uzywajac komendy ngrok http 8080
+
+Dodano Webhooka do gita podając adres ngroka
+
+Rozszerzono jenkinsfile'a o nowy stage - Deploy:
+		stage('Deploy') {
+			steps {
+				echo 'Deploy'
+				sh 'docker build -t deploy -f Dockerfile-Deploy .'
+			}
+			post  {
+				always{
+					echo 'Finished'
+				}
+				failure{
+					messageFunction('DEPLOY', 'Failure')
+				}
+				success{
+					messageFunction('DEPLOY', 'Success')
+				}
+            		}
+		}
+Uruchomiono deploya na  kontener dockerowy:
+    sh 'docker build -t deploy -f Dockerfile-Deploy .'
+Stworzono plik Dockerfile-Deploy oraz dodanie go do repo:
+    FROM ubuntu:latest
+    ENV TZ=Europe/Warsaw
+    RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+    RUN apt-get -y update
+    RUN apt-get install git -y
+    RUN apt-get install npm -y
+    COPY . Socket.io-Messenger/
+    WORKDIR Socket.io-Messenger
+
+Uruchomiono Joba
