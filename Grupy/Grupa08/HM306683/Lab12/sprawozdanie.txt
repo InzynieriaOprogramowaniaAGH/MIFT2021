@@ -1,0 +1,18 @@
+2.
+minikube start
+minikube kubectl -- get pods -A
+minikube dashboard
+Uruchomienie Minikube Dashboard.
+
+4.
+Stworzenie pliku komunikator-deployment.yaml
+
+5.
+kubectl apply -f komunikator-deployment.yaml
+Zrealizowanie pliku komunikator-deployment.yaml
+
+7.
+Zmiana ilosci replik z 4 na 8.
+
+kubectl apply -f komunikator-deployment.yaml
+Aktualizacja. 

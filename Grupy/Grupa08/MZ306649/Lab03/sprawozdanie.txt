@@ -31,5 +31,3 @@ Przebieg laboratorium
 7. Uruchomiono kontener docker
 8. Sklonowano repozytorium
 9. Sprawdzono zawartosc repozytorium oraz branch
-
-

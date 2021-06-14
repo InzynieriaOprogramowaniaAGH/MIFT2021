@@ -40,7 +40,7 @@
 6. Z poziomu Jenkinsa uruchomilam docker-compose.
 	powiązalam z repozytorium podając jego nazwę oraz brancha
 	wykonalam polecenie powłoki:
-		cd Grupy/Grupa08/MM306681/Lab05
+		cd Grupy/Grupa07/KG306533/Lab05
 		pwd
 		ls
 		curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
