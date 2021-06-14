@@ -1,0 +1,40 @@
+Zadanie 1
+Obraz otrzymany w wyniku stage'u deploy spushowałem na dockerhub analogicznie jak podczas wcześniejszych laboratoriów.
+
+Zadanie 2
+Kolejnym krokiem było pobranie oraz uruchomienie Kubectl oraz Minikube
+Wykorzystałem do tego polecenia:
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+Uruchomiłem minikube za pomocą polecenia:
+minikube start
+
+Następnie w celu pobrania odpowiedniej wersji Kubectl użyłem polecenia:
+minikube kubectl -- get po -A
+
+Zadanie 3
+Uruchomiłem dashborad za pomocą polecenia:
+minikube dashboard
+
+Po tym miałem dostęp do dashboardu pod adresem, który został wypisany w konsoli
+
+Zadanie 3.1
+Dzięki minikube dashboard możliwe jest:
+-proste zarządzanie zdeployowanymi aplikacjami
+-intuicyjne sprawdzanie czy aplikacje działają prawidłowo
+-ustawianie zmiennych środowiskowych i sekretów
+-sprawdzanie logów
+-wykonywanie komend w shellu
+-replikowanie węzłów aplikacji
+
+Zadanie 4
+Dalszą część ze względu na problemy z maszyną wirtualną zrobiłem na komputerze kolegi, który też miał już uruchomionego kubernetesa.
+Uruchomiłem kontener z komunikatorem w Kubernetesie, używając polecenia:
+kubectl run komunikator --image=pduda98/chat-app-deploy --port=9999 --labels app=komunikator
+
+W celu przetestowania aplikacji użyłem polecenia do przekierowywania portów:
+kubectl port-forward pod/komunikator 3000:3000
+
+Zadanie 5
+Uruchomiłem aplikację przez przeglądarkę i przetestowałem czy działa.

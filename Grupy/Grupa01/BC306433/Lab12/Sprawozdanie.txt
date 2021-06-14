@@ -1,0 +1,26 @@
+Metodyki DevOps, Lab12, 10.06.2021
+
+Zad.1	Uruchomiłem klaster Kubernetes, tak samo jak na poprzednich zajęciach:
+	 - minikube start
+
+Zad.2	Uruchomiłem Minikube Dashboard:
+	 - minikube dashboard
+
+Zad.3	Zapoznałem się z dokumentacją tworzenia manifestów dla obiektór "Deployment".
+
+Zad.4	Stowrzyłem plik komunikator-deployment.yaml spełniający wymagania z instrukcji:
+	 - name: komunikator-deployment
+	 - app: komunikator
+	 - image: ciesinskib/devops_lab_11_deploy
+	 - replicas: 4
+
+Zad.5	Zleciłem klastrowi zrealizowanie powyższego pliku:
+	 - minikube kubectl -- apply -f komunikator-deployment.yaml
+
+Zad.6	Udokumentowałem stan klastra Kubernetes.
+
+Zad.7	Zmodyfikowałem plik komunikator-deployment.yaml zmieniając liczbę replik:
+	replicas: 3
+	Zleciłam klastrowi aktualizację takim samym poleceniem, jak w pkt.5.
+
+Zad.8	Udokumentowałam nowy stan klastra.

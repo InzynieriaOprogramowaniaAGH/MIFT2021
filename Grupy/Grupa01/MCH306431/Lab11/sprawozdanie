@@ -1,0 +1,25 @@
+1. Zainstalowanie klastra Kubernetes
+	- uruchomienie klastra (minikube start)
+	- pobranie kubectl
+
+3. Wlaczenie MiniKube Dashboard
+
+3.1 Mozliwosci Minikube Dashboard
+	- navigation
+	- admin overview
+	- workloads
+	- services
+	- storage
+	- config maps and secrets
+	- logs viewer
+	- ogolnie pozwalna na zarzadzanie uslugami dostepnymi w Kubernetesie:
+		 zarzadzanie, monitorowanie, kontrola zasobami.
+
+4. Uruchomienie kontenera-komunikatora w Kubernetes
+	- zalogowanie sie do swojego DockerHuba
+	- wybranie obrazu z wczesniejszych lab.
+	- uruchomienie za pomoca podanego polecenia
+
+4.1 W celu sprawdzenia dzialania zastosowano przekierowanie portow za pomoca podanego polecenia
+
+5. Pokazenie dzialania w Kubernetes
