@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "Build Jenkins uruchamiany"
+/usr/bin/curl --user Galainer:4e4761e1fcb043eda6428bb79eeae36c -s \
+http://localhost:8080/job/Chat-app/build?token=zaq1@WSX
+exit 0
