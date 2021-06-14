@@ -1,0 +1,31 @@
+Zad 1
+	Pobranie oraz uruchomienie Kubectl oraz Minikube
+	Wykorzystane polecenia:
+	
+		curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+		sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+	Przed uruchomieniem mikube dododatkowo musialem zainstalowac:
+		sudo apt-get install -y conntrack
+	Pobranie odpowiedniej wersji Kubectl
+		sudo minikube kubectl --get -po -A
+Zad2
+	Uruchomienie dashboarda:
+		minikube dashboard
+	Umożliwia nam to dostęp do dashboarda za pomocą linku który się wyświetlił
+
+Zad 3
+	Minikube dashboard umożliwia nam:
+	-zarządzanie zdeployowanymi aplikacjami
+	-ustawianie zmiennych środowiskowych i sekretów
+	-sprawdzanie czy aplikacje działają prawidłowo
+	-sprawdzanie logów
+	-wykonywanie komend w shellu
+
+Zad4
+	uruchomienie kontenera z komunikatorem w Kubernetesie:
+		kubectl run komunikator --image=zmarly99/lab05 --port=9999 --labels app=komunikator
+
+	Przekierowanie portow:
+		kubectl port-forward komunikator 9999:3000
+
