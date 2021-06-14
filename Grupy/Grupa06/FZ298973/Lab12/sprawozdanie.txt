@@ -1,0 +1,24 @@
+1. Potwierdzono dzialanie klastra z poprzednich zajec
+
+2. Uruchomiono minikube dashboard i potwierdzenie jego dzialania
+
+3. Zapoznano sie z dokumentacja Kubernetes
+
+4. Stworzono plik dep.yaml za pomoca komendy 
+sudo kubectl create deployment komunikator-deployment --image=Bazludowski/lab05 --dry-run=client -o yaml > dep.yaml
+
+Opcja --dry-run=client -o yaml > dep.yaml zostala uzyta, aby plik definicyjny deploymentu zostal utworzony, ale nie automatycznie uruchomiony w celu wprowadzenia potrzebnych poprawek. Nastepnie w pliku dodano wymagane opcje.
+
+5. Stworzenie i uruchomienie deploymentu za pomoca komendy
+
+kubectl create -f dep.yaml
+
+6. Udokumentowanie stanu klastra Kubernetes
+
+7. Zmieniono ilosc replik w deploymencie na 5 za pomoca komendy
+
+kubectl edit deployment komunikator-deployment
+
+8. Udokumentowanie stanu klastra. 
+
+

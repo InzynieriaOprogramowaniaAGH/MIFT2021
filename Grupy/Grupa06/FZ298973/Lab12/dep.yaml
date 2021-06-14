@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: komunikator
+  name: komunikator-deployment
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: komunikator
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: komunikator
+    spec:
+      containers:
+      - image: bazludowski/lab05
+        name: lab05
+        resources: {}
+status: {}
