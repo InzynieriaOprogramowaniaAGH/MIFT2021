@@ -1,6 +1,0 @@
-1. apt install git instaluje gita na linuxie
-2. git clone pobiera repozytorium z wskazanaego adresu na nasz komputer
-4. git branch tworzy brancha a nastepnie używając polecenie git checkout nazwa_brancha przełączamy się na niego
-5. przechodzimy do wskazanej lokalizacji i tworzymy w niej plik sprawozdanie.txt a nastepnie wykonujemy git add . które dodaje wskazaną zawartość która nastepnie commitujemy pleceniem git commit
-6. dodałem zrzuty ekranu z poszczególnych etapów pracy oraz graf zależności
-
