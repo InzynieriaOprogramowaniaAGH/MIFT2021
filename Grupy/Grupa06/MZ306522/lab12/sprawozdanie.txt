@@ -1,0 +1,27 @@
+1. 
+Uruchomiono klaster Kubernetes za pomocą polecenia "minikube start".
+
+2. 
+Uruchomiono dashboard za pomoca polecenia "minikube dashboard".
+
+3.
+Zapoznano się z dokumentacja tworzenia manifestów dla obiektów "Deployment".
+
+4. 
+Stworzono plik komunikator-deployment.yaml. 
+Jako nazwę Deployment'u podano "komunikator-deployment", a jako label app "komunikator".
+W pliku jako obraz dockerowy podano swój obraz komunikatora z poprzednich zajęć MZachura/node-chat.
+Jako liczbę replik podano 4.
+
+5.
+Zlecono klastrowi zrealizowanie pliku za pomocą polecenia "kubectl apply -f komunikator-deployment.yaml".
+
+6.
+Udokumentowano na screenie stan klastra Kuberenetes. Deployment utworzył 4 pody.
+
+7.
+Wprowadzono zmiany w pliku komunikator-deployment.yaml - zmieniono liczbę replik na 6.
+Zlecono klastrowi aktualizacje ponownie wykonując polecenie "kubectl apply -f komunikator-deployment.yaml".
+
+8. 
+Udokumentowano na screenie stan klastra Kubernetes. Po aktualizacji było 6 podów.
