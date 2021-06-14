@@ -1,10 +1,29 @@
 pipeline{
 	agent any
-	
+	  tools{
+	  	nodejs "node"
+	  }
+
 	stages{
-		stage('Test'){
+		stage('Testing'){
 			steps{
-			echo 'Testing...'
+				echo 'Testing...'
+				sh 'npm install'
+				sh 'npm test'
+			}
+		}
+	}
+	
+	post {
+		failure {
+			mail to: 'wsmieja@student.agh.edu.pl',
+			subject: "Niepowodzenie testów w : ${currentBuild.fullDisplayName}",
+			body: "Faza testów w ${env.BUILD_URL} zakończyła się niepowodzeniem."
+		}
+		success {
+			mail to: 'wsmieja@student.agh.edu.pl',
+			subject: "Powodzenie testów w : ${currentBuild.fullDisplayName}",
+			body: "Faza testów w ${env.BUILD_URL} zakończyła się powodzeniem."
 		}
 	}
 }
