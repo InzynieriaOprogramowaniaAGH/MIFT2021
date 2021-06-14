@@ -47,7 +47,7 @@ stage('Deploy') {
             steps {
                 sh '''
                 echo 'Deploying..'
-                docker build -t deltachat-deploy -f Dockerfile-deploy .
+                docker build -t node_chat_app-deploy -f Dockerfile-deploy .
                 '''
             }
             post {
