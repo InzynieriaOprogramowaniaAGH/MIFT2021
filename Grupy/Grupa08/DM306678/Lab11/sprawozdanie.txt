@@ -17,9 +17,9 @@ W Dashboard mozna:
 
 4. Uruchomienie kontenera z komunikatorem:
 	
-	kubectl run komunikator --image=dominikamatuszyk/lab05 --port=9999 --labels app=komunikator
+	kubectl run deltachat --image=dominikamatuszyk/lab05 --port=9999 --labels app=deltachat
 
 5. Przekierowanie portow: 
 
-	sudo kubectl port-forward komunikator 9999:3000
+	sudo kubectl port-forward deltachat 9999:3000
 
