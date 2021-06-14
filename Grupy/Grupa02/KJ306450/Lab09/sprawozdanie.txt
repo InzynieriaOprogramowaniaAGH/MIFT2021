@@ -1,0 +1,16 @@
+1. Pierwszym etepem wykonania ćwiczenia było zainstalowanie oprogramowania ngrok.
+Po zakończonej instalacji zmieniono ustawienia pipeline, tak aby było on
+uruchamiany po każdym commicie na GitHub (zaznaczono opcje GitHub hook trigger for
+GITScm polling"). Następnie w ustawieniach repozytorium komunikatora utworzono
+nowy webhook.
+
+2.Wykonano commita i sprawdzono, czy pipeline uruchomia się automatycznie.
+
+3. Na poprzednich zajęciach w stage("Build") utworzono obraz docker'owy
+komunikatora. Aby możliwe było wdrożenie artefaktu w pliku Dockerfile_deploy
+skopiowano utworzony w stage build obraz i ustawiono odpowiednią lokalizację.
+
+4. W pipeline w stage("Deploy") następuje zbudowanie obrazu dla wcześniej utworzonego
+Dockerfile'a. Po utworzeniu obrazu do użytkownika wysyłany jest email z informacją
+o wynikach etapu wdrożenia. 
+

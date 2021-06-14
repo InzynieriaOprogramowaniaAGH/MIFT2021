@@ -1,0 +1,18 @@
+1. 
+	- git branch <nazwa_brancha> - utworzenie nowego brancha 
+	- git branch - wyświetlenie lokalnych branchy 
+	- git checkout <nazwa_brancha> - zmiana brancha na którym pracujemy na <nazwa_brancha>
+
+5.
+	- git add . - dodanie plików w obecnym folderze do staged area
+	- git commit - dodanie zmian znajdujących się w staged area do lokalnego repozytorium 
+	- git push - wypchanie zmian do zdalnego repozytorium 
+	- docker build -t <nazwa_obrazu> . - Zbudowanie obrazu kontenera na podstawie pliku dockerfile znajdującego się w obecnym folderze 
+	- docker run <nazwa obrazu> - utworzenie kontenera i uruchomienie na podstawie obrazu 
+	- docker ps -a - wyświetlenie wszsytkich kontenerów 
+	- docker run -dit <nazwa obrazu> - utworzenie i uruchomienie kontenera w trybie detached, interaktywnym z aktywowaną konsolą TTY
+	- docker rm <kod_lub_nazwa_kontenera> - usunięcia kontenera 
+	- docker exec -it <kod_lub_nazwa_kontenera> <komenda> - wykonanie komendy na kontenerze 
+	- git --version - sprawdzenie zainstalowanej wersji gita 
+	- git clone <adres> - sklonowanie repozytorium znajdującego sie pod podanym adresem 
+	

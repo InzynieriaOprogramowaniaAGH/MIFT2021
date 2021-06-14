@@ -1,0 +1,12 @@
+version: '3'
+services:
+ builder:
+  image: messenger
+  build: ./build
+   
+   
+ tester: 
+  image: testing
+  build: ./test
+  depends_on:
+   - builder

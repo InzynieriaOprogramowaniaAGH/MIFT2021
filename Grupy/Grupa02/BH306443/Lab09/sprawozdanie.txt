@@ -1,0 +1,8 @@
+Zainstalowano ngrok oraz dodano webhooka do repozytorium z komunikatorem. Po wykonaniu commita, pipeline został automatycznie uruchomiony.
+
+Do istniejącego Jenkinsfile dodano nowy stage Deploy. W etapie tym zawarto otagowanie oraz spakowanie obrazu.
+Zmodyfikowano Dockerfile-ubuntu tak, aby kopiowane były pliki obrazu do odpowiedniego folderu.
+Budowany jest nowy obraz, na który kopiowany jest obraz z komunikatorem. Tak jak poprzednie etapy - stage Deploy również zawiera powiadamianie o statusie.
+Rozpoczęcie kolejnego etapu wymaga pozytywnego statusu etapu poprzedniego.
+Niestety nie udało się rozwiązać napotkanego błędu. Stage Deploy kończył się błędem, a próby jego naprawienia nie przyniosły pozytywnych skutków.
+Pipeline zgodnie z planem uruchaminay jest automatycznie po wykonaniu commitu, budowanie i testowanie przechodzą pozytywnie, deploy niestety nie. 

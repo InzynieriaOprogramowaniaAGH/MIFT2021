@@ -1,0 +1,21 @@
+1. Poleceniem "minikube start" uruchomiono klaster Kubernetes.
+
+2. Następnie uruchomiono Minikube Dashboard za pomocą polecenia "minikube dashboard"
+i sprawdzono, czy można go uruchomić w przeglądarce.
+
+3. Po zapoznaniu się z dokumentacją tworzenia manifestów dla obiektów "Deployment"
+utworzono plik komunikator-deployment.yaml zawierający:
+- nazwę: komunikator-deployment
+- app: komunikator
+- obraz z komunikatorem: kjop118/deploy-chat
+- 4 repliki
+
+4. Stosując polecenie "kubectl apply -f komunikator-deployment.yml" zlecono
+klastrowi zrealizowanie wcześniej utworzonego pliku yaml. Wyniki działania
+udokumentowano zrzutem ekranu (zadanie6.0.png).
+
+5. W pliku yaml zmieniono liczbę replik z 4 na 10. Następnie ponownie zlecono
+klastrowi realizację pliku (kubectl apply -f komunikator-deployment.yml).
+Sprawdzono, czy zostało utworzonych 10 replik komunikatora, a następnie wykonano
+przekierowaniu portów z 3000 na 9000 (kubectl port-forward deployment.apps/
+komunikator-deployment 9000:3000) i sprawdzono w przeglądarce działanie aplikacji.

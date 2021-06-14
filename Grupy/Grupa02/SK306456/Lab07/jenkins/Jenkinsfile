@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+    stages {
+        stage('Test'){
+            steps {
+                sh 'docker build -f Grupy/Grupa02/SK306456/Lab07/docker/test-dockerfile -t chat-test .'
+                sh 'docker run chat-test'
+            }
+        }
+    }
+    post {
+        failure {
+            /*
+            mail to: 'skarpecki@student.agh.edu.pl',
+                 subject: "Failed chat pipeline: ${currentBuild.fullDisplayName}",
+                 body: "Something is wrong with ${env.BUILD_URL}"
+            */
+            echo "Failed"
+            }
+        success {
+            /*
+            mail to: 'skarpecki@student.agh.edu.pl',
+                 subject: "Succeded chat pipeline: ${currentBuild.fullDisplayName}",
+                 body: "Everything is fine with ${env.BUILD_URL}"
+            */
+            echo "Succeded"
+            }   
+        }
+}

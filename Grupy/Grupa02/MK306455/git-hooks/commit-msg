@@ -1,0 +1,10 @@
+#!/bin/bash
+
+regexp='^MK306455'
+message='Commit message must begin with MK306455'
+
+if ! grep "$regexp" "$1"; then
+	echo "$message"
+ 	exit 1
+fi
+exit 0

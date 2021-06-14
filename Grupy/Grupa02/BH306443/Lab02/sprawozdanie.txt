@@ -1,0 +1,8 @@
+Nie posiadałem klucza SSH, więc wygenerowałem nowy. 
+Dodałem klucz do agenta oraz zarejestrowałem po stronie serwera. 
+Dodałem tag na aktualnego commita.
+Zmieniłem strukturę folderów oraz utworzyłem nowy branch git checkout -b Grupa02-BH306443_Lab02
+Utworzyłem kopię commit-msg.sample w katalogu .git/hooks i zmieniłem tak by nie możliwe było commitowanie bez BH306443 na począku. 
+Dołączyłem zmiany do brancha grupowego - git push origin Grupa02-BH306443_Lab02 oraz po zmianie brancha git merge Grupa02-BH306443_Lab02.
+Usunąłem swój branch - git branch -d Grupa02-BH306443_Lab02
+Utworzyłem pull request korzystając z linku z instrukcji.

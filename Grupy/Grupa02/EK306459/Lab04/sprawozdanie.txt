@@ -1,0 +1,27 @@
+1. Dodanie obrazu do docker HUB
+1.1 Stworzenie konta na docker HUB
+1.2 Stworzenie repozytorium na moim koncie
+1.3 Zalogowanie sie z konsoli > docker login
+1.4 Otagowanie obrazu > docker tag lab04_docker perkele4040/perkelerepo
+1.5 Wypchniecie obrazu do docker HUB > docker push perkele4040/perkelerepo
+
+2. Pierwszy obraz z uzyciem chatu
+2.1 Wybranie aplikacji do budowania: deltachat
+2.2 Przygotowanie brancha i folderu do pracy
+2.3 Napisanie Dockerfile, ktory przygotowuje potrzebne skladniki, 
+	nastepnie klonuje i buduje deltachat
+2.4 zbudowanie obrazu > docker build . -t lab04_chat
+
+3. Drugi obraz z uzyciem chatu
+3.1 Przygotowanie nowego folderu i nowego Dockerfile,
+	ktory bazuje na pierwszym obrazie i przeprowadza testowanie chatu
+3.2 Zbudowanie drugiego obrazu > docker build . -t lab04_test
+
+4. Docker-compose
+4.1 Przygotowanie pliku docker-compose.yml,
+	ktory automatyzuje budowanie obrazow z dwoch poprzednich dockerfile
+4.2 Przetestowanie dzialania calosci > docker-compose up
+(Wymagalo tez doinstalowania docker-compose > apt install 
+docker-compose)
+
+W czasie pisania tych komend pomylil mi sie numer laboratorium, stad "lab05" w niektorych miejscach na zrzutach ekranu.

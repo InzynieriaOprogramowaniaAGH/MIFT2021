@@ -1,0 +1,122 @@
+1. Zarejestruj w swoim repozytorium z komunikatorem githook'a lub webhook'a.
+	git checkout Grupa02
+	git branch -a
+	cd Grupy/Grupa02/KJ287168
+	ls
+	git checkout -b Grupa02-KJ287168_Lab09
+	mkdir Lab09
+	cd Lab08
+	brew install webhookrelay/tap/relay
+	relay login -k 19e177a2-0134-4029-bf5b-100faa2e844d -s plmnfSGwZJdy
+	relay forward --bucket github-jenkins http://localhost:8080/github-webhook/
+
+2. Wykaż i udokumentuj automatyczne wyzwalanie pipeline'a z pkt 1.
+	(dodałem jendą pustą linijkę w Jenkinsfile na repo,
+	 w efekcie czego samoczynnie wyzwolił się job)
+
+3. Rozszerz Jenkinsfile z Lab09 o nowy stage("Deploy").
+	(stworzyłem nowy Dockerfile (Dockerfile-deploy) dla stworzenia kontenera)
+
+	FROM debian:latest
+
+	ARG DEBIAN_FRONTEND=noninteractive
+
+	RUN apt-get update && apt-get -y upgrade && \
+		 apt-get -y install sudo && \
+		 apt-get -y install curl && \
+		 apt-get -y install npm
+	RUN curl --silent --location https://deb.nodesource.com/setup_14.x  | sudo -E bash -
+	RUN sudo apt-get install --assume-yes nodejs
+
+	COPY . ./deltachat-desktop
+	WORKDIR ./deltachat-desktop
+
+	(dokonałem zmiany w Jenkinsfile)
+	
+def VAR = "true"
+
+
+pipeline {
+    agent any
+    
+    stages {
+        
+        stage('Build') {
+            steps {
+                script{
+                    try{
+                        echo 'Building...'
+                        sh '''
+                        curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /var/jenkins_home/docker-compose
+                        chmod +x /var/jenkins_home/docker-compose
+                        /var/jenkins_home/docker-compose up
+                        cd /var/jenkins_home/
+                        '''
+                        sh 'npm install'
+                        sh 'npm run build'
+                    }catch (Exception exc){
+                        VAR = "false"
+                    }
+                }
+            }
+        }
+        stage('Test') {
+             steps {
+                 script{
+                     if(VAR == "true"){
+                         try{
+                            echo 'Testing...'
+                            sh 'cd /var/jenkins_home/'
+                            sh 'npm run test'
+                         }catch (Exception exc){
+                            VAR = "false"
+                         }
+                     }
+                 }
+             }
+        }
+        stage('Deploy') {
+            steps {
+                script{
+                    if(VAR == "true"){
+                        echo 'Deploying....'
+                        sh 'docker build -t deltachat-deploy -f Dockerfile-deploy .'
+                    }
+                }
+            }
+        }
+    }
+    post{
+        success {
+            emailext attachLog: true,
+                to: 'kjmj77@gmail.com',
+                subject: "Successful Pipeline: ${currentBuild.fullDisplayName}",
+                body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}"
+        }
+        failure {
+            emailext attachLog: true,
+                to: 'kjmj77@gmail.com',
+                subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+                body: "Something is wrong with ${env.BUILD_URL}"
+        }
+    }
+}
+	
+
+4. W stage("Deploy") upewnij się że:
+	W Jenkonsfile dodałem w Test step linijkę "pytest -ra" wiedząc, że pakiet nie jest zainstalowany.
+	Zgodnie z planem stage "Deploy" nie zrealizowały żadnych operacji- co jest widoczne na screenach, zostało przekazane mailowo w logach.
+	Więc wygląda, iż plan został poprawnie zrealizowany.
+
+5. Wykaż i udokumentuj że:
+	- pipeline jest zdefniowany w Jenkinsfile w repo z komunikatorem
+	(na zdjęciu)
+	- pipeline jest automatycznie wyzwalany
+	(zdjęcia z pkt. 2, pkt. 4)
+	- pipeline przechodzi wszystkie etapy (stage build-test-deploy)
+	(zdjęcia z pkt. 4)
+	- pipeline obsługuje powiadamianie o rezlutatach każdego z etapów
+	(zbiorcze powiadamianie o rezultatach, sterowanie- zdjęcia z pkt. 4)
+
+(wszystko zostało uporządkowane w commitach)
+

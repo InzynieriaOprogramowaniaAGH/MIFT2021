@@ -1,0 +1,36 @@
+1. Uruchomienie klastra Kubernetes zgodnie z poprzednią instrukcją.
+
+2. Uruchomienie Minikube Dashboard poleceniem minikube dashboard oraz sprawdzenie poprawności działania w przeglądarce. 
+
+3-4. Utworzenie pliku komunikator-deployment.yaml zawierającego:
+- nazwa: komunikator-deployment
+- app: komunikator
+- obraz z komunikatorem tak jak na poprzednich zajęciach
+- 4 repliki
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: komunikator-deployment
+  labels:
+    app: komunikator
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: komunikator
+  template:
+    metadata:
+      labels:
+        app: komunikator
+    spec:
+      containers:
+      - name: komunikator
+        image: tituu/node-chat
+        ports:
+        - containerPort: 3000
+
+5. Zlecenie klastrowi wykonania powyższego pliku poleceniem kubectl apply -f komunikator-deployment.yaml
+
+6. Zmiana liczby replik w pliku komunikator-deployment.yaml i powtórzenie poprzedniego kroku.
+

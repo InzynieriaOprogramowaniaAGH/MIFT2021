@@ -1,0 +1,17 @@
+ARG SRC_PATH
+ARG REPO_URL
+ARG BRANCH 
+
+FROM ubuntu:focal
+EXPOSE 3000
+
+RUN apt-get update \
+&& apt-get -y install \ 
+curl gnupg ca-certificates \
+git
+
+RUN curl -fsSL https://deb.nodesource.com/setup_15.x | bash - \
+&& apt-get install -y nodejs 
+
+RUN git clone https://github.com/skarpecki/chat \
+&& npm install --prefix chat/src

@@ -1,0 +1,165 @@
+1.	Stwórz brancha osobistego na te zajęcia wg. schematu z poprzedniego tygodnia.
+	cd MIFT2021/
+	git branch -a
+	git checkout Grupa02
+	git checkout -b Grupa02-KJ287168_Lab03   # pomyliłem numer laboratorium
+	
+1.1 Opublikuj obraz z porzednich zajęć w serwisie Docker HUB.
+	docker images
+	docker ps -a
+	docker commit 615f78ec0e82 krzysiek77/devops-labs-ubuntu-image:7
+	docker images
+	docker push krzysiek77/devops-labs-ubuntu-image:7
+	
+	(następnie usunąłem kontenery i obrazy)
+	docker rm suspicious_hamilton
+	krzysiu$ docker stop suspicious_hamilton
+	docker rm suspicious_hamilton
+	docker ps -a
+	docker images
+	docker rmi 90f525db4fa3
+	
+2.	Napisz samodzielnie lub znajdź w internecie dowolny komunikator.
+	cd ..
+	mkdir Lab04
+	cd Lab04
+	(reszta na zdjęciach)
+	
+3.	Build agent: Stwórz nowy obraz kontenera dockerowego i skonfiguruj go.
+	mkdir delta_chat
+	cd delta_chat/
+	vim
+	cd -
+	mv delta_chat ./deltachat-core
+	ls -la
+	cd deltachat-core/
+	vim Dockerfile
+		FROM deltachat/coredeps
+
+		WORKDIR ./ci_scripts/docker-doxygen
+
+		CMD ["docker", "build"]
+
+		WORKDIR ./ci_scripts/docker-coredeps
+
+		CMD ["docker", "build"]
+	docker build -t deltachat-core .
+	
+4.	Test agent: Stwórz nowy obraz kontenera dockerowego i skonfiguruj go
+	mkdir ../tests
+	cd ../tests
+	vim
+		FROM deltachat-core:latest
+
+		WORKDIR ./ci_scripts
+
+		RUN run_all.sh
+	build -t deltachat-core-tests .
+	vim Dockerfile
+		FROM deltachat-core:latest
+
+		WORKDIR ./ci_scripts
+
+		CMD ["bash", "run_all.sh"]
+	docker images
+	
+5.	Stwórz plik docker-compose.yml.
+	(przypomniałem sobie o commitach)
+	../..
+	git status
+	git add Lab04/
+	git commit -m "Dodane docker container build and test"
+	(naprawienie działania git hooka)
+	...
+	
+	git add Lab02/hooks/
+	git commit -m "KJ287168 Dodane githooki"
+	cd Lab04
+	vim
+		version: "3.9"
+		services:
+		 build-deltachat:
+		  container_name: deltachat-core
+		  image: deltachat-core
+		  build:
+		   context: ./deltachat-core
+		   dockerfile: Dockerfile
+		 test-deltachat:
+		  container_name: deltachat-core-tests
+		  image: deltachat-core-tests
+		  build:
+		   context: ./tests
+		   dockerfile: Dockerfile
+		  depends_on:
+		   - build-deltachat
+	ls
+	docker-compose up
+	git pull
+	git checkout Grupa02
+	git pull
+	git merge Grupa02-KJ287168_Lab03
+	git branch -d Grupa02-KJ287168_Lab03
+	git checkout -b Grupa02-KJ287168_Lab04
+	cd ..
+	git status
+	git add Lab04/
+	git commit -m "KJ287168 docker-compose + zdjecia"
+	git push
+	
+	(zrobiłem pull request)
+		
+
+	(ponownie przystąpiłem do poprawy zadania)
+	
+	(cd .git/hooks/
+	 vim commit-msg.sample
+	 chmod +x commit-msg
+	 cd Grupy/Grupa02/KJ287168/Lab04
+	 )
+	
+	git checkout Grupa02
+	cd Grupy/Grupa02/KJ287168/Lab04
+	docker-compose up
+	docker images
+	docker ps -a
+	git checkout -b Grupa02-KJ287168_Lab04
+	...
+	cd ../deltachat-core/
+	docker build -t deltachat-core .
+	cd ../tests/
+	build -t deltachat-core-tests .
+		(pytesty ruszają, ale zwracają errory w ramach wykonywania i przez to executor przerywa pracę- komunikator to dość rozbudowana bestia, którą cięzko było ogarnąć)
+	docker images
+	cd ..
+	docker-compose up
+	git status
+	git add ..
+	git commit -m "KJ287168 Zmiany w celu naprawy pracy obrazow"
+	git checkout Grupa02
+	git pull
+	...
+	
+	
+	POPRAWIONE SKRYPTY:
+	build:
+		FROM debian:latest
+
+		RUN apt-get update && apt-get -y upgrade && \
+			 apt-get -y install git && \
+			 apt-get -y install python3-pip
+		RUN pip3 install cmake && \
+			 curl https://sh.rustup.rs -sSf | sh
+
+
+		RUN git clone https://github.com/deltachat/deltachat-core-rust.git
+
+		RUN cmake deltachat-core-rust/CMakeLists.txt && \
+			 apt-get -y install python3
+	tests:
+		FROM deltachat-core:latest
+
+		WORKDIR ./deltachat-core-rust/python
+		RUN pip3 install pytest pytest-xdist pytest-timeout pytest-rerunfailures requests && \
+			 pytest -v tests
+	
+
