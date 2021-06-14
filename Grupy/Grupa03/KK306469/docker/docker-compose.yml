@@ -14,3 +14,9 @@ services:
    dockerfile: ./Dockerfile_test
   depends_on:
   - build-agent
+ jenkins: 
+  container_name: jenkins-blueocean
+  image: myjenkins-blueocean:1.1
+  build:
+   context: .
+   dockerfile: ./Dockerfilejenkins
