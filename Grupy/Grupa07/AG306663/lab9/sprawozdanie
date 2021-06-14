@@ -1,0 +1,41 @@
+1. W repo zarejestrowany zostal webhook(w ustawieniach repo/Webhooks), a takze zainstalowany zostal ngrok, sluzacy do tunelowania localhosta.
+   $ sudo apt install snapd
+   $ sudo snap install ngrok
+   Nastepnie uruchomiono ngroka, i stamtad wziety zostal link do podania do     webhooka. 
+   $ ngrok http 8080
+   Ta komenda otworzyla port, na ktorym jest Jenkins. 
+
+2. Nastepnie sprawdzono automatyczne wyzwalanie pipeline'a. 
+
+3. Jenkinsfile, zgodnie z instrukcja, został rozszerzony o dodatkowy stage("Deploy")
+	stage('Deploy') {
+			steps {
+				echo 'Deploy'
+				sh 'docker build -t deploy -f Dockerfile_socketio_deploy .'
+			}
+			post {
+				always{
+					echo 'Finished'
+				}
+				failure{
+					messageFunction('DEPLOY', 'Failure')
+				}
+				success{
+					messageFunction('DEPLOY', 'Success')
+				}
+            		}
+		}
+
+4. Dzieki tym dodanym linijkom, stage deploy jest wykonywany na dedykowany kontener dockerowy. Użytkownik jest powiadamiany o sukcesie oraz niepowodzeniu etapu wdrożenia
+	
+5.Do repozytorium zostal dodany dedykowany Dockerfile o odpowiedniej nazwie:
+    FROM ubuntu:latest
+    ENV TZ=Europe/Warsaw
+    RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+    RUN apt-get -y update
+    RUN apt-get install git -y
+    RUN apt-get install npm -y
+    COPY . Socket.io-Messenger/
+    WORKDIR Socket.io-Messenger
+
+5. Udokumentowane zostalo poprawne przejscie przez wszystkie stages, w tym stage "Deploy". Na pinga i commita ngrok pokazuje status 200, a sprawdzenie w logach pozwala na zobaczenie trigger: Started by Github push by anagrzesiak, zamiast Started by user admin. 
