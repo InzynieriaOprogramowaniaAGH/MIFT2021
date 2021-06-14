@@ -6,3 +6,5 @@
 - Konfiguracja ustawień email
 - Dodanie projektu pipeline'a w Jenkinsie
 3. Uruchomienie pipeline'a
+4. Dodanie Jenkinsfile do repo MIFT
+
