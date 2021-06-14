@@ -1,0 +1,27 @@
+pipeline {
+	agent any
+
+	stages{
+		stage('Build'){
+			echo 'Build'
+			sh 'npm install'
+		}
+
+		stage('Test'){
+			echo 'testing'
+			sh 'npm run test'		
+		}
+	}
+}
+	post{
+	failure{
+		mail to: 'michalzma@gmail.com',
+		subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+		body: "Problem with ${env.BUILD_URL}"
+	}
+	success{
+		echo 'Success'
+	}
+}
+
+S

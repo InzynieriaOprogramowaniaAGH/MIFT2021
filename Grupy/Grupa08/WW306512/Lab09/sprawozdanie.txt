@@ -1,0 +1,3 @@
+1. zdeklarowanie webhook'a w sklonowanym repozytorium - wymagal on ngrock'a do tunelowania na publiczne IP
+2.Jenkinsfile rozszerzony o sekcje Deployz powiadamianiem o stanie wdrazania oraz wykonywaniu na dedykowany kontener Docker'a z jenkinsem
+3.Uruchomienie automatyczne po dokonaniu testowej zmianny na repo

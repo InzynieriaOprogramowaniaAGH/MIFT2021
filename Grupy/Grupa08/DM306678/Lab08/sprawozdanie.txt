@@ -1,0 +1,6 @@
+1. rozszerzenie Jenkinsfile o stage 'build' 
+2. dodanie Jenkinsfile do repo z komunikatorem deltachat
+3. napisanie commit hook'a "post-commit"
+4. dodanie hook'a do odpowiedniego folderu --> .git
+5. nadanie uprawnien przy zastosowaniu komendy chomd
+

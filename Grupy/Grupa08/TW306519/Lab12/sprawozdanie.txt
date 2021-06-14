@@ -1,0 +1,8 @@
+1. Uruchomienie Kubernetes 'minikube start'
+2. Uruchomienie Minikube Dashboard 'minikube dashboard'
+3. Zapoznanie sie z dokumentacja twzorzenia manifestow dla obiektow Deployment
+4. Stworzenie pliku komunikator-deployment.yaml
+5. Zlecenie wykonania powyzszego pliku poleceniem 'kubectl apply -f komunikator-deployment.yaml'
+6. Umieszczono screenshot pookazujacy dzialanie deployment
+7. Zmiana ilosci replik na 6 w pliku .yaml
+8. Kolejny screenshot deployment
