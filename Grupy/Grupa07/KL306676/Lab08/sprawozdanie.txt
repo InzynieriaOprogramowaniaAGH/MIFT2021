@@ -1,3 +1,5 @@
+W FOLDERZE LAB8 ZNAJDUJE SIĘ POPRAWNIE WYKONANE ZADANIE
+
 Tutaj również korzystałam z nowego komunikatora o nazwie Socket.io-Messenger.
 
 1. W Jenkinsfile z laboratoriów numer 7 został rozbudowany stage Build.
