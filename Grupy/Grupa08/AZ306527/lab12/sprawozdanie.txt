@@ -1,0 +1,22 @@
+1. Uruchomiono klaster Kubernetes, a następnie uruchomiono dashboard za pomocą poniższych poleceń.
+minikube start --driver=docker
+minikube dashboard
+
+2. Zapoznano się z dokumentacją tworzenia manifestów dla obiektów "Deployment".
+
+3. Stworzono plik komunikator-deployment.yaml. Przyjęto w nim:
+-nazwe deploymentu jako "komunikator-deployment"
+-label app "komunikator".
+-jako obraz dockerowy obraz komunikatora z poprzednich zajec.
+-jako liczbe replik 4.
+
+4. Zlecono klastrowi zrealizowanie pliku za pomoca polecenia
+kubectl apply -f komunikator-deployment.yaml
+
+6. Udokumentowano stan klastra Kuberenetes
+
+7. Wprowadzono zmiany w pliku komunikator-deployment.yaml, gdzie zmieniono liczbe replik na 5.
+Po tym ponownie zlecono zrealizowanie pliku poleceniem
+kubectl apply -f komunikator-deployment.yaml
+
+8. Udokumentowano stan klastra Kubernetes
