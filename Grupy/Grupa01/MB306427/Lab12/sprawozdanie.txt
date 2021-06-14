@@ -1,0 +1,18 @@
+Sprawozdanie nr 12 Mateusz Bonk
+
+1. Wykorzystałem obraz z poprzednich zajęc który jest na moim DockerHubie
+
+2. Uruchomiłem minikube dashboard w celu weryfikacji czy wszystko działa poprawnie.
+
+3. Zapoznałem się dokumentacja tworzenia deploymentu w kubernetes 
+
+4. Stworzyłem plik komunikator-deployment.yaml w którym uzywając obrazu z porzednich zajęć utworzzyłem nowy deployment w którym zostały stworzone 4 repliki podów z aplikacja
+	
+	W folderze zamieściłem plik konfiguracyjny
+5. Za pomocą polecenia kubectl apply -f plik.yaml wykonałem deployment oraz sprawdziłem czy uruchomił sie poprawnie
+
+6. Udokumentowałem Uruchomienie deploymentu w klastrze
+
+7. Wprowadziłem zmiany w pliku konfiguracyjnym - ilość replik ustawiłem na 7
+
+8. Udokumentowałem ZMiane stanu klastra

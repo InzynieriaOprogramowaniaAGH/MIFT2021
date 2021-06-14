@@ -1,0 +1,19 @@
+1. Wykorzystanie lokalnego klastra jak na poprzednich zajeciach
+
+2. Upewnienie sie o poprawnosci dzialania
+
+3. Zapoznanie sie z dokumentacja oraz z tworzeniem pliku z deploymentem o rozszerzeniu .yaml
+
+4. Stworzenie pliku node-chat-deployment.yaml oraz odpowiednia konfiguracja
+
+5. Zlecenie klastrowi zrealizowania pliku za pomoca polecenia
+	- kubectl apply -f node-chat-deployment.yaml
+
+6. Pokazanie stanu klastra
+
+7. Wprowadzenie zmian
+	- modyfikacja nazwy co skutkowalo stworzeniem nowego deploymentu
+	- wiec dla drugiej nazwy dwukrotnie wykonano powyzsze polecenie i pokazenie stanu klastra
+	- w terminalu przy wywolaniu polecenia widac ze zmiana z "created" na "configured"
+
+8. Ponowne pokazanie stanu klastra

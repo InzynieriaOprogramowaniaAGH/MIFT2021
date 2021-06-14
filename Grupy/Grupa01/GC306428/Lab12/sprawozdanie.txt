@@ -1,0 +1,28 @@
+Grzegorz Cebula Lab12
+
+Zadanie 1
+Uruchomilem klaster Kubernetes: minikube start
+
+Zadanie 2
+Uruchomilem dashboard: minikube dashboard
+
+Zadanie 3
+Zapoznanie sie z dokumentacja tworzenia manifestow do Deploymentu
+
+Zadanie 4
+Stworzylem plik komunikator-deployment.yaml wzorujac sie dokumentacja.
+Jako nazwe przyjalem komunikator-deployment, a label aplikacji feathers-chat
+Jako obraz podalem obraz komunikatora wykorzystanego na poprzednich zajeciach.
+
+Zadanie 5
+Zlecilem klastrowi zrealizowanie utworzonego pliku poleceniem: kubectl apply -f komunikator-deployment.yaml
+
+Zadanie 6
+Udokumentowalem poprawne dzialanie klastra na zrzutach ekranu.
+
+Zadanie 7
+Zmodyfikowalem plik komunikator-deployment.yaml poprzez zmiane liczbe replik z 4 na 6.
+Nastepnie ponownie zlecilem klastrowi aktualizacje tym samym polecenie co w zadaniu 5.
+
+Zadanie 8
+Ponownie udokumentowalem poprawne dzialanie poprzez zalaczone zrzuty ekranu.

@@ -1,0 +1,40 @@
+1.2. W configu joba Jenkinsa w została zaznaczona opcja "Poll SCM" wpisano "* * * * *" co sprawia że Jenkins sprawdza co jakiś czas czy nie dodano commita. Jeśli takowy sie pojawił to uruchamia sie pipeline
+
+3.4. Dodano do Jenkinsfile stage Deploy odpalany na kontenerze dockerowym i jest do niego przekazywany artefakt z builda
+
+stage('Deploy') { 
+            steps {
+                echo 'Deploy'
+                sh 'docker build -t node-chat ./'
+            }
+            post {
+                failure {
+                    emailext attachLog: true,
+                        body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+                        recipientProviders: [developers(), requestor()],
+                        to: 'xxpazindorxx@gmail.com',
+                        subject: "Deploy failed ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+                }
+                success {
+                    emailext attachLog: true,
+                        body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+                        recipientProviders: [developers(), requestor()],
+                        to: 'xxpazindorxx@gmail.com',
+                        subject: "Deploy successful ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+                }
+            }
+        }
+        
+ Stworzony w repozytorium programu Dockerfile
+FROM node:14
+
+RUN apt-get upgrade
+RUN apt-get update
+
+RUN apt-get install python make g++ git
+
+COPY . node-chat/
+
+WORKDIR node-chat
+
+RUN ls

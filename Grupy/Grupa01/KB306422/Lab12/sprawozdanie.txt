@@ -1,0 +1,25 @@
+Lab 12
+
+1.Uruchomienie klastra Kubernetes:
+	minikube start
+
+2.Uruchomienie Minikube Dashboard:
+	minikube dashboard
+
+3.Zapoznanie się z dokumantacją tworzenia manifestów dla obiektu "Deployment" z linku z instrukcji
+
+4.Stworzenie pliku komunikator-deployment.yaml zawierającego:
+ nazwę:komunikator-deployment
+ app:komunikator
+ obraz z komunikatorem tak, jak na poprzednich zajęciach,
+ 4 repliki
+
+5.Zlecenie klastrowi realizację pliku:
+	kubectl apply -f komunikator-deployment.yaml
+
+6.Udokumentowanie stanu klastra (PNG).
+
+7.Zmieniono ilość replik w pliku na 6 i zlecono realizację
+	kubectl apply -f komunikator-deployment.yaml
+
+8.Udokumentowano nowy stan klastra (PNG).

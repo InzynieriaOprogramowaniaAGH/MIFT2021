@@ -10,10 +10,14 @@ Uwaga: Nie używamy na tym etapie clouda.
 1. Na dzisiejszych zajęciach stajesz w roli DevOps'a którego zadaniem jest przygotowanie planu tzw. Release pipeline'a (sekwencja kroków wdrożeniowych) oraz przygotowanie dokumentu (w formacie pdf) przedstawiającego zaplanowany proces. Nie trzeba tego procesu w tym momecie implementować! Zanim przystąpisz do ich realizacji bardzo dokładnie zapoznaj się z koncepcją tzw. Jenkinsfile (https://www.jenkins.io/doc/book/pipeline/ wraz z podrozdziałami jak zajdzie potrzeba). Docelowo w przyszłości dużą część (lub nawet całość) planu który stworzysz trzeba będzie zawżeć w postaci Jenkinsfile. 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 2. Program będącym podmiotem ww. pipeline'a jest ten który wybrałeś w ramach Laboratorium 4. Pamiętaj, że w celu posiadania własnego egzemplarza repozytorium programu opensource (w celu np.: jego modyfikacji, umieszczania dodatkowych plików, git hooków, etc.) możesz skorzystać z opcji "fork", tak jak opisana tutaj: https://guides.github.com/activities/forking/.
 =======
 2. Program będącym podmiotem ww. pipeline'a jest ten który wybrałeś w ramach Laboratorium 3. Pamiętaj, że w celu posiadania własnego egzemplarza repozytorium programu opensource (w celu np.: jego modyfikacji, umieszczania dodatkowych plików, git hooków, etc.) możesz skorzystać z opcji "fork", tak jak opisana tutaj: https://guides.github.com/activities/forking/.
 >>>>>>> 64ac55d6049c3e87b109bfc8970bd44ce59243f4
+=======
+2. Program będącym podmiotem ww. pipeline'a jest ten który wybrałeś w ramach Laboratorium 3. Pamiętaj, że w celu posiadania własnego egzemplarza repozytorium programu opensource (w celu np.: jego modyfikacji, umieszczania dodatkowych plików, git hooków, etc.) możesz skorzystać z opcji "fork", tak jak opisana tutaj: https://guides.github.com/activities/forking/.
+>>>>>>> 38b69679f22529fb4f1aa33b9385fa1b33cf9270
 
 4. Plik z planem ma zawierać lub spełniać następujące wymagania:
 - stronę tytułową z informacją kto, dla jakiej aplikacji, kiedy, z planowanym użyciem jakich technologii ten plan przygotował
@@ -30,9 +34,15 @@ Uwaga: Nie używamy na tym etapie clouda.
 2) docker (w tym docker compose)
 3) docker registry (w tym DockerHub)
 <<<<<<< HEAD
+<<<<<<< HEAD
 4) Jenkins (w tym Jenkinsfile)
 =======
 4) Jenkins (w tym Jenkinsfile)
 
 Uwaga: zgłoś zadanie na MS Teams!
 >>>>>>> 64ac55d6049c3e87b109bfc8970bd44ce59243f4
+=======
+4) Jenkins (w tym Jenkinsfile)
+
+Uwaga: zgłoś zadanie na MS Teams!
+>>>>>>> 38b69679f22529fb4f1aa33b9385fa1b33cf9270
