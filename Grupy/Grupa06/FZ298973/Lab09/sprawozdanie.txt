@@ -1,0 +1,49 @@
+1. Zainstalowano Ngrok, skonfigurowano webhook, dodano deploy key
+
+
+2. Dodano nastepujace kroki do pliku Jenkinsfile: 
+stage('Deploy') {
+			steps {
+				echo 'Deploy'
+				sh 'docker build -t deltachat-deploy -f Dockerfile-deploy .'
+			}
+			post {
+				success {
+				    echo 'Success'
+				    emailext attachLog: true,
+					body: "Successful Deploy",
+					to: 'zabludowskifilip@gmail.com',
+					subject: "Successful Deploy"
+				}
+				failure {
+				    echo 'Fail'
+				    emailext attachLog: true,
+				    	body: "Failed Deploy",
+				       	to: 'zabludowskifilip@gmail.com',
+					subject: "Failed Deploy"
+			     	}
+		    	}
+		}
+
+
+3. Stworzono plik Dockerfile-deploy o tresci:
+FROM ubuntu:latest
+
+
+ENV TZ=Europe/Warsaw
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+RUN apt-get -y update
+RUN apt-get -y upgrade
+RUN apt-get install -y build-essential
+RUN apt-get -y install git
+RUN apt-get install nodejs -y
+RUN apt-get install npm -y
+RUN cd ~
+
+COPY . node-chat-app/
+WORKDIR node-chat-app
+RUN ls
+
+
+4. Uruchomiono pipeline, ktory zwrocil pozytywny wynik 
+
