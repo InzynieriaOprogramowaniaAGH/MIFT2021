@@ -30,5 +30,15 @@
 	sh 'docker build -t deploy -f Dockerfile_socketio_deploy .'
    Użytkownik jest powiadamiany o sukcesie oraz niepowodzeniu etapu wdrożenia
 	messageFunction('DEPLOY', 'Failure'), messageFunction('DEPLOY', 'Success')
+	
+   Dockerfile został dodany do repozytorium. Jego zawartość jest następująca:
+    FROM ubuntu:latest
+    ENV TZ=Europe/Warsaw
+    RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+    RUN apt-get -y update
+    RUN apt-get install git -y
+    RUN apt-get install npm -y
+    COPY . Socket.io-Messenger/
+    WORKDIR Socket.io-Messenger
 
 5. Niestety po mimo wielu prób nie udało się uruchomić poprawnie stage("Deploy").
