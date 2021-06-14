@@ -1,0 +1,17 @@
+2. uruchomienie dashboard
+
+minikube dashboard
+
+3. skopiowanie zawartosci pliku yaml z dokumentacji kubernetesa
+
+4. zmiana zawartosci pliku yaml
+
+5. realizacja pliku yaml
+
+kubectl apply -f komunikator-deployment.yaml
+
+7.1. kolejne zmiany w pliku yaml
+
+7.2. aktualizacja klastra
+
+kubectl apply -f komunikator-deployment.yaml
