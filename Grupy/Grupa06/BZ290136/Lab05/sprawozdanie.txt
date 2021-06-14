@@ -1,0 +1,61 @@
+   Stworzono siec uzywajac komend:
+		docker network create jenkins
+		
+		sudo docker run \
+	  --name jenkins-docker \
+	  --rm \
+	  --detach \
+	  --privileged \
+	  --network jenkins \
+	  --network-alias docker \
+	  --env DOCKER_TLS_CERTDIR=/certs \
+	  --volume jenkins-docker-certs:/certs/client \
+	  --volume jenkins-data:/var/jenkins_home \
+	  --publish 2376:2376 \
+	  docker:dind \
+	  --storage-driver overlay2
+	
+	Stworzono Dockerfile o tresci:
+	
+			FROM jenkins/jenkins:2.277.2-lts-jdk11
+		USER root
+		RUN apt-get update && apt-get install -y apt-transport-https \
+			   ca-certificates curl gnupg2 \
+			   software-properties-common
+		RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+		RUN apt-key fingerprint 0EBFCD88
+		RUN add-apt-repository \
+			   "deb [arch=amd64] https://download.docker.com/linux/debian \
+			   $(lsb_release -cs) stable"
+		RUN apt-get update && apt-get install -y docker-ce-cli
+		RUN jenkins-plugin-cli --plugins "blueocean:1.24.6 docker-workflow:1.26"
+		
+		Zbudowano obraz z tego Dockerfile'a poleceniem:
+		docker build -t myjenkins-blueocean:1.1 .
+	
+	Uruchomiono zbudowany kontener poleceniem:
+		sudo docker run \
+	  --name jenkins-blueocean \
+	  --rm \
+	  --network jenkins \
+	  --env DOCKER_HOST=tcp://docker:2376 \
+	  --env DOCKER_CERT_PATH=/certs/client \
+	  --env DOCKER_TLS_VERIFY=1 \
+	  --publish 8080:8080 \
+	  --publish 50000:50000 \
+	  --volume jenkins-data:/var/jenkins_home \
+	  --volume jenkins-docker-certs:/certs/client:ro \
+	  myjenkins-blueocean:1.1 
+	
+	Po uruchomieniu kontenera, otworzono strone localhost:8080, zalogowano sie przy pomocy wygenerwoanego hasla i zainstalowano pluginy.
+	
+	Stworzono job'a w Jenkinsie:
+				cd Grupy/Grupa06/BZ290136/Lab04
+			curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+			chmod +x /usr/local/bin/docker-compose
+			docker-compose up
+	
+	Spushowano obraz jenkinsa na dockerhuba.
+
+
+

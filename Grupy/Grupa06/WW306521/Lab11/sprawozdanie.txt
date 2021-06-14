@@ -1,0 +1,28 @@
+1. Posiadano kontener z aplikacja
+
+2. Odpowiednio pobrano i uruchomiono minikube dashboard
+	curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+	sudo install minikube-linux-amd64 /usr/local/bin/minikube
+	minikube kubectl -- get po -A
+	minikube start
+	
+	
+3.1 Korzystajac z Minikube Dashboard mozna:
+	 wdrazac aplikacje kontenerowe w klastrze Kubernetes,
+	 zarzadzac klastrem
+	 monitorowac aplikacje
+	 tworzyc wirtualne klastry, tzw. namespaces
+	 przegladac aplikacje dzialajace w klastrze,
+	 tworzyc i modyfikowac zasoby Kubernetesa (Deployments, Jobs, DaemonSets itp),
+	 rozwiazywac problemy z konteneryzowanymi aplikacjami,
+	 deploy kontenerow aplikacji
+	 
+4. Zpushowano kontener na DockerHub.
+
+   Uruchomiono kontener w klastrze:
+   kubectl run komunikator5 --image=wojciechwrobel22/node-chat:v05 --port=9999 --labels app=komunikator5
+   
+   Przekierowanie na port
+   kubectl port-forward pod/komunikator5 9999:3000
+   
+5. Aplikacja poprawnie dziala na porcie 9999
