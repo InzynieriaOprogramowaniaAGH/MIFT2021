@@ -1,0 +1,14 @@
+1. Utworzenie katalogu i podkatalogów dla odpowiadających technologii, oraz utworzenie pustych plików Dockerfile, docker-compose i Jenskinsfile.
+
+2. Pobranie repozytorium z komunikatorem i umieszczenie Jenkinsfile w odpowiednim miejscu. 
+Jenkinsfile odpowiadał za budowanie i testowanie aplikacji oraz wysyłanie powiadomień e-mail o sukcesie lub niepowodzeniu 
+build'a wraz z build logiem. Wykorzystano w tym celu plugin emailext.
+Zforkowano repozytorium aplikacji Deltachat i zrobiono commit z utworzonym Jenkinsfilem.
+W jenkinsie utworzono pipeline, który wykonywał Jenkinsfile w zforkowanym repozytorium Deltachatu. 
+Nalezało skonfigurować plugin emailext i w tym celu nałeżalo skorzystać z polaczenia z serwerem SMTP gmaila.
+
+3.
+Uruchomiono pipeline. Po zbuildowaniu jenkins wysyłał e-maila z build logiem i informacja o sukcesie lub niepowodzeniu.
+
+4.
+Z repozytorium Deltachat'u należało skopiować plik Jenkinsfile do repozytorium MIFT.

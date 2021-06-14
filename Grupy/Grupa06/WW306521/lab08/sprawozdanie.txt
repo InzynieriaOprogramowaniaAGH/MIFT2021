@@ -1,0 +1,10 @@
+1. Rozszerzono Jenkinsfile z lab07 o proces budowania:
+	stage('Build') { 
+		    steps {
+		        echo 'Building'
+		        sh 'npm install'
+		    }
+		    
+2 i 3. Zmodyfikowano Jenkinsfile aby testy nie uruchamiay sie po nieudanym buildzie poprzez dodanie odpowiednich blokow 'post', a uzytkownik jest informowany o obu procesach osobno (testowanie i budowanie).
+
+4. napisano post-commit do repo aplikacju wypisujacy podana wiadomosc

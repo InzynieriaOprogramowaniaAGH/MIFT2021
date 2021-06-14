@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+ build:
+  container_name: build_nodechat
+  image: build_agent:latest
+  build:
+   context: .
+   dockerfile: Dockerfile_build
+ test:
+  container_name: test_nodechat
+  image: test_agent:latest
+  build:
+   context: .
+   dockerfile: Dockerfile_test
+  depends_on:
+  - build

@@ -1,0 +1,28 @@
+1. Zainstalowano Kubernetes nastepujacymi komendami:
+	-curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+	-sudo install minikube-linux-amd64 /usr/local/bin/minikube
+	
+2. Uruchomiono kalster za pomoca: 'minikube start'.
+
+3. Pobrano kubectl: 'minikube ctl -- get po -A'
+
+4. Minikube Dashboard - to internetowy interfejs użytkownika Kubernetes. Mozna go uzyc do:
+	-do wdrażania aplikacji kontenerowych w klastrze Kubernetes
+	-rozwiazywania problemow ze skonteneryzowanymi apliakcjami 
+	-zarzadzania zasobami klastra
+	-przeglądu aplikacji uruchomionych w klastrze, a także do tworzenia lub modyfikowania poszczególnych zasobów Kubernetes (takich jak wdrożenia, jobsy, zestawy demonów itp.)
+	-wyswietlania informacji o stanie zasobów Kubernetes w klastrze oraz o wszelkich błędach, które mogły wystąpić.
+
+5. Zbudowano dockerowy kontener z aplikacja czatu z poprzednich zajec i spushowano na DockerHuba:
+
+sudo docker build -t bartek997/nodechat:v8 ./
+sudo docker push bartek997/nodechat:v8
+
+
+6. Uruchomiono kontener-komunikator:
+
+	kubectl run -it komunikator8 --image=bartek997/nodechat:v8 --port=9999 --labels app=komunikator8
+
+7. Przekierowano porty celem sprawdzenia poprawnosci dzialania:
+
+	kubectl port-forward pod/komunikator8 9999:3000
