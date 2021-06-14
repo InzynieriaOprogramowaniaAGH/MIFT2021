@@ -1,0 +1,5 @@
+1.Zapoznano się z oprogramowaniem jenkins.
+2.Stworzono kontener dockerowy z Jenkinsem  sudo docker network create jenkins
+3.Uruchomiono kontener, zbudowano obraz dzięki "sudo docker build -t jenkins:1.1 ."
+Uruchomiono wczesniej stworzony obraz. Stosowano komendy z instrukcji ze strony https://www.jenkins.io/doc/book/installing/docker/
+4.Pobrano repozytorium z poziomu Jenkinsa. Wykonano polecenia w celu zbudowania i uruchomienia obrazów.
