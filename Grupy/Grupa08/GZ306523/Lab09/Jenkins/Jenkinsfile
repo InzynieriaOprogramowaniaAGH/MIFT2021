@@ -49,6 +49,7 @@ stage('Deploy') {
                 echo 'Deploying..'
                 docker build -t node-chat-app -f Dockerfile-deploy .
 
+
                 '''
             }
             post {
