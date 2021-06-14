@@ -1,0 +1,23 @@
+1. Instalacja Kubernetes na wirtualnej maszynie za pomoca komend:
+	curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+	sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+2. Uruchomienie cluster oraz pobranie kubectl: 
+	minikube start
+	minikube kubectl -- get po -A
+
+3. Uruchomienie dashboarda: minikube dashboard
+
+3.1. W Dashboard mozna:
+ - Uruchamiac aplikacje w kontenerach Kubernetes
+ - Zarzadzac clusterami
+ - Wyswietlac podglad aplikacji w kontenerach
+ - Dodawac lub modyfikowac takie zasoby Kubernetes jak PersistentVolumeClaims, Deployments, Services, DaemonSets
+
+4. Uruchomienie kontenera z komunikatorem:
+	kubectl run komunikator --image=Bazludowski/lab05 --port=9999 --labels app=komunikator
+
+5. Przekierowanie portow: 
+	sudo kubectl port-forward komunikator 9999:3000
+
+
