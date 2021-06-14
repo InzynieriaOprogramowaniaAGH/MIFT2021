@@ -1,0 +1,21 @@
+Sprawozdanie nr 12
+
+1. Uruchomienie lokalnie klastra KUbernates:
+-> minikube start --driver=docker
+
+2.Uruchomienie MInikube Dashboard:
+-> minikube dashboard
+
+3.Zapoznanie sie z dokumentacja dotyczaca tworzenia manifestow dla obiektow "Deployment".
+
+4. Stworzenie pliku komunikator-deployment.yaml zgodnie z dokumentacja.
+ 
+5. Zlecenie klastrowi zrealizowania pliku komunikator-deployment.yaml:
+-> kubectl apply -f komunikator-deployemnt.yaml
+
+6.Udokumentowanie stanu klastra Kubernetes.
+
+7.Wprowadzenie zmian w pliku komunikator-deployment.yaml:
+-> zmienienie ilosci replik na 6
+
+8. Udokumentowanie stanu klastra.
