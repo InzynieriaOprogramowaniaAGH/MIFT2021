@@ -1,0 +1,17 @@
+1. Klasycznie utworzono tymczasowego brancha na dane laboratorium.
+
+1.1 Stworzono repozytorium w serwisie docker hub i wrzucono tam obraz z poprzednich zajęć.
+    $ sudo docker tag <id> <name>
+    $ sudo docker push <name>
+
+2. Jako komunikator open-source wybrano Delta-Chat-Desktop.
+
+3. Utworzono plik Dockerfile-Build do budowania aplikacji i utworzono obraz:
+    $ sudo docker build -t <name> . -f <dockerfile>
+
+4. Utworzono plik Dockerfile-Test i analogicznie jak poprzednio utworzono jego obraz.
+
+5. Zainstalowano docker-compose na podstawie https://docs.docker.com/compose/install/
+
+5.1 Stworzono plik docker-compose.yml i wykorzystano go.
+    $ sudo docker-compose up

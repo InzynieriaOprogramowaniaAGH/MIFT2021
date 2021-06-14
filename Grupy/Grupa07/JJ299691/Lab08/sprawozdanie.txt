@@ -1,0 +1,11 @@
+Wykorzystany zostal kominikator Socket.io-Messenger.
+
+Jenkinsfile zosta rozubdowany o stage  build ktory pobiera najnowsza wersje kodu, buduje program, buduje program i informuje uzytkownika o  sukcesie jak i porażce etapu budowania
+
+ Po poprawnym zbudowaniu Jenkinsfile uruchamiany jest stage("Test")
+  
+post commit hook:
+     
+    #!/bin/bash
+
+    echo "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"

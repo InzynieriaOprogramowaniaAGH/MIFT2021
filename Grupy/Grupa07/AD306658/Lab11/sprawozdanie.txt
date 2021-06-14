@@ -1,0 +1,26 @@
+2. Zainstalowałam klaster Kubernetes:
+	- $ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+	- $ sudo install minikube-linux-amd64 /usr/local/bin/minikube
+Uruchomiłam swój klaster poleceniem:
+	- $ minikube start
+Następnie weszłam w interakcję z klastrem:
+	- $ minikube kubectl -- get po -A
+
+=============================================================================
+
+3. Uruchomiłam Minikube Dashboard poleceniem:
+	- $ minikube dashboard
+
+Korzystająć z Minikube Dashboard może żrobić następujące rzeczy:
+	- wdrażać aplikacje kontenerowe w klastrze Kubernetes
+	- rozwiązywać problemy z aplikacją w kontenerach
+	- zarządać zasobami klastra
+	- przeglądać aplikacje działające na klastrze 
+	- tworzyć/ modyfikować aplikacje działające na klastrze
+
+=============================================================================
+
+4. Uruchomiłam kontener z komunikatorem w Kubernetes, używając następującego polecenia:
+	- $ kubectl run delta-chat-desktop --image=annadybel21/delta-chat-app:tagname --port=9999 --labels app=delta-chat-desktop
+Następnie przekeirowałam port w celu umożliwienia dostepu z zewnątrz:
+	- $ kubectl port-forward pod/delta-chat-desktop 7080:9999

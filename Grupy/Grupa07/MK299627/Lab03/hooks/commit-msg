@@ -1,0 +1,9 @@
+#!/bin/sh
+if ! grep 'MK299627' "$1"; then
+  echo "Failure, typing MK299627 is required"
+  exit 1;
+
+fi
+echo "Succes!"
+exit 0;
+

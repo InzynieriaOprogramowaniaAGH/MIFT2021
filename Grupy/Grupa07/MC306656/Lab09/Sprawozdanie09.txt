@@ -1,0 +1,8 @@
+Na początku należało zmodyfikować post-commita tak, aby za każdym razem gdy na głównym branchu pojawia się commit, uruchomiany byl pipeline opisywany w Jenkinsfile. 
+W tym celu należało dopisać do post-commita linijkę: 
+curl -X POST -L --user malw:11c8896674e9267707249554c7e1d86771 http://localhost:8080/job/lab9/build
+W niej opisana jest nazwa użytkownika oraz wygenerowany w jenkinsie token (jego skopiowany numer).
+Po dodaniu commitu w repozytorium (również pustego) wygenerowywuje się automatycznie pipeline, co widoczne jest i na localhoscie i w terminalu.
+Natępnie należało dopisać do tworzonego Jenkinfile'a część Deploy, która ma na celu budowanie obrazu dockerowego:
+sh 'docker build -t delta-chat -f Dockerfile-deploy .'
+Należało rówież pamiętać o uploadowaniu Jenkinfile'a do reozytorium z aplikacją chat.

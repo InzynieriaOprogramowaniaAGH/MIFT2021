@@ -1,0 +1,48 @@
+Sprawozdanie Lab05
+
+Zadanie 0.
+Zapoznano się na zajęciach z diagramem.
+
+Zadanie 1.
+Zapoznano się z oprogramowaniem Jenkins: https://www.jenkins.io/.
+
+Zadanie 2.
+Stworzono kontener dockerowy z Jenkinsem posługując się instrukcją https://www.jenkins.io/doc/book/installing/docker/
+a) Najpierw utworzono sieć za pomocą komendy:
+	sudo docker network create jenkins
+b) Następnie pobrano i uruchomiono docker:din komendą:
+	docker run --name jenkins-docker --rm --detach \
+	  --privileged --network jenkins --network-alias docker \
+	  --env DOCKER_TLS_CERTDIR=/certs \
+	  --volume jenkins-docker-certs:/certs/client \
+	  --volume jenkins-data:/var/jenkins_home \
+	  --publish 2376:2376 docker:dind --storage-driver overlay2
+c) Później napisano dockerfile'a i zbudowano jego obraz za pomocą polecenia:
+	sudo docker build -t  myjenkins-blueocean:1.1 .
+d) Uruchomiono kontener zbudowanego obrazu:
+	docker run \
+	--name jenkins-blueocean \
+	--rm \
+	--detach \
+	--network jenkins \
+	--env DOCKER_HOST=tcp://docker:2376 \
+	--env DOCKER_CERT_PATH=/certs/client \
+	--env DOCKER_TLS_VERIFY=1 \
+	--publish 8080:8080 \
+	--publish 50000:50000 \
+	--volume jenkins-data:/var/jenkins_home \
+	--volume jenkins-docker-certs:/certs/client:ro \
+	myjenkins-blueocean:1.1
+e) Uruchomiono Jenkinsa wpisując w przeglądarce localhost:8080 a następnie odpowiednio skonfigurowano.
+
+Zadanie 3.
+Analogicznie jak na poprzednich zajęciach wrzucono obraz Jenkinsa na DockerHub'a.
+
+Zadanie 4.
+a) Uruchomiono kontener za pomocą polecenia:
+	sudo docker exec -u root -it jenkins-blueocean bash
+i zainstalowano w nim docker-compose:
+	curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+oraz nadano uprawnienia do wykonywania:
+	chmod +x /usr/local/bin/docker-compose
+b) Z poziomu Jenkinsa uruchomiono docker-compose, który został pobrany z repozytowium git.

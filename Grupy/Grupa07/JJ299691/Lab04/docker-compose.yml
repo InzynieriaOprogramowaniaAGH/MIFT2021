@@ -1,0 +1,9 @@
+
+version: "2.2"
+services: 
+    build:
+        build: Build
+    test:
+        build: Test
+        ports:
+            - "5000:5000"

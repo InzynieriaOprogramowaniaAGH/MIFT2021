@@ -1,0 +1,23 @@
+0. Diagram zostal omowiony na zajeciach.
+1 i 2: przeczytane
+Robiac krok po kroku instrukcje udalo sie stworzyc kontener dockerowy. Pobralem Jenkisna, zalogowalem sie. Wszystko dziala poprawnie co widac na screenach.
+3. Stworzylem repozytorium online i wrzucilem na niego obraz, co uwiecznilem na screenie.
+komenda finalna : sudo docker push sebastianhalik/lab5:firsttry , gdzie firsttry to nazwa tagu.
+
+4.
+
+
+
+Utworzylem joba ogolnego, w ktorym podalem link do wspolnego repo oraz dodalem uruchomienie powloki z takimi komendami:
+
+cd Grupy/Grupa07/SH306666/Lab05
+        pwd
+        ls
+        curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+        chmod +x /usr/local/bin/docker-compose
+        docker --version
+        docker-compose --version
+        docker-compose up
+
+
+Nastepnie uruchomilem joba co zakonczylo sie sukcesem.

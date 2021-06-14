@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"
+curl -X POST -L --user pfedirko:11056c12022517f9a1f0a3001e85d4f4bb http://localhost:8080/job/Lab07/build

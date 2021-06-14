@@ -1,0 +1,32 @@
+1. Jenkinsfile, ktory rozbudowany byl na tych laboratoriach pochodzil z lab7 i wykorzystywany byl w nim komunikator o nazwie Socket.io-Messenger.
+
+2. Opis dodanych linii w stage("Build):
+	sh 'git pull origin master' - pobranie kodu zrodlowego w najnowszej wersji
+	sh 'npm install' - budowa programu
+	post{
+		always{
+			echo 'Finished'
+		}
+		failure{
+			messageFunction('BUILD', 'Failure')
+		}
+		success{
+			messageFunction('BUILD', 'Success')
+		} - uzytkownik jest powiadamiany o sukcesie/porazce buildu
+
+3. Nastepnie, jesli build sie powiodl, uruchamiany jest stage("Test"). Analogicznie informuje on uzytkownika o sukcesie etapu testow. 
+	post{
+		always{
+			echo 'Finished'
+		}
+		failure{
+			messageFunction('TEST', 'Failure')
+		}
+		success{
+			messageFunction('TEST', 'Success')
+		} 
+
+4. Napisany zostal hook "post-commit" dla repo z komunikatorem, ktorego tresc zawarta jest na skrinie hook.png. 
+
+		
+

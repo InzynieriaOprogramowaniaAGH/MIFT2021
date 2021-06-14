@@ -1,50 +1,58 @@
+W związku z wieloma niepowodzeniami w zbudowaniu jenkifile w komunikatorze, z którego korzystałam na poprzednich zajęciach,
+zdecydowałam się spróbować wykonać zadanie na innym komunikatorze. Pliki źródłowe z punktu pierwszego zawierają te pliki,
+z których koszystałam na poprzednich zajęciach.
+Poprzedni komunikator: wire-desktop
+Nowy komunikator: Socket.io-Messenger
+Screeny dotyczące nowego komunikatora mają w nazwie wyraz 'nowykom'. Reszta screenów jest po części wspólna i działająca dla obu komunikatorów.
+
+
 1. Umieściłam pliki źródłowe, skopiowane z poprzednich zajęć, w odpowiednich folderach o nazwach Docker, Hooks, Jenkins.
 
 2. Stworzyłam Jenkinsfile, który obsługiwał uruchamianie testów dla aplikacji - komunikatora. Został on umieszczony
    w zforkowanym repozytorium z komunikatorem. 
 
-pipeline {
-    agent any
+pipeline{
+	agent any
+	tools {
+	    nodejs "nodejs"
+	}
+  stages {
+	  
+	  stage('Build'){
 
-    stages {
-        stage('Build') {
-            steps {
-		sh 'npm install'
-		echo 'Building....'
+            steps{
+                echo "Building..."
+                sh 'npm install'
+                }
+            }
+     
+      stage('Test') {
+          steps {
+              echo 'Testing'
+              sh 'npm run test'
+          }
+      }
+  }
+	post{
+
+		always{
+			echo 'Finished'
+		}
+		failure{
+				echo 'Failure'
+				emailext attachLog: true,
+          body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+					to: 'laskawska.kinga@gmail.com',
+					subject: "Test failed"
+		}
+		success{
+      echo 'Success'
+      emailext attachLog: true,
+        body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+        to: 'laskawska.kinga@gmail.com',
+        subject: "Test success"
 		}
 	}
-	stage('Test') {
-		steps {
-			echo 'Testing....'
-			sh 'npm run test'
-			
-		}
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-    }
-    
-    post {
-    	
-    	success {
-	 emailext attachLog: true, 
-		 body: "${currentBuild.result}: ${BUILD_URL}", 
-		 compressLog: true, 
-		 subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", 
-		 to: 'laskawska.kinga@gmail.com'
-		
-    	}
-    	
-    	failure {
-		emailext attachLog: true,
-			body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}", 
-			subject: ' Jenkins notification', 
-			to: 'laskawska.kinga@gmail.com'
-    	}
-    }
 }
 
 3. Po uruchomieniu Jenkinsa został ustawiony email w ustawieniach jenkinsa oraz stworzony i skonfigurowany nowy pipeline

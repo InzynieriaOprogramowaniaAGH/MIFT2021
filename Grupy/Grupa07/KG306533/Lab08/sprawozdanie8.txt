@@ -1,0 +1,32 @@
+1. Rozszerzono JenkinsFile o stage build
+
+   agent {
+        docker { image 'node:latest' }
+    }
+    stages{
+
+        stage('Build'){
+
+            steps{
+                checkout scm
+                echo "Building..."
+                sh 'npm i'
+                sh 'npm run build'
+                }
+            }
+
+2. Sprawdzanie aktualności kodu jest realizowane przez 'checkout scm'. Użytkownik otrzymuje wiadomość o sukcesie/porażce budowania.
+
+3. Stage Test jest pomijany po nieudanym budowania. Realizuje to warunek:
+
+            when {
+                expression {
+                    currentBuild.result == null || currentBuild.result == 'SUCCESS'
+                }
+            }
+
+4. Napisano git hooke'a z wiadomością:
+
+        "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"
+
+A następnie przetestowano go na repo z komunikatorem.
