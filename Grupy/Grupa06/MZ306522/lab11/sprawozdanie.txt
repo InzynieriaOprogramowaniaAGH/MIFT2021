@@ -1,0 +1,47 @@
+1.
+Posiadam obraz doockerowy ze zbudowanym komunikatorem z poprzednich zajęć.
+
+2.
+Pobrano i zainstalowano Minikube za pomocą instrukcji ze strony https://minikube.sigs.k8s.io/docs/start/ dla systemu linux:
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+Uruchomiono klaster za pomocą polecenia "minikube start" i pobrano kubectl za pomocą polecenia "minikube kubectl -- get po -A".
+
+3.
+Włączono i uruchomiono Minikube Dashboard za pomocą polecenia "minikube dashboard"
+
+3.1
+Korzystając z Minikube Dashboard można:
+- wdrażać aplikacje kontenerowe w klastrze Kubernetes,
+- zarządzać klastrem,
+- przeglądać aplikacje działające w klastrze,
+- tworzyć i modyfikować zasoby Kubernetesa (Deployments, Jobs, DaemonSets itp),
+- rozwiazywać problemy z konteneryzowanymi aplikacjami,
+- deploy aplikacji
+- monitorować aplikacje
+- tworzyć wirtualne klastry, tzw. namespaces
+
+4.
+Opublikowano obraz aplikacji na DockerHubie.
+
+Uruchomiono kontener w klastrze za pomocą komendy:
+"kubectl run komunikator --image=dazaiii/deltachat--port=9999 --labels app=komunikator"
+
+Przekierowanie portów zakończone niepowodzeniem:
+"kubectl port-forward deploy/komunikator 9999:9999"
+
+Zbudowana aplikacja Deltachat nie uruchamia się poprawnie w klastrze, ponieważ jest to aplikacja okienkowa, co stwarza problemy w Dockerze.
+Kontener od razu kończył swoje działanie co powodowało błędy. Nie udało się uruchomić aplikacji.
+
+Z tych powodów spróbowano uruchomić aplikacje Node-chat, ponieważ jest to aplikacja webowa.
+Napisano podobny Dockerfile, który budował i uruchamiał aplikacje, zbudowano go oraz opublikowano obraz aplikacji na DockerHubie.
+
+Najpierw uruchomiono kontener w klastrze:
+"kubectl run komunikator --image=dazaiii/node-chat:latest --port=9999 --labels app=komunikator"
+
+Później poprawnie przekierowano na port 9999:
+"kubectl port-forward komunikator 9999:3000"
+
+5.
+Aplikacja Node-chat poprawnie uruchamia się w klastrze pod adresem localhost:9999, co udokumentowano screenami.
