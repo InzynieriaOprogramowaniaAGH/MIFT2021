@@ -1,0 +1,4 @@
+1. Uruchomiłem Minikube Dashboard
+2. Utworzyłem plik komunikator-deployment.yaml zgodnie z dokumentacją z instrukcji
+3. Zleciłem klasterowi zrealizowanie pliku
+4. Zmieniłem liczbę replik i zleciłem klastrowi aktualizację

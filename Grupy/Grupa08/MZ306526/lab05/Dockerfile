@@ -13,4 +13,4 @@ RUN cd ~
 RUN git clone https://github.com/binhxn/node-chat-app
 WORKDIR node-chat-app
 RUN npm install
-CMD ["echo", "Job done"]
+

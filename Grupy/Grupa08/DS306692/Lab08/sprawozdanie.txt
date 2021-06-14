@@ -1,0 +1,26 @@
+1. Rozszerzyłem JenkinsFile
+   agent {
+        docker { image 'node:latest' }
+    }
+    stages{
+
+        stage('Build'){
+
+            steps{
+                checkout scm
+                echo "Building..."
+                sh 'npm i'
+                sh 'npm run build'
+                }
+            }
+
+2. Sprawdzam aktualność kodu przez 'checkout scm'
+3. Stage Test jest pomijany po nieudanym budowaniu:
+            when {
+                expression {
+                    currentBuild.result == null || currentBuild.result == 'SUCCESS'
+                }
+            }
+4. Git hook post-commit z wiadomością:
+        "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"
+5. Test.

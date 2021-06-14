@@ -1,8 +1,22 @@
 zadanie 3 
-zbudowano obraz jenkinsa zgodnie z instrukcją ze stronu (widoczne na screenach
+zbudowano obraz jenkinsa zgodnie z instrukcją ze stronu (widoczne na screenach).
+Zbudowano więc sieć Jenkins. 
+Skopiowano odpowienidego FDockerfila wykorzystującego obraz jenkins/jenkins:2.277.2-lts-jdk11
+Zbudowano ten obraz zgodnie z instrukcją budowania na systemie Linux.
 
 zadanie 4
-Otagowano odpowiednio wcześniej zbudowany obraz i spushowano go na dockerhub
+Otagowano odpowiednio wcześniej zbudowany obraz i spushowano go na dockerhub.
+Otagowano obraz tak aby poza nazwą znalazł się w tagu także link właściciela oraz numer wersji.
+Po zalogowaniu (docker login) spushowano obraz (docker push)
 
 zadanie 5
 Uruchomiono jenkinsa i odpowiednio skonfigurowano zadania na powłoce.
+Używając komendy cd Grupy/Grupa08/AZ306527/Lab04 dostano się do odpowiedniego katalogu.
+Przy pomocy polecenia curl zainstalowano docker-composa.
+Nadao prawa do uruchamiania plików dla docker-composa (chmod)
+Odpalono dockercomposa (docker-compose up) 
+
+Sprawdzono logi konsoli w Jenkinsie. Logi pokazały że program uruchamia się prawidłowo.
+
+
+
