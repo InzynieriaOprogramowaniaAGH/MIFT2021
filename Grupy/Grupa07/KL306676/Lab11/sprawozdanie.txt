@@ -1,0 +1,34 @@
+2. Zainstalowałam klaster Kubernetes za pomocą komend:
+	$ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+	$ sudo install minikube-linux-amd64 /usr/local/bin/minikube
+   Następnie uruchomiłam klaster za pomoca komendy
+	$ minikube start
+   Oraz pobrałam kubectl komendą:
+	$ minikube kubectl -- get po -A
+   Kubectl został zainstalowany za pomocą komend:
+	$ curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+	$ chmod +x ./kubectl
+	$ sudo mv ./kubectl /usr/local/bin/kubectl
+   Oraz sprawdzony za pomocą komendy:
+	$ kubectl version -o json
+
+3. Włączyłam i uruchomiłam Minikube Dashboard za pomoca poleceń:
+	$ minikube start
+	$ minikube dashboard
+   Wykorzystanie Minikube Dashboard:
+	- przeznaczony dla uzytkowników klastra Kubernates, umożliwia zarządzanie i rozwiązywanie
+	  problemów związanych z aplikacjami uruchamianymi na klastrze, a także z samym klastrem
+	- umożliwia konfigurację oraz automatyzacje serwisów uruchamianych w kontenerach
+	- automatycznie wdraża i wycofuje zmiany
+	- umożliwia automatyczne zarządzanie dostęnymi zasobami
+	- skaluje aplikacje
+	- instaluje aplikacje
+	- pomaga uruchomić aplikacje w kontenerach
+
+4. Uruchomiłam kontener-komunikator w Kubernetes za pomocą polecenia:
+	$ kubectl run komunikator --image=YOUR_DOCKER_ID/YOUR_KOMUNIKATOR_IMG --port=9999 --labels app=komunikator
+   Dokonałam przekierowania portów w celu umożliwienia dostępu z zewnątrz
+	$ kubectl port-forward deploy/komunikator <NR_PORTU_NA_LOCALHOST>:<NR_PORTU_W_KONTENERZE>
+   Wykorzystane komendy zostały przedstawione na screenach. 
+   Jednakże pomimo starań nie udało się uruchomić klastra na Kubernetes. Jedną z możliwych przyczyn jest niewystarczająca 
+   pamięć, o której informacja została wyświetlona po wpisaniu komendy $ minikube status.

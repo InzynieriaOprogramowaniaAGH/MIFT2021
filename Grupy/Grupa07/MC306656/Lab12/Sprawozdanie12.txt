@@ -1,0 +1,36 @@
+Na początku należało uruchomić minikube komendą "minikube start"
+Następnie komendą "minikube dashboard" należało uruchominić Minikube Dashboard. Z terminala przeniosło mnie od razu na otwierającą się stronę Minikube Dashboard.
+Kolejnym krokiem było uruchomienie deployments przy pomocy komend opisanych na stronie https://kubernetes.io/docs/concepts/workloads/controllers/deployment/. Użyte komedy to:
+	a) minikube kubectl -- apply -f https://k8s.io/examples/controllers/nginx-deployment.yaml
+	b) minikube kubectl get deployments
+	c) minikube ubectl rollout status deployment/nginx-deployment
+Następnie należało stworzyć własny plik .yaml, który miał posiadać:
+	- nazwa: komunikator-deployment
+	- app: komunikator
+	- obraz z komunikatorem tak jak na poprzednich zajęciach
+	- 4 repliki
+Utworzony przeze mnie plik skłądał się z poniższych linijek:
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: komunikator-deployment
+  labels:
+    app: komunikator
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: komunikator
+  template:
+    metadata:
+      labels:
+        app: komunikator
+    spec:
+      containers:
+      - name: komunikator
+        image: malw4/jenkinsci/blueocean
+        ports:
+        - containerPort: 80
+Po utworzeniu własnego pliku .yaml należało uruchomić deploment dla tego pliku oraz udokumentować uruchomienie.
+Później należało zmienić liczbę replik i ponownie uruchomić dla sprawdzenia czy zmiana w pliku nie spowoduje problemów. W moim pliku zmieniłam liczę 4 na 2.
+Pliki tworzyły deploymentsy oraz próbowały zrolloutować się do końca niestety nie udało się przez co po włączeniu minikube dashboard kropka stawałą się czerwona. Mimo prób naprawienia problemu (przejście wszystkich poprzednich krokóœ związanych z utworzeniem dockerfile'a oraz jenkinsem) nie udało mi się naprawić aby deployment zostal całkowicie zrolloutowany.

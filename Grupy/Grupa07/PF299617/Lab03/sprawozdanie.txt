@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 Sprawozdanie Lab03
 
 1. Stworzenie brancha osobistego analogicznie do poprzednich zajêæ.
@@ -11,3 +13,4 @@ Sprawozdanie Lab03
 5. Stworzenie Dockerfile'a bazuj±cym na najnowszym ubuntu z doinstalowanym git'em.
 
 6. Uruchomienie kontenera i dodanie do niego repozytorium oraz sprawdzenie czy jest tam branch Grupa07-PF299617_Lab03.
+>>>>>>> refs/remotes/origin/Grupa07

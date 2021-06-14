@@ -1,0 +1,24 @@
+1. Uruchomiono klaster
+    $ minikube start
+
+2. Uruchomiono Minikube Dashboard celem upewnienia się, że działa
+    $ minikube dashboard
+
+3. Zapoznano się dokomunetacją tworzenia manifestów dla obiektów "Deployment"
+
+4. Stworzono plik deltachat-deployment.yaml, zawierjący dodatkowe pola
+    - nazwa: deltachat-deployment
+    - app: deltachat
+    - obraz z komunikatorem
+    - 4 repliki
+
+5. Zlecono klastrowi realizację pliku poleceniem
+    $ kubectl apply -f deltachat-deployment.yaml
+
+6. Udokumentowano stan klastra Kubernetes.
+
+7. Wprowadzono zmiany do pliku:
+    - zmieniono ilość replik na 3 (przy zwiększaniu VirtualBox nie wyrobił)
+    - zlecono aktualizację jak w p.5
+
+8. Udokumentowano nowy stan klastra.

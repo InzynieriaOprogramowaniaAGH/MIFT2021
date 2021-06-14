@@ -1,0 +1,31 @@
+1. Instalacja minikube:
+    sudo apt install virtualbox virtualbox-ext-pack
+    wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+    sudo cp minikube-linux-amd64 /usr/local/bin/minikube
+    sudo chmod 755 /usr/local/bin/minikube
+
+
+2. Instalacja Kubectl:
+    udo apt-get install -y kubelet kubeadm kubectl kubernetes-cni
+    sudo kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+    kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+
+
+3. minikube run - w celu uruchomienia klastra
+4. minikube dashboard - w celu uruchomienia dashboarda
+
+
+3. 	minikube dashboard lista
+    - zarzadanie klastrami
+    - jest pomocny w uruchamianiu aplikacji w kontenerach
+    - pozwala na wrzucanie konfiguracji  YAML oraz JSON
+    - instaluje oraz skaluje aplikacje
+    - pozwala na automatyczne zarządzanie zasobami
+    - monitorowaine zasobów
+    - automatyzacja oraz konfiguracja serwisów uruchamianych w kontenerach
+	  - automatyczne wdraża i wycofuje zmiany
+    - naprawa błędów instalacji oraz maszyn w klastrze
+    - tworzenie oraz aktualizacja instancji aplikacji
+    
+4. niestety nie udało się uruchomić kontenera: minikube kubectl -- run komunikator --image=Socket.io-deploy:latest --port=9999 --labels app=komunikator
+
