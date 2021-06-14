@@ -1,0 +1,2 @@
+FROM node-chat
+ENTRYPOINT ["npm", "run", "test"]

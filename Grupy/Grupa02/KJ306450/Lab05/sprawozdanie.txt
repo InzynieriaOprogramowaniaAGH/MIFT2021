@@ -1,0 +1,27 @@
+1. Po zapoznaniu się z diagramem oraz oprogramowaniem Jenkins utworzono osobistego branch na te zajęcia (git branch Grupa02-KJ306450_Lab05).
+
+2. Za pomocą instrukcji stworzono kontener dockerowy z Jenkinsem.
+
+3. Poleceniem docker login zalogowano się na DockerHub. Następnie zmieniono nazwę myjenkins-blueocena na kjop118/myjenkins-blueocena:1.1 tak aby było możliwe opublikowanie obrazu na DockerHubie (docker tag 9e5d8c0d0479 kjop118/myjenkins-blueocena:1.1). Po zmianie nazwy opublikowano obraz (docker push kjop118/myjenkins-blueocena:1.1).
+
+4. Zatrzymano wcześniej uruchomiony kontener "jenkins-blueocean" (docker stop jenkins-blueocean" i następnie uruchomiono nowy kontener korzystając z obrazu, który wysłano na DockerHub'a:
+
+docker run \
+  --name jenkins-blueocean \
+  --rm \
+  --detach \
+  --network jenkins \
+  --env DOCKER_HOST=tcp://docker:2376 \
+  --env DOCKER_CERT_PATH=/certs/client \
+  --env DOCKER_TLS_VERIFY=1 \
+  --publish 8080:8080 \
+  --publish 50000:50000 \
+  --volume jenkins-data:/var/jenkins_home \
+  --volume jenkins-docker-certs:/certs/client:ro \
+  kjop118/myjenkins-blueocean:1.1
+  
+Uruchomiono kontener w trybie interaktywnym: docker container exec -u  jenkins-blueocean bash
+  
+Poleceniem cat /var/jenkins_home/secrets/initialAdminPassword skopiowano hasło, które było niezbędne do konfiguracji Jenkinsa.
+  
+5. Z poziomu Jenkinsa stworzono nowy projekt. W projekcie pobrano z git'a repozytorium oraz ustawiono odpowiedniego branch do zbudowania. Następnie zmieniono lokalizację tak, aby znajdować się w miejscu gdzie był plik docker-compose.yml. Zainstalowano docker-compose i wydano polecenie do uruchomienia (docker-compose up). Zapisano i uruchomiono projekt.

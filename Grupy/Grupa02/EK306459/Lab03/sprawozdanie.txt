@@ -1,0 +1,52 @@
+1. Tworzenie osobistego brancha
+    git checkout Grupa02
+    git branch Grupa02-EK306459_Lab03
+    git checkout Grupa02-EK306459_Lab03
+
+   Usuniecie brancha z poprzednich zajęć
+    git branch -d Grupa02-EK360459_Lab02
+    git push origin --delete Grupa02-EK306459_Lab02
+
+2. Git hook z poprzednich zajęć już tam był
+
+3. Instalowanie dockera (na podstawie https://linuxhint.com/install_docker_linux_mint/ )
+    sudo apt remove docker docker-engine docker.io containerd runc
+    sudo apt update
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo apt-key fingerprint 0EBFCD88
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+    sudo apt update
+    sudo apt install docker-ce docker-ce-cli containerd.io
+    
+4. Konto na Docker HUB na zrzucie
+
+5. Tworzenie Dockerfile (na podstawie https://codefresh.io/docker-tutorial/build-docker-image-dockerfiles/ )
+    Zawartość Dockerfile:
+    FROM ubuntu:latest
+    RUN apt-get update && apt-get upgrade -y
+    RUN apt-get -y install git
+    EXPOSE 80
+
+   Tworzenie obrazu
+    docker build -t lab03image .
+
+6. Sprawdzenie stanu obrazów
+    docker images
+
+   Uruchomienie kontenera
+    docker run -t -d lab03image
+
+   Sprawdzenie stanu kontenera
+    docker ps
+
+   Uruchomienie basha kontenera
+    docker exec -it IDkontenera /bin/bash
+
+   Sklonowanie repo do kontenera
+    git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git
+
+   Wyłączenie basha kontenera
+    exit 
+   
+   Zatrzymanie kontenera
+    docker stop IDkontenera

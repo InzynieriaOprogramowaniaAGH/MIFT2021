@@ -1,0 +1,7 @@
+Utworzono nowy branch od brancha grupowego. Wszystkie potrzebne pliki źródłowe umieszczono w folderze Lab07.
+
+Sklonowano repozytorium deltachat i umieszczono w nim plik Jenkinsfile zawierający odpowiednie sekcje. Po poprawnym zbudowaniu aplikacji uruchamiane są testy. Użytkownik jest informowany o statusie testów.
+
+Konfiguracja Jenkins aby możliwe było wysyłanie maili.
+
+Utworzenie i uruchomienie nowego pipeline z poziomu Jenkinsa. 

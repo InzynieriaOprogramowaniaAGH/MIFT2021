@@ -1,0 +1,22 @@
+2. Instalacja Kubernetesa
+	- Włączenie wewnętrznej wirtualizacji na wirtualnej maszyniu ubuntu 
+		cd C:\Program Files\Oracle\VirtualBox
+		VBoxManage.exe list vms
+		VBoxManage.exe modifyvm "GNS3 VM" --nested-hw-virt on
+	- Rozwiązanie konfliktu Windowsa z wirtualizacją w maszynie - maszyna nie uruchamiała się 
+		bcdedit /set hypervisorlaunchtype off
+		wyłączenie feature'a windowsa "Virtual Machine Platform"
+		restart komputera
+	- instalacja kubernetesa na maszynie wirtualnej zgodnie z instrukcją:
+		https://phoenixnap.com/kb/install-minikube-on-ubuntu
+
+3. Uruchomienie Minikube dashboard za pomocą komendy "minikube dashboard"
+3.1
+
+4. 
+	- "kubectl run komunikator --image=tituu/node-chat --port=3000 --labels app=komunikator" -
+	uruchomienie instancji komunikatora na podstawie obrazu dockerowego z aplikacją node-chat na porcie 3000
+	- "kubectl port-forward komunikator <NR_PORTU_NA_LOCALHOST>:<NR_PORTU_W_KONTENERZE>" - przekierowanie 
+	portu kontenera na port na którym uruchomiona jest aplikacja. W moim przypadku 3000:3000
+
+5. Ręczne przetestowanie działania aplikacji w klastrze.

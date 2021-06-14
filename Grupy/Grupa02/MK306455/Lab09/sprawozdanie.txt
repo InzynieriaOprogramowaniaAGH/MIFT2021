@@ -1,0 +1,17 @@
+1. oraz 2.
+ - Do Jenkinsa dodano GitHub integration plugin. W ustawieniach pipeline zaznaczono "GitHub hook trigger for GITScm polling" (zrzut zad1a)
+ - Zainstalowano i skonfigurowano ngrok. Dokonano tunelowania adresu pod ktorym dostepny jest jenkins: "./ngrok http http://localhost:8080" (zrzut zad1b).
+ - W ustawieniach repozytorium na github Settings/Webhooks utworzono nowy webhook. W sekcji PayloadURL dodano URL https otrzymany w wyniku tunelowania ngrok z koncowka /github-webhook/ np: "https://a91b04a25702.ngrok.io/github-webhook/". Content Type ustawiono na "applicatio/json", SSL verification na "Enable" oraz ustawiono "Just the push event" jako trigger. (zrzut zad 1c). Jako trigger zostal wykryty push na repo (zrzut zad1d).
+ 
+
+
+3 oraz 4.
+ - Mialem kilka koncepcji tworzenia stage deploy. Najpierw postanowilem zmienic Jenkinsfile, aby w stage Build oraz Test uzywane byly Dockerfile z Lab04. W stage Deploy dokonywana byla zmiana nazwy obrazu ze stage Build i wypchniecie na DocherHub.(plik Jenkinsfile_1).
+ - Potem zorientowalem sie ze zle zrozumialem tresc zadania. W nowej wersji Jenkinsfile to w stage Deploy jest budowany obraz (plik "Deploy") z plikow zrodlowych na ktorych wykonywano budowanie oraz testowanie (npm install oraz npm test). Co prawda w tresci zadania nie bylo wspomniane nic o wypychaniu na DockerHub, jednak postanowilem je zostawic. (plik Jenkinsfile). Aby wypchnac na DockerHub nalezalo ustawic Jenkins Credentials analogicznie jak dla github (nazwalem je docherhub_id).
+
+5. 
+ - Pipeline jest zdefiniowany w Jenkinsfile w repo z komunikatorem (zrzuty zad5a, zad5b - ustawienia pipeline)
+ - Pipeline jest automatycznie wyzwalany i przechodzi wszystkie etapy (zrzut zad5c)
+ - Pipeline obsuguje powiadamianie o rezultatach kazdego z etapow (zrzuty zad5d - udany Deploy, zad5e - nieudany Deploy)
+
+

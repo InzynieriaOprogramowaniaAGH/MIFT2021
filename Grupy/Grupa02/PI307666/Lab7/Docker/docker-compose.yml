@@ -1,0 +1,18 @@
+version: "3"
+services:
+   app-service:
+      build:
+         dockerfile: Dockerfile
+         context: .
+      image: node-chat
+      ports:
+         - "5000:5000"
+      expose:
+         - 5000
+   test-service:
+      build:
+         dockerfile: Dockerfile-test
+         context: .
+      image: node-chat-test
+      depends_on: 
+         - app-service

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if ! grep '^KJ306450' "$1"; then
+	echo "Commit message should start with KJ306450"
+	exit 1
+else
+	echo "Commit added"
+	exit 0
+fi

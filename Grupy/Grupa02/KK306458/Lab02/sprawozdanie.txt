@@ -1,0 +1,36 @@
+1.
+ssh-add ~/.ssh/id_ed25519 - dodanie wczesniej utworzonego klucza do agenta ssh
+Dodanie klucza do swojego konta
+git remote -v - sprawdzenie sposobu przesylania polecen (domyślnie jest to http)
+git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git - ustawienie metody komunikacji jako ssh
+git remote -v - ponowne sprawdzenie sposobu przesylania polecen (po zmianie metoda komunikacji to ssh)
+
+2.
+git tag -a KK306458_Lab02 -m "SSH dziala?" - dodanie nowego tagu 
+git push --set-upstream origin KK306458 --follow-tags - wyslanie zmian(tagów) na remote/origin
+
+3.
+Reorganizacja struktury plików
+git checkout Grupa02 - przelaczenie sie na grupowego brancha
+git checkout -b Grupa02-KK306458_Lab02 - utworzenie nowego bracha dla lab02
+git merge KK306458 - zmergowanie poprzednich zmian do nowego brancha
+
+4.
+Utworzenie skryptu sprawdzajacego czy wiadomosc w commicie zaczyna sie od KK306458, commit zostanie utworzony dopiero przy poprawnej formie wiadomosci. Skypt nazywa sie commit-msg i wymaga nadania uprawnienia do uruchomienia
+
+Zawartosc githooka
+
+if ! grep '^KK306458' $1; then
+echo "Wrong commit mess"
+exit 1;
+fi
+
+echo "Success"
+
+5.
+git push --set-upstream origin Grupa02-KK306458_Lab02 - wrzucenie zmian z brancha Grupa02-KK306458_Lab02
+git checkout Grupa02
+git pull
+git merge Grupa02-KK306458_Lab02
+git push
+Wykonanie pull requesta z odpowiedniego miejsca na stronie github(Grupa02 -> master)

@@ -1,0 +1,7 @@
+1. Stworzono nowy branch od brancha grupowego. Utworzono strukturę folderów (Docker, Jenkins) wraz z niezbędnymi plikami.
+Wykonano fork na repozytorium czatu.
+
+2. Utworzono Jenkinsfile i umieszczono je w repozytorium.
+
+3. Skonfigurowano Jenkinsa aby możliwe było wysyłanie maili.
+Utworzono i uruchomiono nowego pipeline z poziomu Jenkinsa. Wynik testów został wysłany na maila.

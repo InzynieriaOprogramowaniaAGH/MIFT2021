@@ -1,0 +1,50 @@
+pipeline {
+    agent any
+    environment {
+	    DOCKER_DIR = 'Grupy/Grupa02/SK306456/Lab08/docker'
+        DOCKER_BUILD = 'chat-build'
+        DOCKER_TEST  = 'chat-test'
+        DOCKERFILE_BUILD  = 'build-dockerfile' 
+        DOCKERFILE_TEST   = 'test-dockerfile'
+        
+        SRC_PATH='chat/src'
+        REPO_URL='https://github.com/skarpecki/chat'
+        BRANCH='master'
+
+    }
+    stages {
+        stage('Build'){
+            steps{
+                sh 'docker build -f ${DOCKER_DIR}/${DOCKERFILE_BUILD} -t ${DOCKER_BUILD} --build-arg REPO_URL=${REPO_URL} --build-arg SRC_PATH=${SRC_PATH} --build-arg BRANCH=${BRANCH} .'
+                sh 'docker run --rm --name ${DOCKER_BUILD} ${DOCKER_BUILD}'
+            }
+        }
+        stage('Test'){
+            steps {
+                sh 'docker build -f ${DOCKER_DIR}/${DOCKERFILE_TEST} -t ${DOCKER_TEST} --build-arg BUILD_IMAGE=${DOCKER_BUILD} --build-arg SRC_PATH=${SRC_PATH} .'
+                sh 'docker run --rm --name ${DOCKER_TEST} ${DOCKER_TEST}'
+                sh 'docker rmi ${DOCKER_BUILD}'
+                sh 'docker rmi ${DOCKER_TEST}'
+            }
+        }
+    }
+    post {
+        failure {
+            /*
+            mail to: 'skarpecki@student.agh.edu.pl',
+                 subject: "Failed chat pipeline: ${currentBuild.fullDisplayName}",
+                 body: "Something is wrong with ${env.BUILD_URL}"
+            
+            */
+            echo "Failed"
+            }
+        success {
+            /*
+            mail to: 'skarpecki@student.agh.edu.pl',
+                 subject: "Succeded chat pipeline: ${currentBuild.fullDisplayName}",
+                 body: "Everything is fine with ${env.BUILD_URL}"
+            */
+            echo "Succeded"
+            }   
+    }
+}

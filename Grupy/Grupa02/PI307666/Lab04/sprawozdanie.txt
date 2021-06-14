@@ -1,0 +1,15 @@
+	1. Przełączono się na nowy branch  z brancha grupowego Grupa02 - git checkout -b Grupa02-PI307666_Lab04
+Sprawdzono aktualnie utworzone kontenery - sudo docker ps -a
+Wykonano commit kontenera z poprzednich zajęć - sudo docker commit 7edcd4d874a4 piotrizw/lab03-img
+Sprawdzono czy zmiany zostały dodane - docker images.
+Zalogowano się do portalu hub.docker.com - docker login.
+Wysłało repozytorium do serwisu - sudo docker push piotrizw/lab03-img.
+	2. Wybrano komunikator do realizowania dalszych poleceń - https://github.com/binhxn/node-chat-app.
+	3. Wykonano buodowanie kontenera - sudo docker build -t node-chat .
+Następnie uruchomiono zbudowany obraz kontenera - sudo docker run -p 3000:3000 -it node-chat.
+	4. Stworzono Dockerfile z poleceniami do testów.
+Zbudowano nowe Dockerfile o innej nazwie - sudo docker build -t node-chat-test . -f Dockerfile-test.
+Uruchomiono zbudowany kontener w celu przeprowadzenia testów - sudo docker run -p 3000:3000 -it node-chat-test.
+	5. Wykorzystując docker-compose stworzono plik konfiguracyjny docker-compose.yml. 
+Uruchomiono budowanie docker-compose - docker-compose up --build.
+Obie aplikacje zostały uruchomione poprawnie.
