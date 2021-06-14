@@ -1,0 +1,10 @@
+1. Skonstuowano plik yaml opisujący tworzenie wielu kontenerów naszego komunikatora. 
+Dokładna treść jest widoczna w pliku yaml.png
+
+2. Uruchomiono analogicznie do zajęć poprzednich minikuba oraz minikuba dasboard. 
+
+3. W pierwszej wersji ilość replik (kopii) kontenera została ustawiona na 4.
+Używając komendy kubectl apply -f komunikator-deployment.yaml stworzono w kubernetesie ustaloną ilość
+kontenerów obrazu komunikatora. (widoczne w: dasboard-4)
+
+4. W Drugiej wersji uruchomiono wdrożenie dla 5 kopii. (widoczne w: dasboard-5)
