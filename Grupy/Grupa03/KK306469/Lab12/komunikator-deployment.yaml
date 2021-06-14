@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: komunikator-deployment
+  labels:
+    app: nodechat
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: deltachat
+  template:
+    metadata:
+      labels:
+        app: deltachat
+    spec:
+      containers:
+      - name: komunikator-deployment
+        image: karol22322/mift2021:deltachat_build_agent
+        ports:
+        - containerPort: 3000
