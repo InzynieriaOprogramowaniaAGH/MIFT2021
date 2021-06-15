@@ -31,3 +31,5 @@ spec:
          - containerPort: 9999
          
 5. Zlecono klastrowi zrealizowanie pliku komunikator-deployment.yaml poleceniem 'kubectl apply -f komunikator-deployment.yaml'
+
+6. Udokumentowano stan klastra Kubernetes za pomoca zrzutow ekranu.
