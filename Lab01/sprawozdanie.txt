@@ -1,8 +1,0 @@
-
-Pobralem gita za pomoca komendy sudo apt install git-all
-Skopiowalem repozytorium z gita grupy za pomoca komendy git clone 
-Stworzylem i przelaczylem sie na nowy branch JS306303 za pomoca komendy git checkout -b JS306303
-Kolejno tworzylem pliki tekstowe za pomoca nano
-Dodawalem je do gita za pomoca git add
-Potem uzywalem komendy git commit i git push by wyslac swoje repozytorium do grupy
-

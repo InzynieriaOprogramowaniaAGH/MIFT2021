@@ -1,5 +1,0 @@
-1.Wykorzystanie polecenia "sudo apt-get install git-all" do zainstalowania klienta git.
-2.Wykonanie operacji "git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git" w celu sklonowanie repozytorium
-3.Wyświetlenie dokumentu na pierwsze ćwiczenia laboratoryjne dzięki poleceniu "nano <repo>/Lab instructions/Lab 01 - Git.txt"
-4.Stworzenie brancha dzięki "git checkout -b SJ306448". Dodanie pliów dzięki "git add *". Tworzenie plików dzięki "touch" i repozytoriów dzięki "mkdir"
-5.Wykonanie "git commit" oraz "git push".

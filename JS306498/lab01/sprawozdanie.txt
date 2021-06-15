@@ -1,8 +1,0 @@
-1.Zainstalowanie  gita
-2.Pobranie repozytorium: git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git
-3.Stworzenie nowego brancha git checkout -b "js306498"
-4.Stworzenie nowego katalogu mkdir lab01
-5.W tym katalogu za pomocą komendy touch stworzyłem plik sprawozdanie.txt
-6.dodałem screenshooty
-7.wykonałem commita,push branch-a za pomocą polecenia git push origin JS306498
-8.Dokonałem merga do bracha głownego
