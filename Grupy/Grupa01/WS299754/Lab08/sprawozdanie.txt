@@ -1,2 +1,3 @@
 2. Dodanie stage'a build z pobieraniem aktualnej wersji repo, instalacją komunikatora i powiadamianiem do Jenkinsfile
 3. Test działania stage'y - obserwacja skutków poprawnego i niepoprawnego wykonania stage'a build.
+4. Dodanie githooka post commit wyswietlajacego wiadomosc
