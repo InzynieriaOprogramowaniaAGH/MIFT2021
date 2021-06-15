@@ -1,0 +1,37 @@
+1. Po utworzeniu konta Azure oraz uruchomieniu Bash utworzylem resourcegroup "myResourceGroup" w lokacji "eastus" poleceniem:
+
+"az group create --name myResourceGroup --location eastus"
+(zrzut1)
+
+
+2. Nastepnie utworzylem w ramach "myResourceGroup" kontener z obrazem z Dockerhub. Nadalem mu nazwe "mycontainer" oraz wystawilem na porcie 3000 w domenie "devops13":
+
+"az container create --resource-group myResourceGroup --name mycontainer --image mkapust9/kubernetes_deploy --dns-name-label devops13 --ports 3000"
+(zrzut2)
+
+3. sprawdzilem poprawnosc utworzenia kontenera "mycontainer" z resourcegroup "myResourceGroup" poleceniem:
+
+"az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table"
+
+W tabeli (ostatni parametr polecenia) zostal wyswietlony FQDN (przedostatni parametr polecenia) oraz status kontenera (zrzut3).
+
+4. W przegladarce sprawdzilem dzialanie kontenera wpisujac FQDN (zrzut4).
+
+5. Usunalem kontener "mycontainer" z resourcegroup "myResourceGroup" poleceniem:
+
+"az container delete --resource-group myResourceGroup --name mycontainer"
+(zrzut5)
+
+6. Wyswietlilem kontenery nalezace do resourcegroup "myResourceGroup" poleceniem:
+
+"az container list --resource-group myResourceGroup --output table "
+
+Poniewaz lista byla pusta, kontener zostal poprawnie usuniety.
+(zrzut6)
+
+7. Usunalem resourcegroup "myResourceGroup" poleceniem:
+
+"az group delete --name myResourceGroup"
+
+Dla pewnosci uzylem polecenia drugi raz. Resourcegroup "myResourceGroup" nie zostal znaleziony, wiec usuwanie zostalo zakonczone pomyslnie.
+(zrzut6)
