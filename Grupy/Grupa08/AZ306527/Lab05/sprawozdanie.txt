@@ -1,0 +1,8 @@
+zadanie 3 
+zbudowano obraz jenkinsa zgodnie z instrukcją ze stronu (widoczne na screenach
+
+zadanie 4
+Otagowano odpowiednio wcześniej zbudowany obraz i spushowano go na dockerhub
+
+zadanie 5
+Uruchomiono jenkinsa i odpowiednio skonfigurowano zadania na powłoce.

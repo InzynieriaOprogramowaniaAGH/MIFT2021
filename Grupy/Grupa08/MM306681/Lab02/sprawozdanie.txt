@@ -1,0 +1,9 @@
+1. Zmienilam sposob logowania się do repo z https na SSH:
+	- wygenerowalam klucz ssh-keygen -t ed25519 -C "marcela8moskal@gmail.com"
+	- agent do obslugi klucza eval "$(ssh-agent -s)", ssh-add ~/.ssh/id_ed25519
+	- zarejestrowalam klucz po stronie serwera
+	- poinformowalam gita o zmianie sposobu logowania git remote -v, git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+2. Nadalam tag do commmita git tag -a MM306681_Lab01 -m "Marcelina Moskal lab02", wrzucilam zmiane na swojego brancha na origin git push --follow-tags
+3. Uporzadkowalam foldery pod grupe lab, stworzylam krotkozyjacego brancha git checkout -b Grupa08-MM306681_Lab02
+4. Napisalam git hooka weryfikujacego moj commit, by zaczynal sie od inicjalow.
+5. Wrzucilam zmiany na gita.

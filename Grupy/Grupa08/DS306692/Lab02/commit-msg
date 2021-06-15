@@ -1,0 +1,21 @@
+#!/usr/bin/python
+import sys
+
+def main():
+	with open(sys.argv[1], "r") as fp:
+		commitMessage=fp.readlines()
+
+		if commitMessage[0].startswith("DS306692"):
+			sys.exit(0)
+
+		else:
+			print("Bledny opis")
+			sys.exit(1)
+
+if __name__== "__main__":
+	main()
+
+#commitMessageFile = open(sys.argv[0])
+#commitMessage = commitMessageFile.read().strip()
+
+#print(commitMessage)

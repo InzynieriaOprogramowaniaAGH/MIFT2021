@@ -1,0 +1,44 @@
+Michał Zając - sprawozdanie
+
+Wykorzystane polecenia: 
+
+ssh-keygen -t ed25519 -C "your_email@example.com" - wygenerowanie nowego klucza ssh
+
+ssh-add ~/.ssh/id_ed25519 - dodanie ssh
+
+clip < ~/.ssh/id_ed25519.pub - skopiowanie klucza ssh do schowka
+
+git remote -v - wyświetlenie informacji o sposobie połączenia
+
+git checkout -b Grupa08-MZ306649_Lab02 - utworznie nowego brancha osobistego
+
+git branch -d Grupa08-MZ306649_Lab02 - usuniecie brancha osobistego
+
+Przebieg laboratorium:
+1.Zaktualizowano lokalne repozytorium poleceniem git pull.
+2.Zmieniono sposób połączenia z HTTP na SSH
+	-wygenerowano nowy klucz SSH
+	-zarejsetrowano klucz SSH po stronie serwera
+	-zmieniono sposób logowania
+3.Nadano tag na commita poleceniem git tag -a MZ306649
+4.Uporządkowano strukturę folderów
+	-utworzono foldery Grupy/Grupa08
+	-do utworzonego folderu przeniesiono swój folder
+5.Utworzono konfigurację branchy
+	-od brancha Grupa08 utworzono nowego brancha Grupa08-MZ306649_Lab02
+6.Utworzono git hooka sprawdzającego czy treść wiadomości commita zawiera ciąg znaków "MZ306649" 
+
+	#!/bin/sh
+
+	string="MZ306649"
+	error_msg="Zla tresc wiadomosci commita"
+
+	if ! grep -iqE "$string" "$1"; then
+    		echo "$error_msg" >&2
+    		exit 1
+	fi
+
+	Wykorzystano hook commit-msg w folderze .git/hooks, nadano mu 		uprawnienia do wykonywania.
+7.Zrobiono push z brancha osobistego do brancha grupowego.
+8.Usunięto brancha osobistego.
+9.Zrobiono pull request z brancha grupowego do mastera.

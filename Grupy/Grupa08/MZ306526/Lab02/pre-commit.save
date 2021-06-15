@@ -1,0 +1,8 @@
+#!/bin/bash
+string="MZ306526*"
+message="Bledny commit, nie zaczyna sie od indeksu"
+if ! grep -iqE "$string" "$1"; then
+        echo "$message"
+        exit 1
+fi
+echo "Wszystko git"

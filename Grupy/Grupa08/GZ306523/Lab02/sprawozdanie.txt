@@ -1,0 +1,36 @@
+﻿1.Wygenerowanie klicza ssh
+
+
+2. Dodanie klucza ssh do agenta
+
+
+3. Skopiowanie klucza do schowka
+
+
+4. Zmiana sposobu logowania do gita
+
+
+5. Stworzenie nowego tagu
+
+
+6. Wrzucenie tagu na repozytorium zdalne 
+
+
+7. Stworzenie poprawnej struktury plików
+
+
+8. Uporządkowanie branchy
+
+
+9. Stworzenie hook
+
+
+10. Merge branchy
+
+
+
+
+10. Push wszystkiego 
+
+
+11. Usunięcie brancha Grupa08-GZ306523_Lab02

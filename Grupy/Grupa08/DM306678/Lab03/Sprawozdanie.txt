@@ -1,0 +1,13 @@
+1. Zrobienie brancha krótkożyjącego: git checkout -b NAZWA 
+2. Dodanie git hooka do folderu Lab02
+3. Istalacja Dockera
+4. Rejestracja konta w Docker HUB
+5. Stworzenie pliku Dockerfile o treści:
+	FROM ubuntu:latest
+	RUN apt-get -y update
+	RUN apt-get -y upgrade
+	RUN apt-get install -y build-essential
+	RUN apt-get -y install git
+6. Zbudowanie: sudo docker build -t lab3dock .
+7. Uruchomienie kontenera: sudo docker run -it lab3dock bash
+8. Wrzucenie plików na gita

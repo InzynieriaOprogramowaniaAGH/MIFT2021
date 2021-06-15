@@ -1,0 +1,48 @@
+Sprawozdanie: Rafał Widziszewski 14.03.2021r.
+
+Wykonanie:
+
+
+1.1 Generowanie klucza SSH
+    ssh-keygen -t ed25519 -C "rafal.widziszewski@gmail.com"
+1.2 Dodanie klucza do agenta:
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_ed25519
+
+1.5 Ustawianie połączenia przez shh
+    git remote -v
+    git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+    git remote -v 
+
+
+2. Nadanie tagu aktualnemu commitowi:
+   git tag -a RW306514_Lab02 -m "Rafal Widziszewski Zad2"
+
+2.1 Wrzucenie zmiany na brancha na origin 
+   git push origin RW306514 --follow-tags
+
+3. Uporzadkowywanie branchy na branchu RW306514 a następnie stworzenie nowych branchy
+   git merge origin/Grupa08
+   git checkout Grupa08
+   git pull
+   git merge Grupa08
+   git push
+   git checkout -b Grupa08-RW306514_Lab2
+
+4.Napisanie githooka:
+
+#!/bin/sh
+
+#!/bin/bash
+
+string="RW306514"
+if ! grep -iqE "$string" "$1"; then
+	echo "Failed commit!"
+	exit 1
+fi
+echo "Commited!"
+
+5. Dolaczenie zmian z osobistego brancha do brancha grupowego:
+   git merge Grupa08-RW306514_Lab2
+   git branch Grupa08-RW306514_Lab2
+
