@@ -1,0 +1,1 @@
+1. Edycja git hooka dodanego w lab7
