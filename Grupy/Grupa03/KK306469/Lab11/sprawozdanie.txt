@@ -1,0 +1,13 @@
+Karol Kusik Lab11
+
+1. Utworzyłem nowy branch.
+2. Obraz dockerowy z budowaniem aplikacji (nowy dockerfile) wypchnąłem na dockerhuba.
+3. Zainstalowałem minikube i pobrałem kubectl.
+4. Uruchomiłem dashboard. Odpowiada on za:
+     	-wdrażanie aplikacji kontenerowych w klastrze Kubernetes
+     	-rozwiązywanie problemów z aplikacją w kontenerze
+     	-zarządzanie zasobami klastra
+     	-uzyskiwanie przeglądu aplikacji działających w klastrze
+     	-tworzenie lub modyfikowanie poszczególnych zasobów Kubernetes
+5. Poleceniem <kubectl run socket-io --image=karol22322/lab11_run --port=9999 --labels app=Socket.io> uruchomiłem kontener następnie przekierowałem porty
+6. Przetestowałem działanie.
