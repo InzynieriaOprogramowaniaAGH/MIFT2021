@@ -1,0 +1,22 @@
+version: '3.3'
+services:
+ build-agent:
+  container_name: deltachat-build-agent
+  image: deltachat_build_agent:latest
+  build:
+   context: .
+   dockerfile: ./Dockerfile_build
+ test-agent:
+  container_name: deltachat-test-agent
+  image: deltachat_test_agent:latest
+  build:
+   context: .
+   dockerfile: ./Dockerfile_test
+  depends_on:
+  - build-agent
+ jenkins: 
+  container_name: jenkins-blueocean
+  image: myjenkins-blueocean:1.1
+  build:
+   context: .
+   dockerfile: ./Dockerfilejenkins
