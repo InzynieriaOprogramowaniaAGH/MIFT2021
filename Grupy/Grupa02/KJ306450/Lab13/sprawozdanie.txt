@@ -12,8 +12,10 @@ konsolę w Azure.
 chmurze grupę zasobów. Następnie utworzono kontener wykorzystując przy tym obraz
 komunikatora zamieszczony na DockerHub - az container create --resource-group myResource
 --name komunikator --image kjop118/deploy-chat --dns-name-label komunikator --ports 3000.
-Wpisując w przeglądarce "komunikator.eastus.azurecontainer.io:3000" sprawdzono, czy
-aplikacja działająca w kontenerze docerowym została poprawnie wdrożona na platformie
+Sprawdzono status kontenera polecenie "az container show --resource-group myResource
+--name komunikator --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" 
+--out table". Wpisując w przeglądarce "komunikator.eastus.azurecontainer.io:3000" sprawdzono, 
+czy aplikacja działająca w kontenerze docerowym została poprawnie wdrożona na platformie
 Azure. Dodatkowo sprawdzono logi dla utworzonego kontenera - az container logs
 --resource-group myResource --name komunikator. Po sprawdzeniu działania aplikacji,
 poleceniem "az container delete --resource-group myResource --name komunikator" usunięto
