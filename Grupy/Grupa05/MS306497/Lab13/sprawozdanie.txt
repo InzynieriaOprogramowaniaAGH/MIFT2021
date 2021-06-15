@@ -1,0 +1,34 @@
+1. Do wykonania zadania wykrzystano kontener dockerowy ze zbudowanym komunikatorem z poprzednich zajęć
+
+2. Korzystając z konta studenckiego zalgowano sie do Microsoft Azure
+
+3. Zapoznano sie z cennikiem usług chmurowych
+
+4. Zapoznano sie z Azure Cloud Shell. Stworzono nową grupe zasobów
+az group create --name mojeZasoby --location eastus
+
+5. Zapoznano sie z instrukcją uruchamiania kontenerów w ACI
+
+6. Uruchomiono obraz z pkt 1 w ACI
+- zainstalowano lokalnie Azure CLI:
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+- zalogowano się
+az login
+
+- Stworzono kontener w chmurze
+az container create --resource-group mojeZasoby --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld --dns-name-label mserwaczak-komunikator --ports 3000
+
+- Sprawdzono czy deployment zakończył sie sukcesem
+az container show --resource-group mojeZasoby --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
+
+- Sprawdzono czy aplikacja działa poprawnie
+
+- Sprawdzono logi
+az container logs --resource-group mojeZasoby --name mycontainer
+
+- Usunięto kontener i grupę zasobów z chmury
+az container delete --resource-group mojeZasoby --name mycontainer
+ 
+
+
