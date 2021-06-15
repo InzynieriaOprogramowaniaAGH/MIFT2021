@@ -1,0 +1,10 @@
+Karol Kusik lab09
+
+1. Skonfigurowałem ustawienia Jenkinsa tak aby uruchamiał się on za pośrednictwem webhooka.
+2. Zintegrowałem Jenkinsa z webhookiem zerejestrowanym w repozytorium.
+3. Skorzystałem z programu ngrok służącego do tunelowania do sieci localhost aby pominąć tworzednie zdalengo repo z kodem.
+4. Przetestowałem działanie konfiguracji.
+5. Dodałem etap deploy do całego procesu.
+6. Przetestowałem działannie.
+7. Działa wszytsko poza deployem, którego nie udało mi się naprawić mimo długich starań i poszukiwań rozwiązań w internecie, 
+wyświetlany jest komunikat "tcp: lookup docker on 127.0.0.11:53: no such host".
