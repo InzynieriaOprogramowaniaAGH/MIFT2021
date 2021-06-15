@@ -34,6 +34,6 @@ spec:
 
 6. Udokumentowano stan klastra Kubernetes za pomoca zrzutow ekranu.
 
-7. Wprowadzono zmiany w pliku - liczbe replik zmieniono na 2.
+7. Wprowadzono zmiany w pliku - liczbe replik zmieniono na 2 i ponownie zlecono klastrowi zrealizowanie pliku komunikator-deployment.yaml.
 
 8. Udokumentowano nowy stan klastra Kubernetes za pomoca zrzutow ekranu.
