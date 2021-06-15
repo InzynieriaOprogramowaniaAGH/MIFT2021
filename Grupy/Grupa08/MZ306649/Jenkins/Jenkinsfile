@@ -19,6 +19,10 @@ pipeline{
 				sh 'npm test'
 			}
 		}
+		stage('Deploy'){
+			echo 'Deploying'
+			sh 'docker build -t deploy -f Dockerfile .'
+		}
 	}
 	
     	post {
