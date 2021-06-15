@@ -1,0 +1,10 @@
+1. Posiadam kontener docker'owy ze zbudowanym komunikatorem ze wcześniejszych zajęć
+2. Zarejstrowałam się do Microsoft Azure
+4. Zapoznałam się z tym co to jest "Azure Cloud Shell"
+5. Zainstalowałam lokanie Azure CLI: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+6. Zalogowałam się: az login
+7. Stworzyłam grupę zasobów: az group create --name zasoby --location eastus
+8. Stworzyłam kontener w chmurze: az container create --resource-group zasoby --name my-container --image annadybel21/delta-chat-app:tagname --dns-name-label ad-chat --ports 3000
+9. Sprawdziłam czy deployment zakończył się sukcesem: az container show --resource-group zasoby --name my-container --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
+10. Usunełam kontener i grupę zasobów z chmury: az container delete --resource-group zasoby --name my-container
+az group delete -n zasoby
