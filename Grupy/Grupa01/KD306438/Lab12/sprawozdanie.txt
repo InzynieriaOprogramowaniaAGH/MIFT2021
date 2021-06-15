@@ -13,7 +13,7 @@ metadata:
   labels:
     app: komunikator
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
       app: komunikator
@@ -33,3 +33,5 @@ spec:
 5. Zlecono klastrowi zrealizowanie pliku komunikator-deployment.yaml poleceniem 'kubectl apply -f komunikator-deployment.yaml'
 
 6. Udokumentowano stan klastra Kubernetes za pomoca zrzutow ekranu.
+
+7. Wprowadzono zmiany w pliku - liczbe replik zmieniono na 2.
