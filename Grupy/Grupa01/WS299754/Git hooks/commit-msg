@@ -1,0 +1,10 @@
+#!/bin/sh
+
+pattern='^(\bWS299754)'
+msg="Commit message must start with WS299754!"
+
+if ! grep -iqE "$pattern" "$1"; then
+	echo "$msg"
+	exit 1;
+fi
+	exit 0;
