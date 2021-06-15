@@ -1,0 +1,9 @@
+Karol Kusik Lab08
+
+1. Stworzeno brancha Grupa03-KK306469_Lab08.
+2. Zmodyfikowano Jenkinsfile: dodano stage "Build".
+3. Uruchomiono Pipeline, który zakończył sie powodzeniem.
+4. Zmieniono Jenkinsfile tak by wymusić niepoprawne budowanie. Uruchomiono Pipeline, który zakończył sie niepowodzeniem i przerwał pipeline.
+5. Zmieniono Jenkinsfile tak by wymusić niepoprawne testowanie. Uruchomiono Pipeline, który poprawnie zbudował komunikator ale zakończył sie niepowodzeniem w testowaniu i przerwał pipeline.
+6. Z wszystkich etapów otrzymano na skrzyke pocztową powiadomienia mailowe.
+7. Dodanie pliku post-commit który bedzie wymuszał uruchominie pipe w momencie nowego commita.
