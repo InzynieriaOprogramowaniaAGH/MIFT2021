@@ -1,0 +1,7 @@
+1. Rozszerzyłem Jenkinsfile z Lab07 o nowy stage Build
+2. Sprawdziłem aktualność kodu przy użyciu checkout scm
+3. Po udanym budowaniu uruchamiany jest stage Test, a po nieudanym jest on pomijany:
+ 		when {
+              			expression {currentBuild.result == null || currentBuild.result 	== 'SUCCESS'}
+            }
+4. Napisałem git post-commit hooka wyświetlającego wiadomość "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"

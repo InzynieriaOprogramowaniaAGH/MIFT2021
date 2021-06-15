@@ -1,0 +1,4 @@
+1.Rozszerzenie Jenkinsfile o stage "Build" sprawdzajcy czy nasza wersja aplikacji jest najnowsza. Jenkins powinien wysylac informacje zarowno o sukcesie jak i bledzie. 
+2.Uruchomienie budowania aplikacji oraz sprawdzenie skrzynki pocztowej.
+3.Przetestowanie czy podczas bledu budowania testy sie nie zaczna wykonywac
+4.Napisanie git hook'a, ktory wyswietla informacje po wykonaniu commit.

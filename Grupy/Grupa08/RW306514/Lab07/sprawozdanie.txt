@@ -1,0 +1,16 @@
+Sprawozdanie: Rafal Widziszewski 18.05.2021r.
+
+Wykonanie:
+
+1.Posortowanie wszystkich plików źródłowych do odpowiednich folderów
+
+2.Utworzenie Jenkinsfile i oskryptowanie sekcji stage Test, o komendy wykonujące testy
+	- sh 'install npm' (później umieszczone w stage Build)
+	- sh 'npm run test'
+  oraz dodanie komend wysyłających maile o powodzeniu lub niepowodzeniu testów
+	-emailext attachLog: true,
+	body:
+	subject:
+	to:
+
+3.Wrzucenie Jenkinsfila na sforkowane wcześniej repo aplikacji i uruchomienie Pipeline'a
