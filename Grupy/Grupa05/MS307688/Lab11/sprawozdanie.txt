@@ -1,0 +1,31 @@
+Sprawozdanie lab_11 - Michał Stawarski - MS307688
+
+1. Do wykonania zadania wykorzystano kontener dockerowy, w którym zbudowany jest komunikator
+
+2. Zainstalowano klaster Kubernetes:
+	- curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+	- sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+   Następnie uruchomiono minikube:
+	- minikube start
+
+   Następnie pobrano command line tool:
+	- minikube kubectl -- get po -A
+
+3. Po godzinach walki, restartowaniu ustawień karty sieciowej, oraz przypisaniu 10gb ramu, uruchomiono minikube dashboard 
+	- minikube dashboard
+
+   Przy użyciu minikube dashboard można:
+	- zarządzać zasobami klastra
+	- można przeglądać aplikacje, które są uruchomione na klastrze
+	- tworzyć lub modyfikować indywidualne zasoby klastra
+	- wdrażać kontenryzowane aplikacje do klastra Kubernates
+	- rozwiązywać problemy naszej konteneryzowanej aplikacji
+
+4. Uruchomiono kontener-komunikator w Kubernates używając polecenia:
+	- minikube kubectl -- run nodechatappkube --image=mehuu26/nodechatapp --port=7777 --labels app=nodechatappkube
+
+   Dokonano przekierowania portów w celu umożliwiania dostępu z zewnątrz:
+	- minikube kubectl port-forward nodechatappkube 7777:3000
+
+5. Udokumentowano, że komunikator działa w klastrze Kubernates
