@@ -1,0 +1,88 @@
+pipeline {
+    agent any
+    tools {nodejs "NodeJS"}
+    	stages{
+	    	stage('Build') {
+			steps {
+				echo 'Building'
+				checkout scm
+				sh 'npm install'
+				sh 'npm run build'
+			}
+			post {
+	    			always { 
+		   			echo 'Build completed. Results sent as e-mail.'
+	      		}
+	       	 		success {
+		  	  		emailext attachLog: true,
+					body: "Build status: ${currentBuild.currentResult}\nJob: ${env.BUILD_TAG}", 
+		    			subject: 'Pipeline build completed successfully',
+		    			to: 'jenkins3464@gmail.com'
+	      		}
+				failure {
+		  	  		emailext attachLog: true,
+		   	 		body: "Build status: ${currentBuild.currentResult}\nJob: ${env.BUILD_TAG}", 
+		   	 		subject: 'Pipeline build failed',
+		   	 		to: 'jenkins3464@gmail.com'
+				}
+	    		}
+		}
+		
+		stage('Test') {
+			when{
+				expression {currentBuild.currentResult=='SUCCESS'}
+			}
+		    	steps {
+		  		echo 'Testing'
+		    	  	sh 'npm test'
+		    	}
+		    	post {
+		    		always { 
+			    		echo 'Test completed. Results sent as e-mail.'
+				}
+		       	 	success {
+			  	  	emailext attachLog: true,
+					body: "Build status: ${currentBuild.currentResult}\nJob: ${env.BUILD_TAG}", 
+			    		subject: 'Pipeline test completed successfully',
+			    		to: 'jenkins3464@gmail.com'
+				}
+				failure {
+		  	  		emailext attachLog: true,
+		   	 		body: "Build status: ${currentBuild.currentResult}\nJob: ${env.BUILD_TAG}", 
+		   	 		subject: 'Pipeline test failed',
+		   	 		to: 'jenkins3464@gmail.com'
+				}
+	    		}
+	       }
+	       
+	    	
+	       stage('Deploy'){
+	       		steps{
+	       			echo 'Deploying'
+	       			 sh 'docker build -t deploy -f Dockerfile-deploy .'
+	       		}
+	       		post {
+		    		always { 
+			    		echo 'Deployment completed. Results sent as e-mail.'
+				}
+		       	 	success {
+			  	  	emailext attachLog: true,
+					body: "Build status: ${currentBuild.currentResult}\nJob: ${env.BUILD_TAG}", 
+			    		subject: 'Pipeline deployment completed successfully',
+			    		to: 'jenkins3464@gmail.com'
+				}
+				failure {
+			  	  	emailext attachLog: true,
+			   	 	body: "Build status: ${currentBuild.currentResult}\nJob: ${env.BUILD_TAG}", 
+			   	 	subject: 'Pipeline deployment failed',
+			   	 	to: 'jenkins3464@gmail.com'
+				}
+			}	
+		} 
+	}
+	post{
+       		always{
+       			echo 'Pipeline completed.'
+       		}
+	}
+}

@@ -1,0 +1,20 @@
+1. Wykorzystano kontener z poprzednich zajęć wraz z DockerHubem.
+
+2. Zainstalowano zgodnie z instrukcją Kubernetes oraz Minikube.
+
+    $ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+    $ sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+3. Uruchomiono Minikube Dashboard
+
+    $ minikube dashboard
+
+3.1 Wypisano możliwości Minikube Dashboard.
+
+4. Przyznano alias dla kubectl, by wyeliminować problemy z widocznością flag oraz uruchomiono kontener z komunikatorem w Kubernetes:
+
+4.1 Ustawiono porty
+
+    $ kubectl port-forward deploy/deltachat 8080:9999
+
+5. Kontener został pomyślnie uruchomiony w klastrze.

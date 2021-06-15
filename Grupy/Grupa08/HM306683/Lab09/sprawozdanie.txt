@@ -1,0 +1,8 @@
+1-2.
+Pomimo wielu prob skonfigurowania webhooka, nie wyzwala on pipeline'a. Zdecydowalem sie na zastosowanie 'Poll SCM', ktory sprawdza co 15 minut zmiany w repozytorium, jesli nastapily wyzwalany jest pipeline.
+
+3. 
+Rozszerzylem Pipeline o stage Deploy.
+
+4.
+Dodalem do repozytorium komunikatora dockerfile, ktory jest budowany w Stage Deploy. Zapewnilem powiadomienie uzytkownika o porazce/suckcesie procesu. 

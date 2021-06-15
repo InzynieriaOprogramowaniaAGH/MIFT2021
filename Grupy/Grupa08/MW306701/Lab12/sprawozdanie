@@ -1,0 +1,4 @@
+1.Stowrzenie deltachat-deployment.yaml zgodnie z wytycznymi w instrukcji
+2.Zlecenie klastrowi wykonania deltachat-deployment.yaml
+	kubectl apply -f deltachat-deployment.yaml
+3.Zmiana ilosci replik i ponowne zlecenie klastrowi wykonania pliku komunikator-deployment.yaml
