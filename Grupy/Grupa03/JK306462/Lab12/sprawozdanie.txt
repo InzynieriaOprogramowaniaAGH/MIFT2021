@@ -1,0 +1,9 @@
+W ramach cwiczenia wykonalem nastepujace czynnosci:
+	- uruchomilem ponownie klaster kubernetes
+	- uruchomilem kubernetes dashboard 
+	- zapoznalem sie z dokumentacja tworzenia manifestow dla obiektow deployment
+	- napisalem plik komunikator-deployment.yaml bazujacy na tym z powyzej wspomnianej dokumentacji. Plik ten pobiera obraz komunikatora z wlasnego repozytorium na dockerhubie. Nazwa obrazu: jkopec/devopslab11:latest
+	- zlecilem utworzenie obiektu deployment uzywajac polecenia: kubectl apply -f komunikator-deployment.yaml
+	- udokumentowalem poprawna budowe obiektu
+	- zmodyfikowalem liczbe replik w pliku konfiguracyjnym a nastepnie jeszcze raz utworzylem deployment korzystajac z powyzszego polecenia
+	- zmienilem liczbe replik w pliku konfiguracyjnym na 10 a nastepnie czynnosc powtorzylem tym razem zmieniajac liczbe replik na 2. Bazujac na dacie utworzenia podow zauwazylem, ze po zmniejszeniu liczby replik, deployment nie usuwa wszystkich instancji tej samej aplikacji i nie tworzy nowych, lecz wykorzystuje te utworzone wczesniej.

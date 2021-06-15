@@ -1,0 +1,12 @@
+W ramach cwiczenia wykonalem nastepujace czynnosci:
+1. Zedytowalem Jenkinsfilea z Lab9 aby wysylal obraz kontenera do dockerhuba
+2. Zainstalowalem minicube oraz uruchomilem minukube dashboard uzywajac virtual boxa jako drivera
+3. Stworzylem liste, co mozna zrobic korzystajac z dashboarda:
+	- mozna robic deploy skonteneryzowanej aplikacji do klastra kubernetes,
+	- rozwiazywac problemy i bugi zwiazane ze wspomniana aplikacja
+	- zarzadzac zasobami klastra
+4. Uruchomilem komunikator w Kubernetes uzywajac polecen:
+	- kubectl run kom --image=jkopec/devopslab11 --port=9999 --labels app=kom
+	- kubectl port-forward kom 9998:3000
+
+	
