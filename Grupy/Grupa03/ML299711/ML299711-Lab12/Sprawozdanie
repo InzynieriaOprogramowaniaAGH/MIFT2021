@@ -1,0 +1,5 @@
+1. Uruchomienie minikube
+2. Napisanie pliku komunikator-deployment.yaml
+3. Zlecenie klastrowi na podstawie  pliku yaml
+4. zmiana w ilości replik
+5. Ponowne uruchomienie klastra
