@@ -1,0 +1,26 @@
+Wojciech Szeliga, gr05, Sprawozdanie z laboratorium 12
+
+1. Poniewaz wykonywano te cwiczenia bezposrednio po poprzednich, zostal uzyty ten sam klaster
+
+2. Minikube dashboard z poprzednich labow caly czas byl uruchomiony (Zad2.1.png)
+A jego dzialanie zostalo udokumentowane (Zad2.2.png)
+
+3. Zapoznano sie z podana dokumentacja tworzenia manifestow dla obiektow "Deployment"
+
+4. Stworzono plik komunikator-deployment.yaml wedlug wytycznych (Zad4.png)
+	- nazwa: komunikator-deployment
+	- app: komunikator
+	- obraz z komunikatorem ten sam co na poprzednich laboratoriach
+	- tworzone 4 repliki
+	
+5. Podczas zlecania klastrowi wykonania powyzszego pliku napotkano kolejne problemy
+Jednak zamiana polecenia wykonujacego na:
+sudo kubectl apply -f komunikator-deployment.yaml
+pozwolilo na poprawne wykonanie (Zad5.png)
+
+6. Udokumentowano stan klastra (Zad6.png)
+
+7. Wprowadzono zmiany w pliku polegajace na zwiekszeniu ilosci replik do 5 (Zad7.1.png)
+oraz zlecono wykonanie sie tych zmian (Zad7.2.png)
+
+8. Udokumentowano nowy stan klastra (Zad8.png)
