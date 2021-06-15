@@ -1,0 +1,22 @@
+Sprawozdanie Lab12 - Michał Stawarski - MS307688
+
+1. Uruchomiono klaster Kubernates lokalnie
+
+2. Uruchomiono Minikube Dashboard poleceniem minikube dashboard oraz upewniono się, że działa
+
+3. Zapoznano się z dokumentacją tworzenia manifestów dla obiektów "Deployment"
+
+4. Stworzono plik komunikator-deployment.yaml, zgodnie z dokumentacją, zawierający
+	- nazwę: komunikator-deployment
+	- app: komunikator
+	- obraz z komunikatorem tak jak na poprzednich zajęciach
+	- 4 repliki
+
+5. Zainstalowano kubectl oraz zlecono komunikatorowi zrealizowanie powyższego pliku używając polecenie:
+	- kubectl apply -f komunikator-deployment.yaml
+
+6. Zrobiono zrzut ekranu stanu klastra Kubernates
+
+7. Zmieniono ilość replik z 4 na 8
+
+8. Udokumentowano nowy stan klastra 
