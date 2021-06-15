@@ -1,0 +1,29 @@
+Michał Zając - sprawozdanie Lab08
+
+1. Rozszerzono Jenkinsfile o dodatkowy stage 'Build'
+
+	stage('Build') {
+            steps {
+                echo 'Building'
+		checkout scm
+		sh 'npm install'
+		sh 'npm run build'
+            }
+        }
+ 
+checkout scm sprawdza aktualną wersję kodu
+
+2. Testowanie uruchamiane jest po udanym budowaniu
+	when {
+		expression {currentBuild.result == null || currentBuild.result == 'SUCCESS'}
+	}
+	
+	
+3. Umieszczono githooka w odpowiednim folderze
+
+4. Z niewiadomych mi przyczyn pipeline nie działa prawidłowo. 
+Są problemy z wykowynaniem poleceń npm (wtyczk NodeJS dla Jenkinsa zainstalowana poprawnie). 
+Na poprzednich laboratoria nr 7 z testowaniem też występował ten problem. 
+W teori wszystkie elementy instrukcji są zrealizowane. 
+Jenkinsfile wydaje się być poprawny. W praktyce pipelinie nie działa, aplikacja się nie buduje, testy się nie wykonują. 
+Błędy na zrzutach ekranu.

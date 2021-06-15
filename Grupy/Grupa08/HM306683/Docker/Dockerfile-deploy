@@ -1,0 +1,8 @@
+FROM node:latest
+RUN apt-get -y update && apt-get -y upgrade
+RUN apt-get install -y build-essential
+COPY . deltachat-desktop/
+WORKDIR deltachat-desktop
+RUN npm install
+RUN npm run build
+RUN ls

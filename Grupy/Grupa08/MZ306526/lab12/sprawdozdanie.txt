@@ -1,0 +1,27 @@
+Zadanie 1
+	Uruchomienie klastera kubernetes za pomocą polecenia:
+		minikube start --driver=docker
+
+Zadanie 2
+	Uruchomienie dashboarda za pomocą polecenia:
+		minikube dashboard
+
+Zadanie 3 i 4
+	Zapoznanie się z dokumentacją i utworzenie plik komunikator-deployment.yaml:
+
+Zadanie 5
+	Zlecenie klastrowi wykonanie powyższego pliku za pomocą polecenia:
+		kubectl apply -f komunikator-deployment.yaml
+
+Zadanie 6
+	Uruchomienie strony z dashboardu i sprawdzenie uruchomionego deploymentu 
+
+Zadanie 7
+	Zmiana ilość replik w pliku komunikator-deployment.yaml:
+		spec:
+			replicas: 5
+	Ponowne użycie polecenia:
+		kubectl apply -f komunikator-deployment.yaml
+Zadanie 8
+	Uruchomienie strony z dashboardem i sprawdzenie czy zmiana wykonała się prawidłowo.
+

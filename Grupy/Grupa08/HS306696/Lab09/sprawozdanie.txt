@@ -1,0 +1,6 @@
+1. Zmodyfikowałem post-commita poprzez dodanie odpowiedniej linijki z nazwą użytkownika i wygenerowanym w jenkinsie tokenem:
+	curl -X POST -L --user hszeliga:115cc14d98546e4d0017b2ddbc2ed3a4ac http://localhost:8080/job/devops_lab09/build
+2. Po dodaniu commita uruchamiany jest pipeline
+3. Rozszerzyłem Jenkinsfile o stage Deploy
+	sh 'docker build -t delta-chat -f Dockerfile-deploy .'
+4. Update'owałem Jenkinsfile w repozytorium z komunikatorem

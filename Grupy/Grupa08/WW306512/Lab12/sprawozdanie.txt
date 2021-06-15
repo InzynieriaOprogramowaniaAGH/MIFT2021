@@ -1,0 +1,4 @@
+1.Stowrzenie komunikator-deployment.yaml zgodnie z wytycznymi w instrukcji
+2.Zlecenie klastrowi wykonania komunikator-deployment.yaml
+	kubectl apply -f komunikator-deployment.yaml
+3.Zmiana ilosci replik i ponowne zlecenie klastrowi wykonania pliku komunikator-deployment.yaml
