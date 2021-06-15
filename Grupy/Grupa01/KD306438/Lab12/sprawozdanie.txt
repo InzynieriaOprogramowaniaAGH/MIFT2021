@@ -2,5 +2,5 @@
 
 2. Uruchomienie Minikube Dashboard poleceniem 'minikube dashboard'
 
-
+3. Zapoznano sie z dokumentacja tworzenia manifestow dla obiektow "Deployment".
 
