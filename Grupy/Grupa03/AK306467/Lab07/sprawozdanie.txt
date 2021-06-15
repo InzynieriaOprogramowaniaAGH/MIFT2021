@@ -1,0 +1,32 @@
+Uwaga: Lab 7,8 i 9 są robione w tym samym czasie
+
+1. Skopiowałem wszystkie pliki źródłowe do poszczególnych folderów. Ze względu na mieszanie się technologii, pliki można posortować w różny sposób. Osobiście nie dzieliłbym tego na wedłucg tachnologii, lecz według pełnionej funkcji.
+2. Sforkowałem repozytorium komunikatora Deltachat, stworzyłem Jenkinsfile i umieściłem go w tym repozytorium, następnie na jego podstawie stworzyłem pipeline.
+
+stage('Test') {
+			steps {
+				echo 'Testing...'
+				git url: 'https://github.com/Siluk98/deltachat-desktop.git'
+				dir('Docker')
+				{
+					sh 'docker-compose up test-agent'
+				}
+			}
+			post {
+				failure {
+					echo 'Tests failed'
+					emailext attachLog: true,
+						body: "Status: ${currentBuild.currentResult}",
+						recipientProviders: [[$class: 'DevelopersRecipientProvider']],
+						subject: 'Tests failed',
+						to: 'tindacc0001@gmail.com'
+				}
+				success {
+					echo 'Tests completed'
+					
+				}
+			}
+		}
+
+3. Uruchomiłem pipeline z poziomu gui, na kontenerze z Jenkinsem. Problematyczne okazało sie mailowe informowanie użytkownika o statusie, gdyż mimo licznych prób konfiguracji, nie udało mi się otrzymać maila. Powodem jest błąd o brakujących ścieżkach do certyfikatów.
+4. Wszystkie pliki na bierząco umieszczam w moim głównym folderze na wspólnym repozytorium, oraz w poszczególnych katalogach z laboratoriami
