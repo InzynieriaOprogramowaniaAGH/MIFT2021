@@ -7,3 +7,4 @@
 8. Stworzyłam kontener w chmurze: az container create --resource-group zasoby --name my-container --image annadybel21/delta-chat-app:tagname --dns-name-label ad-chat --ports 3000
 9. Sprawdziłam czy deployment zakończył się sukcesem: az container show --resource-group zasoby --name my-container --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
 10. Usunełam kontener i grupę zasobów z chmury: az container delete --resource-group zasoby --name my-container
+az group delete -n zasoby
