@@ -1,0 +1,11 @@
+Jakub Straszak - sprawozdanie z laboratorium nr 11
+
+1. Do wykonania zadania wykorzystałem obraz dockerowy ze zbudowanym komunikatorem.
+Na potrzeby zadania obraz został zpushowany na Docker Hub'a.
+
+2. Zainstalowałem na swojej wirtualnej masynie klastra kubernetes.
+Instalację krok po kroku wykonałem zgodnie z dokumentacją.
+
+3. Uruchomiłem minikube dashboard.
+4. Uruchomiłem komunikator, a następnie przekierowałem porty - dzięki temu mogłem uzyskać dostęp do aplikacji z zewnątrz.
+5. Udokumentowałem działania komunikatora w klastrze.
