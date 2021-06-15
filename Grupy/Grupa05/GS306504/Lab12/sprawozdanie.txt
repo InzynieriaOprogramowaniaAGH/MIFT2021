@@ -1,0 +1,15 @@
+1. Uruchomiono klaster Kubernetes stworozny na poprzednich laboratoriach.
+
+2. Uruchomiono Kubernetes Dashboard i upewniono się że działa.
+
+3. Zapoznano się z dokumentacją tworzenia manifestów dla obiektów Deployment.
+
+4. Stworzono plik komunikator-deployment.yaml zgodnie z tutorialem. (screenshot dolaczony)
+
+5. Zlecono kastrowi zrealizowanie powyższego pliku zgodnie z poleceniem z wymagań. (screenshot dolaczony)
+
+6. Udokumentowano stan klastra.
+
+7. Zmieniono liczbę replik z 4 na 6 
+
+8. Udokumentowano nowy stan klastra
