@@ -2,4 +2,4 @@
 
 echo "Wlasnie ten git hook wykonal uruchomienie pipeline, zobacz sam w jenkins dashboardzie jak nie wierzysz"
 
-curl -u admin:112e1be96b401e9ff051047b83f81348d0 -X POST http://localhost:8080/job/node-chat-pipeline/build?token=112e1be96b401e9ff051047b83f81348d0
+curl -u admin:UKRYTE -X POST http://localhost:8080/job/node-chat-pipeline/build?token=UKRYTE
