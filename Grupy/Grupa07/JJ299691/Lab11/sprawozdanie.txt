@@ -1,0 +1,25 @@
+ Instalacja Kubernetesa
+
+ Uruchomienie klastra poleceniem minikube start
+
+ Pobranie kubectl
+
+Wlaczenie minikube Dashboard
+ 
+Do czego sluzy Minikube Dashboard:
+
+-deployowanie aplikacji z kontenera  do klastra Kubernetes
+
+-zarzadzanie zasobami klastra
+
+-przegladanie aplikacji uruchomionych na klastrze
+
+-tworzenie i modyfikacja wlasnych zasobow na Kubernetes takich jak:Deploymenty, Joby, DaemonSety itp.
+ 
+ Uruchomienie kontenera z aplikacja w Kubernetesie uzywajac komendy:
+
+minikube kubectl -- run komunikator --image=Socket.io-deploy:latest --port=9999 --labels app=komunikator
+
+Utworzenie poda
+
+
