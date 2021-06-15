@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+ build:
+  container_name: docker_build
+  image: docker_build:latest
+  build:
+   context: .
+   dockerfile: Dockerfile_build
+ test:
+  container_name: docker_test
+  image: docker_test:latest
+  build:
+   context: .
+   dockerfile: Dockerfile_test
+  depends_on:
+  - build

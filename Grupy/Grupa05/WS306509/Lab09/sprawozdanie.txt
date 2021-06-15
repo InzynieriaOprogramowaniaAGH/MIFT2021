@@ -1,0 +1,23 @@
+Wojciech Szeliga 306509, gr05, Sprawozdanie z laboratorium 09
+
+1. Z powodu problemow z polaczeniem wybralem opcje sklonowania repozytorium lokalnie oraz stworzenia hook'a
+W tym celu pobralem token dla uzytkownika w Jenkinsie (Zad1.1.png)
+Oraz wykorzystalem plik z wczesniejszych laboratioriow tj. "post-commit", gdzie dodalem odpowiednie polecenie (Zad1.2.png)
+
+2. W celu automatycznego uruchomienia pipeline'a commitem, wykonalem commit (Zad2.1.png)
+Oraz wszedlem w nowy build (Zad2.2.png)
+
+3. Rozszerzylem Jenkinsfile'a o stage('Deploy') tak aby spelnial zalozenia zadania (Zad3-4.png)
+
+4. Utworzylem odpowiedni Dockerfile (Zad4.png)
+Upewnilem sie ze:
+	- deploy wykonywany jest na dedykowany kontener dockerowy
+	- do deploya przekazywany jest artefakt stworzony w stage('Build')
+	- uzytkownik jest powiadamiany zarowno o sukcesie jak i niepowodzeniu dodanego etapu
+	
+5. Wykazalem, ze:
+	- pipeline jest zdefiniowany w Jenkinsfile w repozytorium z komunikatorem (Zad5.1.png)
+	- pipeline jest automatycznie wyzwalany (poniewaz zrzuty ekranu robilem po ukonczeniu calego laboratorium,
+	ten etap udokumentowany jest w punkcie 2
+	- pipeline przechodzi wszystkie etapy (Zad5.3.png)
+	- pipeline powiadamia o rezultacie kazdego z etapow (Zad5.4.png)

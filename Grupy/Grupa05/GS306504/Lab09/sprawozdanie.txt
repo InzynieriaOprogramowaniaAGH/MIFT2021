@@ -1,0 +1,9 @@
+1. Zarejestrowałem w katalogu z repozytorium hooka, który jest odpowiedzialny za wywoływanie gdy jest tworzony nowy commit. Za każdym dodanym commitem hook ten jest wywoływany i pipeline jest uruchamiany.
+
+2. Zrobiono screena z wywołania uruchomionego pipeline i komunikatu wysłanego przez hooka. Pipeline się uruchomił automatycznie po commicie.
+
+3. Rozszerzono Jenkinsfile o nowy stage Deploy.
+
+4. W stage Deploy wykonywany jest dedykowany konterner dockerowy, przekazywany artefakt stworzony w stage Build i wysyłane są powiadomienia na slacka.
+
+5. Pipeline wywołuje wsyzystkie kroki Build, Test i Deploy. Do każdego etapu są wysyłane komunikaty na slacka o wynikach. W repo z komunikatorem jest umieszczony Jenkinsfile z zdefiniowanym pipelinem oraz plik Dockerfile-deploy. Pipeline jest wyzwalany za kazdym commitem. 

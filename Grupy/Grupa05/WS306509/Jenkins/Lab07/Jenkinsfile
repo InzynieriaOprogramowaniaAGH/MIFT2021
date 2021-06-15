@@ -1,0 +1,30 @@
+pipeline {
+	agent any
+		tools {nodejs "nodeJS"}
+	
+	stages {
+		stage('Test') {
+			steps {
+				echo 'Tests'
+				sh 'npm install'
+				sh 'npm run test'
+			}
+		}
+	}
+	
+	post {
+		always {
+			echo 'The end'
+		}
+		success {
+			echo 'Great job'
+		}
+		failure {
+			echo 'So close yet so far'
+			emailext attachLog: true,
+				body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+				to: 'wojciech.szeliga5@gmail.com',
+				subject: "Build or test failed"
+		}
+	}
+}

@@ -1,0 +1,27 @@
+
+1. Wykorzystanie obrazu dockerowego ze zbudowanym komunikatorem
+	z poprzednich zajec(dodatkowo zostal zpushowany na hub)
+	
+2. Pobranie i zainstalowanie klastra Kubernetes:
+	- pobranie instalatora - curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+	- instalacja - sudo install minikube-linux-amd64 /usr/local/bin/minikube
+	- wystartowanie minikube - minikube start
+	- pobranie command line toola - minikube kubectl --get po -A
+	
+3. Uruchomienie minikube dashboarda - minikube dashboard
+	Na co pozwala Daschboard?
+		- zarzadzanie zasobami klastra
+		- proste deployowanie appek na klastrze
+		- szybkie rozwiazywanie problemow dzieki wielu
+		zapewnianym informacjom i statystykom
+		- podsumowanie appek na klastrze
+		- latwe tworzenie roznego rodzaju zasobow
+		(deployments, jobs, daemonsets itd)
+
+4. Uruchomienie kontenera-komunikatora - 
+	minikube kubectl -- run komunikator --image=stochel/nodechatstart --port=9999 --labels app=komunikator
+
+   Przekierowanie portow aby moc uzyskac dostep do apki z zewnatrz - 
+   	minikube kubectl port-forward komunikator 9999:3000
+
+5. Udokumetnowanie screenshotami dzialania komunikatora w klastrze
