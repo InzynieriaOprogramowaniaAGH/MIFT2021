@@ -29,13 +29,13 @@ pipeline {
 		failure{
 			emailext attachLog: true,
 				body: "Jenkins ${env.JOB_NAME} ended with status: ${currentBuild.currentResult}",
-                		to: 'karol22322@gmail.com',
+                		to: 'szymonxlorenc@gmail.com',
 				subject: "${env.JOB_NAME}: ${currentBuild.currentResult}"
 		}
 		success{
 			emailext attachLog: true,
                 		body: "Jenkins builded and tested with status: ${currentBuild.currentResult} of job ${env.JOB_NAME}",
-                		to: 'karol22322@gmail.com',
+                		to: 'szymonxlorenc@gmail.com',
 				subject: "${env.JOB_NAME}: ${currentBuild.currentResult}"
 		}		
 	}
