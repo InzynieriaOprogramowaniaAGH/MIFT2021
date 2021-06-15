@@ -1,3 +1,6 @@
 1. Uruchomiono klaster komenda 'minikube start'.
 
+2. Uruchomienie Minikube Dashboard poleceniem 'minikube dashboard'
+
+
 
