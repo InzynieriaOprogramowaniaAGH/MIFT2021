@@ -1,0 +1,13 @@
+1.Utworzenie nowego brancha opublikowanie obrazu z poprzednich zajęć na DockerHub:
+	git checkout -b Grupa08-GZ306523_Lab04
+	sudo docker login --username=name --password=pass
+	sudo docker push 
+3.Stworzenie  Dockerfile i zbudowanie obrazu "docker-build" oraz uruchomienie go
+	sudo docker build -t komunikator . -f Dockerfile
+	sudo docker run -it -p port tag
+	npm run dev
+4)Stworzenie nowego Dockerfile zbudowanie go aby przetestowa czat
+	sudo docker build -t nazwa . -f Dockerfile2
+5)Utworzenie docker-compose.yml:
+	-docker-compose up
+

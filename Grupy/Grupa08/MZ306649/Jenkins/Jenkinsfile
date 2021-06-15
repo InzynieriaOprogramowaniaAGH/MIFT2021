@@ -2,6 +2,10 @@ pipeline{
 	agent any
 	tools {nodejs "nodejs"}
 	stages{
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> Grupa08-MZ306649_Lab08
 		stage('Build') {
             		steps {
                 		echo 'Building'
@@ -14,6 +18,12 @@ pipeline{
 			when {
 				expression {currentBuild.result == null || currentBuild.result == 'SUCCESS'}
 			}
+<<<<<<< HEAD
+=======
+=======
+		stage('Test'){
+>>>>>>> dd11c0f650d2261c592203c01da663b2ad5110dd
+>>>>>>> Grupa08-MZ306649_Lab08
 			steps{
 				echo 'Testig'
 				sh 'npm test'
@@ -37,5 +47,12 @@ pipeline{
                 		subject: "Successful build in Jenkins ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
         }
     }
+<<<<<<< HEAD
     
+=======
+<<<<<<< HEAD
+    
+=======
+>>>>>>> dd11c0f650d2261c592203c01da663b2ad5110dd
+>>>>>>> Grupa08-MZ306649_Lab08
 }

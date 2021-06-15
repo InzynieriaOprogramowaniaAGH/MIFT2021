@@ -1,10 +1,13 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 Michał Zając - sprwozdanie Lab07
 
 Przebieg laboratorium.
 1. Skopiowano wszytkie pliki źródłowe do odpowiednich folderów - podział na wykorzystane technologie
 
 =======
+=======
+>>>>>>> dd11c0f650d2261c592203c01da663b2ad5110dd
 Michał Zając - sprawozdanie Lab07
 
 1. Utworzono odpowiednią strukturę katalogów na pliki różnych technologi.
@@ -19,5 +22,9 @@ Michał Zając - sprawozdanie Lab07
 
 6. Skonfigurowano pipeline aby pobierany był kod źrdółowy z repozytorium git w którym znajduje się Jenkinsfile.
 
+<<<<<<< HEAD
 7. Po uruchomieniu pipeline Jenkins poprawnie łączy się z repozytroum oraz poprawnie znajduje Jenkinsfile. Po dojściu do stage testowego i wykonaniu polecenia npm test występuje błąd. Próbowałem różnych rozwiązań, żadne nie działało. Nie wiem co robie źle. Prbolem był adresowany na ostanich zajęciach. 
 >>>>>>> Grupa08-MZ306649_Lab07
+=======
+7. Po uruchomieniu pipeline Jenkins poprawnie łączy się z repozytroum oraz poprawnie znajduje Jenkinsfile. Po dojściu do stage testowego i wykonaniu polecenia npm test występuje błąd. Próbowałem różnych rozwiązań, żadne nie działało. Nie wiem co robie źle. Prbolem był adresowany na ostanich zajęciach. 
+>>>>>>> dd11c0f650d2261c592203c01da663b2ad5110dd

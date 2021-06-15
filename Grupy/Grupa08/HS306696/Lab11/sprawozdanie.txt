@@ -1,0 +1,10 @@
+1. Zainstalowałem wymagany klaster Kubernetes
+2. Uruchomiłem klaster (minikube start)
+3. Pobrałem kubectl
+4. Uruchomiłem Minikube DashboarD, dzięki któremu można:
+- uruchamiać aplikacje w kontenerach i wdrażać je na klaster
+- tworzyć pody
+- zarządzać aplikacjami na klastrze
+- zarządzać klastrami
+5. Uruchomiłem konterner-komunikator
+6. Pomyślnie uruchomiłem komunikator w klastrze

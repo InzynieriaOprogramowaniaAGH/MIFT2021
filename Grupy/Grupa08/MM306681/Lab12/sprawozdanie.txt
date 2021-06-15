@@ -1,0 +1,22 @@
+1. Uruchomiono klaster
+    $ minikube start
+
+2. Uruchomiono Minikube Dashboard
+    $ minikube dashboard
+
+3. Stworzono plik deltachat-deployment.yaml, zawierjący dodatkowe pola
+    - nazwa: deltachat-deployment
+    - app: deltachat
+    - obraz z komunikatorem
+    - 4 repliki
+
+4. Zlecono klastrowi realizację pliku poleceniem
+    $ kubectl apply -f deltachat-deployment.yaml
+
+5. Udokumentowano stan klastra Kubernetes.
+
+6. Wprowadzono zmiany do pliku:
+    - zmieniono ilość replik na 3 
+    - zlecono aktualizację 
+    
+7. Udokumentowano nowy stan klastra.
