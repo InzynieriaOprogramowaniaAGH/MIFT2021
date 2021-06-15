@@ -1,0 +1,14 @@
+1. 
+	Do wykonania ćwiczenie został wykorzystany obraz zbudowany na laboratoriach 9.
+	https://hub.docker.com/repository/docker/tituu/node-chat
+	
+2.
+	minikube start - uruchomienie klastra 
+3. 
+	minikube dashboard - uruchomienie dashboarda
+4.
+	Utworzenie pliku komunikator-deployment.yaml zgodnie z instrukcją
+5.
+	kubectl apply -f komunikator-deployment.yaml - zlecenie wykonania pliku napisanego w poprzednim kroku 
+7.
+	Zmiana liczby replik z 4 na 13 w pliku komunikator-deployment.yaml
