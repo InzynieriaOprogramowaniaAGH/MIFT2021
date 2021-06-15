@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "To jest commit hook, ktory bedzie kiedys uruchamial Pipeline po kazdym nowym commicie"
+
+curl -u admin:117... -X POST http://localhost:8080/job/node-chat/build?token=117...
