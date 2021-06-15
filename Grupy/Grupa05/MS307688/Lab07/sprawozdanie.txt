@@ -1,0 +1,15 @@
+Sprawozdanie lab07 - Michał Stawarski - MS307688
+
+1. Zforkowanie repozytorium node-chat
+
+2. Utworzenie pliku jenkinsfile oraz zcommitowanie go na repozytorium
+
+3. Skonfigurowanie projektu Pipeline w Jenkins, w tym konfiguracja wtyczki email
+
+4. Uruchomienie projektu, zbuildowanie i testowanie
+
+5. Po pomyślnym przejściu testów, stworzenie specjalnego błędu, aby testy się nie powiodły
+
+6. Po nieudanej próbie uruchomienia, program wysyła email powiadamiający o niepoprawnym przejściu testów
+
+7. Skopiowanie wszystkich plików źródłowych, skryptów uruchamiających środowisko, Dockerfile, docker-compose.yaml, Jenkinsfile z tych zajęć do specjlanie utworzonych folderów.

@@ -1,0 +1,32 @@
+DevOps 10.06.2021
+
+1. Klaster z poprzednich zajęć był w dalszym ciągu uruchominoy, gotowy na nowe zadania.
+
+2. Minikube dashboard również udało się poprawnie uruchomić. 
+
+3. Zapoznałam się z dokumentacją tworzenia manifestów dla obiektów "Deployment".
+
+4. Zgodnie z dokumentacją, stworzyłam plik komunikator-deployment.yaml z zawierający
+   odpowiednie elementy.
+
+5. Zainstalowałam kubectl oraz zleciłam klastrowi zrealizowanie pliku:
+
+    - curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release
+      stable.txt)/bin/linux/amd64/kubectl"
+
+    - sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
+    - kubectl apply -f komunikator-deployment.yaml
+
+6. Sprawdziłam, czy operacja przebiegła poprawnie przez sprawdzenie podów w konsoli oraz
+   uruchomienie dashboarda:
+
+    - minikube kubectl get pods
+
+    - minikube dashboard
+
+7. Zmineiłam liczbę replik na 5 i ponownie zleciłam realizację pliku:
+
+    - kubectl apply -f komunikator-deployment.yaml
+
+8. Udokumentowałam nowy stan klastra oraz zgłosiłam ćwiczenie na Teamsy.

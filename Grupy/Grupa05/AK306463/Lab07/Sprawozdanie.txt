@@ -1,14 +1,31 @@
 DevOps 29.04.2021
 
-1. Zgodnie z instrukcją, wyszukałam i umieściłam wszystkie stworzone do tej pory pliki w odpowiednio nazwanych folderach aby uporządkować repozytorium. 
+1. Zgodnie z instrukcją, wyszukałam i umieściłam wszystkie stworzone do tej pory pliki
+   w odpowiednio nazwanych folderach aby uporządkować repozytorium. 
 
-2. Powróciłam do swojego planu stworzonego w ramach poprzednich ćwiczeń i wybrałam punkty dotyczące testowania aplikacji.
+2. Powróciłam do swojego planu stworzonego w ramach poprzednich ćwiczeń i wybrałam
+   punkty dotyczące testowania aplikacji.
 
     - utworzyłam plik Jenkinsfile 
-    - wykonałam operację "fork" na repozytorium z aplikacją komunikatora używaną podczas wcześniejszych ćwiczeń ("Delta Chat")
+    - wykonałam operację "fork" na repozytorium z aplikacją komunikatora używaną
+      podczas wcześniejszych ćwiczeń ("Delta Chat")
     - stworzony Jenkinsfile rozbudowałam o kroki budowania i testowania aplikacji
-    - rozpoczęłam wykonywanie testów ze stworzonym Jenkinsfilem ale niestety natrafiłam na błędy (wyglądało na to, że docker z jakiegoś powodu się zaweiszał a instrukcje budowania czy testowania nie uruchamiały się)- pomimo liczbnych prób i róźnych "kombinacji" za każdym razem uruchomienie Pipeline'u kończyło się błędem przy wykonywaniu jakiejkolwiek instrukcji zawierającej "npm", szukałam pomocy zarówno w internecie (niestety bezskutecznie) jaki i u prowadzącego zajęcia na konsultacjach. Ostatecznie, zdecydowaliśmy o spróbowaniu z innym repozytorium komunikatora- wybrałam node-chat-app i po poprawnym uruchomieniu budowania i testowania przystąpiłam do dalszych kroków w instrukcji.
-    - do informowania użytkowników o efekcie procesu testowania użyłam pluginu "Email Extension Plugin", skonfigurowałam ustwainia emial w Jenkinsie i dodałam odpowiedni punkt obsługujący sukces oraz porażkę przt testowaniu aplikacji (skrypt zawsze wysyła mail, w tytule podając czy testowanie się powiodło- "SUCCESS" czy też "wywróciło"- "FAILURE"). W mailu każdorazowo załączany był plik w którym znajdowały się logi z całego procesu, tak by móc od razu sprawdzić jaki błąd wystąpił.
+    - rozpoczęłam wykonywanie testów ze stworzonym Jenkinsfilem ale niestety natrafiłam
+      na błędy (wyglądało na to, że docker z jakiegoś powodu się zaweiszał a instrukcje
+      budowania czy testowania nie uruchamiały się)- pomimo liczbnych prób i róźnych
+      "kombinacji" za każdym razem uruchomienie Pipeline'u kończyło się błędem przy
+      wykonywaniu jakiejkolwiek instrukcji zawierającej "npm", szukałam pomocy zarówno
+      w internecie (niestety bezskutecznie) jaki i u prowadzącego zajęcia na
+      konsultacjach. Ostatecznie, zdecydowaliśmy o spróbowaniu z innym repozytorium
+      komunikatora- wybrałam node-chat-app i po poprawnym uruchomieniu budowania i
+      testowania przystąpiłam do dalszych kroków w instrukcji.
+    - do informowania użytkowników o efekcie procesu testowania użyłam pluginu "Email
+      Extension Plugin", skonfigurowałam ustwainia emial w Jenkinsie i dodałam
+      odpowiedni punkt obsługujący sukces oraz porażkę przt testowaniu aplikacji
+      (skrypt zawsze wysyła mail, w tytule podając czy testowanie się powiodło-
+      "SUCCESS" czy też "wywróciło"- "FAILURE"). W mailu każdorazowo załączany był plik
+      w którym znajdowały się logi z całego procesu, tak by móc od razu sprawdzić jaki
+      błąd wystąpił.
 
 3. Przetestowałam pipeline zarówno w sytuacji przejścia jaki i oblania testów.
 

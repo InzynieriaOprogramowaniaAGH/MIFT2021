@@ -1,0 +1,3 @@
+#!/bin/sh
+echo "To jest commit hook, ktory bedzie kiedys uruchamial Pipeline po kazdym nowym commicie"
+curl -u n9exus9:11b68e216b12fae8cde23ad5356d4aafe4 -X POST http://localhost:8080/job/devops09/build?token=11b68e216b12fae8cde23ad5356d4aafe4

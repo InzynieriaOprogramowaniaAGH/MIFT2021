@@ -1,0 +1,9 @@
+Zadanie 2. Pobrano, a następnie zainstalowano klaster kubernetesowy, zgodznie z instrukcją dołączoną do ćwiczenia.
+
+Zadanie 3. Uruchomiono klaster oraz otworzono dashboard
+
+Zadanie 4. Uruchomiono kontener komunikatora wykrzystując komendę 'kubectl run komunikator --image=matwitkowski/socketio:messenger --port=9999 --labels app=komunikator'
+
+Wykonano przekierowanie portów: 'kubectl port-forward komunikatr 9999:3000'
+
+Zadanie 5. Zrobiono screena przedstwiającego działający komunikator w klastrze kubernetes

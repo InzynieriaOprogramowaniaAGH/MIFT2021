@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+ build_agent:
+  container_name: lab04-chat-build
+  image: build_agent
+  build:
+   context: .
+   dockerfile: build_agent/Dockerfile
+ test_agent:
+  container_name: lab04-chat-test
+  image: test_agent
+  build:
+   context: .
+   dockerfile: test_agent/Dockerfile
+  depends_on:
+  - build_agent

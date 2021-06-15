@@ -1,0 +1,12 @@
+Sprawozdanie z lab08 - Michał Stawarski - MS307688 
+
+1. Plik Jenkinsfile został rozszerzony o nowy stage - buildowanie.
+
+2. W nowo utowrzonym stage'u zostało dodane:
+- pobieranie najnowszej wersji kodów źródłowych z repozytorium
+- program jest buildowany
+- użytkownik jest powiadamiany o sukcesie jak i porażce etapu buildowania
+
+3. Upewniono się, że po zbudowaniu z sukcesem jest uruchamiane testowanie, a po nieudanym budowaniu to się nie dzieje
+
+4. Napisano git "post-commit" hook'a, który wyświetla daną wiadomość: "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie".

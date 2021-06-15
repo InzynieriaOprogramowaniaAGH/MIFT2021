@@ -1,0 +1,20 @@
+Zadanie 1. W repozytorium komunikatora skonfigurowano webhook'a, którego zadanie było uruchamianie pipeline zdafniowanego w Jenkinsfile'u w momencie wykonania operacji push na zdalnym repozytorium.
+Zainstalowano program służący do tunelowania localhosta - ngrok.
+Uruchomiono go poprzez komendę ./ngrok http 8080 w celu uzyskania adresu zewntętrznego dla portu 8080 - który podanno w webhook'u.
+
+Zadanie 2. Sprawdzono i udokumentowano automatyczne wyzwolenie pipeline'a.
+
+Zadanie 3. W pliku Jenkinsfile dodany nowy stage 'Deploy'
+
+Zadanie 4. W stage'u 'Deploy' zapewniono że:
+	- deploy jest wykonywany na dedykowanym kontenerze dockerowym (Dockerfile obrazu został dodady do repozytorium komunikatora)
+	- do deploya jest przekazywany artefakt stworzony w stage("Build")
+	- użytkownik jest powiadamiany mailowo o sukcesie/porażce 
+
+Zadanie 5. Wykazano i udokumentowano że:
+	- pipeline jest zdefiniowany w Jenkinsfile'u  w repozytorium komunikatora
+	- pipeline jest automatycznie uruchamiany
+	- pipeline wykonuje wszystkie etapy (build-test-deploy)
+	- pipeline informuje mailowo o wynikach każdeo ze stage'ów.
+	
+	 

@@ -1,0 +1,6 @@
+FROM ubuntu:latest
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y git
+RUN git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git
+

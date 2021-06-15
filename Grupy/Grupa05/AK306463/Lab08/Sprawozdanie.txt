@@ -2,8 +2,14 @@ DevOps 06.05.2021
 
 1. Jenkinsfile z poprzednich zajęć już posiadał stage 'Build'.
 
-2. Do utworzenia Pipeline użyłam narzędzia Blue Ocean, który przy każdym uruchomieniu Pipeline'a automatycznie zaciaga najnowszą wersję z repozytorium (ponieważ wspiera natywnie integrację branchy). Po zbudowaniu programu, dodałam etap w którym wysyłany jest mail z rezultatem budowania.
+2. Do utworzenia Pipeline użyłam narzędzia Blue Ocean, który przy każdym uruchomieniu
+   Pipeline'a automatycznie zaciaga najnowszą wersję z repozytorium (ponieważ wspiera
+   natywnie integrację branchy). Po zbudowaniu programu, dodałam etap w którym wysyłany
+   jest mail z rezultatem budowania.
 
-3. Do stage 'Test' dodałam warunek sprawdzający czy poprzedni etap zakończył się sukcesem, w przeciwnym wypadku, testowanie nie uruchamia się. Sprawdziłam czy warunek działa wymuszając "fail" etapu budowania.
+3. Do stage 'Test' dodałam warunek sprawdzający czy poprzedni etap zakończył się
+   sukcesem, w przeciwnym wypadku, testowanie nie uruchamia się. Sprawdziłam czy warunek
+   działa wymuszając "fail" etapu budowania.
 
-4. Sporządziłam git "post-commit" hooka. Utworzone podczas tych ćwiczeń pliki umieściłam w odpowiednich folderach i całość wrzuciłam na repo MIFT. 
+4. Sporządziłam git "post-commit" hooka. Utworzone podczas tych ćwiczeń pliki umieściłam
+   w odpowiednich folderach i całość wrzuciłam na repo MIFT. 

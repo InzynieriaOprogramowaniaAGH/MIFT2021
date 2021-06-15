@@ -1,6 +1,8 @@
 DevOps 25.03.2021, 08.04.2021
 
-1. Stworzyłam swojego osobiestego brancha roboczego Grupa05-AK306463_Lab04 ("git checkout -b Grupa05-AK306463_Lab04"), stworzyłam folder Lab04 oraz przygotowałam plik Sprawozdanie.txt
+1. Stworzyłam swojego osobiestego brancha roboczego Grupa05-AK306463_Lab04 ("git
+   checkout -b Grupa05-AK306463_Lab04"), stworzyłam folder Lab04 oraz przygotowałam
+   plik Sprawozdanie.txt
 
 1.1. Opublikowałam obraz z poprzednich zajęć w serwisie Docker HUB:
     - dodanie taga do obrazu "sudo docker tag a7b972e4baa2 devops_lab03/lab03:task6"
@@ -12,13 +14,24 @@ DevOps 25.03.2021, 08.04.2021
 
 2. Wyszukałam aplikacje prostego komunikatora opensorce- Delta chat. 
 
-3. Stworzyłam nowy plik Dockerfile, odpowiedzialny za budowanie pożądanej aplikacji. Zbudowałam obraz komendą "sudo docker build -t deltachat-build .". Sprawdziłam czy obraz poprawnie się zbudował: "sudo docker images".
+3. Stworzyłam nowy plik Dockerfile, odpowiedzialny za budowanie pożądanej aplikacji.
+   Zbudowałam obraz komendą "sudo docker build -t deltachat-build .". Sprawdziłam czy
+   obraz poprawnie się zbudował: "sudo docker images".
 
-4. Przystąpiłam do napisania drugiego pliku Dockerfile za pomocą którego przetestowałam postawioną wcześniej aplikację. Po jego stworzeniu, zbudowałam obraz analogicznie do poprzedniego punktu "sudo docker build deltachat-test ." oraz ponownie sprawdziłam, czy moje obrazy utworzyły się prawidłowo "sudo docker images".
+4. Przystąpiłam do napisania drugiego pliku Dockerfile za pomocą którego przetestowałam
+   postawioną wcześniej aplikację. Po jego stworzeniu, zbudowałam obraz analogicznie do
+   poprzedniego punktu "sudo docker build deltachat-test ." oraz ponownie sprawdziłam,
+   czy moje obrazy utworzyły się prawidłowo "sudo docker images".
 
-5. Zgodnie z kolejnym podpunktem instrukcji, przystąpiłam do budowania Docker Compose. Na wstępie doinstalowałam oprogramowanie:
-    - "sudo curl -L "https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose"
+5. Zgodnie z kolejnym podpunktem instrukcji, przystąpiłam do budowania Docker Compose.
+   Na wstępie doinstalowałam oprogramowanie:
+    - "sudo curl -L "https://github.com/docker/compose/releases/download/1.29.0/docker
+      compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose"
     - "sudo chmod +x /usr/local/bin/docker-compose"
     - "docer-compose --version"
 
-Następnie stworzyłam plik docker-compose.yml i korzystając z obrazów deltachat-build i deltachat-test stworzyłam środowisko, które pobiera najnowszą wersję kominikatora z repo, buduje go oraz testuje. Plik uruchomiłam za pomocą dwóch komend: najpierw "sudo docker-compose build" aby pokazać poszczególne kroki budowania obu obrazów a następnie "sudo docker-compose up" by uruchomić całe środowisko.
+  Następnie stworzyłam plik docker-compose.yml i korzystając z obrazów deltachat-build
+  i deltachat-test stworzyłam środowisko, które pobiera najnowszą wersję kominikatora z
+  repo, buduje go oraz testuje. Plik uruchomiłam za pomocą dwóch komend: najpierw "sudo
+  docker-compose build" aby pokazać poszczególne kroki budowania obu obrazów a
+  następnie "sudo docker-compose up" by uruchomić całe środowisko.

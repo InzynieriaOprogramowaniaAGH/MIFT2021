@@ -1,0 +1,20 @@
+Sprawozdanie z lab 03 - Michał Stawarski - Grupa 05 - 307688
+
+1. Stworzenie brancha osobistego na zajęcia wg. schematu z poprzedniego tygodnia, stworzony od swojego brancha grupowego 
+
+git checkout Grupa05
+git checkout -b Grupa05-MS307688_Lab03
+
+2. Umieszczenie git hooka stworzonego na ostatnich zajeciach w folderze Grupy/Grupa05/MS307688/lab 03
+
+3. Zainstalowanie Dockera w środowisku Ubuntu
+
+4. Zalogowanie na koncie Docker HUB
+
+5. Stworzenie pliku dockerfile, który bazuje na najnowszym ubuntu.
+
+6. Uruchomienie kontenera oraz ściągnięcie na niego naszego repozytorium.
+	sudo docker build -t michaldocker .
+	sudo docker run -it 7dcbec9457e0
+	git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git
+

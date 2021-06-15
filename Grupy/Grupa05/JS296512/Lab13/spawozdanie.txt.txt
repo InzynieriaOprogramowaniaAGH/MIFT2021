@@ -1,0 +1,26 @@
+1. Do wykonania ćwiczenia skorzystałem z obrazu dockerowego ze zbudowanym komunikatorem z zajęć 11.
+
+2. Korzystając ze swojego konta studenckiego zalogowałem się do Microsoft Azure. 
+
+3. Zapoznałem się z cennikiem usług chmuorwych dla Azure Conatiner Instances (Najtańsze ceny tej usługi są dla lokalizacji eastus).
+
+4. Zapoznałem się z Azure Cloud Shell i stworzyłem nową grupe zasobów w lokalizacji east US poleceniem:
+- az group create --name myResourceGroup --location eastus
+
+5. Przygotowanie Azure CLI lokalnie:
+a) Zainstalowałem Azure CLI lokalnie na linuxie (na Azure Cloud Shell nie ma Docker deamon więc trzeba był tak):
+- curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+b) Zalogowałem się poleceniem:
+- az login
+
+6.Uruchomienie obrazu:
+a) Stworzyłem kontener w chmurze korzystając z obrazu z pkt. 1:
+- az container create --resource-group myResourceGroup --name komunikator --image jansmerecki/deploy --dns-name-label jansmerecki-komunikator --ports 3000
+b) Sprawdziłem czy deployment zakończył się sukcesem:
+- az container show --resource-group myResourceGroup --name komunikator --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
+c) Sprawdziłem w przglądarce czy aplikacja działa poprawnie:
+- jansmerecki-komunikator.eastus.azurecontainer.io
+d) Sprawdziłem logi kontenera:
+- az container logs --resource-group myResourceGroup --name komunikator
+e) Usunąłem kontener z grupę zasobów z chmury Azure:
+- az container delete --resource-group myResourceGroup --name komunikator

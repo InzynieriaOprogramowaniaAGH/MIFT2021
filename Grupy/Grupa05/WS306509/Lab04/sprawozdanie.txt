@@ -1,0 +1,12 @@
+Sprawozdanie z laboratiorium 4, Wojciech Szeliga 306509, gr05
+
+1. Stworzylem branch Grupa05-WS306509_Lab04 od brancha grupowego
+1.1. Opublikowalem obraz z poprzednich zajec w docker hub
+2. Wykorzystalem komunikator: Node chat app (github.com/binhxn/node-chat-app)
+3. Utworzylem agenta budujacego: Dockerfile_build
+4. Utworzylem agenta testujacego: Dockerfile_test
+5. Utworzylem plik docker-compose.yml i skonfigurowalem go tak, aby po wpisaniu komendy:
+sudo docker-compose up
+najnowsza wersja komunikatora zostala sciagnieta z repo, zbudowana oraz przetestowana
+
+Wszystkie punkty sa udokumentowane zrzutami ekranu

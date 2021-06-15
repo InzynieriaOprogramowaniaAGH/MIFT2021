@@ -1,0 +1,37 @@
+pipeline {
+    // stages {...}
+
+    node {
+        def workspacePath = 'Grupy/Grupa05/JS283683/Lab07/workspace'
+        def nodeChatPath =  "${workspacePath}/node-chat-app"
+        def repoUrl = '<https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021/>'
+
+        stage('Preparation: SCM'){
+            checkout([$class: 'GitSCM',
+            branches: [[name: 'Grupa05']],
+            extensions: [],
+            userRemoteConfigs: [[url: repoUrl]]])
+        }
+        stage('StartUp') { script {
+            dir(workspacePath) {
+                sh script: """echo 'foo' """, label: "Envrironment prep, clone node-chat-repo"
+            }
+        }}
+        stage('Build') {
+            script {
+                dir(nodeChatPath) {
+                    sh script: "npm install' ", label: "Building "
+                }
+            }
+        }
+        stage('Test') {
+            script {
+                dir(nodeChatPath) {
+                    sh script: "npm test", label: "Running tests, sth sth artifacts"
+                    // archive artifacts
+                }
+            }
+        }
+    }
+    // post { ... }
+}
