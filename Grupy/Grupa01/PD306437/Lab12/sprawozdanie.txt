@@ -1,0 +1,51 @@
+Zadanie 1
+Uruchomiłem klaster kubernetes za pomocą polecenia:
+minikube start --driver=docker
+
+Zadanie 2
+uruchomiłem dashboard za pomocą polecenia:
+minikube dashboard
+
+Zadanie 3 i 4
+Zapoznałem się z dokumentacją i napisałem plik komunikator-deployment.yaml o tresci:
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: komunikator-deployment
+  labels:
+    app: komunikator
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: komunikator
+  template:
+    metadata:
+      labels:
+        app: komunikator
+    spec:
+      containers:
+      - name: komunikator-deployment
+        image: pduda98/chat-app-deploy
+        ports:
+        - containerPort: 3000
+
+Zadanie 5
+Zleciłem klastrowi wykonanie powyższego pliku za pomocą polecenia:
+kubectl apply -f komunikator-deployment.yaml
+
+Zadanie 6
+Następnie uruchomiłem stronę z dashboardem i udokumentowałem uruchomiony deployment za pomocą zrzutów ekranu
+
+Zadanie 7
+W pliku komunikator-deployment.yaml zmieniłem ilość replik:
+
+spec:
+  replicas: 5
+
+Następnie użyłem polecenia:
+kubectl apply -f komunikator-deployment.yaml
+
+Zadanie 8
+Ponownie uruchomiłem stronę z dashboardem i sprawdziłem czy na pewno jest 5 replik
+Wykonałem zrzut ekranu.

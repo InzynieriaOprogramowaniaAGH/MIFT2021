@@ -1,0 +1,29 @@
+2. Zainstalowanie Kubernetes poleceniami ze strony:
+
+ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+ sudo install minikube-linux-amd64 /usr/local/bin/minikube
+ minikube start
+ minikube kubectl -- get po -A
+
+3.Uruchomiono Minikube Dashboard poleceniem:
+
+ minikube dashboard
+
+3.1 Minikube Dashboard pozwala na:
+	- tworzenie i zarządzanie zasobami klastra, jak i samym klastrem
+	- przeglądanie aplikacji uruchomionych na klastrze
+	- troubleshoting aplikacji, przegladanie logów
+	- tworzenie Pods, Crone Jobs, Deployments oraz zarządzanie
+	
+4.1  Uruchomienie kontenera-komunikatora w Kubernetes
+
+ zalogowanie sie do swojego DockerHuba i wybór obrazu
+ uruchomienie za pomoca podanego polecenia 
+   
+   kubectl run komunikator --image=klaaaudii12345/node-chat-app:latest --port=9999 --labels app=komunikator
+
+4.2 W celu sprawdzenia dzialania zastosowano przekierowanie portow dla umożliwienia dostępu z zewnątrz:
+
+ kubectl port-forward komunikator 9999:3000
+
+5. Pokazenie dzialania w klastrze Kubernetes, wstawiono PNG z adresu localhost:9999

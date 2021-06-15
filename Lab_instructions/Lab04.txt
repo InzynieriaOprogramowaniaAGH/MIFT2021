@@ -21,10 +21,14 @@ Uwaga: Na mastera wrzucamy zmiany tylko przez pull requesta!
 - ściąga z repo najnowszą wersję "komunikatora"
 - buduje go
 <<<<<<< HEAD
+<<<<<<< HEAD
 - testuj czy komunikator działą (możesz użyć więcej niż 1 istancji obrazu 4) jeżeli trzeba.
 =======
 - testuje czy komunikator działa (możesz użyć więcej niż 1 istancji obrazu 4) jeżeli trzeba.
 >>>>>>> 64ac55d6049c3e87b109bfc8970bd44ce59243f4
+=======
+- testuje czy komunikator działa (możesz użyć więcej niż 1 istancji obrazu 4) jeżeli trzeba.
+>>>>>>> 38b69679f22529fb4f1aa33b9385fa1b33cf9270
 
 
 Uwaga: zgłoś zadanie na MS Teams!

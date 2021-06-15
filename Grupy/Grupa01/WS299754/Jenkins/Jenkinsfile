@@ -1,0 +1,46 @@
+pipeline{
+	agent any
+	  tools{
+	  	nodejs "node"
+	  }
+
+	stages{
+		stage('Building'){
+			steps{
+				echo 'Building...'
+               		sh 'git pull origin master'
+				sh 'npm install'
+			}
+						post {
+				failure {
+					mail to: 'wsmieja@student.agh.edu.pl',
+					subject: "Niepowodzenie budowania w : ${currentBuild.fullDisplayName}",
+					body: "Faza budowania w ${env.BUILD_URL} zakończyła się niepowodzeniem."
+				}
+				success {
+					mail to: 'wsmieja@student.agh.edu.pl',
+					subject: "Powodzenie budowania w : ${currentBuild.fullDisplayName}",
+					body: "Faza budowania w ${env.BUILD_URL} zakończyła się powodzeniem."
+				}
+			}
+		}
+		stage('Testing'){
+			steps{
+				echo 'Testing...'
+				sh 'npm test'
+			}
+			post {
+				failure {
+					mail to: 'wsmieja@student.agh.edu.pl',
+					subject: "Niepowodzenie testów w : ${currentBuild.fullDisplayName}",
+					body: "Faza testów w ${env.BUILD_URL} zakończyła się niepowodzeniem."
+				}
+				success {
+					mail to: 'wsmieja@student.agh.edu.pl',
+					subject: "Powodzenie testów w : ${currentBuild.fullDisplayName}",
+					body: "Faza testów w ${env.BUILD_URL} zakończyła się powodzeniem."
+				}
+			}
+		}
+	}
+}

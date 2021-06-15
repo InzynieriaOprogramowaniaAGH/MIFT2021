@@ -1,0 +1,22 @@
+1.2. Uruchomienie klastra i dashborda
+	minikube start
+	minikube dashboard
+	
+3. Zapoznanie z dokumentacją z linku z instrukcji
+
+4. Stworzenie pliku komunikator-deployment.yaml
+   Do podstawowego szablonu ze strony należało dodać w sekcji spec.template.spec.containers dwie dodatkowe informacje
+	stdin: true  	-> keep stdin open on the container(s) in the pod, even if nothing is attached
+	tty: true	-> Allocated a TTY for each container in the pod
+	
+   Przygotowany wersje z 4 replikami
+	
+5. Zlecono zrealizowanie pliku klastrowi:
+	kubectl apply -f komunikator-deployment.yaml 
+	
+6. Zrobiono screeny
+
+7. Zmieniono ilość replik na 3 i zlecono aktualizacje klastrowi
+	kubectl apply -f komunikator-deployment.yaml 
+
+8. Zrobiono screeny

@@ -1,0 +1,20 @@
+1. Wykorzystano kontener node-chat z poprzednich zajec
+2. Zapoznano sie z instrukcjami 
+3. Utworzono grupe zasobow poleceniem 
+	az group create --name devops --location eastus
+4. Pobrano azure CLI
+	curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+5. Zalogowano sie poleceniem
+	az login
+6. Utworzono kontener poleceniem
+	az container create --resource-group devops --name node-chat --image karol71927/node-chat --dns-name-label node-chat-kawalec --ports 3000
+7. Sprawdzenie statusu kontenera
+	az container show --resource-group devops --name node-chat --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
+8. Sprawdzenie dzialania aplikacji 
+	http://node-chat-kawalec.eastus.azurecontainer.io:3000/
+9. Sprawdzenie logow aplikacji 
+	az container logs --resource-group devops --name node-chat
+10. Usuniecie kontenera 
+	az container delete --resource-group devops --name node-chat
+11. Usuniecie grupy 
+	az group delete --name devops

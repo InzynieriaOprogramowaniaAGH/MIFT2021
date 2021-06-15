@@ -1,0 +1,10 @@
+1. Stworzenie folderów Docker, Jenkins i Git hooks
+2.- Fork na repo node chat app
+- Utworzenie Jenkinsfile ze stagem "Test" i sekcją "post", odpowiadającą za wysyłanie powiadomień o sukcesie i porażce testów
+- Dodanie Jenkinsfile do repozytorium z komunikatorem
+- Dodanie do Jenkinsa wtyczki "NodeJS Plugin"
+- Konfiguracja ustawień email
+- Dodanie projektu pipeline'a w Jenkinsie
+3. Uruchomienie pipeline'a
+4. Dodanie Jenkinsfile do repo MIFT
+
