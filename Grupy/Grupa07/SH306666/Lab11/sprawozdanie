@@ -37,3 +37,5 @@ Po niej komenda:
 kubectl port-forward deploy/komunikator 2138:9999
 
 Niestety nie znajduje komunikatora w związku z czym ostatni podpunkt się nie udał
+
+EDIT: (po wykonaniu następnego laboratorium) Program mimo wszystko startuje prawidłowo. W trakcie laboratorium podczas, których pisałem to sprawozdanie z nieznanych mi powodów nie działał.
