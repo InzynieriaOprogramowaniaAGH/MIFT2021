@@ -1,0 +1,12 @@
+1. Dodano na dockerfile zmodyfikowaną wersję obrazu z labów 5, tak by była włączona.
+
+2. Zainstalowanie minikube na Windowsie. Instalacja zacięła się a później zmodyfikowała jakieś ustawienia karty sieciowej i zajęło mi kilka godzin naprawienie internetu w laptopie. Nie polecam. 
+Pobrany został również i zainstalowany kubectl
+
+3. Włączono Minikube dashboard, dzięki któremu można między innymi zarządzać zasobami klustra, przeglądać aplikacje na nim uruchomione, modufikować indywidualne zasoby klustra, wdrażać konteneryzowane aplikacje do klastra Kubernetes czy rowiązanywać problemy zkontenerzyowanych aplikacji. 
+
+4. Uruchomiono kontener-komunikator, odpowiadajacy stage Deploy w Jenkinsie. Przekierowano również porty. 
+
+5. Udokomentowano działanie aplikacji na porcie.
+
+Wszytskie działania zostały udokumentowane odpowiednimi screenshotami.
