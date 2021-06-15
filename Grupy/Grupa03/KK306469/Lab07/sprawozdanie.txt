@@ -1,0 +1,10 @@
+Karol Kusik lab07
+
+1 Stworzono własnego brancha.
+2. Sworzono foldery poszczególnych technologii.
+3. Utworzono Jenkinsfile.
+4. Stworzono forka z komunikatorem socket.io, umieszczono tam jenkinsfile.
+5. Stworzono pipeline w jenkinsie, podłączonego do repo z poprzedniego punktu.
+6. Pobrano wtyczki mailowe oraz nodeJS.
+7. Skonfigurowano ustawienia wtyczek.
+8. Uruchomiono pipeline, odebrano wyniki mailowe dla kończącego się powodzeniem i niepowodzeniem.
