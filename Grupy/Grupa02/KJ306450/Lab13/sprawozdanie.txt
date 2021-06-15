@@ -1,0 +1,23 @@
+1. W zadaniu skorzystano z kontenera dockerowego ze zbudowanym komunikatorem
+(kjop118/deploy-chat), który znajdował się na DockerHub'ie.
+
+2. Następnie za pomocą studenckiego maila utworzono konto w platformie Microsoft
+Azure i zalogowano się na nie.
+
+3. Zapoznano się z cennikiem usług chmurowych dla Azure Container Instances oraz
+z Azure Cloud Shell, która umożliwia korzystanie z Bash'a. Następnie uruchomiono
+konsolę w Azure.
+
+4. Poleceniem "az group create --name myResource --location eastus" stworzono w
+chmurze grupę zasobów. Następnie utworzono kontener wykorzystując przy tym obraz
+komunikatora zamieszczony na DockerHub - az container create --resource-group myResource
+--name komunikator --image kjop118/deploy-chat --dns-name-label komunikator --ports 3000.
+Wpisując w przeglądarce "komunikator.eastus.azurecontainer.io:3000" sprawdzono, czy
+aplikacja działająca w kontenerze docerowym została poprawnie wdrożona na platformie
+Azure. Dodatkowo sprawdzono logi dla utworzonego kontenera - az container logs
+--resource-group myResource --name komunikator. Po sprawdzeniu działania aplikacji,
+poleceniem "az container delete --resource-group myResource --name komunikator" usunięto
+kontener i następnie za pomocą "az container list --resource-group myResource --output table"
+sprawdzono, czy faktycznie został usunięty. Na koniec usunięto utworzoną grupę zasóbów -
+az group delete --name myResource - i poleceniem  "az group list" upewniono się, że grupa już 
+nie istnieje.
