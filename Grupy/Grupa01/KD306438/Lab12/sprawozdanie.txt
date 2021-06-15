@@ -29,3 +29,5 @@ spec:
         tty: true
         ports:
          - containerPort: 9999
+         
+5. Zlecono klastrowi zrealizowanie pliku komunikator-deployment.yaml poleceniem 'kubectl apply -f komunikator-deployment.yaml'
