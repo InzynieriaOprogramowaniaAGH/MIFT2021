@@ -4,7 +4,7 @@ metadata:
   name: komunikator-deployment
   labels:
     app: komunikator
-spec:
+spec: 
   replicas: 4
   selector:
     matchLabels:
