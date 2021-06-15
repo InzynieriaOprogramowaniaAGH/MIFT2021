@@ -1,0 +1,7 @@
+Karol Kusik Lab12
+
+1. Uruchomiono minikube.
+2. Napisano plik komunikator_deployment.yaml.
+3. Zlecenie klastrowi na podstawie tego pliku.
+4. Zmiana liczby replik z 4 na 8.
+5. Ponowne uruchomienie klastra.

@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
   name: komunikator-deployment
   labels:
-    app: nodechat
+    app: komunikator
 spec:
-  replicas: 5
+  replicas: 4
   selector:
     matchLabels:
-      app: deltachat
+      app: komunikator
   template:
     metadata:
       labels:
-        app: deltachat
+        app: komunikator
     spec:
       containers:
-      - name: komunikator-deployment
-        image: karol22322/mift2021:deltachat_build_agent
+      - name: socket
+        image: lesniakmateusz/lab11_run:latest
         ports:
-        - containerPort: 3000
+        - containerPort: 80
