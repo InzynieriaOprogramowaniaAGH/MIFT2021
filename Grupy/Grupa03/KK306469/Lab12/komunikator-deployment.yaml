@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: socket
-        image: lesniakmateusz/lab11_run:latest
+        image: karol22322/lab11_run:latest
         ports:
         - containerPort: 80
