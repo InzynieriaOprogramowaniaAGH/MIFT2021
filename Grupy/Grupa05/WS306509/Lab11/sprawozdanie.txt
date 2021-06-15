@@ -1,0 +1,32 @@
+Wojciech Szeliga 306509, gr05, Sprawozdanie z laboratorium 11
+
+1. Edytowano obraz dockerowy z wczesniejszych zajec, tak aby nie zamykal sie
+Nastepnie go spushowano na DockerHub
+
+2. Pobrano i zainstalowalo minikube wedlug instrukcji (Zad2.1.png)
+Podczas wykonywania kolejnych krokow, okazalo sie konieczne doinstalowanie conntrack by uniknac bledow (Zad2.2.png)
+Nastepnie uruchomiono klaser poleceniem:
+sudo minikube start --driver=none
+Konieczne okazalo sie uzycie komendy "sudo" oraz argumentu "--driver=none", gdyz podczas normalnego uruchamiania pojawialy sie liczne bledy
+Po wielu probowach uzycie powyzszego rozwiazania naprawilo problem i uruchomiono pomyslnie klaster (Zad2.3.png)
+W kolejnym kroku liczne bledy nie pozwolily uzyc polecenia:
+minikube kubectl -- get po -A
+przez co konieczne okazalo sie zastapienie go pobraniem i instalacja wedlug instrukcji ze strony kubernetes.io (Zad2.4.png)
+Ostatecznie poprawne dzialanie wykazane zostalo w zrzucie ekranu Zad2.5-3.1.png
+
+3. Uruchomiono Minikube Dashboard zgodnie z instrukcja (Zad2.5-3.1.png)
+oraz sprawdzono jego dzialanie (Zad3.2.png)
+
+3.1 Dashboard pozwala na:
+	- latwe zarzadzanie klastrami i jego zasobami
+	- uruchamianie aplikacji w klastrze
+	- tworzenie i zarzadzanie roznymi zasobami np. deployments, daemonsets
+	- podglad aplikacji na klastrach
+
+4. Po wielu nieudanych probwach i doinstalowaniu socat, uruchomiono kontener z komunikatorem poleceniem:
+sudo kubectl run kounikator --image=n9exus9/devops --port=9999 --labels app=komunikator
+Oraz przekierowano porty:
+sudo kubectl port-forward komunikator 9999:3000
+(Zad4.png)
+
+5. Udokumentowano dzialanie komunikatora w klastrze (Zad5.1.png oraz Zad5.2.png)
