@@ -1,0 +1,2 @@
+4. Stworzenie pliku komunikator-deployment.yaml:
+  -
