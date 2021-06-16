@@ -1,0 +1,13 @@
+1. Stowrzyłem swojego osobistego brancha 
+	git checkout -b Grupa06-MT299769-Lab03
+2. Skopiowałem hooka którego zrobiłem na ostatnich zajęciacg do odpowiedniego folderu:
+	cp commit-msg ../../Grupy/Grupa06/MT299769/Lab03/hooks/
+3. Zainstalowałem Docker'a
+4. Zarejestrowałem konto w Docker Hub
+5. Stowrzyłem Dockerfile, który bazował na najnoszym ubuntu:
+	FROM ubuntu:latest
+	RUN apt-get -y update
+	RUN apt-get -y upgrade
+	RUN apt-get install -y build-essential
+	RUN apt-get -y install git
+6. Zbudowałem kontener i uruchomiłem go w dockerze
