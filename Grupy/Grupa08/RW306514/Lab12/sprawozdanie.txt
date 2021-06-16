@@ -1,0 +1,16 @@
+Sprawozdanie: Rafal Widziszewski 15.06.2021r.
+
+Wykonanie:
+
+1.Uruchomienie klastera Kubernetes 
+
+2.Uruchomienie Minikube Dashboarda
+
+4.Utworzenie pliku komunikator-deployment.yaml zgodnie z dokumentacją oraz uwagami zawartymi w instrukcji
+
+5.Zlecenie klastrowi zrealizowanie pliku yaml przy użyciu polecenia:   
+  - skubectl apply -f komunikator-deployment.yaml
+
+7.Zmiana ilości replik na 6 i ponowne zlecenie klastrowi aktualizację
+
+

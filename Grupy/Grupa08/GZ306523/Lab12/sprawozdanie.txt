@@ -1,0 +1,16 @@
+1.Uruchomienie klastra Kubernetes (minikube start)
+
+2.minikube dashboard:
+
+3.Stworzenie pliku komunikator-deployment.yaml zawierającego:
+ nazwę:komunikator-deployment
+ 4 repliki
+ app:komunikator
+ obraz z komunikatorem
+
+
+4.Realizacja : (kubectl apply -f komunikator-deployment.yaml)
+
+5.Zmieniono ilość replik w pliku na 6 i zlecono realizację
+	kubectl apply -f komunikator-deployment.yaml
+

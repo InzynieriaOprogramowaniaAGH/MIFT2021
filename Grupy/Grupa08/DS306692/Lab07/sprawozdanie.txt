@@ -1,0 +1,8 @@
+1. Stworzyłem odpowiednią strukturę katalogów i umieściłem w nich odpowiednie pliki.
+2.
+  Utworzyłem Jenkinsfile
+  Fork na orginalnym repo deltachat.
+  W repo z komunikatorem umieściłem Jenkinsfile z napisanym pipelinem.
+3. Konfiguracja i utworzenie pipeline.
+3. Testowanie z użyciem Jenkinsfile.
+4. Jenkinsfile do repo z pkt 1.
