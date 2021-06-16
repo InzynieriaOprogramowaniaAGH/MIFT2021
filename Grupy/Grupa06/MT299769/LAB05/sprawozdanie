@@ -48,3 +48,16 @@
   	--volume jenkins-data:/var/jenkins_home \
   	--volume jenkins-docker-certs:/certs/client:ro \
   	myjenkins-blueocean:1.1 
+3. Wrzuciem obraz swojego jenkinsa na docerhuba
+
+4. Wszedlem do kontenera: 
+	sudo docker exec -u root -it jenkins-blueocean bash 
+   Zainstalowalem w nim docker-compose i nadalem uprawnienia do wykonania
+   
+   W jenkinsie utworzylem nowy job:
+   	Docker-compose-deltachat
+   Podalem link to repo MIF2021 a jako branch specifer podalem swoejgo brncha
+   
+   Napisalem prosty skrypt shellowy, ktory zmienial folder na Lab04 w ktorym byl docker-compose i i puszczal go:
+   	cd Grupy/Grupa06/MT299769/Lab04
+	docker-compose up
