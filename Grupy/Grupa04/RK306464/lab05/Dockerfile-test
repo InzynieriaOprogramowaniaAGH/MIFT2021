@@ -1,6 +1,2 @@
-<<<<<<< HEAD
-FROM rkraj/chat-app
-=======
 FROM radek467/chat-app
->>>>>>> deefa26cfe0a339f51981dd718884654465bc9e8
 ENTRYPOINT [ "npm", "run", "test" ]
