@@ -1,0 +1,15 @@
+1. Stworzyłam osobistego brancha Grupa07-AD6658_Lab04
+1.1 Stworzyłam nowe repozytorium w serwisie Docker Hub i opublikowałam w nim obraz z ostanich zajęć:
+	$ sudo docker loging
+	$ sudo docker tag 9c8b2aaaa180 annadybel21/lab04
+	$ sudo docker push annadybel21/lab04
+2. Następnie wybrałam komuikator (po wielu próbach z różnymi komunikatorami i błędami których nie udało mi się naprawić udało mi się dalszą czesć instrukcji wykonać dla aplikacji deltachat-desktop)
+3. Przygotowałam plik Dockerfile-build-agent, który wykonuję operacje budowania komunikatora i stworzyłam obraz korzystając z następującej komendy:
+	$ sudo docker build -t app-build-agent .
+4. Następnie przygotowałam plik Dockerfile-test-agent i stworzyałam jego obraz korzystając z komendy:
+	$ sudo docker build -t app-test-agent .
+Aby upewnić się ze obrazy zostały stworzone użyłam komendy:
+	$sudo docker images
+5. Stworzyłam plik docker-compose.yml (zainastalowałam docker-compose), dodałam go do swojego brancha i korzystając z komendy:
+	$ sudo docker-compose up
+stworzyłam środowisko, które sciąga z repo najnowszą wersję komunikatora, buduje go i testuje.

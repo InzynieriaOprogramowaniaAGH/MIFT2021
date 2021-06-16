@@ -1,0 +1,17 @@
+1. Zapoznanie sie z Jenkinsem
+
+2. Stworzenie kontenera dockerowego:
+	- utworzenie dockerowej sieci dla jenkinsa
+	- pobranie i uruchomienie obrazu docker:dind
+	- stworzenie Dockerfilea dla jenkinsa
+	- budowa obrazu i uruchomienie go
+
+3. Wrzucenie obrazu jenkinsa na dockerhuba:
+	- docker tag 
+	- docker push 
+
+4. Uruchomienie docker-compose z poziomu jenkinsa uruchomionego w kontenerze:
+	- zalogowanie sie na dashboarda
+	- rozwiazanie problemu braku uprawnień za pomocą docker exec
+	- utworzenie nowego joba na dashboardzie
+	- jenkins uruchamia plik docker-compose.yaml tworząc środowisko z Lab04

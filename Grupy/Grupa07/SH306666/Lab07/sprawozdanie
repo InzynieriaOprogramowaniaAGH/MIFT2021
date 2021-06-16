@@ -1,0 +1,4 @@
+1. Stworzenie folderow oraz przekopiowanie plikow docker
+2.Sforkowanie delta-chatu na swoje wlasne repo i wrzucenie na niego Jenkinsfile
+3.Uruchomienie Jenkinsa, stworzenie konfiguracji -> ustawienie emaila w ustawieniach jenkinsa, stworzenie nowego pipeline i skonfigurowanie go wg screenow (email, link do repo)
+4.Odpalenie zadania na jenkinsie, a nastepnie otrzymanie informacji o powodzeniu lub nie na email.

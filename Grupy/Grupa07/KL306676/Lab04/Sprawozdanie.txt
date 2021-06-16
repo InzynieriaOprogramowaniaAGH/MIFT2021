@@ -1,0 +1,18 @@
+1. Najpierw stworzyłam osobistego brancha o nazwie Grupa07-KL306676_Lab04 oraz
+   wysłałam uprzednio stworzony obraz na docker hub. Użyłam następujących komend:
+   docker tag idkontenera login/nazwa:tag
+   docker login
+   docker image push login/nazwa:tag
+   docker build .
+
+2. Znalazłam komunikator na system linux: https://github.com/wireapp/wire-desktop.
+
+3. Stworzyłam nowy obraz kontenera dockerowego w folderze Build. Pobiera on
+   program git, npm, yarn oraz repozytorium z programem. Wykonuje również
+   kompilację programu
+
+4. Swtorzyłam dockerfile pod obraz w folderze Linux, który miał za zadanie
+   przetestować pobraną aplikację.
+
+5. Swtorzyłam plik docker-compose.yml za pomocą komend z podanego linku
+   oraz dodałam go do swojego brancha.

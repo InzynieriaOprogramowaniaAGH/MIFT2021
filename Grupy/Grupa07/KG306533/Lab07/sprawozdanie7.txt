@@ -1,0 +1,12 @@
+1. Przygotowano foldery Jenkins i Docker z plikami z poprzednich labów (dockerfile, docker-compose itd.).
+
+2. Zrobiono fork'a  z Delta-Chat-Desktop. Utworzono Jenkinsfile.
+
+Jenkinsfile należało umieścić na sforkowanym repozytorium.
+
+2.1 Należało uruchomić Jenkinsa i stworzyć nowy pipeline, w którym:
+
+* uwzględniono link do repozytorium
+* uwzględniono dane do poczty email (uwzględnienie bezpieczeństwa na koncie gmail!)
+
+3. Uruchomiono zadanie w Jenkinsie które najpierw uruchamia testowanie, a następnie wysyła maila z informacją zwrotną o powodzeniu (bądź nie).
