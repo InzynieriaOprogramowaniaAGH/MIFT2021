@@ -1,0 +1,36 @@
+1.Korzystanie z dockera ze zbudowanym komunikatorem z poprzednich zajec.
+2.Pobrać zainstalować i uruchomić minikube dashboard:
+  curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+  sudo install minikube-linux-amd64 /usr/local/bin/minikube
+W tym miejscu napotkałem problem - instalacja kończyła się niepowodzeniem więc skorzystałem z innej opcji instalacji:
+  curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-latest.x86_64.rpm
+  sudo rpm -Uvh minikube-latest.x86_64.rpm
+3.Następnie poszło standardowo:
+  minikube start
+  minikube kubectl -- get po -A
+  minikube dashboard
+Podczas używania powyższych komend napotkałem problem, musiałem zrestartować dockera:
+  systemctl restart docker
+
+3.1.Dzięki Minikube Dashboard można:
+-pomaga uruchamiać aplikacje w kontenerach
+-instaluje aplikacje
+-tworzy i aktualizuje instancje aplikacji
+-monitoring instancji
+-sam naprawia bledy (wylaczenie instancji lub maszyny w klastrze)
+-tworzenie podow
+-przy użyciu serwisów pozwala udostępniać aplikacje na zewnatrz
+-skalowanie aplikacji
+-zarzadanie klastrami
+-wrzucanie konfiguracji w YAML lub JSON
+
+4. Przyznano alias dla kubectl i uruchomiono kontener z komunikatorem w Kubernetes:
+
+    $ alias kubectl="minikube kubectl --"
+    $ kubectl run deltachat --image=dominiksabat/myjenkins-blueocean --port=9999 --labels app=deltachat
+
+4.1 Ustawiono porty
+
+    $ kubectl port-forward deploy/deltachat 8080:9999
+
+5. Kontener został pomyślnie uruchomiony w klastrze (zrzut lab11_5.png)

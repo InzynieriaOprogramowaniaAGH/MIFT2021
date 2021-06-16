@@ -1,0 +1,36 @@
+1. Stworzenie branch'a do pracy z aktualnym tematem 
+2.Zapoznanie sie z oprogramowaniem Jenkins
+3.Stworzenie sieci w dockerze
+	docker network create jenkins
+4. Uruchomienie jenkinsa na dockerze 
+	docker run --name jenkins-docker --rm --detach \
+ 	 --privileged --network jenkins --network-alias docker \
+ 	 --env DOCKER_TLS_CERTDIR=/certs \
+ 	 --volume jenkins-docker-certs:/certs/client \
+ 	 --volume jenkins-data:/var/jenkins_home \
+ 	 --publish 2376:2376 docker:dind --storage-driver overlay2
+5.Utworzenie pliku dockerfile
+6. Stworzenie obrazu z pliku Dockerfile
+	docker build -t myjenkins-blueocean:1.1 .
+7.Uruchomienie 
+	docker run --name jenkins-blueocean --rm --detach \
+  	--network jenkins --env DOCKER_HOST=tcp://docker:2376 \
+  	--env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=1 \
+ 	 --publish 8080:8080 --publish 50000:50000 \
+ 	 --volume jenkins-data:/var/jenkins_home \
+  	--volume jenkins-docker-certs:/certs/client:ro \
+ 	 myjenkins-blueocean:1.1
+8. Wrzucenie obrazu z tag'iem na docker-hub
+	docker push maciejwilczyk/lab05
+
+9. Z poziomu Jenkinsa uruchomilem docker-compose.
+	powiązalem z repozytorium podając jego nazwę oraz brancha
+	wykonalem polecenie powłoki:
+		cd Grupy/Grupa08/MW306701/Lab05
+		pwd
+		ls
+		curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+		chmod +x /usr/local/bin/docker-compose
+		docker --version
+		docker-compose --version
+		docker-compose up

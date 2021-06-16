@@ -1,0 +1,8 @@
+1. Zmienilem sposob logowania z HTTPS na SSH
+    - wygenerowalem klucz oraz haslo
+    - zarejestrowalem klucz po stronie serwera
+    - przelaczylem polaczenie na SSH
+2. Nadalem tag do commita git tag -a HS306696 "Hubert Szeliga Lab02"
+3. Uporzadkowalem branche i foldery zgodnie z instrukcja
+4. Napisalem weryfikujacego git hooka i podpialem go do folderu .git/hooks
+5. Dolaczylem zmiany

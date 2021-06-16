@@ -1,0 +1,18 @@
+1. Instalacja Ngrok oraz konfiguracja webhook'a, dodanie deploy key
+
+
+2. Rozszerzenie Jenkinsfile o stage 'Deploy' z następującą treścią: 
+	stage('Deploy') {
+			steps {
+				echo 'Deploy'
+				sh 'docker build -t deltachat-deploy -f Dockerfile-deploy .'
+			}
+		}
+
+
+3. Stworzenie pliku Dockerfile-deploy 
+
+
+4. Uruchomienie Pipeline - sukces 
+
+

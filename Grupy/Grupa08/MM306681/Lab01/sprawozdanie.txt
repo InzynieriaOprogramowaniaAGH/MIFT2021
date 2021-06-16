@@ -1,0 +1,10 @@
+1. Nie musialam instalowac klienta git, poniewaz juz posiadalam.
+2. Po uruchomieniu Git Bash wykonalam operacje 'git clone' na repo przedmiotu,
+   następnie narysowalam graf zaleznosci miedzy repo zdalnym, a lokalnym.
+3. Przeczytalam plik Lab01.txt, ktory zawiera instrukcje do zajec
+4. Stworzylam nowy branch pod nazwa MM306681 komenda 'git branch'. Na tym branchu stworzyłam katalog o nazwie branchu, 
+   a w nim folder Lab01. W nim stworzyłam plik 'sprawozdanie.txt', dodalam go do repo razem z grafem, wykonalam commita.
+5. Wykonane zadania opisalam w pliku 'sprawozdanie.txt, a nastepnie uzylam komend 'commit' i 'push'.
+6. Dodalam do repo do Lab01 screeny z wykonania kazdego zadania, uzylam 'commit' i 'push'.
+7. Zmergowalam swojego brancha z masterem i wykonalam push na remote'a.
+8. Uzupelnilam zadanie na MS Teams.

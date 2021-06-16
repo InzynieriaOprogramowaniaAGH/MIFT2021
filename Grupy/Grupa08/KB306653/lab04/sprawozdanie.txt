@@ -1,0 +1,9 @@
+1. Stworzyłem brancha na potrzeby lab04. Następnie utworzony na poprzednich zajęciach obraz dodałem na dockerhub za pomocą wtyczki do VS Code.
+
+2. Wybrałem aplikacje - node chat.
+
+3. Stworzyłem dockerfile z obrazem Ubuntu:latest i npm po czym sklonowałem repo z apką do konrenera i puściłem npm install.
+
+4. Stworzyłem dockerfile z obrazem node-app i puściłem npm run test.
+
+5. Utworzyłem docker-compose i przetestowałem jego działanie.
