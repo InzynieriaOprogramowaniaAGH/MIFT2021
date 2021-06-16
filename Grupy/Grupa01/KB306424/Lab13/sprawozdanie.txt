@@ -1,0 +1,44 @@
+1.
+Do wykonania cwiczenia wykorzystalam kontener dockerowy ze zbudowanym komunikatorem z poprzednich zajec "dazaiii/node-chat".
+
+2.
+Zalogowalam sie do Microsoft Azure korzystajac z mojego konta studenckiego.
+
+3.
+Zapoznalam sie z cennikiem uslug.
+
+4.
+Zapoznalam sie z Azure Cloud Shell i z podanymi instrukcjami. 
+
+5.
+Zapoznalam sie z instrukcja uruchamiania kontenerow w ACI.
+
+Utworzylam nowa grupe zasobow za pomoca polecenia:
+"az group create --name grupaZasobow --location eastus"
+
+Zainstalowalam lokalnie Azure CLI za pomoca polecenia:
+"curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash"
+
+Nastepnie nalezalo zalogowac sie za pomoca polecenia:
+"az login"
+
+Utworzenie kontenera w chmurze za pomoca polecenia:
+"az container create --resource-group grupaZasobow --name node-chat --image dazaiii/node-chat --dns-name-label komunikator --ports 3000"
+
+Sprawdzilam status kontenera za pomoca polecenia:
+"az container show --resource-group grupaZasobow --name node-chat --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table"
+
+Sprawdzilam czy aplikacja dziala poprawnie i czy uruchamia sie pod adresem:
+"http://komunikator.eastus.azurecontainer.io:3000/"
+
+Sprawdzilam logi za pomoca polecenia:
+"az container logs --resource-group grupaZasobow --name node-chat"
+
+Usunelam kontener z chmury za pomoca polecenia:
+"az container delete --resource-group grupaZasobow --name node-chat"
+
+I na koncu usunelam grupe zasobow:
+"az group delete --name grupaZasobow"
+
+6.
+Uruchomiony obraz w ACI zostal udokumentowany na screenach.
