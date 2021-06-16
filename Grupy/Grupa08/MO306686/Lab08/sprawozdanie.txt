@@ -1,0 +1,9 @@
+Sprawozdanie
+Laboratorium nr.8
+Autor: Maciej Ogórek | Inżynieria Obliczeniowa
+1. Rozszerzyłem Jenkinsfile'a z poprzednich zajęć o stage 'Build'.
+2. W Stage'u 'Build' dodałem pobieranie najnowszej wersji kodu z repozytorium
+2.1 Program jest budowany, a użytkownik zostaje powiadomiony o rezultacie budowania
+3. Po zbudowaniu z sukcesem uruchamiany jest stage("Test"), przy porażce to się nie dzieje
+4. Stworzyłem post-commit hooka
+5.Niestety nie udało mi sie uruchomić aplikacji ze względu na błąd z instalacją Nodejs, który pojawił się u mnie już na poprzednich zajęciach
