@@ -7,7 +7,6 @@
 4. Stworzyłem plik komunikator-deployment.yaml, który zawierał:
    name: komunikator-deployment
    app: komunikator
-   obraz z komunikatorem tak jak na poprzednich zajęciach
    replicas: 4
 
   zawrtość pliku yaml:
