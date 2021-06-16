@@ -33,7 +33,7 @@
                 	- name: komunikator
                   	image: kingsaszas/socketio:messenger
                   	ports:
-                  	- containerPort: 3000
+                  	- containerPort: 9999
   	
 5. Zrealizowałam powyższy plik używając polecenia:
 	$ kubectl apply -f komunikator-deployment.yaml
