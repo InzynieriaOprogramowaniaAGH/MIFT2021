@@ -1,0 +1,5 @@
+1. Przy pomocy aplikacji ngrok utworzyłem webhooka, w pipeline ustawiłem odpowiednie konfiguracje, tak aby pipeline był uruchamiany po każdym pushu na repozytorium. 
+2. Dodałem zmianę do readme i build został automatycznie uruchomiony.
+3. W Jenkinsfile utworzyłem stage Deploy, spełniający wymagania, zupdatowałem Jenkinsfile na repozytorium.
+4. Upewniłem się że deploy jest tworzony poprawnie, a użytkownik powiadamiany jest o jego wynikach.
+5. W screenach wykazałem i udokumentowałem że pipeline jest zdefiniowany w Jenkinsfile umieszczonym na repo z komuniaktorem, pipeline jest uruchamiany automatycznie i pipeline przechodzi wszystkie etapy.

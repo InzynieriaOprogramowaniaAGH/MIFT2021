@@ -1,0 +1,41 @@
+pipeline{
+	agent any
+	tools {
+		nodejs "NodeJS"
+	}
+	stages{
+		stage('Build'){
+			steps{
+				echo 'App is building.'
+				sh 'npm install'
+			}     
+		} 
+		stage('Test'){
+			steps{
+				echo 'App is testing'
+				sh 'npm run test' 
+			}     
+		}    
+	}
+	
+	post{
+		always {
+			echo 'Finish'
+		}
+        
+		failure{
+			echo ' without success'
+			emailext attachLog: true,
+				body: "${currentBuild.currentResult}: ${currentBuild.fullDisplayName}",
+				to: 'radekk467@gmail.com',
+				subject: "Jenkins build failed ${env.BUILD_NUMBER}"
+		}
+		success{
+			echo ' with success'
+			emailext attachLog: true,
+				body: "${currentBuild.currentResult}: ${currentBuild.fullDisplayName}",
+				to: 'radekk467@gmail.com',
+				subject: "Jenkins build succeed ${env.BUILD_NUMBER}"
+		}
+	}
+}
