@@ -1,0 +1,11 @@
+Sprawozdanie
+Laboratorium nr.7
+Metodyki DevOps
+Autor: Maciej Ogórek
+1. Zajęcia rozpocząłem od stworzenia folderów i brancha na nowe zajęcia
+1.1 Przekopiowałem skrypty do właściwych folderów
+2.1 Zrobiłem forka repozytorium z komunikatorem
+2.2 Stworzyłem Jenkinsfile'a i umieściłem go w repo z komunikatorem
+2.3 W Jenkinsfile'u stworzyłem nowego pipeline'a i oskryptowałem funkcję Test
+2.4 Doinstalowanie bilbioteki Node.js
+2.5 Po uruchomieniu Jenkins zwraca błąd związany z npm, którego nie jestem w stanie usunąć.
