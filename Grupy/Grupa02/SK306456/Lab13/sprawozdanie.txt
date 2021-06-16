@@ -1,0 +1,5 @@
+1. Konto w portalu Azure juz posiadałem skonfigurowane. Korzystałem z chmurwoego shell Azure.
+2. Utworzenie grupy zasobów za pomocą komendy az group create <parametry>.
+3. Utworzenie kontenera za pomocą komendy az contaiener create <parametry> z wystawionym portem 3000.
+4. Weryfikacja działania komendą az container show <parametry>.
+5. Połączenie do chatu przez przeglądarkę za pomocą FQDN (zwrócony za pomocą poprzednich komend) na porcie 3000.
