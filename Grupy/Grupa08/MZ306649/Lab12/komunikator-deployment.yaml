@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: komunikator
-        image: mzajac8/deltachat-desktop
+        image: k8s.gcr.io/echoserver:1.4
         ports:
         - containerPort: 80
