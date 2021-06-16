@@ -1,0 +1,37 @@
+1. Uruchomienie klastra Kubernetes lokalnie, wzorujac sie na komendach z poprzednich laboratoriow(sudo minikube start).
+
+2. Uruchomienie Minikube Dashboard(sudo minikube dashboard). 
+
+3. Zapoznanie sie z dokumentacja tworzenia manifestow dla obiektow Deployment, zgodnie z instrukcja.
+
+4. Stworzenie na podstawie powyzszej dokumentacji pliku .yaml, zawierajacego nazwe: komunikator-deployment, app: komunikator oraz 4 repliki. 
+
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+    name: komunikator-deployment
+    labels:
+        app: komunikator
+    spec:
+    replicas: 4
+    selector:
+        matchLabels:
+        app: komunikator
+    template:
+        metadata:
+        labels:
+            app: komunikator
+        spec:
+        containers:
+        - name: komunikator-deployment
+            image: anagrzesiak/socketio:messenger
+            ports:
+            - containerPort: 9999
+  	
+5. Uruchomienie pliku .yaml za pomoca ponizszej komendy:
+	kubectl apply -f komunikator-deployment.yaml
+
+6. Zmienienie w pliku .yaml linijki odpowiedzialnej za liczbe replik na:
+	replicas: 5
+
+7. Sprawdzenie na Minikube Dashboard czy wszystko dziala. 
