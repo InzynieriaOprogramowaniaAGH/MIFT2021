@@ -1,0 +1,9 @@
+1. Uruchomienie klastra za pomoca minikube start
+2. Uruchomienie dashboard za pomoca minikube dashboard
+3. Zapozanalem sie z dokumentacja
+4. W oparciu o dokumentacje utworzylem plik komunikator-deployment.yaml, ktory korzystal z obrazu karol71927/node-chat i tworzyl 4 repliki
+Deployment nazywal sie komunikator-deployment, jako label app podalem komunikator 
+5. Zlecilem klastrowi wykonanie pliku komunikator-deployment.yaml za pomoca polecenia kubectl apply -f komunikator-deployment.yaml
+6. Po wykonaniu polecenia deployment utworzyl 4 pody 
+7. W pliku zmienilem ilosc replik na 5 i zaktualizowalem deployment poleceniem kubectl apply -f komunikator-deployment.yaml
+8. Po aktualizacji byly 5 podow

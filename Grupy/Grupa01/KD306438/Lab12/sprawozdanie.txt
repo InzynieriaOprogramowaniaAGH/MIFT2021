@@ -1,0 +1,39 @@
+1. Uruchomiono klaster komenda 'minikube start'.
+
+2. Uruchomienie Minikube Dashboard poleceniem 'minikube dashboard'
+
+3. Zapoznano sie z dokumentacja tworzenia manifestow dla obiektow "Deployment".
+
+4. Utworzono plik komunikator-deployment.yaml z czterema replikami i obrazem z poprzednich zajec:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: komunikator-deployment
+  labels:
+    app: komunikator
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: komunikator
+  template:
+    metadata:
+      labels:
+        app: komunikator
+    spec:
+      containers:
+      - name: komunikator
+        image: karen2035/node-chat:v8
+        stdin: true
+        tty: true
+        ports:
+         - containerPort: 9999
+         
+5. Zlecono klastrowi zrealizowanie pliku komunikator-deployment.yaml poleceniem 'kubectl apply -f komunikator-deployment.yaml'
+
+6. Udokumentowano stan klastra Kubernetes za pomoca zrzutow ekranu.
+
+7. Wprowadzono zmiany w pliku - liczbe replik zmieniono na 2 i ponownie zlecono klastrowi zrealizowanie pliku komunikator-deployment.yaml.
+
+8. Udokumentowano nowy stan klastra Kubernetes za pomoca zrzutow ekranu.

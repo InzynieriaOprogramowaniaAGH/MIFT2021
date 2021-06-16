@@ -1,0 +1,6 @@
+1. - Podłączenie Jenkinsa do internetu przez ngrok
+- Ustawienie pipelinu na uruchamianie przez web hooka
+3. - Dodanie Dockerfile'a z wdrożeniem
+- Dodanie stage'a "Deploy" do Jenkinsfile'a budującego kontener na który jest wdrażany komunikator
+- Dodanie sekcji "post", która odpowiada za przesłanie informacji o sukcesie lub porażce
+

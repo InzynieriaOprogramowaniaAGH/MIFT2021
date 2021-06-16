@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: komunikator-deployment
+  labels:
+    app: nodechat
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: nodechat
+  template:
+    metadata:
+      labels:
+        app: nodechat
+    spec:
+      containers:
+      - name: komunikator-deployment
+        image: karol230/node-chat
+        ports:
+        - containerPort: 3000
+
