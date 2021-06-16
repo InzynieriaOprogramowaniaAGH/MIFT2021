@@ -1,4 +1,15 @@
 Sprawozdanie
 Autor: Maciej Ogórek | Inżynieria Obliczeniowa
 Laboratorium nr. 9
-1.
+1. Za pomocą programu ngrok wykonałem tunelowanie, aby Jenkins był widziany przez Githuba.
+1.2 Zainstalowałem wtyczkę do Jenkinsa umożliwiającą budowanie pull requestów
+1.3 Niestety przy próbie dodania webhooka napotkałem błąd, z którym do tej pory nie jestem w stanie sobie poradzić
+1.4 Zmieniłem ustawienie Jenkinsa na "Github hook triggerfo GITScm polling"
+
+2. Ze względu na błąd, który wystąpił przy dodawaniu webhooka nie udało mi się uruchomić pipeline'a
+
+3.Dodałem do Jenkinsfile'a nowy stage "Deploy"
+
+4. Dostosowałem stage "Deploy" do wymagań
+
+5. Przetestowałem czy pipeline przechodzi przez wszystkie etapy oraz czy wykonuje wszystkie polecenia
