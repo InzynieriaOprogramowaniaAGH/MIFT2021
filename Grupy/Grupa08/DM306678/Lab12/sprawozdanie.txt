@@ -1,0 +1,8 @@
+1. Uruchomienie lokalnego klastra Kubernetes z Lab11
+2. Uruchomienie Minikube Dashboard poleceniem "minikube dashboard"
+3. Zapoznanie sie z dokumentacja tworzenia manifestow dla obiektow "Deployment"
+4. Stworzenie pliku deployment.yaml
+5. Zlecenie klastrowi zrealizowanie pliku deployment.yaml uzywajac polecenia "kubectl create -f deployment.yaml"
+6. Udokumentowanie stana klastra Kubernetes
+7. Zmiana ilosci replik w pliku na 5
+8. Udokumentowanie stanu klastra
