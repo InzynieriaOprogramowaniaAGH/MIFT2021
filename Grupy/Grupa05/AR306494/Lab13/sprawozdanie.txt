@@ -1,0 +1,32 @@
+Zajęcia: 15.06.2021
+
+Temat: Uruchomienie kontenera w środowisku chmurowym
+
+1. Do wykonania tego ćwiczenia użyłam kontenera docker'owego ze zbudowanym komunikatorem z zajęć nr. 11.
+
+2. Korzystając ze swojego konta studenckiego zalogowałam się do Microsoft Azure.
+
+3. Zapoznałam się z cennikiem usług chmurowych dla Azure Conatiner Instances oraz prześledziłam przykład wyceny usług zamieszczony na stronie.
+
+4. Zapoznałam się z tym co to jest "Azure Cloud Shell" i jak można w niej korzystać z Bash'a.
+Stworzyłam nową grupę zasobów w lokalizacji east US, za pomocą polecenia:
+az group create --name mojeZasoby --location eastus
+
+5. Zapoznałam się z instrukcją uruchaminia kontenerów w ACI oraz instrukcją krok-po-kroku.
+- Zainstalowałam Azure CLI lokalnie na linuxie:
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+- Zalogowałem się poleceniem:
+az login
+
+6. Uruchomiłam obraz z pkt 1 w ACI.
+- Stworzyłam kontener w chmurze korzystając z ww. obrazu:
+az container create --resource-group mojeZasoby --name komunikator --image aleksandra1819/node-chat-app --dns-name-label aleksandrarataj-komunikator --ports 3000
+- Sprawdziłam czy deployment zakończył się sukcesem:
+az container show --resource-group mojeZasoby --name komunikator --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
+- Sprawdziłam w przeglądarce czy aplikacja działa poprawnie:
+aleksandrarataj-komunikator.eastus.azurecontainer.io:3000
+- Sprawdziłam logi kontenera:
+az container logs --resource-group mojeZasoby --name komunikator
+- Usunęłam kontener z grupy zasobów z chmury Azure:
+az container delete --resource-group mojeZasoby --name komunikator
+- Usunęłam grupę zasobów.
