@@ -1,0 +1,40 @@
+1. Stworzenie krótkożyjącego brancha za pomocą komendy: git checkout -b Grupa05-JF306439_Lab13
+
+2. Zalogowanie się na platformę Azure - konto studenckie
+
+3. Zapoznanie się z cennikiem usług chmurowych - około $0.05 za godzinę za GB
+
+4. Zapoznanie się z "Azure Cloud Shell" -
+
+	Azure Cloud Shell to interaktywna, uwierzytelniona, dostępna w przeglądarce powłoka służąca do zarządzania zasobami platformy Azure. 
+	Oferuje ona elastyczny wybór środowiska powłoki, Bash lub PowerShell, które najlepiej pasuje do sposobu, w jaki wykonujesz swoją pracę.
+
+5. Zapoznanie się z instrukcją uruchamiania kontenerów w ACI
+
+6. Wykonanie poleceń zgodnie z instrukcją:
+
+- utworzenie grupy zasobów: az group create --name myResourceGroup --location eastus
+
+- stworzenie kontenera: az container create --resource-group myResourceGroup --name komunikator --image whitiee/node-chat --dns-name-label komunikator --ports 80
+
+- sprawdzenie informacji o statusie kontenera: az container show --resource-group myResourceGroup --name komunikator --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
+
+Niestety nie udało się połączyć ze stroną komunikator.eastus.azurecontainer.io:80
+
+- sprawdzenie logów: az container logs --resource-group myResourceGroup --name komunikator
+
+W ramach sprawdzania logów wyświetliła się informacja: Listening on port 3000
+
+- ponowne stworzenie kontenera, jednak z portem 3000
+
+- sprawdzenie informacji o statusie kontenera
+
+- uruchomienie strony komunikator.eastus.azurecontainer.io:3000, upewnienie się, że działa ona poprawnie
+
+7. Udokumentowanie działającego komunikatora
+
+8. Usunięcie kontenera: az container delete --resource-group myResourceGroup --name komunikator
+
+9. Usunięcie grupy zasobów: az group delete --name myResourceGroup
+
+10. Dołączenie zmian na Git'a
