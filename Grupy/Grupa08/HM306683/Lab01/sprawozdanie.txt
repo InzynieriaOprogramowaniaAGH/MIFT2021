@@ -1,0 +1,48 @@
+1.
+sudo apt-get install git
+Instalacja gita.
+
+git --version 
+Wyświetlenie zainstalowanej wersji gita.
+
+2.
+git clone [url] .
+Klonowanie istniejącego repozytorium, do lokalizacji, w której się znajdujemy.
+
+3.
+cat [ścieżka_bezpośrednia] lub cat [ścieżka_pośrednia]
+Wyświetlenie zawartości pliku. 
+
+4. 
+git checkout -b [nazwa_brancha]
+Stworzenie nowego brancha oraz przełączenie się na niego.
+
+mkdir [nazwa_folderu]
+Stworzenie folderu w aktualnej lokalizacji.
+
+cd [ścieżka_bezpośrednia] lub cd [ścieżka_pośrednia]
+Zmiana lokalizacji, w której się znajdujemy.
+
+touch [nazwa_pliku]
+Utworzenie pliku w lokalizacji, w której się znajdujemy.
+
+git add [nazwa_pliku]
+Rozpoczęcie śledzenia pliku.
+
+git commit -m ["komentarz"]
+Zatwierdzenie zmian wszystkich śledzonych plików.
+
+5.
+Stworzenie krótkiego opisu komend użytych w zadaniach 1-4.
+
+git push --set-upstream origin [branch]
+Wykonanie pierwszego pushu, ustawienie upstream brancha.
+
+6.
+Dodanie zrzutów ekranu do repozytorium. Wykonanie commita oraz pushu.
+
+git add * :/
+Dodanie wszystkich nowych oraz zmodyfikowanych plików.
+
+
+

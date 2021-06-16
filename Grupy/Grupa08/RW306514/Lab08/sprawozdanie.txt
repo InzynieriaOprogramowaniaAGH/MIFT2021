@@ -1,0 +1,12 @@
+Sprawozdanie: Rafal Widziszewski 18.05.2021r.
+
+Wykonanie:
+
+1.Rozszerzenie Jenkinsfilea o stage Build, w którym pobierania jest najnowsza wersja kodów źródłowych:
+	-sh 'git pull origin master'
+	warunek w którym jeśli build nie powiedzie się dalsze stage nie są wykonywane.
+	-if build_pom=="success"
+
+2.Stworzenie wstępnego post-commit hooka
+
+3.Wrzucenie Jenkinsfila na sforkowane wcześniej repo aplikacji i uruchomienie Pipeline'a

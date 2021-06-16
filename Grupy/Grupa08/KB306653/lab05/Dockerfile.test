@@ -1,0 +1,5 @@
+FROM node-app:latest
+
+RUN \
+cd node-chat-app &&\
+npm run test

@@ -1,0 +1,29 @@
+  
+Sprawozdanie: Rafal Widziszewski 18.04.2021r.
+
+Wykonanie:
+
+1.Utworzenie brancha osobistego, a następnie zapoznanie się z dokumentacją Jenkinsa
+
+2.Utworzenie kontenera z Jenkinsem używając komend zawartych w instrukcji instalacji Jenkinsa
+
+3.Wrzucenie obrazu Jenkinsa na DockerHuba:
+	sudo docker tag myjenkins-blueocean:1.1 rwidzisz/mift2021_lab05:zad3
+	sudo docker push rwidzisz/mift2021_lab05:zad3
+
+4.Uruchomienie docker compose up przez Jenkinsa:
+	
+	Uruchomienie Jenkinsa:
+	docker run --name jenkins-blueocean --rm --detach ^
+	--network jenkins --env DOCKER_HOST=tcp://docker:2376 ^
+  	--env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=1 ^
+  	--volume jenkins-data:/var/jenkins_home ^
+  	--volume jenkins-docker-certs:/certs/client:ro ^
+  	--publish 8080:8080 --publish 50000:50000 myjenkins-blueocean:1.1
+
+	Odblokowanie Jenkinsa poprzez hasło uzyskane poprzez komendę:
+	sudo docker exec ${CONTAINER_ID or CONTAINER_NAME} cat /var/jenkins_home/secrets/initialAdminPassword
+	
+	Utworzenie Job'a w Jenkinsie, który ścięgnie repo z plikiem docker-compose i go uruchom
+	
+	

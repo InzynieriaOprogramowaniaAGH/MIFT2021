@@ -1,0 +1,9 @@
+1. Przełączyłem się na bracha Grupa08, a następnie na brancha osobistego Grupa08-HS306696_Lab03
+2. Dodałem git hooka do nowego folderu hooks w katalogu HS306696/Lab02
+3. Zainstalowalem dockera
+4. Utworzyłem konto na platformie dockerhub
+5. Utworzyłem dockerfile
+6. Zbudowałem obraz przy użyciu komendy sudo docker build -t myimage .
+7. Uruchomiłem kontener przy użyciu komendy -sudo docker run -it myimage bash
+8. Sklonowałem repo poleceniem git clone
+9. Wrzuciłem zadanie

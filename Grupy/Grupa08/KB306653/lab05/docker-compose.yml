@@ -1,0 +1,18 @@
+
+version: '3.3'
+
+services:
+ lab04-build:
+  container_name: lab04-app
+  image: node-app:latest
+  build:
+   context: .
+   dockerfile: Dockerfile.build
+ lab04-test:
+  container_name: lab04-test
+  image: node-test:latest
+  build:
+   context: .
+   dockerfile: Dockerfile.test
+  depends_on:
+  - lab04-build

@@ -1,0 +1,30 @@
+Sprawozdanie
+Metodyki DevOps
+Autor:Maciej Ogórek | Inżynieria Obliczeniowa
+Laboratorium nr.3
+
+1. Stworzyłem brancha osobistego.
+git checkout master
+git checkout Grupa08
+git branch Grupa08-MO306686_Lab03
+git checkout Grupa08-MO306686_Lab03
+
+2. Do folderu z poprzednich zajęć dodałem stworzonego git hooka.
+cd Lab02
+mkdir hooks
+mv commit-msg.txt hooks
+
+3. Zainstalowałem Dockera (polecenia na screenach).
+
+4. Zarejestrowałem konto na Dockerhubie.
+
+5. Stworzyłem plik Dockerfile i upewniłem się, że ma zainstalowanego gita.
+
+6. Uruchomiłem kontener.
+docker build -t test-image .
+docker run -it test-image bash
+
+6.1. Ściągnąłem repozytorium poleceniem:
+git clone adres repozytorium
+
+6.2. Sprawdziłem czy mój branch jest w repo

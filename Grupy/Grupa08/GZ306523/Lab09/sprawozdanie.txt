@@ -1,0 +1,2 @@
+1.Rozszerzenie Jenkinsfile o stage "Deploy" przenoszaca aplikacje do utworzonego kontenera. Jenkins powinien wysylac informacje zarowno o sukcesie jak i bledzie. 
+2.Podczas tworzenia joba w Jenkinsfile dodano opcje aby Jenkins sledzil zmiany na githubie co minute a nastepnie po jej wykryciu rozpoczynal caly proces 

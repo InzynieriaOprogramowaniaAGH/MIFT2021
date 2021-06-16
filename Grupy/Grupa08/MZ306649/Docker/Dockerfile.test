@@ -1,0 +1,5 @@
+FROM messenger-build:1.0
+
+EXPOSE 3000
+
+ENTRYPOINT ["npm", "start"]
