@@ -5,28 +5,7 @@ pipeline{
 	  }
 
 	stages{
-<<<<<<< HEAD
-		stage('Testing'){
-			steps{
-				echo 'Testing...'
-				sh 'npm install'
-				sh 'npm test'
-			}
-		}
-	}
-	
-	post {
-		failure {
-			mail to: 'wsmieja@student.agh.edu.pl',
-			subject: "Niepowodzenie testów w : ${currentBuild.fullDisplayName}",
-			body: "Faza testów w ${env.BUILD_URL} zakończyła się niepowodzeniem."
-		}
-		success {
-			mail to: 'wsmieja@student.agh.edu.pl',
-			subject: "Powodzenie testów w : ${currentBuild.fullDisplayName}",
-			body: "Faza testów w ${env.BUILD_URL} zakończyła się powodzeniem."
-=======
-		stage('Building'){
+		stage('Build'){
 			steps{
 				echo 'Building...'
                		sh 'git pull origin master'
@@ -45,7 +24,7 @@ pipeline{
 				}
 			}
 		}
-		stage('Testing'){
+		stage('Test'){
 			steps{
 				echo 'Testing...'
 				sh 'npm test'
@@ -62,7 +41,28 @@ pipeline{
 					body: "Faza testów w ${env.BUILD_URL} zakończyła się powodzeniem."
 				}
 			}
->>>>>>> bbd9a433144bf04fd244bd41810ea249a65c15df
+		}
+		stage('Deploy'){
+			steps{
+				echo 'Deploying...'
+				sh 'docker build -t node-chat-app:deploy -f deployment.Dockerfile .'
+				sh 'docker run -d node-chat-app:deploy'
+				
+			}
+			post {
+				failure {
+					mail to: 'wsmieja@student.agh.edu.pl',
+					subject: "Niepowodzenie wdrażania w : ${currentBuild.fullDisplayName}",
+					body: "Faza wdrażania w ${env.BUILD_URL} zakończyła się niepowodzeniem."
+				}
+				success {
+					mail to: 'wsmieja@student.agh.edu.pl',
+					subject: "Powodzenie wdrażania w : ${currentBuild.fullDisplayName}",
+					body: "Faza wdrażania w ${env.BUILD_URL} zakończyła się powodzeniem."
+				}
+			}
 		}
 	}
+	
+	
 }
