@@ -1,0 +1,30 @@
+Michał Zając - sprawozdanie Lab11
+
+1. Zainstalowano klaster Kubernetes.
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+2. Uruchomiono klaster.
+ minikube start
+ 
+3. Zainstalowanie poprawnej wersji kubectl.
+minikube kubectl -- get po -A
+
+4. Uruchomienie dashboard
+minikube dasboard
+
+5. Co można zrobić kożystająć z Minicube Dashboard:
+- wdrażanie aplikacji kontenerowych
+- rozwiązywanie problemów z aplikacją
+- zarządzanie zasobami klastra 
+- dostęp do przeglądu działających aplikacji w klastrze
+- modyfikowanie zasobów Kubernetes
+
+4 Uruchomianie kontener aplikacji.
+minikube kubectl run komunikator --image mzajac8/deltachat-desktop --port=9999 --labels app=komunikator
+Polecenie uruchomia aplikacje z kontenera Dockerowego.
+
+5. Przekierowanie portów
+minikube kubectl port-forward pod/komunikator 8080:9999
+
+
