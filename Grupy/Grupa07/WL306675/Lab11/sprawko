@@ -15,7 +15,7 @@
 4. minikube dashboard - w celu uruchomienia dashboarda
 
 
-3. 	minikube dashboard lista
+3. minikube dashboard lista
     - zarzadanie klastrami
     - jest pomocny w uruchamianiu aplikacji w kontenerach
     - pozwala na wrzucanie konfiguracji  YAML oraz JSON
@@ -23,11 +23,11 @@
     - pozwala na automatyczne zarządzanie zasobami
     - monitorowaine zasobów
     - automatyzacja oraz konfiguracja serwisów uruchamianych w kontenerach
-	  - automatyczne wdraża i wycofuje zmiany
+    - automatyczne wdraża i wycofuje zmiany
     - naprawa błędów instalacji oraz maszyn w klastrze
     - tworzenie oraz aktualizacja instancji aplikacji
     
-4. niestety nie udało się uruchomić kontenera: minikube kubectl -- run komunikator --image=wiktorligeza/Socket.io-deploy:latest --port=9999 --labels app=komunikator
+4. uruchomienie kontenera: minikube kubectl -- run komunikator --image=wiktorligeza/Socket.io-deploy:latest --port=9999 --labels app=komunikator
 
 
 5. port forwarding używając komendy: minikube kubectl port-forward komunikator 9999:3000
