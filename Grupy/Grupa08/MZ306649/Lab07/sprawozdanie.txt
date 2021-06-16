@@ -1,5 +1,15 @@
-Michał Zając - sprwozdanie Lab07
+Michał Zając - sprawozdanie Lab07
 
-Przebieg laboratorium.
-1. Skopiowano wszytkie pliki źródłowe do odpowiednich folderów - podział na wykorzystane technologie
+1. Utworzono odpowiednią strukturę katalogów na pliki różnych technologi.
 
+2. Utworzono fork na repo aplikacji deltachat.
+
+3. Utworzono plik Jenkinsfile ze stagem 'Test'.
+
+4. Dodano wtyczkę NodeJS do Jenkinsa.
+
+5. Utwrzonono pipeline.
+
+6. Skonfigurowano pipeline aby pobierany był kod źrdółowy z repozytorium git w którym znajduje się Jenkinsfile.
+
+7. Po uruchomieniu pipeline Jenkins poprawnie łączy się z repozytroum oraz poprawnie znajduje Jenkinsfile. Po dojściu do stage testowego i wykonaniu polecenia npm test występuje błąd. Próbowałem różnych rozwiązań, żadne nie działało. Nie wiem co robie źle. Prbolem był adresowany na ostanich zajęciach. 
