@@ -1,0 +1,29 @@
+zadanie_1
+
+Zarejestrowano w repozytorium z użytym komunikatorem webhook'a, który za każdym razem
+gdy na głównym branchu pojawia się commit, uruchom pipeline opisywany w Jenkinsfile.
+
+Zostosowano tunelowanie localhoosta poprzez wykorzystanie ngroka
+
+zadanie_2
+
+Wykazano i udokumentowano automatyczne wyzwalanie pipelin'a z pkt 1.
+
+zadanie_3
+
+Rozszerzono Jenkinsfila o nowy stage 'Deploy'
+
+zadanie_4
+
+W stagu 'Deploy upeniono się że:
+	- deploy jest wykoywany na dedykowany kontener dockerowy
+	- do deploya jest przekazywany artefakt stworzny w stage("Build") 
+	- użytkownik jest powiadamiany zarówno o sukcesie jak i porażce etapu wdrażania.
+
+zadanie_5
+
+Wykazano i udokumentowano że:
+	- pipeline jest zdefniowany w Jenkinsfile w repo z komunikatorem
+	- pipeline jest automatycznie wyzwalany
+	- pipeline przechodzi wszystkie etapy (stage build-test-deploy)
+	- pipeline obsługuje powiadamianie o rezlutatach każdego z etapów

@@ -1,0 +1,9 @@
+Michał Pastuszko Lab 12 Sprawozdanie
+
+1.Uruchomiono klaster Kubernetes. Uruchomiono minikube dashboard i udokumentowano jego działanie
+2.Zapoznano się z dokumentacją tworzenia manifestów dla obiektów "Deployment"
+3.Na podstawie dokumentacji i przykładowego "Deploymentu" utworzono plik komunikator-deployment.yaml zmieniając w przykładowym deploymencie nazwę na komunikator-deployment, app na komunikator, obraz na przygotowany wcześniej obraz na Dockerhubie oraz liczbę replik na 3.
+4.Zlecono klastrowi zrealizowanie utworzonego pliku poleceniem kubectl apply -f komunikator-deployment.yaml
+5.Udokumentowano stan klastra na screenie. Jak widać zgodnie z planem utworzone zostały 4 pody-repliki
+6.Zmieniono liczbę replik na 10, a następnie ponownie zrealizowano plik
+7.Ponownie udokumentowano stan klastra.

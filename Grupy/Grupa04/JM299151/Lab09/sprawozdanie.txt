@@ -1,0 +1,16 @@
+Sprawozdanie nr 9
+
+1. Zarejestrowanie w repozytorium webhook'a.
+
+2. Wykonanie sprawdzenie
+- automatyczne uruchomienie pipeline po wykonaniu commita 
+
+3. Rozszerzenie Jenkinsfile z Lab09 o nowy stage "Deploy".
+
+4. Zaimplementowanie "Deploy" aby:
+- deploy był wykonywany na dedykowany kontener dockerowy
+- do deploya był przekazywany artefakt stworzony w stage "Build"
+- użytkownik był informowany o sukcesie jak i porażce etapu wdrażania
+
+5. Wykonanie sprawdzenia i dokumentacja.
+

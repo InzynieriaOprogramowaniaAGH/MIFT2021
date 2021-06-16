@@ -1,0 +1,12 @@
+sprawozdanie, Lab12, Gr04, Kamil Osika
+
+1. Laboratoria rozpoczęto od uruchomienia minikube dashboard za pomocą polecenia ,,minikube dashboard"
+2. Po zapoznaniu się z dokumentacją tworzenia manifestów dla obiektów deployment stworzono plik o nazwie komunikator-deployment.yaml
+   Treść tego dokumentu znajduje się na zrzucie ekranu 4.1
+3. Gdy plik został już poprawnie stworzony zlecono klastrowi wykonanie instrukcji zawartych w pliku.
+   Zostało to wykonane za pomocą polecenia: kubectl apply -f komunikator-deployment.yaml
+   Odpowiedź kubernetesa w terminalu widoczna jest na zrzucie ekranu 5.1
+4. Sprawdzono poprawny deployment przez kubernetes dashboard (zrzut ekranu 6.1)
+5. Następnie wprowadzono zmiany w pliku dodając dwie dodatkowe repliki. Zmiany te mogą być zaobserwowane na zrzucie ekranu 7.1
+6. Po wprowadzeniu zmian zlecono klastrowi aktualizację (zrzut ekranu 7.2)
+7. Potwierdzenie stworzenia dwóch nowych replik widoczne jest na zrzucie ekranu 8.1.

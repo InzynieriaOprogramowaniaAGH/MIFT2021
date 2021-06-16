@@ -1,0 +1,10 @@
+1. Rozszerzyłem Jenkinsfile z Lab07 o nowy stage("Build")
+
+2. W stage("Build") upewniłem się że:
+- jest pobierana najnowsza wersja kodow źródłowych
+- program jest budowany
+- użytkownik jest powiadamiany zarówno o sukcesie jak i porażce etapu budowania
+
+3. Upewniłem się, że po zbudowaniu z sukcesem jest uruchamiany stage("Test"), ale po nieudanym budowaniu to się nie dzieje.
+
+4. Utworzyłem git "post-commit" hooka'a dla repozytorium z komunikatorem, który wyświetla wiadomość "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"

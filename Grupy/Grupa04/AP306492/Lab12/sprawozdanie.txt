@@ -1,0 +1,19 @@
+1. Uruchomiono klaster (lokalny) klaster Kubernetes (kubectl+Minikube) tak jak omawiany na Lab11.
+2. Uruchomiono Minikube Dashboard poleceniem: minikube dashboard i upewniono sie ze dziala
+
+3. Zapoznano sie z dokumentacja tworzenia manifestow dla obiektow "Deployment"
+
+4. Stworzono plik komunikator-deployment.yaml zgodnie z dokumentacja, zawierajacy:
+- nazwa: komunikator-deployment
+- app: komunikator
+- obraz z komunikatorem, jak na poprzednich zajeciach
+- 4 repliki
+
+5. Zlecono klastrowi zrealizowanie powyzszego pliku uzywajac polecenia:
+kubectl -- apply -f komunikator-deployment.yaml
+
+6. Udokumentowano stan klastra Kubernetes
+
+7. Wprowadzono zmiany w pliku, zmieniono ilosc replik na 6. Zlecono klastrowi aktualizacje jak w pkt 5
+
+8. Udokumentowano nowy stan klastra Kubernetes

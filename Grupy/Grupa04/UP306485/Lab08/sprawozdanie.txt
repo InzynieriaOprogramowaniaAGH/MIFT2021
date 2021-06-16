@@ -1,0 +1,7 @@
+1. Rozszerzylam swojego Jenkinsfile o etap budowania. 
+2. Upewnilam sie, ze w moim Jenkinsfile:
+	- jest pobierana najnowsza wersja repo z kodami zrodlowymi
+	- aplikacja jest budowana
+	- po zakonczeniu budowania aplikacji przeprowadzane sa testy, w razie niepowodzenia budowania wysylany jest email z powiadomieniem, a etap testow jest pomijany
+3. Przetestowalam dzialanie w przypadku sukcesu i niepowodzenia budowania.
+4. Napisalam git "post hook'a" dla repozytorium z komunikatem z wyswietlaniem odpowiedniej wiadomosci.

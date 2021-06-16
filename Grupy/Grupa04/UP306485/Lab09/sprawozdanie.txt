@@ -1,0 +1,18 @@
+1. W moim repozytorium z komunikatorem zarejestrowalam webhook'a, ktory za kazdym razem gdy pojawia sie commit, uruchamia pipeline z poprzednich zajec:
+	a. Uzylam lokalnego serwera, uzylam programu ngrok w celu uwidocznienia mojego lokalnego srodowiska w internecie
+	b. Utworzylam Webhook'a dla mojego repo z komunikatorem
+2. Za pomoca zrzutow ekranu udokumentowalam dzialanie automatycznego uruchamiania pipeline'a:
+	a. Commit na gicie
+	b. Dzialajacy pipeline
+	c. Ukonczony build uruchomiony po wykonaniu zmian na repo
+3. Zaktualizowalam Jenkinsfile - dodalam stage deploy.
+4. W stagu deploy zapewnilam, ze:
+	- wykonywany jest deploy na kontener dockerowy: 
+		$ sh 'docker build -t deploy -f Dockerfile-deploy .'
+	- do deploy'a jest przekazywany artefakt ze stagu 'build'
+	- uzytkownik jest powiadamiany o sukcesie - wypisywany jest komunikat, oraz o bledzie - wysylany jest email z logami dot. bledu.
+5. Udokumentowalam nastepujacymi screenami, ze:
+	a. Pipeline jest zdefiniowany w repoz komunikatorem
+	b. Pipeline jest automatycznie wyzwalany
+	c. Pipeline przechodzi wszystkie etapy
+	d. Pipeline obsluguje powiadamianie o rezultatach z kazdego etapu - zrzut ekranu maili otrzymanych po porazce ktoregos z etapow
