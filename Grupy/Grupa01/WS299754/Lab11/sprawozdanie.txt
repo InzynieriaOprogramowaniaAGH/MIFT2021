@@ -13,4 +13,9 @@
 	- zarządzanie zasobami klastra
 	- przegląd aplikacji uruchomionych na klastrze
 	- tworzenie Cron Jobs, Daemon Sets, Deployments, Jobs, Pods, Replica Sets, Replication Controllers, Stateful Sets
-
+4.  - Utworzenie deploymentu komunikator
+	minikube kubectl -- create deployment komunikator --image=wsmieja/node-chat-app
+- Przypisanie portu
+	minikube kubectl -- expose deployment komunikator --type=NodePort --port=3000
+- Uruchomienie usługi
+	minikube service komunikator
