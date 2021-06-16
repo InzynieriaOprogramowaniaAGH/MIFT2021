@@ -1,0 +1,42 @@
+1. Stworzylem brancha, na ktorym bede pracowal i od razu sie na niego przelaczylem:
+	git checkout -b "Grupa06-MT299769-Lab04"
+	
+1.1 Obraz z poprzednich zajec otagowalem:
+	sudo docker tag test-doc:latest tomaszzakiwnu1998/devops:myfirstpush
+    Wypchalem obraz na docerhuba:
+    	sudo coker push tomaszzakiwnu1998/devops:myfirstpush
+
+2. Znalazlem komunikator deltachat
+
+3. Utworzylem folder z dockerfilem obslugujacym builda
+	mkdir build
+   Stworzylem dockerfile'a w tym folderze za pomoca nano:
+   	nano Dockerfile
+   Dockerfile:
+   	FROM deltachat/coredeps
+
+	WORKDIR ./ci_scripts/docker-doxygen
+
+	CMD ["docker", "build"]
+
+	WORKDIR ./ci_scripts/docker-coredeps
+
+	CMD ["docker", "build"]
+   Zbudowanie obrazu:
+   	sudo docker build -t build .
+
+4.Utworzylem folder z dockerfilem obslugujacym test
+	mkdir test
+   Stworzylem dockerfile'a w tym folderze za pomoca nano:
+   	nano Dockerfile
+   Dockerfile:
+   	FROM build:latest
+
+	WORKDIR ["bash", "run_all.ssh"]
+
+	
+   Zbudowanie obrazu:
+   	sudo docker build -t test .
+   	
+5.
+	
