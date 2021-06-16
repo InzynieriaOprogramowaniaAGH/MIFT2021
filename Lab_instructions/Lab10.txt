@@ -28,3 +28,5 @@ Nazwa artefaktu | Technologia | Link do pliku w repo | Nr linii | Czy zgodnie z 
 
 
 Uwaga: zgłoś zadanie na MS Teams - plik PDF!
+
+Uwaga: zgłoś zadanie na MS Teams!
