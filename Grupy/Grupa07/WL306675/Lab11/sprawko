@@ -27,7 +27,7 @@
     - naprawa błędów instalacji oraz maszyn w klastrze
     - tworzenie oraz aktualizacja instancji aplikacji
     
-4. niestety nie udało się uruchomić kontenera: minikube kubectl -- run komunikator --image=Socket.io-deploy:latest --port=9999 --labels app=komunikator
+4. niestety nie udało się uruchomić kontenera: minikube kubectl -- run komunikator --image=wiktorligeza/Socket.io-deploy:latest --port=9999 --labels app=komunikator
 
 
 5. port forwarding używając komendy: minikube kubectl port-forward komunikator 9999:3000
