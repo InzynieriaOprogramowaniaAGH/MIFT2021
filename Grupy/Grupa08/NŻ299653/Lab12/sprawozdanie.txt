@@ -1,0 +1,22 @@
+1. Uruchomiłam lokalny klaster Kubernetes za pomocą:
+	- minikube start + minikube kubectl -- get po -A
+
+2. Uruchomiłam minikube dashboard
+
+3. Zapoznałam się z dokumentacją tworzenia manifestów dla obiektów "Deployment"
+
+4. Po zapoznaniu się z dokumentacją tworzenia manifestów dla obiektów "Deployment" stworzyłam plik komunikator-deployment.yaml, który zawiera:
+- nazwa: komunikator-deployment
+- app: komunikator
+- obraz z komunikatorem tak jak na poprzednich zajęciach
+- 4 repliki
+
+
+5. Zleciłam klastrowi zrealizowanie pliku za pomocą polecenia
+	- kubectl apply -f node-chat-deployment.yaml
+
+6. Stan klastra
+
+7. Wprowadziłam zmiany - zmieniłam ilość replik
+
+8. Ponowne wykonałam krok 5
