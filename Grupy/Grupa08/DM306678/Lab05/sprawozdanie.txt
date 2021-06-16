@@ -1,0 +1,27 @@
+1. Stworzenie kontenera dockerowego z Jenkinsem za pomocą:
+	docker network create jenkins
+	docker run \
+  		--name jenkins-docker \
+  		--rm \
+  		--detach \
+  		--privileged \
+  		--network jenkins \
+  		--network-alias docker \
+  		--env DOCKER_TLS_CERTDIR=/certs \
+  		--volume jenkins-docker-certs:/certs/client \
+  		--volume jenkins-data:/var/jenkins_home \
+  		--publish 2376:2376 \
+  		docker:dind \
+  		--storage-driver overlay2
+  		
+2. Stworzenie pliku Dockerfile
+
+3. Zbudowanie obrazu dockera: $ sudo docker build -t myjenkins-blueocean:1.1 .
+
+4. Uruchomienie jenkinsa i instalacja
+
+5. Utworzenie repo na dockerhubie i wrzucenie obrazu Jenkinsa
+	$ sudo docker tag local-image:tagname new-repo:tagname
+	$ sudo docker push new-repo:tagname
+	
+6. Uruchomienie docker-compose na Jenkinsie

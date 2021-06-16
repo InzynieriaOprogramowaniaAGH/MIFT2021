@@ -1,0 +1,8 @@
+1. Zapoznanie sie z oprogramowaniem Jenkins
+2. Stworzenie kontenera dockerowego Jenkins, stosujac instrukcje: stworzenie mostu sieciowego 'docker network create jenkins', uruchomienie konteneru z obrazu docker:dind. Nastepnie zbudowanie nowego obrazu 'docker build -t myjenkins-blueocean:1.1 .' korzystajac z nowego pliku Dockerfile. Potem uruchomienie myjenkins-blueocean:1.1 jako kontener. Na koniec wchodzimy w przegladarke na adres http://localhost:8080 aby odblokowac naszego Jenkinsa i stworzyc konto admin.
+3. Wrzucenie swojego Jenkinsa na dockerhub poleceniami: 'sudo docker tag ... wtycjan/jenkins-tycjan', 'sudo docker push wtycjan/jenkins-tycjan'
+4. Z poziomu Jenkinsa uruchomionego w kontenerze uruchomiono docker-compose, z poziomu Jenkinsa podpinamy repozytorium gitowe a nastepnie dodajemy komende shell:
+cd Grupy/Grupa08/TW306519/Lab04
+curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+docker-compose up

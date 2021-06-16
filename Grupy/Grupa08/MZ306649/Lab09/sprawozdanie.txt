@@ -1,0 +1,10 @@
+Michał Zając - sprawozdanie Lab09
+
+1. Zarejsetrowano w repozytorium z komunikatorem webhooka.
+
+2. W praktyce pipeline nie uruchamia się porawnie, localhost nie jest poprawnym url.
+
+3. Rozszerzono Jenkinsfile o stage('Deploy'). Deploy odbywa się na kontener dockerowy.
+
+4. Ze względu na problemy w poprzednich laboratoriach (aplikacja nie buduje się poprawnie) nie działa deploy.
+W teori wysztko wydaje się być poprawnie. Nie jestem w stanie tego sprawdzić praktycznie.

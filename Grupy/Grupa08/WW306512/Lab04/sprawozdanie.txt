@@ -1,0 +1,21 @@
+
+1.1 Stworzenie nowego brancah roboczego od brancha grupowego wedlug ustalonego nazewnicstwa 
+1.1 publikacja starego obrazu na docker hub
+-logowanie do docker hub :
+docker login --username=wanatwiktor
+-dodanie tag'a
+docker tag fbd3256ab6d5 wanatwiktor/devopsimage:properTag
+-push obrazu na docker hub
+docker push wanatwiktor/devopsimage
+
+2.Wybralem aplikacje chatowa -node chat app 
+
+3. Stworzenie dockerfile nr 1 do budowania obrazu powyzszego komunikatora i stworzenie obrazu za pomoca
+docker build -t komunikator .
+
+4. Stworzenie nowego obrazu kontenera dockerowego do testowania powyzszego komunikatora
+docker build -t komunikator-contener . -f Dockerfile2
+
+5. Stworzenie docker compose laczacego oba kontenery z punktu 3 i 4 i testujacego dzialanie wysylaja wiadomosc pomiedzy nimi
+
+docker-compose run

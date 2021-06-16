@@ -1,0 +1,20 @@
+1.Stworzenie nowego brancha na nowe laboratoria
+	git branch Grupa08-MO306686_Lab04
+2. Opublikowanie obrazu z poprzednich zajęć w serwisie docker
+	docker login --username=maciejogorek --password= ....
+	docker tag test-image maciejogorek/devops_lab
+	docker push maciejogorek/devops_lab
+3. Znalezienie komunikatora, w moim przypadku wybrałem node chat app
+	https://github.com/binhxn/node-chat-app
+4. Stworzenie dockerfile do budowania komunikatora
+	touch Dockerfile
+4.1 Stworzenie obrazu za pomocą stworzonego Dockerfile'a
+	docker build -t chatapp .
+5. Stworzenie nowego Dockerfile'a do testowania komunikatora
+	touch Dockerfile2
+5.1 Stworzenie nowego obrazu do testowania komunikatora
+	docker build -t chatapp-test . -f Dockerfile2
+6. Stworzenie pliku docker compose łączącego kontenery i testującego działanie komunikatora
+	touch docker-compose.yml
+6.1 Uruchomienie pliku docker compose i sprawdzenie działania
+	docker-compose up

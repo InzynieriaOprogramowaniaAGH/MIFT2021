@@ -1,0 +1,16 @@
+1. Na dockerhubie utworzono nowe repozytorium. 
+Zalogowano sie do dockerhuba w terminalu, otagowo nasz obraz. 
+Nastęnie, kiedy mial juz zgodna nazwę zpushowowano do repo.
+
+2. Następnie dodano prosty komunikator w języku js oparty na serwerze i kliencie.
+
+3. Utworzono odpowiedni Dockerfile
+
+4. Utworzono odpowiedni Dockerfile
+
+COPY- skopiowanie zawartości katalogu do kontenera
+WORKDIR- wybranie miejsca wywołania dalszych poleceń
+RUN- uruchomienie skryptu
+
+5. Utworzono plik docker-compose, a nastepnie użyto polecenia docker-compose up. W pliku ustatlamy wersje, ustaltamy ze kontenery dizela folder code, ustalamy zalęzności między nimi oraz uruchamiamy skrypt.
+

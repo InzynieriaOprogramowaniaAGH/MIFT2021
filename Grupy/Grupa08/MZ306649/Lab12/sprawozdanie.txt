@@ -1,0 +1,9 @@
+Michał Zając - sprawozdanie Lab12
+
+1. Pomyślnie uruchomiono minikube dashboard.
+
+2. Utworzono plike komunikator-deployment.yaml
+
+3. Wkonano polecenie minikube kubectl -- apply -f komunikator-deployment.yaml realizującego dany plik.
+
+4. Po zmianie liości replik w poliku komunikator-deployment.yaml zmieniła się ilośc podów.

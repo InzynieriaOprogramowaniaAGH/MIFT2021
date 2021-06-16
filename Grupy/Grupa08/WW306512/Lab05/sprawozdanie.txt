@@ -1,0 +1,37 @@
+1. Stworzenie branch'a do pracy z aktualnym tematem 
+2.Zapoznanie sie z oprogramowaniem Jenkins
+3.Stworzenie ksieci w dockerze
+	docker network create jenkins
+4. Uruchomienie jenkinsa na dockerze 
+	docker run --name jenkins-docker --rm --detach \
+ 	 --privileged --network jenkins --network-alias docker \
+ 	 --env DOCKER_TLS_CERTDIR=/certs \
+ 	 --volume jenkins-docker-certs:/certs/client \
+ 	 --volume jenkins-data:/var/jenkins_home \
+ 	 --publish 2376:2376 docker:dind --storage-driver overlay2
+5.Utworzenie pliku dockerfile
+6. Stworzenie obrazu z pliku Dockerfile
+	docker build -t myjenkins-blueocean:1.1 .
+7.Uruchomienie 
+	docker run --name jenkins-blueocean --rm --detach \
+  	--network jenkins --env DOCKER_HOST=tcp://docker:2376 \
+  	--env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=1 \
+ 	 --publish 8080:8080 --publish 50000:50000 \
+ 	 --volume jenkins-data:/var/jenkins_home \
+  	--volume jenkins-docker-certs:/certs/client:ro \
+ 	 myjenkins-blueocean:1.1
+8. Wrzucenie obrazu z tag'iem na docker-hub
+	docker push wanatwiktor/latest
+
+9.Obsluga jenkins'a
+Dostep do bash'a 
+	docker exec -it jenkins-blueocean bash
+Haslo znalezione w /var/jenkins_home/initialAdminPassword wykorzystalem do logowania na http://localhost:8080 
+gdzie po zainstalowaniu wtyczek moglem wykonac skrypt do budowania 
+10. Z poziomu Jenkinsa uruchomionego w kontenerze uruchomiłem docker-compose stworzony w ramach Lab04:
+
+- Jenkins jest uruchomiony w kontenerze
+- po Lab04 plik docker-compose.yaml jest w repozytorium 
+- z poziomu Jenkinsa ściągamy repo gdzie jest nasz plik docker-compose.yaml
+- Jenkins uruchamia plik docker-compose.yaml tworząc środowisko z Lab04
+- Wszystko wykonało się poprawnie

@@ -1,0 +1,7 @@
+ 1. Modyfikacja post-commita i konfiguracja tokenu/pipeline'u
+    curl -X POST -L --user dominiksabat:TOKEN(skopiowany numer) http://localhost:8080/job/Pipeline/build
+    
+ 2. Po commicie uruchamiany jest pipeline.
+ 3. Dopisano do Jenkinsfile'a część deploy:
+    sh 'docker build -t delta-chat -f Dockerfile-deploy .'
+ 4. Jenkinsfile był zawsze odpowiednio update'owany na repo z deltachat'em.

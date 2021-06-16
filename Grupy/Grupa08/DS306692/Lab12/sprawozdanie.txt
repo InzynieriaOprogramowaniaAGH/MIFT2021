@@ -1,0 +1,34 @@
+1. Kubernetes dziala
+2. Minikube dashboard dziala
+3. Zapoznalem sie
+4. Stworzylem plik deltachat-deployment.yaml:
+    apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deltachat-deployment
+  labels:
+    app: deltachat
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: deltachat
+  template:
+    metadata:
+      labels:
+        app: deltachat
+    spec:
+      containers:
+      - name: deltachat
+        image: dominiksabat/myjenkins-blueocean
+        ports:
+        - containerPort: 80
+        
+ 5. Zlecilem zrealizowanie pliku:
+    kubectl apply -f deltachat-deployment.yaml
+  
+ 6. Udokumentowałem
+  
+ 7. Wprowadziłem.
+ 8. Udokumentowałem.
+ 

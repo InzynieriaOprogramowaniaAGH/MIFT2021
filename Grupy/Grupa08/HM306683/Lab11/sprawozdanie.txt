@@ -1,0 +1,27 @@
+2.
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+Instalacja minikube.
+
+minikube start
+Uruchomienie klastra.
+
+minikube kubectl -- get po -A
+Instalacja wlasciwej wersji kubectl.
+
+3.
+minikube dashboard
+Uruchomienie dashbordu.
+
+3.1
+- wdrazac aplikacje kontenerowe na klaster Kubernetes, 
+- zarzadzac aplikacjami na klastrze,
+- zarzadzac zasobami klastra (takimi jak Deployments, Jobs, DaemonSets, etc),
+
+4.
+kubectl run komunikator --image=hubertmurawka/deltachat-dekstop --port=9999 --labels app=komunikator -- sleep infinity
+Uruchomienie kontenera w Kubernetes
+
+4.1
+kubectl port-forward pod/komunikator 4000:9999
+Dokonanie przekierowania portów w celu umożliwienia dostępu z zewnątrz
