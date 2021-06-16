@@ -1,0 +1,40 @@
+1. Wykorzystano ngroka w celu dodania webhooka. Nastepnie do repozytorium z kodem dodano webhooka.
+
+3. Rozszerzono Jenkinsfile o stage Deploy. W stage upewniono sie, ze deploy wykonywany jest na kontener dockerowy. Analogidznie jak w poprzednich stage dodano informacje mailowa o powodzeniu lub braku powodzenia wykonania stage:
+
+Przed pierwszym stage w Jenkinsfile dodano:
+
+environment {
+ 	registry = "pmroz13/jenkins"
+ 	registryCredential = "dockerhub"
+ 	dockerImage = ""
+ }
+
+Dodany deploy stage:
+
+stage ('Deploy'){
+		steps{
+			script {
+			docker.withRegistry( "", registryCredential ) {
+ 			dockerImage.push()
+ 			dockerImage.push("latest")}
+		}
+	}
+		post {
+				success{
+					mail to: 'paulinam260@gmail.com', 
+					subject: 'The pipeline ${currentBuild.fullDisplayName} 								tests succeeded'
+					body: 'test succeeded',
+ 					emailext attachLog: true
+				}
+				failure{
+					mail to: 'paulinam260@gmail.com', 
+					subject: 'The pipeline ${currentBuild.fullDisplayName} tests failed'
+					body: '${env.BUILD_URL}',
+emailext attachLog: true
+				}
+		}
+
+
+
+5. Upewniono sie, ze nowy Jenkinsfile znajduje sie w repozytorium z kodem zrodlowym.
