@@ -1,0 +1,38 @@
+Temat: Pipeline CI/CD - podstawy & testowanie.
+
+Uwaga: korzystamy z tego samego repo co w zeszłym tygodniu, czyli git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+Uwaga: wszystkie skrypty które tworzysz zamieszczaj w odpowiednim swoim folderze w repozytorium
+Uwaga: po wykonaniu każdego numerowanego polecenia, wykonaj zrzut ekranu z efektem twojej pracy - będzie to potrzebne później.
+Uwaga: w czasie wykonanywania zadania pisz plik "sprawozdanie.txt", zawierający treść instrukcji którymi się posłużyłeś do wykonania zadania.
+
+Uwaga: Zwróć uwagę by w komentarzu do commita zawrzeć czytelną informację w ramach którego ćwiczenia laboratoryjnego i którego zdania to robisz.
+Uwaga: Na mastera i branche grupowe wrzucamy zmiany tylko przez pull requesta! 
+
+
+
+1. Twoje "źródło prawdy" - umieść  (skopiuj) wszystkie pliki źródłowe (skrypty uruchamiające środowiska, Dockerfile, docker-compose.yaml, Jenkinsfile z tych zajęć też etc.) w repozytroium InzynieriaOprogramowaniaAGH/MIFT2021.git. 
+
+Uwaga: Zachowaj następujący porządek folderów:
+<twój folder>/<nazwa technologii>/<pliki> - np.: "KM123456/Docker/Dockerfile_rockechat_build"
+
+Uwaga: używaj znaczących deklaratywnych nazw, tak by sama nazwa pliku wskazywała do czego służy.
+
+2. Ze swojego planu CI/CD pipeline'a stworzonego na Lab06 wybierz ten punkt(y) które odpowiadają za "Uruchomienie szybkiego i niezawodnego testowania."
+
+2.1 Następnie stwórz Jenkinsfile i umieść go w repo z komunikatorem (to nie to samo repo co na skrypty z pkt 1!). 
+
+2.2 (opcjonalnie) Zwróć uwagę, że być może będziesz chciał zrobić "forka" na oryginalnym repo.
+
+2.3 W Jenkinsfile stwórz nowego Jenkins pipeline (przykład tutaj: https://www.jenkins.io/doc/book/pipeline/jenkinsfile/) , a w nim w sekcji "stages" nowy "stage('Test')".
+
+2.4 Wewnątrz Jenkinsfile w sekcji "stage('Test')" oskryptuj uruchaminia testów dla aplikacji z pkt. 2.1 - zwróć uwagę, by:
+- log z efektami testowania trafił do użytkownika ("powiadamianie o rezultatach")
+- wykryj i obsłuż przypadek gdy
+-- testy się powiodły (100%)
+-- testy się nie powiodły (< 100%)
+
+3. Wykonaj i wykaż przykład wykonania tych testów z użyciem Jenkinsfile.
+
+4. Wrzuć Jenkinsfile na repo z pkt 1.
+
+Uwaga: zgłoś zadanie na MS Teams!

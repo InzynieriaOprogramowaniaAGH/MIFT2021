@@ -1,6 +1,0 @@
-1) sudo apt install git
-2) git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git
-4) git checkout -b JS296512
-5) git add sprawozdanie.txt
-git commit -m "something"
-git push origin JS296512

@@ -1,0 +1,43 @@
+1. wygenerowałem klucz ssh do łączenia się z repozytorium ssh
+
+ssh-keygen -t ed25519 -C "mstabryla@op.pl"
+
+Uruchomiłem ssh-agent
+
+eval `ssh-agent -s`
+
+I dodałem klucz do agenta
+
+ssh-add ~/.ssh/id_ed25519
+
+I nastepnie przypisałem klucz ssh do konta
+
+Na końcu użyłem klucza ssh do połączenia z repozytorium
+
+
+2. Dodałem commit z odpowiednim tagiem
+
+git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+
+git tag -a MS306499_Lab02_1 -m "MS306499_Lab02_1"
+
+
+3. Przeniosłem swój folder do nowej lokalizacji
+
+oraz stworzyłem nowy branch i dodałem do niego zmiany z poprzedniego brancha
+
+git merge MS306499
+
+4. Rozpocząłem tworzyć skrypt hooks commit-msg
+
+działa on w taki sposób:
+
+word="MS306499"
+isPresent=$(grep ^"$word" $1)
+
+if [[ -z $isPresent ]]
+  then echo "Commit message KO, $word is not at the beggining "; exit 1;
+  else echo "Commit message OK"; exit 0;
+fi
+
+5. Zrobiłem pusha na brancha grupowego

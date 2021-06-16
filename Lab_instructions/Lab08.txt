@@ -1,0 +1,24 @@
+Temat: Pipeline CI/CD - automatyczne budowanie.
+
+Uwaga: korzystamy z tego samego repo co w zeszłym tygodniu, czyli git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+Uwaga: wszystkie skrypty które tworzysz zamieszczaj w odpowiednim swoim folderze w repozytorium
+Uwaga: po wykonaniu każdego numerowanego polecenia, wykonaj zrzut ekranu z efektem twojej pracy - będzie to potrzebne później.
+Uwaga: w czasie wykonanywania zadania pisz plik "sprawozdanie.txt", zawierający treść instrukcji którymi się posłużyłeś do wykonania zadania.
+
+Uwaga: Zwróć uwagę by w komentarzu do commita zawrzeć czytelną informację w ramach którego ćwiczenia laboratoryjnego i którego zdania to robisz.
+Uwaga: Na mastera i branche grupowe wrzucamy zmiany tylko przez pull requesta! 
+
+
+1. Rozszerz Jenkinsfile z Lab07 o nowy stage("Build") - dokumnetacja z dostępnymi poleceniami jest tu: https://www.jenkins.io/doc/book/pipeline/jenkinsfile/.
+
+2. W stage("Build") upewnij się że:
+- jest pobierana najnowsza wersja kodów źródłowych z repozytorium
+- program jest budowany
+- użytkownik jest powiadamiany zarówno o sukcesie jak i porażce etapu budowania.
+
+3. Upewnij się, że po zbudowaniu z sukcesem jest uruchamiany stage("Test"), ale po nieudanym budowaniu to się nie dzieje.
+
+4. Napisz git "post-commit" hook'a (https://www.git-scm.com/docs/githooks#_post_commit) dla repozytorium z komunikatorem, który wyświetla wiadomość "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie".
+
+
+Uwaga: zgłoś zadanie na MS Teams!

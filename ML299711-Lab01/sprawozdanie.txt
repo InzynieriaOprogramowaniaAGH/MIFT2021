@@ -1,8 +1,0 @@
-1. Do pobrania repozytorium użyłem komendy: git clone <adres_repozytorium>
-2. Utworzenie nowego brancha komendą: git checkout -b "ML299711"
-	a) stworzenie w nowej gałęzi folderu ML299711-Lab01 komendą mkdir
-	b) stworzenie pliku sprawozdanie.txt komendą touch
-	c) dodanie pliku do repozytorium komendą - git add sprawozdanie.txt
-3. Napisanie tego co jest w tym pliku i wrzucanie kolejnych commitów za pomocą poelecenia - git commit -m "WIADOMOSC"
-4. Pushowanie zamian komendą git push origin ML299711
-5. Mergowanie gałęzi z masterem: git merge master ML299711

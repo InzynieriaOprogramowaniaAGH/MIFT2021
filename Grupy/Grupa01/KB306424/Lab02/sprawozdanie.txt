@@ -1,4 +1,4 @@
-Tworzenie klucza ssh za pomoca polecenia "ssh-keygen -t ed25519 -C "e-mail" -f nazwa_klucza"
+Tworzenie klucza ssh w folderze .ssh za pomoca polecenia "ssh-keygen -t ed25519 -C "e-mail" -f nazwa_klucza"
 Podanie hasla do klucza ssh, czyli passphrase.
 Utworzenie agenta ssh do obslugi klucza ssh za pomoca polecenia "eval "$(ssh-agent -s)""
 Zarejestrowanie klucza po stronie serwera za pomoca polecenia "ssh-add ~/.ssh/nazwa_klucza"
@@ -9,9 +9,9 @@ Nadanie tagu na commita za pomoca polecenia "git tag -a KB306424_Lab02 -m "komen
 Wykonanie push'a za pomoca polecenia "git push origin KB306424 --follow-tags"
 Utworzenie sciezki i uporzadkowanie folderow w sposob "Grupy/Grupa01/KB306424/Lab02"
 Mergowanie brancha z numerem indeksu do brancha Grupa01 "git merge KB306424" na branchu Grupa01
-Usuniecie branchy wykonano za pomoca polecenia "git branch -d nazwa_brancha"
+Utworzenie nowego brancha Grupa01-KB306424_Lab02 za pomoca polecenia "git branch Grupa01-KB306424_Lab02"
 
-Tresc utworzonego git hooke'a:
+Tresc utworzonego git hooke'a o nazwie commit-msg:
 #!/bin/bash
 string='KB306424*'
 message="Commit has been aborted"
@@ -21,5 +21,9 @@ if ! grep -iqE "$string" "$1"; then
 fi
 echo "Commit message includes pattern!"
 
-Nalezalo nadac hooke'owi uprawnienia za pomoca polecenia "chmod +x nazwa_hooke'a"
-
+Nalezalo nadac hooke'owi uprawnienia za pomoca polecenia "chmod +x commit-msg"
+Po dodaniu wszystkich zmian wykonano pusha za pomoca polecenia "git push origin Grupa01-KB306424_Lab02"
+Zmiana brancha na Grupa01 za pomoca polecenia "git checkout Grupa01" i wykonanie merge'a "git merge Grupa01-KB306424_Lab02"
+Usuniecie osobistych branchy lokalnie wykonano za pomoca polecenia "git branch -d nazwa_brancha"
+Osobiste branche na remocie usunieto poprzez opcje "Usun" na GitHubie
+Jako ze jedna osoba z grupy utworzyla juz pull requesta, kolejne commity byly automatycznie dodawane do niego

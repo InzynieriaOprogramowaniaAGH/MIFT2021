@@ -1,0 +1,31 @@
+1) Zmiana polaczenia do repo z https na SSH
+- wygenerowanie klucza SSH: ssh-keygen -t ed25519 -C "<email>"
+- wystartowanie ssh-agent: eval `ssh-agent -s`
+- dodanie klucza do ssh-agent: ssh-add ~/.ssh/id_ed25519
+- zarejestrowanie klucza po stronie serwera: skopiowanie klucza do ustawien konta na Githubie
+- zmiana sposobu logowania na kliencie: git remote set-url origin <adres>
+
+2) Nadanie Taga na commita
+- utworzenie commita: git commit -m "<wiadomosc>"
+- utworzenie taga: git tag -a SS306502_Lab02 -m <wiadomosc>""
+- push na swojego brancha: git push --follow-tags SS306502
+
+3) Porzadkowanie struktury repo- nowe branche, foldery itd
+- przeniesienie folderu osobistego do lokalizacji Grupy/Grupa05
+- wrzucenie zmiany na repo
+- utworzenie brancha labowego: git checkout -b Grupa05-SS306502_Lab02
+- merge starego brancha: git merge SS306502
+4) Napisanie git hooka weryfikujacego czy w wiadomosci commita jest SS306502
+- utworzenie pliku commit-msg w .git/hooks:
+	#!/usr/bin/env bash
+	message='SS306502'
+
+	if ! grep "$message" "$1"; then
+	 echo "[POLICY] Message not formatted correctly"; exit 1;
+	 else exit 0;
+	fi
+5) Finalne zmiany
+- uzupelnienie sprawozdania
+- push wszystkiego na brancha grupowego
+- usuniecie brancha labowego
+- pull request do mastera
