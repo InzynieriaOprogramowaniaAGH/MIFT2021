@@ -1,0 +1,43 @@
+1. Do wykonania ćwiczenia został uruchomiony lokalnie klaster Kubernetes (kubectl oraz Minikube) tak, jak na poprzednich
+   zajęciach (Lab11).
+
+2. Został uruchomiony Minikube Dashboard za pomocą polecenia
+	$ minikube dashboard
+
+3. Zapoznałam się z dokumentacją tworzenia manifestów dla obiektow "Deployment".
+
+4. Utworzyłam plik komunikator-deployment.yaml, który zawierał:
+   nazwę: komunikator-deployment
+   app: komunikator
+   obraz z komunikatorem tak jak na poprzednich zajęciach
+   4 repliki
+
+  Treść pliku przedstawia się następująco:
+	apiVersion: apps/v1
+	kind: Deployment
+	metadata:
+    	name: komunikator-deployment
+    	labels:
+        	app: komunikator2
+	spec:
+    	replicas: 4
+    	selector:
+        	matchLabels:
+            	app: komunikator2
+    	template:
+        	metadata:
+            	labels:
+                	app: komunikator2
+        	spec:
+            	containers:
+                	- name: komunikator2
+                  	image: kingsaszas/socketio:messenger
+                  	ports:
+                  	- containerPort: 9999
+  	
+5. Zrealizowałam powyższy plik używając polecenia:
+	$ kubectl apply -f komunikator-deployment.yaml
+
+6. Wprowadziłam zmiany w pliku - zmieniłam ilość replik z 4 na 6.
+
+7. Udokumentowałam nowy stan klastra.

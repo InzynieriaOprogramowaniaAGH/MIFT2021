@@ -1,0 +1,24 @@
+1. Wykorzystano kontener z poprzednich zajęć.
+
+2. Zalogowano się przy pomocy maila studenckiego do MS Azure i zarejestrowano darmowe konto.
+
+3. Zapoznano się z cennikiem dla Azure Container Instances
+
+4. Zapoznano się z tym jak korzystać z basha w Azure Cloud Shell.
+
+5. Zainstalowano Azure CLI w systemie Windows. Zapoznano się z instrukcją uruchamiania kontenerów w ACI.
+
+6. Zalogowano się w Azure
+	$ az login
+
+7. Stworzono grupę zasobów
+	$ az group create --name myResources --location germanywestcentral
+
+8. Stworzono kontener w chmurze
+	$ az container create --resource-group myResources --name my-delta --image krzysztofgac/myjenkins-blueocean:lab5 --dsn-name-label krzysztofgac-deltachat --ports 3000
+
+9. Sprawdzono działanie aplikacji
+	$ az container show --resource-group myResources --name my-delta --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
+
+10. Sprawdzono logi
+	$ az container logs --resource-group myResources --name my-delta

@@ -1,0 +1,32 @@
+1 i 2 : Klaster jak i Dashboard uruchomily sie tak jak na poprzednich zajeciach.
+3. Zapoznałem się
+4. Na podstawie dokumentacji został utworzony dokument :
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: komunikator-deployment
+  labels:
+    app: komunikator
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: komunikator
+  template:
+    metadata:
+      labels:
+        app: komunikator
+    spec:
+      containers:
+      - name: komunikator
+        image: sebastianhalik/lab5:firsttry
+        ports:
+        - containerPort: 80
+
+
+5. Przy wykorzystaniu komendy : "kubectl apply -f komunikator-deployment.yaml" konfiguracja została utworzona załadowana do klastra
+6. Klaster odpalil prawidłowo
+7. Zmieniono ilosc podsów na 6 oraz komenda z podpunktu 5 zaktualizowano konfiguracje
+8. Klaster również działa poprawnie. Na screenie pojawił się kawałek czerwonego koloru oznaczającey niepowodzenia, ale ma to związek z ostatnimi zajęciami, gdyż zostało po nich zadanie, które nie przeładowało się poprawnie. Co dziwne w przypadku 4 klastrów zadziałało to.
+W Deplyomenst mimo wszystko widzimy, ze wszystkie pody prawidlowo startują. 

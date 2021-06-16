@@ -1,4 +1,6 @@
-Z gory chcialbym poinformowac, ze mam problem ze screenami, gdyz w trakcie zajec robilem zrzuty ekranu. Niestety nie wiem dlaczego one sie nie zapisaly. Teraz probujac screenowac cokolwiek, miejsce w ktorym powinny sie one znajdowac jest puste.
+Edit 1: Z gory chcialbym poinformowac, ze mam problem ze screenami, gdyz w trakcie zajec robilem zrzuty ekranu. Niestety nie wiem dlaczego one sie nie zapisaly. Teraz probujac screenowac cokolwiek, miejsce w ktorym powinny sie one znajdowac jest puste.
+
+Edit 2: Przesylam to sprawozdanie z dlugim opoznieniem z uwagi na problem z gitem ktorego nie moglem rozwiklac
 
 1. Tworze brancha na czas zajec:
 	git checkout -b Grupa07-DK306669_Lab03
