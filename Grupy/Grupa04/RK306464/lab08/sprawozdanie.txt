@@ -1,0 +1,4 @@
+1. Dodałem do Jenkinsfile stworzonego na poprzednich zajęciach stage Build, a następnie przystąpiłem do przetestowania wprowadzonej zmiany
+2. Podczas testowania potwierdziło się że program pipeline działa poprawnie, Po zbudowaniu aplikacji użytkownik powiadamiany jest o rezultatach.
+3. Po dalszym testowaniu aplikacji i po drobnych modyfikacjach w Jenkinsfile które powodowały failowanie builda testy nie uruchamiają się. W przypadku gdy build jest OK testy przechodzą. 
+4. Utworzyłem post-commit git hooka, zgodnie z instrukcją.
