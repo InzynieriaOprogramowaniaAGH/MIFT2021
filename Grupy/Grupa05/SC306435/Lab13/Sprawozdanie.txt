@@ -1,0 +1,28 @@
+Zadanie zacząłem od stworzenia brancha tymczasowego, który zostanie usunięty po pull wykonanym requeście.
+
+Przeczytałem informacje zawarte w linkach z instrukcji ćwiczenia.
+Zapoznałem się z cennikiem usług azure i sprawdziłem balans kredytów przydzielany studentom jaki mi pozostał.
+Przeszedłem do wykonanywania poleceń. 
+
+Po otworzeniu azure CLI:
+
+1. Wyświetliłem listę subskrybcji do których mam dostęp:
+az account list
+
+2. Wybrałem jedyną która się wyświetliła wpisując jej nazwę:
+az account set --subscription 'Azure dla studentów'
+
+3. Sprawdziłem listę dostępnych lokalizacji:
+az account list-locations
+
+4. Stworzyłem grupę poleceniem:
+az group create --location germanywestcentral --name MyRG
+
+6. Stworzyłem kontener poleceniem:
+az container create --resource-group myRG --name mycontainer --image scaaz/myjenkins-blueocean:1.1
+
+7. Wyświetliłem jego adres oraz status:
+az container show --resource-group myRG --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
+
+Po wyświetleniu i sprawdzeniu, że aplikacja działa przystąpiłem do usunięcia kontenera:
+az container delete --resource-group myRG--name mycontainer
