@@ -1,4 +1,5 @@
 4. Stworzenie pliku komunikator-deployment.yaml:
 5. Zrealizowanie pliku:
   kubectl apply -f komunikator-deployment.yaml
+W klastrze zostały utworzone: deployment, 4 pody i replica set
 6. Zmiana zawartosci pliku i ponowne zrealizowanie go (polecenie z punktu 5.)
