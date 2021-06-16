@@ -41,4 +41,4 @@
     COPY . Socket.io-Messenger/
     WORKDIR Socket.io-Messenger
 
-5. Niestety po mimo wielu prób nie udało się uruchomić poprawnie stage("Deploy").
+5. Stage("Deploy") został uruchomiony.
