@@ -1,0 +1,20 @@
+Sprawozdanie Lab12
+
+1. Do wykonania æwiczenia u¿yto lokalny klaster z poprzednich zajêæ.
+
+2. Uruchomiono Minikube Dashboard poleceniem "minikube dashboard" i upewniono siê, ¿e dzia³a.
+
+3. Zapoznano siê z dokumentacj¹ tworzenia manifestów dla obiektów "Deployment".
+
+4. Stworzono zgodnie z powy¿sz± dokumentacj± plik komunikator-deployment.yml zawieraj±cy:
+   - nazwa: komunikator-deployment
+   - app:komunikator
+   - obraz z komunikatorem tak jak na poprzednich zajêciach
+   - 2 repliki
+
+5. Zlecono klastrowi zrealizowanie powy¿szego pliku za pomoc± polecenia:
+"kubectl apply -f komunikator-deployment.yml"
+
+6. Nastêpnie po sprawdzeniu poprawno¶ci dzia³ania wprowadzono zmiany w pliku zwiêkszaj±ce ilo¶æ replik do 5.
+Tym razem okaza³o siê, i¿ wyst±pi³ b³±d najprawopodobniej niezwi±zany z komunikatorem lecz z Kubernetes.
+   
