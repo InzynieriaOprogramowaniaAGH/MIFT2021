@@ -1,11 +1,8 @@
 Sprawozdanie Lab11
 
-1. Podjêto próbê instalacji minikube na wirtulaniej maszynie z uruchomionym ubuntu. W tym celu w biosie uruchomiono virtualizacjê
-(zmieniono na enable) oraz w ustawieniach VirtualBox zaznaczono opcjê "Enable Nested VT-x/AMD-V. Wcze¶niej wykonano jeszcze polecenie
-"VBoxManage modifyvm Ubuntu --nested-hw-virt on" w celu odblokowania odpowiedniej opcji w VirtualBox. Niestety nie uda³o siê uruchomiæ
-minikube, gdy¿ okaza³o siê, ¿e wymagania minikube odno¶nie ilo¶ci procesorów nie zosta³y spe³nione.
+1. Podjêto próbê instalacji minikube na wirtulaniej maszynie z uruchomionym ubuntu. W tym celu w biosie uruchomiono virtualizacjê (zmieniono na enable) oraz w ustawieniach VirtualBox zaznaczono opcjê "Enable Nested VT-x/AMD-V. Wczeœniej wykonano jeszcze polecenie "VBoxManage modifyvm Ubuntu --nested-hw-virt on" w celu odblokowania odpowiedniej opcji w VirtualBox. Niestety nie uda³o siê uruchomiæ minikube, gdy¿ okaza³o siê, wymagania minikube odnoœnie iloœci procesorów nie zosta³y spe³nione.
 
-2. W zwi±zku z powy¿szym, pobrano wersjê na Windows'a. Minikube uruchomiono poleceniem "minikube start".
+2. W zwi¹zku z powy¿szym, pobrano wersjê na Windows'a. Minikube uruchomiono poleceniem "minikube start".
 
 3. Doinstalowano kubectl, za pomoc¹ komendy "minikube kubectl -- get po -A".
 
@@ -18,7 +15,6 @@ minikube, gdy¿ okaza³o siê, ¿e wymagania minikube odno¶nie ilo¶ci procesorów nie
    - tworzenie i modyfikowanie zasobów,
    - monitorowanie aplikacji.
 
-6. Uruchomiono kontener z komunikatorem w Kubernetes, za pomoc± polecenia:
-"kubectl run delta-chat --image=pfedirko/delta-chat:tagname --port=9999 --labels app=delta-chat".
+6. Uruchomiono kontener z komunikatorem w Kubernetes, za pomoc¹ polecenia "kubectl run komunikator --image=pfedirko/chat --port=9999 --labels app=komunikator".
 
-7. Na koniec przekierowano porty poleceniem "kubectl port-forward pod/delta-chat 9999:8080"
+7. Na koniec przekierowano porty poleceniem "kubectl port-forward pod/komunikator 9999:8080"
