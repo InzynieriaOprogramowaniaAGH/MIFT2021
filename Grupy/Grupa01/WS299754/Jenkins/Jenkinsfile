@@ -42,5 +42,25 @@ pipeline{
 				}
 			}
 		}
+		stage('Deploy'){
+			steps{
+				echo 'Deploying...'
+				sh 'docker image build -t node-chat-app:deploy -f deployment.Dockerfile .'
+				sh 'docker run -d node-chat-app:deploy'
+				
+			}
+			post {
+				failure {
+					mail to: 'wsmieja@student.agh.edu.pl',
+					subject: "Niepowodzenie wdrażania w : ${currentBuild.fullDisplayName}",
+					body: "Faza wdrażania w ${env.BUILD_URL} zakończyła się niepowodzeniem."
+				}
+				success {
+					mail to: 'wsmieja@student.agh.edu.pl',
+					subject: "Powodzenie wdrażania w : ${currentBuild.fullDisplayName}",
+					body: "Faza wdrażania w ${env.BUILD_URL} zakończyła się powodzeniem."
+				}
+			}
+		}
 	}
 }
