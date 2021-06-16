@@ -1,0 +1,31 @@
+pipeline{
+    agent any
+
+tools {nodejs "nd"}
+
+    stages{
+        stage('Test'){
+            steps{
+                echo 'App is testing'
+                sh 'npm install'
+                sh 'npm run test' 
+            }     
+        }    
+    }
+    post{
+        failure{
+            emailext attachLog: true,
+                body: "${currentBuild.currentResult}: ${currentBuild.fullDisplayName}",
+                to: 'radekk467@gmail.com',
+                subject: "Jenkins build failed ${env.BUILD_NUMBER}"
+        }
+        success{
+            emailext attachLog: true,
+                body: "${currentBuild.currentResult}: ${currentBuild.fullDisplayName}",
+                to: 'radekk467@gmail.com',
+                subject: "Jenkins build succeed ${env.BUILD_NUMBER}"
+        }
+    } 
+
+
+}

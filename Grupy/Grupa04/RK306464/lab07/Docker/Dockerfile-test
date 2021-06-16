@@ -1,0 +1,2 @@
+FROM rkraj/chat-app
+ENTRYPOINT [ "npm", "run", "test" ]
