@@ -1,0 +1,23 @@
+
+1. Do wykonania cwiczenia zostal uzyty klaster Kubernetes z ostatnich labow
+
+2. Uruchomiony zostal Minikube Dashboard - minikube dashboard
+
+3. Zapoznalem sie z dokumentacja tworzenia manifestow
+	dla obiektow Deployment
+	
+4. Stworzony zostal plik komunikator-deployment.yaml taki ze:
+	- nazwa to komunikator-deployment,
+	- app to komunikator,
+	- wykorzystany jest obraz z komunikatorem z poprzednich labow
+	- stworzone maja zostac 4 repliki
+	
+5. Zlecenie klastrowi zrealizowania powyzszego pliku - 
+	minikube kubectl -- apply -f komunikator-deployment.yaml 
+	
+6. Udokumentowanie screenshotami stanu klastra
+
+7. Wprowadzenie zmiany w pliku(ilosc replik) i zlecenie
+	klastrowi aktualizacji
+	
+8. Udokumentowanie screenshotami stanu klastra 

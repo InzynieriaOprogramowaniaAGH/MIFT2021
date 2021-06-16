@@ -1,0 +1,13 @@
+1. Uruchomile klaster kubernetesa stworzony podczas poprzednich zajec poleceniem:
+minkube dashboard
+
+2. Zapoznalem sie z dokumentacja
+
+3. Stworzylem: komunikator-deployment.yaml
+
+4. Rozkazalem klastrowi zrealizowanie pliku:
+kubectl apply -f komunikator-deployment.yaml
+
+5.Zmienilem ilosc replik na 7
+kubectl apply -f komunikator-deployment.yaml
+

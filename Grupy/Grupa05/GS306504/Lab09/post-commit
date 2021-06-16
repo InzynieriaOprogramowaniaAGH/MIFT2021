@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "Wlasnie ten git hook wykonal uruchomienie pipeline, zobacz sam w jenkins dashboardzie jak nie wierzysz"
+
+curl -u admin:UKRYTE -X POST http://localhost:8080/job/node-chat-pipeline/build?token=UKRYTE

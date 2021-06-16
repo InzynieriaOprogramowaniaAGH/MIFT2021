@@ -1,0 +1,24 @@
+1. Posiadalem wczesniej zbudowany obraz dockerowy
+2. Zainstalowalem klaster kubernetesowy
+
+wykonalem to za pomoca polecen:
+    -curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 (pobranie instalatora)
+    -sudo install minikube-linux-amd64 /usr/local/bin/minikube //instala (uruchomienie instalatora)
+    -sudo usermod -aG docker $USER && newgrp docker (dodanie usera do grupy)
+    -minikube start --driver=docker (uruchomienie klastra)
+    -minikube kubectl -- get po -A (pobranie odpowiedniej wersji kubectl)
+
+3. Wlaczenie minikuba:
+minikube dashboard
+
+4. Za pomoca minikuba mozna:
+-zarzadzac zasobami i kontrolowac ich zuzycie
+-zarzadzac jobami
+-zarzadzac klastrami
+-kontrolowac pody
+
+5. Stworzylem poda:
+    kubectl run komunikator --image=Swistusmen/myjenkins-blueocean:1.1 --port=9999 --labels app=komunikator
+
+6. Port forwarding:
+    -kubectl port-forward deploy/komunikator 8080:9999

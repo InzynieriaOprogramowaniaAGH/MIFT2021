@@ -10,11 +10,8 @@ Uwaga: Na mastera i branche grupowe wrzucamy zmiany tylko przez pull requesta!
 
 
 
-<<<<<<< HEAD
-1. Twoje "źródło prawdy" - umieść wszystkie pliki źródłowe (skrypty uruchamiające środowiska, Dockerfile, docker-compose.yaml, Jenkinsfile etc.) w repozytroium InzynieriaOprogramowaniaAGH/MIFT2021.git. 
-=======
+
 1. Twoje "źródło prawdy" - umieść  (skopiuj) wszystkie pliki źródłowe (skrypty uruchamiające środowiska, Dockerfile, docker-compose.yaml, Jenkinsfile z tych zajęć też etc.) w repozytroium InzynieriaOprogramowaniaAGH/MIFT2021.git. 
->>>>>>> master
 
 Uwaga: Zachowaj następujący porządek folderów:
 <twój folder>/<nazwa technologii>/<pliki> - np.: "KM123456/Docker/Dockerfile_rockechat_build"

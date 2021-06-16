@@ -1,0 +1,21 @@
+Zacząłem od stworzenia brancha osobistego, który zostanie usunięty po pull requeście.
+
+
+1. Uruchomiłem minikube:
+minikube start
+
+2. Uruchomiłem dashboard:
+minikube dashboard
+
+3. Po przeczytaniu dokumentacji stworzyłem komunikator-deployment.yaml zawierający 4 repliki
+
+4. Zleciłem klastrowi zrealizowanie powyższego pliku:
+kubectl apply -f komunikator-deployment.yaml
+
+5. Stan klastra udokumentowałem zrzutem ekranu
+
+5. Zmieniłem ilość replik w pliku na 7 oraz zleciłem zrealizowanie:
+kubectl apply -f komunikator-deployment.yaml
+
+6. Udokumentowałem zrzutem ekranu stan klastra z 7 replikami
+wrzuciłem także zrzut ekranu konsoli w której widać 'created' oraz 'configured'

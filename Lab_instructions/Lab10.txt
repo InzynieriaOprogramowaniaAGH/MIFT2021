@@ -18,6 +18,7 @@ Uwaga: Na mastera i branche grupowe wrzucamy zmiany tylko przez pull requesta!
 Zaznaczyć czerwonym kolorem wszystkie które się nie pojawiły lub pojawiły nowe wzglęm oryginalnego planu.
 
 2.3 Diagram wdrożeniowy (UML Deployment Diagram). Należy go dostosować do ZAIMPLEMENTOWANEJ rzeczywistości.
+
 Zaznaczyć czerwonym kolorem wszystkie które się nie pojawiły lub pojawiły nowe wzglęm oryginalnego planu.
 
 2.4 Tabelaryczne zestawienie do diagramu 2.2  przedstawiające:
@@ -28,3 +29,13 @@ Nazwa elementu | Technologia | Link do pliku w repo | Nr linii | Czy zgodnie z p
 
 
 Uwaga: zgłoś zadanie na MS Teams!
+
+Zaznaczyć czerwonym kolorem wszystkie które się nie pojawiły lub pojawiły nowe względm oryginalnego planu.
+
+2.4 Tabelaryczne zestawienie do diagramu 2.2  przedstawiające:
+Nazwa kroku | Technologia | Linku do pliku konfigurującego  (repo) | Nr linii | Czy zgodnie z planem + komentarz
+
+2.5 Tabelaryczne zestawienie do diagramu 2.3  przedstawiające:
+Nazwa artefaktu | Technologia | Link do pliku w repo | Nr linii | Czy zgodnie z planem  + komentarz
+
+

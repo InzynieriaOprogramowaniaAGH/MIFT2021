@@ -1,0 +1,11 @@
+1. Skopiowanie dockerfile z poprzednich zajęć do pliku.
+
+2. Zainstalowano klaster Kubernates zgodnie z podaną instrukcją. 
+
+3. Włączono i uruchomiono Minikube Dashboard za pomocą polecenia: minikube dasboard.
+
+4. Uruchomiono kontener-komunikator za pomocą polecenia:
+kubectl run komunikator --image=ewelinaszczupak/socketio:comunicator --port=9999 --labels app=komunikator
+
+5. Sprawdzono oraz udokumentowano poprawność działania komunikatora na zrzutach z ekranu.
+

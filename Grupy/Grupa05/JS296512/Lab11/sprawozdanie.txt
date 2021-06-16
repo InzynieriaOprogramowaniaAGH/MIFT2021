@@ -1,0 +1,24 @@
+1. Do wykonania laboratorium użyłem obraz dockerowy ze zbudowanym komunikatorem.
+
+2. Pobrałem oraz zainstalowałem Minikube:
+- curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+- sudo install minikube-linux-amd64 /usr/local/bin/minikube
+- minikube start
+- minikube kubectl -- get po -A
+
+3. Włączyłem i uruchomiłem Minikube Dashboard:
+- minikube dashboard
+
+Co można zrobić korzystając z Minikube Dashboard?
+- zarządzać klastrami
+- kontrolować pody z dostępem do szczegółowych informacji
+- zarządzać jobami
+- zarządzać zasobami oraz monitorować ich zużycie
+
+4. Uruchomiłem kontener-komunikator w Kubernetes:
+- minikube kubeclt -- run komunikator --image=jansmerecki/deploy --port=9999 --labels app=komunikator
+
+4.1 W celu sprawdzenia działania, przekierowałem porty:
+- minikube kubectl port-forward komunikator 9999:3000
+
+5. Udokumentowałem że komunikator działa w klastrze Kubernetes.
