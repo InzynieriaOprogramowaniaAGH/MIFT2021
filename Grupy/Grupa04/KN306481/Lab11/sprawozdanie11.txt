@@ -1,0 +1,17 @@
+1. Zainstalowano Kubernetes na maszynie wirtualnej.
+1.1 	url -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+1.2 	sudo install minikube-linux-amd64 /usr/local/bin/minikube
+1.3 	minikube start
+
+2. Uruchomiono klaster:
+2.1	minikube kubectl -- get po -A
+
+3. Uruchomiono minikube dashboard
+3.1	minikube dashboard
+3.2 Dzieki minikube dashboard mozna tworzyć i zarządzać zasobami klastra, przeglądać uruchomione aplikacje w klastrze kubernetesa, rozwiazywać problemy z aplikacjami, przeglądać logi aplikacji
+
+4. Przkierowano porty aby był dostep z zewnatrz:
+4.1 	minikube kubectl port-forward komunikator 9999:3000
+
+5. Uruchomiono aplikacje
+5.1 	kubectl run -it komunikator --image=kamilanowak/jenkins_devops:latest --port=9999 --labels app=komunikator
