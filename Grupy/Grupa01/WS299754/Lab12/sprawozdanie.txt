@@ -1,2 +1,4 @@
 4. Stworzenie pliku komunikator-deployment.yaml:
-  -
+5. Zrealizowanie pliku:
+  kubectl apply -f komunikator-deployment.yaml
+6. Zmiana zawartosci pliku i ponowne zrealizowanie go (polecenie z punktu 5.)
