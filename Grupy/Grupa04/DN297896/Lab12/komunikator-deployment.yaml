@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: komunikator-deployment
+  labels:
+    app: delta-chat
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: delta-chat
+  template:
+    metadata:
+      labels:
+        app: delta-chat
+    spec:
+      containers:
+        - name: komunikator-deployment
+          image: dariusznowakdockerid/jenkins-lab
+          ports:
+            - containerPort: 3000
