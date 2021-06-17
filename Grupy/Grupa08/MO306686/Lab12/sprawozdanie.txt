@@ -1,4 +1,10 @@
 Sprawozdanie
 Autor: Maciej Ogórek | Inżynieria Obliczeniowa
 Laboratorium nr.12
-1.
+2. Uruchomiłem minicube dashboard
+3. Zapoznałem się z dokumentacją tworzenia manifestów dla obiektów "Deployment"
+4. Stworzyłem plik komunikator-deployment.yaml
+5. Zleciłem klastrowi zrealizowanie pliku komunikator-deployment.yaml
+	kubectl apply -f komunikator-deployment.yaml
+7.Wprowadziłem zmiany w pliku
+8. Zleciłem klastrowi ponowną realizację pliku
