@@ -13,6 +13,5 @@
 
 6. Udokumentowano stan klastra.
 
-7. Wprowadzono zmiany w pliku - zmieniono ilości replik z 6 na 4 w pliku yaml. Zlecono aktualizację klastra,
-   niestety pojawił się błąd, którego niestety nie udało się rozwiązać.
-
+7. Wprowadzono zmiany w pliku - zmieniono ilości replik z 6 na 4 w pliku yaml. Niestety pojawił się problem z kubernetes po ponownym
+   uruchomieniu komputera, którego niestety nie udało się rozwiązać.
