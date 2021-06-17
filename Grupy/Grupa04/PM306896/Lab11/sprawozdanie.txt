@@ -1,0 +1,15 @@
+2. pobrano pliki binarne. 
+minikube start- uruchomienie klastra
+minikube kubectl -- get po -A- pobranie kubectl
+
+3. minikube dashboard- uruchomienie dashboarda
+sprawdzono poprawnosc dzialania dashboarda, dzieki ktoremu mozna:
+wdrazac aplikacje w klastrze,
+rozwiazywac problemy w aplikacji,
+zarzadzac zasobami klastra
+tworzyc/ modyfikowac zasoby kubernetesa.
+
+4. minikube kubectl --  run komunikator --image=pmroz13/jenkins  --port=9999 --labels app=komunikator- uruchomienie kontenera w kubernetes
+minikube kubectl post-forward komunikator 9999:3000- przekierowanie portow w celu umozliwienia dostepu z zewnatrz
+
+5. upewniono sie, ze komunikator dziala w klastrze Kubernetes 

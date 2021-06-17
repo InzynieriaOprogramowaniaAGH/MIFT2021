@@ -1,0 +1,6 @@
+1. Uporządkowałem katalogi zgodnie z ich przeznaczniem pliki związane z dockerem znalazły się w katalogu docker, natomiast na Jenkinsfile utworzono katalog jenkins.
+
+2. Zrobiłem frok repozytorium z komuniaktorem, po czym je sklonowałem do swojego repo. 
+W kolejnym kroku utworzyłem jenkinsfile którego także umieściłem w tym repozytorium. 
+
+3. Utworzyłem pipeline. Po skonfigurowaniu emaila i uruchomieniu pipeline, pojawił się błąd jak na zamieszczonym ss. Problemem okazało się nieprawidłowy tool type nodejs. Rozwiązaniem okazało się pobranie rozszerzenia nodeJS a następie ustawieniu go w globalnych narzędziach konfiguracji. Po tych problemach udało się poprawnie uruchomić testowanie z użyciem pipeline.
