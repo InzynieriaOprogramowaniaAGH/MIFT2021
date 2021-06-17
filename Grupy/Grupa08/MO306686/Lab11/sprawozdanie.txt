@@ -1,4 +1,18 @@
 Sprawozdanie
 Autor: Maciej Ogórek | Inżynieria Obliczeniowa
 Laboratorium nr 11
-1.
+2. Pobrałem i zainstalowałem minikube i kubectl zgodnie z instrukcją
+
+3. Uruchomiłem minikube dashboard
+3.1 Minikube pozwala nam na:
+	-zarządzanie aplikacjami, które wdrożyliśmy
+	-kontrolę nad prawidłowym działaniem aplikacji
+	-ustawianie zmiennych środowiskowych i sekretów
+	-sprawdzanie logów
+	-wykonywanie komend w shellu
+4.1 Uruchomiłem komunikator w Kubernetsie poleceniem:
+	kubectl run komunikator --image=maciejogorek/lab04 --port=9999 --labels app=komunikator
+4.2 Przekierowałem porty, aby umożliwić dostęp do aplikacji z zewnątrz
+	kubectl port-forward pod/komunikator 9999:3000
+
+
