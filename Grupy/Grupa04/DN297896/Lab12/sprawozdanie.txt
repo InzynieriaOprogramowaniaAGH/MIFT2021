@@ -15,4 +15,3 @@
 
 7. Wprowadzono zmiany w pliku - zmieniono ilości replik z 6 na 4 w pliku yaml. Niestety pojawił się problem z kubernetes po ponownym
    uruchomieniu komputera, którego niestety nie udało się rozwiązać.
-
