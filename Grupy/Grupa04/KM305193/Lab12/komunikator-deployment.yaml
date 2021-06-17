@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: komunikator-deployment
+  labels:
+    app: deltachat-desktop
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: deltachat-desktop
+  template:
+    metadata:
+      labels:
+        app: deltachat-desktop
+    spec:
+      containers:
+      - name: komunikator-deployment
+        image: kmat1999/jenkins-lab-devops
+        ports:
+        - containerPort: 3000
