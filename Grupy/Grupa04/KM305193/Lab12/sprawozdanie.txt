@@ -1,0 +1,23 @@
+Uruchomiono lokalny klaster kubernetes
+
+	minikube start
+	
+Uruchomiono minikube dashboard 
+
+	minikube dashboard
+	
+Stworzono plik 'komunikator-deployment.yaml' zgodnie z dokumentacja oraz dodano funkcjonalnosci pod sprzet uzytkownika
+
+Zlecono zrealizowanie pliku
+
+	kubectl apply -f komunikator-deployment.yaml
+	
+Udokumentowano dzialanie klastra
+
+Zmieniono ilosc replik w pliku z 4 na 6
+
+Zlecono ponowne zrealizowanie pliku
+
+	kubectl apply -f komunikator-deployment.yaml
+	
+Udokumentowano nowy stan klastra
