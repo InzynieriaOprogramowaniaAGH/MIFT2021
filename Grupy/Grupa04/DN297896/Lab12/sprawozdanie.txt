@@ -1,0 +1,18 @@
+1. Uruchomiono lokalny klaster kubernetes:
+    "minkube start"
+
+2. Uruchomiono minikube dashboard: 
+    "minikube dashboard"
+
+3. Zapoznano sie z dokumentacją z instrukcji.
+
+4. Utworzono plik komunikator-deployment.yaml.
+
+5. Zlecono zrealizowanie utworzonego pliku:
+    "kubectl apply -f komunikator-deployment.yaml"
+
+6. Udokumentowano stan klastra.
+
+7. Wprowadzono zmiany w pliku - zmieniono ilości replik z 6 na 4 w pliku yaml. Zlecono aktualizację klastra,
+   niestety pojawił się błąd, którego niestety nie udało się rozwiązać.
+
