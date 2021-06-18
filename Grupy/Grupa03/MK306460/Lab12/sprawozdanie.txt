@@ -1,4 +1,8 @@
 1. i 2 - Uruchomiłam Minikube Dashboard, upewniłam sie że działa.
 3. zapoznałam się z dokumentacją tworzenia manifestów.
 4. Stworzyłam plik node-chat-app-deployment.yaml według wytycznych w instrukcji laboratorium.
-
+5. Zleciłam klastrowi zrealizowanie pliku używając polecenia:
+kubectl apply -f node-chat-app-deployment.yaml
+6. Udokumentowałam stan klastra Kubernetes.
+7. Wprowadzilam zmiany w pliku: zmnieniłam ilość replik na 6 i zleciłam klastrowi aktualizacje.
+8. Udokumentowałam nowy stan klastra.

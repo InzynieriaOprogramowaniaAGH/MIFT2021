@@ -5,7 +5,7 @@ metadata:
   labels:
     app: node-chat-app
 spec:
-  replicas: 4
+  replicas: 6
   selector:
     matchLabels:
       app: node-chat-app
@@ -15,8 +15,8 @@ spec:
         app: node-chat-app
     spec:
       containers:
-      - name: jenkins-blueocean
-        image: myjenkins-blueocean:1.1
+      - name: node-chat-app
+        image: mkocurek7/myjenkins-blueocean:1.1
         ports:
         - containerPort: 80
 
