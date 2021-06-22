@@ -1,0 +1,5 @@
+1. Wykorzystuję kontener siluk/deltachat, który spushowałem na huba na poprzednich zajęciach
+2. Instaluję Kubernetesa z pomocą poradnika
+3. Uruchamiam dashboarda, umożliwającego np. zarządzanie klastem, jego zasobami, zadaniami crona, usługami etc.
+4. Uruchomiłem poda na podstawie kontenera, na porcie 9999
+5. Komunikator nie działa, gdyż wcześniej zepsułem coś z deploymentem, a teraz gdy to naprawiłem, testy deltachatu nie przechodzą z powodu błędu w bibliotece electron

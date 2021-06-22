@@ -1,0 +1,40 @@
+1. Poleceniem docker push ... publikuję obraz na Docker HUBa. Jednakże najpierw należy go nazwać tak aby spełniał wzór <nazwa użytkownika>/<nazwa obrazu>. Robię to poleceniem docker tag.
+2. Brak czasu i umiejętności pisanie testów uniemożliwił mi napisanie swojego komunikatora, toteż jestem zmuszony korzystać z Delta Chatu - https://github.com/deltachat/
+3. Tworzę Dockerfile i nazywam go build
+
+FROM node:latest
+RUN \
+	apt-get update && \
+	apt-get install -y --no-install-recommends git gcc g++ make python wget ca-certificates && \
+	mkdir /usr/local/share/ca-certificates/cacert.org && \
+	wget -P /usr/local/share/ca-certificates/cacert.org http://www.cacert.org/certs/root.crt http://www.cacert.org/certs/class3.crt && \
+	update-ca-certificates && \
+	git clone https://github.com/deltachat/deltachat-desktop.git && \
+	cd deltachat-desktop && \
+	npm install && \
+	npm run build
+	
+4. Tworzę Dockerfile i nazywam go test
+
+FROM deltachat:latest
+WORKDIR ./deltachat-desktop
+RUN npm test
+
+5. Tworzę plik docker-compose.yaml, mający na celu pobranie najnoweszej wersji chatu, zbudowanie go i przetestowanie
+
+version: '3.3'
+services:
+ build-agent:
+  container_name: deltachat
+  image: deltachat:latest
+  build:
+   context: .
+   dockerfile: build
+ test-agent:
+  container_name: deltachat-test
+  image: deltachat-test:latest
+  build:
+   context: .
+   dockerfile: test
+  depends_on:
+  - build-agent

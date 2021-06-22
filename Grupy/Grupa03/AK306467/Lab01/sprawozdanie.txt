@@ -1,0 +1,13 @@
+1. Do obsługi gita korzystam z Git Basha, którego miałem już na komputerze
+2. git clone -  klonuje repozytorium, czyli tworzy jego lokalną kopię w miejscu wywołania
+3. Do otwierania pliku korzystam z programu Notepad++
+4. 
+	git branch - pokazuje istniejące branche
+	git branch <arg0> - tworzy nowe repozytorium o nazwie arg0
+	git checkout <arg0> - przełącza aktywnego brancha na branch arg0, co powoduje, że wszelkie wykonane operacje (nie gitowe też) będą domyslnie wykonywane na tym branchu
+	git add <arg0> - dodaje zmiany w pliku arg0 do commita
+5.
+	git commit [-m <arg0>] - tworzy commita, opcjonalnie z opisem arg0
+  	git push <arg0> <arg1> - aplikuje zmiany na repozytorium arg0 na branchu arg1
+6. Do robienia zrzutów ekranu wykorzystuję program Narzędzie Wycinanie
+7. git merge <arg0> - dołącza zmiany z arg0 do obecnego brancha

@@ -1,0 +1,4 @@
+1. Uruchamiam klaster Kubernetesa i sprawdzam czy dashboard działa
+2. Z pomocą dokumentacji tworzę manifest w yamlu, definiujący nową konfigurację
+3. Aplikuję konfigurację i zauważam, że pojawiły się nowe sekcje deployment oraz replica sets
+4. Zmieniam ilość replik w manifeście i można zauważyć, że zmieniła się ilość podów przypisanych do deploymentu, oraz sama liczba akrywnych podów
