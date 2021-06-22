@@ -1,0 +1,50 @@
+Uwaga: Lab 7,8 i 9 są robione w tym samym czasie
+
+1. Stworzyłem webhooka, uruchamiającego pipeline. W tym celu wykorzystałem dockerowy obraz ngroka, aby udostępnić swojego localhosta, oraz wtyczki do Jenkinsa umożliwającej ustawienie webhooka na multibranch pipeline
+2. Ngrok przyjmował zapytanie i przekazywał je do Jenkinsa, który skanował wszystkie branche szukając zmian
+3. Dodałem stage Deploy do Jenkinsfila, mający na celu wdrożenie aplikacji, poprzez uruchomienie etapu docker-compose.
+
+stage('Deploy') {
+			steps {
+				echo 'Deploying...'
+				git url: 'https://github.com/Siluk98/deltachat-desktop.git'
+				dir('Docker')
+				{
+					sh 'docker-compose up deploy-agent'
+				}
+			}
+			post
+			{
+				failure {
+					echo 'Deployment failed'
+					emailext attachLog: true,
+						body: "Status: ${currentBuild.currentResult}",
+						subject: 'Deployment failed',
+						to: 'tindacc0001@gmail.com'
+				}
+				success {
+					echo 'Deployment completed'
+				}
+			}
+		}
+4. Dodałem etap do docker-compose
+ deploy-agent:
+  container_name: deltachat-deploy
+  image: deltachat:latest
+  build:
+   context: .
+   dockerfile: deployChatDf
+  depends_on:
+  - test-agent
+  
+5. Dodałem dockerfile wdrażający aplikację
+FROM ubuntu:latest
+ENV TZ=Europe
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
+	apt-get -y update && \
+	apt-get -y install git && \
+	apt-get -y install npm && \
+	cd ~
+
+COPY . deltachat-desktop
+WORKDIR ./deltachat-desktop

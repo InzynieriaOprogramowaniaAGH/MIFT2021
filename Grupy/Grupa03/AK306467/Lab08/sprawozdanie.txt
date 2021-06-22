@@ -1,0 +1,58 @@
+Uwaga: Lab 7,8 i 9 są robione w tym samym czasie
+
+1. Do Jenkinsfile z poprzedniego laboratorium dodałem stage("Test"), uruchamiający etap docker-compose test-agent, odpowiedzialego za stworzenie obrazu z testami oraz wysłający email
+stage('Test') {
+			steps {
+				echo 'Testing...'
+				git url: 'https://github.com/Siluk98/deltachat-desktop.git'
+				dir('Docker')
+				{
+					sh 'docker-compose up test-agent'
+				}
+			}
+			post {
+				failure {
+					echo 'Tests failed'
+					emailext attachLog: true,
+						body: "Status: ${currentBuild.currentResult}",
+						recipientProviders: [[$class: 'DevelopersRecipientProvider']],
+						subject: 'Tests failed',
+						to: 'tindacc0001@gmail.com'
+				}
+				success {
+					echo 'Tests completed'
+					
+				}
+			}
+		}
+2. Docker-compose wymaga aby wcześniej aplikacja była zbudowana
+
+version: '3.3'
+services:
+ build-agent:
+  container_name: deltachat
+  image: deltachat:latest
+  build:
+   context: .
+   dockerfile: buildChatDf
+ test-agent:
+  container_name: deltachat-test
+  image: deltachat-test:latest
+  build:
+   context: .
+   dockerfile: testChatDf
+  depends_on:
+  - build-agent
+  
+3. Testowanie odbywa się w osobnym kontenerze na podstawie obrazu stworzonego Dockerfilem
+
+FROM deltachat:latest
+WORKDIR ./deltachat-desktop
+RUN npm test
+
+4. Utworzyłem git hooka typu post-commit, który później będzie uruchamiał pipeline
+
+#!/bin/bash
+
+echo "Ten skrypt uruchamia pipeline z testami"
+echo "Not implemented"
