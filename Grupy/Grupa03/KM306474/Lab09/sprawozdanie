@@ -1,0 +1,8 @@
+1.Stworzono i zarejestrowano odpowiedniego webhooka (zaznaczono opcje Githook trigger for GITScm)
+
+2.Dodano stage Deploy do Jenkinsfile
+
+3. W stage("Deploy")  zawarto :
+- deploy jest wykoywany na dedykowany kontener dockerowy
+- do deploya jest przekazywany artefakt stworzny w stage("Build") 
+- użytkownik jest powiadamiany zarówno o sukcesie jak i porażce etapu wdrażania.
