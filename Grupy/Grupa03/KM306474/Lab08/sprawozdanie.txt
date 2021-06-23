@@ -1,0 +1,5 @@
+1. Do jankinsfile dodano stage Build w ktorym pobierana jest najnowza wiersja programu, program jest budowany, wyswietlnana jest ifnormacja o sukcesie lub porazce
+
+2.Uruchomienie Stage Test i informacja o porazce lub sukcesie
+
+3.Napisanie git commit hook wiadomosc : "To jest commit hook, który będzie kiedyś uruchamiał Pipeline po każdym nowym commicie"
