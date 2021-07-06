@@ -1,0 +1,16 @@
+1. Wygenerowałem klucz ssh i zarejestrowałem go na githubie, po czym zmieniłem sposób logowania.
+   Użyte komendy: ssh-keygen, eval, ssh-add, git remote set-url
+
+2. Nadałem tag na aktualnego commita 
+   git-tag
+   git push --follow-tags
+
+3. Uporządkowałem foldery i branche. 
+   git branch, git checkout
+
+4. Napisałem hooka sprawdzającego czy komentarz do commita ma odpowiednią formę.
+   git commit
+
+5. Zrobiłem merge'a swojego brancha do brancha grupowego i usunąłem branch osobisty oraz utworzyłem pull request.
+   git merge
+   git branch -d

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+string_check='TW306519'
+error_msg="Aborting commit. Your commit message is missing initials + index number"
+
+if ! grep -iqE "$string_check" "$1"; then
+    echo "$error_msg" >&2
+    exit 1
+fi

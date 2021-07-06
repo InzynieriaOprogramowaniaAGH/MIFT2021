@@ -1,0 +1,16 @@
+1. Stworzenie osobistego brancha z brancha grupowego 'git checkout -b Grupa08-TW306519'
+2. Przeniesienie git hooka do nowo utorzonego folderu hooks
+3. Zainstaloanie dockera wedle instrukcji ze strony: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04
+4. Zalozenie konta na DockerHub
+5. Stworzenie i napisanie pliku Dockerfile
+
+FROM ubuntu:latest
+MAINTAINER wtycjan@gmail.com
+
+RUN apt-get -y update
+RUN apt-get -y upgrade
+RUN apt-get install -y build-essential
+RUN apt-get -y install git
+CMD ["echo", "Job done"]
+
+6. Zbudowanie Dockerfile poleceniem 'docker build -t myimages:1.0 .' Nastepnie uruchomienie kontenera 'docker run -it ef31c1f4866e bash'. ID pobieramy z dostepnych obrazow - sprawdzamy za pomoca polecenia 'docker images'. Nastepnie na kontenerze klonujemy repozytorium i sprawdzamy czy istnieje branch Grupa08-TW306519.

@@ -1,0 +1,36 @@
+Sprawozdanie
+Autor: Maciej Ogórek | Inżynieria Obliczeniowa
+Laboratorium nr 2
+
+Zadanie 1:
+
+Wygenerowałem klucz ssh poleceniem:
+
+ssh-keygen -t ed25519 -C
+
+Dodałem agenta ssh poleceniem:
+
+eval $(ssh-agent)
+
+ssh-add ~/.ssh/id_ed25519
+
+Poinformowałem github o zmianie sposobu logowania:
+git remote set-url origin git@github.com:InzynieriaOprogramowaniaAGH/MIFT2021.git
+
+Zadanie 2:
+Dodałem tag do aktualnego commita
+git tag -a MO306686 -m "Maciej Ogórek, mam nadzieję że działa"
+Wrzuciłem zmianę na origin poleceniem:
+git push --follow-tags
+
+Zadanie 3:
+Utworzyłem wskazany folder, przeniosłem pliki tak aby były dostępne pod nową ścieżką.
+
+Utworzyłem branch na te zajęcia poleceniem:
+git branch Grupa08-MO306686_Lab02
+
+Zadanie 4:
+Napisałem git hooka weryfikującego wiadomość w commicie i wrzuciłem go do odpowiedniego folderu
+
+Zadanie 5:
+Zrobiłem merge mojego brancha do grupowego i wykonałem pull requesta
