@@ -1,0 +1,84 @@
+Sprawozdanie
+Autor: Maciej Ogórek | Inżynieria Obliczeniowa
+Wykonanie zadania:
+Do sklonowania repozyturium skorzystałem z polecenia git clone:
+
+git clone https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git
+
+Następnie przeszedłem do katalogu z repozytorium i pobrałem dane ze zdalnego katalogu:
+
+cd MIFT2021
+
+git remote add A# https://github.com/InzynieriaOprogramowaniaAGH/MIFT2021.git
+
+Następnie sklonowałem repozytorium lokalne:
+
+git fetch #B
+
+Utworzyłem nowy branch i nadałem nazwę z moich inicjałów i numeru albumu:
+
+git branch MO306686
+
+Przeszedłem do nowo utworzonego branchu:
+
+git checkout MO306686
+
+W przygotowanym branchu utworzyłem stukturę katalogów podaną w instrukcji oraz stworzyłem plik sprawozdania:
+
+mkdir MO306686
+
+cd MO306686
+
+mkdir Lab01
+
+cd Lab01
+
+touch sprawozdanie.txt
+
+Wszystkie nowe elementy dodałem do repozytorium i wykonałem pierwszy commit:
+
+git add --all
+
+git commit -m "initial commit"
+
+Następnie dodałem przygotowany wcześniej graf do repozytorium i wykonałem commit:
+
+git add --all
+
+git commit -m "graph added"
+
+Po uzupełnieniu sprawozdania wykonałem commita i push brancha na remote'a
+
+git add --all
+
+git commit -m "report completed"
+
+git pull
+
+git push --set-upstream origin MO306686
+
+Następnie dodałem screenshoty wykonane w trakcie zajęć, wykonałem commita i push na remote'a
+
+git add --all
+
+git commit -m "screenshots added"
+
+git pull
+ 
+git push
+
+Zmieniłem nazwy sceenshotów wykonałem commita i push na remote'a
+
+git add --all
+
+git commit -m "screenshots renamed'
+
+git pull git push
+
+Wykonałem merge i push na remote'a
+
+git merge origin/MO306686
+
+git push
+
+
