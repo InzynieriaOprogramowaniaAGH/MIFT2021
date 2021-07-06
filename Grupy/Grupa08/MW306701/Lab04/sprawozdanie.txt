@@ -1,0 +1,6 @@
+1. Stworzylem brancha osobistego wg. schematu z poprzedniego tygodnia
+2. Opublikowalem obraz z poprzednich zajęć w Docker HUB
+3. Wybralem komunikator DeltaChat
+4. Utworzylem plik Dockerfile do budowania aplikacji i obraz: $ sudo docker build -t <name> . -f <dockerfile>
+5. Utworzylem plik DockerfileTest i jak poprzednio utworzylem jego obraz.
+6. Zainstalowalem docker-compose, stworzylem plik docker-compose.yml i srodowisko.

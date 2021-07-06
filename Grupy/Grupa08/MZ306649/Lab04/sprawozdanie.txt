@@ -1,0 +1,49 @@
+Michał Zając - sprwozdanie Lab04
+
+Przebieg laboratorium 
+1. Utworzono brancha osobistego git checkout -b Grupa08-MZ306649_Lab04
+2. Opublikowano obraz z poprzednich zajęć w docker hub.
+3. Do labolatorium wykożystno komunikator Socket.io-Messenger.
+4. Utworzono Docekrfile.build który został skofigurowany tak aby klonował repozytorium aplikacji chatu oraz budował aplikację.
+Treść Dockerfile.build
+	
+	FROM node:buster
+
+	WORKDIR /app
+
+	RUN git clone https://github.com/AlexTraher/Socket.io-Messenger.git . && npm install
+	
+5. Utworzono Docekrfile.test który udostępnia port wykozystywany przez aplikację oraz uruchamia aplikację. Docekrfile.test korzysta z obrazu Docerfile.build
+Treść Dockerfile.test
+
+	FROM messenger-build:1.0
+
+	EXPOSE 3000
+
+	ENTRYPOINT ["npm", "start"]
+	
+6. Utworzono plik docker-compose.yml który tworzy obraz z pliku Dockefile.build oraz przypisuje porty 80 klient 3000 serwer.
+Treść docker-compose.yml
+
+	version: '3'
+
+	services:
+	  node:
+	    image: messenger-test:1.0
+	    build:
+	      context: .
+	      dockerfile: Dockerfile.test
+	    ports:
+	      - 80:3000
+      
+7. Utworzono skrypt startup.sh zawierający polecenia do budowania obrazu oraz uruchomienia docker-compose.
+Treść startup.sh 
+
+	#!/bin/bash
+
+	docker build -t messenger-build:1.0 -f Dockerfile.build .
+	
+	docker-compose build && docker-compose up -d
+      
+      
+      

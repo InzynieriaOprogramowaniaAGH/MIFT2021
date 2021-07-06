@@ -1,0 +1,16 @@
+1. Stworzenie nowego osobistego brancha 
+	git checkout -b Grupa08MZ306526_Lab04'
+ Wrzucenie obrazu z poprzednich zajec do serwisu DockerHUB
+	docker login --username=zmarly99 --password=... 
+	docker tag ImageId zmarly99/lab04 
+	docker push zmarly99/lab04
+
+2. Wybranie komunikatora node-chat-app
+
+3. Utworzenie nowego obrazu kontenera do budowania naszego komunikatora 
+	docker build -t komunikator .
+
+4. Utworzenie nowego obrazu kontenera do testowania wybranego przez nas komunikatora 
+	docker build -t komunikator-contener . -f Dockerfile2
+
+5. Utworzenie pliku docker-compose.yml laczego nasze oba kontenery z poprzednich punktow, najpierw buduje komunikator a nastepnie testuje go. 	docker-compose up

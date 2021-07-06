@@ -1,0 +1,4 @@
+1. Umieszczono wszystkie potrzebne pliki zrodlowe w w repozytorium MIFT2021, tworzac pootrzebne foldery
+2. Stworzylem fork repozytorium github.com/binhxn/node-chat-app i umiescilem tam wlasnego Jenkinsfile, ktory buduje aplikacje a nastepnie ja testuje. Na koniec Wysyla na maila komunikat o statusie zakonczonego joba (pozytywny i negatywny) oraz number builda. 
+3. Stworzenie konfiguracji pipeline, by korzystal z zawartego w repozytorium Jenkinsfile oraz konfiguracji pluginow do wysylania maili i NodeJS
+4. Kopia mojego Jenkinsfile znajduje sie w repozytorium

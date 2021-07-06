@@ -1,0 +1,4 @@
+FROM komunikator
+
+RUN npm test
+

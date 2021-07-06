@@ -1,0 +1,14 @@
+version: "3"
+services:
+ build-agent:
+  image: build-image
+  build:
+   context: ./
+   dockerfile: build-agent
+ run-agent:
+  image: run-image
+  build:
+   context: ./
+   dockerfile: run-agent
+  depends_on:
+   - build-agent
